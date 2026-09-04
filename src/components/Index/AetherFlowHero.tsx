@@ -71,6 +71,19 @@ export default function AetherFlowHero(): JSX.Element {
 
       <GeometryField />
 
+      {/* The ambient glow and the geometry field are clipped by the hero's
+          overflow, which cut a hard horizontal seam where the section ends.
+          This scrim dissolves both into the flat page instead. It sits above
+          the artwork and below the content (z-10), so nothing readable dims. */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-[5] h-48 md:h-64"
+        style={{
+          background:
+            'linear-gradient(to bottom, transparent 0%, color-mix(in srgb, var(--bg-page) 55%, transparent) 45%, var(--bg-page) 100%)',
+        }}
+      />
+
       {/* ── Center content ── */}
       <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 pb-24 text-center md:pb-32">
         {/* Attribution, set as a plain sentence rather than a tracked-out

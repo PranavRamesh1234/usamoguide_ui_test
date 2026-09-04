@@ -26,14 +26,14 @@ export default function SectionsDropdown({
                 {currentSection ? SECTION_LABELS[currentSection] : 'Tracks'}
               </span>
               <ChevronDownIcon
-                className="h-4 w-4 opacity-70" 
+                className="h-4 w-4 opacity-70"
                 aria-hidden="true"
               />
             </MenuButton>
             <MenuItems
               transition
               anchor="top start"
-              className={`absolute left-0 z-[100] -ml-4 w-72 max-w-[calc(100vw-1rem)] rounded-xl border border-[var(--border)] bg-[var(--bg-surface)] focus:outline-none ${
+              className={`nav-dropdown-panel absolute left-0 z-[100] -ml-4 w-72 max-w-[calc(100vw-1rem)] focus:outline-none ${
                 sidebarNav ? 'mt-2' : '-mt-2'
               } transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[enter]:ease-out data-[leave]:duration-150 data-[leave]:ease-in`}
               style={{ zIndex: 9999 }}

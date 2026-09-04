@@ -152,7 +152,7 @@ export const ContentAccessModal: React.FC<ContentAccessModalProps> = ({
                   style={{
                     border: '1px solid var(--border-strong)',
                     background: 'var(--accent-fill)',
-                    color: 'var(--text-primary)',
+                    color: 'var(--bg-page)',
                   }}
                   onClick={() =>
                     onPrimaryAction ? onPrimaryAction() : onClose()
@@ -166,11 +166,11 @@ export const ContentAccessModal: React.FC<ContentAccessModalProps> = ({
                 <div className="flex flex-col items-center justify-center space-y-2 sm:flex-row sm:items-center sm:justify-center sm:space-y-0 sm:space-x-4">
                   <button
                     type="button"
-                    className="inline-flex items-center rounded-full px-4 py-2 pl-3 font-mono text-sm leading-tight font-bold focus:outline-hidden transition-opacity hover:opacity-90 disabled:opacity-50"
+                    className="inline-flex items-center rounded-full px-4 py-2 pl-3 font-mono text-sm leading-tight font-bold transition-opacity hover:opacity-90 focus:outline-hidden disabled:opacity-50"
                     style={{
                       border: '1px solid var(--border-strong)',
                       background: 'var(--accent-fill)',
-                      color: 'var(--text-primary)',
+                      color: 'var(--bg-page)',
                     }}
                     onClick={handleSignInWithGoogle}
                     disabled={isSigningIn}
@@ -206,11 +206,11 @@ export const ContentAccessModal: React.FC<ContentAccessModalProps> = ({
                   </button>
                   <button
                     type="button"
-                    className="inline-flex items-center rounded-full px-4 py-2 pl-3 font-mono text-sm leading-tight font-bold focus:outline-hidden transition-opacity hover:opacity-90 disabled:opacity-50"
+                    className="inline-flex items-center rounded-full px-4 py-2 pl-3 font-mono text-sm leading-tight font-bold transition-opacity hover:opacity-90 focus:outline-hidden disabled:opacity-50"
                     style={{
                       border: '1px solid var(--border-strong)',
                       background: 'var(--accent-fill)',
-                      color: 'var(--text-primary)',
+                      color: 'var(--bg-page)',
                     }}
                     onClick={handleSignInWithGithub}
                     disabled={isSigningIn}
@@ -297,7 +297,7 @@ export const ContentAccessModal: React.FC<ContentAccessModalProps> = ({
                       style={{
                         border: '1px solid var(--border-strong)',
                         background: 'var(--accent-fill)',
-                        color: 'var(--text-primary)',
+                        color: 'var(--bg-page)',
                       }}
                       disabled={isSigningIn || !email || !password}
                       onClick={handleEmailSignIn}

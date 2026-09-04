@@ -1,6 +1,6 @@
 import { graphql, PageProps } from 'gatsby';
 import React, { useState } from 'react';
-import { Chapter } from '../../content/ordering';
+import { Chapter } from '../../../content/ordering';
 
 import {
   HitsPerPage,
@@ -9,19 +9,19 @@ import {
   PoweredBy,
 } from 'react-instantsearch';
 
-import SECTIONS from '../../content/ordering';
-import BlindModeToggle from '../components/BlindModeToggle';
-import Layout from '../components/layout';
-import ProblemHits from '../components/ProblemsPage/ProblemHits';
-import SearchBox from '../components/ProblemsPage/SearchBox';
+import SECTIONS from '../../../content/ordering';
+import BlindModeToggle from '../../components/BlindModeToggle';
+import Layout from '../../components/layout';
+import ProblemHits from '../../components/ProblemsPage/ProblemHits';
+import SearchBox from '../../components/ProblemsPage/SearchBox';
 import Selection, {
   SelectionProps,
-} from '../components/ProblemsPage/Selection';
-import TagsRefinementList from '../components/ProblemsPage/TagsRefinementList';
-import SEO from '../components/seo';
-import TopNavigationBar from '../components/TopNavigationBar/TopNavigationBar';
-import { useUserProgressOnProblems } from '../context/UserDataContext/properties/userProgress';
-import { searchClient } from '../utils/algoliaSearchClient';
+} from '../../components/ProblemsPage/Selection';
+import TagsRefinementList from '../../components/ProblemsPage/TagsRefinementList';
+import SEO from '../../components/seo';
+import TopNavigationBar from '../../components/TopNavigationBar/TopNavigationBar';
+import { useUserProgressOnProblems } from '../../context/UserDataContext/properties/userProgress';
+import { searchClient } from '../../utils/algoliaSearchClient';
 
 const indexName = `${process.env.GATSBY_ALGOLIA_INDEX_NAME ?? 'dev'}_problems`;
 
