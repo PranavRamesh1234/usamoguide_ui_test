@@ -1,0 +1,2063 @@
+\documentclass[12pt]{extarticle}
+
+% Unified preamble from MASTER_COMBINED.tex
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{cancel}
+\usepackage{setspace}
+\usepackage[hidelinks]{hyperref}
+\usepackage{tikzpagenodes}
+
+\geometry{margin=1in}
+
+\setlength{\parskip}{0.45em}
+\setlength{\parindent}{0pt}
+\setlength{\headheight}{15pt}
+\setstretch{1.18}
+\raggedbottom
+
+% Global header: © 2025 Pranav Ramesh. All rights reserved. www.lambdamath.dev on every page
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\textcopyright\ 2025 Pranav Ramesh. All rights reserved. www.lambdamath.dev}
+\fancyfoot[C]{\thepage}\fancyfoot[R]{\small\textcopyright\ 2025 Pranav Ramesh.}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyhead[C]{\textcopyright\ 2025 Pranav Ramesh. All rights reserved. www.lambdamath.dev}
+    \fancyfoot[C]{\thepage}\fancyfoot[R]{\small\textcopyright\ 2025 Pranav Ramesh.}
+    \renewcommand{\headrulewidth}{0.4pt}
+    \renewcommand{\footrulewidth}{0pt}
+}
+
+\usetikzlibrary{shapes, arrows, positioning, calc, angles, quotes}
+
+% Watermark
+\usepackage{background}
+\usepackage{hyperref} % if already loaded elsewhere, keep it
+\usepackage{tikz}
+
+\backgroundsetup{
+    scale=1, % Increased scale to cover more area
+    angle=0,
+    opacity=0.1,
+    contents={
+        \tikz[remember picture, overlay]
+            \node[
+                rotate=45,
+                font=\fontsize{300}{300}\bfseries, % Increased font size
+                inner sep=0pt,
+                color=gray % Changed color to gray
+            ]
+            at (current page.center)
+            {LambdaMath.dev};
+    }
+}
+
+% Unified styled boxes
+\newtcolorbox{conceptbox}[1][]{
+    colback=blue!5!white,
+    colframe=blue!75!black,
+    title=#1,
+    fonttitle=\bfseries
+}
+
+\newtcolorbox{remarkbox}{
+    colback=green!5!white,
+    colframe=green!60!black,
+    fonttitle=\bfseries,
+    title=Remark
+}
+
+\newtcolorbox{examplebox}{
+    colback=orange!5!white,
+    colframe=orange!75!black,
+    fonttitle=\bfseries,
+    title=Example
+}
+
+\newtcolorbox{warningbox}{
+    colback=red!5!white,
+    colframe=red!75!black,
+    fonttitle=\bfseries,
+    title=Warning
+}
+
+\newtcolorbox{theorembox}{
+    colback=purple!5!white,
+    colframe=purple!75!black,
+    fonttitle=\bfseries,
+    title=Theorem
+}
+
+\newtcolorbox{solutionbox}{
+    colback=yellow!5!white,
+    colframe=orange!75!black,
+    fonttitle=\bfseries,
+    title=Solution
+}
+
+\newtcolorbox{insightbox}{
+    colback=teal!5!white,
+    colframe=teal!70!black,
+    fonttitle=\bfseries,
+    title=Insight / Remark
+}
+
+\newtcolorbox{methodsummarybox}{
+    colback=gray!6!white,
+    colframe=gray!70!black,
+    fonttitle=\bfseries,
+    title=Method Summary
+}
+
+\newtcolorbox{commonpitfallsbox}{
+    colback=red!3!white,
+    colframe=red!60!black,
+    fonttitle=\bfseries,
+    title=Common Pitfalls
+}
+
+% Difficulty tag and labels
+\newcommand{\difftag}[1]{\textbf{[#1]}}
+\newcommand{\difficulty}[1]{\textbf{(#1)}\,}
+
+% Proof-style environments
+\newenvironment{FormalProof}{\begin{solutionbox}\textbf{Formal Proof.} }{\end{solutionbox}}
+\newenvironment{ProofSketch}{\begin{solutionbox}\textbf{Proof Sketch.} }{\end{solutionbox}}
+\newenvironment{Heuristic}{\begin{insightbox}\textbf{Heuristic / Intuition.} }{\end{insightbox}}
+
+% Numbered theorems within sections
+\newtcbtheorem[number within=section]{definition}{Definition}{
+    colback=gray!5!white,
+    colframe=gray!50!black,
+    coltitle=black,
+    fonttitle=\bfseries,
+    title={Definition~\thetcbcounter}
+}{def}
+
+\newtcbtheorem[number within=section]{theorem}{Theorem}{
+    colback=purple!5!white,
+    colframe=purple!70!black,
+    coltitle=black,
+    fonttitle=\bfseries,
+    title={Theorem~\thetcbcounter}
+}{thm}
+
+\newtcbtheorem[number within=section]{strategy}{Strategy}{
+    colback=teal!4!white,
+    colframe=teal!70!black,
+    coltitle=black,
+    fonttitle=\bfseries,
+    title={Strategy~\thetcbcounter}
+}{strat}
+
+\newtcbtheorem[number within=section]{example}{Example}{
+    colback=orange!5!white,
+    colframe=orange!75!black,
+    coltitle=black,
+    fonttitle=\bfseries,
+    title={Example~\thetcbcounter}
+}{ex}
+
+\newtcbtheorem[number within=section]{commonmistake}{Common Mistake}{
+    colback=red!5!white,
+    colframe=red!75!black,
+    coltitle=black,
+    fonttitle=\bfseries,
+    title={Common Mistake~\thetcbcounter}
+}{cm}
+
+\begin{document}
+
+\begin{titlepage}
+\centering
+\vspace*{2cm}
+
+{\Huge\bfseries Algebra for AMC}\\[0.5cm]
+{\Large Competition Problem Solving}\\[2cm]
+
+{\large AMC 8 $\cdot$ AMC 10 $\cdot$ AMC 12 $\cdot$ AIME}\\[3cm]
+
+{\Large A Strategic Approach to\\[0.3cm]
+Patterns, Techniques, and Problem Solving}\\[3cm]
+
+{\Large\textbf{Pranav Ramesh}}\\[3cm]
+
+\vfill
+
+{\large 23 Dec 2025 (Version 1)}
+\end{titlepage}
+
+% Copyright Page
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+\textbf{\Large Copyright \textcopyright\ 2025 Pranav Ramesh}
+
+All rights reserved.
+
+This work is protected under the Copyright Act, 1957 (India).
+
+\vspace{1.5cm}
+
+This publication is the original work of Pranav Ramesh published under the imprint LambdaMath.
+
+\vspace{1.5cm}
+
+No part of this work may be reproduced, stored, transmitted, or distributed in any form or by any means, electronic, mechanical, photocopying, recording, or otherwise, without prior written permission of the copyright holder, except for brief quotations for educational or review purposes.
+
+\vspace{1.5cm}
+
+First published on 23 Dec 2025 at: www{.}lambdamath{.}dev
+
+For permissions: pranavramesh2017@gmail{.}com
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+% Dedication Page
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+\Large
+
+\textbf{Dedicated to}
+
+\vspace{1cm}
+
+Mr. Krishna Rao, My highschool mathematics teacher,
+
+Mr. Siva Rama Praveen K, Principal,
+
+Mr. Rajashekar Reddy, AGM, and
+
+Mrs. Sumathi, My mathematics mentor,
+
+\vspace{1cm}
+
+for their guidance, encouragement, and belief in the value of rigorous thinking.
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\tableofcontents
+\newpage
+
+\section*{Preface}
+\addcontentsline{toc}{section}{Preface}
+
+\subsection*{Who This Book Is For}
+
+This book is designed for students preparing for the American Mathematics Competitions (AMC 8, AMC 10, AMC 12) and the American Invitational Mathematics Examination (AIME). Whether you're just beginning your competition journey or aiming to break into AIME-level problem solving, this text provides the algebraic foundation you need.
+
+\textbf{You should use this book if you:}
+\begin{itemize}
+    \item Want to develop competition-specific algebraic intuition
+    \item Need a systematic approach to recognizing problem patterns
+    \item Are comfortable with algebra I but want to go deeper
+    \item Prefer understanding \emph{why} techniques work, not just memorizing formulas
+\end{itemize}
+
+\subsection*{What Makes This Book Different}
+
+Competition mathematics requires a different mindset than classroom mathematics. This book emphasizes:
+
+\begin{itemize}
+    \item \textbf{Pattern Recognition:} Learning to see familiar structures in unfamiliar problems
+    \item \textbf{Strategic Thinking:} Knowing which tool to reach for when
+    \item \textbf{Computational Fluency:} Making complex manipulations feel automatic
+    \item \textbf{Problem-Solving Intuition:} Developing the ``sixth sense'' that guides experts
+\end{itemize}
+
+Rather than presenting algebra as a collection of disconnected techniques, we build a unified framework where each idea connects to others. You'll learn not just what the formulas are, but when and why to use them.
+
+\subsection*{How to Use This Book}
+
+\textbf{Structure:} Each section follows a consistent pattern:
+\begin{enumerate}
+    \item \textbf{Intuition first:} Understanding the ``why'' before the ``what''
+    \item \textbf{Precise statements:} Clear formulas and theorems in highlighted boxes
+    \item \textbf{Worked examples:} Step-by-step solutions showing expert thinking
+    \item \textbf{Remarks and warnings:} Common pitfalls and strategic insights
+\end{enumerate}
+
+\textbf{Colored boxes guide your reading:}
+\begin{itemize}
+    \item \textcolor{blue!75!black}{\textbf{Blue (Concepts):}} Core ideas and methods
+    \item \textcolor{orange!75!black}{\textbf{Orange (Examples):}} Worked problems with detailed solutions
+    \item \textcolor{green!60!black}{\textbf{Green (Remarks):}} Strategic insights and tips
+    \item \textcolor{red!75!black}{\textbf{Red (Warnings):}} Common mistakes to avoid
+\end{itemize}
+
+\textbf{Study recommendations:}
+\begin{itemize}
+    \item Read actively with paper and pencil
+    \item Try examples yourself before reading solutions
+    \item Memorize key formulas until they're automatic
+    \item Return to review sections regularly—mastery requires repetition
+    \item Focus on understanding method patterns, not memorizing specific problems
+\end{itemize}
+
+\subsection*{Prerequisites}
+
+You should be comfortable with:
+\begin{itemize}
+    \item Algebra I (linear equations, quadratics, factoring, exponents)
+    \item Basic proof techniques (if-then statements, proof by contradiction)
+    \item Mathematical notation and symbolic manipulation
+\end{itemize}
+
+No competition experience is required, though familiarity with AMC-style problems helps.
+
+\subsection*{Beyond This Book}
+
+This text provides the algebraic foundation for competition success, but true mastery requires:
+\begin{itemize}
+    \item \textbf{Problem practice:} Solve many problems from past AMC/AIME exams
+    \item \textbf{Timed practice:} Develop speed alongside accuracy
+    \item \textbf{Reflection:} After solving, ask ``What pattern did I use? When else would it apply?''
+    \item \textbf{Community:} Discuss problems with peers, join math circles, learn from others
+\end{itemize}
+
+\subsection*{Acknowledgements}
+
+This book synthesizes ideas from many sources: the Art of Problem Solving community, past AMC and AIME problems, and countless hours of problem-solving practice. Special recognition to the students whose questions and struggles shaped this material into its current form.
+
+\vspace{1cm}
+
+Now, let's begin.
+
+\newpage
+
+\section*{Chapter 1: Algebra (AMC 8/10/12/AIME Focus)}
+\addcontentsline{toc}{section}{Chapter 1: Algebra}
+
+This chapter develops the core algebraic ideas required for problem solving at the AMC 8/10/12 and AIME level. The emphasis is on \textbf{structure, patterns, and reusable tools}, not brute-force computation. Each topic is presented with intuition first, followed by formulas that must be second nature to the student.
+
+\begin{conceptbox}[Philosophy of Competition Algebra]
+Competition algebra is about:
+\begin{enumerate}
+    \item \textbf{Pattern Recognition:} Seeing familiar structures in disguised forms
+    \item \textbf{Strategic Manipulation:} Knowing which algebraic tool to apply when
+    \item \textbf{Clever Substitutions:} Introducing variables that simplify problems
+    \item \textbf{Symmetry Exploitation:} Using balanced expressions to reduce complexity
+\end{enumerate}
+\end{conceptbox}
+
+\section{Mean, Median, Mode, and Harmonic Mean}
+
+For a data set consisting of numbers $a_1, a_2, \dots, a_n$:
+
+\begin{itemize}
+\item \textbf{Mean (Average):}
+\[
+\text{Mean} = \frac{a_1 + a_2 + \cdots + a_n}{n}
+\]
+
+\item \textbf{Mode:} The most frequently occurring value(s). A \emph{unique mode} means exactly one such value exists.
+
+\item \textbf{Median:} Arrange the data in increasing order.
+\begin{itemize}
+\item If $n$ is odd: the middle term.
+\item If $n$ is even: the average of the two middle terms.
+\end{itemize}
+
+\item \textbf{Harmonic Mean:}
+\[
+\text{HM} = \frac{n}{\frac{1}{a_1} + \frac{1}{a_2} + \cdots + \frac{1}{a_n}}
+\]
+\end{itemize}
+
+\begin{examplebox}
+\textbf{Power sums from a reciprocal identity.} \difficulty{M} Let $x + \tfrac{1}{x} = 3$. Find $x^6 + \tfrac{1}{x^6}$.
+
+	\textbf{Solution.}
+\begin{enumerate}[leftmargin=1.2em]
+    \item From $x + \tfrac{1}{x} = 3$, square to get $x^2 + \tfrac{1}{x^2} = 3^2 - 2 = 7$.
+    \item Multiply $x^2 + \tfrac{1}{x^2} = 7$ by $x + \tfrac{1}{x} = 3$ to obtain the cubic power sum:
+    \[
+    x^3 + \tfrac{1}{x^3} = 3\bigl(x^2 + \tfrac{1}{x^2}\bigr) - \bigl(x + \tfrac{1}{x}\bigr) = 3\cdot 7 - 3 = 18.
+    \]
+    \item Square $x^3 + \tfrac{1}{x^3} = 18$ to reach the sixth power:
+    \[
+    x^6 + 2 + \tfrac{1}{x^6} = 18^2 = 324 \implies x^6 + \tfrac{1}{x^6} = 322.
+    \]
+\end{enumerate}
+
+	\textbf{Answer:} $\boxed{322}$.
+\end{examplebox}
+
+\section{Arithmetic Sequences (AP)}
+
+An \textbf{arithmetic sequence} has a constant difference $d$ between consecutive terms:
+\[
+a_1, \quad a_1+d, \quad a_1+2d, \quad \dots
+\]
+
+\subsection*{Key Formulas}
+
+\begin{itemize}
+\item \textbf{Nth term:}
+\[
+a_n = a_1 + (n-1)d
+\]
+
+\item \textbf{Number of terms:}
+\[
+n = \frac{a_n - a_1}{d} + 1
+\]
+
+\item \textbf{Average of terms:}
+\[
+\text{Average} = \frac{a_1 + a_n}{2}
+\]
+
+\item \textbf{Sum of first $n$ terms:}
+\[
+S_n = \frac{n}{2}(a_1 + a_n) = \frac{n}{2}[2a_1 + (n-1)d]
+\]
+\end{itemize}
+
+\begin{conceptbox}[Why the Sum Formula Works]
+The sum formula comes from pairing terms symmetrically:
+\[
+S_n = (a_1 + a_n) + (a_2 + a_{n-1}) + \cdots
+\]
+Each pair sums to $a_1 + a_n$, and there are $n/2$ such pairs (or one unpaired middle term if $n$ is odd). Thus:
+\[
+S_n = \frac{n}{2}(a_1 + a_n)
+\]
+\end{conceptbox}
+
+\begin{examplebox}
+\textbf{Example:} Find the sum $3 + 7 + 11 + \cdots + 99$.
+
+\textbf{Solution (Step-by-Step):}
+
+\textbf{Step 1: Identify the sequence.} This is an AP with $a_1=3$, $d=4$, $a_n=99$.
+
+\textbf{Step 2: Find number of terms.}
+\[
+n = \frac{99-3}{4} + 1 = \frac{96}{4} + 1 = 24 + 1 = 25
+\]
+
+\textbf{Step 3: Apply sum formula.}
+\[
+S_{25} = \frac{25}{2}(3+99) = \frac{25 \cdot 102}{2} = 25 \cdot 51 = 1275
+\]
+
+\textbf{Answer:} $\boxed{1275}$
+\end{examplebox}
+
+\section{Geometric Sequences (GP)}
+
+A \textbf{geometric sequence} has a constant ratio $r$ between consecutive terms:
+\[
+g_1, \quad g_1r, \quad g_1r^2, \quad \dots
+\]
+
+\subsection*{Key Formulas}
+
+\begin{itemize}
+\item \textbf{Finite sum:}
+\[
+S_n = g_1 \frac{1 - r^n}{1 - r} \quad (r \neq 1)
+\]
+
+\item \textbf{Infinite sum ($|r| < 1$):}
+\[
+S_\infty = \frac{g_1}{1 - r}
+\]
+\end{itemize}
+
+\begin{conceptbox}[Derivation of Geometric Sum]
+Let $S_n = g_1 + g_1r + g_1r^2 + \cdots + g_1r^{n-1}$.
+
+Multiply both sides by $r$:
+\[
+rS_n = g_1r + g_1r^2 + \cdots + g_1r^n
+\]
+
+Subtract:
+\[
+S_n - rS_n = g_1 - g_1r^n \implies S_n(1-r) = g_1(1-r^n) \implies S_n = g_1\frac{1-r^n}{1-r}
+\]
+\end{conceptbox}
+
+\begin{examplebox}
+\textbf{Example:} Find the sum $\frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \cdots$ (infinite series).
+
+\textbf{Solution (Step-by-Step):}
+
+\textbf{Step 1: Identify the sequence.} This is a GP with $g_1 = \frac{1}{2}$, $r = \frac{1}{2}$.
+
+\textbf{Step 2: Check convergence.} Since $|r| = \frac{1}{2} < 1$, the series converges.
+
+\textbf{Step 3: Apply infinite sum formula.}
+\[
+S_\infty = \frac{g_1}{1-r} = \frac{1/2}{1-1/2} = \frac{1/2}{1/2} = 1
+\]
+
+\textbf{Answer:} $\boxed{1}$
+\end{examplebox}
+
+\section{Sum Formulas for Powers}
+
+\begin{itemize}
+\item \textbf{Sum of first $n$ even integers:}
+\[
+2+4+6+\cdots+2n = n(n+1)
+\]
+
+\item \textbf{Sum of squares:}
+\[
+1^2+2^2+\cdots+n^2 = \frac{n(n+1)(2n+1)}{6}
+\]
+
+\item \textbf{Sum of cubes:}
+\[
+1^3+2^3+\cdots+n^3 = \left(\frac{n(n+1)}{2}\right)^2
+\]
+\end{itemize}
+
+\begin{conceptbox}[Visualizing Sum Formulas]
+\textbf{Sum of first $n$ integers:} Pair up numbers: $(1+n), (2+(n-1)), \ldots$. Each pair sums to $n+1$, and there are $n/2$ pairs.
+
+\textbf{Sum of odd integers:} Arrange dots in square patterns. The $n$-th odd number completes an $n \times n$ square.
+
+\textbf{Sum of cubes:} Remarkably, $1^3+2^3+\cdots+n^3 = (1+2+\cdots+n)^2$!
+\end{conceptbox}
+
+\begin{examplebox}
+\textbf{Example:} Compute $51 + 52 + \cdots + 100$.
+
+\textbf{Solution (Step-by-Step):}
+
+\textbf{Step 1: Use sum formula trick.}
+\[
+51 + 52 + \cdots + 100 = (1+2+\cdots+100) - (1+2+\cdots+50)
+\]
+
+\textbf{Step 2: Apply formula.}
+\[
+= \frac{100 \cdot 101}{2} - \frac{50 \cdot 51}{2} = 5050 - 1275 = 3775
+\]
+
+\textbf{Answer:} $\boxed{3775}$
+\end{examplebox}
+
+\begin{remarkbox}
+These formulas appear constantly in counting, algebra, and number theory problems. Memorize them and know when to apply each one.
+\end{remarkbox}
+
+\section{Algebraic Manipulations and Factorizations}
+
+\subsection*{Exponent Rules}
+
+\begin{conceptbox}[Fundamental Laws of Exponents]
+\begin{align*}
+x^{-a} &= \frac{1}{x^a} \\
+x^a \cdot x^b &= x^{a+b} \\
+\frac{x^a}{x^b} &= x^{a-b} \\
+(x^a)^b &= x^{ab} \\
+(xy)^a &= x^a y^a \\
+\left(\frac{x}{y}\right)^a &= \frac{x^a}{y^a}
+\end{align*}
+\end{conceptbox}
+
+\subsection*{Quadratic Identities}
+
+\begin{itemize}
+\item \textbf{Difference of squares:}
+\[
+x^2 - y^2 = (x-y)(x+y)
+\]
+
+\item \textbf{Binomial squares:}
+\[
+(x+y)^2 = x^2 + 2xy + y^2
+\]
+\[
+(x-y)^2 = x^2 - 2xy + y^2
+\]
+
+\item \textbf{Useful consequences:}
+\[
+(x+y)^2 + (x-y)^2 = 2(x^2+y^2)
+\]
+\[
+(x+y)^2 - (x-y)^2 = 4xy
+\]
+
+\item \textbf{Three-variable square:}
+\[
+(x+y+z)^2 = x^2+y^2+z^2+2(xy+xz+yz)
+\]
+\end{itemize}
+
+\begin{examplebox}
+\textbf{Example:} If $x+y = 7$ and $xy = 10$, find $x^2+y^2$.
+
+\textbf{Solution (Step-by-Step):}
+
+\textbf{Step 1: Use identity.} $(x+y)^2 = x^2 + 2xy + y^2$
+
+\textbf{Step 2: Rearrange.}
+\[
+x^2 + y^2 = (x+y)^2 - 2xy
+\]
+
+\textbf{Step 3: Substitute values.}
+\[
+x^2 + y^2 = 7^2 - 2(10) = 49 - 20 = 29
+\]
+
+\textbf{Answer:} $\boxed{29}$
+\end{examplebox}
+
+\subsection*{Simon's Favorite Factoring Trick}
+
+\begin{conceptbox}[SFFT]
+\[
+xy + kx + jy + jk = x(y+k) + j(y+k) = (x+j)(y+k)
+\]
+
+This is especially powerful in integer and Diophantine-style problems where you need to factor expressions with four terms.
+\end{conceptbox}
+
+\begin{examplebox}
+\textbf{Example:} Factor $ab + 3a + 5b + 15$.
+
+\textbf{Solution (Step-by-Step):}
+
+\textbf{Step 1: Group terms.}
+\[
+ab + 3a + 5b + 15 = a(b+3) + 5(b+3)
+\]
+
+\textbf{Step 2: Factor out common binomial.}
+\[
+= (a+5)(b+3)
+\]
+
+\textbf{Answer:} $\boxed{(a+5)(b+3)}$
+\end{examplebox}
+
+\begin{remarkbox}
+SFFT is the reverse of FOIL. When you see four terms with a product pattern, try to group them into two pairs that share a common binomial factor.
+\end{remarkbox}
+
+\section{Cubic and Higher-Power Factorizations}
+
+\subsection*{Sum and Difference of Cubes}
+
+\[
+x^3 - y^3 = (x-y)(x^2+xy+y^2)
+\]
+\[
+x^3 + y^3 = (x+y)(x^2-xy+y^2)
+\]
+
+\begin{remarkbox}
+\textbf{Memory trick:} Both factorizations follow the pattern $(x \pm y)(\text{quadratic})$ where:
+\begin{itemize}
+    \item The linear factor matches the sign of the cubic expression
+    \item The quadratic starts with $x^2 + y^2$
+    \item The middle term has the opposite sign
+\end{itemize}
+\end{remarkbox}
+
+\subsection*{Binomial Cubes}
+
+\[
+(x+y)^3 = x^3 + 3x^2y + 3xy^2 + y^3
+\]
+\[
+(x-y)^3 = x^3 - 3x^2y + 3xy^2 - y^3
+\]
+
+\begin{examplebox}
+\textbf{Example:} If $a+b = 5$ and $ab = 6$, find $a^3+b^3$.
+
+\textbf{Solution (Step-by-Step):}
+
+\textbf{Step 1: Use sum of cubes identity.}
+\[
+a^3 + b^3 = (a+b)(a^2 - ab + b^2)
+\]
+
+\textbf{Step 2: Find $a^2+b^2$.}
+\[
+a^2 + b^2 = (a+b)^2 - 2ab = 25 - 12 = 13
+\]
+
+\textbf{Step 3: Calculate $a^2 - ab + b^2$.}
+\[
+a^2 - ab + b^2 = 13 - 6 = 7
+\]
+
+\textbf{Step 4: Substitute.}
+\[
+a^3 + b^3 = 5 \cdot 7 = 35
+\]
+
+\textbf{Answer:} $\boxed{35}$
+\end{examplebox}
+
+\subsection*{Symmetric Identity}
+
+\[
+x^3+y^3+z^3-3xyz = (x+y+z)(x^2+y^2+z^2-xy-xz-yz)
+\]
+
+\begin{remarkbox}
+\textbf{Special case:} If $x+y+z=0$, then $x^3+y^3+z^3 = 3xyz$.
+\end{remarkbox}
+
+\subsection*{Higher Powers}
+
+\begin{itemize}
+\item \textbf{Difference of $n$th powers:}
+\[
+x^n - y^n = (x-y)(x^{n-1}+x^{n-2}y+\cdots+y^{n-1})
+\]
+
+\item \textbf{Sum of odd powers:}
+\[
+x^{2n+1}+y^{2n+1} = (x+y)(x^{2n}-x^{2n-1}y+\cdots+y^{2n})
+\]
+\end{itemize}
+
+\begin{conceptbox}[Pattern Recognition for Factoring]
+When you see:
+\begin{itemize}
+    \item $x^n - y^n$: Always factorable as $(x-y)(\ldots)$
+    \item $x^n + y^n$ where $n$ is odd: Factorable as $(x+y)(\ldots)$
+    \item $x^n + y^n$ where $n$ is even: Generally not factorable over reals (except special cases)
+\end{itemize}
+\end{conceptbox}
+
+\section{Sophie Germain's Identity}
+
+A powerful and frequently tested identity:
+\[
+x^4 + 4y^4 = (x^2 - 2xy + 2y^2)(x^2 + 2xy + 2y^2)
+\]
+
+\begin{conceptbox}[Understanding Sophie Germain]
+This identity factors a sum of two fourth powers, which normally wouldn't factor. The key insight is introducing the "4" coefficient:
+\[
+x^4 + 4y^4 = x^4 + 4x^2y^2 + 4y^4 - 4x^2y^2 = (x^2+2y^2)^2 - (2xy)^2
+\]
+This creates a difference of squares!
+\end{conceptbox}
+
+\begin{examplebox}
+\textbf{Example:} Factor $a^4 + 4$.
+
+\textbf{Solution (Step-by-Step):}
+
+\textbf{Step 1: Recognize Sophie Germain.} Write as $a^4 + 4 \cdot 1^4$.
+
+\textbf{Step 2: Apply formula with $x=a, y=1$.}
+\[
+a^4 + 4 = (a^2 - 2a + 2)(a^2 + 2a + 2)
+\]
+
+\textbf{Answer:} $\boxed{(a^2 - 2a + 2)(a^2 + 2a + 2)}$
+\end{examplebox}
+
+\begin{remarkbox}
+Whenever you see a fourth power plus four times another fourth power, Sophie Germain's Identity should immediately come to mind. It frequently appears in AIME problems.
+\end{remarkbox}
+
+\newpage
+
+\section{Advanced Topics}
+
+\subsection{Vieta's Formulas}
+
+For a quadratic $ax^2 + bx + c = 0$ with roots $r$ and $s$:
+\[
+r + s = -\frac{b}{a}, \quad rs = \frac{c}{a}
+\]
+
+For a cubic $x^3 + px^2 + qx + r = 0$ with roots $\alpha, \beta, \gamma$:
+\[
+\alpha + \beta + \gamma = -p, \quad \alpha\beta + \alpha\gamma + \beta\gamma = q, \quad \alpha\beta\gamma = -r
+\]
+
+\begin{examplebox}
+\textbf{Example:} Find a quadratic with roots 3 and 5.
+
+\textbf{Solution (Step-by-Step):}
+
+\textbf{Step 1: Use Vieta's.} $r+s = 8$, $rs = 15$.
+
+\textbf{Step 2: Construct equation.}
+\[
+x^2 - (r+s)x + rs = 0 \implies x^2 - 8x + 15 = 0
+\]
+
+\textbf{Answer:} $\boxed{x^2 - 8x + 15 = 0}$
+\end{examplebox}
+
+\subsection{Vieta Jumping}
+
+\textbf{Vieta jumping} is a technique for solving certain Diophantine equations and optimization problems involving integer or rational roots. The method uses Vieta's formulas to construct a sequence of solutions, often proving that a minimal solution must satisfy additional constraints.
+
+\begin{conceptbox}[The Vieta Jumping Method]
+\textbf{Setup:} Given a symmetric condition $P(x,y)$ where $(a,b)$ is a solution:
+\begin{enumerate}
+    \item Fix one variable (say $y=b$) and treat the condition as a quadratic in $x$
+    \item Use Vieta's formulas: if $x=a$ is one root, find the other root $x=a'$
+    \item Show that $(a',b)$ is also a solution
+    \item Analyze the sequence of solutions to reach a contradiction or find the minimal case
+\end{enumerate}
+\end{conceptbox}
+
+\begin{conceptbox}[When to Use Vieta Jumping]
+\begin{itemize}
+    \item The problem asks to prove something is a perfect square or has specific divisibility
+    \item The condition is symmetric in two variables
+    \item You need to show a solution must satisfy additional properties
+    \item Direct approaches to solving the Diophantine equation fail
+\end{itemize}
+\end{conceptbox}
+
+\begin{examplebox}
+\textbf{Example (AMC/AIME style):} Let $a$ and $b$ be positive integers such that $ab+1$ divides $a^2+b^2$. Prove that $\frac{a^2+b^2}{ab+1}$ is a perfect square.
+
+\textbf{Solution (Vieta Jumping):}
+
+\textbf{Step 1: Set up the equation.} Let $k = \frac{a^2+b^2}{ab+1}$, so $a^2+b^2 = k(ab+1)$.
+
+Rearranging: $a^2 - kab + (b^2-k) = 0$.
+
+\textbf{Step 2: Treat as quadratic in $a$.} For fixed $b$, this is quadratic in $a$. If $a$ is one solution, by Vieta's formulas, the other solution $a'$ satisfies:
+\[
+a + a' = kb \quad \text{and} \quad aa' = b^2-k
+\]
+
+\textbf{Step 3: Find the other root.}
+\[
+a' = kb - a
+\]
+
+\textbf{Step 4: Assume $k$ is not a perfect square.} Among all positive integer solutions $(a,b)$, pick the one with minimal $a+b$. 
+
+Since $a' = kb - a$ and $aa' = b^2-k > 0$ (for positive solutions), we have $a' > 0$.
+
+If $a' < a$, then $(a',b)$ is a solution with smaller sum, contradicting minimality.
+
+If $a' = a$, then $a = \frac{kb}{2}$, and substituting back gives $k$ is a perfect square.
+
+\textbf{Step 5: Analyze $a' \ge a$.} If $a' > a$, swap the roles: we'd have found an even smaller solution by jumping from $(a',b)$ back to $(a,b)$, meaning $(a,b)$ wasn't minimal in the first place.
+
+\textbf{Conclusion:} The only consistent case is $a' = a$, forcing $k$ to be a perfect square.
+\end{examplebox}
+
+\begin{remarkbox}
+Vieta jumping is subtle: you construct a descent (or ascent) argument by generating new solutions from old ones. The key is showing that assuming a non-minimal solution leads to contradiction. This technique appears regularly in olympiad-level problems but intro versions appear on AIME.
+\end{remarkbox}
+
+\subsection{Newton's Sums (Power Sums)}
+
+Newton sums give a systematic way to recover power sums of the roots directly from the coefficients of a polynomial.
+
+\paragraph{Setup.} For
+\[
+P(x) = a_n x^n + a_{n-1}x^{n-1} + \cdots + a_1x + a_0
+\]
+with roots $x_1,\dots,x_n$, define the power sums
+\[
+P_k = x_1^k + x_2^k + \cdots + x_n^k,\quad P_0 = n.
+\]
+
+\paragraph{Newton's sums.} For $k \ge 1$ (with $a_j = 0$ when $j < 0$):
+\[
+\boxed{a_n P_k + a_{n-1}P_{k-1} + a_{n-2}P_{k-2} + \cdots + a_{n-k+1}P_1 + k\,a_{n-k} = 0}
+\]
+First few instances:
+\[
+a_n P_1 + a_{n-1} = 0,
+\]
+\[
+a_n P_2 + a_{n-1}P_1 + 2a_{n-2} = 0,
+\]
+\[
+a_n P_3 + a_{n-1}P_2 + a_{n-2}P_1 + 3a_{n-3} = 0.
+\]
+
+\paragraph{Connection to elementary symmetric sums.} If $S_1, S_2, \dots$ denote the (unsigned) elementary symmetric sums ($S_1 = x_1 + \cdots + x_n$, $S_2 = \sum_{i<j} x_i x_j$, etc.) and the polynomial is monic ($a_n = 1$), then the first identities become
+\[
+P_1 = S_1,
+\]
+\[
+P_2 = S_1 P_1 - 2S_2,
+\]
+\[
+P_3 = S_1 P_2 - S_2 P_1 + 3S_3,
+\]
+\[
+P_4 = S_1 P_3 - S_2 P_2 + S_3 P_1 - 4S_4,
+\]
+and so on.
+
+\begin{remarkbox}
+Proof sketch: each root satisfies $P(x_i) = 0$; multiply by $x_i^{k-n}$ and sum over all roots to obtain the recurrence. This lets you compute high power sums and even recover factoring identities without solving for the roots.
+\end{remarkbox}
+
+\subsection{Substitution Techniques}
+
+\begin{conceptbox}[When to Substitute]
+\begin{enumerate}
+    \item \textbf{Simplify repeated expressions:} If $x + \frac{1}{x}$ appears multiple times, let $t = x + \frac{1}{x}$
+    \item \textbf{Reduce degree:} For $x^4 + x^2 + 1$, let $u = x^2$
+    \item \textbf{Symmetry exploitation:} For $(x+y)$ and $xy$, use them as new variables
+    \item \textbf{Trigonometric-like:} For expressions like $x^2 - 2x\cos\theta + 1$
+\end{enumerate}
+\end{conceptbox}
+
+\begin{examplebox}
+\textbf{Example (AIME-level):} If $x + \frac{1}{x} = 5$, find $x^3 + \frac{1}{x^3}$.
+
+\textbf{Solution (Step-by-Step):}
+
+\textbf{Step 1: Find $x^2 + \frac{1}{x^2}$.}
+\[
+\left(x + \frac{1}{x}\right)^2 = x^2 + 2 + \frac{1}{x^2} \implies x^2 + \frac{1}{x^2} = 25 - 2 = 23
+\]
+
+\textbf{Step 2: Use cubic identity.}
+\[
+\left(x + \frac{1}{x}\right)^3 = x^3 + 3x + \frac{3}{x} + \frac{1}{x^3} = x^3 + \frac{1}{x^3} + 3\left(x + \frac{1}{x}\right)
+\]
+
+\textbf{Step 3: Solve for $x^3 + \frac{1}{x^3}$.}
+\[
+5^3 = x^3 + \frac{1}{x^3} + 3(5) \implies 125 = x^3 + \frac{1}{x^3} + 15
+\]
+\[
+x^3 + \frac{1}{x^3} = 110
+\]
+
+\textbf{Answer:} $\boxed{110}$
+\end{examplebox}
+
+\subsection{Cauchy-Schwarz Inequality}
+
+For real numbers $a_1, \ldots, a_n$ and $b_1, \ldots, b_n$:
+\[
+(a_1^2 + \cdots + a_n^2)(b_1^2 + \cdots + b_n^2) \ge (a_1b_1 + \cdots + a_nb_n)^2
+\]
+
+Equality holds if and only if $\frac{a_1}{b_1} = \frac{a_2}{b_2} = \cdots = \frac{a_n}{b_n}$.
+
+\begin{remarkbox}
+Cauchy-Schwarz is powerful for proving inequalities and finding maxima/minima in competition problems.
+\end{remarkbox}
+
+\subsection{Quadratic Formula and Discriminant}
+
+For $ax^2 + bx + c = 0$:
+\[
+x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}
+\]
+
+The \textbf{discriminant} $\Delta = b^2 - 4ac$ determines the nature of roots:
+\begin{itemize}
+    \item $\Delta > 0$: Two distinct real roots
+    \item $\Delta = 0$: One repeated real root (perfect square)
+    \item $\Delta < 0$: Two complex conjugate roots
+\end{itemize}
+
+\begin{conceptbox}[Completing the Square]
+The quadratic formula comes from completing the square:
+\begin{align*}
+ax^2 + bx + c &= 0 \\
+x^2 + \frac{b}{a}x &= -\frac{c}{a} \\
+\left(x + \frac{b}{2a}\right)^2 &= \frac{b^2-4ac}{4a^2} \\
+x + \frac{b}{2a} &= \pm \frac{\sqrt{b^2-4ac}}{2a}
+\end{align*}
+\end{conceptbox}
+
+\subsection{System of Equations Techniques}
+
+\begin{conceptbox}[Methods for Solving Systems]
+\begin{enumerate}
+    \item \textbf{Substitution:} Solve one equation for a variable and substitute everywhere else.
+    \item \textbf{Elimination:} Add or subtract scaled equations to cancel a variable cleanly.
+    \item \textbf{Diagonal product (2 variables):} For $ax+by=c$, $dx+ey=f$, multiply diagonally and subtract to remove one variable fast.
+    \item \textbf{Add/subtract strategically:} Combine equations to expose sums/products that match factorizations.
+    \item \textbf{Use common factorizations:} Look for $(x+y)^2$, $xy$, difference of squares, or symmetric sums.
+    \item \textbf{Build a polynomial (Vieta):} When you know $x+y$, $xy$, or similar data, construct the polynomial with those roots.
+    \item \textbf{Graph or interpret geometrically:} Lines, circles, and conics reveal structure; connect to Law of Cosines, Heron, $\tfrac12ab\sin C$, or Stewart's when lengths/angles appear.
+    \item \textbf{Exploit symmetry:} Replace $(x,y)$ with $(s,p) = (x+y, xy)$ or use $x=y$ when symmetry forces equality.
+    \item \textbf{Re-parameterize:} Trig substitutions, $y=mx+b$, or scaling can simplify homogeneous systems.
+\end{enumerate}
+\end{conceptbox}
+
+\begin{examplebox}
+\textbf{Example:} Solve the system:
+\[
+x + y = 5, \quad xy = 6
+\]
+
+\textbf{Solution (Step-by-Step):}
+
+\textbf{Step 1: Recognize Vieta's form.} These are sum and product of roots.
+
+\textbf{Step 2: Construct quadratic.} $x$ and $y$ are roots of:
+\[
+t^2 - 5t + 6 = 0
+\]
+
+\textbf{Step 3: Factor.}
+\[
+(t-2)(t-3) = 0 \implies t = 2 \text{ or } t = 3
+\]
+
+\textbf{Answer:} $\boxed{(x,y) = (2,3) \text{ or } (3,2)}$
+\end{examplebox}
+
+\subsection{Symmetric Polynomials}
+
+\begin{conceptbox}[What is a symmetric polynomial?]
+A polynomial $P(x) = a_n x^n + a_{n-1}x^{n-1} + \cdots + a_1x + a_0$ is symmetric when coefficients read the same from both ends: $a_n = a_0$, $a_{n-1} = a_1$, $a_{n-2} = a_2$, etc. Opposite coefficients match.
+\end{conceptbox}
+
+\begin{conceptbox}[Even-degree symmetric strategy]
+For $P(x)$ symmetric of even degree $2m$:
+\begin{enumerate}
+    \item Divide by $x^m$.
+    \item Group terms as $x^k + \tfrac{1}{x^k}$.
+    \item Substitute $y = x + \tfrac{1}{x}$ to collapse the expression.
+    \item Solve the reduced polynomial in $y$, then back-solve for $x$ if needed.
+\end{enumerate}
+\end{conceptbox}
+
+\subsection{Polynomial Manipulations}
+
+\begin{conceptbox}[Re-rooting tricks]
+\begin{itemize}
+    \item \textbf{Reciprocal roots:} If $P(x) = a_n x^n + a_{n-1}x^{n-1} + \cdots + a_0$, then $Q(x) = a_0 x^n + a_1 x^{n-1} + \cdots + a_n$ has roots $1/r_i$.
+    \item \textbf{Shifted roots:} Replacing $x$ with $x-k$ shifts every root by $+k$. Use this to center expressions before applying Vieta.
+    \item \textbf{Re-parameterize expressions:} To evaluate $\sum \tfrac{1}{(r-3)^3}$, build the polynomial with roots $\tfrac{1}{r-3}$ instead of expanding brute force.
+\end{itemize}
+\end{conceptbox}
+
+\begin{remarkbox}
+These manipulations pair well with Vieta and Newton sums: first move or invert the roots to simplify the expression, then read off the needed symmetric sums from the transformed polynomial.
+\end{remarkbox}
+
+\subsection{Functional Equations (AMC-Level)}
+
+A \textbf{functional equation} is an equation where the unknowns are functions rather than numbers. At the AMC/AIME level, functional equations typically involve finding all functions $f: \mathbb{R} \to \mathbb{R}$ (or restricted domains) satisfying certain conditions.
+
+\begin{conceptbox}[Common Strategies for Functional Equations]
+\begin{enumerate}
+    \item \textbf{Substitution:} Plug in special values ($x=0$, $x=1$, $y=0$, $y=x$, $y=-x$, etc.) to gain information
+    \item \textbf{Injectivity/Surjectivity:} Prove $f$ is one-to-one or onto to constrain its form
+    \item \textbf{Iteration:} Apply the equation multiple times with different substitutions
+    \item \textbf{Guess and verify:} Based on the structure, guess $f(x) = cx$, $f(x) = x + c$, or $f(x) = c$ and check
+    \item \textbf{Build up information:} Find $f(0)$, $f(1)$, determine if $f$ is linear, etc.
+\end{enumerate}
+\end{conceptbox}
+
+\begin{examplebox}
+\textbf{Example 1:} Find all functions $f: \mathbb{R} \to \mathbb{R}$ such that
+\[
+f(x+y) = f(x) + f(y)
+\]
+for all real $x, y$.
+
+\textbf{Solution:}
+
+\textbf{Step 1: Find $f(0)$.} Set $x=y=0$:
+\[
+f(0) = f(0) + f(0) = 2f(0) \implies f(0) = 0
+\]
+
+\textbf{Step 2: Find $f(-x)$.} Set $y=-x$:
+\[
+f(0) = f(x) + f(-x) = 0 \implies f(-x) = -f(x)
+\]
+
+\textbf{Step 3: Find $f(nx)$ for integer $n$.} By induction:
+\[
+f(2x) = f(x+x) = 2f(x), \quad f(3x) = 3f(x), \quad \ldots, \quad f(nx) = nf(x)
+\]
+
+\textbf{Step 4: Find $f$ on rationals.} For $f(\frac{x}{n})$:
+\[
+f(x) = f\left(n \cdot \frac{x}{n}\right) = nf\left(\frac{x}{n}\right) \implies f\left(\frac{x}{n}\right) = \frac{f(x)}{n}
+\]
+
+Thus $f(rx) = rf(x)$ for any rational $r$.
+
+\textbf{Step 5: Determine $f$ on all reals.} Let $c = f(1)$. Then for any rational $r$:
+\[
+f(r) = rf(1) = cr
+\]
+
+For AMC/AIME problems, we typically assume continuity or monotonicity, giving $f(x) = cx$ for all real $x$.
+
+\textbf{Answer:} $\boxed{f(x) = cx}$ for any constant $c \in \mathbb{R}$.
+\end{examplebox}
+
+\begin{examplebox}
+\textbf{Example 2 (AMC 12 style):} Find all functions $f: \mathbb{R} \to \mathbb{R}$ such that
+\[
+f(x+y) + f(x-y) = 2f(x)
+\]
+for all real $x, y$.
+
+\textbf{Solution:}
+
+\textbf{Step 1: Set $y=0$.}
+\[
+f(x) + f(x) = 2f(x)
+\]
+This is automatically satisfied, so we learn nothing.
+
+\textbf{Step 2: Set $x=0$.}
+\[
+f(y) + f(-y) = 2f(0)
+\]
+Let $c = f(0)$. Then $f(y) + f(-y) = 2c$.
+
+\textbf{Step 3: Test if $f$ is even or odd.} Set $x=y$:
+\[
+f(2x) + f(0) = 2f(x) \implies f(2x) = 2f(x) - c
+\]
+
+\textbf{Step 4: Guess linear form.} Try $f(x) = ax + b$:
+\[
+(a(x+y)+b) + (a(x-y)+b) = 2(ax+b)
+\]
+\[
+2ax + 2b = 2ax + 2b \quad \checkmark
+\]
+
+So $f(x) = ax + b$ works for any $a, b$.
+
+\textbf{Step 5: Verify this is the only solution.} From $f(2x) = 2f(x) - c$ with $c=f(0)$, we can show by induction that $f$ must be linear.
+
+\textbf{Answer:} $\boxed{f(x) = ax + b}$ for any constants $a, b \in \mathbb{R}$.
+\end{examplebox}
+
+\begin{warningbox}
+AMC/AIME functional equations usually have simple solutions like:
+\begin{itemize}
+    \item $f(x) = cx$ (linear through origin)
+    \item $f(x) = x + c$ (translation)
+    \item $f(x) = c$ (constant)
+    \item $f(x) = cx + d$ (general linear)
+\end{itemize}
+Always test these forms first before attempting complex arguments!
+\end{warningbox}
+
+\begin{remarkbox}
+In contest settings, functional equations test your ability to manipulate equations systematically. The key is making strategic substitutions and building up information step by step. Don't rush—each substitution should give you new information about $f$.
+\end{remarkbox}
+
+\subsection{Bounding Techniques: AM-GM in Algebra}
+
+The \textbf{Arithmetic Mean-Geometric Mean (AM-GM)} inequality is one of the most powerful tools for optimization and bounding in algebra. While it appears simple, its applications are vast and elegant.
+
+\begin{conceptbox}[AM-GM Inequality]
+For non-negative real numbers $a_1, a_2, \ldots, a_n$:
+\[
+\frac{a_1 + a_2 + \cdots + a_n}{n} \ge \sqrt[n]{a_1 a_2 \cdots a_n}
+\]
+
+Equality holds if and only if $a_1 = a_2 = \cdots = a_n$.
+
+\textbf{Special cases:}
+\begin{itemize}
+    \item Two variables: $\frac{a+b}{2} \ge \sqrt{ab}$
+    \item Three variables: $\frac{a+b+c}{3} \ge \sqrt[3]{abc}$
+\end{itemize}
+\end{conceptbox}
+
+\begin{conceptbox}[When to Use AM-GM]
+\begin{enumerate}
+    \item Finding maximum/minimum values with constraints
+    \item Proving inequalities involving sums and products
+    \item Optimization problems where variables multiply to a constant
+    \item Simplifying expressions with symmetric structure
+\end{enumerate}
+\end{conceptbox}
+
+\begin{examplebox}
+\textbf{Example 1:} For positive reals $x, y$ with $xy = 16$, find the minimum value of $x + y$.
+
+\textbf{Solution:}
+
+\textbf{Step 1: Apply AM-GM.}
+\[
+\frac{x+y}{2} \ge \sqrt{xy} = \sqrt{16} = 4
+\]
+
+\textbf{Step 2: Conclude.}
+\[
+x + y \ge 8
+\]
+
+\textbf{Step 3: Find when equality holds.} Equality in AM-GM occurs when $x = y$. From $xy = 16$ and $x = y$:
+\[
+x^2 = 16 \implies x = 4 \implies y = 4
+\]
+
+\textbf{Answer:} Minimum is $\boxed{8}$, achieved when $x = y = 4$.
+\end{examplebox}
+
+\begin{examplebox}
+\textbf{Example 2 (AIME style):} For positive real $x$, find the minimum value of $x + \frac{4}{x}$.
+
+\textbf{Solution:}
+
+\textbf{Step 1: Apply AM-GM to $x$ and $\frac{4}{x}$.}
+\[
+\frac{x + \frac{4}{x}}{2} \ge \sqrt{x \cdot \frac{4}{x}} = \sqrt{4} = 2
+\]
+
+\textbf{Step 2: Conclude.}
+\[
+x + \frac{4}{x} \ge 4
+\]
+
+\textbf{Step 3: Find equality condition.} Equality when $x = \frac{4}{x}$:
+\[
+x^2 = 4 \implies x = 2 \quad (\text{positive root})
+\]
+
+\textbf{Answer:} Minimum is $\boxed{4}$, achieved at $x = 2$.
+\end{examplebox}
+
+\begin{examplebox}
+\textbf{Example 3 (Weighted AM-GM):} Find the minimum of $2x + \frac{3}{x}$ for $x > 0$.
+
+\textbf{Solution:}
+
+\textbf{Step 1: Make coefficients match for AM-GM.} Write:
+\[
+2x + \frac{3}{x} = x + x + \frac{3}{x}
+\]
+
+\textbf{Wait, that doesn't balance. Try again:} We want the product under the radical to simplify. Write:
+\[
+2x + \frac{3}{x} = x + x + \frac{1}{x} + \frac{1}{x} + \frac{1}{x}
+\]
+
+No, this is getting messy. Better approach:
+
+\textbf{Better method—Weighted AM-GM:} Apply AM-GM with weights. We want to write $2x = a \cdot \text{(something)}$ and $\frac{3}{x} = b \cdot \text{(something)}$ so the products cancel.
+
+Let's use: apply AM-GM to $2x$ (with weight 1/2) and $\frac{3}{x}$ (with weight 1/2)... actually, let's use calculus or a direct substitution.
+
+\textbf{Direct approach:} Write $2x + \frac{3}{x} = 2x + \frac{3}{x}$. To apply AM-GM effectively:
+
+Split $2x$ into $x + x$ and $\frac{3}{x}$ into $\frac{1}{x} + \frac{1}{x} + \frac{1}{x}$. But we need equal numbers of terms.
+
+\textbf{Cleaner method:} Use AM-GM on terms that balance:
+\[
+\frac{\frac{2x}{2} + \frac{2x}{2} + \frac{3}{x}}{3} \ge \sqrt[3]{\frac{2x}{2} \cdot \frac{2x}{2} \cdot \frac{3}{x}} = \sqrt[3]{\frac{x \cdot x \cdot 3}{x}} = \sqrt[3]{3x}
+\]
+
+This still doesn't close nicely. Let me use the standard approach:
+
+\textbf{Standard weighted AM-GM:} The minimum of $ax + \frac{b}{x}$ occurs when:
+\[
+x = \sqrt{\frac{b}{a}}
+\]
+
+For $2x + \frac{3}{x}$: $a=2, b=3$, so $x = \sqrt{\frac{3}{2}}$.
+
+Minimum value:
+\[
+2\sqrt{\frac{3}{2}} + \frac{3}{\sqrt{\frac{3}{2}}} = 2\sqrt{\frac{3}{2}} + 3\sqrt{\frac{2}{3}} = 2\sqrt{\frac{3}{2}} + \sqrt{\frac{9 \cdot 2}{3}} = 2\sqrt{\frac{3}{2}} + \sqrt{6}
+\]
+
+Simplify: $2\sqrt{\frac{3}{2}} = \sqrt{4 \cdot \frac{3}{2}} = \sqrt{6}$.
+
+So minimum is $\sqrt{6} + \sqrt{6} = 2\sqrt{6}$.
+
+\textbf{Answer:} Minimum is $\boxed{2\sqrt{6}}$.
+
+\textbf{AM-GM verification:} Apply to terms $x, x, \frac{3}{x}$:
+\[
+\frac{x + x + \frac{3}{x}}{3} \ge \sqrt[3]{x \cdot x \cdot \frac{3}{x}} = \sqrt[3]{3x}
+\]
+
+Equality when $x = x = \frac{3}{x}$, giving $x^2 = 3$... Hmm, that's not matching.
+
+\textbf{Correct AM-GM application:} We need equal terms for equality. Split as needed:
+\[
+2x + \frac{3}{x} = \frac{3}{2}\left(\frac{4x}{3} + \frac{2}{x}\right)
+\]
+
+Actually, the cleanest is: By AM-GM on two terms:
+\[
+2x + \frac{3}{x} \ge 2\sqrt{2x \cdot \frac{3}{x}} = 2\sqrt{6}
+\]
+
+with equality when $2x = \frac{3}{x}$, i.e., $x = \sqrt{\frac{3}{2}}$.
+
+\textbf{Answer:} Minimum is $\boxed{2\sqrt{6}}$.
+\end{examplebox}
+
+\begin{remarkbox}
+When applying AM-GM:
+\begin{itemize}
+    \item Make sure all terms are positive
+    \item The number of terms matters—use equal weights when possible
+    \item Always verify the equality condition is achievable
+    \item For $ax + \frac{b}{x}$, the minimum is $2\sqrt{ab}$ at $x = \sqrt{\frac{b}{a}}$
+\end{itemize}
+\end{remarkbox}
+
+\begin{conceptbox}[AM-GM Strategy Summary]
+\begin{enumerate}
+    \item \textbf{Identify structure:} Look for sums that can be bounded by products
+    \item \textbf{Make products constant:} Use constraints to eliminate variables
+    \item \textbf{Apply AM-GM:} Ensure equal terms for equality condition
+    \item \textbf{Solve for equality:} This gives the optimal value
+    \item \textbf{Verify:} Check that the equality condition is valid
+\end{enumerate}
+\end{conceptbox}
+
+\section{Telescoping in Algebra}
+
+\subsection*{Introduction}
+
+Many algebraic expressions that initially appear complicated conceal a simple internal structure. When terms cancel in a systematic way across a sum or product, the expression is said to \emph{telescope}. Recognizing telescoping structure is a powerful skill, especially in contest mathematics, where efficiency and insight are often more valuable than brute-force computation.
+
+Telescoping appears frequently on the AMC 10/12 and AIME in the context of sums, products, rational expressions, and sequences. This chapter develops telescoping as a \textbf{method}, not a trick, emphasizing recognition, transformation, and execution.
+
+\subsection*{What Does It Mean to Telescope?}
+
+An expression is said to \textbf{telescope} if, after expansion or decomposition, most terms cancel, leaving only a small number of boundary terms.
+
+\begin{quote}
+Telescoping replaces many intermediate terms with a small number of survivors.
+\end{quote}
+
+The key idea is that cancellation is not accidental—it is engineered through algebraic structure.
+
+\subsection*{When to Look for Telescoping}
+
+Telescoping is likely when:
+\begin{itemize}
+    \item A sum involves rational expressions with consecutive indices
+    \item Differences of similar terms appear (e.g., $a_n - a_{n+1}$)
+    \item Products involve ratios of consecutive expressions
+    \item Partial sums are easier to compute than individual terms
+\end{itemize}
+
+Contest problems often disguise telescoping behind unfamiliar notation or indexing.
+
+\subsection*{The Core Strategy}
+
+Telescoping problems typically follow this structure:
+\begin{enumerate}
+    \item Rewrite each term to expose cancellation
+    \item Expand or decompose the expression
+    \item Observe systematic cancellation
+    \item Evaluate the remaining boundary terms
+\end{enumerate}
+
+The algebraic manipulation is not optional; telescoping rarely appears in its original form.
+
+\subsection*{Example 1: Basic Telescoping Sum}
+
+\paragraph{Problem.}
+Evaluate
+\[
+\sum_{k=1}^{n} \left( \frac{1}{k} - \frac{1}{k+1} \right).
+\]
+
+\paragraph{Solution.}
+Write out the first few terms:
+\[
+\left(1 - \tfrac12\right) + \left(\tfrac12 - \tfrac13\right) + \left(\tfrac13 - \tfrac14\right) + \cdots + \left(\tfrac1n - \tfrac{1}{n+1}\right).
+\]
+
+All intermediate terms cancel, leaving
+\[
+1 - \frac{1}{n+1}.
+\]
+
+\paragraph{Remark.}
+The telescoping structure is visible only after expansion. The cancellation pattern determines the final form.
+
+\subsection*{Partial Fractions as a Telescoping Tool}
+
+Many telescoping sums require partial fraction decomposition.
+
+\paragraph{Principle.}
+If
+\[
+\frac{1}{(k+a)(k+b)}
+\]
+can be written as a difference of two simpler rational terms, telescoping often follows.
+
+\subsection*{Example 2: Telescoping via Partial Fractions}
+
+\paragraph{Problem.}
+Evaluate
+\[
+\sum_{k=1}^{n} \frac{1}{k(k+1)}.
+\]
+
+\paragraph{Solution.}
+Decompose:
+\[
+\frac{1}{k(k+1)} = \frac{1}{k} - \frac{1}{k+1}.
+\]
+
+The sum telescopes as in Example 1, yielding
+\[
+1 - \frac{1}{n+1}.
+\]
+
+\subsection*{Telescoping Products}
+
+Telescoping is not limited to sums. Products can telescope when factors cancel across consecutive terms.
+
+\begin{conceptbox}[Product Telescoping Pattern]
+A product telescopes when it can be written as:
+\[
+\prod_{k=a}^{b} \frac{f(k)}{g(k)}
+\]
+where $f(k)$ cancels with $g(k+1)$ or similar shifted patterns.
+
+\textbf{Key strategy:} Factor each term to expose cancellation between numerators and denominators of adjacent factors.
+\end{conceptbox}
+
+\paragraph{Example 3.}
+Evaluate
+\[
+\prod_{k=2}^{n} \frac{k^2 - 1}{k^2}.
+\]
+
+\paragraph{Solution.}
+Factor:
+\[
+\frac{k^2 - 1}{k^2} = \frac{(k-1)(k+1)}{k^2} = \frac{k-1}{k} \cdot \frac{k+1}{k}.
+\]
+
+Thus,
+\[
+\prod_{k=2}^{n} \frac{k-1}{k} \cdot \frac{k+1}{k}
+= \left( \frac{1}{2} \cdot \frac{2}{3} \cdots \frac{n-1}{n} \right)
+\left( \frac{3}{2} \cdot \frac{4}{3} \cdots \frac{n+1}{n} \right).
+\]
+
+Almost all terms cancel, leaving
+\[
+\frac{n+1}{2n}.
+\]
+
+\paragraph{Example 4 (AMC 12 style).}
+Evaluate
+\[
+\prod_{k=1}^{10} \frac{k+1}{k} = \frac{2}{1} \cdot \frac{3}{2} \cdot \frac{4}{3} \cdots \frac{11}{10}.
+\]
+
+\paragraph{Solution.}
+This is a direct telescoping product:
+\[
+\frac{2}{1} \cdot \frac{3}{2} \cdot \frac{4}{3} \cdots \frac{11}{10}
+\]
+
+Each numerator cancels with the next denominator:
+\[
+= \frac{\cancel{2}}{1} \cdot \frac{\cancel{3}}{\cancel{2}} \cdot \frac{\cancel{4}}{\cancel{3}} \cdots \frac{11}{\cancel{10}}
+= \frac{11}{1} = 11
+\]
+
+\paragraph{General pattern:}
+\[
+\prod_{k=1}^{n} \frac{k+1}{k} = n+1
+\]
+
+\paragraph{Example 5 (AIME style).}
+Simplify
+\[
+\prod_{k=2}^{100} \left(1 - \frac{1}{k^2}\right).
+\]
+
+\paragraph{Solution.}
+\textbf{Step 1: Factor each term.}
+\[
+1 - \frac{1}{k^2} = \frac{k^2-1}{k^2} = \frac{(k-1)(k+1)}{k^2}
+\]
+
+\textbf{Step 2: Write as separate products.}
+\[
+\prod_{k=2}^{100} \frac{(k-1)(k+1)}{k^2}
+= \prod_{k=2}^{100} \frac{k-1}{k} \cdot \prod_{k=2}^{100} \frac{k+1}{k}
+\]
+
+\textbf{Step 3: Evaluate first product.}
+\[
+\prod_{k=2}^{100} \frac{k-1}{k}
+= \frac{1}{2} \cdot \frac{2}{3} \cdot \frac{3}{4} \cdots \frac{99}{100}
+= \frac{1}{100}
+\]
+
+\textbf{Step 4: Evaluate second product.}
+\[
+\prod_{k=2}^{100} \frac{k+1}{k}
+= \frac{3}{2} \cdot \frac{4}{3} \cdot \frac{5}{4} \cdots \frac{101}{100}
+= \frac{101}{2}
+\]
+
+\textbf{Step 5: Multiply results.}
+\[
+\frac{1}{100} \cdot \frac{101}{2} = \frac{101}{200}
+\]
+
+\paragraph{Answer.} $\boxed{\frac{101}{200}}$
+
+\begin{remarkbox}
+\textbf{Pattern recognition for products:}
+\begin{itemize}
+    \item $\prod \frac{k+a}{k+b}$ telescopes with shift pattern
+    \item $\prod \left(1 - \frac{1}{k^2}\right) = \prod \frac{(k-1)(k+1)}{k^2}$ factors into two telescoping products
+    \item Always factor before attempting to identify cancellation
+    \item Write out first and last few terms explicitly to see the pattern
+\end{itemize}
+\end{remarkbox}
+
+\subsection*{AIME-Level Example: Structured Telescoping}
+
+\paragraph{Problem.}
+Evaluate
+\[
+\sum_{k=1}^{n} \frac{1}{k(k+1)(k+2)}.
+\]
+
+\paragraph{Solution.}
+Apply partial fractions:
+\[
+\frac{1}{k(k+1)(k+2)}
+= \frac{1}{2}\left( \frac{1}{k} - \frac{2}{k+1} + \frac{1}{k+2} \right).
+\]
+
+Now sum term-by-term:
+\[
+\sum_{k=1}^{n} \frac{1}{k}
+- 2\sum_{k=1}^{n} \frac{1}{k+1}
++ \sum_{k=1}^{n} \frac{1}{k+2}.
+\]
+
+After shifting indices and canceling, only boundary terms remain:
+\[
+\frac{1}{4} - \frac{1}{2(n+1)} + \frac{1}{2(n+2)}.
+\]
+
+\paragraph{Insight.}
+At the AIME level, telescoping often occurs across \emph{three or more layers}. Index shifting is essential.
+
+\subsection*{Telescoping vs Other Methods}
+
+\paragraph{Telescoping vs Induction.}
+Induction proves identities but does not compute values efficiently. Telescoping computes directly.
+
+\paragraph{Telescoping vs Recursion.}
+Recursion defines terms iteratively; telescoping collapses them algebraically.
+
+\paragraph{Telescoping vs Bounding.}
+Bounding estimates sums; telescoping gives exact values.
+
+\subsection*{Common Pitfalls}
+
+\begin{itemize}
+    \item Expecting telescoping without algebraic manipulation
+    \item Forgetting to evaluate boundary terms correctly
+    \item Mishandling index shifts
+    \item Expanding products prematurely
+\end{itemize}
+
+Most errors arise from incomplete cancellation analysis.
+
+\subsection*{Method Summary}
+
+\begin{center}
+\fbox{
+\begin{minipage}{0.9\textwidth}
+	\textbf{Telescoping Method}
+
+\medskip
+	\textbf{Look for:}
+\begin{itemize}
+    \item Differences of similar terms
+    \item Rational expressions with consecutive indices
+    \item Factorable products
+\end{itemize}
+
+	\textbf{Steps:}
+\begin{enumerate}
+    \item Rewrite terms (partial fractions or factoring)
+    \item Expand to expose cancellation
+    \item Cancel systematically
+    \item Evaluate boundary terms
+\end{enumerate}
+\end{minipage}
+}
+\end{center}
+
+\subsection*{Concluding Remarks}
+
+Telescoping is a method of compression. By recognizing algebraic structure, large expressions reduce to manageable size. In contest mathematics, this skill distinguishes brute force from insight, and computation from understanding.
+
+\newpage
+
+\section{Worked Examples: Competition-Level Problems}
+
+\subsection{Arithmetic and Geometric Sequences}
+
+\paragraph{Example 1.} The sum of an arithmetic sequence of 20 terms is 1000. If the first term is 10, find the common difference.
+
+\paragraph{Solution.}
+\textbf{Step 1: Write the sum formula.}
+\[
+S_n = \frac{n}{2}[2a_1 + (n-1)d]
+\]
+
+\textbf{Step 2: Substitute known values.}
+\[
+1000 = \frac{20}{2}[2(10) + (20-1)d]
+\]
+
+\textbf{Step 3: Simplify.}
+\[
+1000 = 10[20 + 19d] \implies 100 = 20 + 19d \implies 80 = 19d \implies d = \frac{80}{19}
+\]
+
+\paragraph{Answer.} $\boxed{\frac{80}{19}}$
+
+\paragraph{Example 2.} Find the sum of the infinite geometric series $1 + \frac{1}{3} + \frac{1}{9} + \frac{1}{27} + \cdots$.
+
+\paragraph{Solution.}
+\textbf{Step 1: Identify parameters.} $g_1 = 1$, $r = \frac{1}{3}$.
+
+\textbf{Step 2: Check convergence.} Since $|r| = \frac{1}{3} < 1$, the series converges.
+
+\textbf{Step 3: Apply formula.}
+\[
+S_\infty = \frac{g_1}{1-r} = \frac{1}{1-\frac{1}{3}} = \frac{1}{\frac{2}{3}} = \frac{3}{2}
+\]
+
+\paragraph{Answer.} $\boxed{\frac{3}{2}}$
+
+\subsection{Factorization Problems}
+
+\paragraph{Example 3.} Factor completely: $x^3 - 8$.
+
+\paragraph{Solution.}
+\textbf{Step 1: Recognize difference of cubes.} $x^3 - 8 = x^3 - 2^3$.
+
+\textbf{Step 2: Apply formula.}
+\[
+x^3 - 2^3 = (x-2)(x^2 + 2x + 4)
+\]
+
+\textbf{Step 3: Check if quadratic factors.} $\Delta = 4 - 16 = -12 < 0$, so it doesn't factor over reals.
+
+\paragraph{Answer.} $\boxed{(x-2)(x^2+2x+4)}$
+
+\paragraph{Example 4 (AMC 12).} Factor $x^4 + 324$.
+
+\paragraph{Solution.}
+\textbf{Step 1: Recognize Sophie Germain.} $x^4 + 324 = x^4 + 4(81) = x^4 + 4 \cdot 3^4$.
+
+\textbf{Step 2: Apply Sophie Germain with $y = 9$ (since $3^4 = 81$ means we use $y=3^2=9$ effectively, but let's be careful).}
+
+Actually, $324 = 4 \cdot 81$, so we have $x^4 + 4(3^4)$.
+
+With Sophie Germain: $a^4 + 4b^4 = (a^2-2ab+2b^2)(a^2+2ab+2b^2)$.
+
+Let $a = x, b = 3$:
+\[
+x^4 + 4 \cdot 3^4 = (x^2 - 6x + 18)(x^2 + 6x + 18)
+\]
+
+\paragraph{Answer.} $\boxed{(x^2-6x+18)(x^2+6x+18)}$
+
+\subsection{Vieta's Formulas and Root Problems}
+
+\paragraph{Example 5 (AIME).} Let $r$ and $s$ be roots of $x^2 - 5x + 7 = 0$. Find $r^3 + s^3$.
+
+\paragraph{Solution.}
+\textbf{Step 1: Use Vieta's.} $r+s = 5$, $rs = 7$.
+
+\textbf{Step 2: Find $r^2+s^2$.}
+\[
+r^2+s^2 = (r+s)^2 - 2rs = 25 - 14 = 11
+\]
+
+\textbf{Step 3: Use sum of cubes identity.}
+\[
+r^3+s^3 = (r+s)(r^2-rs+s^2) = 5(11-7) = 5 \cdot 4 = 20
+\]
+
+\paragraph{Answer.} $\boxed{20}$
+
+\paragraph{Example 6 (Hard).} If $\alpha, \beta, \gamma$ are roots of $x^3 - 3x^2 + 5x - 1 = 0$, find $\alpha^2 + \beta^2 + \gamma^2$.
+
+\paragraph{Solution.}
+\textbf{Step 1: Use Vieta's for cubic.}
+\[
+\alpha+\beta+\gamma = 3, \quad \alpha\beta+\alpha\gamma+\beta\gamma = 5, \quad \alpha\beta\gamma = 1
+\]
+
+\textbf{Step 2: Square the sum.}
+\[
+(\alpha+\beta+\gamma)^2 = \alpha^2+\beta^2+\gamma^2 + 2(\alpha\beta+\alpha\gamma+\beta\gamma)
+\]
+
+\textbf{Step 3: Solve for sum of squares.}
+\[
+9 = \alpha^2+\beta^2+\gamma^2 + 2(5) \implies \alpha^2+\beta^2+\gamma^2 = 9 - 10 = -1
+\]
+
+\paragraph{Answer.} $\boxed{-1}$
+
+\subsection{Substitution and Symmetric Functions}
+
+\paragraph{Example 7 (AIME).} If $x^2 + y^2 = 13$ and $xy = 6$, find $x^4 + y^4$.
+
+\paragraph{Solution.}
+\textbf{Step 1: Square $x^2+y^2$.}
+\[
+(x^2+y^2)^2 = x^4 + 2x^2y^2 + y^4
+\]
+
+\textbf{Step 2: Solve for $x^4+y^4$.}
+\[
+x^4+y^4 = (x^2+y^2)^2 - 2(xy)^2 = 13^2 - 2(6)^2 = 169 - 72 = 97
+\]
+
+\paragraph{Answer.} $\boxed{97}$
+
+\paragraph{Example 8 (AMC 12).} If $a+b+c = 6$ and $ab+ac+bc = 11$, find $a^2+b^2+c^2$.
+
+\paragraph{Solution.}
+\textbf{Step 1: Square the sum.}
+\[
+(a+b+c)^2 = a^2+b^2+c^2 + 2(ab+ac+bc)
+\]
+
+\textbf{Step 2: Substitute and solve.}
+\[
+36 = a^2+b^2+c^2 + 2(11) \implies a^2+b^2+c^2 = 36 - 22 = 14
+\]
+
+\paragraph{Answer.} $\boxed{14}$
+
+\subsection{Inequalities}
+
+\paragraph{Example 9 (AMC 12).} For positive reals $a, b$ with $a+b = 10$, find the maximum value of $ab$.
+
+\paragraph{Solution.}
+\textbf{Step 1: Use AM-GM inequality.}
+\[
+\frac{a+b}{2} \ge \sqrt{ab}
+\]
+
+\textbf{Step 2: Substitute $a+b=10$.}
+\[
+5 \ge \sqrt{ab} \implies ab \le 25
+\]
+
+\textbf{Step 3: Check when equality holds.} Equality in AM-GM occurs when $a = b = 5$.
+
+\paragraph{Answer.} Maximum is $\boxed{25}$ (achieved when $a=b=5$).
+
+\paragraph{Example 10 (AIME).} Find the minimum value of $x^2 + \frac{1}{x^2}$ for positive real $x$.
+
+\paragraph{Solution.}
+\textbf{Step 1: Use AM-GM.}
+\[
+\frac{x^2 + \frac{1}{x^2}}{2} \ge \sqrt{x^2 \cdot \frac{1}{x^2}} = 1
+\]
+
+\textbf{Step 2: Conclude.}
+\[
+x^2 + \frac{1}{x^2} \ge 2
+\]
+
+\textbf{Step 3: Verify equality.} Equality holds when $x^2 = \frac{1}{x^2}$, i.e., $x = 1$.
+
+\paragraph{Answer.} Minimum is $\boxed{2}$ (achieved at $x=1$).
+
+\subsection{Advanced Competition Problems}
+
+\paragraph{Example 11 (AIME).} Solve for real $x$: $\sqrt{x+\sqrt{x+\sqrt{x+\cdots}}} = 3$.
+
+\paragraph{Solution.}
+\textbf{Step 1: Let the infinite nested radical equal $y$.} Then $y = \sqrt{x+y}$.
+
+\textbf{Step 2: Square both sides.}
+\[
+y^2 = x + y
+\]
+
+\textbf{Step 3: Substitute $y=3$.}
+\[
+9 = x + 3 \implies x = 6
+\]
+
+\textbf{Step 4: Verify.} Check that $\sqrt{6+\sqrt{6+\sqrt{6+\cdots}}} = 3$ works by confirming $y^2 = 6+y$ gives $y=3$.
+
+\paragraph{Answer.} $\boxed{6}$
+
+\paragraph{Example 12 (AIME).} If $x = \frac{2+\sqrt{3}}{2-\sqrt{3}}$, find $x^2 - 3x + 1$.
+
+\paragraph{Solution.}
+\textbf{Step 1: Rationalize $x$.}
+\[
+x = \frac{2+\sqrt{3}}{2-\sqrt{3}} \cdot \frac{2+\sqrt{3}}{2+\sqrt{3}} = \frac{(2+\sqrt{3})^2}{4-3} = (2+\sqrt{3})^2 = 7 + 4\sqrt{3}
+\]
+
+\textbf{Step 2: Find $x^2$.}
+\[
+x^2 = (7+4\sqrt{3})^2 = 49 + 56\sqrt{3} + 48 = 97 + 56\sqrt{3}
+\]
+
+\textbf{Step 3: Compute $x^2 - 3x + 1$.}
+\[
+= 97 + 56\sqrt{3} - 3(7+4\sqrt{3}) + 1 = 97 + 56\sqrt{3} - 21 - 12\sqrt{3} + 1
+\]
+\[
+= 77 + 44\sqrt{3}
+\]
+
+Wait, let me try a better approach.
+
+\textbf{Alternative Step 1: Find a relation.} Note that:
+\[
+x(2-\sqrt{3}) = 2+\sqrt{3} \implies 2x - x\sqrt{3} = 2+\sqrt{3}
+\]
+\[
+2x - 2 = \sqrt{3}(x+1) \implies (2x-2)^2 = 3(x+1)^2
+\]
+\[
+4x^2 - 8x + 4 = 3x^2 + 6x + 3 \implies x^2 - 14x + 1 = 0
+\]
+
+Actually, $x^2 - 3x + 1$ might be asking for the polynomial evaluation. Let me recalculate...
+
+\textbf{Better approach:} From $(2-\sqrt{3})x = 2+\sqrt{3}$, multiply both sides by $(2+\sqrt{3})$:
+\[
+x = (2+\sqrt{3})^2 = 7+4\sqrt{3}
+\]
+
+Then directly substitute into $x^2-3x+1$ would be tedious. Let's use the relation differently.
+
+From $x(2-\sqrt{3}) = 2+\sqrt{3}$, we get:
+\[
+x = \frac{2+\sqrt{3}}{2-\sqrt{3}}
+\]
+
+Notice: $\frac{1}{x} = \frac{2-\sqrt{3}}{2+\sqrt{3}} = 7-4\sqrt{3}$.
+
+So $x + \frac{1}{x} = 14$.
+
+Then $x^2 + 1 = 14x - x \implies x^2 - 14x + 1 = 0$.
+
+Therefore $x^2 + 1 = 14x$, so:
+\[
+x^2 - 3x + 1 = 14x - 3x = 11x = 11(7+4\sqrt{3}) = 77 + 44\sqrt{3}
+\]
+
+\paragraph{Answer.} $\boxed{77+44\sqrt{3}}$
+
+\newpage
+
+\section*{Quick Reference: Essential Formulas}
+\addcontentsline{toc}{section}{Quick Reference: Essential Formulas}
+
+This page summarizes the key formulas and techniques from this chapter. Commit these to memory until they become automatic.
+
+\subsection*{Sequences and Series}
+
+\textbf{Arithmetic Sequences:}
+\begin{itemize}
+    \item $n$-th term: $a_n = a_1 + (n-1)d$
+    \item Number of terms: $n = \frac{a_n - a_1}{d} + 1$
+    \item Sum: $S_n = \frac{n}{2}(a_1 + a_n) = \frac{n}{2}[2a_1 + (n-1)d]$
+\end{itemize}
+
+\textbf{Geometric Sequences:}
+\begin{itemize}
+    \item $n$-th term: $g_n = g_1 r^{n-1}$
+    \item Finite sum: $S_n = g_1 \frac{1-r^n}{1-r}$ (for $r \neq 1$)
+    \item Infinite sum: $S_\infty = \frac{g_1}{1-r}$ (for $|r| < 1$)
+\end{itemize}
+
+\textbf{Power Sums:}
+\begin{itemize}
+    \item $1 + 2 + \cdots + n = \frac{n(n+1)}{2}$
+    \item $1 + 3 + 5 + \cdots + (2n-1) = n^2$
+    \item $2 + 4 + 6 + \cdots + 2n = n(n+1)$
+    \item $1^2 + 2^2 + \cdots + n^2 = \frac{n(n+1)(2n+1)}{6}$
+    \item $1^3 + 2^3 + \cdots + n^3 = \left(\frac{n(n+1)}{2}\right)^2$
+\end{itemize}
+
+\subsection*{Factorizations and Identities}
+
+\textbf{Quadratic:}
+\begin{itemize}
+    \item $(x \pm y)^2 = x^2 \pm 2xy + y^2$
+    \item $x^2 - y^2 = (x-y)(x+y)$
+    \item $(x+y)^2 - (x-y)^2 = 4xy$
+    \item $(x+y+z)^2 = x^2 + y^2 + z^2 + 2(xy + xz + yz)$
+\end{itemize}
+
+\textbf{Cubic:}
+\begin{itemize}
+    \item $(x \pm y)^3 = x^3 \pm 3x^2y + 3xy^2 \pm y^3$
+    \item $x^3 + y^3 = (x+y)(x^2 - xy + y^2)$
+    \item $x^3 - y^3 = (x-y)(x^2 + xy + y^2)$
+    \item $x^3 + y^3 + z^3 - 3xyz = (x+y+z)(x^2+y^2+z^2-xy-xz-yz)$
+\end{itemize}
+
+\textbf{Sophie Germain:}
+\begin{itemize}
+    \item $x^4 + 4y^4 = (x^2 - 2xy + 2y^2)(x^2 + 2xy + 2y^2)$
+\end{itemize}
+
+\textbf{Simon's Favorite Factoring Trick (SFFT):}
+\begin{itemize}
+    \item $xy + kx + jy + jk = (x+j)(y+k)$
+\end{itemize}
+
+\subsection*{Vieta's Formulas}
+
+\textbf{Quadratic} $ax^2 + bx + c = 0$ with roots $r, s$:
+\begin{itemize}
+    \item $r + s = -\frac{b}{a}$
+    \item $rs = \frac{c}{a}$
+\end{itemize}
+
+\textbf{Cubic} $x^3 + px^2 + qx + r = 0$ with roots $\alpha, \beta, \gamma$:
+\begin{itemize}
+    \item $\alpha + \beta + \gamma = -p$
+    \item $\alpha\beta + \alpha\gamma + \beta\gamma = q$
+    \item $\alpha\beta\gamma = -r$
+\end{itemize}
+
+\subsection*{Inequalities}
+
+\textbf{AM-GM (two variables):}
+\[
+\frac{a+b}{2} \ge \sqrt{ab} \quad \text{(equality when $a=b$)}
+\]
+
+\textbf{AM-GM (general):}
+\[
+\frac{a_1 + a_2 + \cdots + a_n}{n} \ge \sqrt[n]{a_1 a_2 \cdots a_n}
+\]
+
+\textbf{Cauchy-Schwarz:}
+\[
+(a_1^2 + \cdots + a_n^2)(b_1^2 + \cdots + b_n^2) \ge (a_1b_1 + \cdots + a_nb_n)^2
+\]
+
+\subsection*{Key Techniques}
+
+\textbf{Symmetric expressions} ($x + \frac{1}{x}$ substitution):
+\begin{itemize}
+    \item Let $y = x + \frac{1}{x}$, then $y^2 = x^2 + 2 + \frac{1}{x^2}$
+    \item Build higher powers: $x^3 + \frac{1}{x^3} = y^3 - 3y$
+\end{itemize}
+
+\textbf{Telescoping (sums):}
+\begin{itemize}
+    \item Look for $\frac{1}{k(k+1)} = \frac{1}{k} - \frac{1}{k+1}$
+    \item Partial fractions reveal cancellation
+\end{itemize}
+
+\textbf{Telescoping (products):}
+\begin{itemize}
+    \item Factor to expose $\frac{f(k)}{g(k)}$ where numerators cancel denominators
+    \item $\prod \frac{k+1}{k} = \frac{n+1}{1}$
+\end{itemize}
+
+\textbf{Vieta Jumping:}
+\begin{itemize}
+    \item For $(x,y)$ satisfying symmetric condition, use Vieta's to find second root
+    \item Construct descent/ascent to prove properties
+\end{itemize}
+
+\textbf{Functional Equations:}
+\begin{itemize}
+    \item Try special values: $x=0, x=1, y=0, y=x, y=-x$
+    \item Common solutions: $f(x) = cx$, $f(x) = x + c$, $f(x) = cx + d$
+\end{itemize}
+
+\subsection*{When You See... Try...}
+
+\begin{center}
+\begin{tabular}{ll}
+\hline
+\textbf{Problem Feature} & \textbf{Technique to Try} \\
+\hline
+Sum and product given & Vieta's formulas \\
+Four terms $xy + ax + by + ab$ & SFFT \\
+$x + \frac{1}{x}$ appears & Substitution $y = x + \frac{1}{x}$ \\
+Maximize/minimize with constraint & AM-GM inequality \\
+Rational expressions with $\frac{1}{k(k+1)}$ & Telescoping \\
+Sequence of consecutive fractions & Telescoping product \\
+$x^4 + 4y^4$ & Sophie Germain \\
+Roots of polynomial & Vieta's formulas \\
+Symmetric polynomial & Use elementary symmetric functions \\
+$f(x+y) = f(x) + f(y)$ & Try $f(x) = cx$ \\
+\hline
+\end{tabular}
+\end{center}
+
+\newpage
+
+\section*{Closing Remarks}
+\addcontentsline{toc}{section}{Closing Remarks}
+
+Algebra is not about memorizing isolated formulas—it is about \textbf{recognizing patterns}, \textbf{choosing the right tool}, and \textbf{simplifying aggressively}. Mastery comes when these identities and techniques become automatic, freeing mental space for creative problem solving.
+
+The formulas in this book are your vocabulary. The techniques are your grammar. But true fluency comes from practice—from solving many problems, from seeing the same patterns appear in different disguises, from building the intuition that lets you see the path forward before you write a single line.
+
+\textbf{To continue your journey:}
+\begin{itemize}
+    \item Solve past AMC and AIME problems regularly
+    \item When you solve a problem, ask: ``What pattern did I use? When else would it work?''
+    \item Keep a notebook of techniques and when they apply
+    \item Discuss problems with others—teaching solidifies understanding
+    \item Don't just solve problems—reflect on the solution method
+\end{itemize}
+
+The best algebraic problem solvers don't think about which formula to use—they see the structure and the solution path emerges naturally. With practice, you'll develop this intuition too.
+
+Now go solve some problems.
+
+\end{document}

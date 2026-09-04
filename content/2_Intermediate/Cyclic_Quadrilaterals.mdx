@@ -1,0 +1,226 @@
+---
+id: cyclic-quadrilaterals
+title: Cyclic Quadrilaterals
+author: USAMO Guide Team - Ava Berenji
+description: Opposite angles and Ptolemy's theorem.
+prerequisites: [circle-angles]
+---
+
+## Overview
+
+A cyclic quadrilateral is a quadrilateral whose four vertices lie on the same circle. This figure appears frequently in competition math as they satisfy many relations between side lengths and angles. For instance, opposite angles sum to $180^\circ,$ angles inscribed in the same arc are equal, and the side lengths satisfy Ptolemy's Theorem and Brahmagupta's Formula.
+
+## Definitions and Key Ideas
+
+We will be referring to the below diagram throughout the module.
+
+<div style={{ display: 'flex', justifyContent: 'center', margin: '2rem 0' }}>
+  <svg viewBox="0 0 320 320" width="280" height="280">
+    <circle cx="160" cy="160" r="120" fill="none" stroke="white" strokeWidth="2" />
+
+    <line x1="88" y1="64" x2="270" y2="140" stroke="white" strokeWidth="2" />
+    <line x1="270" y1="140" x2="210" y2="260" stroke="white" strokeWidth="2" />
+    <line x1="210" y1="260" x2="58" y2="205" stroke="white" strokeWidth="2" />
+    <line x1="58" y1="205" x2="88" y2="64" stroke="white" strokeWidth="2" />
+
+    <line x1="88" y1="64" x2="210" y2="260" stroke="white" strokeWidth="1.5" strokeDasharray="5 5" />
+    <line x1="58" y1="205" x2="270" y2="140" stroke="white" strokeWidth="1.5" strokeDasharray="5 5" />
+
+    <circle cx="88" cy="64" r="4" fill="white" />
+    <circle cx="270" cy="140" r="4" fill="white" />
+    <circle cx="210" cy="260" r="4" fill="white" />
+    <circle cx="58" cy="205" r="4" fill="white" />
+
+    <text x="72" y="54" fill="white" fontSize="16" fontFamily="serif">A</text>
+    <text x="278" y="144" fill="white" fontSize="16" fontFamily="serif">B</text>
+    <text x="214" y="280" fill="white" fontSize="16" fontFamily="serif">C</text>
+    <text x="38" y="211" fill="white" fontSize="16" fontFamily="serif">D</text>
+  </svg>
+</div>
+
+- Opposite angles are supplementary: $\angle A+\angle C=\angle B+\angle D=180^\circ.$
+- Angles that subtend the same chord are equal. For example, $\angle ABD=\angle ACD,$ because both angles subtend chord $AD.$
+- Ptolemy's Theorem relates the side lengths and diagonals: $AC\cdot BD=AB\cdot CD+AD\cdot BC.$
+- Brahmagupta's Formula relates side lengths to area: $K = \sqrt{(s-a)(s-b)(s-c)(s-d)},$ where $s$ is the semiperimeter of $ABCD.$
+- Many cyclic quadrilateral problems begin by proving that a quadrilateral is cyclic, then using the above angle or length relations.
+
+
+## Angle Relations
+
+### Opposite Angles
+
+If $ABCD$ is cyclic, then opposite angles are supplementary:
+
+$$
+\angle A+\angle C=180^\circ
+$$
+
+$$
+\angle B+\angle D=180^\circ.
+$$
+
+This follows from the inscribed angle theorem. Since $\angle A$ and $\angle C$ intercept arcs that together form the full circle, their intercepted arcs sum to $360^\circ$. Therefore, the angles themselves sum to half of that, or $180^\circ.$
+
+
+**Alternatively:** In a cyclic quadrilateral, an exterior angle equals the opposite interior angle. This follows directly from the opposite angle sum property. Consider using this form when lines are extended outside the quadrilateral.
+
+### Butterfly Theorem
+<div style={{ display: 'flex', justifyContent: 'center', margin: '2rem 0' }}>
+  <svg viewBox="0 0 320 320" width="280" height="280">
+    <circle cx="160" cy="160" r="120" fill="none" stroke="white" strokeWidth="2" />
+
+    <line x1="88" y1="64" x2="270" y2="140" stroke="white" strokeWidth="2" />
+    <line x1="270" y1="140" x2="210" y2="260" stroke="white" strokeWidth="2" />
+    <line x1="210" y1="260" x2="58" y2="205" stroke="white" strokeWidth="2" />
+    <line x1="58" y1="205" x2="88" y2="64" stroke="white" strokeWidth="2" />
+
+    <line x1="88" y1="64" x2="210" y2="260" stroke="white" strokeWidth="1.5" strokeDasharray="5 5" />
+    <line x1="58" y1="205" x2="270" y2="140" stroke="white" strokeWidth="1.5" strokeDasharray="5 5" />
+
+    {/* Angle ADB */}
+<path
+  d="M 64 178 A 28 28 0 0 1 89 199"
+  fill="none"
+  stroke="white"
+  strokeWidth="2"
+/>
+<path
+  d="M 66 168 A 38 38 0 0 1 100 196"
+  fill="none"
+  stroke="white"
+  strokeWidth="2"
+/>
+
+{/* Angle ACB */}
+<path
+  d="M 194 234 A 24 24 0 0 1 224 232"
+  fill="none"
+  stroke="white"
+  strokeWidth="2"
+/>
+<path
+  d="M 188 224 A 34 34 0 0 1 231 222"
+  fill="none"
+  stroke="white"
+  strokeWidth="2"
+/>
+
+    <circle cx="88" cy="64" r="4" fill="white" />
+    <circle cx="270" cy="140" r="4" fill="white" />
+    <circle cx="210" cy="260" r="4" fill="white" />
+    <circle cx="58" cy="205" r="4" fill="white" />
+
+    <text x="72" y="54" fill="white" fontSize="16" fontFamily="serif">A</text>
+    <text x="278" y="144" fill="white" fontSize="16" fontFamily="serif">B</text>
+    <text x="214" y="280" fill="white" fontSize="16" fontFamily="serif">C</text>
+    <text x="38" y="211" fill="white" fontSize="16" fontFamily="serif">D</text>
+  </svg>
+</div>
+
+Angles that subtend the same chord in a circle are equal. For example, in cyclic quadrilateral $ABCD$ above,
+
+$$
+\angle ADB=\angle ACB,
+$$
+
+because both angles subtend chord $AB,$ forming a "butterfly" configuration.
+
+Similarly,
+
+$$
+\angle BAC=\angle BDC,
+$$
+
+because both angles subtend chord $BC$.
+
+This is often a useful tool for angle chasing problems, as well as finding similar triangles.
+
+## Side Length Relations
+
+### Ptolemy's Theorem
+
+If $ABCD$ is cyclic, then
+
+$$
+AC\cdot BD=AB\cdot CD+AD\cdot BC.
+$$
+
+That is, $\text{diagonal}\cdot \text{diagonal} = \text{opposite side product}+\text{opposite side product}.$
+
+### Brahmagupta's Formula
+
+If a cyclic quadrilateral has side lengths $a,b,c,d$ and semiperimeter
+
+$$
+s=\frac{a+b+c+d}{2},
+$$
+
+then its area is
+
+$$
+K=\sqrt{(s-a)(s-b)(s-c)(s-d)}.
+$$
+
+**Note:** This formula is a generalization of Heron's formula. By taking $d=0,$ we turn the quadrilateral into a triangle, and we also turn this formula into Heron's formula!
+
+
+## Proving Cyclicity
+
+If it's not immediately obvious that a quadrilateral is cyclic (i.e. its vertices are given to lie on the same circle), there are several ways to prove this. In fact, the converse of most of the above relations are true, and give rise to the following methods:
+
+### 1. Opposite Angles Sum to $180^\circ$
+
+If 
+
+$$
+\angle A  + \angle C = 180^\circ
+$$
+
+then $ABCD$ is cyclic. Equivalently, a quadrilateral is cyclic if its exterior angle equals the opposite interior angle. 
+
+### 2. Equal Angles Subtend the Same Chord
+
+If 
+
+$$
+\angle ABD = \angle ACD
+$$
+
+then points $A,B,C,D$ lie on the same circle, in that order. In other words, both these angles subtend arc $AD.$
+
+
+## Common Pitfalls
+
+- Assuming a quadrilateral is cyclic without proof (e.g. based on appearance).
+- Using Ptolemy's Theorem or Brahmagupta's Formula on non-cyclic quadrilaterals.
+- Mixing up diagonals in Ptolemy's formula.
+- Mixing up the cyclic order of $A,B,C,D.$ Rarely, $ACBD$ may be a cyclic quadrilateral, in which case $ABCD$ is not meaningful.
+
+
+
+## Worked Example
+
+Cyclic quadrilateral has $\angle A = 70^\circ$. Find $\angle C$.
+
+$\angle C = 180^\circ - 70^\circ = 110^\circ$.
+
+## More Examples
+
+### Example 1: Ptolemy
+
+In cyclic $ABCD$, $AB=3$, $BC=4$, $CD=5$, $AD=6$, and diagonal $AC=7$.
+Find $BD$.
+
+$7\cdot BD = 3\cdot 5 + 6\cdot 4 = 39$, so $BD=39/7$.
+
+### Example 2: Cyclic Test
+
+If $\angle A = 85^\circ$ and $\angle C=95^\circ$, is $ABCD$ cyclic?
+
+Yes, since $\angle A + \angle C = 180^\circ$.
+
+
+
+## Practice Problems
+
+<Problems problems="practice" />

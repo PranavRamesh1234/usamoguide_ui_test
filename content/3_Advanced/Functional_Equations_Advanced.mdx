@@ -1,0 +1,263 @@
+---
+id: functional-equations-advanced
+title: Functional Equations (AIME Level)
+author: USAMO Guide Team
+description: More sophisticated substitutions and invariants in FE problems.
+prerequisites: ["functional-equations"]
+---
+
+## Overview
+
+Advanced functional equations often mix algebra and number theory. Expect to
+find hidden constraints via special inputs and symmetry.
+
+## Key Ideas
+
+- If $f$ is defined on integers, parity and modular arguments can restrict it.
+- Look for fixed points: solve $f(x)=x$ or $f(x)=c$.
+- Iteration (apply the equation repeatedly) can uncover structure.
+
+## Core Skills
+
+### Pin Down Constants
+
+Use $x=0$, $y=0$, $x=y$, or $x=-y$ to extract $f(0)$ and other constants.
+
+### Iterate the Functional Equation
+
+Apply the equation multiple times to relate $f(x)$ to $f(f(x))$ or $f(x+c)$.
+
+### Use Injectivity/Surjectivity
+
+Prove injectivity by showing $f(a)=f(b)\Rightarrow a=b$, then use it to
+simplify equations.
+
+## Worked Example
+
+If $f(x)=2x$ satisfies $f(x+y)=f(x)+f(y)$ for all $x,y$, then $f$ is additive.
+Many contest problems ask you to prove that linear functions are the only
+solutions.
+
+## Easy Warm-up Examples
+
+### Example 1: Fixed Point
+
+If $f(f(x))=x$, show $f$ is bijective.
+
+Apply $f$ to both sides to get $f(x)=f(f(f(x)))$, implying surjectivity and
+injectivity.
+
+### Example 2: Integer Restriction
+
+If $f:\mathbb{Z}\to\mathbb{Z}$ and $f(x+1)=f(x)+2$, then $f(x)=2x+c$.
+
+### Example 3: Symmetry
+
+If $f(x)+f(1-x)=1$, then setting $x=1-x$ gives $f(1/2)=1/2$.
+### Example 4: Injectivity Practice
+
+If
+
+$$
+f(x+f(y))=f(x)+y
+$$
+
+for all real numbers $x,y$, your goal is to show that $f$ is injective.
+
+Suppose $f(a)=f(b)$. Then
+
+$$
+f(x+f(a))=f(x)+a,
+$$
+
+and
+
+$$
+f(x+f(b))=f(x)+b.
+$$
+
+Since $f(a)=f(b)$, we obtain $a=b$.
+
+### Example 5: Surjectivity Practice
+
+If
+
+$$
+f(f(x))=f(0)+x
+$$
+
+for all real numbers $x$, your job is to show that $f$ is surjective.
+
+As $x$ varies over $\mathbb{R}$, the right-hand side attains every real value.
+Hence $f(f(x))$ attains every real value, so $f$ is surjective.
+
+### Example 6: What c makes the function 0?
+
+Suppose
+
+$$
+f(x+f(y))=f(x)+y
+$$
+
+for all real numbers $x,y$.
+
+Since $f$ is surjective, choose $c$ such that $f(c)=0$. Then
+
+$$
+f(x)=f(x+f(c))=f(x)+c,
+$$
+
+so $c=0$.
+
+### Example 7: Finding Solutions
+
+Your job is to find all linear solutions to the following functional equation:
+
+$$
+f(x+f(y))=f(x)+2y.
+$$
+
+First, we let $f(x)=ax+b$.Then, substituting gives
+
+$$
+a(x+ay+b)+b=ax+2y+b.
+$$
+
+Comparing coefficients yields
+
+$$
+a^2=2,\qquad ab=0.
+$$
+
+Since $a\neq 0$, we get $b=0$, so
+
+$$
+f(x)=\sqrt{2}\,x
+\quad\text{or}\quad
+f(x)=-\sqrt{2}\,x.
+$$
+
+### Example 8: What is $f(0)$?
+
+Suppose that
+
+$$
+f(x+y)+f(x-y)=2f(x)+2f(y)
+$$
+
+for all real numbers $x,y$.
+
+Setting $x=y=0$ gives
+
+$$
+2f(0)=4f(0),
+$$
+
+hence
+
+$$
+f(0)=0.
+$$
+
+### Example 9: Find the Functional Relation
+
+Suppose
+
+$$
+f(x+y)+f(x-y)=2f(x)+2f(y)
+$$
+
+and $f(0)=0$.
+
+Setting $y=x$ gives
+
+$$
+f(2x)+f(0)=4f(x),
+$$
+
+so
+
+$$
+f(2x)=4f(x).
+$$
+
+### Example 10: Iteration
+
+If $f(f(x))=f(0)+x$, show that $f(f(f(f(x))))=2f(0)+x$.
+
+Applying the given relation with $x$ replaced by $f(f(x))$ gives
+
+$$
+f(f(f(f(x))))=f(0)+f(f(x)).
+$$
+
+Using the original equation again,
+
+$$
+f(f(f(f(x))))=f(0)+(f(0)+x)=2f(0)+x.
+$$
+### Example 11: Constant Solutions
+
+Your goal here is to find all constant solutions of
+
+$$
+f(x+y)=f(x)f(y)-f(xy)+1.
+$$
+
+Let $f(x)\equiv c$. Then
+
+$$
+c=c^2-c+1.
+$$
+
+Thus
+
+$$
+(c-1)^2=0,
+$$
+
+so the only constant solution is
+
+$$
+f(x)\equiv 1.
+$$
+
+### Example 12: What is $f(0)$?
+
+If
+
+$$
+f(x+y)=f(x)f(y)-f(xy)+1
+$$
+
+for all real numbers $x,y$, show that either $f(0)=1$ or $f$ is constant.
+
+Setting $x=0$ gives
+
+$$
+f(y)=f(0)f(y)-f(0)+1.
+$$
+
+Letting $a=f(0)$, we obtain
+
+$$
+(1-a)f(y)=1-a.
+$$
+
+Thus either $a=1$ or
+
+$$
+f(y)\equiv 1.
+$$
+
+## Medium-Level Examples 
+
+## Strategy Checklist
+
+- Plug in special values to find constants.
+- Iterate the equation to uncover structure.
+- Use injectivity or surjectivity when possible.
+
+## Practice Problems
+
+<Problems problems="practice" />

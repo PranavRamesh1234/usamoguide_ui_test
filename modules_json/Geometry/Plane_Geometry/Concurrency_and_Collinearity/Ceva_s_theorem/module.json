@@ -1,0 +1,354 @@
+{
+  "MODULE_ID": "geometry-plane-geometry-concurrency-and-collinearity-ceva-s-theorem",
+  "practice": [
+    {
+      "uniqueId": "geometry-plane-geometry-concurrency-and-collinearity-ceva-s-theorem-auto-0368",
+      "name": "Berkeley Math Circle: Monthly Contest 2 #0hsw",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 2",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Ceva's theorem",
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Constructions and loci",
+        "Angle chasing"
+      ],
+      "statement": "Problem:\n\nSuppose you have only an unmarked straightedge (no compass), and you are given a line segment $A B$ with midpoint $O$ and a point $P$ not on line $A B$.\n\na. Construct a line through $P$ parallel to $A B$.\n\nb. If you are also given the circle with center $O$ and radius $O A$ and $P$ does not lie on the circle, construct a line through $P$ perpendicular to $A B$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\na.\nExtend line $A P$ to some point $Q$ on the opposite side of $P$ from $A$. Let $R$ be the intersection of lines $Q O$ and $P B$, and let $S$ be the intersection of lines $A R$ and $Q B$, as shown below.\n\n![](attached_image_1.png)\n\nBy Ceva's theorem,\n$$\n\\frac{Q P}{P A} \\cdot \\frac{A O}{O B} \\cdot \\frac{B S}{S Q} = 1\n$$\nIt follows that\n$$\n\\frac{Q P}{P A} = \\frac{Q S}{Q B}\n$$\nwhich means $\\triangle Q P S \\sim \\triangle Q A B$, therefore $\\angle Q P S = \\angle Q A B$ and so $P S \\parallel A B$.\n\nb.\nLet $P A$ and $P B$ meet the circle again at points $Q$ and $R$, respectively, and let $S$ be the intersection of $A R$ and $B Q$.\n\n![](attached_image_2.png)\n\nThen $\\angle A Q B = \\angle A R B = 90^\\circ$ since both angles are inscribed in a semicircle, so $S$ is the orthocenter of $\\triangle A B P$, which means $P S$ is the desired perpendicular."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-concurrency-and-collinearity-ceva-s-theorem-auto-0955",
+      "name": "USA IMO 2003 #0i97",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO 2003",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cyclic quadrilaterals",
+        "Ceva's theorem",
+        "Angle chasing"
+      ],
+      "statement": "Let $\\triangle ABC$ be a triangle. A circle passing through $A$ and $B$ intersects segments $AC$ and $BC$ at $D$ and $E$, respectively. Rays $BA$ and $ED$ intersect at $F$ while lines $BD$ and $CF$ intersect at $M$. Prove that $MF = MC$ if and only if $MB \\cdot MD = MC^2$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Extend segment $DM$ through $M$ to $G$ such that $FG \\parallel CD$.\n![](attached_image_1.png)\nThen $MF = MC$ if and only if quadrilateral $CDFG$ is a parallelogram, or, $FD \\parallel CG$. Hence $MC = MF$ if and only if $\\angle GCD = \\angle FDA$, that is, $\\angle FDA + \\angle CGF = 180^\\circ$.\n\nBecause quadrilateral $ABED$ is cyclic, $\\angle FDA = \\angle ABE$. It follows that $MC = MF$ if and only if\n$$\n180^\\circ = \\angle FDA + \\angle CGF = \\angle ABE + \\angle CGF,\n$$\nthat is, quadrilateral $CBFG$ is cyclic, which is equivalent to\n$$\n\\angle CBM = \\angle CBG = \\angle CFG = \\angle DCF = \\angle DCM.\n$$\nBecause $\\angle DMC = \\angle CMB$, $\\angle CBM = \\angle DCM$ if and only if triangles $BCM$ and $CDM$ are similar, that is\n$$\n\\frac{CM}{BM} = \\frac{DM}{CM},\n$$\nor $MB \\cdot MD = MC^2$.\n\n![](attached_image_2.png)\nWe first assume that $MB \\cdot MD = MC^2$. Because $\\frac{MC}{MD} = \\frac{MB}{MC}$ and $\\angle CMD = \\angle BMC$, triangles $CMD$ and $BMC$ are similar. Consequently, $\\angle MCD = \\angle MBC$. Because quadrilateral $ABED$ is cyclic, $\\angle DAE = \\angle DBE$. Hence\n$$\n\\angle FCA = \\angle MCD = \\angle MBC = \\angle DBE = \\angle DAE = \\angle CAE,\n$$\nimplying that $AE \\parallel CF$, and so $\\angle AEF = \\angle CFE$. Because quadrilateral $ABED$ is cyclic, $\\angle ABD = \\angle AED$. Hence\n$$\n\\angle FBM = \\angle ABD = \\angle AED = \\angle AEF = \\angle CFE = \\angle MFD.\n$$\nBecause $\\angle FBM = \\angle DFM$ and $\\angle FMB = \\angle DMF$, triangles $BFM$ and $FDM$ are similar. Consequently, $\\frac{FM}{DM} = \\frac{BM}{FM}$, or $FM^2 = BM \\cdot DM = CM^2$. Therefore $MC^2 = MB \\cdot MD$ implies $MC = MF$.\n\nNow we assume that $MC = MF$. Applying **Ceva's Theorem** to triangle $BCF$ and **cevians** $BM, CA, FE$ gives\n$$\n\\frac{BA}{AF} \\cdot \\frac{FM}{MC} \\cdot \\frac{CE}{EB} = 1,\n$$\nimplying that $\\frac{BA}{AF} = \\frac{BE}{EC}$, so $AE \\parallel CF$. Thus, $\\angle DCM = \\angle DAE$. Because quadrilateral $ABED$ is cyclic, $\\angle DAE = \\angle DBE$. Hence\n$$\n\\angle DCM = \\angle DAE = \\angle DBE = \\angle CBM.\n$$\nBecause $\\angle CBM = \\angle DCM$ and $\\angle CMB = \\angle DMC$, triangles $BCM$ and $CDM$ are similar. Consequently, $\\frac{CM}{DM} = \\frac{BM}{CM}$, or $CM^2 = BM \\cdot DM$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-concurrency-and-collinearity-ceva-s-theorem-auto-1068",
+      "name": "Harvard-MIT Mathematics Tournament #0icc",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Ceva's theorem",
+        "Angle chasing",
+        "Distance chasing"
+      ],
+      "statement": "Problem:\n\n$P$ is a point inside triangle $ABC$, and lines $AP$, $BP$, $CP$ intersect the opposite sides $BC$, $CA$, $AB$ in points $D$, $E$, $F$, respectively. It is given that $\\angle APB = 90^{\\circ}$, and that $AC = BC$ and $AB = BD$. We also know that $BF = 1$, and that $BC = 999$. Find $AF$.\n\n![](attached_image_1.png)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n![](attached_image_2.png)\nLet $AC = BC = s$, $AB = BD = t$. Since $BP$ is the altitude in isosceles triangle $ABD$, it bisects angle $B$. So, the Angle Bisector Theorem in triangle $ABC$ gives $AE / EC = AB / BC = t / s$. Meanwhile, $CD / DB = (s - t) / t$. Now Ceva's theorem gives us\n$$\n\\begin{gathered}\n\\frac{AF}{FB} = \\left(\\frac{AE}{EC}\\right) \\cdot \\left(\\frac{CD}{DB}\\right) = \\frac{s - t}{s} \\\\\n\\Rightarrow \\frac{AB}{FB} = 1 + \\frac{s - t}{s} = \\frac{2s - t}{s} \\Rightarrow FB = \\frac{st}{2s - t} .\n\\end{gathered}\n$$\nNow we know $s = 999$, but we need to find $t$ given that $st / (2s - t) = FB = 1$. So $st = 2s - t \\Rightarrow t = 2s / (s + 1)$, and then\n$$\nAF = FB \\cdot \\frac{AF}{FB} = 1 \\cdot \\frac{s - t}{s} = \\frac{(s^2 - s)/(s + 1)}{s} = \\frac{s - 1}{s + 1} = \\frac{499}{500} .\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-concurrency-and-collinearity-ceva-s-theorem-auto-1350",
+      "name": "Harvard-MIT Mathematics Tournament #0ik6",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Ceva's theorem",
+        "Triangle trigonometry",
+        "Distance chasing"
+      ],
+      "statement": "Problem:\n\nTriangle $A B C$ has side lengths $A B=2 \\sqrt{5}$, $B C=1$, and $C A=5$. Point $D$ is on side $A C$ such that $C D=1$, and $F$ is a point such that $B F=2$ and $C F=3$. Let $E$ be the intersection of lines $A B$ and $D F$. Find the area of $C D E B$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nDraw segment $A F$. Then notice $A F=4$, and we have a right triangle. Now draw line $C E$, let it intersect $A F$ at $G$. By Ceva, $F G=\\frac{4}{3}$ and $A G=\\frac{8}{3}$. Using mass points we find that $\\frac{A E}{E B}=6$ so $\\frac{[A E F]}{[B E F]}=6$, and since $[A B F]=4$, $[B E F]=\\frac{4}{7}$.\n\nIt's easy to see that $[C D F]=\\frac{1}{5}[A C F]=\\frac{6}{5}$, so\n$$\n[B C D E]=[C D F]-[B E F]=\\frac{6}{5}-\\frac{4}{7}=\\frac{22}{35}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-concurrency-and-collinearity-ceva-s-theorem-auto-1615",
+      "name": "1st Annual Harvard-MIT November Tournament #0irj",
+      "url": "https://usamoguide.com/",
+      "source": "1st Annual Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Ceva's theorem"
+      ],
+      "statement": "Problem:\n\nAlice has an equilateral triangle $A B C$ of area $1$. Put $D$ on $B C$, $E$ on $C A$, and $F$ on $A B$, with $B D = D C$, $C E = 2 E A$, and $2 A F = F B$. Note that $A D$, $B E$, and $C F$ pass through a single point $M$. What is the area of triangle $E M C$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $\\frac{1}{6}$\n\nTriangles $A C F$ and $B C F$ share a height, so the ratio of their areas is $A F / B F = 1 / 2$. By the same method, the ratio of the areas of $A M F$ and $B M F$ is $1 / 2$. So, the ratio of the areas of $A C M$ and $B C M$ is also $1 / 2$. Similarly, the ratio of the areas of $A B M$ and $B C M$ is $1 / 2$. But the sum of the areas of $A C M$, $B C M$, and $A B M$ is $1$, so the area of $A C M$ is $\\frac{1}{4}$. Then the area of $E M C$ is $2 / 3$ the area of $A C M$, because they share heights, so their areas are in the same ratio as their bases. The area of $E M C$ is then $\\frac{2 \\cdot 1}{3 \\cdot 4} = \\frac{1}{6}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-concurrency-and-collinearity-ceva-s-theorem-auto-2063",
+      "name": "Team Selection Test #0j3z",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Ceva's theorem",
+        "Menelaus' theorem",
+        "Cyclic quadrilaterals",
+        "Triangle trigonometry",
+        "Homothety",
+        "Polar triangles, harmonic conjugates",
+        "Angle chasing"
+      ],
+      "statement": "In an acute scalene triangle $ABC$, points $D$, $E$, $F$ lie on sides $BC$, $CA$, $AB$, respectively, such that $AD \\perp BC$, $BE \\perp CA$, $CF \\perp AB$. Altitudes $AD$, $BE$, $CF$ meet at orthocenter $H$. Points $P$ and $Q$ lie on segment $EF$ such that $AP \\perp EF$ and $HQ \\perp EF$. Lines $DP$ and $QH$ intersect at point $R$. Compute $HQ/HR$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "$$\n\\frac{HQ}{PA} = \\frac{HS}{AS} \\quad \\text{and} \\quad \\frac{RH}{PA} = \\frac{HD}{AD}.\n$$\nIt suffices to show that\n$$\n\\frac{HS}{AS} = \\frac{HD}{AD}, \\qquad (29)\n$$\nwhich we remark is equivalent to showing that $(A, H)$ and $(S, D)$ are harmonic conjugates. Applying Ceva's theorem to triangle $AHC$ and cevians $AD$, $BE$, and $CF$ gives\n$$\n\\frac{AE}{EC} \\cdot \\frac{CF}{FH} \\cdot \\frac{HD}{DA} = 1.\n$$\nApplying Menelaus's theorem to triangle $ACH$ and line $ESF$ yields\n$$\n\\frac{AE}{EC} \\cdot \\frac{CF}{FH} \\cdot \\frac{HS}{SA} = 1.\n$$\nEquating the left-hand sides of the last two equations gives (29), completing the proof.\n\nConsider the diagram shown above. We present another proof of (29). Let $\\angle ABC = B$ and $\\angle ACB = C$. In right triangles $BHD$ and $ABD$, we have $HD/BD = \\tan \\angle HBD = \\cot C$ and $AD/BD = \\tan B$. Dividing the last two equations gives\n$$\n\\frac{HD}{AD} = \\frac{\\cot C}{\\tan B} = \\cot B \\cot C. \\qquad (30)\n$$\nApplying the Law of Sines in triangles *EHS* and *AFS* gives\n$$\n\\frac{HS}{HE} = \\frac{\\sin \\angle SEH}{\\sin \\angle HSE} \\quad \\text{and} \\quad \\frac{AS}{AF} = \\frac{\\sin \\angle AFE}{\\sin \\angle ASF}.\n$$\nDividing the last two equations yields\n$$\n\\frac{HS}{AS} = \\frac{HE}{AF} \\cdot \\frac{\\sin \\angle SEH}{\\sin \\angle AFE}. \\qquad (31)\n$$\nBecause $\\angle BEC = \\angle CFB = 90^\\circ$, $BCEF$ is cyclic, from which it follows that $\\angle SEH = \\angle FEB = \\angle FCB = 90^\\circ - B$ and $\\angle AFE = \\angle ECB = C$. Substituting the last two equations into (31) yields\n$$\n\\frac{HS}{AS} = \\frac{HE}{AF} \\cdot \\frac{\\cos B}{\\sin C}. \\qquad (32)\n$$\nIt is clear that right triangles *CHE* and *CAF* are similar to each other. Hence\n$$\n\\frac{HE}{AF} = \\frac{CE}{CF} = \\frac{BC \\cos C}{BC} \\sin B = \\frac{\\cos C}{\\sin B}.\n$$\nSubstituting the last equation into (32) gives\n$$\n\\frac{HS}{AS} = \\frac{HE}{AF} \\cdot \\frac{\\cos B}{\\sin C} = \\frac{\\cos C}{\\sin B} \\cdot \\frac{\\cos B}{\\sin C} = \\cot B \\cot C.\n$$\nCombining the last equation with (30) gives (29), and we are done.\n\nConsider the diagram shown above. Because $\\angle HFB + \\angle HDB = 180^\\circ$, $BDHF$ is cyclic, from which it follows that $\\angle HDF = \\angle HBF$. Likewise, $\\angle EDH = \\angle ECH$. Because $\\angle BFC = \\angle BEC = 90^\\circ$, $BCEF$ is cyclic, from which it follows that $\\angle EBF = \\angle ECF$. Therefore, we have $\\angle HDF = \\angle HBF = \\angle EBF = \\angle ECF = \\angle ECH = \\angle EDH$; that is, $DH$ bisects $\\angle FDE$. Likewise, $FH$ bisects $\\angle EFD$ and $EH$ bisects $\\angle DEF$. Hence $H$ is the incenter of triangle $DEF$. Let $\\omega$ denote the incircle of triangle $DEF$.\nBecause $\\angle AE \\perp EH$ and $EH$ is the interior bisector of $\\angle DEF$, $AE$ is the exterior bisector of $\\angle DEF$. Likewise, $AF$ is the exterior bisector of $\\angle EFD$. Consequently, $A$ is the excenter (opposite $D$) of triangle $DEF$. Let $\\Omega$ denote the excircle of triangle $DEF$ centered at $A$.\nConsider the dilation centered at $D$ sending $\\omega$ to $\\Omega$. Because $HQ \\parallel AP$, line $QH$ is sent to line $AP$. Let $R_1$ be the point on $\\omega$ diametrically opposite $Q$ (so $QH = HR$ and $Q, H, R_1$ are collinear). Then, we see that $R_1$ is sent to $P$ by this dilation. In particular, $D, R_1, P$ are collinear. Hence, $R_1$ is the intersection of lines $DP$ and $QH$, so $R = R_1$. We therefore have that $RH = R_1H = QH$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-concurrency-and-collinearity-ceva-s-theorem-auto-2456",
+      "name": "HMMT 2013 #0jew",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2013",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Ceva's theorem",
+        "Trigonometry",
+        "Quadrilaterals"
+      ],
+      "statement": "Problem:\n\nLet $ABCD$ be a parallelogram with $AB = 8$, $AD = 11$, and $\\angle BAD = 60^{\\circ}$. Let $X$ be on segment $CD$ with $CX / XD = 1 / 3$ and $Y$ be on segment $AD$ with $AY / YD = 1 / 2$. Let $Z$ be on segment $AB$ such that $AX$, $BY$, and $DZ$ are concurrent. Determine the area of triangle $XYZ$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $\\dfrac{19 \\sqrt{3}}{2}$\n\nLet $AX$ and $BD$ meet at $P$. We have $DP / PB = DX / AB = 3 / 4$. Now, applying Ceva's Theorem in triangle $ABD$, we see that\n$$\n\\frac{AZ}{ZB} = \\frac{DP}{PB} \\cdot \\frac{AY}{YD} = \\frac{3}{4} \\cdot \\frac{1}{2} = \\frac{3}{8}\n$$\nNow,\n$$\n\\frac{[AYZ]}{[ABCD]} = \\frac{[AYZ]}{2[ABD]} = \\frac{1}{2} \\cdot \\frac{1}{3} \\cdot \\frac{3}{11} = \\frac{1}{22},\n$$\nand similarly\n$$\n\\frac{[DYX]}{[ABCD]} = \\frac{1}{2} \\cdot \\frac{2}{3} \\cdot \\frac{3}{4} = \\frac{1}{4}.\n$$\nAlso,\n$$\n\\frac{[XCBZ]}{[ABCD]} = \\frac{1}{2}\\left(\\frac{1}{4} + \\frac{8}{11}\\right) = \\frac{43}{88}\n$$\nThe area of $XYZ$ is the rest of the fraction of the area of $ABCD$ not covered by the three above polygons, which by a straightforward calculation is $19 / 88$ the area of $ABCD$, so our answer is\n$$\n8 \\cdot 11 \\cdot \\sin 60^{\\circ} \\cdot \\frac{19}{88} = \\frac{19 \\sqrt{3}}{2}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-concurrency-and-collinearity-ceva-s-theorem-auto-2473",
+      "name": "IMO Team Selection Test #0jfd",
+      "url": "https://usamoguide.com/",
+      "source": "IMO Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Ceva's theorem",
+        "Homothety",
+        "Tangents",
+        "Polar triangles, harmonic conjugates",
+        "Angle chasing"
+      ],
+      "statement": "Let $ABC$ be a scalene triangle with $\\angle BCA = 90^\\circ$, and let $D$ be the foot of the altitude from $C$. Let $X$ be a point in the interior of the segment $CD$. Let $K$ be the point on the segment $AX$ such that $BK = BC$. Similarly, let $L$ be the point on the segment $BX$ such that $AL = AC$. The circumcircle of triangle $DKL$ intersects segment $AB$ at a second point $T$ (other than $D$). Prove that $\\angle ACT = \\angle BCT$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Let $T'$ be the point on $AB$ such that $\\angle ACT' = \\angle BCT'$. Let $\\omega$ be the circle centered at $T'$ tangent to segments $AC$ and $BC$, and denote the points of tangency to $AC$ and $BC$ by $M$ and $N$ respectively. Note that $\\omega$ exists because $CT'$ is an angle bisector.\n\n![](attached_image_1.png)\n\n**Lemma 1.** If $RDT'S$ is cyclic and $R$ and $S$ are on the boundary of $\\omega$, then $BR$, $AS$, and $CD$ concur.\n\n*Proof.* Let $P$ be the intersection of the lines tangent to $\\omega$ that intersect $R$ and $S$. Since $\\angle T'SP = \\angle T'PP = 90^\\circ$, $PRST'$ is cyclic. Since we assumed $RDT'S$ is cyclic, then $PRDT'S$ is cyclic. Thus $\\angle T'DP = 90^\\circ$. Thus $P$ is on $CD$. Now, let $M$ and $N$ meet at $C$. If $MN$ and $RS$ meet at $Q$, $PC$ is the polar of $Q$, so $MS$ and $RN$ lie on $PQ$. Let $MN$ and $RN$ meet at $G$.\n\nBy the law of sines, we have\n$$\n\\begin{aligned}\n\\left( \\frac{\\sin \\angle CAS}{\\sin \\angle SAB} \\right) \\cdot \\left( \\frac{\\sin \\angle RBA}{\\sin \\angle RBC} \\right) &= \\frac{\\frac{MS \\sin \\angle AMG}{AS}}{\\frac{SD \\sin \\angle ADS}{AS}} \\cdot \\frac{\\frac{RD \\sin \\angle RDB}{RB}}{\\frac{RN \\sin \\angle BNG}{RB}} \\\\\n&= \\frac{MS}{SD} \\cdot \\frac{RD}{RN} \\cdot \\frac{\\sin \\angle AMG}{\\sin \\angle BNG} \\cdot \\frac{\\sin \\angle RDB}{\\sin \\angle SDA} \\\\\n&= \\frac{\\sin \\angle MDS}{\\sin \\angle SMD} \\cdot \\frac{\\sin \\angle RND}{\\sin \\angle RDN} \\cdot \\frac{\\sin \\angle CMG}{\\sin \\angle CNG} \\cdot \\frac{\\sin \\angle RDA}{\\sin \\angle SDB} \\\\\n&= \\frac{\\sin \\angle RND}{\\sin \\angle SMD} \\cdot \\frac{\\sin \\angle CMG}{\\sin \\angle CNG} \\cdot \\frac{\\sin \\angle MDS}{\\sin \\angle RDN} \\cdot \\frac{\\sin \\angle RDA}{\\sin \\angle SDB}.\n\\end{aligned}\n$$\n\nDenote this expression by $S$. For convenience, let $x = \\frac{\\sin \\angle MDS}{\\sin \\angle RDN} \\cdot \\frac{\\sin \\angle RDA}{\\sin \\angle SDB}$. Then, we have\n$$\n\\begin{aligned}\nS &= \\frac{\\sin \\angle RND}{\\sin \\angle SMD} \\cdot \\frac{\\sin \\angle CMG}{\\sin \\angle CNG} x = \\frac{\\frac{GD \\cdot \\sin \\angle CDN}{GN}}{\\frac{GD \\sin \\angle CDM}{GM}} \\cdot \\frac{\\frac{CG \\cdot \\sin \\angle MCD}{MG}}{\\frac{CG \\sin \\angle NCD}{NG}} x = \\frac{\\sin \\angle CDN}{\\sin \\angle NCD} \\cdot \\frac{\\sin \\angle MCD}{\\sin \\angle CDM} x \\\\\n&= \\frac{CN}{DN} \\cdot \\frac{DM}{CM} x = \\frac{DM}{DN} x = \\frac{\\frac{CD \\sin \\angle ACD}{\\sin \\angle DMC}}{\\frac{CD \\sin \\angle BCD}{\\sin \\angle DNC}} x = \\frac{\\sin \\angle ACD}{\\sin \\angle BCD} \\cdot \\frac{\\sin \\angle DNC}{\\sin \\angle DMC} x.\n\\end{aligned}\n$$\nSince $\\angle T'NC = \\angle T'MC = \\angle T'DC = 90^\\circ$, $CMDN$ is cyclic, so $\\angle DNC = 180^\\circ - \\angle DMC$, and\n$$\n\\angle MDC = \\angle MNC = \\angle NMC = \\angle NDC.\n$$\nFurther, notice that\n$$\n\\angle RDA = \\angle RST' = \\angle SRT' = \\angle SDB\n$$\nbecause $T'R = T'S$. Hence, we conclude that\n$$\n\\angle MDS = \\angle MDC + 90^\\circ - \\angle SDB = \\angle NDC + 90^\\circ - \\angle RDA = \\angle RDN.\n$$\nTherefore $x = \\frac{\\sin \\angle MDS}{\\sin \\angle RDN} \\cdot \\frac{\\sin \\angle RDA}{\\sin \\angle SDB} = 1$, so we have\n$$\n\\left( \\frac{\\sin \\angle CAS}{\\sin \\angle SAB} \\right) \\cdot \\left( \\frac{\\sin \\angle RBA}{\\sin \\angle RBC} \\right) \\cdot \\left( \\frac{\\sin \\angle BCD}{\\sin \\angle ACD} \\right) = 1,\n$$\nwhich implies that lines $AS$, $RB$, and $CD$ concur by trig Ceva. This concludes the proof of the lemma. $\\square$\n\nDenote the intersection point of $BX$ and $\\omega$ farther from $B$ by $R$, and let the circumcircle of $RDT'$ meet $\\omega$ again at $S$. By Lemma 1, $AS$ and $BR$ meet on $CD$, so $A$, $S$, and $K$ are collinear. Let $\\omega_A$ and $\\omega_B$ be the circles centered at $A$, $B$ with radii $AC$ and $BC$ respectively. Let $AK$ meet $\\omega_B$ again at $S'$, and let $BL$ meet $\\omega_A$ again at $R'$.\n\nA homothety centered at $B$ takes $\\omega$ to $\\omega_A$, so\n$$\n\\frac{BR}{BR'} = \\frac{BN}{BC} = \\frac{BT'}{BA} = \\frac{a}{a+b}.\n$$\nThus $BL \\cdot BR = \\frac{a}{a+b} \\cdot BL \\cdot BR' = \\frac{a}{a+b} \\cdot BC^2 = \\frac{a^3}{a+b}$ and $BT' \\cdot BD = c\\left(\\frac{a}{a+b}\\right) \\cdot \\left(c \\cdot \\frac{a^2}{a^2+b^2}\\right) = \\frac{a^3}{a+b}$. Thus $BLRDT'$ is cyclic, and similarly $SKDT'$ is cyclic. Since $LRDT'$, $KDT'S$, and $RDT'S$ are cyclic, then $LRDT'SK$ is cyclic, so $RDT'S$ is cyclic. Therefore $T = T'$, as desired.\n\n![](attached_image_1.png)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-concurrency-and-collinearity-ceva-s-theorem-auto-2679",
+      "name": "HMMT November 2014 #0jl3",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2014",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Ceva's theorem",
+        "Menelaus' theorem",
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle"
+      ],
+      "statement": "Problem:\nPick a subset of at least four of the following geometric theorems, order them from earliest to latest by publication date, and write down their labels (a single capital letter) in that order. If a theorem was discovered multiple times, use the publication date corresponding to the geometer for which the theorem is named.\n\nC. (Ceva) Three cevians $AD$, $BE$, $CF$ of a triangle $ABC$ are concurrent if and only if $\\frac{BD}{DC} \\frac{CE}{EA} \\frac{AF}{FB}=1$.\n\nE. (Euler) In a triangle $ABC$ with incenter $I$ and circumcenter $O$, we have $IO^{2}=R(R-2r)$, where $r$ is the inradius and $R$ is the circumradius of $ABC$.\n\nH. (Heron) The area of a triangle $ABC$ is $\\sqrt{s(s-a)(s-b)(s-c)}$, where $s=\\frac{1}{2}(a+b+c)$.\n\nM. (Menelaus) If $D, E, F$ lie on lines $BC, CA, AB$, then they are collinear if and only if $\\frac{BD}{DC} \\frac{CE}{EA} \\frac{AF}{FB}=-1$, where the ratios are directed.\n\nP. (Pascal) Intersections of opposite sides of cyclic hexagons are collinear.\n\nS. (Stewart) Let $ABC$ be a triangle and $D$ a point on $BC$. Set $m=BD, n=CD, d=AD$. Then $man+dad=bmb+cnc$.\n\nV. (Varignon) The midpoints of the sides of any quadrilateral are the vertices of a parallelogram.\n\nIf your answer is a list of $4 \\leq N \\leq 7$ labels in a correct order, your score will be $(N-2)(N-3)$. Otherwise, your score will be zero.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: HMPCVSE The publication dates were as follows.\n- Heron: 60 AD, in his book Metrica.\n- Menelaus: We could not find the exact date the theorem was published in his book Spherics, but because Menelaus lived from 70 AD to around 130 AD, this is the correct placement.\n- Pascal: 1640 AD, when he was just 17 years old. He wrote of the theorem in a note one year before that.\n- Ceva: 1678 AD, in his work De lineis rectis. But it was already known at least as early as the 11th century.\n- Varignon: 1731 AD.\n- Stewart: 1746 AD.\n- Euler: 1764 AD, despite already being published in 1746."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-concurrency-and-collinearity-ceva-s-theorem-auto-2969",
+      "name": "HMMT February #0jt5",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Brocard point, symmedians",
+        "Ceva's theorem"
+      ],
+      "statement": "Problem:\nLet $ABC$ be a triangle with $AB = 13$, $AC = 14$, and $BC = 15$. Let $G$ be the point on $AC$ such that the reflection of $BG$ over the angle bisector of $\\angle B$ passes through the midpoint of $AC$. Let $Y$ be the midpoint of $GC$ and $X$ be a point on segment $AG$ such that $\\frac{AX}{XG} = 3$. Construct $F$ and $H$ on $AB$ and $BC$, respectively, such that $FX \\parallel BG \\parallel HY$. If $AH$ and $CF$ concur at $Z$ and $W$ is on $AC$ such that $WZ \\parallel BG$, find $WZ$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nObserve that $BG$ is the $B$-symmedian, and thus $\\frac{AG}{GC} = \\frac{c^2}{a^2}$. Stewart's theorem gives us\n$$\nBG = \\sqrt{\\frac{2a^2c^2b}{b(a^2 + c^2)} - \\frac{a^2b^2c^2}{a^2 + c^2}} = \\frac{ac}{a^2 + c^2} \\sqrt{2(a^2 + c^2) - b^2} = \\frac{390\\sqrt{37}}{197}\n$$\nThen by similar triangles,\n$$\nZW = HY \\frac{ZA}{HA} = BG \\frac{YC}{GC} \\frac{ZA}{HA} = BG \\frac{1}{2} \\frac{6}{7} = \\frac{1170\\sqrt{37}}{1379}\n$$\nwhere $\\frac{ZA}{HA}$ is found with mass points or Ceva."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-concurrency-and-collinearity-ceva-s-theorem-auto-3049",
+      "name": "Berkeley Math Circle: Monthly Contest 1 #0jvd",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cyclic quadrilaterals",
+        "Ceva's theorem",
+        "Menelaus' theorem",
+        "Tangents",
+        "Polar triangles, harmonic conjugates"
+      ],
+      "statement": "Problem:\n\nLet $ABCD$ be a convex quadrilateral. Assume that the incircle of triangle $ABD$ is tangent to $\\overline{AB}$, $\\overline{AD}$, $\\overline{BD}$ at points $W$, $Z$, $K$. Also assume that the incircle of triangle $CBD$ is tangent to $\\overline{CB}$, $\\overline{CD}$, $\\overline{BD}$ at points $X$, $Y$, $K$. Prove that quadrilateral $WXYZ$ is cyclic.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFrom the concurrence of the Gergonne point, it follows that lines $WZ$, $XY$, and $BD$ concur at the harmonic conjugate $T$ of $K$ with respect to $\\overline{BC}$. (One can also see the concurrence directly by applying Ceva and Menelaus.) Then $TK^2 = TW \\cdot TZ = TX \\cdot TY$, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-concurrency-and-collinearity-ceva-s-theorem-auto-3779",
+      "name": "HMMT February #0kfn",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Tangents",
+        "Inversion",
+        "Ceva's theorem",
+        "Polar triangles, harmonic conjugates",
+        "Isogonal/isotomic conjugates, barycentric coordinates",
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle"
+      ],
+      "statement": "Problem:\n\nCircles $\\omega_{a}, \\omega_{b}, \\omega_{c}$ have centers $A, B, C$, respectively and are pairwise externally tangent at points $D, E, F$ (with $D \\in BC, E \\in CA, F \\in AB$). Lines $BE$ and $CF$ meet at $T$. Given that $\\omega_{a}$ has radius $341$, there exists a line $\\ell$ tangent to all three circles, and there exists a circle of radius $49$ tangent to all three circles, compute the distance from $T$ to $\\ell$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe will use the following notation: let $\\omega$ be the circle of radius $49$ tangent to each of $\\omega_{a}, \\omega_{b}, \\omega_{c}$. Let $\\omega_{a}, \\omega_{b}, \\omega_{c}$ have radii $r_{a}, r_{b}, r_{c}$ respectively. Let $\\gamma$ be the incircle of $ABC$, with center $I$ and radius $r$. Note that $DEF$ is the intouch triangle of $ABC$ and $\\gamma$ is orthogonal to $\\omega_{a}, \\omega_{b}, \\omega_{c}$ (i.e. $ID, IE, IF$ are the common internal tangents). Since $AD, BE, CF$ are concurrent at $T$, we have $K = AB \\cap DE$ satisfies $(A, B; F, K) = -1$, so $K$ is the external center of homothety of $\\omega_{a}$ and $\\omega_{b}$. In particular, $K$ lies on $\\ell$. Similarly, $BC \\cap EF$ also lies on $\\ell$, so $\\ell$ is the polar of $T$ to $\\gamma$. Hence $IT \\perp \\ell$ so if $L$ is the foot from $I$ to $\\ell$, we have $IT \\cdot IL = r^{2}$.\n\nAn inversion about $\\gamma$ preserves $\\omega_{a}, \\omega_{b}, \\omega_{c}$ and sends $\\ell$ to the circle with diameter $IT$. Since inversion preserves tangency, the circle with diameter $IT$ must be $\\omega$. Therefore $IT = 98$ by the condition of the problem statement. Letting $a, b, c$ be the radii of $\\omega_{a}, \\omega_{b}, \\omega_{c}$ respectively and invoking Heron's formula as well as $A = r s$ for triangle $ABC$, we see that $\\gamma$ has radius\n\n$$\nr = \\sqrt{\\frac{r_{a} r_{b} r_{c}}{r_{a} + r_{b} + r_{c}}}.\n$$\n\nWe will compute this quantity using Descartes' theorem. Note that there are two circles tangent to $\\omega_{a}$, $\\omega_{b}, \\omega_{c}$, one with radius $IT/2$ and one with radius $\\infty$. By Descartes' circle theorem, we have (where $k_{a} := 1/a$ is the curvature)\n\n$$\nk_{a} + k_{b} + k_{c} + 2 \\sqrt{k_{a} k_{b} + k_{b} k_{c} + k_{a} k_{c}} = \\frac{1}{IT/2}\n$$\n\nand\n\n$$\nk_{a} + k_{b} + k_{c} - 2 \\sqrt{k_{a} k_{b} + k_{b} k_{c} + k_{c} k_{a}} = 0\n$$\n\nwhich implies\n\n$$\n\\sqrt{\\frac{r_{a} + r_{b} + r_{c}}{r_{a} r_{b} r_{c}}} = \\sqrt{k_{a} k_{b} + k_{b} k_{c} + k_{c} k_{a}} = \\frac{1}{2 IT}.\n$$\n\nTherefore $r = 2 IT$, which means $IL = \\frac{r^{2}}{IT} = 4 IT$ and $TL = 3 IT = 294$.\n\n![](attached_image_1.png)\n\nSolution:\n\nUsing the same notation as the previous solution, note that the point $T$ can be expressed with un-normalized barycentric coordinates\n\n$$\n\\left(\\frac{1}{r_{a}} : \\frac{1}{r_{b}} : \\frac{1}{r_{c}}\\right)\n$$\n\nwith respect to $ABC$ because $T$ is the Gergonne point of triangle $ABC$. The distance from $T$ to $\\ell$ can be expressed as a weighted average of the distances from each of the points $A, B, C$, which is\n\n$$\n\\frac{1 / r_{a}}{1 / r_{a} + 1 / r_{b} + 1 / r_{c}} \\cdot r_{a} + \\frac{1 / r_{b}}{1 / r_{a} + 1 / r_{b} + 1 / r_{c}} \\cdot r_{b} + \\frac{1 / r_{c}}{1 / r_{a} + 1 / r_{b} + 1 / r_{c}} \\cdot r_{c} = \\frac{3}{1 / r_{a} + 1 / r_{b} + 1 / r_{c}}.\n$$\n\nNote that there are two circles tangent to $\\omega_{a}, \\omega_{b}, \\omega_{c}$, one with radius $49$ and one with radius $\\infty$. By Descartes' circle theorem, we have (where $k_{a} := 1 / r_{a}$ is the curvature)\n\n$$\nk_{a} + k_{b} + k_{c} + 2 \\sqrt{k_{a} k_{b} + k_{b} k_{c} + k_{a} k_{c}} = \\frac{1}{49}\n$$\n\nand\n\n$$\nk_{a} + k_{b} + k_{c} - 2 \\sqrt{k_{a} k_{b} + k_{b} k_{c} + k_{c} k_{a}} = 0\n$$\n\nso $k_{a} + k_{b} + k_{c} = 1 / 98$. The distance from $T$ to $\\ell$ is then $3 \\cdot 98 = 294$.\n\nSolution:\n\nAs in the first solution, we deduce that $IT$ is a diameter of $\\omega$, with $T$ being the point on $\\omega$ closest to $\\ell$. By Steiner's porism, we can hold $\\omega$ and $\\ell$ fixed while making $\\omega_{c}$ into a line parallel to $\\ell$, resulting in the following figure:\n\n![](attached_image_2.png)\n\nLet $R$ be the common radius of $\\omega_{a}$ and $\\omega_{b}$ and $r$ be the radius of $\\omega$. Notice that $ABDE$ is a rectangle with center $T$, so $R = AE = 2 IT = 4r$. The distance from $T$ to $\\ell$ is $IL - IT = 2R - 2r = 6r = 294$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-concurrency-and-collinearity-ceva-s-theorem-auto-4063",
+      "name": "USAJMO #0knj",
+      "url": "https://usamoguide.com/",
+      "source": "USAJMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Ceva's theorem",
+        "Rotation",
+        "Angle chasing",
+        "Trigonometry"
+      ],
+      "statement": "Rectangles $BCC_1B_2$, $CAA_1C_2$, and $ABB_1A_2$ are erected outside an acute triangle $ABC$. Suppose that\n$$\n\\angle BC_1C + \\angle CA_1A + \\angle AB_1B = 180^\\circ.\n$$\nProve that lines $B_1C_2$, $C_1A_2$, and $A_1B_2$ are concurrent.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-concurrency-and-collinearity-ceva-s-theorem-auto-4769",
+      "name": "HMMT February 2025 #0l75",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2025",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Homothety",
+        "Ceva's theorem",
+        "Menelaus' theorem",
+        "Cyclic quadrilaterals",
+        "Isogonal/isotomic conjugates, barycentric coordinates"
+      ],
+      "statement": "Problem:\n\nPoint $P$ is inside triangle $\\triangle ABC$ such that $\\angle ABP = \\angle ACP$. Given that $AB = 6$, $AC = 8$, $BC = 7$, and $\\frac{BP}{PC} = \\frac{1}{2}$, compute $\\frac{|BPC|}{|ABC|}$.\n\n(Here, $[XYZ]$ denotes the area of $\\triangle XYZ$.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n![](attached_image_1.png)\nLet the internal and external bisectors of $\\angle BAC$ meet $BC$ at $D$ and $E$. Similarly, let the internal and external bisectors of $\\angle BPC$ meet $BC$ at $D'$ and $E'$. The angle condition implies that $AD\\parallel PD'$ and $AE\\parallel PE'$. Thus, triangles $ADE$ and $PD'E'$ are homothetic. Hence, the requested ratio is $\\frac{DE}{D'E'}$. Repeated applications of the angle bisector theorem yield\n\n$$\nBD = 7 \\cdot \\frac{6}{6 + 8} = 3,\n$$\n$$\nBE = 7 \\cdot \\frac{6}{8 - 6} = 21,\n$$\n$$\nBD' = 7 \\cdot \\frac{1}{1 + 2} = \\frac{7}{3},\n$$\n$$\nBE' = 7 \\cdot \\frac{1}{2 - 1} = 7,\n$$\nso $DE = 24$ and $D'E' = 28 / 3$. Hence, the answer is $\\frac{28 / 3}{24} = \\left[\\frac{7}{18}\\right]$.\n\n\nSolution 2:\n\n![](attached_image_2.png)\nLet $D = AP\\cap BC$, $E = BP\\cap AC$ and $F = CP\\cap AB$. Then, $BCEF$ is cyclic, so by Power of a Point, $\\frac{AE}{AF} = \\frac{AB}{AC} = \\frac{3}{4}$. Let $AE = 3x$ and $AF = 4x$. Then,\n\n$$\n\\triangle PFB \\sim \\triangle PEC \\Longrightarrow \\frac{BF}{CE} = \\frac{BP}{CP} \\Longrightarrow \\frac{6 - 4x}{8 - 3x} = \\frac{1}{2}.\n$$\nSolving for $x$ gives $x = \\frac{4}{5}$, so we get that $AF = \\frac{16}{5}$, $FB = \\frac{14}{5}$, $AE = \\frac{12}{5}$, and $EC = \\frac{40}{5}$. By Ceva's theorem on $\\triangle ABC$ and point $P$, we have\n\n$$\n\\frac{BD}{DC} = \\frac{AE}{EC} \\cdot \\frac{BF}{FA} = \\frac{AE}{AF} \\cdot \\frac{BF}{CE} = \\frac{3}{4} \\cdot \\frac{1}{2} = \\frac{3}{8}.\n$$\nFinally, by Menelaus's theorem on $\\triangle ADC$ and line $BE$, we get that\n\n$$\n\\frac{AP}{PD} = \\frac{CB}{BD} \\cdot \\frac{AE}{EC} = \\frac{11}{3} \\cdot \\frac{12}{28} = \\frac{11}{7},\n$$\nwhich implies that $\\frac{|BPC|}{|ABC|} = \\left[\\frac{7}{18}\\right]$\n\n\nSolution 3:\n\nWe use barycentric coordinates with respect to $\\triangle ABC$. From $\\angle ABP = \\angle ACP$, we get\n\n$$\n\\frac{|ABP|}{|ACP|} = \\frac{AB \\cdot BP}{AC \\cdot CP} = \\frac{3}{8},\n$$\nso $P$ has coordinate $(- :8:3)$. Let $Q$ be the isogonal conjugate of $P$, so $Q$ lies on the perpendicular bisector of $BC$. By Steiner ratio theorem, $Q$ has coordinate $(- :8^2 / 8:6^2 / 3) = (- :8:12) = (- :2:3)$. Let the coordinate be $(t:2:3)$ for some real number $t$. Then, recall the equation for the perpendicular bisector (from Corollary 6 of https://web.evanchem.cc/handouts/bary/bary-full.pdf):\n\n$$\na^2(z - y) + x(c^2 - b^2) = 0\n$$\n$$\n\\Rightarrow 7^2(3 - 2) + t(6^2 - 8^2) = 0,\n$$\nso $t = \\frac{7^2(3 - 2)}{8^2 - 6^2} = \\frac{7}{4}$. Hence, point $Q$ has coordinates $(7:8:12)$, so point $P$ has coordinates $(7^2 / 7:8^2 / 8:6^2 / 12) = (7:8:3)$. Therefore, $|BPC| / |ABC| = \\left[\\frac{7}{18}\\right]$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

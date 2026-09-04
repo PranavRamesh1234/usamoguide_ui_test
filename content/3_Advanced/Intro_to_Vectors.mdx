@@ -1,0 +1,1441 @@
+---
+id: intro-to-vectors
+title: Introduction to Vectors
+author: Pranav Ramesh
+description: Covers vectors, vector components, and vector geometry — including operations, linear combinations, magnitude and direction, unit vectors, and applications in science.
+prerequisites: []
+---
+
+## Overview
+
+A **vector** is any quantity that has both magnitude and direction. For example, a description of the wind in a weather report typically includes both the strength of the wind and the direction from which the wind is blowing, making wind a vector quantity.
+
+Many important quantities in science can be described as vectors, especially in physics. For example, a force acting on an object is a vector, since it has both magnitude (the strength of the force) and direction (the direction of the push or pull). Other vector quantities in physics include momentum, impulse, angular momentum, torque, and the electric and magnetic field vectors.
+
+In mathematics, vectors are indispensable tools in geometry, and are used extensively to provide geometric insight in subjects such as multivariable calculus and differential equations. Vectors and their generalizations are also one of the main objects of study in linear algebra.
+
+## Key Ideas
+
+- Two vectors are considered equal as long as they have the same magnitude and the same direction, even if they start and end at different points.
+- Ordinary numerical quantities (real numbers) are referred to as **scalars**; a variable may be either a **vector variable** or a **scalar variable**.
+- Vector addition obeys the commutative, associative, and additive identity properties.
+- The **negation** $-\mathbf{v}$ has the same magnitude as $\mathbf{v}$ but the exact opposite direction; $\mathbf{v} + (-\mathbf{v}) = \mathbf{0}$.
+- A **linear combination** of vectors $\mathbf{v}$ and $\mathbf{w}$ is any expression of the form $a\mathbf{v} + b\mathbf{w}$ where $a$ and $b$ are scalars.
+- In $\mathbb{R}^2$, every vector can be written as a linear combination of the standard basis vectors $\mathbf{i}$ and $\mathbf{j}$.
+- A **unit vector** has magnitude equal to 1; given any nonzero vector $\mathbf{v}$, its normalization is $\mathbf{u} = \frac{1}{|\mathbf{v}|}\mathbf{v}$.
+
+## 1. Vectors
+
+### Vectors as Arrows
+
+We typically think of a vector as an arrow drawn in Euclidean space. A **two-dimensional vector** can be represented by an arrow drawn in the Euclidean plane. The magnitude of the vector is the length of the arrow, i.e. the distance from the point $A$ to the point $B$, while the direction of the vector is the direction that the arrow points.
+
+<svg viewBox="0 0 320 220" role="img" aria-label="A two-dimensional vector from A to B" style={{ width: '100%', maxWidth: '340px', height: 'auto', display: 'block', margin: '1.5rem auto' }} xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arr1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#e05c5c"/>
+    </marker>
+  </defs>
+  <line x1="80" y1="170" x2="228" y2="62" stroke="#e05c5c" strokeWidth="2.5" markerEnd="url(#arr1)"/>
+  <circle cx="80" cy="170" r="4" fill="#e05c5c"/>
+  <circle cx="232" cy="58" r="4" fill="#e05c5c"/>
+  <text x="62" y="186" fill="#e0e0e0" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">A</text>
+  <text x="238" y="54" fill="#e0e0e0" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">B</text>
+  <text x="160" y="215" fill="#aaaaaa" fontFamily="Georgia, serif" fontSize="12" textAnchor="middle">Figure 1: A two-dimensional vector.</text>
+</svg>
+
+Two vectors are considered equal as long as they have the same magnitude and the same direction. For example, two vectors can be considered the same even though they start and end at different points. When working with vectors, we can move a vector anywhere we want in the plane as long as we do not change its magnitude or direction.
+
+<svg viewBox="0 0 380 270" role="img" aria-label="Two equal vectors AB and CD with the same magnitude and direction" style={{ width: '100%', maxWidth: '400px', height: 'auto', display: 'block', margin: '1.5rem auto' }} xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arr2a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#e05c5c"/>
+    </marker>
+    <marker id="arr2b" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#5ca8e0"/>
+    </marker>
+  </defs>
+  <line x1="60" y1="190" x2="188" y2="92" stroke="#e05c5c" strokeWidth="2.5" markerEnd="url(#arr2a)"/>
+  <circle cx="60" cy="190" r="4" fill="#e05c5c"/>
+  <circle cx="192" cy="88" r="4" fill="#e05c5c"/>
+  <text x="42" y="206" fill="#e0e0e0" fontFamily="Georgia, serif" fontSize="14" fontStyle="italic">A</text>
+  <text x="198" y="84" fill="#e0e0e0" fontFamily="Georgia, serif" fontSize="14" fontStyle="italic">B</text>
+  <line x1="180" y1="210" x2="308" y2="112" stroke="#5ca8e0" strokeWidth="2.5" markerEnd="url(#arr2b)"/>
+  <circle cx="180" cy="210" r="4" fill="#5ca8e0"/>
+  <circle cx="312" cy="108" r="4" fill="#5ca8e0"/>
+  <text x="162" y="226" fill="#e0e0e0" fontFamily="Georgia, serif" fontSize="14" fontStyle="italic">C</text>
+  <text x="318" y="104" fill="#e0e0e0" fontFamily="Georgia, serif" fontSize="14" fontStyle="italic">D</text>
+  <text x="190" y="256" fill="#aaaaaa" fontFamily="Georgia, serif" fontSize="12" textAnchor="middle">Figure 2: These two vectors are equal, since they have the same magnitude and direction.</text>
+</svg>
+
+### Notation and Terminology
+
+When discussing vectors, ordinary numerical quantities (i.e. real numbers) are referred to as **scalars**. Both vectors and scalars are used for algebra, and a variable may be either a **vector variable** or a **scalar variable**.
+
+To help distinguish between these two types of quantities, vector variables will always be written in an upright bold font:
+
+$$
+\mathbf{u}, \quad \mathbf{v}, \quad \text{or} \quad \mathbf{w},
+$$
+
+while scalar variables will be written in the usual italic font:
+
+$$
+x, \quad y, \quad \text{or} \quad z.
+$$
+
+This is the most popular convention for distinguishing between vector and scalar variables, but other conventions are possible. For example, some books denote a vector variable using an arrow above the letter:
+
+$$
+\vec{u}, \quad \vec{v}, \quad \text{or} \quad \vec{w}.
+$$
+
+This is also the most common way to indicate a vector variable when doing hand calculations, since it is difficult to make handwritten letters bold, and the reader is encouraged to adopt this practice.
+
+### Magnitude of a Vector
+
+The **magnitude** of a vector is a scalar, and corresponds to the length of any arrow that represents the vector. Different books write the magnitude of a vector $\mathbf{v}$ in different ways:
+
+$$
+|\mathbf{v}|, \quad \|\mathbf{v}\|, \quad \text{or} \quad v.
+$$
+
+Also, some books refer to the magnitude of a vector as its **length** or **norm** instead. We will consistently use the word "magnitude" and write $|\mathbf{v}|$ for the magnitude of a vector $\mathbf{v}$.
+
+The magnitude of a vector $\mathbf{v}$ is always either positive or zero:
+
+$$
+|\mathbf{v}| \geq 0
+$$
+
+If $|\mathbf{v}| = 0$, then $\mathbf{v}$ is the **zero vector**, which has a magnitude of zero but no direction. We will use a bold zero $\mathbf{0}$ to denote the zero vector.
+
+### Vector Addition
+
+There is a way of combining two vectors known as **vector addition**. Given two vectors $\mathbf{v}$ and $\mathbf{w}$, we arrange them end to end. The vector that stretches from the beginning of $\mathbf{v}$ to the end of $\mathbf{w}$ is called the **sum** of $\mathbf{v}$ and $\mathbf{w}$, and is written $\mathbf{v} + \mathbf{w}$.
+
+<svg viewBox="0 0 380 270" role="img" aria-label="Vector addition: v placed tip to tail with w, giving the sum v plus w" style={{ width: '100%', maxWidth: '400px', height: 'auto', display: 'block', margin: '1.5rem auto' }} xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arr3v" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#e05c5c"/>
+    </marker>
+    <marker id="arr3w" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#5c9ee0"/>
+    </marker>
+    <marker id="arr3s" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#6fca8a"/>
+    </marker>
+  </defs>
+  <line x1="50" y1="200" x2="198" y2="142" stroke="#e05c5c" strokeWidth="2.5" markerEnd="url(#arr3v)"/>
+  <text x="112" y="188" fill="#e05c5c" fontFamily="Georgia, serif" fontSize="14" fontStyle="italic">v</text>
+  <line x1="202" y1="140" x2="288" y2="82" stroke="#5c9ee0" strokeWidth="2.5" markerEnd="url(#arr3w)"/>
+  <text x="258" y="122" fill="#5c9ee0" fontFamily="Georgia, serif" fontSize="14" fontStyle="italic">w</text>
+  <line x1="50" y1="200" x2="284" y2="86" stroke="#6fca8a" strokeWidth="2.5" strokeDasharray="6,3" markerEnd="url(#arr3s)"/>
+  <text x="148" y="162" fill="#6fca8a" fontFamily="Georgia, serif" fontSize="14" fontStyle="italic">v + w</text>
+  <circle cx="50" cy="200" r="3.5" fill="#e0e0e0"/>
+  <circle cx="202" cy="140" r="3.5" fill="#e0e0e0"/>
+  <circle cx="290" cy="80" r="3.5" fill="#e0e0e0"/>
+  <text x="190" y="256" fill="#aaaaaa" fontFamily="Georgia, serif" fontSize="12" textAnchor="middle">Figure 3: The sum of two vectors v and w.</text>
+</svg>
+
+Vector addition has many of the same properties as addition of scalars.
+
+**Properties of Vector Addition**
+
+Vector addition has the following properties:
+
+1. Commutative property: $\mathbf{v} + \mathbf{w} = \mathbf{w} + \mathbf{v}$ for any two vectors $\mathbf{v}$ and $\mathbf{w}$.
+2. Associative property: $(\mathbf{u} + \mathbf{v}) + \mathbf{w} = \mathbf{u} + (\mathbf{v} + \mathbf{w})$ for any three vectors $\mathbf{u}$, $\mathbf{v}$, $\mathbf{w}$.
+3. Additive identity: $\mathbf{v} + \mathbf{0} = \mathbf{v}$ for any vector $\mathbf{v}$, where $\mathbf{0}$ is the zero vector.
+
+The figures below show the geometry behind the commutative and associative properties.
+
+<svg viewBox="0 0 380 290" role="img" aria-label="Parallelogram showing that v plus w equals w plus v" style={{ width: '100%', maxWidth: '400px', height: 'auto', display: 'block', margin: '1.5rem auto' }} xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="cv" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#e05c5c"/>
+    </marker>
+    <marker id="cw" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#5c9ee0"/>
+    </marker>
+    <marker id="cv2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#e05c5c"/>
+    </marker>
+    <marker id="cw2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#5c9ee0"/>
+    </marker>
+    <marker id="cs" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#6fca8a"/>
+    </marker>
+  </defs>
+  <circle cx="80" cy="220" r="3.5" fill="#e0e0e0"/>
+  <circle cx="230" cy="160" r="3.5" fill="#e0e0e0"/>
+  <circle cx="160" cy="120" r="3.5" fill="#e0e0e0"/>
+  <circle cx="310" cy="60" r="3.5" fill="#6fca8a"/>
+  <line x1="80" y1="220" x2="226" y2="163" stroke="#e05c5c" strokeWidth="2.5" markerEnd="url(#cv)"/>
+  <text x="140" y="210" fill="#e05c5c" fontFamily="Georgia, serif" fontSize="14" fontStyle="italic">v</text>
+  <line x1="80" y1="220" x2="157" y2="124" stroke="#5c9ee0" strokeWidth="2.5" markerEnd="url(#cw)"/>
+  <text x="100" y="170" fill="#5c9ee0" fontFamily="Georgia, serif" fontSize="14" fontStyle="italic">w</text>
+  <line x1="230" y1="160" x2="307" y2="64" stroke="#5c9ee0" strokeWidth="2" strokeDasharray="5,3" markerEnd="url(#cw2)"/>
+  <line x1="160" y1="120" x2="307" y2="64" stroke="#e05c5c" strokeWidth="2" strokeDasharray="5,3" markerEnd="url(#cv2)"/>
+  <line x1="80" y1="220" x2="306" y2="67" stroke="#6fca8a" strokeWidth="2.5" markerEnd="url(#cs)"/>
+  <text x="210" y="122" fill="#6fca8a" fontFamily="Georgia, serif" fontSize="13" fontStyle="italic">v + w = w + v</text>
+  <text x="190" y="276" fill="#aaaaaa" fontFamily="Georgia, serif" fontSize="12" textAnchor="middle">Figure 4: Vector addition is commutative.</text>
+</svg>
+
+<svg viewBox="0 0 420 250" role="img" aria-label="Three vectors u, v, w chained tip to tail demonstrating associativity" style={{ width: '100%', maxWidth: '440px', height: 'auto', display: 'block', margin: '1.5rem auto' }} xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="au" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#c97be0"/>
+    </marker>
+    <marker id="av" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#e05c5c"/>
+    </marker>
+    <marker id="aw" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#5c9ee0"/>
+    </marker>
+    <marker id="as" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#6fca8a"/>
+    </marker>
+  </defs>
+  <circle cx="40" cy="190" r="3.5" fill="#e0e0e0"/>
+  <circle cx="150" cy="130" r="3.5" fill="#e0e0e0"/>
+  <circle cx="260" cy="100" r="3.5" fill="#e0e0e0"/>
+  <circle cx="370" cy="60" r="3.5" fill="#6fca8a"/>
+  <line x1="40" y1="190" x2="146" y2="133" stroke="#c97be0" strokeWidth="2.5" markerEnd="url(#au)"/>
+  <text x="75" y="178" fill="#c97be0" fontFamily="Georgia, serif" fontSize="14" fontStyle="italic">u</text>
+  <line x1="150" y1="130" x2="256" y2="103" stroke="#e05c5c" strokeWidth="2.5" markerEnd="url(#av)"/>
+  <text x="192" y="126" fill="#e05c5c" fontFamily="Georgia, serif" fontSize="14" fontStyle="italic">v</text>
+  <line x1="260" y1="100" x2="366" y2="63" stroke="#5c9ee0" strokeWidth="2.5" markerEnd="url(#aw)"/>
+  <text x="308" y="92" fill="#5c9ee0" fontFamily="Georgia, serif" fontSize="14" fontStyle="italic">w</text>
+  <line x1="40" y1="190" x2="366" y2="66" stroke="#6fca8a" strokeWidth="2" strokeDasharray="6,3" markerEnd="url(#as)"/>
+  <text x="210" y="234" fill="#aaaaaa" fontFamily="Georgia, serif" fontSize="12" textAnchor="middle">Figure 5: Vector addition is associative. The bottom arrow represents both (u+v)+w and u+(v+w).</text>
+</svg>
+
+The additive identity property follows immediately from the fact that the zero vector has the same starting and ending point.
+
+### Negation and Subtraction
+
+The **negation** of a vector $\mathbf{v}$, denoted $-\mathbf{v}$, is the vector with the same magnitude but the exact opposite direction. Sometimes $-\mathbf{v}$ is also called the **opposite** of $\mathbf{v}$, and together $\mathbf{v}$ and $-\mathbf{v}$ are **opposite vectors**. Note that the negation of the zero vector is again the zero vector.
+
+<svg viewBox="0 0 340 190" role="img" aria-label="Vector v pointing up-right and its negation negative v pointing down-left" style={{ width: '100%', maxWidth: '360px', height: 'auto', display: 'block', margin: '1.5rem auto' }} xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="nv" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#e05c5c"/>
+    </marker>
+    <marker id="nnv" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#5c9ee0"/>
+    </marker>
+  </defs>
+  <line x1="60" y1="140" x2="196" y2="62" stroke="#e05c5c" strokeWidth="2.5" markerEnd="url(#nv)"/>
+  <circle cx="60" cy="140" r="3.5" fill="#e05c5c"/>
+  <circle cx="200" cy="60" r="3.5" fill="#e05c5c"/>
+  <text x="116" y="116" fill="#e05c5c" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">v</text>
+  <line x1="268" y1="62" x2="132" y2="140" stroke="#5c9ee0" strokeWidth="2.5" markerEnd="url(#nnv)"/>
+  <circle cx="268" cy="62" r="3.5" fill="#5c9ee0"/>
+  <circle cx="128" cy="142" r="3.5" fill="#5c9ee0"/>
+  <text x="218" y="114" fill="#5c9ee0" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">−v</text>
+  <text x="170" y="178" fill="#aaaaaa" fontFamily="Georgia, serif" fontSize="12" textAnchor="middle">Figure 6: A vector v and its negation −v.</text>
+</svg>
+
+A vector and its negation are additive inverses, meaning that
+
+$$
+\mathbf{v} + (-\mathbf{v}) = \mathbf{0}
+$$
+
+for any vector $\mathbf{v}$.
+
+Although this operation is referred to as negation, there isn't any sense in which a vector is either positive or negative. A vector $\mathbf{v}$ points in a certain direction, and its negation $-\mathbf{v}$ points in the exact opposite direction, but neither of these directions is preferred, and there is no good way to decide which of $\mathbf{v}$ and $-\mathbf{v}$ should be positive and which should be negative.
+
+We can use negation to define subtraction for vectors. If $\mathbf{v}$ and $\mathbf{w}$ are vectors, the **difference** $\mathbf{w} - \mathbf{v}$ is defined by the formula
+
+$$
+\mathbf{w} - \mathbf{v} = \mathbf{w} + (-\mathbf{v}).
+$$
+
+If $\mathbf{v}$ and $\mathbf{w}$ are arranged to have the same beginning point, then the difference $\mathbf{w} - \mathbf{v}$ is the vector that points from the end of $\mathbf{v}$ to the end of $\mathbf{w}$.
+
+<svg viewBox="0 0 360 270" role="img" aria-label="Vectors v and w from a common origin, with w minus v shown from the tip of v to the tip of w" style={{ width: '100%', maxWidth: '380px', height: 'auto', display: 'block', margin: '1.5rem auto' }} xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="sv" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#e05c5c"/>
+    </marker>
+    <marker id="sw" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#5c9ee0"/>
+    </marker>
+    <marker id="sd" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#6fca8a"/>
+    </marker>
+  </defs>
+  <circle cx="70" cy="210" r="3.5" fill="#e0e0e0"/>
+  <circle cx="220" cy="160" r="3.5" fill="#e05c5c"/>
+  <circle cx="160" cy="80" r="3.5" fill="#5c9ee0"/>
+  <line x1="70" y1="210" x2="216" y2="163" stroke="#e05c5c" strokeWidth="2.5" markerEnd="url(#sv)"/>
+  <text x="130" y="205" fill="#e05c5c" fontFamily="Georgia, serif" fontSize="14" fontStyle="italic">v</text>
+  <line x1="70" y1="210" x2="157" y2="83" stroke="#5c9ee0" strokeWidth="2.5" markerEnd="url(#sw)"/>
+  <text x="92" y="148" fill="#5c9ee0" fontFamily="Georgia, serif" fontSize="14" fontStyle="italic">w</text>
+  <line x1="220" y1="160" x2="163" y2="83" stroke="#6fca8a" strokeWidth="2.5" markerEnd="url(#sd)"/>
+  <text x="206" y="116" fill="#6fca8a" fontFamily="Georgia, serif" fontSize="14" fontStyle="italic">w − v</text>
+  <text x="180" y="256" fill="#aaaaaa" fontFamily="Georgia, serif" fontSize="12" textAnchor="middle">Figure 7: The difference of two vectors v and w.</text>
+</svg>
+
+### Scalar Multiplication
+
+There does not seem to be a good way of multiplying two vectors in general. However, there is an operation called **scalar multiplication** that allows us to multiply a vector by a scalar.
+
+For a positive scalar $k$ and a vector $\mathbf{v}$, the product $k\mathbf{v}$ is a vector in the same direction as $\mathbf{v}$ whose magnitude has been scaled by a factor of $k$. Thus,
+
+$$
+|k\mathbf{v}| = k|\mathbf{v}|.
+$$
+
+<svg viewBox="0 0 420 240" role="img" aria-label="A vector v and several scalar multiples: one third v, one half v, three halves v, and 2v" style={{ width: '100%', maxWidth: '440px', height: 'auto', display: 'block', margin: '1.5rem auto' }} xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="sm1" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#e0e0e0"/></marker>
+    <marker id="sm2" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#e05c5c"/></marker>
+    <marker id="sm3" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#f0a030"/></marker>
+    <marker id="sm4" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#6fca8a"/></marker>
+    <marker id="sm5" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#a0c0f0"/></marker>
+  </defs>
+  <circle cx="60" cy="180" r="3.5" fill="#e0e0e0"/>
+  <line x1="60" y1="180" x2="156" y2="136" stroke="#e0e0e0" strokeWidth="2.5" markerEnd="url(#sm1)"/>
+  <text x="95" y="148" fill="#e0e0e0" fontFamily="Georgia, serif" fontSize="13" fontStyle="italic">v</text>
+  <line x1="60" y1="180" x2="252" y2="92" stroke="#e05c5c" strokeWidth="2.5" markerEnd="url(#sm2)"/>
+  <text x="170" y="115" fill="#e05c5c" fontFamily="Georgia, serif" fontSize="13" fontStyle="italic">2v</text>
+  <line x1="60" y1="180" x2="204" y2="114" stroke="#f0a030" strokeWidth="2.5" markerEnd="url(#sm3)"/>
+  <text x="145" y="128" fill="#f0a030" fontFamily="Georgia, serif" fontSize="13" fontStyle="italic">³⁄₂v</text>
+  <line x1="60" y1="180" x2="108" y2="158" stroke="#6fca8a" strokeWidth="2.5" markerEnd="url(#sm4)"/>
+  <text x="70" y="158" fill="#6fca8a" fontFamily="Georgia, serif" fontSize="12" fontStyle="italic">½v</text>
+  <line x1="60" y1="180" x2="92" y2="165" stroke="#a0c0f0" strokeWidth="2" markerEnd="url(#sm5)"/>
+  <text x="56" y="162" fill="#a0c0f0" fontFamily="Georgia, serif" fontSize="12" fontStyle="italic">⅓v</text>
+  <text x="210" y="225" fill="#aaaaaa" fontFamily="Georgia, serif" fontSize="12" textAnchor="middle">Figure 8: A vector v and several of its scalar multiples.</text>
+</svg>
+
+Multiplying a vector by a negative scalar both scales and negates the vector. Thus $(-1)\mathbf{v}$ is the same as $-\mathbf{v}$, and $(-k)\mathbf{v}$ is the same as $-(k\mathbf{v})$ for any scalar $k$. Note then that
+
+$$
+|k\mathbf{v}| = |k||\mathbf{v}|
+$$
+
+for any scalar $k$, where $|k|$ is the absolute value of $k$.
+
+Finally, multiplying a vector by the scalar $0$ results in the zero vector:
+
+$$
+0\mathbf{v} = \mathbf{0}
+$$
+
+**Properties of Scalar Multiplication**
+
+Scalar multiplication has the following properties:
+
+1. Associativity: $a(b\mathbf{v}) = (ab)\mathbf{v}$ for any scalars $a$, $b$ and any vector $\mathbf{v}$.
+2. Multiplicative identity: $1\mathbf{v} = \mathbf{v}$ for any vector $\mathbf{v}$.
+3. Left distributivity: $a(\mathbf{v} + \mathbf{w}) = a\mathbf{v} + a\mathbf{w}$ for any scalar $a$ and any vectors $\mathbf{v}$, $\mathbf{w}$.
+4. Right distributivity: $(a + b)\mathbf{v} = a\mathbf{v} + b\mathbf{v}$ for any scalars $a$, $b$ and any vector $\mathbf{v}$.
+
+### Linear Combinations
+
+A **linear combination** of two vectors $\mathbf{v}$ and $\mathbf{w}$ is any expression of the form
+
+$$
+a\mathbf{v} + b\mathbf{w},
+$$
+
+where $a$ and $b$ are scalars.
+
+<svg viewBox="0 0 500 370" role="img" aria-label="Parallelogram grid showing several different linear combinations of vectors v and w" style={{ width: '100%', maxWidth: '520px', height: 'auto', display: 'block', margin: '1.5rem auto' }} xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="lv" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#e05c5c"/></marker>
+    <marker id="lw" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#5c9ee0"/></marker>
+    <marker id="lc1" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#f0a030"/></marker>
+    <marker id="lc2" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#6fca8a"/></marker>
+    <marker id="lc3" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#c97be0"/></marker>
+    <marker id="lc4" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#e0a0a0"/></marker>
+  </defs>
+  <!-- Faint parallelogram grid lines -->
+  <!-- v direction: (76,−20) per unit; w direction: (30,−68) per unit -->
+  <!-- Origin at (180, 280) -->
+  <line x1="104" y1="300" x2="332" y2="244" stroke="#3a3a3a" strokeWidth="1"/>
+  <line x1="134" y1="232" x2="362" y2="176" stroke="#3a3a3a" strokeWidth="1"/>
+  <line x1="164" y1="164" x2="392" y2="108" stroke="#3a3a3a" strokeWidth="1"/>
+  <line x1="104" y1="300" x2="164" y2="164" stroke="#3a3a3a" strokeWidth="1"/>
+  <line x1="180" y1="280" x2="240" y2="144" stroke="#3a3a3a" strokeWidth="1"/>
+  <line x1="256" y1="260" x2="316" y2="124" stroke="#3a3a3a" strokeWidth="1"/>
+  <line x1="332" y1="244" x2="392" y2="108" stroke="#3a3a3a" strokeWidth="1"/>
+  <!-- Origin -->
+  <circle cx="180" cy="280" r="4" fill="#e0e0e0"/>
+  <!-- v -->
+  <line x1="180" y1="280" x2="253" y2="261" stroke="#e05c5c" strokeWidth="2.5" markerEnd="url(#lv)"/>
+  <text x="205" y="283" fill="#e05c5c" fontFamily="Georgia, serif" fontSize="14" fontStyle="italic">v</text>
+  <!-- w -->
+  <line x1="180" y1="280" x2="207" y2="215" stroke="#5c9ee0" strokeWidth="2.5" markerEnd="url(#lw)"/>
+  <text x="180" y="248" fill="#5c9ee0" fontFamily="Georgia, serif" fontSize="14" fontStyle="italic">w</text>
+  <!-- v + 2w -->
+  <line x1="180" y1="280" x2="293" y2="148" stroke="#f0a030" strokeWidth="2" markerEnd="url(#lc1)"/>
+  <text x="246" y="192" fill="#f0a030" fontFamily="Georgia, serif" fontSize="12" fontStyle="italic">v + 2w</text>
+  <!-- 2v + 2w -->
+  <line x1="180" y1="280" x2="369" y2="128" stroke="#6fca8a" strokeWidth="2" markerEnd="url(#lc2)"/>
+  <text x="295" y="178" fill="#6fca8a" fontFamily="Georgia, serif" fontSize="12" fontStyle="italic">2v + 2w</text>
+  <!-- −3/2 v -->
+  <line x1="180" y1="280" x2="66" y2="314" stroke="#c97be0" strokeWidth="2" markerEnd="url(#lc3)"/>
+  <text x="90" y="310" fill="#c97be0" fontFamily="Georgia, serif" fontSize="12" fontStyle="italic">−³⁄₂v</text>
+  <!-- −2v + 2w -->
+  <line x1="180" y1="280" x2="128" y2="80" stroke="#e0a0a0" strokeWidth="2" markerEnd="url(#lc4)"/>
+  <text x="120" y="168" fill="#e0a0a0" fontFamily="Georgia, serif" fontSize="12" fontStyle="italic">−2v + 2w</text>
+  <text x="250" y="358" fill="#aaaaaa" fontFamily="Georgia, serif" fontSize="12" textAnchor="middle">Figure 9: Several linear combinations of v and w. Each parallelogram in the grid has v and w along its sides.</text>
+</svg>
+
+A linear combination is the most general way of combining two vectors $\mathbf{v}$ and $\mathbf{w}$ using vector addition and multiplication by scalars. That is, any expression involving $\mathbf{v}$ and $\mathbf{w}$ and these two operations can always be simplified algebraically to a linear combination of $\mathbf{v}$ and $\mathbf{w}$.
+
+It is also possible to take a linear combination of more than two vectors. For example, if $\mathbf{u}$, $\mathbf{v}$, and $\mathbf{w}$ are three vectors, a linear combination of them would have the form
+
+$$
+a\mathbf{u} + b\mathbf{v} + c\mathbf{w},
+$$
+
+where $a$, $b$, and $c$ are scalars. More generally, if $\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_n$ are $n$ different vectors, then a linear combination of them has the form
+
+$$
+a_1\mathbf{v}_1 + a_2\mathbf{v}_2 + \cdots + a_n\mathbf{v}_n,
+$$
+
+where $a_1, a_2, \ldots, a_n$ are $n$ scalars.
+
+### The Algebra of Vectors
+
+The properties of vector addition and scalar multiplication mean that essentially all of the usual rules of algebra apply to vectors, as long we do not try to multiply two vectors together or add a vector to a scalar. In particular, we can use algebra to solve equations involving vectors.
+
+## Examples
+
+### Example 1
+
+Express the vector $2(-3\mathbf{v} + 4\mathbf{w}) - 3(-5\mathbf{v})$ as a linear combination of $\mathbf{v}$ and $\mathbf{w}$.
+
+**Solution** Distributing the $2$ and $-3$ through gives
+
+$$
+-6\mathbf{v} + 8\mathbf{w} + 15\mathbf{v},
+$$
+
+and combining like terms yields the linear combination
+
+$$
+9\mathbf{v} + 8\mathbf{w}.
+$$
+
+### Example 2
+
+In the figure, point $D$ is the midpoint of line segment $\overline{BC}$. Express the vector $\mathbf{w}$ as a linear combination of $\mathbf{u}$ and $\mathbf{v}$.
+
+<svg viewBox="0 0 380 270" role="img" aria-label="Triangle ABC with D as midpoint of BC; vectors u from A to C, v from A to B, and w from A to D are labelled" style={{ width: '100%', maxWidth: '400px', height: 'auto', display: 'block', margin: '1.5rem auto' }} xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="e2u" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#e05c5c"/></marker>
+    <marker id="e2v" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#5c9ee0"/></marker>
+    <marker id="e2w" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#6fca8a"/></marker>
+    <marker id="e2h" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#f0a030"/></marker>
+  </defs>
+  <!-- A=(55,200), C=(180,60), B=(330,200), D=midpoint(B,C)=(255,130) -->
+  <circle cx="55" cy="200" r="4" fill="#e0e0e0"/>
+  <circle cx="180" cy="60" r="4" fill="#e0e0e0"/>
+  <circle cx="330" cy="200" r="4" fill="#e0e0e0"/>
+  <circle cx="255" cy="130" r="4" fill="#e0e0e0"/>
+  <text x="38" y="216" fill="#e0e0e0" fontFamily="Georgia, serif" fontSize="14" fontStyle="italic">A</text>
+  <text x="175" y="48" fill="#e0e0e0" fontFamily="Georgia, serif" fontSize="14" fontStyle="italic">C</text>
+  <text x="336" y="216" fill="#e0e0e0" fontFamily="Georgia, serif" fontSize="14" fontStyle="italic">B</text>
+  <text x="260" y="126" fill="#e0e0e0" fontFamily="Georgia, serif" fontSize="14" fontStyle="italic">D</text>
+  <!-- u: A → C -->
+  <line x1="55" y1="200" x2="176" y2="64" stroke="#e05c5c" strokeWidth="2.5" markerEnd="url(#e2u)"/>
+  <text x="90" y="140" fill="#e05c5c" fontFamily="Georgia, serif" fontSize="14" fontStyle="italic">u</text>
+  <!-- v: A → B -->
+  <line x1="55" y1="200" x2="326" y2="200" stroke="#5c9ee0" strokeWidth="2.5" markerEnd="url(#e2v)"/>
+  <text x="185" y="220" fill="#5c9ee0" fontFamily="Georgia, serif" fontSize="14" fontStyle="italic">v</text>
+  <!-- w: A → D -->
+  <line x1="55" y1="200" x2="251" y2="133" stroke="#6fca8a" strokeWidth="2.5" markerEnd="url(#e2w)"/>
+  <text x="168" y="176" fill="#6fca8a" fontFamily="Georgia, serif" fontSize="14" fontStyle="italic">w</text>
+  <!-- C to B (thin, shows ½(u+v)) -->
+  <line x1="180" y1="60" x2="330" y2="200" stroke="#888" strokeWidth="1" strokeDasharray="4,3"/>
+  <!-- label ½(u+v) near midpoint -->
+  <text x="260" y="96" fill="#f0a030" fontFamily="Georgia, serif" fontSize="12" fontStyle="italic">½(u+v)</text>
+  <text x="190" y="258" fill="#aaaaaa" fontFamily="Georgia, serif" fontSize="12" textAnchor="middle">Figure 10: D is the midpoint of BC.</text>
+</svg>
+
+**Solution** Note first that the vector from $C$ to $B$ is equal to $\mathbf{u} + \mathbf{v}$. Since $D$ is the midpoint of $\overline{BC}$, the vector from $C$ to $D$ must be half of $\mathbf{u} + \mathbf{v}$. From the picture, we see that
+
+$$
+\mathbf{u} + \mathbf{w} = \frac{1}{2}(\mathbf{u} + \mathbf{v})
+$$
+
+and therefore
+
+$$
+\mathbf{w} = -\frac{1}{2}\mathbf{u} + \frac{1}{2}\mathbf{v}.
+$$
+
+### Example 3
+
+Solve the following equation for $\mathbf{v}$ in terms of $\mathbf{u}$:
+
+$$
+3\mathbf{u} + 2\mathbf{v} = 5\mathbf{u} - 4(\mathbf{u} - 2\mathbf{v}).
+$$
+
+**Solution** Distributing the $-4$ on the right gives
+
+$$
+3\mathbf{u} + 2\mathbf{v} = 5\mathbf{u} - 4\mathbf{u} + 8\mathbf{v},
+$$
+
+which simplifies to
+
+$$
+3\mathbf{u} + 2\mathbf{v} = \mathbf{u} + 8\mathbf{v}.
+$$
+
+Subtracting both $8\mathbf{v}$ and $3\mathbf{u}$ from both sides gives
+
+$$
+-6\mathbf{v} = -2\mathbf{u}
+$$
+
+and dividing through by $-6$ yields
+
+$$
+\mathbf{v} = \frac{1}{3}\mathbf{u}.
+$$
+
+## 2. Vector Components
+
+So far all of our discussion of vectors has been from the viewpoint of Euclidean geometry. However, in modern mathematics it is much more common to take an analytic approach to geometry, identifying each point in the plane with an ordered pair $(x, y)$ of real coordinates. The resulting plane is sometimes called the $xy$-plane, but in linear algebra and advanced mathematics it is more often referred to as $\mathbb{R}^2$.
+
+The most important vectors in $\mathbb{R}^2$ are the **standard basis vectors** $\mathbf{i}$ and $\mathbf{j}$.
+
+<svg viewBox="0 0 260 260" role="img" aria-label="The standard basis vectors i pointing right and j pointing up in the xy-plane" style={{ width: '100%', maxWidth: '280px', height: 'auto', display: 'block', margin: '1.5rem auto' }} xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="bi" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#e05c5c"/></marker>
+    <marker id="bj" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#5c9ee0"/></marker>
+    <marker id="bax" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888"/></marker>
+    <marker id="bay" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888"/></marker>
+  </defs>
+  <line x1="50" y1="180" x2="220" y2="180" stroke="#888" strokeWidth="1.5" markerEnd="url(#bax)"/>
+  <line x1="80" y1="220" x2="80" y2="50" stroke="#888" strokeWidth="1.5" markerEnd="url(#bay)"/>
+  <text x="224" y="185" fill="#888" fontFamily="Georgia, serif" fontSize="13" fontStyle="italic">x</text>
+  <text x="76" y="44" fill="#888" fontFamily="Georgia, serif" fontSize="13" fontStyle="italic">y</text>
+  <line x1="80" y1="180" x2="136" y2="180" stroke="#e05c5c" strokeWidth="2.5" markerEnd="url(#bi)"/>
+  <text x="100" y="172" fill="#e05c5c" fontFamily="Georgia, serif" fontSize="15" fontWeight="bold">i</text>
+  <line x1="80" y1="180" x2="80" y2="124" stroke="#5c9ee0" strokeWidth="2.5" markerEnd="url(#bj)"/>
+  <text x="87" y="150" fill="#5c9ee0" fontFamily="Georgia, serif" fontSize="15" fontWeight="bold">j</text>
+  <line x1="140" y1="175" x2="140" y2="185" stroke="#888" strokeWidth="1"/>
+  <text x="137" y="198" fill="#888" fontFamily="Georgia, serif" fontSize="11">1</text>
+  <line x1="75" y1="120" x2="85" y2="120" stroke="#888" strokeWidth="1"/>
+  <text x="60" y="124" fill="#888" fontFamily="Georgia, serif" fontSize="11">1</text>
+  <circle cx="80" cy="180" r="3" fill="#e0e0e0"/>
+  <text x="130" y="245" fill="#aaaaaa" fontFamily="Georgia, serif" fontSize="12" textAnchor="middle">Figure 1: The standard basis vectors i and j.</text>
+</svg>
+
+The standard basis vectors both have a magnitude of 1, with $\mathbf{i}$ pointing in the positive $x$-direction and $\mathbf{j}$ pointing in the positive $y$-direction.
+
+We can take linear combinations of $\mathbf{i}$ and $\mathbf{j}$ to get other vectors in the plane. For example, the vector $5\mathbf{i} + 3\mathbf{j}$ stretches 5 units in the positive $x$-direction and 3 units in the positive $y$-direction.
+
+<svg viewBox="0 0 320 280" role="img" aria-label="The vector 5i plus 3j shown in the xy-plane, with horizontal component 5i and vertical component 3j indicated" style={{ width: '100%', maxWidth: '340px', height: 'auto', display: 'block', margin: '1.5rem auto' }} xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="f2ax" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888"/></marker>
+    <marker id="f2ay" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888"/></marker>
+    <marker id="f2v" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#e05c5c"/></marker>
+    <marker id="f2i" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#5c9ee0"/></marker>
+    <marker id="f2j" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#6fca8a"/></marker>
+  </defs>
+  <line x1="40" y1="220" x2="290" y2="220" stroke="#888" strokeWidth="1.5" markerEnd="url(#f2ax)"/>
+  <line x1="60" y1="248" x2="60" y2="40" stroke="#888" strokeWidth="1.5" markerEnd="url(#f2ay)"/>
+  <text x="293" y="226" fill="#888" fontFamily="Georgia, serif" fontSize="13" fontStyle="italic">x</text>
+  <text x="56" y="36" fill="#888" fontFamily="Georgia, serif" fontSize="13" fontStyle="italic">y</text>
+  <circle cx="60" cy="220" r="3" fill="#e0e0e0"/>
+  <!-- 5i horizontal dashed component -->
+  <line x1="60" y1="220" x2="226" y2="220" stroke="#5c9ee0" strokeWidth="2" strokeDasharray="5,3" markerEnd="url(#f2i)"/>
+  <text x="133" y="238" fill="#5c9ee0" fontFamily="Georgia, serif" fontSize="13" fontStyle="italic">5i</text>
+  <!-- 3j vertical dashed component -->
+  <line x1="230" y1="220" x2="230" y2="122" stroke="#6fca8a" strokeWidth="2" strokeDasharray="5,3" markerEnd="url(#f2j)"/>
+  <text x="238" y="174" fill="#6fca8a" fontFamily="Georgia, serif" fontSize="13" fontStyle="italic">3j</text>
+  <!-- actual vector -->
+  <line x1="60" y1="220" x2="226" y2="124" stroke="#e05c5c" strokeWidth="2.5" markerEnd="url(#f2v)"/>
+  <text x="128" y="156" fill="#e05c5c" fontFamily="Georgia, serif" fontSize="14" fontStyle="italic">5i + 3j</text>
+  <circle cx="230" cy="120" r="3.5" fill="#e05c5c"/>
+  <text x="160" y="268" fill="#aaaaaa" fontFamily="Georgia, serif" fontSize="12" textAnchor="middle">Figure 2: A linear combination of i and j.</text>
+</svg>
+
+In fact, every vector $\mathbf{v}$ in $\mathbb{R}^2$ can be written as a linear combination of $\mathbf{i}$ and $\mathbf{j}$:
+
+$$
+\mathbf{v} = v_x\,\mathbf{i} + v_y\,\mathbf{j}
+$$
+
+The coefficients $v_x$ and $v_y$ in this linear combination are called the **components** of $\mathbf{v}$. These represent how far the vector stretches in the $x$ and $y$ directions. In particular, $v_x$ is the **horizontal component** of $\mathbf{v}$, and $v_y$ is the **vertical component** of $\mathbf{v}$.
+
+<svg viewBox="0 0 300 280" role="img" aria-label="Vector v with horizontal component vx and vertical component vy shown as dashed lines" style={{ width: '100%', maxWidth: '320px', height: 'auto', display: 'block', margin: '1.5rem auto' }} xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="cmpax" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888"/></marker>
+    <marker id="cmpay" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888"/></marker>
+    <marker id="cmpv" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#e05c5c"/></marker>
+  </defs>
+  <line x1="40" y1="210" x2="260" y2="210" stroke="#888" strokeWidth="1.5" markerEnd="url(#cmpax)"/>
+  <line x1="60" y1="240" x2="60" y2="40" stroke="#888" strokeWidth="1.5" markerEnd="url(#cmpay)"/>
+  <text x="264" y="216" fill="#888" fontFamily="Georgia, serif" fontSize="13" fontStyle="italic">x</text>
+  <text x="56" y="36" fill="#888" fontFamily="Georgia, serif" fontSize="13" fontStyle="italic">y</text>
+  <circle cx="60" cy="210" r="3" fill="#e0e0e0"/>
+  <line x1="60" y1="210" x2="216" y2="114" stroke="#e05c5c" strokeWidth="2.5" markerEnd="url(#cmpv)"/>
+  <text x="118" y="150" fill="#e05c5c" fontFamily="Georgia, serif" fontSize="15" fontWeight="bold">v</text>
+  <line x1="220" y1="210" x2="220" y2="114" stroke="#888" strokeWidth="1.2" strokeDasharray="5,3"/>
+  <line x1="60" y1="110" x2="220" y2="110" stroke="#888" strokeWidth="1.2" strokeDasharray="5,3"/>
+  <!-- vx bracket -->
+  <line x1="60" y1="224" x2="220" y2="224" stroke="#5c9ee0" strokeWidth="1.5"/>
+  <line x1="60" y1="220" x2="60" y2="228" stroke="#5c9ee0" strokeWidth="1.5"/>
+  <line x1="220" y1="220" x2="220" y2="228" stroke="#5c9ee0" strokeWidth="1.5"/>
+  <text x="140" y="242" fill="#5c9ee0" fontFamily="Georgia, serif" fontSize="14" fontStyle="italic" textAnchor="middle">v_x</text>
+  <!-- vy bracket -->
+  <line x1="234" y1="110" x2="234" y2="210" stroke="#6fca8a" strokeWidth="1.5"/>
+  <line x1="230" y1="110" x2="238" y2="110" stroke="#6fca8a" strokeWidth="1.5"/>
+  <line x1="230" y1="210" x2="238" y2="210" stroke="#6fca8a" strokeWidth="1.5"/>
+  <text x="250" y="165" fill="#6fca8a" fontFamily="Georgia, serif" fontSize="14" fontStyle="italic">v_y</text>
+  <text x="150" y="270" fill="#aaaaaa" fontFamily="Georgia, serif" fontSize="12" textAnchor="middle">Figure 3: The two components v_x and v_y of a vector v.</text>
+</svg>
+
+Note that each component may be positive or negative. For example, $v_x$ is positive if $\mathbf{v}$ points generally to the right, and $v_x$ is negative if $\mathbf{v}$ points generally to the left. Similarly, $v_y$ is positive if $\mathbf{v}$ points generally upwards, and $v_y$ is negative if $\mathbf{v}$ points generally downwards.
+
+### Column Vectors
+
+There is another common notation for linear combinations of $\mathbf{i}$ and $\mathbf{j}$. Given any scalars $a$ and $b$, we let
+
+$$
+\begin{bmatrix} a \\ b \end{bmatrix} = a\,\mathbf{i} + b\,\mathbf{j}.
+$$
+
+That is, $\begin{bmatrix} a \\ b \end{bmatrix}$ is a vector whose components are $a$ and $b$. A vector written in this fashion is known as a **column vector**. This way of writing vectors is very popular within mathematics, but physicists usually prefer to write $\mathbf{i}$ and $\mathbf{j}$ explicitly.
+
+Of course, any vector $\mathbf{v}$ can be written as a column vector, with
+
+$$
+\mathbf{v} = \begin{bmatrix} v_x \\ v_y \end{bmatrix}
+$$
+
+Note that the standard basis vectors $\mathbf{i}$ and $\mathbf{j}$ can themselves be written as column vectors. In particular, since $\mathbf{i} = 1\mathbf{i} + 0\mathbf{j}$ and $\mathbf{j} = 0\mathbf{i} + 1\mathbf{j}$, we have
+
+$$
+\mathbf{i} = \begin{bmatrix} 1 \\ 0 \end{bmatrix} \qquad \text{and} \qquad \mathbf{j} = \begin{bmatrix} 0 \\ 1 \end{bmatrix}
+$$
+
+### Vector Operations
+
+The operations of vector addition and scalar multiplication are easy to compute using components. The formula for vector addition is
+
+$$
+\begin{bmatrix} a \\ b \end{bmatrix} + \begin{bmatrix} c \\ d \end{bmatrix} = \begin{bmatrix} a + c \\ b + d \end{bmatrix}
+$$
+
+That is, each component of the sum of two vectors is the sum of the corresponding components of the two vectors. For example,
+
+$$
+\begin{bmatrix} 1 \\ 5 \end{bmatrix} + \begin{bmatrix} 3 \\ 2 \end{bmatrix} = \begin{bmatrix} 4 \\ 7 \end{bmatrix}.
+$$
+
+The formula for scalar multiplication is equally simple:
+
+$$
+k\begin{bmatrix} a \\ b \end{bmatrix} = \begin{bmatrix} ka \\ kb \end{bmatrix}
+$$
+
+That is, multiplying a vector by a scalar $k$ is the same as multiplying each component by $k$. For example,
+
+$$
+2\begin{bmatrix} 3 \\ 4 \end{bmatrix} = \begin{bmatrix} 6 \\ 8 \end{bmatrix}.
+$$
+
+### Magnitude and Direction
+
+The direction of a vector $\mathbf{v}$ in $\mathbb{R}^2$ can be described by a single angle $\theta$. As is the custom in mathematics, we measure angles counterclockwise from the positive $x$-axis.
+
+<svg viewBox="0 0 300 260" role="img" aria-label="Vector v in the xy-plane with its direction angle theta measured counterclockwise from the positive x-axis" style={{ width: '100%', maxWidth: '320px', height: 'auto', display: 'block', margin: '1.5rem auto' }} xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="tax" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888"/></marker>
+    <marker id="tay" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888"/></marker>
+    <marker id="tv" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#e05c5c"/></marker>
+  </defs>
+  <line x1="40" y1="190" x2="260" y2="190" stroke="#888" strokeWidth="1.5" markerEnd="url(#tax)"/>
+  <line x1="80" y1="230" x2="80" y2="40" stroke="#888" strokeWidth="1.5" markerEnd="url(#tay)"/>
+  <text x="264" y="196" fill="#888" fontFamily="Georgia, serif" fontSize="13" fontStyle="italic">x</text>
+  <text x="76" y="36" fill="#888" fontFamily="Georgia, serif" fontSize="13" fontStyle="italic">y</text>
+  <circle cx="80" cy="190" r="3" fill="#e0e0e0"/>
+  <line x1="80" y1="190" x2="224" y2="96" stroke="#e05c5c" strokeWidth="2.5" markerEnd="url(#tv)"/>
+  <text x="160" y="126" fill="#e05c5c" fontFamily="Georgia, serif" fontSize="15" fontWeight="bold">v</text>
+  <path d="M 116 190 A 36 36 0 0 0 107 164" fill="none" stroke="#f0a030" strokeWidth="1.8"/>
+  <text x="120" y="180" fill="#f0a030" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">θ</text>
+  <text x="150" y="248" fill="#aaaaaa" fontFamily="Georgia, serif" fontSize="12" textAnchor="middle">Figure 5: The direction of v is the angle θ.</text>
+</svg>
+
+Given the direction $\theta$ and magnitude $|\mathbf{v}|$ for a vector, we can find the components of the vector using the formulas
+
+$$
+v_x = |\mathbf{v}|\cos\theta \qquad \text{and} \qquad v_y = |\mathbf{v}|\sin\theta
+$$
+
+These formulas can be derived from a right triangle. Conversely, given the components of a vector, we can find the magnitude and direction using the formulas
+
+$$
+|\mathbf{v}| = \sqrt{v_x^2 + v_y^2} \qquad \text{and} \qquad \tan\theta = \frac{v_y}{v_x}
+$$
+
+<svg viewBox="0 0 300 268" role="img" aria-label="Right triangle with hypotenuse labeled as the magnitude of v, horizontal leg as vx, vertical leg as vy, and base angle as theta" style={{ width: '100%', maxWidth: '320px', height: 'auto', display: 'block', margin: '1.5rem auto' }} xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="rtax" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888"/></marker>
+    <marker id="rtay" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888"/></marker>
+    <marker id="rtv" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#e05c5c"/></marker>
+  </defs>
+  <line x1="40" y1="200" x2="260" y2="200" stroke="#888" strokeWidth="1.5" markerEnd="url(#rtax)"/>
+  <line x1="70" y1="230" x2="70" y2="40" stroke="#888" strokeWidth="1.5" markerEnd="url(#rtay)"/>
+  <text x="264" y="206" fill="#888" fontFamily="Georgia, serif" fontSize="13" fontStyle="italic">x</text>
+  <text x="66" y="36" fill="#888" fontFamily="Georgia, serif" fontSize="13" fontStyle="italic">y</text>
+  <line x1="70" y1="200" x2="216" y2="94" stroke="#e05c5c" strokeWidth="2.5" markerEnd="url(#rtv)"/>
+  <text x="120" y="130" fill="#e05c5c" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">|v|</text>
+  <line x1="70" y1="200" x2="220" y2="200" stroke="#5c9ee0" strokeWidth="2"/>
+  <text x="138" y="218" fill="#5c9ee0" fontFamily="Georgia, serif" fontSize="14" fontStyle="italic">v_x</text>
+  <line x1="220" y1="200" x2="220" y2="90" stroke="#6fca8a" strokeWidth="2"/>
+  <text x="228" y="148" fill="#6fca8a" fontFamily="Georgia, serif" fontSize="14" fontStyle="italic">v_y</text>
+  <rect x="208" y="188" width="12" height="12" fill="none" stroke="#aaa" strokeWidth="1.2"/>
+  <path d="M 106 200 A 36 36 0 0 0 96 174" fill="none" stroke="#f0a030" strokeWidth="1.8"/>
+  <text x="110" y="192" fill="#f0a030" fontFamily="Georgia, serif" fontSize="13" fontStyle="italic">θ</text>
+  <circle cx="70" cy="200" r="3" fill="#e0e0e0"/>
+  <text x="150" y="256" fill="#aaaaaa" fontFamily="Georgia, serif" fontSize="12" textAnchor="middle">Figure 6: The components of v are the legs of a right triangle with hypotenuse |v|.</text>
+</svg>
+
+The first of these formulas follows from the Pythagorean theorem. The second allows us to find the angle $\theta$ using $v_x$ and $v_y$, though we must be careful about the direction that the vector points.
+
+> **Warning:** The formula given for $\tan\theta$ does **not** imply that $\theta = \tan^{-1}\!\left(\frac{v_y}{v_x}\right)$. This formula works if the vector points to the right (i.e. if $v_x > 0$), but if the vector points to the left the value of the arctangent will be off by $180°$.
+
+### Vector Equations
+
+Since the components of a vector determine both the magnitude and direction, two vectors are equal if and only if they have the same components.
+
+**Equality of Vectors**
+
+The equation
+
+$$
+\begin{bmatrix} a \\ b \end{bmatrix} = \begin{bmatrix} c \\ d \end{bmatrix}
+$$
+
+holds if and only if $a = c$ and $b = d$.
+
+Here **if and only if** means that either statement implies the other. That is, if two vectors are equal then their components are the same, and if two vectors have the same components then they must be equal.
+
+A **vector equation** is an equation for which both sides are vectors. The principle above lets us separate a vector equation into two scalar equations, which is often necessary for finding the solution.
+
+### Vectors in Science
+
+In science, vectors are used to represent any quantity that has both magnitude and direction. For example:
+
+1. Any moving object has an associated **velocity vector**. The magnitude of this vector is the speed of motion, and the direction is the direction in which the object is moving.
+
+2. In physics, a force acting on an object is represented by a **force vector**. The magnitude of this vector is the strength of the force, and the direction is the direction in which the force pushes.
+
+Note that the magnitude of a vector may have any units, in which case the components of a vector have those same units. For example, the magnitude and components of a velocity vector have units of m/sec, while the magnitude and components of a force vector are measured in Newtons (N).
+
+Vectors in science are often drawn as arrows, even if the vectors themselves do not have units of length. For example, a free body diagram in physics represents the forces acting on an object as arrows. In this case, the scale of the arrows is arbitrary, as long as all force vectors are drawn to the same scale.
+
+<svg viewBox="0 0 280 240" role="img" aria-label="Free body diagram showing forces N, mg, and a friction force f acting on a block on a ramp at angle theta" style={{ width: '100%', maxWidth: '300px', height: 'auto', display: 'block', margin: '1.5rem auto' }} xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="fbn" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#5c9ee0"/></marker>
+    <marker id="fbmg" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#e05c5c"/></marker>
+    <marker id="fbf" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#6fca8a"/></marker>
+  </defs>
+  <!-- ramp -->
+  <polygon points="30,200 220,200 220,120" fill="none" stroke="#888" strokeWidth="1.5"/>
+  <!-- angle label -->
+  <path d="M 60 200 A 30 30 0 0 0 54 178" fill="none" stroke="#aaa" strokeWidth="1.2"/>
+  <text x="65" y="195" fill="#aaa" fontFamily="Georgia, serif" fontSize="12" fontStyle="italic">θ</text>
+  <!-- block (rotated square on ramp) -->
+  <rect x="118" y="142" width="28" height="28" fill="#555" stroke="#888" strokeWidth="1" transform="rotate(-20,132,156)"/>
+  <!-- Normal force N (perpendicular to ramp surface) -->
+  <line x1="132" y1="148" x2="104" y2="96" stroke="#5c9ee0" strokeWidth="2" markerEnd="url(#fbn)"/>
+  <text x="88" y="92" fill="#5c9ee0" fontFamily="Georgia, serif" fontSize="13" fontStyle="italic">N</text>
+  <!-- gravity mg (straight down) -->
+  <line x1="132" y1="162" x2="132" y2="218" stroke="#e05c5c" strokeWidth="2" markerEnd="url(#fbmg)"/>
+  <text x="136" y="224" fill="#e05c5c" fontFamily="Georgia, serif" fontSize="12" fontStyle="italic">mg</text>
+  <!-- friction f (up the ramp) -->
+  <line x1="118" y1="155" x2="82" y2="140" stroke="#6fca8a" strokeWidth="2" markerEnd="url(#fbf)"/>
+  <text x="64" y="138" fill="#6fca8a" fontFamily="Georgia, serif" fontSize="13" fontStyle="italic">f</text>
+  <text x="140" y="226" fill="#aaaaaa" fontFamily="Georgia, serif" fontSize="11" textAnchor="middle">Figure 7: A free body diagram.</text>
+</svg>
+
+Vector addition is very important for force vectors in physics. For a given object, the sum of all of the force vectors acting on it is called the **net force**, and determines the motion of the object. An object is in **static equilibrium** if it is at rest and the net force on it is equal to zero.
+
+## Examples
+
+### Example 1
+
+Find the magnitude and direction of the vector $\mathbf{v} = \begin{bmatrix} -4 \\ 3 \end{bmatrix}$.
+
+**Solution** From the formulas above, we have
+
+$$
+|\mathbf{v}| = \sqrt{(-4)^2 + (3)^2} = 5 \qquad \text{and} \qquad \tan\theta = -\frac{3}{4},
+$$
+
+where $\theta$ is the direction of $\mathbf{v}$. Now,
+
+$$
+\tan^{-1}\!\left(-\frac{3}{4}\right) = -36.87°,
+$$
+
+but this is not the right direction, since the vector would have to point down and to the right. Adding $180°$ gives the correct direction of $143.13°$.
+
+### Example 2
+
+Solve for $x$:
+
+$$
+3\begin{bmatrix} x \\ 2 \end{bmatrix} - \begin{bmatrix} 4 \\ -6 \end{bmatrix} = x\begin{bmatrix} 2 \\ 3 \end{bmatrix}.
+$$
+
+**Solution** Multiplying the left vector through by $3$ and the right vector through by $x$ gives the equation
+
+$$
+\begin{bmatrix} 3x \\ 6 \end{bmatrix} - \begin{bmatrix} 4 \\ -6 \end{bmatrix} = \begin{bmatrix} 2x \\ 3x \end{bmatrix}.
+$$
+
+We can now subtract the two vectors on the left to get
+
+$$
+\begin{bmatrix} 3x - 4 \\ 12 \end{bmatrix} = \begin{bmatrix} 2x \\ 3x \end{bmatrix},
+$$
+
+which is the same as the two scalar equations
+
+$$
+3x - 4 = 2x \qquad \text{and} \qquad 12 = 3x.
+$$
+
+The solution to both of these equations is $x = 4$.
+
+### Example 3
+
+Solve for $x$ and $y$:
+
+$$
+x\begin{bmatrix} 2 \\ 3 \end{bmatrix} + y\begin{bmatrix} 2 \\ 1 \end{bmatrix} = \begin{bmatrix} 8 \\ 6 \end{bmatrix}.
+$$
+
+**Solution** Combining the vectors on the left together gives the equation
+
+$$
+\begin{bmatrix} 2x + 2y \\ 3x + y \end{bmatrix} = \begin{bmatrix} 8 \\ 6 \end{bmatrix},
+$$
+
+which is the same as the system of equations
+
+$$
+2x + 2y = 8 \qquad \text{and} \qquad 3x + y = 6.
+$$
+
+The second equation tells us that $y = 6 - 3x$. Plugging this into the first equation and solving for $x$ yields $x = 1$, and it follows that $y = 3$.
+
+## 3. Vector Geometry
+
+### Unit Vectors
+
+A vector $\mathbf{u}$ is called a **unit vector** if its magnitude is equal to 1. Such vectors are often used to represent a direction alone, without a corresponding magnitude. When writing unit vectors by hand, it is common to replace the arrow above the letter with a hat, i.e. $\hat{u}$ instead of $\vec{u}$. Some books also use hats for unit vectors in printed text, but we will just use plain bold letters.
+
+Given any nonzero vector $\mathbf{v}$, we can find a unit vector $\mathbf{u}$ in the same direction as $\mathbf{v}$ using the formula
+
+$$
+\mathbf{u} = \frac{1}{|\mathbf{v}|}\mathbf{v}
+$$
+
+<svg viewBox="0 0 320 260" role="img" aria-label="Vector v and the shorter unit vector u in the same direction, labelled u equals one over magnitude v times v" style={{ width: '100%', maxWidth: '340px', height: 'auto', display: 'block', margin: '1.5rem auto' }} xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="nrax" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888"/></marker>
+    <marker id="nray" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888"/></marker>
+    <marker id="nrv" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#e05c5c"/></marker>
+    <marker id="nru" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#6fca8a"/></marker>
+  </defs>
+  <line x1="40" y1="200" x2="280" y2="200" stroke="#888" strokeWidth="1.5" markerEnd="url(#nrax)"/>
+  <line x1="70" y1="230" x2="70" y2="40" stroke="#888" strokeWidth="1.5" markerEnd="url(#nray)"/>
+  <text x="283" y="206" fill="#888" fontFamily="Georgia, serif" fontSize="13" fontStyle="italic">x</text>
+  <text x="66" y="36" fill="#888" fontFamily="Georgia, serif" fontSize="13" fontStyle="italic">y</text>
+  <line x1="110" y1="196" x2="110" y2="204" stroke="#888" strokeWidth="1"/>
+  <text x="107" y="216" fill="#888" fontFamily="Georgia, serif" fontSize="11">1</text>
+  <line x1="150" y1="196" x2="150" y2="204" stroke="#888" strokeWidth="1"/>
+  <text x="147" y="216" fill="#888" fontFamily="Georgia, serif" fontSize="11">2</text>
+  <line x1="66" y1="160" x2="74" y2="160" stroke="#888" strokeWidth="1"/>
+  <text x="54" y="164" fill="#888" fontFamily="Georgia, serif" fontSize="11">1</text>
+  <line x1="66" y1="120" x2="74" y2="120" stroke="#888" strokeWidth="1"/>
+  <text x="54" y="124" fill="#888" fontFamily="Georgia, serif" fontSize="11">2</text>
+  <!-- v: long vector -->
+  <line x1="70" y1="200" x2="224" y2="84" stroke="#e05c5c" strokeWidth="2.5" markerEnd="url(#nrv)"/>
+  <text x="162" y="128" fill="#e05c5c" fontFamily="Georgia, serif" fontSize="15" fontWeight="bold">v</text>
+  <!-- u: unit vector (shorter, same direction) -->
+  <line x1="70" y1="200" x2="121" y2="162" stroke="#6fca8a" strokeWidth="2.5" markerEnd="url(#nru)"/>
+  <text x="76" y="170" fill="#6fca8a" fontFamily="Georgia, serif" fontSize="12" fontStyle="italic">u = 1/|v| v</text>
+  <circle cx="70" cy="200" r="3" fill="#e0e0e0"/>
+  <text x="160" y="248" fill="#aaaaaa" fontFamily="Georgia, serif" fontSize="12" textAnchor="middle">Figure 1: Dividing v by its magnitude gives a unit vector.</text>
+</svg>
+
+The vector $\mathbf{u}$ is sometimes called the **normalization** of $\mathbf{v}$.
+
+Any vector can be expressed as a scalar multiple of a unit vector. In particular, if $\mathbf{u}$ is a unit vector in the same direction as $\mathbf{v}$, then
+
+$$
+\mathbf{v} = |\mathbf{v}|\mathbf{u}
+$$
+
+This formula is often useful for building vectors with a certain magnitude and direction. The idea is to first find a unit vector $\mathbf{u}$ in the appropriate direction, and then multiply by the appropriate magnitude to obtain the desired vector.
+
+### Points as Vectors
+
+Given any point $(x, y)$ in the plane, the associated **radial vector** is the vector that stretches from the origin $(0, 0)$ to the given point. The components of the radial vector are the same as the coordinates of the point:
+
+$$
+\mathbf{r} = \begin{bmatrix} x \\ y \end{bmatrix}.
+$$
+
+<svg viewBox="0 0 300 260" role="img" aria-label="The point (3,2) in the xy-plane with its radial vector drawn from the origin" style={{ width: '100%', maxWidth: '320px', height: 'auto', display: 'block', margin: '1.5rem auto' }} xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="rvax" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888"/></marker>
+    <marker id="rvay" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888"/></marker>
+    <marker id="rvr" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#e05c5c"/></marker>
+  </defs>
+  <line x1="40" y1="200" x2="260" y2="200" stroke="#888" strokeWidth="1.5" markerEnd="url(#rvax)"/>
+  <line x1="70" y1="230" x2="70" y2="40" stroke="#888" strokeWidth="1.5" markerEnd="url(#rvay)"/>
+  <text x="264" y="206" fill="#888" fontFamily="Georgia, serif" fontSize="13" fontStyle="italic">x</text>
+  <text x="66" y="36" fill="#888" fontFamily="Georgia, serif" fontSize="13" fontStyle="italic">y</text>
+  <line x1="110" y1="196" x2="110" y2="204" stroke="#888" strokeWidth="1"/>
+  <text x="107" y="216" fill="#888" fontFamily="Georgia, serif" fontSize="11">1</text>
+  <line x1="150" y1="196" x2="150" y2="204" stroke="#888" strokeWidth="1"/>
+  <text x="147" y="216" fill="#888" fontFamily="Georgia, serif" fontSize="11">2</text>
+  <line x1="190" y1="196" x2="190" y2="204" stroke="#888" strokeWidth="1"/>
+  <text x="187" y="216" fill="#888" fontFamily="Georgia, serif" fontSize="11">3</text>
+  <line x1="66" y1="160" x2="74" y2="160" stroke="#888" strokeWidth="1"/>
+  <text x="54" y="164" fill="#888" fontFamily="Georgia, serif" fontSize="11">1</text>
+  <line x1="66" y1="120" x2="74" y2="120" stroke="#888" strokeWidth="1"/>
+  <text x="54" y="124" fill="#888" fontFamily="Georgia, serif" fontSize="11">2</text>
+  <line x1="70" y1="200" x2="186" y2="124" stroke="#e05c5c" strokeWidth="2.5" markerEnd="url(#rvr)"/>
+  <circle cx="190" cy="120" r="4" fill="#e0e0e0"/>
+  <text x="196" y="116" fill="#e0e0e0" fontFamily="Georgia, serif" fontSize="13">(3, 2)</text>
+  <circle cx="70" cy="200" r="3" fill="#e0e0e0"/>
+  <text x="150" y="248" fill="#aaaaaa" fontFamily="Georgia, serif" fontSize="12" textAnchor="middle">Figure 3: The point (3, 2) and its radial vector.</text>
+</svg>
+
+Although we think of a point and its radial vector very differently, they are both described by the same pair of real numbers $x$, $y$. This makes it possible to regard points and vectors as the same thing. Indeed, from now on we will make **no distinction between a point in the plane and its radial vector**. Thus
+
+$$
+( x, y ) = \begin{bmatrix} x \\ y \end{bmatrix}
+$$
+
+for any real numbers $x$ and $y$.
+
+This convention simplifies our mathematics, because it decreases the number of different kinds of objects that we have to contend with. It also gives us the freedom to use vector operations such as addition and scalar multiplication on points as well as vectors. For example, we can now add two vectors, add two points, or add a vector to a point without worrying about the distinction between these operations.
+
+### Vector Operations Involving Points
+
+We now have two different geometric interpretations of vectors. Given a vector such as $(3, 2)$, we can regard it as either an arrow whose components are 3 and 2, or as a point whose coordinates are 3 and 2. We already know the geometric meaning of vector operations involving arrows. But what do these operations look like for points?
+
+First observe that the magnitude of a point $\mathbf{p}$ is the same as the distance from $\mathbf{p}$ to the origin.
+
+<svg viewBox="0 0 300 240" role="img" aria-label="A point p in the plane with a dashed line showing its distance from the origin, labelled as the magnitude of p" style={{ width: '100%', maxWidth: '320px', height: 'auto', display: 'block', margin: '1.5rem auto' }} xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="mpax" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888"/></marker>
+    <marker id="mpay" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888"/></marker>
+  </defs>
+  <line x1="40" y1="190" x2="260" y2="190" stroke="#888" strokeWidth="1.5" markerEnd="url(#mpax)"/>
+  <line x1="70" y1="215" x2="70" y2="40" stroke="#888" strokeWidth="1.5" markerEnd="url(#mpay)"/>
+  <text x="264" y="196" fill="#888" fontFamily="Georgia, serif" fontSize="13" fontStyle="italic">x</text>
+  <text x="66" y="36" fill="#888" fontFamily="Georgia, serif" fontSize="13" fontStyle="italic">y</text>
+  <circle cx="70" cy="190" r="3" fill="#e0e0e0"/>
+  <circle cx="200" cy="100" r="5" fill="#e05c5c"/>
+  <text x="206" y="97" fill="#e0e0e0" fontFamily="Georgia, serif" fontSize="15" fontWeight="bold">p</text>
+  <line x1="70" y1="190" x2="197" y2="103" stroke="#e05c5c" strokeWidth="2" strokeDasharray="6,3"/>
+  <text x="118" y="140" fill="#e05c5c" fontFamily="Georgia, serif" fontSize="14" fontStyle="italic">|p|</text>
+  <text x="150" y="228" fill="#aaaaaa" fontFamily="Georgia, serif" fontSize="12" textAnchor="middle">Figure 4: The magnitude of a point is its distance from the origin.</text>
+</svg>
+
+Indeed, the formula for magnitude is the same as the familiar distance formula:
+
+$$
+|(x, y)| = \sqrt{x^2 + y^2}.
+$$
+
+Next we consider the vector sum of two points. Given points $\mathbf{p}$ and $\mathbf{q}$, the sum $\mathbf{p} + \mathbf{q}$ is the fourth vertex of the parallelogram formed by the origin and the points $\mathbf{p}$ and $\mathbf{q}$. This rule for adding vectors is sometimes known as the **parallelogram law**.
+
+<svg viewBox="0 0 340 280" role="img" aria-label="Parallelogram law: points p and q from the origin, with p plus q at the fourth vertex of the parallelogram" style={{ width: '100%', maxWidth: '360px', height: 'auto', display: 'block', margin: '1.5rem auto' }} xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="plax" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888"/></marker>
+    <marker id="play" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888"/></marker>
+    <marker id="plp" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#e05c5c"/></marker>
+    <marker id="plq" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#5c9ee0"/></marker>
+    <marker id="pls" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#6fca8a"/></marker>
+  </defs>
+  <line x1="40" y1="220" x2="300" y2="220" stroke="#888" strokeWidth="1.5" markerEnd="url(#plax)"/>
+  <line x1="70" y1="248" x2="70" y2="40" stroke="#888" strokeWidth="1.5" markerEnd="url(#play)"/>
+  <text x="304" y="226" fill="#888" fontFamily="Georgia, serif" fontSize="13" fontStyle="italic">x</text>
+  <text x="66" y="36" fill="#888" fontFamily="Georgia, serif" fontSize="13" fontStyle="italic">y</text>
+  <circle cx="70" cy="220" r="3.5" fill="#e0e0e0"/>
+  <circle cx="200" cy="160" r="4" fill="#e05c5c"/>
+  <circle cx="130" cy="100" r="4" fill="#5c9ee0"/>
+  <circle cx="260" cy="40" r="4" fill="#6fca8a"/>
+  <text x="206" y="157" fill="#e05c5c" fontFamily="Georgia, serif" fontSize="14" fontWeight="bold">p</text>
+  <text x="118" y="96" fill="#5c9ee0" fontFamily="Georgia, serif" fontSize="14" fontWeight="bold">q</text>
+  <text x="264" y="36" fill="#6fca8a" fontFamily="Georgia, serif" fontSize="13" fontStyle="italic">p + q</text>
+  <line x1="70" y1="220" x2="196" y2="163" stroke="#e05c5c" strokeWidth="2.5" markerEnd="url(#plp)"/>
+  <line x1="70" y1="220" x2="127" y2="103" stroke="#5c9ee0" strokeWidth="2.5" markerEnd="url(#plq)"/>
+  <line x1="70" y1="220" x2="257" y2="43" stroke="#6fca8a" strokeWidth="2.5" markerEnd="url(#pls)"/>
+  <line x1="200" y1="160" x2="260" y2="40" stroke="#e05c5c" strokeWidth="1.5" strokeDasharray="5,3"/>
+  <line x1="130" y1="100" x2="260" y2="40" stroke="#5c9ee0" strokeWidth="1.5" strokeDasharray="5,3"/>
+  <text x="170" y="268" fill="#aaaaaa" fontFamily="Georgia, serif" fontSize="12" textAnchor="middle">Figure 5: The sum of two points p and q.</text>
+</svg>
+
+There is also a geometric interpretation for adding a point to an arrow. Given a point $\mathbf{p}$ and a vector $\mathbf{v}$, if we move the arrow for $\mathbf{v}$ so that it begins at $\mathbf{p}$, then the other end of the arrow will be at $\mathbf{p} + \mathbf{v}$.
+
+<svg viewBox="0 0 340 260" role="img" aria-label="Vector v displaced to start at point p, with its head showing the location of p plus v" style={{ width: '100%', maxWidth: '360px', height: 'auto', display: 'block', margin: '1.5rem auto' }} xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="pvax" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888"/></marker>
+    <marker id="pvay" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888"/></marker>
+    <marker id="pvv" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#5c9ee0"/></marker>
+  </defs>
+  <line x1="40" y1="200" x2="300" y2="200" stroke="#888" strokeWidth="1.5" markerEnd="url(#pvax)"/>
+  <line x1="70" y1="228" x2="70" y2="40" stroke="#888" strokeWidth="1.5" markerEnd="url(#pvay)"/>
+  <text x="304" y="206" fill="#888" fontFamily="Georgia, serif" fontSize="13" fontStyle="italic">x</text>
+  <text x="66" y="36" fill="#888" fontFamily="Georgia, serif" fontSize="13" fontStyle="italic">y</text>
+  <circle cx="70" cy="200" r="3" fill="#e0e0e0"/>
+  <circle cx="100" cy="130" r="4.5" fill="#e05c5c"/>
+  <circle cx="230" cy="90" r="4.5" fill="#6fca8a"/>
+  <text x="84" y="128" fill="#e05c5c" fontFamily="Georgia, serif" fontSize="15" fontWeight="bold">p</text>
+  <text x="236" y="87" fill="#6fca8a" fontFamily="Georgia, serif" fontSize="13" fontStyle="italic">p + v</text>
+  <line x1="70" y1="200" x2="97" y2="133" stroke="#e05c5c" strokeWidth="1.5" strokeDasharray="4,3"/>
+  <line x1="100" y1="130" x2="226" y2="93" stroke="#5c9ee0" strokeWidth="2.5" markerEnd="url(#pvv)"/>
+  <text x="160" y="103" fill="#5c9ee0" fontFamily="Georgia, serif" fontSize="14" fontWeight="bold">v</text>
+  <text x="170" y="248" fill="#aaaaaa" fontFamily="Georgia, serif" fontSize="12" textAnchor="middle">Figure 6: The sum of a point p and a vector v.</text>
+</svg>
+
+Similarly, if $\mathbf{p}$ and $\mathbf{q}$ are two points in the plane, the difference $\mathbf{q} - \mathbf{p}$ can be interpreted as the vector that goes from $\mathbf{p}$ to $\mathbf{q}$. This vector $\mathbf{q} - \mathbf{p}$ is sometimes called the **displacement** from the point $\mathbf{p}$ to the point $\mathbf{q}$.
+
+<svg viewBox="0 0 340 260" role="img" aria-label="Two points p and q with a vector from p to q labelled q minus p, and dashed radial vectors from the origin" style={{ width: '100%', maxWidth: '360px', height: 'auto', display: 'block', margin: '1.5rem auto' }} xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="dpax" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888"/></marker>
+    <marker id="dpay" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888"/></marker>
+    <marker id="dpd" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#6fca8a"/></marker>
+  </defs>
+  <line x1="40" y1="210" x2="290" y2="210" stroke="#888" strokeWidth="1.5" markerEnd="url(#dpax)"/>
+  <line x1="70" y1="238" x2="70" y2="40" stroke="#888" strokeWidth="1.5" markerEnd="url(#dpay)"/>
+  <text x="294" y="216" fill="#888" fontFamily="Georgia, serif" fontSize="13" fontStyle="italic">x</text>
+  <text x="66" y="36" fill="#888" fontFamily="Georgia, serif" fontSize="13" fontStyle="italic">y</text>
+  <circle cx="70" cy="210" r="3" fill="#e0e0e0"/>
+  <circle cx="110" cy="170" r="4.5" fill="#e05c5c"/>
+  <circle cx="240" cy="90" r="4.5" fill="#5c9ee0"/>
+  <text x="94" y="168" fill="#e05c5c" fontFamily="Georgia, serif" fontSize="15" fontWeight="bold">p</text>
+  <text x="246" y="87" fill="#5c9ee0" fontFamily="Georgia, serif" fontSize="15" fontWeight="bold">q</text>
+  <line x1="70" y1="210" x2="107" y2="173" stroke="#e05c5c" strokeWidth="1.5" strokeDasharray="4,3"/>
+  <line x1="70" y1="210" x2="237" y2="93" stroke="#5c9ee0" strokeWidth="1.5" strokeDasharray="4,3"/>
+  <line x1="110" y1="170" x2="236" y2="93" stroke="#6fca8a" strokeWidth="2.5" markerEnd="url(#dpd)"/>
+  <text x="178" y="120" fill="#6fca8a" fontFamily="Georgia, serif" fontSize="13" fontStyle="italic">q − p</text>
+  <text x="170" y="250" fill="#aaaaaa" fontFamily="Georgia, serif" fontSize="12" textAnchor="middle">Figure 7: The difference of two points p and q.</text>
+</svg>
+
+Note that all of the scalar multiples of a point $\mathbf{p}$ lie on a line, namely the line that goes through the origin and the point $\mathbf{p}$.
+
+<svg viewBox="0 0 320 260" role="img" aria-label="Point p and several scalar multiples including negative p, one quarter p, one half p, three quarters p, p itself, and 2p, all collinear" style={{ width: '100%', maxWidth: '340px', height: 'auto', display: 'block', margin: '1.5rem auto' }} xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="spax" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888"/></marker>
+    <marker id="spay" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888"/></marker>
+  </defs>
+  <line x1="40" y1="190" x2="270" y2="190" stroke="#888" strokeWidth="1.5" markerEnd="url(#spax)"/>
+  <line x1="80" y1="230" x2="80" y2="30" stroke="#888" strokeWidth="1.5" markerEnd="url(#spay)"/>
+  <text x="274" y="196" fill="#888" fontFamily="Georgia, serif" fontSize="13" fontStyle="italic">x</text>
+  <text x="76" y="26" fill="#888" fontFamily="Georgia, serif" fontSize="13" fontStyle="italic">y</text>
+  <!-- line through origin and p -->
+  <line x1="20" y1="230" x2="260" y2="50" stroke="#555" strokeWidth="1" strokeDasharray="4,3"/>
+  <circle cx="80" cy="190" r="3" fill="#e0e0e0"/>
+  <!-- scalar multiples -->
+  <circle cx="44" cy="214" r="4" fill="#c97be0"/>
+  <text x="26" y="212" fill="#c97be0" fontFamily="Georgia, serif" fontSize="12" fontStyle="italic">−p</text>
+  <circle cx="98" cy="177" r="4" fill="#5c9ee0"/>
+  <text x="102" y="175" fill="#5c9ee0" fontFamily="Georgia, serif" fontSize="11" fontStyle="italic">¼p</text>
+  <circle cx="116" cy="163" r="4" fill="#6fca8a"/>
+  <text x="120" y="161" fill="#6fca8a" fontFamily="Georgia, serif" fontSize="11" fontStyle="italic">½p</text>
+  <circle cx="134" cy="149" r="4" fill="#f0a030"/>
+  <text x="138" y="147" fill="#f0a030" fontFamily="Georgia, serif" fontSize="11" fontStyle="italic">¾p</text>
+  <circle cx="152" cy="136" r="5" fill="#e05c5c"/>
+  <text x="157" y="133" fill="#e05c5c" fontFamily="Georgia, serif" fontSize="14" fontWeight="bold">p</text>
+  <circle cx="224" cy="82" r="4" fill="#e0e0e0"/>
+  <text x="228" y="80" fill="#e0e0e0" fontFamily="Georgia, serif" fontSize="12" fontStyle="italic">2p</text>
+  <text x="160" y="248" fill="#aaaaaa" fontFamily="Georgia, serif" fontSize="12" textAnchor="middle">Figure 9: Several scalar multiples of a point p.</text>
+</svg>
+
+Certain linear combinations of $\mathbf{p}$ and $\mathbf{q}$ also have nice geometric interpretations. For example, the linear combination
+
+$$
+\frac{1}{2}\mathbf{p} + \frac{1}{2}\mathbf{q}
+$$
+
+can be interpreted as the midpoint of the line segment between $\mathbf{p}$ and $\mathbf{q}$.
+
+<svg viewBox="0 0 320 240" role="img" aria-label="Two points p and q with the midpoint labelled one half p plus one half q shown between them" style={{ width: '100%', maxWidth: '340px', height: 'auto', display: 'block', margin: '1.5rem auto' }} xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="mpqax" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888"/></marker>
+    <marker id="mpqay" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888"/></marker>
+  </defs>
+  <line x1="40" y1="190" x2="270" y2="190" stroke="#888" strokeWidth="1.5" markerEnd="url(#mpqax)"/>
+  <line x1="70" y1="215" x2="70" y2="40" stroke="#888" strokeWidth="1.5" markerEnd="url(#mpqay)"/>
+  <text x="274" y="196" fill="#888" fontFamily="Georgia, serif" fontSize="13" fontStyle="italic">x</text>
+  <text x="66" y="36" fill="#888" fontFamily="Georgia, serif" fontSize="13" fontStyle="italic">y</text>
+  <circle cx="70" cy="190" r="3" fill="#e0e0e0"/>
+  <circle cx="100" cy="140" r="4.5" fill="#e05c5c"/>
+  <circle cx="240" cy="80" r="4.5" fill="#5c9ee0"/>
+  <text x="84" y="138" fill="#e05c5c" fontFamily="Georgia, serif" fontSize="15" fontWeight="bold">p</text>
+  <text x="246" y="77" fill="#5c9ee0" fontFamily="Georgia, serif" fontSize="15" fontWeight="bold">q</text>
+  <line x1="100" y1="140" x2="240" y2="80" stroke="#888" strokeWidth="1.5" strokeDasharray="5,3"/>
+  <circle cx="170" cy="110" r="5" fill="#6fca8a"/>
+  <text x="176" y="106" fill="#6fca8a" fontFamily="Georgia, serif" fontSize="12" fontStyle="italic">½p + ½q</text>
+  <line x1="70" y1="190" x2="97" y2="143" stroke="#e05c5c" strokeWidth="1.2" strokeDasharray="4,3"/>
+  <line x1="70" y1="190" x2="237" y2="83" stroke="#5c9ee0" strokeWidth="1.2" strokeDasharray="4,3"/>
+  <line x1="70" y1="190" x2="167" y2="113" stroke="#6fca8a" strokeWidth="1.2" strokeDasharray="4,3"/>
+  <text x="160" y="230" fill="#aaaaaa" fontFamily="Georgia, serif" fontSize="12" textAnchor="middle">Figure 10: The midpoint between p and q is ½p + ½q.</text>
+</svg>
+
+### Turning Vectors 90°
+
+Many geometry problems in the plane involve two perpendicular directions, so it can be helpful to know the rule for turning a vector $90°$. As you can see, **you can turn a vector $90°$ by switching the two components and negating one of them**.
+
+Of course, the direction in which you turn the vector depends on which of the two components you negate. Specifically, switching the two components and then negating the first component turns a vector $90°$ counterclockwise, while switching the two components and then negating the second component turns a vector $90°$ clockwise.
+
+<svg viewBox="0 0 380 300" role="img" aria-label="Four vectors showing the four 90-degree rotations of the vector (5,2): the original, its 90-degree counterclockwise rotation to negative 2 comma 5, its opposite negative 5 comma negative 2, and its 90-degree clockwise rotation 2 comma negative 5" style={{ width: '100%', maxWidth: '400px', height: 'auto', display: 'block', margin: '1.5rem auto' }} xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="t9ax" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888"/></marker>
+    <marker id="t9ay" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888"/></marker>
+    <marker id="t9v1" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#e05c5c"/></marker>
+    <marker id="t9v2" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#5c9ee0"/></marker>
+    <marker id="t9v3" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#6fca8a"/></marker>
+    <marker id="t9v4" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#f0a030"/></marker>
+  </defs>
+  <line x1="40" y1="180" x2="340" y2="180" stroke="#888" strokeWidth="1.5" markerEnd="url(#t9ax)"/>
+  <line x1="180" y1="270" x2="180" y2="30" stroke="#888" strokeWidth="1.5" markerEnd="url(#t9ay)"/>
+  <text x="344" y="186" fill="#888" fontFamily="Georgia, serif" fontSize="13" fontStyle="italic">x</text>
+  <text x="176" y="26" fill="#888" fontFamily="Georgia, serif" fontSize="13" fontStyle="italic">y</text>
+  <circle cx="180" cy="180" r="3.5" fill="#e0e0e0"/>
+  <!-- (5,2) -->
+  <line x1="180" y1="180" x2="276" y2="142" stroke="#e05c5c" strokeWidth="2.5" markerEnd="url(#t9v1)"/>
+  <text x="248" y="174" fill="#e05c5c" fontFamily="Georgia, serif" fontSize="12">(5, 2)</text>
+  <!-- (−2,5) = 90° CCW -->
+  <line x1="180" y1="180" x2="142" y2="84" stroke="#5c9ee0" strokeWidth="2.5" markerEnd="url(#t9v2)"/>
+  <text x="106" y="100" fill="#5c9ee0" fontFamily="Georgia, serif" fontSize="12">(−2, 5)</text>
+  <!-- (−5,−2) = 180° -->
+  <line x1="180" y1="180" x2="84" y2="218" stroke="#6fca8a" strokeWidth="2.5" markerEnd="url(#t9v3)"/>
+  <text x="46" y="238" fill="#6fca8a" fontFamily="Georgia, serif" fontSize="12">(−5,−2)</text>
+  <!-- (2,−5) = 90° CW -->
+  <line x1="180" y1="180" x2="218" y2="276" stroke="#f0a030" strokeWidth="2.5" markerEnd="url(#t9v4)"/>
+  <text x="222" y="274" fill="#f0a030" fontFamily="Georgia, serif" fontSize="12">(2,−5)</text>
+  <text x="190" y="295" fill="#aaaaaa" fontFamily="Georgia, serif" fontSize="12" textAnchor="middle">Figure 11: Turning a vector 90° by switching components and negating one.</text>
+</svg>
+
+## Examples
+
+### Example 1
+
+Find a unit vector that is parallel to the line $y = \frac{1}{2}x + 1$.
+
+**Solution** This line has slope $1/2$, so it is parallel to the vector $\mathbf{v} = \begin{bmatrix} 2 \\ 1 \end{bmatrix}$. Since
+
+$$
+|\mathbf{v}| = \sqrt{2^2 + 1^2} = \sqrt{5},
+$$
+
+the desired unit vector is
+
+$$
+\mathbf{u} = \frac{1}{|\mathbf{v}|}\mathbf{v} = \frac{1}{\sqrt{5}}\begin{bmatrix} 2 \\ 1 \end{bmatrix}.
+$$
+
+### Example 2
+
+Find a vector in the same direction as $\begin{bmatrix} 3 \\ 4 \end{bmatrix}$ that has magnitude 3.
+
+**Solution** Let $\mathbf{v} = \begin{bmatrix} 3 \\ 4 \end{bmatrix}$. Then $|\mathbf{v}| = \sqrt{3^2 + 4^2} = 5$, so
+
+$$
+\mathbf{u} = \frac{1}{|\mathbf{v}|}\mathbf{v} = \frac{1}{5}\begin{bmatrix} 3 \\ 4 \end{bmatrix}
+$$
+
+is a unit vector in the same direction as $\mathbf{v}$. Multiplying $\mathbf{u}$ by 3 gives the desired vector:
+
+$$
+3\mathbf{u} = \frac{3}{5}\begin{bmatrix} 3 \\ 4 \end{bmatrix} = \begin{bmatrix} 9/5 \\ 12/5 \end{bmatrix}.
+$$
+
+### Example 3
+
+A rectangle in the plane has vertices at $(3, 2)$, $(9, 4)$, and $(2, 5)$. Find the coordinates of the fourth vertex $\mathbf{p}$.
+
+<svg viewBox="0 0 680 300" role="img" aria-label="Rectangle with known vertices at (3,2), (9,4), and (2,5). Left diagram shows the plain rectangle with unknown vertex p. Right diagram shows the same rectangle with the repeated vector v labelling both the bottom and top edges." style={{ width: '100%', maxWidth: '700px', height: 'auto', display: 'block', margin: '1.5rem auto' }} xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="recv" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#e05c5c"/></marker>
+    <marker id="recv2" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#e05c5c"/></marker>
+    <marker id="recax" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888"/></marker>
+    <marker id="recay" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888"/></marker>
+    <marker id="recax2" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888"/></marker>
+    <marker id="recay2" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888"/></marker>
+  </defs>
+  <!-- LEFT: plain rectangle (a) -->
+  <line x1="40" y1="260" x2="280" y2="260" stroke="#888" strokeWidth="1.2" markerEnd="url(#recax)"/>
+  <line x1="40" y1="270" x2="40" y2="60" stroke="#888" strokeWidth="1.2" markerEnd="url(#recay)"/>
+  <text x="283" y="266" fill="#888" fontFamily="Georgia, serif" fontSize="12" fontStyle="italic">x</text>
+  <text x="36" y="56" fill="#888" fontFamily="Georgia, serif" fontSize="12" fontStyle="italic">y</text>
+  <!-- vertices: scale 22px/unit, O=(40,260) -->
+  <!-- (3,2)→(106,216), (9,4)→(238,172), (2,5)→(84,150), p=(8,7)→(216,106) -->
+  <polygon points="106,216 238,172 216,106 84,150" fill="none" stroke="#e0e0e0" strokeWidth="1.8"/>
+  <rect x="98" y="207" width="9" height="9" fill="none" stroke="#aaa" strokeWidth="1" transform="rotate(-20,106,216)"/>
+  <rect x="229" y="164" width="9" height="9" fill="none" stroke="#aaa" strokeWidth="1" transform="rotate(70,238,172)"/>
+  <circle cx="106" cy="216" r="3.5" fill="#e0e0e0"/>
+  <text x="86" y="232" fill="#e0e0e0" fontFamily="Georgia, serif" fontSize="11">(3, 2)</text>
+  <circle cx="238" cy="172" r="3.5" fill="#e0e0e0"/>
+  <text x="242" y="170" fill="#e0e0e0" fontFamily="Georgia, serif" fontSize="11">(9, 4)</text>
+  <circle cx="84" cy="150" r="3.5" fill="#e0e0e0"/>
+  <text x="56" y="148" fill="#e0e0e0" fontFamily="Georgia, serif" fontSize="11">(2, 5)</text>
+  <circle cx="216" cy="106" r="4" fill="#e05c5c"/>
+  <text x="220" y="102" fill="#e05c5c" fontFamily="Georgia, serif" fontSize="13" fontWeight="bold">p</text>
+  <text x="150" y="290" fill="#aaaaaa" fontFamily="Georgia, serif" fontSize="11" textAnchor="middle">(a)</text>
+  <!-- RIGHT: with v vectors (b) -->
+  <line x1="390" y1="260" x2="630" y2="260" stroke="#888" strokeWidth="1.2" markerEnd="url(#recax2)"/>
+  <line x1="390" y1="270" x2="390" y2="60" stroke="#888" strokeWidth="1.2" markerEnd="url(#recay2)"/>
+  <text x="633" y="266" fill="#888" fontFamily="Georgia, serif" fontSize="12" fontStyle="italic">x</text>
+  <text x="386" y="56" fill="#888" fontFamily="Georgia, serif" fontSize="12" fontStyle="italic">y</text>
+  <polygon points="456,216 588,172 566,106 434,150" fill="none" stroke="#888" strokeWidth="1.2" strokeDasharray="4,3"/>
+  <circle cx="456" cy="216" r="3.5" fill="#e0e0e0"/>
+  <text x="436" y="232" fill="#e0e0e0" fontFamily="Georgia, serif" fontSize="11">(3, 2)</text>
+  <circle cx="588" cy="172" r="3.5" fill="#e0e0e0"/>
+  <text x="592" y="170" fill="#e0e0e0" fontFamily="Georgia, serif" fontSize="11">(9, 4)</text>
+  <circle cx="434" cy="150" r="3.5" fill="#e0e0e0"/>
+  <text x="406" y="148" fill="#e0e0e0" fontFamily="Georgia, serif" fontSize="11">(2, 5)</text>
+  <circle cx="566" cy="106" r="4" fill="#e05c5c"/>
+  <text x="570" y="102" fill="#e05c5c" fontFamily="Georgia, serif" fontSize="13" fontWeight="bold">p</text>
+  <line x1="456" y1="216" x2="584" y2="174" stroke="#e05c5c" strokeWidth="2.5" markerEnd="url(#recv)"/>
+  <text x="504" y="206" fill="#e05c5c" fontFamily="Georgia, serif" fontSize="14" fontWeight="bold">v</text>
+  <line x1="434" y1="150" x2="562" y2="108" stroke="#e05c5c" strokeWidth="2.5" markerEnd="url(#recv2)"/>
+  <text x="480" y="118" fill="#e05c5c" fontFamily="Georgia, serif" fontSize="14" fontWeight="bold">v</text>
+  <text x="500" y="290" fill="#aaaaaa" fontFamily="Georgia, serif" fontSize="11" textAnchor="middle">(b) The vector v appears along both the top and bottom edges.</text>
+</svg>
+
+**Solution** Let $\mathbf{v}$ be the vector that appears along both the top and bottom edges of the rectangle. Using the bottom edge, we have
+
+$$
+\mathbf{v} = (9, 4) - (3, 2) = (6, 2).
+$$
+
+Then
+
+$$
+\mathbf{p} = (2, 5) + \mathbf{v} = (2, 5) + (6, 2) = (8, 7).
+$$
+
+### Example 4
+
+Figure shows a square in the plane. Find the coordinates of the point $\mathbf{p}$.
+
+<svg viewBox="0 0 680 290" role="img" aria-label="Square with vertices at (2,1) and (6,2) and unknown vertex p. Left diagram shows the plain square. Right diagram labels the bottom edge vector v and the left edge vector w." style={{ width: '100%', maxWidth: '700px', height: 'auto', display: 'block', margin: '1.5rem auto' }} xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="sqv" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#e05c5c"/></marker>
+    <marker id="sqw" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#5c9ee0"/></marker>
+    <marker id="sqax" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888"/></marker>
+    <marker id="sqay" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888"/></marker>
+    <marker id="sqax2" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888"/></marker>
+    <marker id="sqay2" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888"/></marker>
+  </defs>
+  <!-- LEFT (a): scale 28px/unit, O=(40,250) -->
+  <!-- (2,1)→(96,222), (6,2)→(208,194), (5,6)→(180,82), (1,5)→(68,110) -->
+  <line x1="40" y1="250" x2="250" y2="250" stroke="#888" strokeWidth="1.2" markerEnd="url(#sqax)"/>
+  <line x1="40" y1="260" x2="40" y2="50" stroke="#888" strokeWidth="1.2" markerEnd="url(#sqay)"/>
+  <text x="253" y="256" fill="#888" fontFamily="Georgia, serif" fontSize="12" fontStyle="italic">x</text>
+  <text x="36" y="46" fill="#888" fontFamily="Georgia, serif" fontSize="12" fontStyle="italic">y</text>
+  <polygon points="96,222 208,194 180,82 68,110" fill="none" stroke="#e0e0e0" strokeWidth="1.8"/>
+  <rect x="96" y="210" width="10" height="10" fill="none" stroke="#aaa" strokeWidth="1" transform="rotate(-14,96,220)"/>
+  <rect x="197" y="186" width="10" height="10" fill="none" stroke="#aaa" strokeWidth="1" transform="rotate(76,207,194)"/>
+  <circle cx="96" cy="222" r="3.5" fill="#e0e0e0"/>
+  <text x="78" y="237" fill="#e0e0e0" fontFamily="Georgia, serif" fontSize="12">(2, 1)</text>
+  <circle cx="208" cy="194" r="3.5" fill="#e0e0e0"/>
+  <text x="212" y="192" fill="#e0e0e0" fontFamily="Georgia, serif" fontSize="12">(6, 2)</text>
+  <circle cx="180" cy="82" r="3.5" fill="#e05c5c"/>
+  <text x="183" y="78" fill="#e05c5c" fontFamily="Georgia, serif" fontSize="13" fontWeight="bold">p</text>
+  <circle cx="68" cy="110" r="3.5" fill="#e0e0e0"/>
+  <text x="125" y="278" fill="#aaaaaa" fontFamily="Georgia, serif" fontSize="11" textAnchor="middle">(a)</text>
+  <!-- RIGHT (b): shifted +360 -->
+  <line x1="400" y1="250" x2="610" y2="250" stroke="#888" strokeWidth="1.2" markerEnd="url(#sqax2)"/>
+  <line x1="400" y1="260" x2="400" y2="50" stroke="#888" strokeWidth="1.2" markerEnd="url(#sqay2)"/>
+  <text x="614" y="256" fill="#888" fontFamily="Georgia, serif" fontSize="12" fontStyle="italic">x</text>
+  <text x="396" y="46" fill="#888" fontFamily="Georgia, serif" fontSize="12" fontStyle="italic">y</text>
+  <polygon points="456,222 568,194 540,82 428,110" fill="none" stroke="#888" strokeWidth="1.2" strokeDasharray="4,3"/>
+  <circle cx="456" cy="222" r="3.5" fill="#e0e0e0"/>
+  <text x="438" y="237" fill="#e0e0e0" fontFamily="Georgia, serif" fontSize="12">(2, 1)</text>
+  <circle cx="568" cy="194" r="3.5" fill="#e0e0e0"/>
+  <text x="572" y="192" fill="#e0e0e0" fontFamily="Georgia, serif" fontSize="12">(6, 2)</text>
+  <circle cx="540" cy="82" r="4" fill="#e05c5c"/>
+  <text x="544" y="78" fill="#e05c5c" fontFamily="Georgia, serif" fontSize="13" fontWeight="bold">p</text>
+  <circle cx="428" cy="110" r="3.5" fill="#e0e0e0"/>
+  <!-- v: bottom edge -->
+  <line x1="456" y1="222" x2="564" y2="196" stroke="#e05c5c" strokeWidth="2.5" markerEnd="url(#sqv)"/>
+  <text x="494" y="222" fill="#e05c5c" fontFamily="Georgia, serif" fontSize="14" fontWeight="bold">v</text>
+  <!-- w: right edge -->
+  <line x1="568" y1="194" x2="543" y2="86" stroke="#5c9ee0" strokeWidth="2.5" markerEnd="url(#sqw)"/>
+  <text x="572" y="142" fill="#5c9ee0" fontFamily="Georgia, serif" fontSize="14" fontWeight="bold">w</text>
+  <text x="485" y="278" fill="#aaaaaa" fontFamily="Georgia, serif" fontSize="11" textAnchor="middle">(b) The vectors v and w used in the solution.</text>
+</svg>
+
+**Solution** Let $\mathbf{v}$ and $\mathbf{w}$ be the vectors shown. Then
+
+$$
+\mathbf{v} = (6, 2) - (2, 1) = (4, 1).
+$$
+
+The vector $\mathbf{w}$ has the same length as $\mathbf{v}$, but is turned $90°$ counterclockwise. We conclude that
+
+$$
+\mathbf{w} = (-1, 4),
+$$
+
+so
+
+$$
+\mathbf{p} = (6, 2) + \mathbf{w} = (6, 2) + (-1, 4) = (5, 6).
+$$
+
+### Example 5
+
+A circle of radius 2 is tangent to the line $y = 9 - 3x$ at the point $(2, 3)$. Find the coordinates of the center of the circle.
+
+<svg viewBox="0 0 680 300" role="img" aria-label="Left: circle of radius 2 tangent to the line y equals 9 minus 3x at the point (2,3). Right: the vector v drawn from (2,3) perpendicular to the line, pointing toward the circle's center p, with direction vectors (negative 1, 3) and (3,1) indicated." style={{ width: '100%', maxWidth: '700px', height: 'auto', display: 'block', margin: '1.5rem auto' }} xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="ctax" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888"/></marker>
+    <marker id="ctay" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888"/></marker>
+    <marker id="ctax2" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888"/></marker>
+    <marker id="ctay2" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#888"/></marker>
+    <marker id="ctv" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#e05c5c"/></marker>
+  </defs>
+  <!-- LEFT (Figure 13): scale 26px/unit, O=(40,260) -->
+  <!-- line y=9-3x: (0,9)→(40,26); (3,0)→(118,260) -->
+  <!-- tangent pt (2,3)→(92,182). circle centre ≈(3.9,3.63)→(141,166), r=2→52px -->
+  <line x1="40" y1="260" x2="200" y2="260" stroke="#888" strokeWidth="1.2" markerEnd="url(#ctax)"/>
+  <line x1="40" y1="270" x2="40" y2="20" stroke="#888" strokeWidth="1.2" markerEnd="url(#ctay)"/>
+  <text x="203" y="266" fill="#888" fontFamily="Georgia, serif" fontSize="12" fontStyle="italic">x</text>
+  <text x="36" y="16" fill="#888" fontFamily="Georgia, serif" fontSize="12" fontStyle="italic">y</text>
+  <line x1="40" y1="26" x2="118" y2="260" stroke="#f0a030" strokeWidth="1.8"/>
+  <text x="24" y="36" fill="#f0a030" fontFamily="Georgia, serif" fontSize="11" fontStyle="italic">y=9−3x</text>
+  <circle cx="140" cy="167" r="52" fill="none" stroke="#5c9ee0" strokeWidth="1.8"/>
+  <circle cx="92" cy="182" r="4" fill="#e0e0e0"/>
+  <text x="70" y="198" fill="#e0e0e0" fontFamily="Georgia, serif" fontSize="12">(2, 3)</text>
+  <text x="100" y="287" fill="#aaaaaa" fontFamily="Georgia, serif" fontSize="11" textAnchor="middle">Figure 13</text>
+  <!-- RIGHT (Figure 14) -->
+  <line x1="380" y1="260" x2="540" y2="260" stroke="#888" strokeWidth="1.2" markerEnd="url(#ctax2)"/>
+  <line x1="380" y1="270" x2="380" y2="20" stroke="#888" strokeWidth="1.2" markerEnd="url(#ctay2)"/>
+  <text x="543" y="266" fill="#888" fontFamily="Georgia, serif" fontSize="12" fontStyle="italic">x</text>
+  <text x="376" y="16" fill="#888" fontFamily="Georgia, serif" fontSize="12" fontStyle="italic">y</text>
+  <line x1="380" y1="26" x2="458" y2="260" stroke="#f0a030" strokeWidth="1.8"/>
+  <text x="364" y="36" fill="#f0a030" fontFamily="Georgia, serif" fontSize="11" fontStyle="italic">y=9−3x</text>
+  <circle cx="480" cy="167" r="52" fill="none" stroke="#5c9ee0" strokeWidth="1.8"/>
+  <!-- tangent point -->
+  <circle cx="432" cy="182" r="4" fill="#e0e0e0"/>
+  <text x="410" y="198" fill="#e0e0e0" fontFamily="Georgia, serif" fontSize="12">(2, 3)</text>
+  <!-- direction vector (-1,3) parallel to line -->
+  <circle cx="406" cy="104" r="3.5" fill="#aaa"/>
+  <text x="384" y="100" fill="#aaa" fontFamily="Georgia, serif" fontSize="11">(−1, 3)</text>
+  <!-- direction vector (3,1) perpendicular -->
+  <circle cx="484" cy="174" r="3.5" fill="#aaa"/>
+  <text x="488" y="170" fill="#aaa" fontFamily="Georgia, serif" fontSize="11">(3, 1)</text>
+  <!-- vector v from tangent point to centre -->
+  <line x1="432" y1="182" x2="475" y2="170" stroke="#e05c5c" strokeWidth="2.5" markerEnd="url(#ctv)"/>
+  <text x="436" y="168" fill="#e05c5c" fontFamily="Georgia, serif" fontSize="14" fontWeight="bold">v</text>
+  <!-- centre dot labelled p -->
+  <circle cx="480" cy="167" r="3" fill="#5c9ee0"/>
+  <text x="483" y="163" fill="#5c9ee0" fontFamily="Georgia, serif" fontSize="12" fontWeight="bold">p</text>
+  <text x="435" y="287" fill="#aaaaaa" fontFamily="Georgia, serif" fontSize="11" textAnchor="middle">Figure 14: Finding the vector v.</text>
+</svg>
+
+**Solution** We wish to find the vector $\mathbf{v}$ that stretches from the point $(2, 3)$ to the center of the circle. We know that the magnitude of $\mathbf{v}$ is 2, so we need only find its direction.
+
+The direction of $\mathbf{v}$ is perpendicular to that of the line $y = 9 - 3x$. This line has slope $-3$, and is therefore parallel to the vector $(-1, 3)$. Turning this vector $90°$ clockwise, we conclude that $\mathbf{v}$ is parallel to the vector $(3, 1)$.
+
+All that remains is to scale the vector $(3, 1)$ to have length 2. Since
+
+$$
+|(3, 1)| = \sqrt{3^2 + 1^2} = \sqrt{10},
+$$
+
+the vector $\frac{1}{\sqrt{10}}\begin{bmatrix} 3 \\ 1 \end{bmatrix}$ is a unit vector in the direction of $\mathbf{v}$. Since $|\mathbf{v}| = 2$, we conclude that
+
+$$
+\mathbf{v} = \frac{2}{\sqrt{10}}\begin{bmatrix} 3 \\ 1 \end{bmatrix}.
+$$
+
+Then
+
+$$
+\mathbf{p} = (2, 3) + \mathbf{v} = (2, 3) + \frac{2}{\sqrt{10}}\begin{bmatrix} 3 \\ 1 \end{bmatrix} = \left(2 + \frac{6}{\sqrt{10}},\ 3 + \frac{2}{\sqrt{10}}\right).
+$$
+
+## Practice Problems
+
+### Section 1 — Vectors
+
+1. Two vectors $\mathbf{v}$ and $\mathbf{w}$ have magnitudes of 12 and 5, respectively.
+   (a) What is the largest possible magnitude of $\mathbf{v} + \mathbf{w}$? What is the smallest possible magnitude?
+   (b) Suppose the directions of $\mathbf{v}$ and $\mathbf{w}$ are perpendicular. What is the magnitude of $\mathbf{v} + \mathbf{w}$ in this case?
+
+2. The following figure shows two congruent rectangles. Express the vectors $\mathbf{w}_1$ and $\mathbf{w}_2$ as linear combinations of $\mathbf{u}$ and $\mathbf{v}$.
+
+3. The following figure shows a tiling of the plane by congruent hexagons. Express the vector from $P$ to $Q$ as a linear combination of $\mathbf{u}$, $\mathbf{v}$, and $\mathbf{w}$.
+
+4. The following figure shows a parallelogram in the plane. Express the vector $\mathbf{w}$ as a linear combination of $\mathbf{u}$ and $\mathbf{v}$.
+
+5. In the following figure, $\triangle ABC$ is isosceles, and $\angle APC$ is a right angle. Express the vector $\mathbf{w}$ as a linear combination of $\mathbf{u}$ and $\mathbf{v}$.
+
+6. The following figure shows a right triangle in the plane. Express the vector $\mathbf{w}$ as a linear combination of $\mathbf{u}$ and $\mathbf{v}$.
+
+7. The following figure shows two vectors $\mathbf{v}$ and $\mathbf{w}$ as well as a certain linear combination $a\mathbf{v} + b\mathbf{w}$. Use the picture to estimate the values of $a$ and $b$. Try to be accurate to within 20%.
+
+8. Given that $3(\mathbf{u} + 2\mathbf{w}) + 4\mathbf{v} = 2\mathbf{u} - 4(3\mathbf{v} - \mathbf{w})$, express the vector $\mathbf{w}$ as a linear combination of $\mathbf{u}$ and $\mathbf{v}$.
+
+### Section 2 — Vector Components
+
+1. Compute $2\mathbf{v} + 3\mathbf{w}$ if $\mathbf{v} = \begin{bmatrix} 3 \\ 4 \end{bmatrix}$ and $\mathbf{w} = \begin{bmatrix} 1 \\ -1 \end{bmatrix}$.
+
+2. Find the magnitude and direction of the given vector, correct to two decimal places.
+   (a) $\begin{bmatrix} -6 \\ -8 \end{bmatrix}$ $\quad$ (b) $4\mathbf{i} - \mathbf{j}$ $\quad$ (c) $3\begin{bmatrix} 1 \\ 2 \end{bmatrix} - \begin{bmatrix} 5 \\ 1 \end{bmatrix}$
+
+3. A vector $\mathbf{v}$ has a direction of $60°$ and $v_y = 6$. What is the magnitude of $\mathbf{v}$?
+
+4. Find a vector $\mathbf{v}$ such that $2\mathbf{v} + \begin{bmatrix} 3 \\ 2 \end{bmatrix} = \begin{bmatrix} 11 \\ 6 \end{bmatrix}$.
+
+5. Find the value of $x$ for which $\begin{bmatrix} x \\ 1 \end{bmatrix} + x\begin{bmatrix} 2 \\ 5 \end{bmatrix} = 3\begin{bmatrix} x \\ 7 \end{bmatrix}$.
+
+6. Find the values of $x$ and $y$ for which $x\begin{bmatrix} 2 \\ 3 \end{bmatrix} + y\begin{bmatrix} 5 \\ -2 \end{bmatrix} = \begin{bmatrix} 5 \\ 17 \end{bmatrix}$.
+
+7. A javelin is thrown with a speed of 25 m/sec at an angle of $40°$ above the horizontal. Find the horizontal and vertical components of the javelin's velocity vector.
+
+8. The following picture shows three forces $\mathbf{F}_1$, $\mathbf{F}_2$, $\mathbf{F}_3$ acting on an object in static equilibrium. Given that $|\mathbf{F}_1| = 5.0\ \text{N}$ and $|\mathbf{F}_2| = 4.0\ \text{N}$, find the magnitude and direction of the force $\mathbf{F}_3$.
+
+### Section 3 — Vector Geometry
+
+1. Find a unit vector that points in the same direction as the vector $(-1, 1)$.
+
+2. Find a vector with magnitude 5 that is parallel to the line $y = 2x + 1$.
+
+3. Find a unit vector that points at an angle of $30°$ from the horizontal.
+
+4. Find a unit vector whose direction is perpendicular to the line $y = \frac{2}{3}x$.
+
+5. The following figure shows a parallelogram in the plane. Find the coordinates of the point $\mathbf{p}$.
+
+6. The two line segments in the following figure are congruent, perpendicular, and bisect one another. Find the coordinates of the point $\mathbf{p}$.
+
+7. In the following figure, a rectangle with a length of 10 and a width of 5 is resting on the line $y = \frac{3}{4}x$. Find the coordinates of the point $\mathbf{p}$.
+
+8. The following figure shows a right triangle in the plane. Find the coordinates of the point $\mathbf{p}$.
+
+9. In the following figure, a circle with a radius of 1 is tangent to the parabola $y = x^2$ at the point $(1, 1)$. Find the coordinates of the center of the circle. *(Hint: What is the slope of the tangent line?)*
+
+<Problems problems="practice" />

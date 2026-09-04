@@ -1,0 +1,144 @@
+---
+id: intro-derivatives
+title: Introduction to Derivatives
+author: Pranav Ramesh
+description: Introduction to Derivatives
+prerequisites: []
+---
+
+# Introduction
+
+The derivative is a fundamental concept in calculus that measures the rate at which a function
+changes with respect to its independent variable. It provides information about how a function
+behaves locally at or near a particular point.
+
+## Slope
+
+To understand derivatives, let's start with the concept of **slope**. In basic geometry, the slope of a straight line represents how steep or flat the line is. It tells us how the y-coordinate changes as the x-coordinate changes. The slope is defined as the ratio of the vertical change (rise) to the horizontal change (run) between any two points on the line, as represented by the following slope formula:
+
+$$
+\frac{y_2 - y_1}{x_2 - x_1}
+$$
+
+representing change in y over change in x. The derivative is essentially this change in y over x, or slope.
+
+## Tangent Lines
+
+Now, let's introduce **tangent lines**. A tangent line is a line that touches a curve at a specific point without crossing through it. The tangent line shares the same slope as the curve at that point. The derivative of a function at a particular point gives us the slope of the tangent line to the graph of the function at that point. It tells us how fast the function is changing at that specific location. To visualize this, imagine a curve representing a function on a graph. At a given point on the curve, we can draw a straight line that barely touches the curve without crossing it. This tangent line captures the instantaneous rate of change of the function at that point.
+
+Let's say you have a simple function:
+
+$$
+f(x) = 3x^2
+$$
+
+The derivative of this function with respect to x, $f'(x)$, tells you how fast $f(x)$ is changing with respect to $x$. Derivatives capture essential information about the behavior of functions. It tells us whether a function is increasing or decreasing, the slope of the tangent line at a point, and provides insights into the shape and features of the function.
+
+> **Example 1:** What is the derivative of the function $f(x) = 2x + 1$ at the point $(0, 1)$?
+>
+> **Solution:** We know that the derivative has the same meaning as slope, and the slope of the function throughout all values of $x$ is $2$. Therefore, the derivative at the point $(0, 1)$ is $2$.
+
+# Definition of the Derivative
+
+To define the derivative, we use the concept of a limit. Let's consider a function $f(x)$ and a specific point $a$ on the function.
+
+The derivative of $f(x)$ at the point $a$, denoted as $f'(a)$ or $df/dx$ evaluated at $x = a$, is given by the following limit:
+
+$$
+f'(a) = \lim_{h \to 0} \frac{f(a + h) - f(a)}{h}
+$$
+
+Here, $h$ represents a small change in the x-coordinate from $a$. We want to see how the function $f(x)$ changes as we take smaller and smaller values of $h$. Taking the limit as $h$ approaches zero gives us the precise instantaneous rate of change. To calculate the derivative, we solve the difference quotient:
+
+$$
+\frac{f(a + h) - f(a)}{h}
+$$
+
+which represents the average rate of change of the function over the interval $[a, a + h]$. Then, as $h$ approaches zero, the limit determines the precise rate of change at the point $a$. In other words, we're zooming in on the point $a$ and examining how the function behaves within an infinitesimally small interval around that point.
+
+If this limit exists, we say the function is **differentiable** at the point $a$, and the limit value represents the derivative of $f(x)$ at $a$. It's important to note that not all functions have derivatives at every point. Some functions may have discontinuities or sharp corners that prevent the existence of a derivative.
+
+## Discontinuities
+
+To recognize when a derivative does not exist for a function, there are a few key scenarios to consider. Here are some common cases:
+
+- **Discontinuities:** Simply put, a function is *continuous* if you can draw it without lifting your pencil. If you ever have to lift your pencil, then that point is called a *discontinuity*. Discontinuities come in 3 main types:
+  - **Removable:** A removable discontinuity occurs when the function *looks* continuous, except at that point, there is a hole in the graph.
+  - **Jump:** A jump discontinuity occurs when the graph appears to "jump" from one curve to another.
+  - **Infinite:** An infinite discontinuity occurs where the function approaches infinity.
+
+  If a function has a discontinuity, then the derivative does not exist at that point. Even if the derivative approaches the same value as you take the limit from either side of the discontinuity, since the function is not continuous at that specific point, it cannot have a derivative. However, just because a function is continuous does **NOT** mean it is differentiable.
+
+- **Corner or cusp points:** At a corner or cusp point, the function abruptly changes direction without having a well-defined tangent line. In such cases, the derivative does not exist at that point.
+
+- **Vertical tangent lines:** If the slope of the tangent line becomes infinite (vertical), the derivative is said to be undefined at that point. This typically occurs when the function has a vertical tangent, where the slope increases or decreases without bound.
+
+# Worked Problems
+
+> **Example 2:** Use limits and the definition of the derivative to find the derivative function $f'$ for each function $f$.
+>
+> (a) $f(x) = 5x^3 + 3x$
+>
+> (b) $f(x) = x^{-2} + 4$
+
+## Solution (a): $f(x) = 5x^3 + 3x$
+
+To find the derivative function, we compute the limit as $h$ approaches $0$ of the difference quotient:
+
+$$
+f'(x) = \lim_{h \to 0} \frac{f(x + h) - f(x)}{h}
+$$
+
+Substituting $f(x) = 5x^3 + 3x$:
+
+$$
+f'(x) = \lim_{h \to 0} \frac{5(x + h)^3 + 3(x + h) - (5x^3 + 3x)}{h}
+$$
+
+Expanding and simplifying:
+
+$$
+f'(x) = \lim_{h \to 0} \frac{5x^3 + 15x^2h + 15xh^2 + 5h^3 + 3x + 3h - 5x^3 - 3x}{h}
+$$
+
+Cancelling the $5x^3$ and $3x$ terms, then factoring out $h$:
+
+$$
+f'(x) = \lim_{h \to 0} \frac{h(15x^2 + 15xh + 5h^2 + 3)}{h} = \lim_{h \to 0} 15x^2 + 15xh + 5h^2 + 3
+$$
+
+Taking the limit as $h \to 0$:
+
+$$
+\boxed{f'(x) = 15x^2 + 3}
+$$
+
+## Solution (b): $f(x) = x^{-2} + 4$
+
+Starting from the definition:
+
+$$
+f'(x) = \lim_{h \to 0} \frac{(x + h)^{-2} + 4 - (x^{-2} + 4)}{h} = \lim_{h \to 0} \frac{(x+h)^{-2} - x^{-2}}{h}
+$$
+
+Rewriting and combining fractions with a common denominator:
+
+$$
+f'(x) = \lim_{h \to 0} \frac{\dfrac{x^2 - (x+h)^2}{x^2(x+h)^2}}{h}
+$$
+
+Expanding $(x+h)^2$ and simplifying the numerator:
+
+$$
+f'(x) = \lim_{h \to 0} \frac{-2xh - h^2}{x^2(x+h)^2 \cdot h} = \lim_{h \to 0} \frac{-2x - h}{x^2(x+h)^2}
+$$
+
+Taking the limit as $h \to 0$:
+
+$$
+\boxed{f'(x) = -\frac{2}{x^3}}
+$$
+
+## Practice Problems
+
+<Problems problems="practice" />

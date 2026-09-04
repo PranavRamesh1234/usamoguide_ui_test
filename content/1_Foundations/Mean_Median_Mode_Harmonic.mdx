@@ -1,0 +1,223 @@
+---
+id: mean-median-mode-range
+title: Intro to Statistics
+author: Pranav Ramesh
+description: Measures of central tendency mean, median, mode, and range including definitions, worked examples, when to use each, and common pitfalls.
+prerequisites: []
+---
+ 
+## Overview
+ 
+A measure of central tendency is a single value that attempts to describe a set of data by identifying the central position within that set of data. As such, measures of central tendency are sometimes called measures of central location. They are also classed as summary statistics.
+ 
+The mean (often called the average) is most likely the measure of central tendency that you are most familiar with, but there are others, such as the median and the mode. The mean, median and mode are all valid measures of central tendency, but under different conditions, some measures of central tendency become more appropriate to use than others.
+ 
+While the mean, mode, and median help us understand the center of a dataset, the **range** tells us how spread out the values are.
+ 
+## Key Ideas
+ 
+- Always identify which measure of central tendency the problem is asking for before computing anything.
+- The **mean** is the most commonly used but is sensitive to outliers; when extreme values are present, prefer the **median**.
+- The **mode** is the only measure applicable to nominal (categorical) data.
+- In a perfectly normal (symmetric) distribution, the mean, median, and mode are all equal.
+- As data becomes skewed, the mean is pulled in the direction of the skew; the median is more resistant.
+- The **range** is not a measure of central tendency (it measures spread) but it is typically taught alongside mean, median, and mode.
+ 
+## 1. Mean (Arithmetic)
+ 
+The mean is the average of a set of two or more values. It is equal to the sum of all the values in the data set divided by the number of values in the data set. So, if we have $n$ values $x_1, x_2, \dots, x_n$, the sample mean $\bar{x}$ is:
+ 
+$$
+\bar{x} = \frac{x_1 + x_2 + \cdots + x_n}{n} = \frac{\sum x}{n}
+$$
+ 
+When referring to an entire population rather than a sample, we denote the mean as $\mu$ (Greek letter "mu"), calculated the same way.
+ 
+An important property of the mean is that it includes every value in your data set as part of the calculation. It is also the only measure of central tendency where the sum of the deviations of each value from the mean is always zero. However, the mean is particularly susceptible to the influence of outliers, values that are unusually small or large compared to the rest of the data.
+ 
+## 2. Median
+
+ 
+**Odd number of values:** The median is simply the single middle value. For example:
+ 
+$$
+3,\ 5,\ \mathbf{7},\ 8,\ 10 \quad \Rightarrow \quad \text{Median} = 7
+$$
+ 
+**Even number of values:** There is no single middle value, so take the two middle values and average them. For example:
+ 
+$$
+4,\ 6,\ 8,\ 10 \quad \Rightarrow \quad \text{Median} = \frac{6 + 8}{2} = 7
+$$
+
+## 2. Median
+ 
+The median is the middle value in a data set that has been arranged in order of magnitude (smallest to largest). The median is less affected by outliers and skewed data than the mean.
+
+#### Calculating with an Odd Number of Scores
+
+Given the data: 
+$$
+65, 55, 89, 56, 35, 14, 56, 55, 87, 45, 92
+$$
+
+1\. Arrange in order of magnitude: 
+$$ 
+14, 35, 45, 55, 55, 56, 56, 65, 87, 89, 92
+$$
+2\. Identify the middle value (5 scores before, 5 scores after): **56**
+
+Note: the term can be found easily to be the $\frac{N + 1}{2}$'th term  for a list of N terms, where N is odd.
+
+#### Calculating with an Even Number of Scores
+
+Given the data:
+$$
+65, 55, 89, 56, 35, 14, 56, 55, 87, 45
+$$
+
+1\. Arrange in order of magnitude: 
+$$
+14, 35, 45, 55, 55, 56, 56, 65, 87, 89
+$$
+2\. Take the average of the 5th and 6th scores:
+
+$$
+\text{Median} = \frac{55 + 56}{2} = 55.5
+$$
+
+Note: the terms can be found easily to be the $\frac{N}{2}$ and $ \frac{N}{2} + 1 $ terms; for a list of N terms, where N is even.
+## 3. Mode
+
+<FigureBox image="https://statistics.laerd.com/statistical-guides/img/mode-1.png" alt="" title="Example of how Mode looks on graph">
+</FigureBox>
+ 
+The mode is the value that occurs most frequently in a data set. On a histogram, it corresponds to the highest bar.
+ 
+- If no value repeats, the data set has **no mode**.
+- The mode is typically used for categorical (nominal) data to identify the most common category.
+- The mode is rarely used with continuous data because it is unlikely that any two values will be exactly equal.
+
+## 4. Range
+ 
+The range measures the difference between the smallest and largest values in a data set:
+ 
+$$
+\text{Range} = \text{Maximum} - \text{Minimum}
+$$
+ 
+The range gives a quick sense of how spread out the data is, but it is influenced by outliers just as the mean is, since it only uses two values from the entire data set.
+ 
+## When to Use Each Measure
+ 
+| **Type of Variable**          | **Best Measure of Central Tendency** |
+| ----------------------------- | ------------------------------------ |
+| Nominal (categorical)         | Mode                                 |
+| Ordinal                       | Median                               |
+| Interval/Ratio (not skewed)   | Mean                                 |
+| Interval/Ratio (skewed)       | Median                               |
+ 
+**Key guidance:** When data is skewed or contains outliers, prefer the median over the mean. A classic example is income (salary): higher earners skew the mean upward, making it an inaccurate picture of the typical earner, while the median is unaffected.
+ 
+## Worked Example
+ 
+**Dataset:** 25, 10, 22, 30, 15, 12, 20, 18, 20
+ 
+**Mean:**
+ 
+$$
+\frac{25 + 10 + 22 + 30 + 15 + 12 + 20 + 18 + 20}{9} = \frac{172}{9} \approx 19.11
+$$
+ 
+**Mode:**
+ 
+Arrange in order: 10, 12, 15, 18, 20, **20**, 22, 25, 30. The value 20 appears twice; all others appear once.
+ 
+$$
+\text{Mode} = 20
+$$
+ 
+**Median:**
+ 
+There are 9 values (odd), so the median is the 5th value in the ordered list:
+ 
+$$
+10,\ 12,\ 15,\ 18,\ \mathbf{20},\ 20,\ 22,\ 25,\ 30 \quad \Rightarrow \quad \text{Median} = 20
+$$
+ 
+**Range:**
+ 
+$$
+30 - 10 = 20
+$$
+ 
+## Examples
+ 
+### Example 1: Outlier Effect on the Mean
+ 
+Consider the wages of 10 staff at a factory (in thousands):
+ 
+$$
+15,\ 18,\ 16,\ 14,\ 15,\ 15,\ 12,\ 17,\ 90,\ 95
+$$
+ 
+The mean salary is $\frac{307}{10} = 30.7\text{k}$. However, most workers earn between \$12k and \$18k. The two large salaries are pulling the mean far above what is typical. Here, the median which falls between the 5th and 6th values in the ordered list, both around \$15k–\$16k gives a far more accurate picture of the typical salary.
+ 
+### Example 2: Even vs. Odd Number of Values
+ 
+**Odd dataset** :- 5 test scores: 8, 3, 10, 5, 7.
+ 
+Arrange in order: 3, 5, **7**, 8, 10. Median = **7**.
+ 
+**Even dataset** :- 4 test scores: 4, 6, 8, 10.
+ 
+The two middle values are 6 and 8. Median $= \frac{6 + 8}{2} = $ **7**.
+ 
+### Example 3: Mode with Categorical Data
+ 
+An ice cream store records sales on opening day: 40 vanilla, 30 chocolate, 20 strawberry. Since vanilla appears most frequently in the records, vanilla is the **mode**. The mode is the natural choice here because the data is categorical (it does not make sense to compute a mean or median of ice cream flavors.)
+ 
+### Example 4: Choosing the Right Measure
+ 
+A soccer player's goals across 7 games: 1, 0, 2, 2, 1, 7, 2.
+ 
+- **Mean:** $\frac{15}{7} \approx 2.14$ (pulled up by the outlier game of 7 goals)
+- **Median:** Arrange: 0, 1, 1, **2**, 2, 2, 7. Median = 2.
+- **Mode:** 2 appears three times. Mode = 2.
+Both the median and mode are 2, giving a clearer picture of the player's typical performance than the mean.
+ 
+## Strategy Checklist
+ 
+- Read the problem carefully and identify exactly which measure is being requested.
+- Always arrange the data in order before finding the median or mode.
+- For the median with an even number of values, remember to average the two middle values.
+- Check whether the data contains outliers or is skewed; if so, the median is usually a better representative than the mean.
+- For categorical data, the mode is the only appropriate measure of central tendency.
+- For the range, identify the maximum and minimum first, then subtract.
+- Verify your answer makes intuitive sense relative to the data set.
+
+## Common Pitfalls
+ 
+- Forgetting to sort the data before finding the median.
+- When the data set has an even number of values, reporting one of the two middle values as the median instead of averaging them.
+- Using $ab$ — the product — as the mean formula instead of $\frac{\sum x}{n}$.
+- Reporting multiple values as modes without checking whether the data is truly multimodal or simply has no mode.
+- Using the mean when data is heavily skewed or contains outliers.
+- Confusing range (a measure of spread) with a measure of central tendency.
+- Computing the mean of ordinal or categorical data, where it has no meaningful interpretation.
+
+## Practice Problems
+ 
+1. Find the mean, median, mode, and range of the following data set: 4, 8, 6, 2, 10, 8, 5.
+
+2. A data set has values 12, 15, 14, 10, 15, 18, 100. Compute the mean and median. Which better represents the "typical" value, and why?
+
+3. Seven students scored 72, 85, 90, 85, 78, 92, and 85 on an exam. Find the mean, median, and mode.
+
+4. In a data set of six values, the median is 14. The ordered data is: 9, 11, ?, ?, 17, 20. What are the two missing middle values if they are equal?
+
+5. (HARD) A data set of 5 distinct positive integers has mean 10, median 9, and range 12. Find one possible data set satisfying all three conditions.
+
+6. (CHALLENGE) A class of 20 students has a mean score of 75. After adding one more student's score, the mean drops to 74. What did the new student score?
+
+<Problems problems="practice" />

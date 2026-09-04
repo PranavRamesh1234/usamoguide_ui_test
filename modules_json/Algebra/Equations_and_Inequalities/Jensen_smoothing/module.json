@@ -1,0 +1,611 @@
+{
+  "MODULE_ID": "algebra-equations-and-inequalities-jensen-smoothing",
+  "practice": [
+    {
+      "uniqueId": "algebra-equations-and-inequalities-jensen-smoothing-auto-0148",
+      "name": "Berkeley Math Circle #0hms",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Jensen / smoothing",
+        "Combinatorial optimization",
+        "Coloring schemes, extremal arguments"
+      ],
+      "statement": "Problem:\n\nGiven an $n \\times n$ matrix whose entries $a_{i j}$ satisfy $a_{i j} = \\frac{1}{i + j - 1}$, $n$ numbers are chosen from the matrix no two of which are from the same row or the same column. Prove that the sum of these $n$ numbers is at least $1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSuppose that $a_{i j}$ and $a_{k l}$ are among the chosen numbers and suppose that $i < k$ and $j < l$. It is straightforward to show that $a_{i j} + a_{k l} \\geqslant a_{i l} + a_{k j}$. Hence, whenever $a_{i j}$ and $a_{k l}$ with $i < k$ and $j < l$ are among chosen numbers, we can lower the sum by replacing these two numbers with $a_{i l}$ and $a_{k j}$. Hence the smallest possible sum is when we choose $a_{1 n}, a_{2, n-1}, \\ldots, a_{n 1}$—and in that case the sum is $1$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-jensen-smoothing-auto-0526",
+      "name": "Berkeley Math Circle Monthly Contest 3 #0hxa",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 3",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Jensen / smoothing",
+        "Invariants / monovariants",
+        "Sums and products"
+      ],
+      "statement": "Problem:\nLet $k$ be a positive integer, and let $(a_{1}, a_{2}, \\ldots, a_{2k})$ and $(b_{1}, b_{2}, \\ldots, b_{2k})$ be two sequences of real numbers such that $\\frac{1}{2} \\leq a_{1} \\leq \\cdots \\leq a_{2k}$ and $\\frac{1}{2} \\leq b_{1} \\leq \\cdots \\leq b_{2k}$. Let $M$ and $m$ be the maximum and minimum respectively of\n$$\n(a_{1}+c_{1})(a_{2}+c_{2}) \\cdots (a_{2k}+c_{2k})\n$$\nas $(c_{1}, \\ldots, c_{2k})$ ranges through all possible permutations of $(b_{1}, \\ldots, b_{2k})$. Prove that\n$$\nM-m \\geq k(a_{k}-a_{k+1})(b_{k}-b_{k+1}) .\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $c_{i}=b_{\\sigma(i)}$ where $\\sigma$ is a permutation of the numbers $1$ through $2k$ that will vary. We begin with $\\sigma$ being the numbers $1$ through $2k$ written in order,\n$$\n12 \\cdots 2k,\n$$\nso $c_{i}=b_{i}$ for each $i$. We then switch $1$ with $2$, $1$ with $3$, $1$ with $4$, and so on, until $1$ arrives to the right of $2k$. Then we switch $2$ with $3$, $2$ with $4$, etc., until $2$ is just to the left of $1$. We continue in this way until the order of all the numbers $\\sigma(i)$ is reversed. Each of these switches changes the permutation $\\sigma$ and therefore the product (1). We claim that after all of them have been performed, the value of (1) is increased by at least $k(a_{k}-a_{k+1})(b_{k}-b_{k+1})$.\n\nLemma. No switch decreases the value of (1).\n\nProof. Each switch interchanges the values of two consecutive $c_{i}$'s, replacing two factors $(a_{i}+c_{i})(a_{i+1}+c_{i+1})$ of the product by $(a_{i}+c_{i+1})(a_{i+1}+c_{i})$ and increasing the value by a positive constant times\n$$\n(a_{i}+c_{i+1})(a_{i+1}+c_{i})-(a_{i}+c_{i})(a_{i+1}+c_{i+1})=(a_{i+1}-a_{i})(c_{i+1}-c_{i}) .\n$$\nThe factor $(a_{i+1}-a_{i})$ is obviously nonnegative, and the factor $(c_{i+1}-c_{i})$ is nonnegative also due to the way we performed the switches: a smaller number always moves to the right while a larger number moves to the left, so $c_{i}=b_{m}$ and $c_{i+1}=b_{n}$ with $m<n$.\n\nLemma. At least $k$ switches occur between $c_{k}$ and $c_{k+1}$ in which initially $\\sigma(k) \\leq k$ and $\\sigma(k+1)>k$ (and subsequently these inequalities are reversed).\n\nProof. Let $m(\\sigma)$ be the number of indices $i$ such that $i \\leq k$ and $\\sigma(i) \\leq k$. Initially, $m(\\sigma)=k$ and ultimately $m(\\sigma)=0$. Only switches of the type described alter $m(\\sigma)$, and only by $1$, so there must be at least $k$ of them (in fact there are exactly $k$).\n\nWe complete the proof by showing that each switch of the type described in the above lemma increases the value of (1) by at least $(a_{k}-a_{k+1})(b_{k}-b_{k+1})$. By the calculation in Lemma 7, the product of the two factors altered by the switch is increased by\n$$\n(a_{i+1}-a_{i})(c_{i+1}-c_{i}) \\geq (a_{k+1}-a_{k})(b_{k}-b_{k+1})\n$$\nthe remaining factors all have the form\n$$\na_{i}+c_{i} \\geq \\frac{1}{2}+\\frac{1}{2}=1\n$$\nso the increase in the product is at least $(a_{k}-a_{k+1})(b_{k}-b_{k+1})$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-jensen-smoothing-auto-0576",
+      "name": "BAMO #0hyo",
+      "url": "https://usamoguide.com/",
+      "source": "BAMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Linear and quadratic inequalities",
+        "Jensen / smoothing",
+        "Graph Theory"
+      ],
+      "statement": "Problem:\nLet $a, b, c, d, e, f$ be positive integers, each at least $2$, whose sum is $S$. Prove that\n$$\na(a-1)+b(b-1)+c(c-1)+d(d-1)+e(e-1)+f(f-1) \\leq (S-10)(S-11)+10.\n$$\nWhen is equality achieved?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nSolution I. Adding $-3S+24$ to both sides makes the inequality equivalent to\n$$\n(a-2)^2 + (b-2)^2 + (c-2)^2 + (d-2)^2 + (e-2)^2 + (f-2)^2 \\leq (S-12)^2.\n$$\nSubstituting $A = a-2$, $B = b-2$, etc., this is the same as\n$$\nA^2 + B^2 + C^2 + D^2 + E^2 + F^2 \\leq (A+B+C+D+E+F)^2.\n$$\nOn the left side we have the sum of squares of nonnegative numbers and on the right side we have the square of the sum. The latter is always larger except when all pairwise products $AB, AC, DF, \\ldots$ are zeros. This happens when all but one of $A, B, C, D, E, F$ are zero, correspondingly, when all but one of $a, b, c, d, e, f$ are $2$.\n\n\nSolution II. The given inequality can be written as\n$$\na^2 + b^2 + c^2 + d^2 + e^2 + f^2 \\leq (S-10)^2 + 20.\n$$\nNow, for any two numbers $x, y \\geq z$, we have\n$$\nx^2 + y^2 \\leq z^2 + (x+y-z)^2.\n$$\nIndeed, this is equivalent to\n$$\nx^2 - z^2 \\leq (x+y-z)^2 - y^2 \\Leftrightarrow (x-z)(x+z) \\leq (x-z)(x+2y-z) \\Leftrightarrow 0 \\leq 2(x-z)(y-z),\n$$\nand the last is true because $x \\geq z$ and $y \\geq z$. Note that (1) replaces the numbers $(x, y)$ by $(z, x+y-z)$ without changing the sum of the two numbers, but increases the sum of their squares. In the original problem, we do this for $a, b \\geq 2$: we replace $(a, b)$ by $(2, a+b-2)$:\n$$\na^2 + b^2 \\leq 2^2 + (a+b-2)^2.\n$$\nWe then do the same for $(a+b-2, c)$: replace them by $(2, a+b+c-4)$, and so on. In the end, we will have replaced five of the original numbers by $2$'s, and the last by $a+b+c+d+e+f-10 = S-10$.\n$$\n\\Rightarrow a^2 + b^2 + c^2 + d^2 + e^2 + f^2 \\leq 2^2 + 2^2 + 2^2 + 2^2 + 2^2 + (S-10)^2 = 20 + (S-10)^2.\n$$\nEquality is achieved if and only if there are equalities each time we apply (1), i.e., five of the given numbers are $2$'s, and the remaining number is therefore $S-10$.\n\n\nSolution III. We first show the following inequality:\n$$\nx(x-1) + y(y-1) \\leq (x+y-2)(x+y-3) + 2, \\quad x, y \\geq 2\n$$\nConsider two complete graphs, with $x$ and $y$ vertices, respectively. (A complete graph has all possible edges drawn.) Thus we have $\\binom{x}{2}$ and $\\binom{y}{2}$ edges in the two graphs. If we glue the graphs together on an edge, we produce a new graph with $x+y-2$ vertices. Count edges: the original configuration had $\\binom{x}{2} + \\binom{y}{2}$ edges, while the new configuration has at most $\\binom{x+y-2}{2}$ edges. Since we lost an edge when we glued the two graphs together, we conclude that\n$$\n\\binom{x}{2} + \\binom{y}{2} \\leq \\binom{x+y-2}{2} + 1\n$$\nThis is equivalent to (2) after multiplying by $2$. Equality is attained if and only if the new graph is also complete, i.e., one of the original graphs must have been just an edge ($x=2$ or $y=2$). From here, apply consecutively (2) to the desired inequality. Again, maximum is attained if and only if five of the given numbers are $2$'s."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-jensen-smoothing-auto-0668",
+      "name": "Berkeley Math Circle Monthly Contest #1 #0i18",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest #1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Jensen / smoothing",
+        "Combinatorial optimization",
+        "Coloring schemes, extremal arguments",
+        "Sums and products"
+      ],
+      "statement": "Problem:\nLet $a_{1}, a_{2}, \\ldots, a_{2000}$ be real numbers in the interval $[0,1]$. Find the maximum possible value of\n$$\n\\sum_{1 \\leq i<j \\leq 2000}(j-i)\\left|a_{j}-a_{i}\\right|\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe answer is $1,000,000,000$. First, note that the desired sum $S$ is convex as a function of each $a_{i}$. (Indeed, $\\left|a_{i}-a\\right|$ is convex for any real number $a$, and a sum of convex functions is itself convex.) Consequently, it attains a maximum at some point where each variable lies at an endpoint of its interval, i.e. $S$ has a maximum with each $a_{i}$ equal to either $0$ or $1$. So we may restrict our attention to these cases.\n\nThen $\\left|a_{j}-a_{i}\\right|=0$ if $a_{i}=a_{j}$ and $1$ otherwise, so $S$ is really the sum of all values of $j-i$ where $a_{i} \\neq a_{j}$. Equivalently, it equals $\\sum_{1 \\leq i<j \\leq 2000}(j-i)$ minus the sum of $j-i$ over pairs for which $a_{i}=a_{j}$. So our goal is equivalent to minimizing the latter sum. Fix a positive integer $k$, and suppose there are $k$ values of $i$ with $a_{i}=0$ (and $2000-k$ values with $a_{i}=1$). If we consider the sum of $j-i$ over all pairs $i<j$ with $a_{i}=a_{j}=0$, this sum is clearly minimized when all the $i$'s with $a_{i}=0$ are consecutive; likewise the sum over all pairs with $a_{i}=a_{j}=1$ is minimized when all the $1$'s are consecutive. So we may restrict our attention to the case where $a_{1}=a_{2}=\\cdots=a_{k}=0$ and $a_{k+1}=\\cdots=a_{2000}=1$. (The case where the block of $1$'s precedes the block of $0$'s is symmetrically equivalent.)\n\nIn this case, the sum $S$ comes out to be\n$$\n\\begin{aligned}\n& \\sum_{\\substack{1 \\leq i<j \\leq 2000 \\\\\\ a_{i} \\neq a_{j}}}(j-i)=\\sum_{i=1}^{k} \\sum_{j=k+1}^{2000}(j-i)=\\sum_{j=k+1}^{2000}\\left(\\sum_{i=1}^{k} j\\right)-\\sum_{i=1}^{k}\\left(\\sum_{j=k+1}^{2000} i\\right)=\\sum_{j=k+1}^{2000} k j-\\sum_{i=1}^{k}(2000-k) i \\\\\n= & \\frac{(2000-k)(2000+[k+1])}{2}-(2000-k) \\frac{k(k+1)}{2}=1000 k(2000-k)=1000\\left(1000^{2}-[k-1000]^{2}\\right)\n\\end{aligned}\n$$\nwhich is at most $1000^{3}$, with equality holding iff $k=1000$. So $1000^{3}$ is our desired maximum, attained when $a_{i}=0$ for $i \\leq 1000$ and $a_{i}=1$ for $i>1000$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-jensen-smoothing-auto-0702",
+      "name": "USA IMO #0i26",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Linear and quadratic inequalities",
+        "QM-AM-GM-HM / Power Mean",
+        "Jensen / smoothing",
+        "Quadratic functions",
+        "Triangle trigonometry",
+        "Trigonometry"
+      ],
+      "statement": "Let $a, b$, and $c$ be nonnegative real numbers such that\n$$\na^2 + b^2 + c^2 + abc = 4.\n$$\nProve that\n$$\n0 \\le ab + bc + ca - abc \\le 2.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**First Solution.** (By Richard Stong) From the condition, at least one of $a, b$, and $c$ does not exceed $1$, say $a \\le 1$. Then\n$$\nab + bc + ca - abc = a(b + c) + bc(1 - a) \\ge 0.\n$$\nTo obtain equality, we have $a(b + c) = bc(1 - a) = 0$. If $a = 1$, then $b + c = 0$ or $b = c = 0$, which contradicts the given condition $a^2 + b^2 + c^2 + abc = 4$. Hence $1 - a \\ne 0$ and only one of $b$ and $c$ is $0$. Without loss of generality, say $b = 0$. Therefore $b + c > 0$ and $a = 0$. Plugging $a = b = 0$ back into the given condition gives $c = 2$. By permutation, the lower bound holds if and only if $(a, b, c)$ is one of the triples $(2, 0, 0)$, $(0, 2, 0)$, and $(0, 0, 2)$.\n\nNow we prove the upper bound. Let us note that some two of the three numbers $a, b$, and $c$ are both greater than or equal to $1$ or less than or equal to $1$. Without loss of generality, we assume that the numbers with this property are $b$ and $c$. Then we have\n$$\n(1 - b)(1 - c) \\ge 0. \\qquad (1)\n$$\nThe given equality $a^2 + b^2 + c^2 + abc = 4$ and the inequality $b^2 + c^2 \\ge 2bc$ imply\n$$\na^2 + 2bc + abc \\le 4, \\quad \\text{or} \\quad bc(2 + a) \\le 4 - a^2.\n$$\nDividing both sides of the last inequality by $2 + a$ yields\n$$\nbc \\le 2 - a. \\qquad (2)\n$$\nCombining (1) and (2) gives\n$$\n\\begin{aligned}\nab + bc + ac - abc &\\le ab + 2 - a + ac(1 - b) \\\\\n&= 2 - a(1 + bc - b - c) \\\\\n&= 2 - a(1 - b)(1 - c) \\le 2,\n\\end{aligned}\n$$\nas desired.\n\nThe last equality holds if and only if $b = c$ and $a(1 - b)(1 - c) = 0$. Hence, equality for the upper bound holds if and only if $(a, b, c)$ is one of the triples $(1, 1, 1)$, $(0, \\sqrt{2}, \\sqrt{2})$, $(\\sqrt{2}, 0, \\sqrt{2})$, and $(\\sqrt{2}, \\sqrt{2}, 0)$.\n\n\n**Second Solution.** (by Oaz Nir) We prove only the upper bound here. Either two of $a, b, c$ are less than or equal to $1$, or two are greater than or equal to $1$. Assume $b$ and $c$ have this property. Then\n$$\nb + c - bc = 1 - (1 - b)(1 - c) \\le 1. \\qquad (3)\n$$\nViewing the given equality as a quadratic equation in $a$ and solving for $a$ yields\n$$\na = \\frac{-bc \\pm \\sqrt{(b^2 - 4)(c^2 - 4)}}{2}.\n$$\nNote that\n$$(b^2 - 4)(c^2 - 4) = b^2c^2 - 4(b^2 + c^2) + 16$$\n$$\\leq b^2c^2 - 8bc + 16 = (4 - bc)^2.$$\nFor the given equality to hold, we must have $b, c \\leq 2$ so that $4 - bc \\geq 0$. Hence,\n$$\na \\leq \\frac{-bc + |4 - bc|}{2} = \\frac{-bc + 4 - bc}{2} = 2 - bc,\n$$\nor\n$$\n2 - bc \\geq a. \\qquad (4)\n$$\nCombining (3) and (4) gives\n$$\n2 - bc \\geq a(b + c - bc) = ab + ac - abc,\n$$\nor\n$$\nab + ac + bc - abc \\leq 2,\n$$\nas desired.\n\n\n**Third Solution.** We prove only the upper bound here. Define functions $f, g$ as\n$$f(x, y, z) = x^2 + y^2 + z^2 + xyz = (x + y)^2 + z^2 - (2 - z)xy,$$\n$$g(x, y, z) = xy + yz + zx - xyz = z(x + y) + (1 - z)xy$$\nfor all nonnegative numbers $x, y, z$. Observe that if $z \\leq 1$, then both $f$ and $g$ are unbounded, increasing functions of $x$ and $y$.\n\nAssume that $f(a, b, c) = 4$ and, without loss of generality, that $a \\geq b \\geq c \\geq 0$. Then $c \\leq 1$.\nLet $a' = (a+b)/2$. Because $a+b = a'+a'$ and $ab \\leq (\\frac{a-b}{2})^2 + ab = a'^2$, we have\n$$\nf(a', a', c) \\leq f(a, b, c) = 4 \\quad \\text{and} \\quad g(a', a', c) \\geq g(a, b, c).\n$$\nNow increase $a'$ to $e \\geq 0$ such that $f(e, e, c) = 4$. Note that $g(e, e, c) \\geq g(a', a', c)$. It suffices to prove that $g(e, e, c) \\leq 2$.\n\nSince $f(e, e, c) = 2e^2 + c^2 + e^2c = 4$, $e^2 = (4 - c^2)/(2 + c) = 2 - c$.\nWe obtain that\n$$\n\\begin{aligned}\ng(e, e, c) - 2 &= 2ec + (1-c)e^2 - 2 \\\\\n&\\le 2e(2-e^2) + (e^2-1)e^2 - 2 \\\\\n&= e^4 - 2e^3 - e^2 + 4e - 2 \\\\\n&= (e-1)^2(e^2-1) \\le 0,\n\\end{aligned}\n$$\nsince $1 \\le e \\le \\sqrt{2}$.\n\n\n**Fourth Solution.** We prove only the upper bound here. It is clear that $a, b, c \\le 2$. If $a = 0$, then the given equality reduces to $b^2 + c^2 = 4$. Then $ab + bc + ca - abc = bc \\le \\frac{(b-c)^2}{2} + bc = \\frac{b^2+c^2}{2} = 2$. Similarly, the inequality is true if $b$ or $c$ equals $0$.\n\nSuppose that $a, b, c > 0$. Solving for $a$ yields\n$$\n\\begin{aligned}\na &= \\frac{-bc + \\sqrt{b^2c^2 - 4(b^2 + c^2 - 4)}}{2} \\\\\n&= \\frac{-bc + \\sqrt{(4 - b^2)(4 - c^2)}}{2}.\n\\end{aligned}\n$$\nWe make the trigonometric substitution $b = 2 \\sin u$ and $c = 2 \\sin v$, where $0^\\circ < u, v < 90^\\circ$. Then\n$$\na = 2(-\\sin u \\sin v + \\cos u \\cos v) = 2 \\cos (u + v).\n$$\nSet $u = B/2$, $v = C/2$, and $A = 180^\\circ - B - C$. Then $a = 2 \\cos(u+v) = 2 \\sin(A/2)$, $b = 2 \\sin(B/2)$, and $c = 2 \\sin(C/2)$, where $A, B, C$ are the angles of a triangle. We have\n$$\n\\begin{aligned}\nab &= 4 \\sin \\frac{A}{2} \\sin \\frac{B}{2} = 2 \\sqrt{\\sin A \\tan \\frac{A}{2} \\sin B \\tan \\frac{B}{2}} \\\\\n&= 2 \\sqrt{\\sin A \\tan \\frac{B}{2} \\sin B \\tan \\frac{A}{2}}\n\\end{aligned}\n$$\nBy the **AM-GM Inequality**, this is at most\n$$\n\\begin{aligned}\n\\sin A \\tan \\frac{B}{2} + \\sin B \\tan \\frac{A}{2} \\\\\n&= \\sin A \\cot \\frac{A+C}{2} + \\sin B \\cot \\frac{B+C}{2}.\n\\end{aligned}\n$$\nLikewise,\n$$\nbc \\le \\sin B \\cot \\frac{B+A}{2} + \\sin C \\cot \\frac{C+A}{2},\n$$\n$$\nca \\le \\sin C \\cot \\frac{C+B}{2} + \\sin A \\cot \\frac{A+B}{2}.\n$$\nTherefore, applying the **Sum-to-product**, **Product-to-sum**, and **Double-angle formulas**, we have\n$$\n\\begin{align*}\nab + bc + ca &\\le (\\sin A + \\sin B) \\cot \\frac{A+B}{2} + (\\sin B + \\sin C) \\cot \\frac{B+C}{2} \\\\\n&\\quad + (\\sin C + \\sin A) \\cot \\frac{C+A}{2} \\\\\n&= 2 \\cos \\frac{A-B}{2} \\cos \\frac{A+B}{2} + 2 \\cos \\frac{B-C}{2} \\cos \\frac{B+C}{2} \\\\\n&\\quad + 2 \\cos \\frac{C-A}{2} \\cos \\frac{C+A}{2} \\\\\n&= 2(\\cos A + \\cos B + \\cos C) \\\\\n&= 6 - 4 \\left( \\sin^2 \\frac{A}{2} + \\sin^2 \\frac{B}{2} + \\sin^2 \\frac{C}{2} \\right) \\\\\n&= 6 - (a^2 + b^2 + c^2).\n\\end{align*}\n$$\nUsing the given equality, this last quantity equals $2 + abc$. It follows that\n$$\nab + bc + ca \\le 2 + abc,\n$$\nas desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-jensen-smoothing-auto-1742",
+      "name": "Harvard-MIT November Tournament #0iv2",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Jensen / smoothing",
+        "QM-AM-GM-HM / Power Mean"
+      ],
+      "statement": "Problem:\n\nGiven that $a + b + c = 5$ and that $1 \\leq a, b, c \\leq 2$, what is the minimum possible value of $\\frac{1}{a+b} + \\frac{1}{b+c}$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nIf $a > 1$ and $b < 2$, we can decrease the sum by decreasing $a$ and increasing $b$. You can follow a similar procedure if $c > 1$ and $b < 2$. Therefore, the sum is minimized when $b = 2$.\n\nWe can then cross-multiply the two fractions and see that we are trying to minimize\n$$\n\\frac{a + c + 4}{(a + 2)(c + 2)} = \\frac{7}{(a + 2)(c + 2)}.\n$$\nThe product of two numbers with a fixed sum is maximized when those two numbers are equal, so $\\frac{7}{(a + 2)(c + 2)}$ is minimized for $a = c = \\frac{3}{2}$, which gives us an answer of $\\frac{4}{7}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-jensen-smoothing-auto-1821",
+      "name": "2nd Annual Harvard-MIT November Tournament #0ix9",
+      "url": "https://usamoguide.com/",
+      "source": "2nd Annual Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Algorithms",
+        "Invariants / monovariants",
+        "Jensen / smoothing"
+      ],
+      "statement": "Problem:\n\nThe following grid represents a mountain range; the number in each cell represents the height of the mountain located there. Moving from a mountain of height $a$ to a mountain of height $b$ takes $(b-a)^2$ time. Suppose that you start on the mountain of height $1$ and that you can move up, down, left, or right to get from one mountain to the next. What is the minimum amount of time you need to get to the mountain of height $49$?\n\n| 1  | 3  | 6  | 10 | 15 | 21 | 28 |\n|:---:|:---:|:---:|:---:|:---:|:---:|:---:|\n| 2  | 5  | 9  | 14 | 20 | 27 | 34 |\n| 4  | 8  | 13 | 19 | 26 | 33 | 39 |\n| 7  | 12 | 18 | 25 | 32 | 38 | 43 |\n| 11 | 17 | 24 | 31 | 37 | 42 | 46 |\n| 16 | 23 | 30 | 36 | 41 | 45 | 48 |\n| 22 | 29 | 35 | 40 | 44 | 47 | 49 |",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $212$\n\nConsider the diagonals of the board running up and to the right - so the first diagonal is the square $1$, the second diagonal is the squares $2$ and $3$, and so on. The $i$th ascent is the largest step taken from a square in the $i$th diagonal to a square in the $i+1$st. Since you must climb from square $1$ to square $49$, the sum of the ascents is at least $48$. Since there are $12$ ascents, the average ascent is at least $4$.\n\nThe $1$st and $12$th ascents are at most $2$, and the $2$nd and $11$th ascents are at most $3$. The $6$th and $7$th ascents are at least $6$, and the $5$th and $8$th ascents are at least $5$. Because $f(x) = x^2$ is convex, the sum of squares of the ascents is minimized when they are as close together as possible. One possible shortest path is then $1 \\rightarrow 3 \\rightarrow 6 \\rightarrow 10 \\rightarrow 14 \\rightarrow 19 \\rightarrow 25 \\rightarrow 31 \\rightarrow 36 \\rightarrow 40 \\rightarrow 44 \\rightarrow 47 \\rightarrow 49$, which has ascents of size $2, 3, 4, 4, 5, 6, 6, 5, 4, 4, 3$, and $2$.\n\nThus, our answer is $212$, the sum of the squares of these ascents. There are other solutions to this problem. One alternative problem involves computing the shortest path to each square of the graph, recursively, starting from squares $2$ and $3$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-jensen-smoothing-auto-1846",
+      "name": "Bay Area Mathematical Olympiad #0ixy",
+      "url": "https://usamoguide.com/",
+      "source": "Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle trigonometry",
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Trigonometry",
+        "Angle chasing",
+        "Jensen/smoothing",
+        "Cauchy-Schwarz",
+        "QM-AM-GM-HM / Power Mean",
+        "Jensen / smoothing"
+      ],
+      "statement": "Problem:\nLet $\\triangle ABC$ be an acute triangle with angles $\\alpha, \\beta$, and $\\gamma$. Prove that\n$$\n\\frac{\\cos \\alpha}{\\cos (\\beta-\\gamma)}+\\frac{\\cos \\beta}{\\cos (\\gamma-\\alpha)}+\\frac{\\cos \\gamma}{\\cos (\\alpha-\\beta)} \\geq \\frac{3}{2}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nSince $\\cos \\gamma = -\\cos (\\alpha+\\beta) = -\\cos \\alpha \\cos \\beta + \\sin \\alpha \\sin \\beta$, and $\\cos (\\alpha-\\beta) = \\cos \\alpha \\cos \\beta + \\sin \\alpha \\sin \\beta$ the given inequality transforms to\n$$\n\\begin{aligned}\n& \\frac{\\sin \\beta \\sin \\gamma - \\cos \\beta \\cos \\gamma}{\\sin \\beta \\sin \\gamma + \\cos \\beta \\cos \\gamma} + \\frac{\\sin \\gamma \\sin \\alpha - \\cos \\gamma \\cos \\alpha}{\\sin \\gamma \\sin \\alpha + \\cos \\gamma \\cos \\alpha} \\\\\n& + \\frac{\\sin \\alpha \\sin \\beta - \\cos \\alpha \\cos \\beta}{\\sin \\alpha \\sin \\beta + \\cos \\alpha \\cos \\beta} \\geq \\frac{3}{2} \\\\\n& \\frac{\\tan \\beta \\tan \\gamma - 1}{\\tan \\beta \\tan \\gamma + 1} + \\frac{\\tan \\gamma \\tan \\alpha - 1}{\\tan \\gamma \\tan \\alpha + 1} + \\frac{\\tan \\alpha \\tan \\beta - 1}{\\tan \\alpha \\tan \\beta + 1} \\geq \\frac{3}{2}.\n\\end{aligned}\n$$\nSome elementary trigonometry yields\n$$\n\\begin{aligned}\n\\tan \\alpha + \\tan \\beta + \\tan \\gamma &= \\frac{\\sin \\alpha \\cos \\beta \\cos \\gamma + \\sin \\beta \\cos \\alpha \\cos \\gamma + \\sin \\gamma \\cos \\alpha \\cos \\beta}{\\cos \\alpha \\cos \\beta \\cos \\gamma} \\\\\n&= \\frac{\\sin \\alpha \\cos \\beta \\cos \\gamma + \\cos \\alpha (\\sin \\beta \\cos \\gamma + \\sin \\gamma \\cos \\beta)}{\\cos \\alpha \\cos \\beta \\cos \\gamma} \\\\\n&= \\frac{\\sin \\alpha \\cos \\beta \\cos \\gamma + \\cos \\alpha \\sin (\\beta+\\gamma)}{\\cos \\alpha \\cos \\beta \\cos \\gamma}\n\\end{aligned}\n$$\nNow we use the fact that the angles add to $180^\\circ$ to see that $\\sin (\\beta+\\gamma) = \\sin (\\alpha)$, so\n$$\n\\begin{aligned}\n\\frac{\\sin \\alpha \\cos \\beta \\cos \\gamma + \\cos \\alpha \\sin (\\beta+\\gamma)}{\\cos \\alpha \\cos \\beta \\cos \\gamma} &= \\frac{\\sin \\alpha \\cos \\beta \\cos \\gamma + \\cos \\alpha \\sin \\alpha}{\\cos \\alpha \\cos \\beta \\cos \\gamma} \\\\\n&= \\frac{\\sin \\alpha \\cdot (\\cos \\beta \\cos \\gamma + \\cos \\alpha)}{\\cos \\alpha \\cos \\beta \\cos \\gamma} \\\\\n&= \\frac{\\sin \\alpha \\cdot (\\cos \\beta \\cos \\gamma - \\cos (\\beta+\\gamma))}{\\cos \\alpha \\cos \\beta \\cos \\gamma} \\\\\n&= \\frac{\\sin \\alpha \\cdot (\\cos \\beta \\cos \\gamma - (\\cos \\beta \\cos \\gamma - \\sin \\beta \\sin \\gamma))}{\\cos \\alpha \\cos \\beta \\cos \\gamma} \\\\\n&= \\tan \\alpha \\tan \\beta \\tan \\gamma\n\\end{aligned}\n$$\nNow, setting $x = \\tan \\alpha$ and so on, our inequality\n$$\n\\frac{y z - 1}{y z + 1} + \\frac{z x - 1}{z x + 1} + \\frac{x y - 1}{x y + 1} \\geq \\frac{3}{2}\n$$\nhas the property that $x, y, z$ are positive real numbers satisfying $x + y + z = x y z$.\nMultiplying the numerator and the denominator of the first fraction by $x$, second by $y$ and third by $z$ the inequality becomes\n$$\n\\frac{S - x}{S + x} + \\frac{S - y}{S + y} + \\frac{S - z}{S + z} \\geq \\frac{3}{2}\n$$\nfor $S = x y z$. Using the substitution $S + x = a, S + y = b, S + z = c$ and solving for $S, x, y, z$ we get $S = \\frac{a + b + c}{4}$, $x = \\frac{3a - b - c}{4}$, $y = \\frac{3b - a - c}{4}$, $z = \\frac{3c - a - b}{4}$, $S - x = \\frac{b + c - a}{2}$, $S - y = \\frac{c + a - b}{2}$, $S - z = \\frac{a + b - c}{2}$, and (1) becomes\n$$\n\\frac{1}{2}\\left(\\frac{b}{a} + \\frac{c}{a} - 1 + \\frac{a}{b} + \\frac{c}{b} - 1 + \\frac{a}{c} + \\frac{b}{c} - 1\\right) \\geq \\frac{3}{2}\n$$\nThis immediately follows from $\\frac{b}{a} + \\frac{a}{b} \\geq 2$, $\\frac{a}{c} + \\frac{c}{a} \\geq 2$, and $\\frac{c}{b} + \\frac{b}{c} \\geq 2$.\n\nLet $O$ be the circumcenter of $\\triangle ABC$. Extend $AO$ to meet $BC$ at $X$, and similarly $BO$ extends to $Y$ and $CO$ to $Z$.\nAs shown in the diagram at left below, draw $AA'$ parallel to $BC$, drop the altitude $AH$ from point $A$, and also draw $MO$, the perpendicular bisector of $BC$, meeting $AA'$ at $N$.\nNow $AHMN$ is a rectangle, so $AH = MN$. Also, $ABCA'$ is a cyclic trapezoid and thus isosceles, so $\\angle A'BC = \\angle ACB = \\gamma$. Thus $\\angle ABA' = \\angle ABC = \\angle ACB = \\beta - \\gamma$, so the measure of $\\operatorname{arc} AA' = 2(\\beta - \\gamma)$, which means that $\\angle AON = \\beta - \\gamma$. Using right triangle $ONA$, we have $ON = OA \\cos (\\beta - \\gamma)$.\nAgain using central and inscribed angles, $\\operatorname{arc} BC = 2\\alpha$ so $\\angle BOM = \\alpha$ and $OM = OB \\cos \\alpha$. Dividing $OM$ by $ON$,\n$$\n\\frac{OM}{ON} = \\frac{OB \\cos \\alpha}{OA \\cos (\\beta - \\gamma)} = \\frac{\\cos \\alpha}{\\cos (\\beta - \\gamma)}\n$$\nFinally, because $AA' \\parallel BC, \\triangle ANO \\sim \\triangle XMO$, which gives $\\frac{OX}{OA} = \\frac{OM}{ON}$.\nNow by symmetry, we can find similar relationships for all three fractions in the original inequality, so our goal now is to prove that\n$$\n\\frac{OX}{OA} + \\frac{OY}{OB} + \\frac{OZ}{OC} \\geq \\frac{3}{2}\n$$\n\n![](attached_image_1.png)\n\nIn the figure at right above, the area ratio $\\frac{AO}{AX} = \\frac{[ABOC]}{[ABC]}$, so adding analogous terms for each of the three ratios,\n$$\n\\frac{AO}{AX} + \\frac{BO}{BY} + \\frac{CO}{CZ} = \\frac{[ABOC] + [BCOA] + [AOBC]}{[ABC]} = 2,\n$$\nsince the numerator counts the area of each piece exactly twice.\nNext, by the arithmetic mean - harmonic mean inequality (or Cauchy-Schwarz if you prefer),\n$$\n\\left(\\frac{AO}{AX} + \\frac{BO}{BY} + \\frac{CO}{CZ}\\right)\\left(\\frac{AX}{AO} + \\frac{BY}{BO} + \\frac{CZ}{CO}\\right) \\geq 9\n$$\nFinally, since $\\frac{AX}{AO} = 1 + \\frac{OX}{AO}$ and similarly for the other two fractions, we can first divide by 2 and then subtract 3 from each side,\n$$\n\\frac{OX}{OA} + \\frac{OY}{OB} + \\frac{OZ}{OC} \\geq \\frac{9}{2} - 3 = \\frac{3}{2}\n$$\n\nSolution:\nRemark. Once the inequality is transformed to (1) we can use the convexity of the function $f(t) = \\frac{S-t}{S+t}$ and Jensen's inequality:\n$$\n\\frac{1}{3}(f(x) + f(y) + f(z)) \\geq f\\left(\\frac{x+y+z}{3}\\right).\n$$\nIt can be easily seen that the previous inequality is exactly (1).\n\nSolution 2, earning a Brilliancy award for Amol Aggarwal of Saratoga HS:\n$$\n\\frac{OX}{OA} + \\frac{OY}{OB} + \\frac{OZ}{OC} \\geq \\frac{3}{2}\n$$\n![](attached_image_2.png)\n\nIn the figure at right above, the area ratio $\\frac{AO}{AX} = \\frac{[ABOC]}{[ABC]}$, so adding analogous terms for each of the three ratios,\n$$\n\\frac{AO}{AX} + \\frac{BO}{BY} + \\frac{CO}{CZ} = \\frac{[ABOC] + [BCOA] + [AOBC]}{[ABC]} = 2,\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-jensen-smoothing-auto-2358",
+      "name": "Team Selection Test Selection Test #0jc6",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle inequalities",
+        "Triangle trigonometry",
+        "Tangents",
+        "Trigonometry",
+        "Vectors",
+        "Rotation",
+        "Translation",
+        "Jensen/smoothing",
+        "Jensen / smoothing"
+      ],
+      "statement": "Let $\\triangle ABC$ be a triangle. Its excircles touch sides $BC$, $CA$, $AB$ at $D$, $E$, $F$, respectively. Prove that the perimeter of triangle $\\triangle ABC$ is at most twice that of triangle $DEF$.\n\n![](attached_image_1.png)\n\n![](attached_image_2.png)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "We consider the configuration shown in the diagram below. (Our proof uses directed lengths and can be easily modified for different configurations.)\n![](attached_image_1.png)\nLet $a, b, c$ denote the side lengths of $BC, CA, AB$, and let $A, B, C$ denote $\\angle A, \\angle B, \\angle C$, respectively. Suppose that the incircle touches sides $BC, CA, AB$ at $P, Q, R$, respectively. It is well known that\n$$\nFB = CE = QA = AR = \\frac{b+c-a}{2}. \\qquad (25)\n$$\nDenote by $E_a, F_a$ the feet of the perpendiculars from $E, F$ to line $BC$. It is clear that $EF \\ge E_aF_a$. By (25), we have\n$$\nFE \\ge F_aE_a = BC - (BF_a + E_aC) = a - \\frac{b+c-a}{2} (\\cos B + \\cos C).\n$$\nSumming the above inequality and its cyclic analogues yields\n$$\nEF + FD + DE \\ge a + b + c - \\sum_{\\text{cyc}} \\frac{b+c-a}{2} (\\cos B + \\cos C)\n$$\nor\n$$\nEF + FD + DE \\ge a + b + c - (a \\cos A + b \\cos B + c \\cos C). \\qquad (26)\n$$\nBy the sum-to-product formulas, we have\n$$\n\\frac{1}{2}(\\sin 2A + \\sin 2B) = \\sin(A+B)\\cos(A-B) = \\sin C \\cos(A-B) \\ge \\sin C.\n$$\nSumming this inequality and its cyclic analogues yields\n$$\n\\sin A + \\sin B + \\sin C \\ge 2\\sin A \\cos A + 2\\sin B \\cos B + 2\\sin C \\cos C\n$$\nMultiplying both sides by $2R$ and applying the extended Law of Sines, we obtain\n$$\na + b + c \\ge 2a \\cos A + 2b \\cos B + 2c \\cos C. \\qquad (27)\n$$\nSubstituting (27) into (26) yields the desired\n$$\nEF + FD + DE \\ge \\frac{a+b+c}{2}.\n$$\n\nWe maintain the notations of the first solution. The result clearly follows from the following two lemmas.\n\n**Lemma 1.** The sum of the perimeters of triangles $DEF$ and $PQR$ is at least the perimeter of triangle $ABC$.\n\n*Proof.* By symmetry, it suffices to show that $DE + PQ \\ge AB$. Let $M$ and $N$ be the midpoints of segments $CA$ and $CB$, respectively. We want to show that $DE + PQ \\ge AB = 2MN$. As in the first solution, we have $CE = AQ$ and $CD = BP$ so that $M$ and $N$ are midpoints of segments $PD$ and $QE$, respectively. Computing using vectors, we obtain\n$$\n\\begin{aligned}\n\\overrightarrow{MN} &= \\overrightarrow{MC} + \\overrightarrow{CN} = \\frac{1}{2}(\\overrightarrow{QC} + \\overrightarrow{EC}) + \\frac{1}{2}(\\overrightarrow{CP} + \\overrightarrow{CD}) \\\\\n&= \\frac{1}{2}(\\overrightarrow{QC} + \\overrightarrow{CP}) + \\frac{1}{2}(\\overrightarrow{EC} + \\overrightarrow{CD}) = \\frac{1}{2}(\\overrightarrow{QP} + \\overrightarrow{ED}).\n\\end{aligned}\n$$\nBy the triangle inequality, we have $MN \\le \\frac{1}{2}(QP + ED)$, which implies\n$$\nPQ + DE \\ge 2MN = AB. \\quad \\square\n$$\n\n**Lemma 2.** The perimeter of triangle $ABC$ is at least twice that of triangle $PQR$.\n\n*Proof.* Note that $PQ = 2CP \\sin \\frac{C}{2}$, $QR = 2AQ \\sin \\frac{A}{2}$, and $RP = 2BR \\sin \\frac{B}{2}$. The perimeter of triangle $PQR$ is equal to\n$$\nS_{PQR} = (b+c-a) \\sin \\frac{A}{2} + (c+a-b) \\sin \\frac{B}{2} + (a+b-c) \\sin \\frac{C}{2}.\n$$\nBy symmetry, we may assume that $a \\le b \\le c$. This yields the orderings\n$$\nA \\le B \\le C, \\quad b+c-a \\ge c+a-b \\ge a+b-c, \\quad \\text{and} \\quad \\sin \\frac{A}{2} \\le \\sin \\frac{B}{2} \\le \\sin \\frac{C}{2}.\n$$\nBy Chebyshev's inequality, we have\n$$\nS_{PQR} \\le \\frac{1}{3} \\left( (b+c-a) + (c+a-b) + (a+b-c) \\right) \\left( \\sin \\frac{A}{2} + \\sin \\frac{B}{2} + \\sin \\frac{C}{2} \\right),\n$$\nso it suffices to show that\n$$\n\\sin \\frac{A}{2} + \\sin \\frac{B}{2} + \\sin \\frac{C}{2} \\le \\frac{3}{2}. \\qquad (28)\n$$\nBut (28) follows from Jensen's inequality for $y = \\sin x$ (which is concave for $0 \\le x \\le \\frac{\\pi}{2}$). $\\square$\n\nConsider the following diagram, which contains several copies of $ABC$ rotated and translated so that $ABC$, $A_2B_2C_2$, $A_4B_4C_4$, and $A_6B_6C_6$ are congruent and $B$, $C = A_2$, $B_2 = C_4$, $A_4 = B_6$, and $C_6$ are collinear. Define $D_i$, $E_i$, and $F_i$ to be the images of $D$, $E$, and $F$ in $A_iB_iC_i$.\n![](attached_image_2.png)\n\nObserve that $\\triangle ECE_2 \\simeq \\triangle FBD$, $\\triangle D_2B_2D_4 \\simeq \\triangle EAF$, and $\\triangle F_4A_4F_6 \\simeq \\triangle DAE$. Using these congruences, the triangle inequality, and the fact that $FD \\parallel F_6D_6$, we obtain\n$$\n2(DE + EF + FA) \\ge FE + EE_2 + E_2D_2 + D_2D_4 + D_4F_4 + F_4F_6 \\ge FF_6 = AB + BC + CA.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-jensen-smoothing-auto-2471",
+      "name": "Berkeley Math Circle Monthly Contest 4 #0jfb",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 4",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Jensen / smoothing",
+        "QM-AM-GM-HM / Power Mean",
+        "Combinatorial optimization"
+      ],
+      "statement": "Problem:\n\n$$\n\\left(\\begin{array}{lllll}\n1 & 1 & 1 & \\cdots & 1\n\\end{array}\\right)\n$$\nis written on a board, with 2013 ones in between the outer parentheses. Between each pair of consecutive ones you may write either \"+\" or \")(\" (you cannot leave the space blank). What is the maximum possible value of the resulting expression?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe answer is $3^{671}$, formed by dividing the ones into groups of three as the answer suggests.\nIt should be obvious that a maximum value exists, since there are only finitely many ways to place the pluses and parentheses and one (or more) of them must give the largest value.\n\nIf there is a factor greater than or equal to $5$, we can prove that the arrangement is not optimal by splitting off two $1$'s, e.g. changing\n$$\n(1+1+1+1+1) \\text{ to } (1+1)(1+1+1) \\text{.}\n$$\nThis is tantamount to changing a factor of $n+2$ to $2n$ for $n \\geq 3$, which increases the value of the expression.\n\nIf we have a factor containing only one $1$, then we can merge it with any other factor $n$; this changes $n$ to $n+1$ and therefore also increases the value of the expression.\n\nTherefore we need only consider expressions in which every factor is $2$, $3$, or $4$. Because $4$ can be broken up into $2 \\cdot 2$ without changing the value of the expression, we will restrict our attention to expressions made up of $2$'s and $3$'s.\n\nNow if there are at least three factors of $2$, we can change them to two factors of $3$ without altering the total number of $1$'s in the expression. This replaces a factor of $8$ by a factor of $9$, thus increasing the expression.\n\nSo the optimal way of forming the expression consists of zero, one, or two $2$'s and some undetermined number of $3$'s. Given that the total number of ones is $2013$, it is clear that there must be no twos and $671$ threes, implying that $3^{671}$ is the maximum value."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-jensen-smoothing-auto-2721",
+      "name": "HMMT 2014 #0jm9",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2014",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Jensen / smoothing"
+      ],
+      "statement": "Problem:\nFind the largest real number $c$ such that\n$$\n\\sum_{i=1}^{101} x_{i}^{2} \\geq c M^{2}\n$$\nwhenever $x_{1}, \\ldots, x_{101}$ are real numbers such that $x_{1}+\\cdots+x_{101}=0$ and $M$ is the median of $x_{1}, \\ldots, x_{101}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $\\frac{5151}{50}$ OR 103.02 OR $103 \\frac{1}{50}$\n\nSuppose without loss of generality that $x_{1} \\leq \\cdots \\leq x_{101}$ and $M = x_{51} \\geq 0$.\n\nNote that $f(t) = t^{2}$ is a convex function over the reals, so we may \"smooth\" to the case $x_{1} = \\cdots = x_{50} \\leq x_{51} = \\cdots = x_{101}$ (the $x_{51} = \\cdots$ is why we needed to assume $x_{51} \\geq 0$). Indeed, by Jensen's inequality, the map $x_{1}, x_{2}, \\ldots, x_{50} \\rightarrow \\frac{x_{1}+\\cdots+x_{50}}{50}, \\ldots, \\frac{x_{1}+\\cdots+x_{50}}{50}$ will decrease or fix the LHS, while preserving the ordering condition and the zero-sum condition.\n\nSimilarly, we may without loss of generality replace $x_{51}, \\ldots, x_{101}$ with their average (which will decrease or fix the LHS, but also either fix or increase the RHS). But this simplified problem has $x_{1} = \\cdots = x_{50} = -51 r$ and $x_{51} = \\cdots = x_{101} = 50 r$ for some $r \\geq 0$, and by homogeneity, $C$ works if and only if\n$$\nC \\leq \\frac{50(51)^{2} + 51(50)^{2}}{50^{2}} = \\frac{51(101)}{50} = \\frac{5151}{50}.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-jensen-smoothing-auto-2861",
+      "name": "Berkeley Math Circle: Monthly Contest 2 #0jq5",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 2",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Jensen / smoothing",
+        "Expected values"
+      ],
+      "statement": "Problem:\n\nYan and Jacob play the following game. Yan shows Jacob a weighted 4-sided die labelled $1$, $2$, $3$, $4$, with weights $\\frac{1}{2}$, $\\frac{1}{3}$, $\\frac{1}{7}$, $\\frac{1}{42}$, respectively. Then, Jacob specifies $4$ positive real numbers $x_{1}, x_{2}, x_{3}, x_{4}$ such that $x_{1}+x_{2}+x_{3}+x_{4}=1$. Finally, Yan rolls the die, and Jacob earns $10+\\log \\left(x_{k}\\right)$ dollars if the die shows $k$ (note this may be negative). Which $x_{i}$ should Jacob pick to maximize his expected payoff?\n\n(Here log is the natural logarithm, which has base $e \\approx 2.718$.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nJacob should pick $\\left(x_{1}, x_{2}, x_{3}, x_{4}\\right)=\\left(\\frac{1}{2}, \\frac{1}{3}, \\frac{1}{7}, \\frac{1}{42}\\right)$. More generally, suppose the weights are $p_{1}, \\ldots, p_{4}$. Then Jacob's expected payoff is\n\n$$\n10+\\sum_{i=1}^{4} p_{i} \\log \\left(x_{i}\\right)=10+\\sum_{i=1}^{4} p_{i} \\log p_{i}+\\sum_{i=1}^{4} p_{i} \\log \\left(\\frac{x_{i}}{p_{i}}\\right)\n$$\n\nNow, by JENSEN's INEQUALITY on the concave function $\\log x$, we obtain\n\n$$\n\\sum_{i=1}^{4} p_{i} \\log \\left(\\frac{x_{i}}{p_{i}}\\right) \\leq \\log \\left(\\sum_{i=1}^{4} p_{i} \\cdot \\frac{x_{i}}{p_{i}}\\right)=\\log 1=0\n$$\n\nand equality occurs exactly when $\\frac{x_{1}}{p_{1}}=\\frac{x_{2}}{p_{2}}=\\frac{x_{3}}{p_{3}}=\\frac{x_{4}}{p_{4}}$; that is, when $x_{i}=p_{i}$ for every $i$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-jensen-smoothing-auto-2875",
+      "name": "Berkeley Math Circle: Monthly Contest 5 #0jqj",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 5",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Counting two ways",
+        "Coloring schemes, extremal arguments",
+        "Jensen / smoothing"
+      ],
+      "statement": "Problem:\n\nLet $\\mathcal{P}$ be a regular $17$-gon; we draw in the $\\left(\\begin{array}{c}17 \\\\ 2\\end{array}\\right)$ diagonals and sides of $\\mathcal{P}$ and paint each side or diagonal one of eight different colors. Suppose that there is no triangle (with vertices among vertices of $\\mathcal{P}$) whose three edges all have the same color. What is the maximum possible number of triangles, all of whose edges have different colors?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe approach the problem by finding the minimum number of triangles with a pair of edges of the same color; we call such triangles \"isosceles\". We can count the number of such triangles by instead considering:\nThe number of isosceles triangles is equal to the number of pairs of adjacent edges of the same color.\nSo, if we let $n_{i, v}$ denote the number of edges of the $i$th color touching vertex $v$, the number of isosceles triangles can be written as\n$$\n\\sum_{v \\text{ vertex}} \\sum_{i=1}^{8}\\left(\\begin{array}{c}\nn_{i, v} \\\\\n2\n\\end{array}\\right)\n$$\nSince $\\sum_{i=1}^{8} n_{i, v}=16$, by Jensen's Inequality we actually have\n$$\n\\sum_{v \\text{ vertex}} \\sum_{i=1}^{8}\\left(\\begin{array}{c}\nn_{i, v} \\\\\n2\n\\end{array}\\right) \\geq \\sum_{v \\text{ vertex}} 8\\left(\\begin{array}{c}\n16 / 8 \\\\\n2\n\\end{array}\\right)=17 \\cdot 8=136\n$$\nSo, the number of triangles with all different colors is at most $\\left(\\begin{array}{c}17 \\\\ 3\\end{array}\\right)-17 \\cdot 8=544$. We leave the construction of a maximal example as an exercise to the reader."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-jensen-smoothing-auto-2895",
+      "name": "Berkeley Math Circle #0jr3",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Jensen / smoothing",
+        "Linear and quadratic inequalities",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\n\nLet $n$ be a fixed positive integer. Initially, $n$ $1$'s are written on a blackboard. Every minute, David picks two numbers $x$ and $y$ written on the blackboard, erases them, and writes the number $(x+y)^4$ on the blackboard. Show that after $n-1$ minutes, the number written on the blackboard is at least $2^{\\frac{4 n^{2}-4}{3}}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe proceed by strong induction $n$, with the base case $n=1$ being vacuous. For the inductive step, consider the situation in which we have two numbers $x$ and $y$ remaining on the blackboard. Suppose the first one was written after $a-1$ operations, and the second one was written after $b-1$ operations, so that $(a-1)+(b-1)=n-2$. Then by the inductive hypothesis,\n$$\nx \\geq 2^{\\frac{4 a^{2}-4}{3}}, \\quad y \\geq 2^{\\frac{4 b^{2}-4}{3}}\n$$\nConsequently, using convexity and the bound $(a+b)^{2} \\leq 2\\left(a^{2}+b^{2}\\right)$, we have\n$$\nx+y \\geq 2 \\cdot 2^{\\frac{2\\left(a^{2}+b^{2}\\right)-4}{3}} \\geq 2^{\\frac{(a+b)^{2}-1}{3}}=2^{\\frac{n^{2}-1}{3}} .\n$$\nSo $(x+y)^{4} \\geq 2^{\\frac{4 n^{2}-4}{3}}$ as needed."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-jensen-smoothing-auto-2968",
+      "name": "HMMT November #0jt4",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Volume",
+        "Jensen / smoothing",
+        "Algebraic properties of binomial coefficients"
+      ],
+      "statement": "Problem:\nLet $\\mathcal{V}$ be the volume enclosed by the graph\n$$\nx^{2016}+y^{2016}+z^{2}=2016\n$$\nFind $\\mathcal{V}$ rounded to the nearest multiple of ten.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: 360\nLet $R$ be the region in question. Then we have\n$$\n[-1,1]^2 \\times[-\\sqrt{2014}, \\sqrt{2014}] \\subset R \\subset[-\\sqrt[2016]{2016}, \\sqrt[2016]{2016}]^2 \\times[-\\sqrt{2016}, \\sqrt{2016}]\n$$\nWe find some bounds: we have\n$$\n\\sqrt{2016}<\\sqrt{2025}=45\n$$\nBy concavity of $\\sqrt{\\cdot}$, we have the bound\n$$\n\\sqrt{2014} \\leq \\frac{11}{89} \\sqrt{1936}+\\frac{78}{89} \\sqrt{2025}=45-\\frac{11}{89}\n$$\nFinally, if we let $\\sqrt[2016]{2016}=1+\\epsilon$, then $(1+\\epsilon)^{2016}=2016$, so\n$$\n\\binom{2016}{5} \\epsilon^{5}<2016 \\Rightarrow \\epsilon<\\sqrt[5]{\\frac{120}{2015 \\cdot 2014 \\cdot 2013 \\cdot 2012}}<\\sqrt[5]{\\frac{120}{2000^{4}}}=\\sqrt[5]{\\frac{7500}{10^{15}}}=\\frac{\\sqrt[5]{7500}}{1000}<\\frac{6}{1000}\n$$\nTherefore, the volume of $R$ is lower-bounded by\n$$\n2^{2} \\cdot 2\\left(45-\\frac{11}{89}\\right)=360-\\frac{88}{89}>355\n$$\nand upper-bounded by\n$$\n2^{2}\\left(1+\\frac{0.8}{100}\\right)^{2} \\cdot 2(45)=360\\left(1+\\frac{6}{1000}\\right)^{2}<365\n$$\nThus, $R$ rounded to the nearest ten is 360 ."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-jensen-smoothing-auto-2971",
+      "name": "HMMT November #0jt7",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Jensen / smoothing",
+        "Combinatorial optimization"
+      ],
+      "statement": "Problem:\n\nZlatan has $2017$ socks of various colours. He wants to proudly display one sock of each of the colours, and he counts that there are $N$ ways to select socks from his collection for display. Given this information, what is the maximum value of $N$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $3^{671} \\cdot 4$\n\nSay that there are $k$ sock types labeled $1,2, \\ldots, k$, and $a_{i}$ socks of type $i$. The problem asks to maximize $\\prod_{i=1}^{k} a_{i}$ subject to $\\sum_{i=1}^{k} a_{i}=2017$, over all $k$ and all sequences of positive integers $a_{1}, \\ldots, a_{k}$.\n\nThe optimal $(a_{1}, \\ldots, a_{k})$ cannot have any $a_{i}=1$ for any $i$, because if there exists $a_{i}=1$ we can delete this $a_{i}$ and add $1$ to any $a_{j}$ ($j \\neq i$) to increase the product while keeping the sum constant.\n\nThere exists an optimal $(a_{1}, \\ldots, a_{k})$ without any $a_{i} \\geq 4$ because if there exists $a_{i} \\geq 4$ we can replace this $a_{i}$ with $a_{i}-2$ and $2$, which nonstrictly increases the product while keeping the sum constant.\n\nTherefore, there exists an optimal $(a_{1}, \\ldots, a_{k})$ whose terms are all $2$ or $3$. The optimal $(a_{1}, \\ldots, a_{k})$ cannot have more than two $2$s, because we can replace three $2$s with two $3$s, which increases the product by a factor of $\\frac{3^{2}}{2^{3}}=\\frac{9}{8}$ while keeping the sum constant.\n\nIt follows that we want to partition $2017$ into $671$ $3$s and two $2$s, for a product of $3^{671} \\cdot 4$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-jensen-smoothing-auto-3104",
+      "name": "February 2017 #0jww",
+      "url": "https://usamoguide.com/",
+      "source": "February 2017",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorial optimization",
+        "Jensen / smoothing"
+      ],
+      "statement": "Problem:\n\nMrs. Toad has a class of 2017 students, with unhappiness levels $1,2, \\ldots, 2017$ respectively. Today in class, there is a group project and Mrs. Toad wants to split the class in exactly 15 groups. The unhappiness level of a group is the average unhappiness of its members, and the unhappiness of the class is the sum of the unhappiness of all 15 groups. What's the minimum unhappiness of the class Mrs. Toad can achieve by splitting the class into 15 groups?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nOne can show that the optimal configuration is $\\{1\\}, \\{2\\}, \\ldots, \\{14\\}, \\{15, \\ldots, 2017\\}$. This would give us an answer of $1+2+\\cdots+14+\\frac{15+2017}{2}=105+1016=1121$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-jensen-smoothing-auto-3533",
+      "name": "HMMT November 2019 #0k8t",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2019",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Jensen / smoothing"
+      ],
+      "statement": "Problem:\nLet $a, b, c$ be positive real numbers such that $a \\leq b \\leq c \\leq 2 a$. Find the maximum possible value of\n$$\n\\frac{b}{a}+\\frac{c}{b}+\\frac{a}{c}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFix the values of $b, c$. By inspecting the graph of\n$$\nf(x)=\\frac{b}{x}+\\frac{x}{c}\n$$\nwe see that on any interval the graph attains its maximum at an endpoint. This argument applies when we fix any two variables, so it suffices to check boundary cases in which $b=a$ or $b=c$, and $c=b$ or $c=2 a$. All pairs of these conditions determine the ratio between $a, b, c$, except $b=c$ and $c=b$, in which case the boundary condition on $a$ tells us that $a=b$ or $2 a=b=c$. In summary, these cases are\n$$\n(a, b, c) \\in\\{(a, a, a),(a, a, 2 a),(a, 2 a, 2 a)\\}\n$$\nThe largest value achieved from any of these three is $\\frac{7}{2}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-jensen-smoothing-auto-3824",
+      "name": "HMMT Spring 2021 Guts Round #0kgw",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT Spring 2021 Guts Round",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Induction / smoothing",
+        "Invariants / monovariants",
+        "Jensen / smoothing",
+        "Factorization techniques",
+        "Sums and products"
+      ],
+      "statement": "Problem:\nLet $a_{1}, a_{2}, \\ldots, a_{n}$ be a sequence of distinct positive integers such that $a_{1}+a_{2}+\\cdots+a_{n}=2021$ and $a_{1} a_{2} \\cdots a_{n}$ is maximized. If $M=a_{1} a_{2} \\cdots a_{n}$, compute the largest positive integer $k$ such that $2^{k} \\mid M$. Proposed by: Sheldon Kieren Tan",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe claim that the optimal set is $\\{2,3, \\cdots, 64\\} \\backslash\\{58\\}$. We first show that any optimal set is either of the form $\\{b, b+1, b+2, \\ldots, d\\}$ or $\\{b, b+1, \\ldots, d\\} \\backslash\\{c\\}$, for some $b<c<d$.\n\nWithout loss of generality, assume that the sequence $a_{1}<a_{2}<\\cdots<a_{n}$ has the maximum product. Suppose $a_{j+1}>a_{j}+2$. Then, increasing $a_{j}$ by 1 and decreasing $a_{j+1}$ by 1 will increase the product $M$, contradicting the assumption that the sequence has the optimal product. Thus, any \"gaps\" in the $a_{i}$ can only have size 1.\n\nNow, we show that there can only be one such gap. Suppose $a_{j+1}=a_{j}+2$, and $a_{k+1}=a_{k}+2$, for $j<k$. Then, we can increase $a_{j}$ by 1 and decrease $a_{i+1}$ by 1 to increase the total product. Thus, there is at most one gap, and the sequence $a_{i}$ is of one of the forms described before.\n\nWe now show that either $b=2$ or $b=3$. Consider any set of the form $\\{b, b+1, b+2, \\ldots, d\\}$ or $\\{b, b+1, \\ldots, d\\} \\backslash\\{c\\}$. If $b=1$, then we can remove $b$ and increase $d$ by 1 to increase the product. If $b>4$, then we can remove $b$ and replace it with 2 and $b-2$ to increase the product. Thus, we have $b=2,3$, or 4.\n\nSuppose $b=4$. If the next element is 5, we can replace it with a 2 and a 3 to increase the product, and if the next element is 6, we can replace it with a 1, 2, and 3 without making the product any smaller. Thus, we can assume that either $b=2$ or $b=3$.\n\nThe nearest triangular number to 2021 is $2016=1+2+\\cdots+64$. Using this, we can compute that if $b=2$, our set must be $\\{2,3, \\cdots, 64\\} \\backslash\\{58\\}$, leading to a product of $\\frac{64!}{58}$. If $b=3$, our set is $\\{3, \\cdots, 64\\} \\backslash\\{56\\}$, leading to a product of $\\frac{64!}{2 \\cdot 56}$.\n\nThus, the maximum product is $\\frac{64!}{58}$. We now compute the highest power of 2 that divides this expression. $64!$ includes 32 elements that contribute at least one power of 2, 16 that contribute at least two powers of 2, and so on until the one element that contributes at least six powers of 2. This means the highest power of 2 that divides $64!$ is $32+16+8+4+2+1=63$. Finally, dividing by 58 removes one of these powers of 2, making the answer 62."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-jensen-smoothing-auto-4165",
+      "name": "HMMT February #0kqd",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Trigonometry",
+        "Jensen / smoothing"
+      ],
+      "statement": "Problem:\nLet $a \\neq b$ be positive real numbers and $m, n$ be positive integers. An $m+n$-gon $P$ has the property that $m$ sides have length $a$ and $n$ sides have length $b$. Further suppose that $P$ can be inscribed in a circle of radius $a+b$. Compute the number of ordered pairs $(m, n)$, with $m, n \\leq 100$, for which such a polygon $P$ exists for some distinct values of $a$ and $b$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLetting $x=\\frac{a}{a+b}$, we have to solve\n$$\nm \\arcsin \\frac{x}{2} + n \\arcsin \\frac{1-x}{2} = \\pi\n$$\nThis is convex in $x$, so if it is to have a solution, we must find that the LHS exceeds $\\pi$ at one of the endpoints. Thus $\\max (m, n) \\geq 7$. If $\\min (m, n) \\leq 5$ we can find a solution by the intermediate value theorem. Also if $\\min (m, n) \\geq 7$ then\n$$\nm \\arcsin \\frac{x}{2} + n \\arcsin \\frac{1-x}{2} \\geq 14 \\arcsin (1 / 4) > \\pi\n$$\nThe inequality $\\arcsin (1 / 4) > \\frac{\\pi}{14}$ can be verified by noting that\n$$\n\\sin \\frac{\\pi}{14} < \\frac{\\pi}{14} < \\frac{3.5}{14} = \\frac{1}{4}\n$$\nThe final case is when $\\min (m, n) = 6$. We claim that this doesn't actually work. If we assume that $n=6$, we may compute the derivative at 0 to be\n$$\n\\frac{m}{2} - 6 \\cdot \\frac{1}{\\sqrt{3}} = \\frac{m-\\sqrt{48}}{2} > 0\n$$\nso no solution exists."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-jensen-smoothing-auto-4212",
+      "name": "HMMT February 2022 #0kro",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2022",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Jensen / smoothing",
+        "Cartesian coordinates",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\nSuppose $n \\geq 3$ is a positive integer. Let $a_{1}<a_{2}<\\cdots<a_{n}$ be an increasing sequence of positive real numbers, and let $a_{n+1}=a_{1}$. Prove that\n$$\n\\sum_{k=1}^{n} \\frac{a_{k}}{a_{k+1}} > \\sum_{k=1}^{n} \\frac{a_{k+1}}{a_{k}}.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe will use induction. The base case is $n=3$. In this case, we want to show that\n$$\n\\frac{a_{1}}{a_{2}}+\\frac{a_{2}}{a_{3}}+\\frac{a_{3}}{a_{1}}>\\frac{a_{2}}{a_{1}}+\\frac{a_{3}}{a_{2}}+\\frac{a_{1}}{a_{3}}.\n$$\nEquivalently, we want to show\n$$\n\\begin{aligned}\na_{1}^{2} a_{3}+a_{2}^{2} a_{1}+a_{3}^{2} a_{2}>a_{1}^{2} a_{2}+a_{2}^{2} a_{3}+a_{3}^{2} a_{1} & \\Longleftrightarrow a_{1}^{2}\\left(a_{3}-a_{2}\\right)+a_{3}^{2}\\left(a_{2}-a_{1}\\right)>a_{2}^{2}\\left(a_{3}-a_{1}\\right) \\\\\n& \\Longleftrightarrow\\left(a_{3}^{2}-a_{2}^{2}\\right)\\left(a_{2}-a_{1}\\right)>\\left(a_{2}^{2}-a_{1}^{2}\\right)\\left(a_{3}-a_{2}\\right) \\\\\n& \\Longleftrightarrow a_{3}+a_{2}>a_{2}+a_{1},\n\\end{aligned}\n$$\nwhich is true.\n\nNow assume the claim is true for $n \\geq 3$. Then, we have that\n$$\n\\frac{a_{1}}{a_{3}}+\\frac{a_{3}}{a_{4}}+\\cdots+\\frac{a_{n}}{a_{n+1}}+\\frac{a_{n+1}}{a_{1}}>\\frac{a_{3}}{a_{1}}+\\frac{a_{4}}{a_{3}}+\\cdots+\\frac{a_{n+1}}{a_{n}}+\\frac{a_{1}}{a_{n+1}}.\n$$\nWe also have that\n$$\n\\frac{a_{1}}{a_{2}}+\\frac{a_{2}}{a_{3}}+\\frac{a_{3}}{a_{1}}>\\frac{a_{2}}{a_{1}}+\\frac{a_{3}}{a_{2}}+\\frac{a_{3}}{a_{1}}.\n$$\nAdding the two inequalities and simplifying gives the desired result.\n\nSolution:\nThe points $\\left(a_{1}, \\frac{1}{a_{1}}\\right),\\left(a_{2}, \\frac{1}{a_{2}}\\right),\\left(a_{3}, \\frac{1}{a_{3}}\\right), \\ldots,\\left(a_{n}, \\frac{1}{a_{n}}\\right)$ form a counter-clockwise oriented polygon. Thus, we have the area, $A$, which must be positive, can be calculated by Shoelace theorem:\n$$\nA=\\frac{1}{2}\\left(\\sum_{k=1}^{n} \\frac{a_{k}}{a_{k+1}}-\\sum_{k=1}^{n} \\frac{a_{k+1}}{a_{k}}\\right).\n$$\nSince $A$ is positive, we are done.\n\nSolution:\nFor $1 \\leq i \\leq n-1$, let $r_{i}=a_{i+1} / a_{i}$. Then the inequality becomes\n$$\nr_{1} r_{2} \\cdots r_{n-1}+\\frac{1}{r_{1}}+\\cdots+\\frac{1}{r_{n-1}}>\\frac{1}{r_{1} r_{2} \\cdots r_{n-1}}+r_{1}+\\cdots+r_{n-1}.\n$$\nIf we let $s_{i}=\\log r_{i}$ and $f(s)=e^{s}-e^{-s}$, this is the same as\n$$\nf\\left(s_{1}+\\cdots+s_{n-1}\\right)>f\\left(s_{1}\\right)+\\cdots+f\\left(s_{n-1}\\right)\n$$\nThis follows from the convexity of $f$ and the fact that $f(0)=0$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-jensen-smoothing-auto-4224",
+      "name": "Berkeley Math Circle #0ks0",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "QM-AM-GM-HM / Power Mean",
+        "Jensen / smoothing"
+      ],
+      "statement": "Problem:\n\nLet $S$ be a finite set of positive real numbers. If $S$'s average is at most $1$ but its product is at least $0.9$, show that any three elements of $S$ can form the sides of a triangle.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAssume otherwise for the sake of contradiction, i.e. that there exist $x, y, z \\in S$ so that $x + y \\leq z$. For fixed $z$, the product $x y$ is then maximized when $x = y$. Then, if $x, y, z$ have average $a$, their product is at most that when $x + y = z$, which happens at $x = 3a/4$, $y = 3a/4$, $z = 3a/2$, for a product of $27a^3/32$.\n\nNow consider replacing all of $x, y, z$ with $a$ in $S$. The product multiplies by at least $32/27$ for a product of at least $0.9 \\cdot 32/27 > 1$, while the average is unchanged, a contradiction to AM-GM."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-jensen-smoothing-auto-4232",
+      "name": "AIME II #0ks8",
+      "url": "https://usamoguide.com/",
+      "source": "AIME II",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Jensen / smoothing",
+        "Combinatorial optimization"
+      ],
+      "statement": "Let $x_1 \\le x_2 \\le \\dots \\le x_{100}$ be real numbers such that $|x_1| + |x_2| + \\dots + |x_{100}| = 1$ and $x_1 + x_2 + \\dots + x_{100} = 0$. Among all such 100-tuples of numbers, the greatest value that $x_{76} - x_{16}$ can achieve is $\\frac{m}{n}$, where $m$ and $n$ are relatively prime positive integers. Find $m+n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Let $x_1 \\le x_2 \\le \\dots \\le x_{100}$, $S = x_1 + x_2 + \\dots + x_{100} = 0$, and $T = |x_1| + |x_2| + \\dots + |x_{100}| = 1$.\n\nWe want to maximize $x_{76} - x_{16}$.\n\nLet $k$ be the number of negative $x_i$'s, and $100-k$ the number of nonnegative $x_i$'s. Since the sum is $0$, the sum of the negative numbers equals the sum of the positive numbers in magnitude.\n\nLet $x_1 = x_2 = \\dots = x_k = -a$ and $x_{k+1} = x_{k+2} = \\dots = x_{100} = b$, with $a, b \\ge 0$.\n\nThen:\n\n$k(-a) + (100-k)b = 0 \\implies (100-k)b = ka \\implies b = \\frac{k}{100-k}a$\n\nAlso,\n\n$k|{-a}| + (100-k)|b| = ka + (100-k)b = 1$\n\nSubstitute $b$:\n\n$ka + (100-k)\\left(\\frac{k}{100-k}a\\right) = 1$\n\n$ka + k a = 1$\n\n$2ka = 1 \\implies a = \\frac{1}{2k}$\n\nThen $b = \\frac{k}{100-k}a = \\frac{k}{100-k} \\cdot \\frac{1}{2k} = \\frac{1}{2(100-k)}$\n\nNow, $x_{76} - x_{16}$:\n\nSince $x_1 = \\dots = x_k = -a$, $x_{k+1} = \\dots = x_{100} = b$.\n\nThe first $k$ entries are $-a$, the next $100-k$ are $b$.\n\n$x_{16}$ is $-a$ if $k \\ge 16$, otherwise $b$.\n\n$x_{76}$ is $-a$ if $k \\ge 76$, otherwise $b$.\n\nWe want to maximize $x_{76} - x_{16}$.\n\nCase 1: $k < 16$\n\nThen $x_{16} = b$, $x_{76} = b$, so $x_{76} - x_{16} = 0$.\n\nCase 2: $16 \\le k < 76$\n\nThen $x_{16} = -a$, $x_{76} = b$, so $x_{76} - x_{16} = b - (-a) = a + b$\n\nCase 3: $k \\ge 76$\n\nThen $x_{16} = -a$, $x_{76} = -a$, so $x_{76} - x_{16} = 0$\n\nSo, the maximum occurs for $16 \\le k < 76$, and $x_{76} - x_{16} = a + b = \\frac{1}{2k} + \\frac{1}{2(100-k)}$\n\nLet $f(k) = \\frac{1}{2k} + \\frac{1}{2(100-k)}$ for $16 \\le k < 76$.\n\nWe want to maximize $f(k)$.\n\nLet’s write $f(k) = \\frac{100 - k + k}{2k(100 - k)} = \\frac{100}{2k(100 - k)}$\n\nSo $f(k)$ is maximized when $k(100 - k)$ is minimized for $16 \\le k < 76$.\n\n$k(100 - k)$ is minimized at the endpoints, i.e., $k = 16$ or $k = 75$.\n\nFor $k = 16$:\n\n$f(16) = \\frac{100}{2 \\cdot 16 \\cdot 84} = \\frac{100}{2 \\cdot 1344} = \\frac{100}{2688} = \\frac{25}{672}$\n\nFor $k = 75$:\n\n$f(75) = \\frac{100}{2 \\cdot 75 \\cdot 25} = \\frac{100}{2 \\cdot 1875} = \\frac{100}{3750} = \\frac{2}{75}$\n\nNow, $\\frac{25}{672} \\approx 0.0372$, $\\frac{2}{75} \\approx 0.0267$, so $\\frac{25}{672}$ is larger.\n\nTherefore, the maximum is $\\frac{25}{672}$, so $m = 25$, $n = 672$, $m+n = 697$.\n\nAnswer: $697$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-jensen-smoothing-auto-4567",
+      "name": "HMMT February 2024 Guts Round #0l1j",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2024 Guts Round",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Prime numbers",
+        "Polynomial operations",
+        "Jensen / smoothing"
+      ],
+      "statement": "Problem:\nGiven that the 32-digit integer\n$$\n64312311692944269609355712372657\n$$\nis the product of 6 consecutive primes, compute the sum of these 6 primes.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nBecause the product is approximately $64 \\cdot 10^{30}$, we know the primes are all around $200000$. Say they are $200000 + x_{i}$ for $i = 1, \\ldots, 6$.\nBy expanding $\\prod_{i=1}^{6}\\left(200000 + x_{i}\\right)$ as a polynomial in $200000$, we see that\n$$\n31231 \\cdot 10^{25} = 200000^{5}\\left(x_{1} + \\cdots + x_{6}\\right)\n$$\nplus the carry from the other terms. Note that $31231 = 975 \\cdot 32 + 31$, so $x_{1} + \\cdots + x_{6} \\leq 975$.\nThus,\n$$\n16\\left(x_{1} x_{2} + x_{1} x_{3} + \\cdots + x_{5} x_{6}\\right) \\leq 16 \\cdot \\frac{5}{12}\\left(x_{1} + \\cdots + x_{6}\\right)^{2} < \\frac{20}{3} \\cdot 1000^{2} < 67 \\cdot 10^{5}\n$$\nso the carry term from $200000^{4}\\left(x_{1} x_{2} + \\cdots + x_{5} x_{6}\\right)$ is at most $67 \\cdot 10^{25}$. The other terms have negligible carry, so it is pretty clear $x_{1} + \\cdots + x_{6} > 972$, otherwise the carry term would have to be at least\n$$\n31231 \\cdot 10^{25} - 200000^{5}(972) = 127 \\cdot 10^{25}\n$$\nIt follows that $x_{1} + \\cdots + x_{6}$ lies in $[973, 975]$, so the sum of the primes, $6 \\cdot 200000 + (x_{1} + \\cdots + x_{6})$, lies in $[1200973, 1200975]$.\nAs these primes are all greater than $2$, they are all odd, so their sum is even. Thus it must be $1200974$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-jensen-smoothing-auto-4815",
+      "name": "United States of America — TST Selection Test #0l8f",
+      "url": "https://usamoguide.com/",
+      "source": "United States of America — TST Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Jensen / smoothing",
+        "Floors and ceilings"
+      ],
+      "statement": "Let $f: \\mathbb{R} \\to \\mathbb{Z}$ be a function satisfying\n$$\nf(x - y) - 2f(x) + f(x + y) \\geq -1\n$$\nfor all $x, y \\in \\mathbb{R}$. Find all possible values of the set $\\{f(x) \\mid x \\in \\mathbb{R}\\}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "The answer is $\\{a\\}$, $\\{a, a+1\\}$, $\\{a, a+1, a+2, \\dots\\}$, and $\\mathbb{Z}$, for arbitrary $a \\in \\mathbb{Z}$. For constructions, it is not hard to show that if $g: \\mathbb{R} \\to \\mathbb{R}$ is a convex function, then $\\lfloor g \\rfloor$ satisfies the functional equation. Thus $f(x) = a$, $f(x) = \\lfloor x \\rfloor$, and $f(x) = \\lfloor x^2 \\rfloor + a$ work, covering the first, fourth, and third class of answers respectively. Furthermore, it is not hard to show that $f(x) = a + \\mathbf{1}_{x>0}$ also works to cover the second class.\n\nLet $P(x, y)$ denote the condition. To prove that nothing else works, the key result is to prove an \"intermediate value theorem\": if $a$ and $b$ are in the range of $f$, then so is every integer between $a$ and $b$. Let's first see how this finishes. If we assume the intermediate value theorem, then all we need to show is that if the range of $f$ is at least 2, then the range of $f$ is unbounded above. Indeed, if $f(x) - f(y) \\ge 2$, then $P(x, y - x)$ gives us that $f(2x - y) > f(x)$, so iterating this procedure finishes.\n\nWe will now prove the intermediate value theorem. We will repeatedly use the fact that if $f(x)$ is a solution, so is $f(ax + b) + c$ for $a, b \\in \\mathbb{R}$ and $c \\in \\mathbb{Z}$.\n\n**Lemma 1.1**\nIf $f(0) \\le -1$, then $f(2^k) \\ge 2^k f(1)$ for $k \\ge 0$.\n*Proof.* $P(2^k, 2^k)$ yields that $f(2^{k+1}) \\ge 2f(2^k)$. $\\square$\n\n**Lemma 1.2**\nIf $f(-1) \\le -2$ and $f(0) = 0$, then $f(2^k) \\ge 2^k - 1$ for all positive integers $k$.\n*Proof.* Applying Lemma 1.1 to $f(x-1)+1$ yields that $f(2^k-1) \\ge 2^k-1$. Then, applying Lemma 1.1 to $f(2^k-x) - f(2^k)-1$ yields that\n$$\nf(0) - f(2^k) - 1 \\ge 2^k(f(2^k - 1) - f(2^k) - 1) \\implies f(2^k) + 1 \\ge \\frac{2^k f(2^k - 1)}{2^k - 1} \\ge 2^k. \\quad \\square\n$$\n\nNow to prove the intermediate value theorem, scale and shift such that $f(-1) \\le -2$ and $f(0) = 0$; it suffices to show that there exists some number strictly between $f(-1)$ and $f(0)$ in the range of $f$ (since by iteration we can then get all values). Suppose not and let $a_k = f(-1/2^k)$. If $k$ is minimal such that $a_k \\ge 0$, then $P(-1/2^k, 1/2^k)$ yields a contradiction. Thus $a_k \\le -2$ for all $k$. However, applying Lemma 1.2 to $f(x/2^k)$ yields that $a_k \\le -2 \\implies f(1) \\ge 2^k - 1$, which cannot hold for all $k$ since $f(1)$ is constant."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

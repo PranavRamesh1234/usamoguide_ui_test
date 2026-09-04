@@ -1,0 +1,281 @@
+---
+id: intuition-behind-integrals
+title: Intuition Behind Integrals
+author: Pranav Ramesh
+description: A conceptual introduction to integrals — the sum interpretation, differential elements, integrals as areas, adding changes, and infinitesimal superposition, with physics applications and practice problems.
+prerequisites: []
+---
+
+## Overview
+
+Integrals are often seen in higher mathematics, and might look daunting to the uninformed. However, they are crucial in developing theories that accurately model the world — let's take a look at how to get familiar with them!
+
+## 1. Definition & Intuition
+
+When you first learn integration in high school, you might have merely been introduced to it as a mathematical operator — something that inputs a function and spits out another function. However, that severely undermines the ideas that lie beneath it!
+
+Take a look at the integration symbol:
+
+$$
+\int
+$$
+
+It looks like a weird "S", and the reason for that is because it stands for **sum**.
+
+Sometimes, you may see numbers on the top and bottom of the symbol:
+
+$$
+\int_a^b
+$$
+
+This means to add from the lower bound $a$ to the upper bound $b$. With bounds, the integral is called a **definite integral**, because it has definite endpoints. Without them, it would be called an **indefinite integral** for the same reason.
+
+All of the time, you would see the term $dx$ in the integral:
+
+$$
+\int_a^b dx
+$$
+
+The term $dx$ is called a **differential element** — you might have encountered it when learning differentiation, written as $\dfrac{dy}{dx}$.
+
+The idea is to interpret the derivative operator as a fraction (ignore the wailing mathematicians) — the reason to motivate this perspective can be seen from the definition of a derivative:
+
+$$
+\frac{df}{dx} = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}
+$$
+
+Seeing derivatives as the limit of a fraction is a great way to gain intuition behind this mathematical machinery.
+
+Going back to integrals, what would the $dx$ mean? If we take $dx$ to mean the same thing as in derivatives, it means something that is very, very small in the limit — which is precisely what it is! **An integral is nothing but a summation of infinitely small things.**
+
+To add a sprinkle of mathematical rigor, the definition of a definite integral is:
+
+$$
+\int_a^b f(x)\,dx = \lim_{n \to \infty} \sum_{k=0}^{n} f(x_k)\,\Delta x
+$$
+
+where $\Delta x = \dfrac{b-a}{n}$ and $x_k = a + k \cdot \Delta x$.
+
+Now let's break down each part one by one.
+
+The reason we put $f(x)$ inside the integral is because most of the time we want to add something that varies with $x$. If $x$ denotes time, this might be something like velocity — the velocity might not be constant in time, but we want to find where something is at the end of the interval. To quantify how velocity varies with time, we write it as a function $f(x)$.
+
+On the right side of the definition, $\lim$ refers to a limit where we take something to one extreme — in this case to infinity. We sum up infinitely many terms, and the summands are $f(x)$ multiplied by a finite interval $\Delta x$. In the kinematics example, $f(x)$ is velocity and $\Delta x$ is a small time interval, so we're adding velocity × time = displacement.
+
+As we take the limit to infinity, $\Delta x \to 0$ and there are no gaps between consecutive $x_k$ values — all velocities are accounted for.
+
+## 2. Examples & Applications
+
+### 2.1 Integrals as Areas
+
+The most popular application of integrals in math courses is to find areas under graphs. The reason integrals can directly correspond to areas is that they break down the graph into infinitely many small rectangular chunks, which when added together give the area. One thing to note is that the areas are **signed** — there are positive and negative areas.
+
+Areas under curves crop up a lot in physics: from simple scenarios like deriving the formula for the energy of a spring, to more advanced cases like Maxwell's equal area construction in thermodynamics.
+
+Let's look at the simpler example of the energy of a spring system. By Hooke's Law, the force exerted by a spring is
+
+$$
+\vec{F} = -k\vec{x}
+$$
+
+with the negative sign indicating the opposite direction. Plotting its absolute values on a graph gives a linear function.
+
+By definition, the potential energy at some state is the amount of energy put in to bring the system to that state. The infinitesimal work done when the spring is stretched by a miniscule length $dx$ is
+
+$$
+dU = -F\,dx = kx\,dx
+$$
+
+Hence, when the spring is stretched from $x = 0$ to $x = x$, the energy that needs to be put in is
+
+$$
+U = \int_{x=0}^{x=x} dU = \int_0^x kx\,dx
+$$
+
+Graphically, this corresponds to the area under the linear function. This gives the result
+
+$$
+U = \frac{1}{2}kx^2
+$$
+
+which is the familiar expression for the energy of a spring.
+
+### 2.2 Adding Changes
+
+Another way to view integrals is that they **add together infinitely many tiny changes**. Kinematics provide a great example: by definition, velocity is
+
+$$
+v = \frac{dx}{dt}
+$$
+
+(i.e., the infinitesimal change in displacement $dx$ divided by an infinitesimal interval of time $dt$).
+
+To find the total displacement, we can add together infinitely many tiny displacements:
+
+$$
+x = \int dx
+$$
+
+With the definition of velocity:
+
+$$
+x = \int v\,dt
+$$
+
+This is useful because if we know how velocity varies with time, $v(t)$, then we can precisely know how much the object has moved.
+
+### 2.3 Infinitesimal Superposition
+
+One more important place where integrals pop up is **superposition**. (Feel free to come back to this later when you've learned electrostatics.)
+
+In EM problems, we often have a charge distribution instead of point charges. Consider an infinitely long line of charge with linear charge density $\lambda$ — for each segment $\Delta l$ of the line there is $\Delta Q = \lambda\Delta l$ of charge. We want to find the electric potential at some point in space with perpendicular distance $d$ to the line.
+
+For a single point charge $Q$, the electric potential is simply
+
+$$
+\phi = \frac{kQ}{r}
+$$
+
+To extend this to an infinite line of charge, we use the **principle of superposition**: potentials add linearly, $\phi_{\text{total}} = \phi_1 + \phi_2 + \cdots$
+
+We break up the infinite line into infinitesimal segments $dx$. Each segment contributes
+
+$$
+d\phi = \frac{k\,dq}{r}
+$$
+
+Choosing the origin at the point directly below the point of concern:
+
+$$
+d\phi = \frac{k\lambda\,dx}{\sqrt{x^2 + d^2}}
+$$
+
+The total electric potential is then:
+
+$$
+\phi = \int d\phi = \int_{-\infty}^{+\infty} \frac{k\lambda\,dx}{\sqrt{x^2 + d^2}}
+$$
+
+which one can compute with a table of integrals.
+
+## 3. Problems & Practices
+
+**Problem 1:** An ideal gas obeys the equation of state
+
+$$
+pV = nRT
+$$
+
+where $p$ is the pressure, $V$ is the volume, $n$ is the number of moles, $T$ is the temperature in Kelvins, and $R$ is the molar gas constant. What is the total work done by the gas when it expands isothermally from $V_i$ to $V_f$?
+
+*Hint: Isothermal means $T$ is constant, and when an ideal gas expands by $dV$, it does work $W = p\,dV$ on its surroundings.*
+
+**Problem 2:** Derive the expression for the gravitational potential energy of a mass $m$, given
+
+$$
+\vec{F} = \frac{GMm}{r^2}(-\hat{r})
+$$
+
+where $M$ and $m$ are masses and $\vec{r}$ points from the center of one mass to the other. The energy is defined to be zero at $r = \infty$.
+
+*Hint: Use the definition of work $dW = -dU = \vec{F} \cdot d\vec{r}$.*
+
+**Problem 3:** Find the resistance of an Ohmic spherical shell with resistivity $\rho$, inner radius $a$, and outer radius $b$.
+
+*Hint: The formula for resistance is $R = \dfrac{\rho L}{A}$. Resistors in series obey the principle of superposition.*
+
+**Problem 4:** This problem deals with infinitesimals. Convince yourself that the following identity is true:
+
+$$
+\ddot{x} = \dot{x}\frac{d\dot{x}}{dx}
+$$
+
+**Problem 5:** In rotational mechanics, instead of mass as a quantity for inertia, we use the **moment of inertia**, often denoted $I$. When a point mass $m$ spins about some axis:
+
+$$
+I = mr^2
+$$
+
+where $r$ is the perpendicular distance to the axis of rotation. Like mass in translational mechanics, the moment of inertia is additive.
+
+Derive the moment of inertia of a thin rod of length $L$ and mass $m$ spinning about its center.
+
+**Problem 6:** In rectangular coordinates, an infinitesimal patch of area is $dA = dx \cdot dy$. In polar coordinates, points are denoted $(r, \theta)$ where $r$ is the distance from the origin and $\theta$ is the angle from a fixed axis.
+
+Derive the formula for an infinitesimal patch of area $dA$ in polar coordinates.
+
+*Hint: The area of a circular sector is $A = \frac{1}{2}r^2\theta$.*
+
+**Problem 7:** When water in a container is rotated, its surface curves at the edges. Consider a cylindrical container rotating about its center, with origin at the axis of rotation at the cylinder's base. Let the density of water be $\rho$, gravitational acceleration be $g$, and angular velocity of rotation be $\omega$.
+
+(a) Consider an infinitesimal blob of water at the base, at distance $r$ from the axis of rotation. Write down the force balance equation for the blob to be in circular motion.
+
+*Hint: think pressures!*
+
+(b) Derive the pressure gradient $\dfrac{dp}{dr}$ as a function of $r$.
+
+(c) Derive the gradient of the water surface $\dfrac{dy}{dr}$, if the surface has shape $y$ as a function of $r$.
+
+(d) Derive the shape of the water surface from the result of (c).
+
+*Note: The result of (d) implies the surface has a well-defined focal point — telescopes have been built by rotating liquids like this (liquid-mirror telescopes), such as the Large Zenith Telescope!*
+
+## 4. Solutions
+
+**Problem 1:**
+$$
+W = nRT \ln \frac{V_f}{V_i}
+$$
+
+**Problem 2:**
+$$
+U = \int dU = -\int_{-\infty}^r \frac{GMm}{r^2}(-dr) = -\frac{GMm}{r}
+$$
+
+**Problem 3:**
+$$
+R = \int_a^b \frac{\rho\,dr}{4\pi r^2} = \frac{\rho}{4\pi}\left(\frac{1}{a} - \frac{1}{b}\right)
+$$
+
+**Problem 4:**
+$$
+\frac{d^2 x}{dt^2} = \frac{d\dot{x}}{dt} = \frac{d\dot{x}}{dx} \cdot \frac{dx}{dt} = \dot{x}\frac{d\dot{x}}{dx}
+$$
+
+**Problem 5:**
+$$
+I = \int_{-L/2}^{L/2} r^2\,dm = \int_{-L/2}^{L/2} x^2 \frac{M}{L}\,dx = \frac{1}{12}ML^2
+$$
+
+**Problem 6:**
+$$
+dA = \frac{1}{2}r^2\,d\theta
+$$
+
+**Problem 7:**
+
+(a)
+$$
+p(r + dr)\,dA - p(r)\,dA = r\omega^2\,dm
+$$
+
+(b)
+$$
+p(r + dr)\,dA - p(r)\,dA = r\omega^2\rho\,dA\,dr \implies \frac{dp}{dr} = \rho\omega^2 r
+$$
+
+(c)
+$$
+\frac{dp}{dr} = \frac{\rho g\,dy}{dr} \implies \frac{dy}{dr} = \frac{\omega^2}{g}r
+$$
+
+(d) Integrating (c):
+$$
+y = y_0 + \frac{\omega^2}{2g}r^2
+$$
+
+## Conclusion
+
+Being acquainted with calculus-based physics is one of the big stepping stones on your way to becoming a theoretical physicist — congratulations on making it through this handout!
+
+<Problems problems="practice" />

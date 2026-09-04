@@ -1,0 +1,75 @@
+---
+id: complex-geometry
+title: Geometry with Complex Numbers
+author: USAMO Guide Team
+description: Rotations, distances, and polygon criteria.
+prerequisites: [complex-polar-form]
+---
+
+## Overview
+
+Multiplication by $e^{i\theta}$ rotates points, and addition translates them.
+This gives a compact way to solve plane geometry problems.
+
+## Core Skills
+
+### Use Rotation Multiplication
+
+If a rotation by $\theta$ is present, multiply by $e^{i\theta}$ and compare
+ratios of complex differences.
+
+### Translate First
+
+Shift the origin to simplify: replace $z$ with $z-z_0$ so rotations are about
+the origin.
+
+### Compare Distances
+
+Use $|z_1-z_2|$ to encode distance constraints in the plane.
+
+## Key Ideas
+
+- Rotation by $\theta$: $z \mapsto ze^{i\theta}$.
+- Translation by $w$: $z \mapsto z + w$.
+- Distance: $|z_1 - z_2|$.
+
+## Worked Example
+
+How many nonzero $z$ make $0, z, z^3$ the vertices of an equilateral triangle?
+
+Equilateral means $(z-0)/(z^3-0) = z^{-2}$ is a cube root of unity
+$\omega$ or $\omega^2$. So $z^2$ equals $\omega$ or $\omega^2$, giving four
+solutions on the unit circle. The answer is $4$.
+
+## More Examples
+
+### Example 1: Midpoint
+
+If $A$ and $B$ correspond to $z_1$ and $z_2$, the midpoint is $(z_1+z_2)/2$.
+
+### Example 2: Rotation About a Point
+
+Rotate point $z$ about $w$ by $\theta$.
+
+The image is $w + (z-w)e^{i\theta}$.
+
+### Example 3: Perpendicularity
+
+If $\overrightarrow{AB}$ is perpendicular to $\overrightarrow{CD}$, then
+$(z_B-z_A)/(z_D-z_C)$ is purely imaginary.
+
+## Strategy Checklist
+
+- Translate the figure so a rotation center is at $0$.
+- Use ratios of differences to encode angles.
+- Apply modulus for distances.
+
+## Common Pitfalls
+
+- Forgetting to divide out the common vertex before applying rotation criteria.
+- Mixing up $\omega$ with $\omega^2$ in equilateral conditions.
+- Failing to translate before applying rotation formulas.
+
+## Practice Problems
+
+<Problems problems="practice" />

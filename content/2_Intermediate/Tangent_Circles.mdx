@@ -1,0 +1,657 @@
+---
+id: tangent-circles
+title: Tangent Circles
+author: Ava Berenji, Pranav Ramesh (Corrected Minor Mistakes)
+description: External and internal tangency conditions.
+prerequisites: [circle-angles]
+---
+
+## Overview
+
+Tangent circles are a common appearance throughout AMC and AIME geometry. Usually, the most important step is to draw lines from the centers to points of tangency, yielding solvable systems of equations. Some problems can be solved by other strategies, such as right triangles, similar triangles, homothety, and Power of a Point.
+Note whether tangency is external or internal.
+
+
+## Definitions and Key Ideas
+
+- Two circles are **externally tangent** if they intersect at exactly one point and neither circle lies inside the other. 
+- Two circles are **internally tangent** if they intersect at exactly one point and one circle lies inside the other.
+- If two circles are tangent, their centers and point of tangency are **collinear,** meaning all three points lie on the same line.
+- If $d$ is the distance between centers, external tangency gives $d=r_1+r_2$; internal tangency gives $d=|r_1-r_2|$. 
+- Connect centers and draw radii to points of tangency, and write systems of equations involving right triangles.
+- Length of external tangent to two externally tangent circles: $L = 2\sqrt{r_1r_2}.$
+- The center of homothety for two externally tangent circles is the tangency point, producing equal length ratios/dilations.
+
+## Properties
+
+### Distance Between Centers
+
+For externally tangent circles,
+
+$$
+d=r_1+r_2.
+$$
+
+For internally tangent circles,
+
+$$
+d=|r_1-r_2|.
+$$
+
+These formulas are often the first step in a solution.
+
+#### Line of Centers
+
+Suppose circles with centers $O_1,O_2$ are tangent at $P$.
+
+Then
+
+$$
+O_1,P,O_2
+$$
+
+are collinear.
+
+#### Systems of Equations
+
+It is usually a good idea to draw the radii from centers to points of tangency, and to connect radii of tangent circles, knowing that this segment will also go through the tangent point. Then, frequently you will have to solve a system of equations. Here is an example to illustrate the strategy:
+
+**Problem:** Circle $O$ has radius $2$ with diameter $AB.$ Circle $C$ has diameter $AO.$ Circle $D$ is internally tangent to circle $O,$ circle $C,$ and diameter $AB.$ Find the radius of circle $D.$ 
+
+<div style={{ display: 'flex', justifyContent: 'center', margin: '2rem 0' }}>
+  <svg viewBox="0 0 580 390" width="520" height="350">
+
+   
+
+    {/* Big circle O */}
+    <circle cx="290" cy="190" r="140" fill="none" stroke="white" strokeWidth="2" />
+
+    {/* Diameter AB */}
+    <line x1="150" y1="190" x2="430" y2="190" stroke="white" strokeWidth="2" />
+
+    {/* Circle C with diameter AO */}
+    <circle cx="220" cy="190" r="70" fill="none" stroke="white" strokeWidth="2" />
+
+    {/* Circle D */}
+    <circle cx="336.667" cy="127.778" r="62.222" fill="none" stroke="white" strokeWidth="2" />
+
+    {/* Centers */}
+    <circle cx="290" cy="190" r="5" fill="white" />
+    <circle cx="220" cy="190" r="5" fill="white" />
+    <circle cx="336.667" cy="127.778" r="5" fill="white" />
+
+    {/* Points A and B */}
+    <circle cx="150" cy="190" r="5" fill="white" />
+    <circle cx="430" cy="190" r="5" fill="white" />
+
+
+
+    {/* Radius of D to AB */}
+    <line x1="336.667" y1="127.778" x2="336.667" y2="190" stroke="white" strokeWidth="1.5" strokeDasharray="5 5" />
+
+    {/* Labels */}
+    <text x="137" y="215" textAnchor="middle" fill="white" fontSize="22" fontFamily="serif">A</text>
+    <text x="435" y="215" textAnchor="middle" fill="white" fontSize="22" fontFamily="serif">B</text>
+
+    <text x="298" y="213" fill="white" fontSize="22" fontFamily="serif">O</text>
+    <text x="205" y="215" fill="white" fontSize="22" fontFamily="serif">C</text>
+    <text x="346" y="122" fill="white" fontSize="22" fontFamily="serif">D</text>
+
+    {/* Foot of radius from D to AB */}
+<circle cx="336.667" cy="190" r="4" fill="white" />
+<text
+  x="336.667"
+  y="215"
+  textAnchor="middle"
+  fill="white"
+  fontSize="22"
+  fontFamily="serif"
+>
+  X
+</text>
+ 
+
+    <text x="350" y="165" fill="white" fontSize="20" fontFamily="serif">
+      r
+    </text>
+
+  </svg>
+</div>
+
+**Solution:** Notice that circle $C$ must be internally tangent to circle $O,$ and its radius is $\frac{2}{2}=1.$ First, we drop a radius from $D$ to $AB,$ which will be perpendicular to $AB.$ Let the foot be $X.$ Notice that $OD=2-r$ and $DC = 1+r.$ Then, 
+
+$$
+OX^2 + r^2 = (2-r)^2
+$$
+
+$$
+(1+OX)^2 + r^2 = (1+r)^2
+$$
+
+Expanding and simplifying, we obtain
+
+$$
+OX^2 = -4r+4
+$$
+
+$$
+OX^2 + 2OX = 2r
+$$
+
+Therefore, $2OX = 2r+4r-4$ so 
+
+$$
+OX = 3r-2.
+$$
+
+Inputting back, we obtain
+
+$$
+(3r-2)^2 = -4r+4
+$$
+
+$$
+9r^2-12r+4=-4r+4
+$$
+
+$$
+9r^2-8r=0
+$$
+
+Therefore, $r=8/9.$
+
+**Note:** See the section on Descartes' Theorem several modules below; this problem has an alternate solution in which we can duplicate circle $D$ reflected across $AB$ to create the four mutually tangent circle configuration, and then solve for $r$ using the theorem.
+
+### Common Tangents and Right Triangles
+
+A very common configuration is two externally tangent circles with a common external tangent.
+
+<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '2rem 0' }}>
+  <svg viewBox="0 0 520 320" width="440" height="270">
+
+    {/* Common external tangent */}
+    <line x1="70" y1="70" x2="470" y2="70" stroke="white" strokeWidth="2" />
+
+    {/* Tangency points */}
+    <circle cx="180" cy="70" r="4" fill="white" />
+    <circle cx="360" cy="70" r="4" fill="white" />
+
+    {/* Circles: r1 = 50, r2 = 90 */}
+    <circle cx="180" cy="120" r="50" fill="none" stroke="white" strokeWidth="2" />
+    <circle cx="360" cy="160" r="90" fill="none" stroke="white" strokeWidth="2" />
+
+    {/* Centers */}
+    <circle cx="180" cy="120" r="5" fill="white" />
+    <circle cx="360" cy="160" r="5" fill="white" />
+
+    {/* Radii to tangent points */}
+    <line x1="180" y1="120" x2="180" y2="70" stroke="white" strokeWidth="1.5" strokeDasharray="5 5" />
+    <line x1="360" y1="160" x2="360" y2="70" stroke="white" strokeWidth="1.5" strokeDasharray="5 5" />
+
+    {/* Segment between centers */}
+    <line x1="180" y1="120" x2="360" y2="160" stroke="white" strokeWidth="2" />
+
+    {/* Horizontal helper from O1 */}
+    <line x1="180" y1="120" x2="360" y2="120" stroke="white" strokeWidth="1.5" strokeDasharray="5 5" />
+
+    {/* Vertical helper: r2 - r1 */}
+    <line x1="360" y1="120" x2="360" y2="160" stroke="white" strokeWidth="2" />
+
+    {/* Right angle box */}
+    <path
+      d="M 360 120 L 345 120 L 345 135 L 360 135"
+      fill="none"
+      stroke="white"
+      strokeWidth="2"
+    />
+
+    <text x="372" y="120" fill="white" fontSize="18" fontFamily="serif">X</text>
+
+    {/* Labels */}
+    <text x="163" y="142" fill="white" fontSize="18" fontFamily="serif">
+      O<tspan dy="5" fontSize="12">1</tspan>
+    </text>
+
+    <text x="371" y="176" fill="white" fontSize="18" fontFamily="serif">
+      O<tspan dy="5" fontSize="12">2</tspan>
+    </text>
+
+    <text x="180" y="55" textAnchor="middle" fill="white" fontSize="18" fontFamily="serif">A</text>
+    <text x="360" y="55" textAnchor="middle" fill="white" fontSize="18" fontFamily="serif">B</text>
+
+    <text x="270" y="112" textAnchor="middle" fill="white" fontSize="18" fontFamily="serif">L</text>
+
+    <text x="376" y="143" fill="white" fontSize="18" fontFamily="serif">
+      r<tspan dy="5" fontSize="12">2</tspan> - r<tspan dy="5" fontSize="12">1</tspan>
+    </text>
+
+    <text x="270" y="160" textAnchor="middle" fill="white" fontSize="18" fontFamily="serif">
+      r<tspan dy="5" fontSize="12">1</tspan> + r<tspan dy="5" fontSize="12">2</tspan>
+    </text>
+
+  </svg>
+
+</div>
+
+Let the centers be $O_1, O_2,$  the radii be $r_1,r_2,$ the tangent points be $A$ and $B,$ and let $L$ denote the distance $AB.$ Then drop perpendicular from $O_1$ to $O_2B,$ with foot $X.$ Since $ABXO_1$ is a rectangle (radii to the point of tangency are perpendicular to the tangent line), $O_1X$ will also have length $L.$
+
+This creates right triangle $O_1XO_2,$ so 
+
+$$
+(r_1+r_2)^2=L^2+(r_1-r_2)^2.
+$$
+
+Therefore,
+
+$$
+L^2=(r_1+r_2)^2-(r_1-r_2)^2=4r_1r_2.
+$$
+
+and so
+
+$$
+\boxed{L=2\sqrt{r_1r_2}.}
+$$
+
+
+
+### Homothety
+
+Tangent circles are one of the most common settings in which homothety shows up.
+
+If two circles are externally tangent, the point of tangency is a
+**center of homothety**.
+
+Say two circles are externally tangent at point $P.$ Imagine expanding
+or shrinking one circle about $P,$ that is, that point $P$ stays fixed. Every
+other point moves directly away from or toward $P$ by the same scale factor, and the points can switch sides of $P$ as well. Eventually, the smaller
+circle will transform into the larger one. This transformation is called a
+**homothety**, and $P$ is called the **center of homothety**.
+
+Algebraically, suppose a line through $P$ intersects the smaller circle again at $A$ and
+the larger circle again at $B.$ Then
+
+$$
+\frac{PA}{PB}=\frac{r_1}{r_2}.
+$$
+
+
+<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '2rem 0' }}>
+  <svg viewBox="0 0 640 380" width="560" height="330">
+
+    {/* Circles externally tangent at P */}
+    {/* Small circle: center O1 = (230, 190), r1 = 60 */}
+    {/* Large circle: center O2 = (370, 190), r2 = 80 */}
+    <circle cx="230" cy="190" r="60" fill="none" stroke="white" strokeWidth="2" />
+    <circle cx="370" cy="190" r="80" fill="none" stroke="white" strokeWidth="2" />
+
+    {/* Centers */}
+    <circle cx="230" cy="190" r="5" fill="white" />
+    <circle cx="370" cy="190" r="5" fill="white" />
+
+    {/* Line of centers */}
+    <line x1="230" y1="190" x2="370" y2="190" stroke="white" strokeWidth="1.5" strokeDasharray="5 5" />
+
+    {/* Tangency point */}
+    <circle cx="290" cy="190" r="5" fill="white" />
+
+    {/* Secant segment through P, with A and B actually on the circles */}
+    <line x1="183.1" y1="152.6" x2="432.5" y2="239.9" stroke="white" strokeWidth="2" />
+
+    {/* Intersection points */}
+    <circle cx="183.1" cy="152.6" r="4.5" fill="white" />
+    <circle cx="432.5" cy="239.9" r="4.5" fill="white" />
+
+
+
+    {/* Radius labels */}
+    <text x="255" y="181" textAnchor="middle" fill="white" fontSize="20" fontFamily="serif">
+      r<tspan dy="5" fontSize="13">1</tspan>
+    </text>
+
+    <text x="335" y="181" textAnchor="middle" fill="white" fontSize="20" fontFamily="serif">
+      r<tspan dy="5" fontSize="13">2</tspan>
+    </text>
+
+    {/* Point labels */}
+    <text x="170" y="148" textAnchor="end" fill="white" fontSize="22" fontFamily="serif">A</text>
+    <text x="448" y="252" textAnchor="start" fill="white" fontSize="22" fontFamily="serif">B</text>
+    <text x="296" y="183" textAnchor="middle" fill="white" fontSize="22" fontFamily="serif">P</text>
+
+    <text x="200" y="205" textAnchor="end" fill="white" fontSize="22" fontFamily="serif">
+      O<tspan dy="5" fontSize="13">1</tspan>
+    </text>
+
+    <text x="378" y="205" textAnchor="start" fill="white" fontSize="22" fontFamily="serif">
+      O<tspan dy="5" fontSize="13">2</tspan>
+    </text>
+
+
+  </svg>
+</div>
+
+
+Because of these equal length ratios, *similar triangles* will frequently appear because of homothety.
+
+### Three Mutually Tangent Circles
+
+Three pairwise tangent circles form one of the most common advanced
+tangent-circle configurations.
+
+<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '2rem 0' }}>
+  <svg viewBox="0 0 620 420" width="540" height="360">
+
+    {/*
+      O1 = (210, 240), r1 = 60
+      O2 = (370, 240), r2 = 100
+      O3 = (250, 105.84), r3 = 80
+
+      Distances:
+      O1O2 = 160 = r1 + r2
+      O1O3 = 140 = r1 + r3
+      O2O3 = 180 = r2 + r3
+    */}
+
+    {/* Circles */}
+    <circle cx="210" cy="240" r="60" fill="none" stroke="white" strokeWidth="2" />
+    <circle cx="370" cy="240" r="100" fill="none" stroke="white" strokeWidth="2" />
+    <circle cx="250" cy="105.84" r="80" fill="none" stroke="white" strokeWidth="2" />
+
+    {/* Tangency points */}
+    <circle cx="270" cy="240" r="4" fill="white" />
+    <circle cx="227.14" cy="182.5" r="4" fill="white" />
+    <circle cx="303.33" cy="165.46" r="4" fill="white" />
+
+    {/* Radius segments */}
+    <line x1="210" y1="240" x2="270" y2="240" stroke="white" strokeWidth="1.5" strokeDasharray="5 5" />
+    <line x1="210" y1="240" x2="227.14" y2="182.5" stroke="white" strokeWidth="1.5" strokeDasharray="5 5" />
+
+    <line x1="370" y1="240" x2="270" y2="240" stroke="white" strokeWidth="1.5" strokeDasharray="5 5" />
+    <line x1="370" y1="240" x2="303.33" y2="165.46" stroke="white" strokeWidth="1.5" strokeDasharray="5 5" />
+
+    <line x1="250" y1="105.84" x2="227.14" y2="182.5" stroke="white" strokeWidth="1.5" strokeDasharray="5 5" />
+    <line x1="250" y1="105.84" x2="303.33" y2="165.46" stroke="white" strokeWidth="1.5" strokeDasharray="5 5" />
+
+    {/* Centers */}
+    <circle cx="210" cy="240" r="5" fill="white" />
+    <circle cx="370" cy="240" r="5" fill="white" />
+    <circle cx="250" cy="105.84" r="5" fill="white" />
+
+    {/* Center labels */}
+    <text x="192" y="263" fill="white" fontSize="22" fontFamily="serif">
+      O<tspan dy="5" fontSize="13">1</tspan>
+    </text>
+
+    <text x="382" y="263" fill="white" fontSize="22" fontFamily="serif">
+      O<tspan dy="5" fontSize="13">2</tspan>
+    </text>
+
+    <text x="258" y="96" fill="white" fontSize="22" fontFamily="serif">
+      O<tspan dy="5" fontSize="13">3</tspan>
+    </text>
+
+    {/* r1 labels */}
+    <text x="240" y="260" textAnchor="middle" fill="white" fontSize="20" fontFamily="serif">
+      r<tspan dy="5" fontSize="12">1</tspan>
+    </text>
+
+    <text x="203" y="205" textAnchor="middle" fill="white" fontSize="20" fontFamily="serif">
+      r<tspan dy="5" fontSize="12">1</tspan>
+    </text>
+
+    {/* r2 labels */}
+    <text x="320" y="260" textAnchor="middle" fill="white" fontSize="20" fontFamily="serif">
+      r<tspan dy="5" fontSize="12">2</tspan>
+    </text>
+
+    <text x="350" y="190" textAnchor="middle" fill="white" fontSize="20" fontFamily="serif">
+      r<tspan dy="5" fontSize="12">2</tspan>
+    </text>
+
+    {/* r3 labels */}
+    <text x="224" y="144" textAnchor="middle" fill="white" fontSize="20" fontFamily="serif">
+      r<tspan dy="5" fontSize="12">3</tspan>
+    </text>
+
+    <text x="286" y="126" textAnchor="middle" fill="white" fontSize="20" fontFamily="serif">
+      r<tspan dy="5" fontSize="12">3</tspan>
+    </text>
+
+  </svg>
+</div>
+
+If the radii are $r_1,r_2,r_3,$ then the centers form a triangle with side
+lengths
+
+$$
+r_1+r_2,\qquad r_2+r_3,\qquad r_3+r_1.
+$$
+
+Many geometry problems reduce to analyzing this triangle. For instance, using Heron's formula, Law of Cosines, coordinate geometry, etc.
+
+#### Descartes' Theorem
+
+<div style={{ display: 'flex', justifyContent: 'center', margin: '2rem 0' }}>
+  <svg viewBox="0 0 760 340" width="720" height="320">
+
+    <circle cx="135" cy="230" r="55" fill="none" stroke="white" strokeWidth="2" />
+    <circle cx="245" cy="230" r="55" fill="none" stroke="white" strokeWidth="2" />
+    <circle cx="190" cy="134.737" r="55" fill="none" stroke="white" strokeWidth="2" />
+    <circle cx="190" cy="198.246" r="8.526" fill="none" stroke="white" strokeWidth="2" />
+
+    <circle cx="135" cy="230" r="4" fill="white" />
+    <circle cx="245" cy="230" r="4" fill="white" />
+    <circle cx="190" cy="134.737" r="4" fill="white" />
+    <circle cx="190" cy="198.246" r="3" fill="white" />
+
+    <text x="116" y="253" fill="white" fontSize="18" fontFamily="serif">
+      O<tspan dy="5" fontSize="11">1</tspan>
+    </text>
+    <text x="252" y="253" fill="white" fontSize="18" fontFamily="serif">
+      O<tspan dy="5" fontSize="11">2</tspan>
+    </text>
+    <text x="198" y="127" fill="white" fontSize="18" fontFamily="serif">
+      O<tspan dy="5" fontSize="11">3</tspan>
+    </text>
+    <text x="203" y="203" fill="white" fontSize="18" fontFamily="serif">
+      O<tspan dy="5" fontSize="11">4</tspan>
+    </text>
+
+
+    {/*
+      RIGHT: one circle enclosing three mutually tangent circles.
+
+      Three equal circles:
+      r = 45
+      O1 = (515, 230)
+      O2 = (605, 230)
+      O3 = (560, 152.058)
+
+      Outer circle:
+      center O4 = (560, 204.019)
+      radius R = 45 + 90 / sqrt(3) ≈ 96.962
+    */}
+
+    <circle cx="560" cy="204.019" r="96.962" fill="none" stroke="white" strokeWidth="2" />
+    <circle cx="515" cy="230" r="45" fill="none" stroke="white" strokeWidth="2" />
+    <circle cx="605" cy="230" r="45" fill="none" stroke="white" strokeWidth="2" />
+    <circle cx="560" cy="152.058" r="45" fill="none" stroke="white" strokeWidth="2" />
+
+    <circle cx="560" cy="204.019" r="4" fill="white" />
+    <circle cx="515" cy="230" r="4" fill="white" />
+    <circle cx="605" cy="230" r="4" fill="white" />
+    <circle cx="560" cy="152.058" r="4" fill="white" />
+
+    <text x="492" y="254" fill="white" fontSize="18" fontFamily="serif">
+      O<tspan dy="5" fontSize="11">1</tspan>
+    </text>
+    <text x="612" y="254" fill="white" fontSize="18" fontFamily="serif">
+      O<tspan dy="5" fontSize="11">2</tspan>
+    </text>
+    <text x="568" y="145" fill="white" fontSize="18" fontFamily="serif">
+      O<tspan dy="5" fontSize="11">3</tspan>
+    </text>
+    <text x="570" y="210" fill="white" fontSize="18" fontFamily="serif">
+      O<tspan dy="5" fontSize="11">4</tspan>
+    </text>
+
+  </svg>
+</div>
+
+As shown above, if there is a fourth circle externally or internally tangent to all three, you may also use Descartes' Theorem. 
+
+The first thing to calculate is **curvature** $k_i.$ Curvature is *signed,* which changes depending on which configuration we have (i.e. whether a circle is internally/externally tangent). Follow the formula
+
+$$
+k = \pm \frac{1}{r},
+$$
+
+where $r$ is the radius. For four externally tangent circles, all curvatures are positive. When there is one enclosing circle, the three smaller circles have positive curvature, and the big outer circle has negative curvature. Then Descartes' Theorem states:
+
+$$
+(k_1+k_2+k_3+k_4)^2 = 2(k^2_1 + k^2_2+k^2_3+k^2_4).
+$$
+
+If $k_4$ is unknown, solve to obtain
+
+$$
+k_4 = k_1+k_2+k_3 \pm 2 \sqrt{k_1k_2 + k_2k_3 + k_3k_1}.
+$$
+
+**Remember to convert curvature back to radius at the end!** The larger of the two radii (smaller curvature) generally corresponds to the internally tangent configuration, and the smaller radius to the externally tangent configuration.
+
+
+##### Straight Lines
+
+<div style={{ display: 'flex', justifyContent: 'center', margin: '2rem 0' }}>
+  <svg viewBox="0 0 620 320" width="560" height="290">
+
+    {/*
+      Three mutually tangent circles all tangent to the same line y = 250.
+
+      Choose:
+      r1 = 45, O1 = (170, 205)
+      r2 = 80, O2 = (290, 170)
+      r3 = 20, O3 = (370, 230)
+
+      Checks:
+      O1O2 = sqrt(120^2 + 35^2) = 125 = r1 + r2
+      O2O3 = sqrt(80^2 + 60^2) = 100 = r2 + r3
+      O1O3 = sqrt(200^2 + 25^2) ≈ 201.56, so not tangent.
+
+      Actually for all three pairwise tangent:
+      Use r1 = 45, r2 = 80, r3 = 20.
+      Horizontal distances between centers tangent to line:
+      dx_ij = 2sqrt(r_i r_j).
+
+      dx12 = 2sqrt(45*80) = 120
+      dx23 = 2sqrt(80*20) = 80
+      dx13 = 2sqrt(45*20) = 60
+
+      Since dx12 = dx13 + dx23, put O3 between O1 and O2.
+    */}
+
+    {/* Common tangent line */}
+    <line x1="70" y1="250" x2="550" y2="250" stroke="white" strokeWidth="2" />
+
+    {/* Circles */}
+    <circle cx="170" cy="205" r="45" fill="none" stroke="white" strokeWidth="2" />
+    <circle cx="290" cy="170" r="80" fill="none" stroke="white" strokeWidth="2" />
+    <circle cx="230" cy="230" r="20" fill="none" stroke="white" strokeWidth="2" />
+
+    {/* Centers */}
+    <circle cx="170" cy="205" r="4.5" fill="white" />
+    <circle cx="290" cy="170" r="4.5" fill="white" />
+    <circle cx="230" cy="230" r="4.5" fill="white" />
+
+    {/* Radii to line */}
+    <line x1="170" y1="205" x2="170" y2="250" stroke="white" strokeWidth="1.5" strokeDasharray="5 5" />
+    <line x1="290" y1="170" x2="290" y2="250" stroke="white" strokeWidth="1.5" strokeDasharray="5 5" />
+    <line x1="230" y1="230" x2="230" y2="250" stroke="white" strokeWidth="1.5" strokeDasharray="5 5" />
+
+    {/* Center triangle */}
+    <line x1="170" y1="205" x2="290" y2="170" stroke="white" strokeWidth="1.2" strokeDasharray="5 5" />
+    <line x1="170" y1="205" x2="230" y2="230" stroke="white" strokeWidth="1.2" strokeDasharray="5 5" />
+    <line x1="230" y1="230" x2="290" y2="170" stroke="white" strokeWidth="1.2" strokeDasharray="5 5" />
+
+    {/* Center labels */}
+    <text x="145" y="202" textAnchor="end" fill="white" fontSize="20" fontFamily="serif">
+      O<tspan dy="5" fontSize="12">1</tspan>
+    </text>
+
+    <text x="300" y="165" textAnchor="start" fill="white" fontSize="20" fontFamily="serif">
+      O<tspan dy="5" fontSize="12">2</tspan>
+    </text>
+
+    <text x="236" y="226" textAnchor="start" fill="white" fontSize="20" fontFamily="serif">
+      O<tspan dy="5" fontSize="12">4</tspan>
+    </text>
+
+    {/* Line curvature label */}
+    <text x="310" y="278" textAnchor="middle" fill="white" fontSize="20" fontFamily="serif">
+      k = 0
+    </text>
+
+  </svg>
+</div>
+
+If we replace one of the circles (say $k_3$) with a line, for instance three circles are internally tangent to a line, it can be viewed with a circle of infinite radius, in which case the curvature would be $0.$ Thus, we set $k_3=0$ and so the theorem becomes
+
+$$
+(k_1+k_2+k_4)^2 = 2(k_1^2+k_2^2+k_4^2)
+$$
+
+$$
+k_4 = k_1 + k_2 + 2 \sqrt{k_1 k_2}.
+$$
+
+We can also square root both sides:
+
+$$
+\sqrt{k_4} = | \sqrt{k_1} \pm \sqrt{k_2} |.
+$$
+
+
+
+## Worked Example
+
+Two circles of radii $5$ and $3$ are externally tangent. Find the distance
+between centers.
+
+Distance is $5+3=8$.
+
+## More Examples
+
+### Example 1: Internal Tangency
+
+Two circles with radii $10$ and $4$ are internally tangent. Find the distance
+between centers.
+
+$|10-4|=6$.
+
+### Example 2: Tangent Chain
+
+Three circles with radii $2,3,5$ are tangent in a line. Find the distance
+between the centers of the first and third.
+
+$2+3+3+5=13$.
+
+### Example 3: Mixed Condition
+
+If a circle of radius $r$ is tangent internally to a circle of radius $9$ and
+the centers are $5$ units apart, find $r$.
+
+$9-r=5$, so $r=4$.
+
+
+
+## Common Pitfalls
+
+- Using $r_1+r_2$ for internal tangency.
+- Confusing center distance or radius with a diameter.
+- Forgetting to calculate curvature or convert curvature to radius at the end of Descartes' Theorem.
+- Getting confused with signs/absolute values.
+
+## Practice Problems
+
+<Problems problems="practice" />

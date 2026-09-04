@@ -1,0 +1,55 @@
+---
+id: olympiad-number-theory
+title: Olympiad Number Theory
+author: USAMO Guide Team
+description: Orders, lifting, and structure for proof-based NT problems.
+prerequisites: ["number-theory-advanced", "proof-writing-basics"]
+---
+
+## Overview
+
+Proof-based number theory needs clear structure. Combine modular arithmetic
+with factorization and bounding.
+
+## Key Ideas
+
+- Use order arguments to prove divisibility claims.
+- LTE and lifting are powerful for expressions like $a^n-b^n$.
+- Check small primes for contradictions.
+
+## Warm-Up Examples
+
+### Example 1: Legendre's Formula (must know!)
+
+Your job is to find the number of zeros at the end of $100!$.
+
+Realize that this is just finding the power of $10$ dividing $100!$, which is given by $\min(v_2(100!), v_5(100!))$. Since $v_5(n!) < v_2(n!)$, we compute $v_5(100!) = \frac{100 - S_5(100)}{5 - 1}$. The base $5$ representation of $100$ is $400_5$, so $S_5(100) = 4 + 0 + 0 = 4$, which gives our answer of $v_5(100!) = \frac{100 - 4}{4} = 24$.
+
+### Example 2: A Very Skibidi Problem
+
+Your goal is to prove that the binomial coefficient $\binom{2n}{n}$ is even for all positive integers $n$.
+
+We can look at the $2$-adic valuation using Legendre's Formula: $v_2\left(\binom{2n}{n}\right) = v_2((2n)!) - 2v_2(n!)$. Substituting the formula yields $\frac{2n - S_2(2n)}{2-1} - 2\frac{n - S_2(n)}{2-1} = 2n - S_2(2n) - 2n + 2S_2(n)$. Now, realize that shifting a binary number left does not change its digit sum, $S_2(2n) = S_2(n)$, which simplifies the expression to $S_2(n) \ge 1$.
+
+### Example 3: Valuation Inequality Problem
+
+Let $a$ and $b$ be positive integers such that $v_p(a) \neq v_p(b)$. Your goals is to prove that $v_p(a + b) = \min(v_p(a), v_p(b))$. (worth remembering!)
+
+We can assume WLOG that $v_p(a) < v_p(b)$, and let $v_p(a) = k$. Next, we can write $a = p^k \cdot m$ and $b = p^k \cdot p^{v_p(b)-k} \cdot n$ where $\gcd(m, p) = 1$. Factoring gives us $a + b = p^k(m + p^{v_p(b)-k}n)$, and since $v_p(b) - k > 0$, the term $(m + p^{v_p(b)-k}n) \not\equiv 0 \pmod p$, proving $v_p(a+b) = k$.
+
+### Example 4: Greatest Common Divisor Product
+
+Your job is to prove that $\gcd(a, b) \cdot \text{lcm}(a, b) = a \cdot b$ for any positive integers $a$ and $b$.
+
+Firstly, we can turn this identity into $p$-adic valuations for a prime $p$. Hence, we must verify $v_p(\gcd(a, b)) + v_p(\text{lcm}(a, b)) = v_p(a) + v_p(b)$. Using basic properties of valuations, we get $v_p(\gcd(a, b)) = \min(v_p(a), v_p(b))$ and $v_p(\text{lcm}(a, b)) = \max(v_p(a), v_p(b))$, and the equation simply becomes $\min(x, y) + \max(x, y) = x + y$.
+
+### Example 5: Divisibility of Factorials
+Your goal is to find all positive integers $n$ such that $2^{n-1}$ divides $n!$.
+
+First, realize that this problem statement can be turned into the inequality $v_2(n!) \ge n - 1$. From here, using Legendre's Formula, this constraint simply becomes $\frac{n - S_2(n)}{2 - 1} \ge n - 1$, which simplifies directly to $n - S_2(n) \ge n - 1$. Rearranging the terms gives us $S_2(n) \le 1$, which means that $n$ must be a pure power of $2$ ($n = 2^k$ for $k \ge 0$). (neat result, eh?)
+
+
+
+## Practice Problems
+
+<Problems problems="practice" />

@@ -1,0 +1,734 @@
+---
+id: complex-basics
+title: Complex Numbers
+author: Pranav Ramesh
+description: Imaginary unit, algebra of complex numbers, conjugates, and division
+prerequisites: [algebra-basics]
+---
+
+## Introduction
+
+When we first learn about square roots, a natural question comes up: what is $\sqrt{-1}$? If your teacher told you it doesn't exist, they were ~~completely wrong~~ both right and wrong at the same time. It doesn't exist as a *real* number. But mathematicians decided that was a perfectly good reason to *invent* a new kind of number.
+
+We define the **imaginary unit** $i$ by the equation
+
+$$
+i^2 = -1, \quad \text{equivalently} \quad i = \sqrt{-1}
+$$
+
+Numbers formed by multiplying $i$ by a real number — like $2i$, $-5i$, or $\pi i$ — are called **pure imaginary numbers**. They cannot be simplified any further; $2i$ is already in its simplest form.
+
+> **Warning**: The rule $\sqrt{a}\sqrt{b} = \sqrt{ab}$ breaks down for negative numbers. For example,
+>
+> $$
+> \sqrt{-1}\sqrt{-1} \neq \sqrt{(-1)^2} = 1
+> $$
+>
+> The correct answer is
+>
+> $$
+> i \cdot i = i^2 = -1
+> $$
+>
+> Never combine square roots of negative numbers under one radical.
+
+A **complex number** is any number of the form
+
+$$
+z = a + bi, \qquad a,b \in \mathbb{R}, \qquad i^2 = -1
+$$
+
+The set of all complex numbers is denoted $\mathbb{C}$. This is a strict superset: every real number is a complex number (take $b=0$), and every pure imaginary number is a complex number (take $a=0$).
+
+<div style={{ display: 'flex', justifyContent: 'center', margin: '2rem 0' }}>
+  <svg viewBox="0 0 380 200" width="100%" height="200" xmlns="http://www.w3.org/2000/svg">
+
+    <ellipse
+      cx="190"
+      cy="105"
+      rx="175"
+      ry="88"
+      fill="rgba(129,140,248,0.08)"
+      stroke="#818cf8"
+      strokeWidth="1.5"
+    />
+
+    <text
+      x="190"
+      y="30"
+      textAnchor="middle"
+      fontFamily="sans-serif"
+      fontSize="14"
+      fill="#818cf8"
+    >
+      Complex numbers ℂ (a + bi)
+    </text>
+
+    <ellipse
+      cx="140"
+      cy="115"
+      rx="110"
+      ry="58"
+      fill="rgba(52,211,153,0.08)"
+      stroke="#34d399"
+      strokeWidth="1.5"
+    />
+
+    <text
+      x="100"
+      y="90"
+      textAnchor="middle"
+      fontFamily="sans-serif"
+      fontSize="12"
+      fill="#34d399"
+    >
+      Real ℝ
+    </text>
+
+    <text
+      x="100"
+      y="106"
+      textAnchor="middle"
+      fontFamily="sans-serif"
+      fontSize="11"
+      fill="rgba(52,211,153,0.7)"
+    >
+      (b = 0)
+    </text>
+
+    <text
+      x="100"
+      y="128"
+      textAnchor="middle"
+      fontFamily="sans-serif"
+      fontSize="11"
+      fill="rgba(255,255,255,0.5)"
+    >
+      3, −7, π, √2 …
+    </text>
+
+    <text
+      x="300"
+      y="104"
+      textAnchor="middle"
+      fontFamily="sans-serif"
+      fontSize="12"
+      fill="#fbbf24"
+    >
+      Pure imaginary
+    </text>
+
+    <text
+      x="300"
+      y="120"
+      textAnchor="middle"
+      fontFamily="sans-serif"
+      fontSize="11"
+      fill="rgba(251,191,36,0.7)"
+    >
+      (a = 0)
+    </text>
+
+    <text
+      x="300"
+      y="138"
+      textAnchor="middle"
+      fontFamily="sans-serif"
+      fontSize="11"
+      fill="rgba(255,255,255,0.5)"
+    >
+      2i, −5i …
+    </text>
+
+  </svg>
+</div>
+
+For a complex number $z = a + bi$:
+
+- $\operatorname{Re}(z)=a$ is the **real part**
+- $\operatorname{Im}(z)=b$ is the **imaginary part**
+
+Note that $b$ itself is real — it is the coefficient of $i$.
+
+So,
+
+$$
+\operatorname{Re}(3-7i)=3
+\qquad \text{and} \qquad
+\operatorname{Im}(3-7i)=-7
+$$
+
+not $-7i$.
+
+## Powers of $i$
+
+If we keep multiplying $i$ by itself, we get a cycle that repeats every $4$ steps:
+
+$$
+i^1=i,\qquad
+i^2=-1,\qquad
+i^3=-i,\qquad
+i^4=1,\qquad
+i^5=i,\ldots
+$$
+
+<div style={{ display: 'flex', justifyContent: 'center', margin: '2rem 0' }}>
+  <svg viewBox="0 0 360 180" width="100%" height="180" xmlns="http://www.w3.org/2000/svg">
+
+    <rect x="30" y="40" width="70" height="70" rx="10" fill="rgba(255,255,255,0.04)" stroke="#818cf8" strokeWidth="1.5"/>
+    <text x="65" y="72" textAnchor="middle" fontFamily="sans-serif" fontSize="13" fill="#818cf8">
+      i¹ = i
+    </text>
+    <text x="65" y="92" textAnchor="middle" fontFamily="sans-serif" fontSize="11" fill="rgba(255,255,255,0.45)">
+      +i
+    </text>
+
+    <rect x="115" y="40" width="70" height="70" rx="10" fill="rgba(255,255,255,0.04)" stroke="#f87171" strokeWidth="1.5"/>
+    <text x="150" y="72" textAnchor="middle" fontFamily="sans-serif" fontSize="13" fill="#f87171">
+      i² = −1
+    </text>
+    <text x="150" y="92" textAnchor="middle" fontFamily="sans-serif" fontSize="11" fill="rgba(255,255,255,0.45)">
+      −1
+    </text>
+
+    <rect x="200" y="40" width="70" height="70" rx="10" fill="rgba(255,255,255,0.04)" stroke="#fbbf24" strokeWidth="1.5"/>
+    <text x="235" y="72" textAnchor="middle" fontFamily="sans-serif" fontSize="13" fill="#fbbf24">
+      i³ = −i
+    </text>
+    <text x="235" y="92" textAnchor="middle" fontFamily="sans-serif" fontSize="11" fill="rgba(255,255,255,0.45)">
+      −i
+    </text>
+
+    <rect x="285" y="40" width="70" height="70" rx="10" fill="rgba(255,255,255,0.04)" stroke="#34d399" strokeWidth="1.5"/>
+    <text x="320" y="72" textAnchor="middle" fontFamily="sans-serif" fontSize="13" fill="#34d399">
+      i⁴ = 1
+    </text>
+    <text x="320" y="92" textAnchor="middle" fontFamily="sans-serif" fontSize="11" fill="rgba(255,255,255,0.45)">
+      +1
+    </text>
+
+    <line x1="100" y1="75" x2="115" y2="75" stroke="rgba(255,255,255,0.3)" strokeWidth="1.2"/>
+    <polygon points="113,71 120,75 113,79" fill="rgba(255,255,255,0.3)"/>
+
+    <line x1="185" y1="75" x2="200" y2="75" stroke="rgba(255,255,255,0.3)" strokeWidth="1.2"/>
+    <polygon points="198,71 205,75 198,79" fill="rgba(255,255,255,0.3)"/>
+
+    <line x1="270" y1="75" x2="285" y2="75" stroke="rgba(255,255,255,0.3)" strokeWidth="1.2"/>
+    <polygon points="283,71 290,75 283,79" fill="rgba(255,255,255,0.3)"/>
+
+    <path
+      d="M 355 110 Q 190 160 30 110"
+      fill="none"
+      stroke="rgba(255,255,255,0.25)"
+      strokeWidth="1.2"
+      strokeDasharray="5 4"
+    />
+
+    <polygon points="32,106 25,112 34,115" fill="rgba(255,255,255,0.25)"/>
+
+    <text
+      x="190"
+      y="170"
+      textAnchor="middle"
+      fontFamily="sans-serif"
+      fontSize="11"
+      fill="rgba(255,255,255,0.35)"
+    >
+      cycle repeats every 4
+    </text>
+
+    <text
+      x="190"
+      y="20"
+      textAnchor="middle"
+      fontFamily="sans-serif"
+      fontSize="13"
+      fontStyle="italic"
+      fill="rgba(255,255,255,0.6)"
+    >
+      ×i each step
+    </text>
+
+  </svg>
+</div>
+
+The key rule is:
+
+$$
+i^n = i^(n mod 4)
+$$
+
+where the remainder is taken in $\{0,1,2,3\}$ and $i^0=1$.
+
+> **2019 AMC 10A Problem 4**
+>
+> What is $i^{2019}$?
+>
+> Since
+>
+> $$
+> 2019 = 4 \cdot 504 + 3
+> $$
+>
+> we get
+>
+> $$
+> i^{2019}=i^3=\boxed{-i}
+> $$
+
+The mod-$4$ trick is mechanical once you see it — and it appears on AMC/AIME more often than you'd expect.
+
+## Algebra of Complex Numbers
+
+### Addition and Subtraction
+
+Add or subtract real and imaginary parts separately:
+
+$$
+(a+bi)\pm(c+di)
+=
+(a\pm c)+(b\pm d)i
+$$
+
+This is exactly like vector addition componentwise.
+
+### Multiplication
+
+Expand using FOIL and replace $i^2$ with $-1$:
+
+$$
+(a+bi)(c+di)
+=
+ac+adi+bci+bdi^2
+=
+(ac-bd)+(ad+bc)i
+$$
+
+You do not need to memorize this formula.
+
+**Example:** Compute $(2+3i)(1-4i)$.
+
+$$
+\begin{aligned}
+(2+3i)(1-4i)
+&=2(1)+2(-4i)+3i(1)+3i(-4i) \\
+&=2-8i+3i-12i^2 \\
+&=2-5i+12 \\
+&=14-5i
+\end{aligned}
+$$
+
+### Equating Real and Imaginary Parts
+
+Two complex numbers are equal iff their real parts and imaginary parts are equal:
+
+$$
+a+bi=c+di
+\iff
+a=c \text{ and } b=d
+$$
+
+This means one complex equation is secretly two real equations.
+
+**Example:** Find real $x,y$ such that
+
+$$
+(x+yi)(2+3i)=1+13i
+$$
+
+Expanding:
+
+$$
+(2x-3y)+(3x+2y)i
+$$
+
+Equating parts:
+
+$$
+2x-3y=1
+\qquad\text{and}\qquad
+3x+2y=13
+$$
+
+Multiply the first equation by $2$ and the second by $3$:
+
+$$
+4x-6y=2
+$$
+
+$$
+9x+6y=39
+$$
+
+Adding:
+
+$$
+13x=41
+\implies
+x=\frac{41}{13}
+$$
+
+Substituting back:
+
+$$
+y=-\frac{23}{13}
+$$
+
+## Conjugates
+
+The **conjugate** of
+
+$$
+z=a+bi
+$$
+
+is
+
+$$
+\overline{z}=a-bi
+$$
+
+Geometrically, this reflects the point across the real axis.
+
+The key identity is:
+
+$$
+z\overline{z}
+=
+(a+bi)(a-bi)
+=
+a^2+b^2
+$$
+
+The product is always a nonnegative real number.
+
+Two useful identities:
+
+$$
+z+\overline{z}=2\operatorname{Re}(z)
+$$
+
+$$
+z-\overline{z}=2i\operatorname{Im}(z)
+$$
+
+Properties of conjugation:
+
+$$
+\overline{z+w}=\overline{z}+\overline{w}
+$$
+
+$$
+\overline{zw}=\overline{z}\,\overline{w}
+$$
+
+## Division
+
+To divide complex numbers, multiply numerator and denominator by the conjugate of the denominator.
+
+$$
+\frac{1}{a+bi}
+=
+\frac{a-bi}{a^2+b^2}
+$$
+
+More generally,
+
+$$
+\frac{a+bi}{c+di}
+=
+\frac{(a+bi)(c-di)}{c^2+d^2}
+$$
+
+<div style={{ display: 'flex', justifyContent: 'center', margin: '2rem 0' }}>
+  <svg viewBox="0 0 420 130" width="100%" height="130" xmlns="http://www.w3.org/2000/svg">
+
+    <rect x="10" y="20" width="110" height="88" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.2)" strokeWidth="1"/>
+
+    <text x="65" y="44" textAnchor="middle" fontFamily="sans-serif" fontSize="12" fill="rgba(255,255,255,0.55)">
+      start
+    </text>
+
+    <text x="65" y="66" textAnchor="middle" fontFamily="sans-serif" fontSize="15" fill="white">
+      a+bi
+    </text>
+
+    <line x1="65" y1="75" x2="65" y2="80" stroke="white" strokeWidth="1"/>
+    <line x1="40" y1="80" x2="90" y2="80" stroke="white" strokeWidth="1"/>
+
+    <text x="65" y="98" textAnchor="middle" fontFamily="sans-serif" fontSize="15" fill="white">
+      c+di
+    </text>
+
+    <line x1="120" y1="64" x2="148" y2="64" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5"/>
+    <polygon points="146,60 154,64 146,68" fill="rgba(255,255,255,0.4)"/>
+
+    <text x="134" y="58" textAnchor="middle" fontFamily="sans-serif" fontSize="10" fill="rgba(255,255,255,0.4)">
+      × c−di
+    </text>
+
+    <text x="134" y="80" textAnchor="middle" fontFamily="sans-serif" fontSize="10" fill="rgba(255,255,255,0.4)">
+      × c−di
+    </text>
+
+    <rect x="154" y="20" width="118" height="88" rx="10" fill="rgba(255,255,255,0.04)" stroke="#818cf8" strokeWidth="1.5"/>
+
+    <text x="213" y="44" textAnchor="middle" fontFamily="sans-serif" fontSize="12" fill="rgba(129,140,248,0.7)">
+      multiply out
+    </text>
+
+    <text x="213" y="66" textAnchor="middle" fontFamily="sans-serif" fontSize="13" fill="#818cf8">
+      (a+bi)(c−di)
+    </text>
+
+    <line x1="213" y1="74" x2="213" y2="79" stroke="#818cf8" strokeWidth="1"/>
+    <line x1="183" y1="79" x2="243" y2="79" stroke="#818cf8" strokeWidth="1"/>
+
+    <text x="213" y="97" textAnchor="middle" fontFamily="sans-serif" fontSize="13" fill="#818cf8">
+      c² + d²
+    </text>
+
+    <line x1="272" y1="64" x2="300" y2="64" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5"/>
+    <polygon points="298,60 306,64 298,68" fill="rgba(255,255,255,0.4)"/>
+
+    <text x="286" y="58" textAnchor="middle" fontFamily="sans-serif" fontSize="10" fill="rgba(255,255,255,0.4)">
+      simplify
+    </text>
+
+    <rect x="306" y="20" width="106" height="88" rx="10" fill="rgba(52,211,153,0.08)" stroke="#34d399" strokeWidth="1.5"/>
+
+    <text x="359" y="44" textAnchor="middle" fontFamily="sans-serif" fontSize="12" fill="rgba(52,211,153,0.7)">
+      result
+    </text>
+
+    <text x="359" y="66" textAnchor="middle" fontFamily="sans-serif" fontSize="13" fill="#34d399">
+      p + qi
+    </text>
+
+    <text x="359" y="84" textAnchor="middle" fontFamily="sans-serif" fontSize="11" fill="rgba(52,211,153,0.6)">
+      real denominator ✓
+    </text>
+
+  </svg>
+</div>
+
+**Example:** Compute
+
+$$
+\frac{3+2*i}{1-4*i}
+$$
+
+Multiply top and bottom by $1+4i$:
+
+$$
+\frac{3+2*i}{1-4*i}
+\cdot
+\frac{1+4*i}{1+4*i}
+=
+\frac{(3+2*i)(1+4*i)}{1^2+4^2}
+$$
+
+Expand the numerator:
+
+$$
+\begin{aligned}
+(3+2i)(1+4i)
+&=3+12i+2i+8i^2 \\
+&=3+14i-8 \\
+&=-5+14i
+\end{aligned}
+$$
+
+Denominator:
+
+$$
+1+16=17
+$$
+
+Therefore,
+
+$$
+\frac{3+2*i}{1-4*i}
+=
+\frac{-5+14*i}{17}
+=
+-\frac{5}{17}+\frac{14}{17}i
+$$
+
+## Worked Examples
+
+> **Example 1:** Compute $i^{2023}$.
+>
+> Since
+>
+> $$
+> 2023=4\cdot505+3
+> $$
+>
+> we get
+>
+> $$
+> i^{2023}=i^3=-i
+> $$
+
+> **Example 2:** If $z+6i=iz$, find $z$.
+>
+> Rearranging:
+>
+> $$
+> z-iz=-6i
+> $$
+>
+> $$
+> z(1-i)=-6i
+> $$
+>
+> Thus,
+>
+> $$
+> z
+> =
+> \frac{-6*i}{1-i}
+> \cdot
+> \frac{1+i}{1+i}
+> =
+> \frac{-6*i(1+i)}{2}
+> =
+> \frac{-6*i+6}{2}
+> =
+> 3-3i
+> $$
+
+> **Example 3:** Let
+>
+> $$
+> z+\overline{z}=6
+> $$
+>
+> and
+>
+> $$
+> z\overline{z}=13
+> $$
+>
+> Find $z$.
+>
+> Write
+>
+> $$
+> z=a+bi
+> $$
+>
+> Then
+>
+> $$
+> 2a=6
+> \implies
+> a=3
+> $$
+>
+> Also,
+>
+> $$
+> a^2+b^2=13
+> $$
+>
+> so
+>
+> $$
+> 9+b^2=13
+> \implies
+> b^2=4
+> \implies
+> b=\pm2
+> $$
+>
+> Therefore,
+>
+> $$
+> z=3+2i
+> \quad\text{or}\quad
+> z=3-2i
+> $$
+
+> **Example 4 (AIME flavor):** Find all complex $z$ such that
+>
+> $$
+> z^2=2i
+> $$
+>
+> Write
+>
+> $$
+> z=a+bi
+> $$
+>
+> Then
+>
+> $$
+> z^2=(a^2-b^2)+2abi
+> $$
+>
+> Equating parts:
+>
+> $$
+> a^2-b^2=0
+> $$
+>
+> $$
+> 2ab=2
+> \implies
+> ab=1
+> $$
+>
+> Since $ab>0$, we must have $a=b$.
+>
+> Then
+>
+> $$
+> a^2=1
+> $$
+>
+> giving
+>
+> $$
+> z=1+i
+> \quad\text{or}\quad
+> z=-1-i
+> $$
+
+## Strategy Checklist
+
+| Task | Technique |
+|---|---|
+| Simplify $i^n$ | Compute $n \bmod 4$ |
+| Solve for complex variables | Expand and equate real/imaginary parts |
+| Eliminate $i$ from denominator | Multiply by conjugate |
+| Extract $\operatorname{Re}(z)$ or $\operatorname{Im}(z)$ | Use conjugate identities |
+| Relate $z$ and $\overline{z}$ | Use $z\overline{z}=a^2+b^2$ |
+| Solve equations like $z^2=w$ | Write $z=a+bi$ and equate parts |
+
+## Common Pitfalls
+
+- Treating $\operatorname{Im}(z)$ as $bi$ instead of $b$
+- Forgetting that $i^2=-1$
+- Incorrectly combining square roots of negative numbers
+- Confusing $z+\overline{z}$ with $2|z|$
+- Forgetting to multiply numerator *and* denominator by the conjugate
+- Changing the sign of the real part when conjugating
+
+## Remarks
+
+Everything in this module has been purely algebraic. But there is a beautiful geometric picture underneath all of it. In the next module, we interpret
+
+$$
+z=a+bi
+$$
+
+as the point $(a,b)$ in the plane and discover that conjugation is reflection, addition is vector addition, and multiplication becomes rotation and scaling.
+
+Seeing the geometry makes many of the identities here feel ~~obvious~~ almost inevitable.
+
+## Practice Problems
+
+<Problems problems="practice" />

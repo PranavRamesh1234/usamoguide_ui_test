@@ -1,0 +1,471 @@
+{
+  "MODULE_ID": "discrete-mathematics-graph-theory-matchings-marriage-lemma-tutte-s-theorem",
+  "practice": [
+    {
+      "uniqueId": "discrete-mathematics-graph-theory-matchings-marriage-lemma-tutte-s-theorem-auto-0823",
+      "name": "Harvard-MIT Math Tournament #0i5j",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recursion, bijection",
+        "Matchings, Marriage Lemma, Tutte's theorem"
+      ],
+      "statement": "Problem:\n\nMassachusetts Avenue is ten blocks long. One boy and one girl live on each block. They want to form friendships such that each boy is friends with exactly one girl and vice versa. Nobody wants a friend living more than one block away (but they may be on the same block). How many pairings are possible?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n89\n\nLet $a_n$ be the number of pairings if there are $n$ blocks; we have $a_1 = 1$, $a_2 = 2$, and we claim the Fibonacci recurrence is satisfied. Indeed, if there are $n$ blocks, either the boy on block 1 is friends with the girl on block 1, leaving $a_{n-1}$ possible pairings for the people on the remaining $n-1$ blocks, or he is friends with the girl on block 2, in which case the girl on block 1 must be friends with the boy on block 2, and then there are $a_{n-2}$ possibilities for the friendships among the remaining $n-2$ blocks. So $a_n = a_{n-1} + a_{n-2}$, and we compute: $a_3 = 3$, $a_4 = 5$, $\\ldots$, $a_{10} = 89$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-graph-theory-matchings-marriage-lemma-tutte-s-theorem-auto-0841",
+      "name": "Harvard-MIT Math Tournament #0i61",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recursion, bijection",
+        "Matchings, Marriage Lemma, Tutte's theorem"
+      ],
+      "statement": "Problem:\nA permutation of a finite set is a one-to-one function from the set to itself; for instance, one permutation of $\\{1,2,3,4\\}$ is the function $\\pi$ defined such that $\\pi(1)=1, \\pi(2)=3$, $\\pi(3)=4$, and $\\pi(4)=2$. How many permutations $\\pi$ of the set $\\{1,2, \\ldots, 10\\}$ have the property that $\\pi(i) \\neq i$ for each $i=1,2, \\ldots, 10$, but $\\pi(\\pi(i))=i$ for each $i$ ?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFor each such $\\pi$, the elements of $\\{1,2, \\ldots, 10\\}$ can be arranged into pairs $\\{i, j\\}$ such that $\\pi(i)=j ; \\pi(j)=i$. Choosing a permutation $\\pi$ is thus tantamount to choosing a partition of $\\{1,2, \\ldots, 10\\}$ into five disjoint pairs. There are 9 ways to pair off the number 1, then 7 ways to pair off the smallest number not yet paired, and so forth, so we have $9 \\cdot 7 \\cdot 5 \\cdot 3 \\cdot 1=945$ partitions into pairs."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-graph-theory-matchings-marriage-lemma-tutte-s-theorem-auto-0945",
+      "name": "Harvard-MIT Mathematics Tournament #0i8x",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Matchings, Marriage Lemma, Tutte's theorem",
+        "Recursion, bijection",
+        "Recurrence relations"
+      ],
+      "statement": "Problem:\n\na.\nLet $A_{n} = \\{a_{1}, a_{2}, a_{3}, \\ldots, a_{n}, b\\}$, for $n \\geq 3$, and let $C_{n}$ be the 2-configuration consisting of $\\{a_{i}, a_{i+1}\\}$ for all $1 \\leq i \\leq n-1$, $\\{a_{1}, a_{n}\\}$, and $\\{a_{i}, b\\}$ for $1 \\leq i \\leq n$. Let $S_{e}(n)$ be the number of subsets of $C_{n}$ that are consistent of order $e$. Find $S_{e}(101)$ for $e=1,2$, and $3$.\n\nb.\nLet $A = \\{V, W, X, Y, Z, v, w, x, y, z\\}$. Find the number of subsets of the 2-configuration\n$$\n\\begin{gathered}\n\\{\\{V, W\\},\\{W, X\\},\\{X, Y\\},\\{Y, Z\\},\\{Z, V\\},\\{v, x\\},\\{v, y\\},\\{w, y\\},\\{w, z\\},\\{x, z\\}, \\\\\n\\{V, v\\},\\{W, w\\},\\{X, x\\},\\{Y, y\\},\\{Z, z\\}\\}\n\\end{gathered}\n$$\nthat are consistent of order 1.\n\nc.\nLet $A = \\{a_{1}, b_{1}, a_{2}, b_{2}, \\ldots, a_{10}, b_{10}\\}$, and consider the 2-configuration $C$ consisting of $\\{a_{i}, b_{i}\\}$ for all $1 \\leq i \\leq 10$, $\\{a_{i}, a_{i+1}\\}$ for all $1 \\leq i \\leq 9$, and $\\{b_{i}, b_{i+1}\\}$ for all $1 \\leq i \\leq 9$. Find the number of subsets of $C$ that are consistent of order 1.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\na.\nFor convenience, we assume the $a_{i}$ are indexed modulo $101$, so that $a_{i+1} = a_{1}$ when $a_{i} = a_{101}$.\n\nIn any consistent subset of $C_{101}$ of order $1$, $b$ must be paired with exactly one $a_{i}$, say $a_{1}$. Then, $a_{2}$ cannot be paired with $a_{1}$, so it must be paired with $a_{3}$, and likewise we find we use the pairs $\\{a_{4}, a_{5}\\}, \\{a_{6}, a_{7}\\}, \\ldots, \\{a_{100}, a_{101}\\}$—and this does give us a consistent subset of order 1. Similarly, pairing $b$ with any other $a_{i}$ would give us a unique extension to a consistent configuration of order 1. Thus, we have one such 2-configuration for each $i$, giving $S_{1}(101) = 101$ altogether.\n\nIn a consistent subset of order $2$, $b$ must be paired with two other elements. Suppose one of them is $a_{i}$. Then $a_{i}$ is also paired with either $a_{i-1}$ or $a_{i+1}$, say $a_{i+1}$. But then $a_{i-1}$ needs to be paired up with two other elements, and $a_{i}$ is not available, so it must be paired with $a_{i-2}$ and $b$. Now $b$ has its two pairs determined, so nothing else can be paired with $b$. Thus, for $j \\neq i-1, i$, we have that $a_{j}$ must be paired with $a_{j-1}$ and $a_{j+1}$. So our subset must be of the form\n$$\n\\{\\{b, a_{i}\\}, \\{a_{i}, a_{i+1}\\}, \\{a_{i+1}, a_{i+2}\\}, \\ldots, \\{a_{101}, a_{1}\\}, \\ldots, \\{a_{i-2}, a_{i-1}\\}, \\{a_{i-1}, b\\}\\}\n$$\nfor some $i$. On the other hand, for any $i = 1, \\ldots, 101$, this gives a subset meeting our requirements. So, we have $101$ possibilities, and $S_{2}(101) = 101$.\n\nFinally, in a consistent subset of order $3$, each $a_{i}$ must be paired with $a_{i-1}, a_{i+1}$, and $b$. But then $b$ occurs in $101$ pairs, not just $3$, so we have a contradiction. Thus, no such subset exists, so $S_{3}(101) = 0$.\n\n\nb.\nNo more than two of the pairs $\\{v, x\\}, \\{v, y\\}, \\{w, y\\}, \\{w, z\\}, \\{x, z\\}$ may be included in a 2-configuration of order 1, since otherwise at least one of $v, w, x, y, z$ would occur more than once. If exactly one is included, say $\\{v, x\\}$, then $w, y, z$ must be paired with $W, Y, Z$, respectively, and then $V$ and $X$ cannot be paired. So either none or exactly two of the five pairs above must be used. If none, then $v, w, x, y, z$ must be paired with $V, W, X, Y, Z$, respectively, and we have $1$ 2-configuration arising in this manner. If exactly two are used, we can check that there are $5$ ways to do this without duplicating an element:\n$$\n\\{v, x\\},\\{w, y\\} \\quad \\{v, x\\},\\{w, z\\} \\quad \\{v, y\\},\\{w, z\\} \\quad \\{v, y\\},\\{x, z\\} \\quad \\{w, y\\},\\{x, z\\}\n$$\nIn each case, it is straightforward to check that there is a unique way of pairing up the remaining elements of $A$. So we get $5$ 2-configurations in this way, and the total is $6$.\n\n\nc.\nLet $A_{n} = \\{a_{1}, b_{1}, a_{2}, b_{2}, \\ldots, a_{n}, b_{n}\\}$ for $n \\geq 1$, and consider the 2-configuration $C_{n}$ consisting of $\\{a_{i}, b_{i}\\}$ for all $1 \\leq i \\leq n$, $\\{a_{i}, a_{i+1}\\}$ for all $1 \\leq i \\leq n-1$, and $\\{b_{i}, b_{i+1}\\}$ for all $1 \\leq i \\leq n-1$. Let $N_{n}$ be the number of subsets of $C_{n}$ that are consistent of order 1 (call these \"matchings\" of $C_{n}$). Consider any matching of $C_{n+2}$. Either $a_{n+2}$ is paired with $b_{n+2}$, in which case the remaining elements of our matching form a matching of $C_{n+1}$; or $a_{n+2}$ is paired with $a_{n+1}$, in which case $b_{n+2}$ must be paired with $b_{n+1}$, and the remaining elements form a matching of $C_{n}$. It follows that $N_{n+2} = N_{n+1} + N_{n}$. By direct calculation, $N_{1} = 1$ and $N_{2} = 2$, and now computing successive values of $N_{n}$ using the recurrence yields $N_{10} = 89$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-graph-theory-matchings-marriage-lemma-tutte-s-theorem-auto-1097",
+      "name": "Harvard-MIT Mathematics Tournament #0id5",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Enumeration with symmetry",
+        "Matchings, Marriage Lemma, Tutte's theorem"
+      ],
+      "statement": "Problem:\nEight strangers are preparing to play bridge. How many ways can they be grouped into two bridge games - that is, into unordered pairs of unordered pairs of people?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n315\nPutting 8 people into 4 pairs and putting those 4 pairs into 2 pairs of pairs are independent. If the people are numbered from 1 to 8, there are 7 ways to choose the person to pair with person 1. Then there are 5 ways to choose the person to pair with the person who has the lowest remaining number, 3 ways to choose the next, and 1 way to choose the last (because there are only 2 people remaining). Thus, there are $7 \\cdot 5 \\cdot 3 \\cdot 1$ ways to assign 8 people to pairs and similarly there are $3 \\cdot 1$ ways to assign 4 pairs to 2 pairs of pairs, so there are $7 \\cdot 5 \\cdot 3 \\cdot 3=315$ ways."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-graph-theory-matchings-marriage-lemma-tutte-s-theorem-auto-1255",
+      "name": "Team Selection Test #0ihj",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Matchings, Marriage Lemma, Tutte's theorem",
+        "Coloring schemes, extremal arguments",
+        "Induction / smoothing"
+      ],
+      "statement": "A communications network consisting of some terminals is called a 3-connector if among any three terminals, some two of them can directly communicate with each other. A communications network contains a windmill with $n$ blades if there exist $n$ pairs of terminals $\\{x_1, y_1\\}, \\dots, \\{x_n, y_n\\}$ such that each $x_i$ can directly communicate with the corresponding $y_i$ and there is a hub terminal that can directly communicate with each of the $2n$ terminals $x_1, y_1, \\dots, x_n, y_n$. Determine the minimum value of $f(n)$, in terms of $n$, such that a 3-connector with $f(n)$ terminals always contains a windmill with $n$ blades.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "The answer is\n$$\nf(n) = \\begin{cases} 6 & \\text{if } n = 1; \\\\ 4n + 1 & \\text{if } n \\ge 2. \\end{cases}\n$$\nWe will use *connected* as a synonym for directly communicating, call a set of $k$ terminals for which each of the $\\binom{k}{2}$ pairs of terminals is connected *complete* and call a set of $2k$ terminals forming $k$ disjoint connected pairs a *k-matching*.\n\nWe first show that $f(n) = 4n + 1$ for $n > 1$. The $4n$-terminal network consisting of two disconnected complete sets of $2n$ terminals clearly does not contain an $n$-bladed windmill (henceforth called an $n$-mill), since such a windmill requires a set of $2n+1$ connected terminals. So we need only demonstrate that $f(n) = 4n + 1$ is sufficient.\n\nNote that we can inductively create a $k$-matching in any subnetwork of $2k + 1$ elements, as there is a connected pair in any set of three or more terminals. Also, the set of terminals that are not connected to a given terminal $x$ must be complete, as otherwise there would be a set of three mutually disconnected terminals. We now proceed by contradiction and assume that there is a $(4n + 1)$-terminal network without an $n$-mill. Any terminal $x$ must then be connected to at least $2n$ terminals, for otherwise there would be a complete set of size at least $2n + 1$, which includes an $n$-mill. In addition, $x$ cannot be directly connected to more than $2n$ terminals, for otherwise we could construct an $n$-matching among these, and therefore an $n$-mill. Therefore every terminal is connected to precisely $2n$ others.\n\nIf we take two terminals $u$ and $v$ that are not connected we can then note that at least one must be connected to the $4n - 1$ remaining terminals, and therefore there must be exactly one, $w$, to which both are connected. The rest of the network now consists of two complete sets of terminals $A$ and $B$ of size $2n - 1$, where every terminal in $A$ is connected to $u$ and not connected to $v$, and every terminal in $B$ is not connected to $u$ and connected to $v$. If $w$ were connected to any terminal in $A$ or $B$, it would form a blade with this element and hub $u$ or $v$ respectively, and we could fill out the rest of an $n$-mill with terminals in $A$ or $B$ respectively. Hence $w$ is only connected to two terminals, and therefore $n = 1$.\n\n![](attached_image_1.png)\n\nExamining the preceding proof, we can find the only 5-terminal network with no 1-mill: With terminals labeled A, B, C, D, and E, the connected pairs are (A, B), (B, C), (C, D), (D, E), and (E, A). (As indicated in the figure above, a pair of terminals are connected if and only if the edge connecting them are darkened.) To show that any 6-terminal network has a 1-mill, we note that any complete set of three terminals is a 1-mill. We again work by contradiction. Any terminal *a* would have to be connected to at least three others, *b*, *c*, and *d*, or the terminals not connected to *a* would form a 1-mill. But then one of the pairs (*b*, *c*), (*c*, *d*), and (*b*, *d*) must be connected, and this creates a 1-mill with that pair and *a*."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-graph-theory-matchings-marriage-lemma-tutte-s-theorem-auto-1970",
+      "name": "13th Annual Harvard-MIT Mathematics Tournament #0j1e",
+      "url": "https://usamoguide.com/",
+      "source": "13th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recursion, bijection",
+        "Matchings, Marriage Lemma, Tutte's theorem"
+      ],
+      "statement": "Problem:\nA monomial term $x_{i_{1}} x_{i_{2}} \\ldots x_{i_{k}}$ in the variables $x_{1}, x_{2}, \\ldots, x_{8}$ is square-free if $i_{1}, i_{2}, \\ldots, i_{k}$ are distinct. (A constant term such as $1$ is considered square-free.) What is the sum of the coefficients of the squarefree terms in the following product?\n$$\n\\prod_{1 \\leq i<j \\leq 8}\\left(1+x_{i} x_{j}\\right)\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $764$\nLet $a_{n}$ be the sum of the coefficients of the square-terms in the product $\\prod_{1 \\leq i<j \\leq n}(1+ x_{i} x_{j})$. Square-free terms in this product come in two types: either they include $x_{n}$, or they do not. The sum of the coefficients of the terms that include $x_{n}$ is $(n-1) a_{n-2}$, since we can choose any of the $n-1$ other variables to be paired with $x_{n}$, and then choose any square-free term from the product taken over the other $n-2$ variables. The sum of the coefficients of the terms that do not include $x_{n}$ are $a_{n-1}$, because they all come from the product over the other $n-1$ variables. Therefore, $a_{n}=a_{n-1}+(n-1) a_{n-2}$.\n\nWe use this recursion to find $a_{8}$. As base cases, $a_{0}$ and $a_{1}$ are both $1$. Then $a_{2}=2$, $a_{3}=4$, $a_{4}=10$, $a_{5}=26$, $a_{6}=76$, $a_{7}=232$, and finally, $a_{8}=764$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-graph-theory-matchings-marriage-lemma-tutte-s-theorem-auto-2258",
+      "name": "Harvard-MIT Mathematics Tournament #0j9e",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recursion, bijection",
+        "Enumeration with symmetry",
+        "Matchings, Marriage Lemma, Tutte's theorem",
+        "φ (Euler's totient)"
+      ],
+      "statement": "Problem:\n\nFor positive odd integer $n$, let $f(n)$ denote the number of matrices $A$ satisfying the following conditions:\n- $A$ is $n \\times n$.\n- Each row and column contains each of $1,2, \\ldots, n$ exactly once in some order.\n- $A^{T}=A$. (That is, the element in row $i$ and column $j$ is equal to the one in row $j$ and column $i$, for all $1 \\leq i, j \\leq n$.)\nProve that $f(n) \\geq \\frac{n!(n-1)!}{\\varphi(n)}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe first note that the main diagonal (the squares with row number equal to column number) is a permutation of $1,2, \\ldots, n$. This is because each number $i$ ($1 \\leq i \\leq n$) appears an even number of times off the main diagonal, so must appear an odd number of times on the main diagonal. Thus, we may assume that the main diagonal's values are $1,2, \\ldots, n$ in that order. Call any matrix satisfying this condition and the problem conditions good. Let $g(n)$ denote the number of good matrices. It now remains to show that $g(n) \\geq \\frac{(n-1)!}{\\varphi(n)}$.\n\nNow, consider a round-robin tournament with $n$ teams, labeled from $1$ through $n$, with the matches spread over $n$ days such that on day $i$, all teams except team $i$ play exactly one match (so there are $\\frac{n-1}{2}$ pairings), and at the end of $n$ days, each pair of teams has played exactly once. We consider two such tournaments distinct if there is some pairing of teams $i, j$ which occurs on different days in the tournaments. We claim that the tournaments are in bijection with the good matrices.\n\nProof of Claim: Given any good matrix $A$, we construct a tournament by making day $k$ have matches between team $i$ and $j$ for each $i, j$ such that $A_{i, j}=k$, besides $(i, j)=(k, k)$. Every pair will play some day, and since each column and row contains exactly one value of each number, no team will play more than once a day. Furthermore, given two distinct good matrices, there exists a value (off the main diagonal) on which they differ; this value corresponds to the same pair playing on different dates, so the corresponding tournaments must be distinct. For the other direction, take any tournament. Make a matrix $A$ with the main diagonal as $1,2, \\ldots, n$, and for each $k$, set $A_{i, j}=k$ for each $i, j$ such that teams $i, j$ play each other on day $k$. This gives a good matrix. Similarly, given any two distinct tournaments, there exists a team pair $i, j$ which play each other on different days; this corresponds to a differing value on the corresponding good matrices.\n\nIt now suffices to exhibit $\\frac{(n-1)!}{\\varphi(n)}$ distinct tournaments. (It may be helpful here to think of the days in the tournament as an unordered collection of sets of pairings, with the order implicitly imposed by the team not present in the set of pairings.) For our construction, consider a regular $n$-gon with center $O$. Label the points as $A_{1}, A_{2}, \\ldots, A_{n}$ as an arbitrary permutation (so there are $n!$ possible labelings). The team $k$ will be represented by $A_{k}$. For each $k$, consider the line $A_{k} O$. The remaining $n-1$ vertices can be paired into $\\frac{n-1}{2}$ groups which are perpendicular to this line; use these pairings for day $k$. Of course, this doesn't generate $n!$ distinct tournaments—but how many does it make?\n\nConsider any permutation of labels. Starting from an arbitrary point, let the points of the polygon be $A_{\\pi(1)}, A_{\\pi(2)}, \\ldots, A_{\\pi(n)}$ in clockwise order. Letting $\\pi(0)=\\pi(n)$ and $\\pi(n+1)=\\pi(1)$, we note that $\\pi(i-1)$ and $\\pi(i+1)$ play each other on day $\\pi(i)$. We then see that any other permutation of labels representing the same tournament must have $A_{\\pi(i-1)} A_{\\pi(i)}=A_{\\pi(i)} A_{\\pi(i+1)}$ for all $i$. Thus, if $A_{\\pi(1)}$ is $k$ vertices clockwise of $A_{\\pi(0)}$, then $A_{\\pi(2)}$ is $k$ vertices clockwise of $A_{\\pi(1)}$, and so on all the way up to $A_{\\pi(n-1)}$ being $k$ vertices clockwise of $A_{\\pi(n)}$. This is only possible if $k$ is relatively prime to $n$, so there are $\\varphi(n)$ choices of $k$. There are $n$ choices of the place to put $A_{\\pi(1)}$, giving $n \\varphi(n)$ choices of permutations meeting this condition. It is clear that each permutation meeting this condition provides the same tournament, so the $n!$ permutations can be partitioned into equivalence classes of size $n \\varphi(n)$ each. Thus, there are $\\frac{n!}{n \\varphi(n)}$ distinct equivalence classes, and we are done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-graph-theory-matchings-marriage-lemma-tutte-s-theorem-auto-2562",
+      "name": "HMMT 2013 #0jhu",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2013",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Matchings, Marriage Lemma, Tutte's theorem",
+        "Permutations / basic group theory"
+      ],
+      "statement": "Problem:\n\nThere are $n$ children and $n$ toys such that each child has a strict preference ordering on the toys. We want to distribute the toys: say a distribution $A$ dominates a distribution $B \\neq A$ if in $A$, each child receives at least as preferable of a toy as in $B$. Prove that if some distribution is not dominated by any other, then at least one child gets his/her favorite toy in that distribution.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSuppose we have a distribution $A$ assigning each child $C_{i}$, $i=1,2, \\ldots, n$, toy $T_{i}$, such that no child $C_{i}$ gets their top preference $T_{i}^{\\prime} \\neq T_{i}$. Then, pick an arbitrary child $C_{1}$ and construct the sequence of children $C_{i_{1}}, C_{i_{2}}, C_{i_{3}}, \\ldots$ where $i_{1}=1$ and $C_{i_{k+1}}$ was assigned the favorite toy $T_{i_{k}}^{\\prime}$ of the last child $C_{i_{k}}$. Eventually, some $C_{i_{k}}=C_{i_{1}}$; at this point, just pass the toys around this cycle so that each of these children gets their favorite toy. Clearly the resulting distribution dominates the original, so we're done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-graph-theory-matchings-marriage-lemma-tutte-s-theorem-auto-2657",
+      "name": "HMMT 2014 #0jkh",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2014",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Matchings, Marriage Lemma, Tutte's theorem",
+        "Coloring schemes, extremal arguments"
+      ],
+      "statement": "Problem:\n\nThere are $n$ girls $G_{1}, \\ldots, G_{n}$ and $n$ boys $B_{1}, \\ldots, B_{n}$. A pair $(G_{i}, B_{j})$ is called suitable if and only if girl $G_{i}$ is willing to marry boy $B_{j}$. Given that there is exactly one way to pair each girl with a distinct boy that she is willing to marry, what is the maximal possible number of suitable pairs?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $\\frac{n(n+1)}{2}$\n\nWe represent the problem as a graph with vertices $G_{1}, \\ldots, G_{n}, B_{1}, \\ldots, B_{n}$ such that there is an edge between vertices $G_{i}$ and $B_{j}$ if and only if $(G_{i}, B_{j})$ is suitable, so we want to maximize the number of edges while having a unique matching.\n\nWe claim the answer is $\\frac{n(n+1)}{2}$. First, note that this can be achieved by having an edge between $G_{i}$ and $B_{j}$ for all pairs $j \\leq i$, because the only possible matching in this case is pairing $G_{i}$ with $B_{i}$ for all $i$.\n\nTo prove that this is maximal, we first assume without loss of generality that our unique matching consists of pairing $G_{i}$ with $B_{i}$ for all $i$, which takes $n$ edges. Now, note that for any $i, j$, at most one of the two edges $G_{i} B_{j}$ and $G_{j} B_{i}$ can be added, because if both were added, we could pair $G_{i}$ with $B_{j}$ and $G_{j}$ with $B_{i}$ instead to get another valid matching. Therefore, we may add at most $\\binom{n}{2} \\cdot 1 = \\frac{n(n-1)}{2}$ edges, so the maximal number of edges is $n + \\frac{n(n-1)}{2} = \\frac{n(n+1)}{2}$ as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-graph-theory-matchings-marriage-lemma-tutte-s-theorem-auto-3172",
+      "name": "HMIC #0jys",
+      "url": "https://usamoguide.com/",
+      "source": "HMIC",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Matchings, Marriage Lemma, Tutte's theorem",
+        "Pigeonhole principle",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\n\nLet $G$ be a weighted bipartite graph $A \\cup B$, with $|A|=|B|=n$. In other words, each edge in the graph is assigned a positive integer value, called its weight. Also, define the weight of a perfect matching in $G$ to be the sum of the weights of the edges in the matching.\nLet $G'$ be the graph with vertex set $A \\cup B$, and contains the edge $e$ if and only if $e$ is part of some minimum weight perfect matching in $G$.\nShow that all perfect matchings in $G'$ have the same weight.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $m$ denote the minimum weight of a matching in $G$. Let $G''$ be the (multi)graph formed by taking the union of all minimum weight perfect matchings, but keeping edges multiple times. Note that $G''$ is regular. Now, assume that some perfect matching in $G'$ (equivalently $G''$) has weight $M > m$. Delete this matching from $G''$, and call the resulting graph $H$. $H$ is still regular, so it can be decomposed into a union of perfect matchings. Now using pigeonhole directly gives us a contradiction.\n\nTo show that all regular bipartite graphs can be decomposed into a union of perfect matchings, use Hall's marriage lemma to take out one perfect matching and use induction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-graph-theory-matchings-marriage-lemma-tutte-s-theorem-auto-3214",
+      "name": "February 2017 #0jzy",
+      "url": "https://usamoguide.com/",
+      "source": "February 2017",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Matchings, Marriage Lemma, Tutte's theorem"
+      ],
+      "statement": "Problem:\n\nThere are 2017 frogs and 2017 toads in a room. Each frog is friends with exactly 2 distinct toads. Let $N$ be the number of ways to pair every frog with a toad who is its friend, so that no toad is paired with more than one frog. Let $D$ be the number of distinct possible values of $N$, and let $S$ be the sum of all possible values of $N$. Find the ordered pair $(D, S)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $\\left(1009,2^{1009}-2\\right)$\n\nI claim that $N$ can equal $0$ or $2^{i}$ for $1 \\leq i \\leq 1008$. We prove this now. Note that the average number of friends a toad has is also $2$. If there is a toad with $0$ friends, then clearly $N=0$. If a toad has $1$ friend, then it must be paired with its only friend, so we have reduced to a smaller case. Otherwise, all toads and frogs have exactly degree $2$, so the graph is a union of cycles. Each cycle can be paired off in exactly two ways. The number of cycles can range anywhere from $1$ to $1008$, and this completes the proof.\n\nTo construct all $N=2^{1}, 2^{2}, \\ldots, 2^{1008}$, we can simply let our graph be a union of $i$ cycles, which would have $2^{i}$ matchings. Clearly we can choose any $i=1,2, \\ldots, 1008$.\n\nTherefore, $D=1009$ and $S=2^{1}+2^{2}+\\cdots+2^{1008}=2^{1009}-2$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-graph-theory-matchings-marriage-lemma-tutte-s-theorem-auto-3257",
+      "name": "HMMT November 2018 #0k15",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2018",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Counting two ways",
+        "Matchings, Marriage Lemma, Tutte's theorem",
+        "Coloring schemes, extremal arguments"
+      ],
+      "statement": "Problem:\n\nOne million bucks (i.e. one million male deer) are in different cells of a $1000 \\times 1000$ grid. The left and right edges of the grid are then glued together, and the top and bottom edges of the grid are glued together, so that the grid forms a doughnut-shaped torus. Furthermore, some of the bucks are honest bucks, who always tell the truth, and the remaining bucks are dishonest bucks, who never tell the truth. Each of the million bucks claims that \"at most one of my neighboring bucks is an honest buck.\" A pair of neighboring bucks is said to be buckaroo if exactly one of them is an honest buck. What is the minimum possible number of buckaroo pairs in the grid?\n\nNote: Two bucks are considered to be neighboring if their cells $\\left(x_{1}, y_{1}\\right)$ and $\\left(x_{2}, y_{2}\\right)$ satisfy either: $x_{1}=x_{2}$ and $y_{1}-y_{2} \\equiv \\pm 1(\\bmod 1000)$, or $x_{1}-x_{2} \\equiv \\pm 1(\\bmod 1000)$ and $y_{1}=y_{2}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nNote that each honest buck has at most one honest neighbor, and each dishonest buck has at least two honest neighbors. The connected components of honest bucks are singles and pairs. Then if there are $K$ honest bucks and $B$ buckaroo pairs, we get $B \\geq 3K$. From the dishonest buck condition we get $B \\geq 2(1000000-K)$, so we conclude that $B \\geq 1200000$. To find equality, partition the grid into five different parts with side $\\sqrt{5}$, and put honest bucks on every cell in two of the parts."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-graph-theory-matchings-marriage-lemma-tutte-s-theorem-auto-3402",
+      "name": "HMMT November 2018 #0k56",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2018",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Expected values",
+        "Matchings, Marriage Lemma, Tutte's theorem"
+      ],
+      "statement": "Problem:\n\n20 players are playing in a Super Smash Bros. Melee tournament. They are ranked $1-20$, and player $n$ will always beat player $m$ if $n < m$. Out of all possible tournaments where each player plays 18 distinct other players exactly once, one is chosen uniformly at random. Find the expected number of pairs of players that win the same number of games.\n\nProposed by: Anders Olsen",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nConsider instead the complement of the tournament: The 10 possible matches that are not played. In order for each player to play 18 games in the tournament, each must appear once in these 10 unplayed matches. Players $n$ and $n+1$ will win the same number of games if, in the matching, they are matched with each other, or $n$ plays a player $a > n+1$ and $n+1$ plays a player $b < n$. (Note no other pairs of players can possibly win the same number of games.) The first happens with probability $\\frac{1}{19}$ (as there are 19 players for player $n$ to be paired with), and the second happens with probability $\\frac{(n-1)(20-n-1)}{19 \\cdot 17}$.\n\nBy linearity of expectation, the expected number of pairs of players winning the same number of games is the sum of these probabilities. We compute\n$$\n\\sum_{n=1}^{19}\\left(\\frac{1}{19}+\\frac{(n-1)(20-n-1)}{323}\\right)=\\sum_{n=0}^{18}\\left(\\frac{1}{19}+\\frac{n(18-n)}{323}\\right)=1+\\frac{\\binom{19}{3}}{323}=4\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-graph-theory-matchings-marriage-lemma-tutte-s-theorem-auto-3409",
+      "name": "USA TSTST #0k5d",
+      "url": "https://usamoguide.com/",
+      "source": "USA TSTST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Matchings, Marriage Lemma, Tutte's theorem"
+      ],
+      "statement": "In the nation of Onewaynia, certain pairs of cities are connected by one-way roads. Every road connects exactly two cities (roads are allowed to cross each other, e.g., via bridges), and each pair of cities has at most one road between them. Moreover, every city has exactly two roads leaving it and exactly two roads entering it.\nWe wish to close half the roads of Onewaynia in such a way that every city has exactly one road leaving it and exactly one road entering it. Show that the number of ways to do so is a power of 2 greater than 1 (i.e. of the form $2^n$ for some integer $n \\ge 1$).",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "In the language of graph theory, we have a simple digraph $G$ which is 2-regular and we seek the number of sub-digraphs which are 1-regular. We now present two solution paths.\n\n**First solution, combinatorial** We construct a simple undirected bipartite graph $\\Gamma$ as follows:\n* the vertex set consists of two copies of $V(G)$, say $V_{\\text{out}}$ and $V_{\\text{in}}$; and\n* for $v \\in V_{\\text{out}}$ and $w \\in V_{\\text{in}}$ we have an undirected edge $vw \\in E(\\Gamma)$ if and only if the directed edge $v \\to w$ is in $G$.\nMoreover, the desired sub-digraphs of $H$ correspond exactly to perfect matchings of $\\Gamma$. However the graph $\\Gamma$ is 2-regular and hence consists of several disjoint (simple) cycles of even length. If there are $n$ such cycles, the number of perfect matchings is $2^n$, as desired.\n\n\n**Second solution by linear algebra over $\\mathbb{F}_2$ (Brian Lawrence)** This is actually not that different from the first solution. For each edge $e$, we create an indicator variable $x_e$. We then require for each vertex $v$ that:\n* If $e_1$ and $e_2$ are the two edges leaving $v$, then we require $x_{e_1} + x_{e_2} \\equiv 1 \\pmod 2$.\n* If $e_3$ and $e_4$ are the two edges entering $v$, then we require $x_{e_3} + x_{e_4} \\equiv 1 \\pmod 2$.\n\nWe thus get a large system of equations. Moreover, the solutions come in natural pairs $\\vec{x}$ and $\\vec{x} + \\vec{1}$ and therefore the number of solutions is either zero, or a power of two. So we just have to prove there is at least one solution.\nFor linear algebra reasons, there can only be zero solutions if some nontrivial linear combination of the equations gives the sum $0 \\equiv 1$. So suppose we added up some subset $S$ of the equations for which every variable appeared on the left-hand side an even number of times. Then every variable that did appear appeared exactly twice; and accordingly we see that the edges corresponding to these variables form one or more even cycles as in the previous solution. Of course, this means $|S|$ is even, so we really have $0 \\equiv 0 \\pmod 2$ as needed."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-graph-theory-matchings-marriage-lemma-tutte-s-theorem-auto-3467",
+      "name": "HMMT February 2019 #0k6z",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2019",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Matchings, Marriage Lemma, Tutte's theorem",
+        "Linear and quadratic inequalities",
+        "Coloring schemes, extremal arguments"
+      ],
+      "statement": "Problem:\n\nThere are 100 people in a room with ages $1, 2, \\ldots, 100$. A pair of people is called cute if each of them is at least seven years older than half the age of the other person in the pair. At most how many pairwise disjoint cute pairs can be formed in this room?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFor a cute pair $(a, b)$ we would have\n$$\na \\geq \\frac{b}{2} + 7, \\quad b \\geq \\frac{a}{2} + 7\n$$\nSolving the system, we get that $a$ and $b$ must both be at least $14$. However, $14$ could only be paired with itself or a smaller number; therefore, only people with age $15$ or above can be paired with someone of different age. Pairing consecutive numbers $(15,16), (17,18), \\ldots, (99,100)$ works, giving $\\frac{100-14}{2} = 43$ pairs."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-graph-theory-matchings-marriage-lemma-tutte-s-theorem-auto-3639",
+      "name": "HMMT February 2020 #0kbr",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2020",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Matchings, Marriage Lemma, Tutte's theorem",
+        "Divisibility / Factorization"
+      ],
+      "statement": "Problem:\nLet $n$ be a fixed positive integer, and choose $n$ positive integers $a_{1}, \\ldots, a_{n}$. Given a permutation $\\pi$ on the first $n$ positive integers, let $S_{\\pi}=\\left\\{i \\left\\lvert\\, \\frac{a_{i}}{\\pi(i)}\\right.\\right.$ is an integer $\\}$. Let $N$ denote the number of distinct sets $S_{\\pi}$ as $\\pi$ ranges over all such permutations. Determine, in terms of $n$, the maximum value of $N$ over all possible values of $a_{1}, \\ldots, a_{n}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe answer is $2^{n}-n$.\n\nLet $D=\\left(d_{i j}\\right)$ be the matrix where $d_{i j}$ is $1$ if $i$ is a divisor of $a_{j}$ and $0$ otherwise. For a subset $S$ of $[n]$, let $D_{S}$ be the matrix obtained from $D$ by flipping $(0 \\leftrightarrow 1)$ every entry $d_{i j}$ where $j \\notin S$. Observe that $S=S_{\\pi}$ if and only if $\\left(D_{S}\\right)_{\\pi(i) i}=1$ for all $i$.\n\nTo show that $N \\leq 2^{n}-n$ we consider two cases. If all the rows of $D$ are distinct, then there exist $n$ different possibilities for $S$ that set a row equal to zero. In this case, there is clearly no $\\pi$ so that $S_{\\pi}=S$. Thus there are at most $2^{n}-n$ possible $S_{\\pi}$. Otherwise, if two rows in $D$ are the same, then choose an $S_{0}$ such that $D_{S_{0}}$ has two zero rows. Then, the $n+1$ sets $S$ that are at most \"one element away\" from $S_{0}$ are such that $D_{S}$ only has one column with nonzero entries in those two rows. This makes it impossible for $S_{\\pi}=S$ as well, so $N \\leq 2^{n}-n-1$.\n\nNow we construct $N=2^{n}-n$ by setting $a_{j}=j$. By Hall's marriage theorem, it suffices to prove the following:\n\nAssuming that $D_{S}$ has no completely-zero rows, given a set $I=\\left\\{i_{1}, i_{2}, \\ldots, i_{k}\\right\\}$ there exist at least $k$ values of $j$ so that there exists an $i \\in I$ so that $\\left(D_{S}\\right)_{i j}=1$. Call such $j$ admissible.\n\nWithout loss of generality assume $i_{1}<i_{2}<\\cdots<i_{k}$.\n\nNote that if $\\left\\{d_{i j} \\mid i \\in I\\right\\}=\\{0,1\\}$, then $j$ is admissible. Therefore the $k-1$ numbers $i_{1}, i_{2}, \\ldots, i_{k-1}$ are admissible, since for $\\alpha<k, i_{\\alpha}$ divides $i_{\\alpha}$ but $i_{k}$ does not. So we only need to find one more admissible $j$. Assume that $i_{k}$ is not admissible; now it must be the case that all the $i_{\\alpha}$ are divisors of $i_{k}$.\n\nAt this point we note that the $k=1$ case is easy, since no row of $D_{S}$ is zero. Moreover, if $k=2$, $\\left\\{\\left(D_{S}\\right)_{i_{1} i_{1}},\\left(D_{S}\\right)_{i_{2} i_{1}}\\right\\}=\\{0,1\\}$, so in the row with the zero there must be $1$ somewhere, yielding a second admissible column.\n\nIn the case where $k \\geq 3$, note that $i_{1} \\leq i_{k} / 3$. Therefore $i_{k}-i_{1} \\notin I$, but $i_{1}$ divides $i_{k}-i_{1}$ and $i_{k}$ does not. Thus we have found the last admissible column. Having exhausted all cases, we are done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-graph-theory-matchings-marriage-lemma-tutte-s-theorem-auto-4361",
+      "name": "HMMT November #0kvt",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Matchings, Marriage Lemma, Tutte's theorem",
+        "Pigeonhole principle",
+        "Games / greedy algorithms"
+      ],
+      "statement": "Problem:\n\nThere are 17 people at a party, and each has a reputation that is either $1, 2, 3, 4$, or $5$. Some of them split into pairs under the condition that within each pair, the two people's reputations differ by at most $1$. Compute the largest value of $k$ such that no matter what the reputations of these people are, they are able to form $k$ pairs.\n\nProposed by: Albert Wang",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFirst, note that $k=8$ fails when there are $15, 0, 1, 0, 1$ people of reputation $1, 2, 3, 4, 5$, respectively. This is because the two people with reputation $3$ and $5$ cannot pair with anyone, and there can only be at maximum $\\left\\lfloor\\frac{15}{2}\\right\\rfloor = 7$ pairs of people with reputation $1$.\n\nNow, we show that $k=7$ works. Suppose that we keep pairing people until we cannot make a pair anymore. Consider that moment. If there are two people with the same reputation, then these two people can pair up. Thus, there is at most one person for each reputation. Furthermore, if there are at least $4$ people, then there must exist two people of consecutive reputations, so they can pair up. Thus, there are at most $3$ people left, so we have formed at least $\\frac{17-3}{2} = 7$ pairs."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-graph-theory-matchings-marriage-lemma-tutte-s-theorem-auto-4694",
+      "name": "AIME II #0l52",
+      "url": "https://usamoguide.com/",
+      "source": "AIME II",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Matchings, Marriage Lemma, Tutte's theorem",
+        "Greatest common divisors (gcd)"
+      ],
+      "statement": "Let $S$ be the set of vertices of a regular $24$-gon. Find the number of ways to draw $12$ segments of equal lengths so that each vertex in $S$ is an endpoint of exactly one of the $12$ segments.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-graph-theory-matchings-marriage-lemma-tutte-s-theorem-auto-4760",
+      "name": "USAMO #0l6w",
+      "url": "https://usamoguide.com/",
+      "source": "USAMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Matchings, Marriage Lemma, Tutte's theorem",
+        "Menger's theorem / max-flow, min-cut",
+        "Coloring schemes, extremal arguments"
+      ],
+      "statement": "Let $m$ and $n$ be positive integers with $m \\ge n$. There are $m$ cupcakes of different flavors arranged around a circle and $n$ people who like cupcakes. Each person assigns a nonnegative real number score to each cupcake, depending on how much they like the cupcake. Suppose that for each person $P$, it is possible to partition the circle of $m$ cupcakes into $n$ groups of consecutive cupcakes so that the sum of $P$'s scores of the cupcakes in each group is at least 1. Prove that it is possible to distribute the $m$ cupcakes to the $n$ people so that each person $P$ receives cupcakes of total score at least 1 with respect to $P$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-graph-theory-matchings-marriage-lemma-tutte-s-theorem-auto-4807",
+      "name": "2025 AIME I #0l87",
+      "url": "https://usamoguide.com/",
+      "source": "2025 AIME I",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Matchings, Marriage Lemma, Tutte's theorem"
+      ],
+      "statement": "The twelve letters A, B, C, D, E, F, G, H, I, J, K, and L are randomly grouped into six pairs of letters. The two letters in each pair are placed next to each other in alphabetical order to form six two-letter words, and then those six words are listed alphabetically. For example, a possible result is AB, CJ, DG, EK, FL, HI. The probability that the last word listed contains G is $\\frac{m}{n}$, where $m$ and $n$ are relatively prime positive integers. Find $m+n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "There are $11 \\cdot 9 \\cdot 7 \\cdot 5 \\cdot 3 \\cdot 1$ equally likely ways for the letters to be paired. This can be seen by considering the successive choices of a partner for the unpaired letter that comes first alphabetically. The letter $G$ is the first letter in its pair, and its pair is listed last if $G$ is paired with $H$, $I$, $J$, $K$, or $L$ (5 choices), two of $A$, $B$, $C$, $D$, $E$, and $F$ are paired with each other ($\\binom{6}{2} = 15$ choices), and the 4 remaining early letters are paired with the 4 remaining late letters ($4! = 24$ choices). The letter $G$ is the second letter in its pair, and its pair is listed last if $G$ is paired with $F$ and each of $A$ through $E$ is paired with one of $H$ through $L$. This can happen in $5! = 120$ ways. Therefore\n$$\n\\frac{m}{n} = \\frac{5 \\cdot 15 \\cdot 24 + 120}{11 \\cdot 9 \\cdot 7 \\cdot 5 \\cdot 3 \\cdot 1} = \\frac{15 \\cdot 8 + 8}{11 \\cdot 9 \\cdot 7} = \\frac{128}{693}.\n$$\nThe requested sum is $128 + 693 = 821$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

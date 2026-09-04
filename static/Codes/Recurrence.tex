@@ -1,0 +1,425 @@
+\documentclass[12pt]{extarticle}
+
+% Unified preamble from MASTER_COMBINED.tex
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{cancel}
+\usepackage{setspace}
+\usepackage[hidelinks]{hyperref}
+\usepackage{tikzpagenodes}
+
+\geometry{margin=1in}
+
+\setlength{\parskip}{0.45em}
+\setlength{\parindent}{0pt}
+\setlength{\headheight}{15pt}
+\setstretch{1.18}
+\raggedbottom
+
+% Global header: © 2025 Pranav Ramesh. All rights reserved. www.lambdamath.dev on every page
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\textcopyright\ 2025 Pranav Ramesh. All rights reserved. www.lambdamath.dev}
+\fancyfoot[C]{\thepage}\fancyfoot[R]{\small\textcopyright\ 2025 Pranav Ramesh.}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyhead[C]{\textcopyright\ 2025 Pranav Ramesh. All rights reserved. www.lambdamath.dev}
+    \fancyfoot[C]{\thepage}\fancyfoot[R]{\small\textcopyright\ 2025 Pranav Ramesh.}
+    \renewcommand{\headrulewidth}{0.4pt}
+    \renewcommand{\footrulewidth}{0pt}
+}
+
+\usetikzlibrary{shapes, arrows, positioning, calc, angles, quotes}
+
+% Watermark
+\usepackage{background}
+\usepackage{hyperref} % if already loaded elsewhere, keep it
+\usepackage{tikz}
+
+\backgroundsetup{
+    scale=1, % Increased scale to cover more area
+    angle=0,
+    opacity=0.1,
+    contents={
+        \tikz[remember picture, overlay]
+            \node[
+                rotate=45,
+                font=\fontsize{300}{300}\bfseries, % Increased font size
+                inner sep=0pt,
+                color=gray % Changed color to gray
+            ]
+            at (current page.center)
+            {LambdaMath.dev};
+    }
+}
+
+% Unified styled boxes
+\newtcolorbox{conceptbox}[1][]{
+    colback=blue!5!white,
+    colframe=blue!75!black,
+    title=#1,
+    fonttitle=\bfseries
+}
+
+\newtcolorbox{remarkbox}{
+    colback=green!5!white,
+    colframe=green!60!black,
+    fonttitle=\bfseries,
+    title=Remark
+}
+
+\newtcolorbox{examplebox}{
+    colback=orange!5!white,
+    colframe=orange!75!black,
+    fonttitle=\bfseries,
+    title=Example
+}
+
+\newtcolorbox{warningbox}{
+    colback=red!5!white,
+    colframe=red!75!black,
+    fonttitle=\bfseries,
+    title=Warning
+}
+
+\newtcolorbox{theorembox}{
+    colback=purple!5!white,
+    colframe=purple!75!black,
+    fonttitle=\bfseries,
+    title=Theorem
+}
+
+\newtcolorbox{solutionbox}{
+    colback=yellow!5!white,
+    colframe=orange!75!black,
+    fonttitle=\bfseries,
+    title=Solution
+}
+
+\newtcolorbox{insightbox}{
+    colback=teal!5!white,
+    colframe=teal!70!black,
+    fonttitle=\bfseries,
+    title=Insight / Remark
+}
+
+\newtcolorbox{methodsummarybox}{
+    colback=gray!6!white,
+    colframe=gray!70!black,
+    fonttitle=\bfseries,
+    title=Method Summary
+}
+
+\newtcolorbox{commonpitfallsbox}{
+    colback=red!3!white,
+    colframe=red!60!black,
+    fonttitle=\bfseries,
+    title=Common Pitfalls
+}
+
+% Difficulty tag and labels
+\newcommand{\difftag}[1]{\textbf{[#1]}}
+\newcommand{\difficulty}[1]{\textbf{(#1)}\,}
+
+% Proof-style environments
+\newenvironment{FormalProof}{\begin{solutionbox}\textbf{Formal Proof.} }{\end{solutionbox}}
+\newenvironment{ProofSketch}{\begin{solutionbox}\textbf{Proof Sketch.} }{\end{solutionbox}}
+\newenvironment{Heuristic}{\begin{insightbox}\textbf{Heuristic / Intuition.} }{\end{insightbox}}
+
+% Numbered theorems within sections
+\newtcbtheorem[number within=section]{definition}{Definition}{
+    colback=gray!5!white,
+    colframe=gray!50!black,
+    coltitle=black,
+    fonttitle=\bfseries,
+    title={Definition~\thetcbcounter}
+}{def}
+
+\newtcbtheorem[number within=section]{theorem}{Theorem}{
+    colback=purple!5!white,
+    colframe=purple!70!black,
+    coltitle=black,
+    fonttitle=\bfseries,
+    title={Theorem~\thetcbcounter}
+}{thm}
+
+\newtcbtheorem[number within=section]{strategy}{Strategy}{
+    colback=teal!4!white,
+    colframe=teal!70!black,
+    coltitle=black,
+    fonttitle=\bfseries,
+    title={Strategy~\thetcbcounter}
+}{strat}
+
+\newtcbtheorem[number within=section]{example}{Example}{
+    colback=orange!5!white,
+    colframe=orange!75!black,
+    coltitle=black,
+    fonttitle=\bfseries,
+    title={Example~\thetcbcounter}
+}{ex}
+
+\newtcbtheorem[number within=section]{commonmistake}{Common Mistake}{
+    colback=red!5!white,
+    colframe=red!75!black,
+    coltitle=black,
+    fonttitle=\bfseries,
+    title={Common Mistake~\thetcbcounter}
+}{cm}
+
+\title{Recurrence Relations Quick Guide}
+\author{}
+\date{\today}
+
+\begin{document}
+
+\begin{titlepage}
+\centering
+\vspace*{2cm}
+
+{\Huge\bfseries Recurrence Relations for AMC}\\[0.5cm]
+{\Large Competition Problem Solving}\\[2cm]
+
+{\large AMC 10 $\cdot$ AMC 12 $\cdot$ AIME}\\[3cm]
+
+{\Large A Strategic Guide to\\[0.3cm]
+Characteristic Equations and Closed Forms}\\[3cm]
+{\Large\textbf{Pranav Ramesh}}\\[3cm]
+\vfill
+
+{\large 23 Dec 2025 (Version 1)}
+\end{titlepage}
+
+% Copyright Page
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+\textbf{\Large Copyright \textcopyright\ 2025 Pranav Ramesh}
+
+All rights reserved.
+
+This work is protected under the Copyright Act, 1957 (India).
+
+\vspace{1.5cm}
+
+This publication is the original work of Pranav Ramesh published under the imprint LambdaMath.
+
+\vspace{1.5cm}
+
+No part of this work may be reproduced, stored, transmitted, or distributed in any form or by any means, electronic, mechanical, photocopying, recording, or otherwise, without prior written permission of the copyright holder, except for brief quotations for educational or review purposes.
+
+\vspace{1.5cm}
+
+First published on 23 Dec 2025 at: www{.}lambdamath{.}dev
+
+For permissions: pranavramesh2017@gmail{.}com
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+% Dedication Page
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+\Large
+
+\textbf{Dedicated to}
+
+\vspace{1cm}
+
+Mr. Krishna Rao, My highschool mathematics teacher,
+
+Mr. Siva Rama Praveen K, Principal,
+
+Mr. Rajashekar Reddy, AGM, and
+
+Mrs. Sumathi, My mathematics mentor,
+
+\vspace{1cm}
+
+for their guidance, encouragement, and belief in the value of rigorous thinking.
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+	\tableofcontents
+\newpage
+
+\section*{Preface}
+\addcontentsline{toc}{section}{Preface}
+
+This quick guide is for AMC/AIME students who need a fast, reliable method to turn common linear recurrences into closed forms.
+
+	\textbf{You should use this guide if you:}
+\begin{itemize}
+    \item Want to recall the characteristic equation method instantly
+    \item Need to handle repeated roots and non-homogeneous parts without hesitation
+    \item Prefer a compact, contest-ready reference
+\end{itemize}
+
+\subsection*{What Makes This Guide Different}
+We focus on the minimal toolkit: characteristic equations, handling repeated roots, and quick particular solutions—exactly what contests need.
+
+\subsection*{How to Use This Guide}
+\begin{enumerate}
+    \item Memorize the characteristic equation workflow.
+    \item Practice with small recurrences until steps are automatic.
+    \item Check each guess for the particular solution against the homogeneous part.
+\end{enumerate}
+
+\subsection*{Prerequisites}
+Comfort with algebra, basic polynomials, and simple induction.
+
+\subsection*{Beyond This Guide}
+Work past AMC/AIME recurrences; after solving, note the pattern (constant-coefficient, shift, or inhomogeneous term) and the successful particular guess.
+
+\subsection*{Acknowledgements}
+Thanks to contest authors whose problems motivate these methods.
+
+\newpage
+
+\section*{Solving Linear Recurrence Relations Explicitly}
+
+\subsection*{1. General Form}
+
+A linear recurrence with constant coefficients has the form:
+\[
+f(n) = c_1 f(n-1) + c_2 f(n-2) + \dots + c_k f(n-k) + g(n),
+\]
+where \(c_1, \dots, c_k\) are constants and \(g(n)\) is some function of \(n\) (possibly zero).
+
+\textbf{Goal:} Find \(f(n)\) explicitly in terms of \(n\).
+
+\subsection*{2. Steps to Solve}
+
+\subsubsection*{Step 1: Solve the Homogeneous Part}
+
+Ignore \(g(n)\) for now. Solve:
+\[
+f_h(n) = c_1 f_h(n-1) + c_2 f_h(n-2) + \dots + c_k f_h(n-k).
+\]
+
+\textbf{Characteristic Equation:} Assume \(f_h(n) = r^n\), then substitute into the homogeneous recurrence:
+\[
+r^n = c_1 r^{n-1} + c_2 r^{n-2} + \dots + c_k r^{n-k}.
+\]
+
+Divide through by \(r^{n-k}\):
+\[
+r^k - c_1 r^{k-1} - c_2 r^{k-2} - \dots - c_k = 0.
+\]
+
+Solve this polynomial to get roots \(r_1, r_2, \dots, r_m\) (some may be repeated).
+
+\textbf{Homogeneous solution:}
+\[
+f_h(n) =
+\begin{cases}
+A_1 r_1^n + A_2 r_2^n + \dots + A_m r_m^n & \text{if all roots distinct} \\
+\text{Include powers of } n \text{ for repeated roots.}
+\end{cases}
+\]
+
+\subsubsection*{Step 2: Solve the Particular Part}
+
+Now consider the non-homogeneous part \(g(n)\). Guess a solution \(f_p(n)\) in the same form as \(g(n)\):
+\[
+g(n) = a(n) r^n + b(n) n^s r^n + \dots
+\]
+
+\textbf{Important:} If your guess duplicates a term in the homogeneous solution, multiply by \(n\) enough times to make it linearly independent.
+
+\subsubsection*{Step 3: General Solution}
+
+Combine homogeneous and particular solutions:
+\[
+f(n) = f_h(n) + f_p(n).
+\]
+
+Use initial conditions to solve for constants \(A_1, \dots, A_m\).
+
+\subsection*{3. Example 1: Fibonacci Sequence}
+
+\[
+f(n) = f(n-1) + f(n-2), \quad f(0)=0, f(1)=1.
+\]
+
+\textbf{Characteristic equation:}
+\[
+r^2 - r - 1 = 0 \implies r = \frac{1\pm \sqrt{5}}{2}.
+\]
+
+\textbf{Homogeneous solution:}
+\[
+f_h(n) = A \left(\frac{1+\sqrt{5}}{2}\right)^n + B \left(\frac{1-\sqrt{5}}{2}\right)^n.
+\]
+
+\textbf{Since } g(n)=0, the particular solution is zero.
+
+Use initial conditions:
+\[
+\begin{cases}
+f(0) = A + B = 0 \\
+f(1) = A \frac{1+\sqrt{5}}{2} + B \frac{1-\sqrt{5}}{2} = 1
+\end{cases} \implies A = \frac{1}{\sqrt{5}}, B = -\frac{1}{\sqrt{5}}.
+\]
+
+\[
+\boxed{f(n) = \frac{1}{\sqrt{5}}\left[ \left(\frac{1+\sqrt{5}}{2}\right)^n - \left(\frac{1-\sqrt{5}}{2}\right)^n \right]}
+\]
+
+\subsection*{4. Example 2: Recurrence with Non-Homogeneous Part}
+
+\[
+f(n) = 2 f(n-1) - 2^n, \quad f(0)=5.
+\]
+
+\textbf{Step 1: Homogeneous:} Solve \(f_h(n) = 2 f_h(n-1)\), characteristic root \(r=2\), so
+\[
+f_h(n) = C 2^n.
+\]
+
+\textbf{Step 2: Particular:} Guess \(f_p(n) = A n 2^n\) because \(2^n\) is already in homogeneous solution.  
+Plug in:
+\[
+A n 2^n = 2 A (n-1) 2^{n-1} - 2^n \implies A = -1
+\]
+
+\textbf{Step 3: General solution:} \(f(n) = f_h(n) + f_p(n) = C 2^n - n 2^n\).  
+
+Use initial condition \(f(0)=5 \implies C = 5\).  
+
+\[
+\boxed{f(n) = (5 - n) 2^n}.
+\]
+
+\subsection*{5. Summary Table of Strategy}
+
+\begin{enumerate}
+    \item Identify if recurrence is linear with constant coefficients.
+    \item Solve homogeneous part via characteristic equation.
+    \item Find particular solution for non-homogeneous part:
+    \begin{itemize}
+        \item Guess similar to \(g(n)\).
+        \item Multiply by powers of \(n\) if necessary.
+    \end{itemize}
+    \item Combine solutions and apply initial conditions.
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,1811 @@
+\documentclass[12pt]{extarticle}
+
+% Unified preamble from MASTER_COMBINED.tex
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{cancel}
+\usepackage{setspace}
+\usepackage[hidelinks]{hyperref}
+\usepackage{tikzpagenodes}
+
+\geometry{margin=1in}
+
+\setlength{\parskip}{0.45em}
+\setlength{\parindent}{0pt}
+\setlength{\headheight}{15pt}
+\setstretch{1.18}
+\raggedbottom
+
+% Global header: © 2025 Pranav Ramesh. All rights reserved. www.lambdamath.dev on every page
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\textcopyright\ 2025 Pranav Ramesh. All rights reserved. www.lambdamath.dev}
+\fancyfoot[C]{\thepage}\fancyfoot[R]{\small\textcopyright\ 2025 Pranav Ramesh.}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyhead[C]{\textcopyright\ 2025 Pranav Ramesh. All rights reserved. www.lambdamath.dev}
+    \fancyfoot[C]{\thepage}\fancyfoot[R]{\small\textcopyright\ 2025 Pranav Ramesh.}
+    \renewcommand{\headrulewidth}{0.4pt}
+    \renewcommand{\footrulewidth}{0pt}
+}
+
+\usetikzlibrary{shapes, arrows, positioning, calc, angles, quotes}
+
+% Watermark
+\usepackage{background}
+\usepackage{hyperref} % if already loaded elsewhere, keep it
+\usepackage{tikz}
+
+\backgroundsetup{
+    scale=1, % Increased scale to cover more area
+    angle=0,
+    opacity=0.1,
+    contents={
+        \tikz[remember picture, overlay]
+            \node[
+                rotate=45,
+                font=\fontsize{300}{300}\bfseries, % Increased font size
+                inner sep=0pt,
+                color=gray % Changed color to gray
+            ]
+            at (current page.center)
+            {LambdaMath.dev};
+    }
+}
+
+% Unified styled boxes
+\newtcolorbox{conceptbox}[1][]{
+    colback=blue!5!white,
+    colframe=blue!75!black,
+    title=#1,
+    fonttitle=\bfseries
+}
+
+\newtcolorbox{remarkbox}{
+    colback=green!5!white,
+    colframe=green!60!black,
+    fonttitle=\bfseries,
+    title=Remark
+}
+
+\newtcolorbox{examplebox}{
+    colback=orange!5!white,
+    colframe=orange!75!black,
+    fonttitle=\bfseries,
+    title=Example
+}
+
+\newtcolorbox{warningbox}{
+    colback=red!5!white,
+    colframe=red!75!black,
+    fonttitle=\bfseries,
+    title=Warning
+}
+
+\newtcolorbox{theorembox}{
+    colback=purple!5!white,
+    colframe=purple!75!black,
+    fonttitle=\bfseries,
+    title=Theorem
+}
+
+\newtcolorbox{solutionbox}{
+    colback=yellow!5!white,
+    colframe=orange!75!black,
+    fonttitle=\bfseries,
+    title=Solution
+}
+
+\newtcolorbox{insightbox}{
+    colback=teal!5!white,
+    colframe=teal!70!black,
+    fonttitle=\bfseries,
+    title=Insight / Remark
+}
+
+\newtcolorbox{methodsummarybox}{
+    colback=gray!6!white,
+    colframe=gray!70!black,
+    fonttitle=\bfseries,
+    title=Method Summary
+}
+
+\newtcolorbox{commonpitfallsbox}{
+    colback=red!3!white,
+    colframe=red!60!black,
+    fonttitle=\bfseries,
+    title=Common Pitfalls
+}
+
+% Difficulty tag and labels
+\newcommand{\difftag}[1]{\textbf{[#1]}}
+\newcommand{\difficulty}[1]{\textbf{(#1)}\,}
+
+% Proof-style environments
+\newenvironment{FormalProof}{\begin{solutionbox}\textbf{Formal Proof.} }{\end{solutionbox}}
+\newenvironment{ProofSketch}{\begin{solutionbox}\textbf{Proof Sketch.} }{\end{solutionbox}}
+\newenvironment{Heuristic}{\begin{insightbox}\textbf{Heuristic / Intuition.} }{\end{insightbox}}
+\title{Counting and Probability Notes}
+\author{Prepared by Pranav}
+\date{}
+
+\begin{document}
+\begin{titlepage}
+\centering
+\vspace*{2cm}
+
+{\Huge\bfseries Counting and Probability for AMC}\\[0.5cm]
+{\Large Competition Problem Solving}\\[2cm]
+
+{\large AMC 10 $\cdot$ AMC 12 $\cdot$ AIME}\\[3cm]
+
+{\Large A Strategic Approach to\\[0.3cm]
+Counting, Probability, and Expected Value}\\[3cm]
+
+{\Large\textbf{Pranav Ramesh}}\\[3cm]
+
+\vfill
+
+{\large 23 Dec 2025 (Version 1)}
+\end{titlepage}
+
+% Copyright Page
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+\textbf{\Large Copyright \textcopyright\ 2025 Pranav Ramesh}
+
+All rights reserved.
+
+This work is protected under the Copyright Act, 1957 (India).
+
+\vspace{1.5cm}
+
+This publication is the original work of Pranav Ramesh published under the imprint LambdaMath.
+
+\vspace{1.5cm}
+
+No part of this work may be reproduced, stored, transmitted, or distributed in any form or by any means, electronic, mechanical, photocopying, recording, or otherwise, without prior written permission of the copyright holder, except for brief quotations for educational or review purposes.
+
+\vspace{1.5cm}
+
+First published on 23 Dec 2025 at: www{.}lambdamath{.}dev
+
+For permissions: pranavramesh2017@gmail{.}com
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+% Dedication Page
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+\Large
+
+\textbf{Dedicated to}
+
+\vspace{1cm}
+
+Mr. Krishna Rao, My highschool mathematics teacher,
+
+Mr. Siva Rama Praveen K, Principal,
+
+Mr. Rajashekar Reddy, AGM, and
+
+Mrs. Sumathi, My mathematics mentor,
+
+\vspace{1cm}
+
+for their guidance, encouragement, and belief in the value of rigorous thinking.
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+	\tableofcontents
+\newpage
+
+\section*{Preface}
+\addcontentsline{toc}{section}{Preface}
+
+\subsection*{Who This Book Is For}
+This book is designed for AMC 10/12 and AIME students who want a competition-focused approach to counting and probability.
+
+\textbf{You should use this book if you:}
+\begin{itemize}
+    \item Want to strengthen combinatorial intuition (avoid over/under-counting)
+    \item Need reliable probability tools (linearity of expectation, complementary counting)
+    \item Prefer contest-ready strategies for casework and recursion
+\end{itemize}
+
+\subsection*{What Makes This Book Different}
+We emphasize contest patterns: symmetry, invariants, and expectation tricks over rote formula use. Each tool is shown in the context of problems you will actually see.
+
+\subsection*{How to Use This Book}
+\begin{enumerate}
+    \item Read the idea, then immediately try a related problem.
+    \item For probability, favor reasoning and structure before computation.
+    \item Track common patterns: stars and bars, PIE, recursion, symmetry.
+    \item Revisit expected value and conditional probability until automatic.
+\end{enumerate}
+
+\subsection*{Colored Boxes Guide}
+\begin{itemize}
+    \item \textcolor{blue!75!black}{\textbf{Examples:}} Worked problems with detailed solutions
+    \item \textcolor{green!60!black}{\textbf{Remarks:}} Strategic insights and tips
+\end{itemize}
+
+\subsection*{Study Recommendations}
+\begin{itemize}
+    \item Work with pencil and paper; list cases explicitly
+    \item Check answers with small numbers to sanity-test formulas
+    \item Memorize core identities (binomial coefficients, linearity of expectation)
+    \item Practice under time—counting accuracy must be fast
+\end{itemize}
+
+\subsection*{Prerequisites}
+Algebra I fluency and familiarity with combinations/permutations; no advanced background required.
+
+\subsection*{Beyond This Book}
+Pair these notes with past AMC/AIME problems. After solving, ask: "Which pattern did I use—symmetry, recursion, PIE, or expectation?" Keep your own error log.
+
+\subsection*{Acknowledgements}
+Thanks to competition authors and mentors whose problems inspired these notes.
+
+\newpage
+
+\section{Basic Definitions}
+
+\subsection{Factorials}
+\textbf{Definition:} For a non-negative integer $n$,
+\[
+n! = n \cdot (n-1) \cdot (n-2) \dots 3 \cdot 2 \cdot 1
+\]
+
+\textbf{Special cases:} $0! = 1$, $1! = 1$.
+
+\textbf{Combinatorial Interpretation:} $n!$ counts the number of ways to arrange $n$ distinct objects in order. This is called a \textit{permutation} of all $n$ objects.
+
+\subsubsection{Key Properties}
+
+\begin{enumerate}
+    \item \textbf{Growth rate:} Factorials grow extremely fast. By Stirling's approximation (need not memorize), \[ n! \approx \sqrt{2\pi n} \left(\frac{n}{e}\right)^n \]
+    \item \textbf{Divisibility:} The highest power of prime $p$ dividing $n!$ is $\sum_{i=1}^{\infty} \lfloor \frac{n}{p^i} \rfloor$ (Legendre's formula).
+    \item \textbf{Product representation:} $n! = \prod_{i=1}^{n} i$.
+\end{enumerate}
+
+\subsubsection{Circular Arrangements}
+
+For $n$ distinct objects arranged around a circle, \textit{rotations} are considered identical. Since there are $n$ rotations of any linear arrangement, the count is:
+\[
+\text{Circular arrangements} = \frac{n!}{n} = (n-1)!
+\]
+
+\begin{remarkbox}
+Circular permutations assume rotation-equivalence only. Reflections matter for directional or one-sided objects (e.g., people seated, not beads).
+\end{remarkbox}
+Factorials count the number of ways to \textit{arrange $n$ distinct objects} in order.
+
+\textbf{Circular arrangements:} For $n$ distinct objects around a circle, rotations coincide so the count is $(n-1)!$.
+
+\subsection{Permutations}
+\textbf{Definition:} An \textit{ordered} selection of $r$ objects from $n$ distinct objects, where order matters and no object is repeated.
+
+\[
+P(n, r) = \frac{n!}{(n-r)!} = n \cdot (n-1) \cdot (n-2) \cdots (n-r+1)
+\]
+
+\textbf{Intuition:} Choose the first object ($n$ ways), then the second ($n-1$ ways), ..., then the $r$-th object ($n-r+1$ ways).
+
+\subsubsection{Special Cases}
+
+\begin{itemize}
+    \item $P(n, n) = n!$ (arrange all objects)
+    \item $P(n, 1) = n$ (choose one object)
+    \item $P(n, 0) = 1$ (empty arrangement)
+\end{itemize}
+
+\subsubsection{Permutations with Repetition}
+
+If repetition is allowed (e.g., password of $r$ characters from $n$ symbols), the count is $n^r$ since each position has $n$ choices.
+
+\begin{examplebox}
+\textbf{Without repetition:} Arrange 3 of 5 books on a shelf:
+\[
+P(5,3) = 5 \cdot 4 \cdot 3 = 60
+\]
+\end{examplebox}
+
+\begin{examplebox}
+\textbf{With repetition:} 4-digit PIN from digits 0--9: $10^4 = 10000$ ways.
+\end{examplebox}
+
+\begin{remarkbox}
+Permutation problems often require careful attention to whether order matters and whether repetition is allowed. These distinctions determine which formula applies.
+\end{remarkbox}
+\newpage
+\subsection{Combinations}
+\textbf{Definition:} An \textit{unordered} selection of $r$ objects from $n$ distinct objects, where order does not matter and no object is repeated.
+
+\[
+C(n,r) = \binom{n}{r} = \frac{n!}{r!(n-r)!}
+\]
+
+\textbf{Connection to Permutations:} Since permutations count ordered selections and combinations count unordered selections, we have:
+\[
+P(n, r) = r! \cdot \binom{n}{r}
+\]
+because each unordered set of $r$ objects can be arranged in $r!$ orders.
+
+\subsubsection{Symmetry Property}
+
+\[
+\binom{n}{r} = \binom{n}{n-r}
+\]
+
+\textbf{Intuition:} Choosing $r$ objects to include is the same as choosing $n-r$ objects to exclude.
+
+\begin{remarkbox}
+$\binom{n}{r} = \binom{n}{n-r}$ is a fundamental symmetry that simplifies calculations. For example, $\binom{100}{99} = \binom{100}{1} = 100$.
+\end{remarkbox}
+
+\subsubsection{Recurrence: Pascal's Identity}
+
+\[
+\binom{n}{r} = \binom{n-1}{r} + \binom{n-1}{r-1}
+\]
+
+\textbf{Proof idea:} Partition all $r$-subsets of $\{1,\ldots,n\}$ into two groups: those containing $n$ and those not containing $n$.
+
+\begin{examplebox}
+Choose 3 students out of 10 for a committee:
+\[
+\binom{10}{3} = \frac{10!}{3!7!} = \frac{10 \cdot 9 \cdot 8}{3 \cdot 2 \cdot 1} = 120
+\]
+\end{examplebox}
+
+\begin{examplebox}
+\textbf{With restrictions:} Choose 4 of 8 students where two rivals cannot both serve. 
+\begin{align*}
+\text{All teams} &= \binom{8}{4} = 70 \\
+\text{Teams with both rivals} &= \binom{6}{2} = 15 \quad \text{(fix rivals, pick 2 from rest)} \\
+\text{Valid teams} &= 70 - 15 = 55
+\end{align*}
+\end{examplebox}
+
+\subsection{Subsets}
+Any selection of elements from a set is a subset.\\
+\textbf{Total number of subsets of a set with $n$ elements:} $2^n$
+
+\begin{examplebox}
+Set $S = \{a,b,c\}$. Subsets: $\{\emptyset, \{a\}, \{b\}, \{c\}, \{a,b\}, \{a,c\}, \{b,c\}, \{a,b,c\}\}$
+\end{examplebox}
+
+\begin{remarkbox}
+\textbf{Nonempty subsets:} $2^n-1$. Useful when the empty set is excluded. Denoted by the name, Proper Subsets
+\end{remarkbox}
+
+\subsection{Complementary Counting}
+Counting the complement and subtracting from total:
+\[
+ \textbf{Desired} = \textbf{Total} - \textbf{Undesired}
+\]
+\begin{examplebox}
+Number of 3-digit numbers not containing 5:
+\[
+\text{Total 3-digit numbers} = 900, \quad \text{Numbers with 5} = 100
+\]
+\[
+\text{Numbers without 5} = 900-100 = 800
+\]
+\end{examplebox}
+
+\subsection{Undercounting / Overcounting}
+- Occurs when certain arrangements are counted multiple times or missed.  
+- Use division principle to correct overcounting: divide by number of times each arrangement is counted.
+
+\subsection{Casework / Casebash}
+Solve problems by breaking them into distinct cases:
+\begin{enumerate}
+    \item Identify distinct cases that cover all possibilities.
+    \item Solve each case individually.
+    \item Sum the results.
+\end{enumerate}
+
+\begin{examplebox}
+\large \textbf{AMC-Style Problem:} How many two-digit numbers have the property that the product of their digits is a perfect square?
+\vspace{0.5cm}
+
+\textbf{Solution by Casework:} For a two-digit number with digits $a$ and $b$ (where $a \in \{1,2,\ldots,9\}$ and $b \in \{0,1,\ldots,9\}$), we need $a \cdot b$ to be a perfect square.
+
+\textbf{Case 1: $b = 0$} — Product is 0, which is a perfect square. All 9 numbers $10, 20, \ldots, 90$ work. \textbf{Count:} 9
+
+\textbf{Case 2: $b = 1$} — Need $a \cdot 1 = a$ to be a perfect square: $a \in \{1, 4, 9\}$. \textbf{Count:} 3
+
+\textbf{Case 3: $b = 4$} — Need $a \cdot 4$ to be a perfect square. Since $4 = 2^2$, need $a \in \{1, 4, 9\}$ (perfect squares). \textbf{Count:} 3
+
+\textbf{Case 4: $b = 9$} — Need $a \cdot 9$ to be a perfect square. Since $9 = 3^2$, need $a \in \{1, 4, 9\}$. \textbf{Count:} 3
+
+\textbf{Case 5: Other values of $b$} — For $b \in \{2, 3, 5, 6, 7, 8\}$, the product $a \cdot b$ cannot be a perfect square for any single-digit $a$ (can be verified by checking prime factorizations). \textbf{Count:} 0
+
+\textbf{Total:} $9 + 3 + 3 + 3 = 18$
+\end{examplebox}
+
+\newpage
+\section{Advanced Concepts}
+
+\subsection{Word Rearrangements and Counting}
+Number of ways to arrange letters of a word with repeated letters:
+\[
+\frac{n!}{n_1! n_2! \dots n_k!}
+\]
+where $n_1, n_2, \dots$ are counts of repeated letters.
+
+\begin{examplebox}
+"BANANA" (B=1, A=3, N=2):
+\[
+\frac{6!}{1!3!2!} = 60
+\]
+\end{examplebox}
+
+\begin{examplebox}
+\textbf{Circular with repeats:} Arrangements of "LEVEL" around a circle (rotations identical, reflections distinct). Linear count $=\frac{5!}{2!2!}=30$; divide by 5 for rotations $\Rightarrow 6$.
+\end{examplebox}
+
+\subsection{Stars and Bars}
+
+Distribute $n$ \textit{identical} objects into $k$ \textit{distinguishable} boxes.
+
+\subsubsection{Without Constraints}
+
+\[
+\binom{n+k-1}{k-1} = \binom{n+k-1}{n}
+\]
+
+\textbf{Reasoning:} Imagine $n$ stars (objects) and $k-1$ bars (separators). Each arrangement of stars and bars corresponds to a unique distribution. There are $n+k-1$ total positions, and we choose $k-1$ for bars (or equivalently, $n$ for stars).
+
+\subsubsection{With Minimum Constraints}
+
+\textbf{Problem:} Distribute $n$ objects into $k$ boxes such that box $i$ gets at least $m_i$ objects.
+
+\textbf{Solution:} 
+\begin{enumerate}
+    \item Pre-allocate: Give $m_i$ objects to box $i$. Remaining: $n - \sum m_i$ objects.
+    \item Apply stars and bars to the remaining objects:
+    \[
+    \binom{(n - \sum m_i) + k - 1}{k-1}
+    \]
+\end{enumerate}
+
+\begin{examplebox}
+Distribute 10 balls into 3 boxes with \textit{at least 1} in each:
+\begin{align*}
+\text{Give 1 to each box:} \quad 10 - 3 &= 7 \text{ remaining} \\
+\text{Distribute 7 into 3 boxes:} \quad \binom{7+3-1}{3-1} &= \binom{9}{2} = 36
+\end{align*}
+\end{examplebox}
+
+\subsubsection{With Maximum Constraints}
+
+\textbf{Problem:} Distribute $n$ objects into $k$ boxes such that box $i$ holds at most $M_i$ objects.
+
+\textbf{Solution via Inclusion-Exclusion:} Count violations and subtract.
+\begin{enumerate}
+    \item Count all distributions: $\binom{n+k-1}{k-1}$.
+    \item For each box $i$, count distributions where box $i$ gets $> M_i$ (i.e., $\ge M_i+1$). Set aside $M_i+1$ objects for box $i$, then apply stars and bars to the remaining $n - (M_i+1)$ objects into $k$ boxes.
+    \item Apply inclusion-exclusion to subtract overcounting.
+\end{enumerate}
+
+\begin{remarkbox}
+Stars and bars with constraints requires careful bookkeeping. For complex constraint systems, inclusion-exclusion or generating functions may be necessary.
+\end{remarkbox}
+
+\subsection{Binomial Theorem}
+
+\textbf{Statement:} For any real numbers $a$ and $b$ and non-negative integer $n$:
+\[
+(a+b)^n = \sum_{k=0}^{n} \binom{n}{k} a^{n-k} b^k
+\]
+
+\textbf{Proof Idea:} Expand $(a+b)^n = \underbrace{(a+b) \cdots (a+b)}_{n \text{ times}}$. To form a term $a^{n-k}b^k$, choose $b$ from exactly $k$ of the $n$ factors and $a$ from the remaining $n-k$. There are $\binom{n}{k}$ ways to do this.
+
+\subsubsection{Combinatorial Interpretation}
+
+The binomial coefficient $\binom{n}{k}$ counts the number of $k$-subsets of an $n$-element set. This connects polynomial algebra to combinatorics.
+
+\subsubsection{Key Identities}
+
+\textbf{1. Pascal's Identity:}
+\[
+\binom{n}{k} = \binom{n-1}{k} + \binom{n-1}{k-1}
+\]
+\textit{Proof:} Count $k$-subsets of $\{1, \ldots, n\}$ by partitioning based on whether they contain element $n$.
+
+\textbf{2. Vandermonde's Identity:}
+\[
+\sum_{r=0}^{k} \binom{m}{r}\binom{n}{k-r} = \binom{m+n}{k}
+\]
+\textit{Proof:} Count $k$-subsets of two disjoint sets of sizes $m$ and $n$.
+
+\textbf{3. Hockey Stick Identity:}
+\[
+\sum_{i=r}^{n} \binom{i}{r} = \binom{n+1}{r+1}
+\]
+\textit{Proof:} Use Pascal's Identity recursively or count paths in a grid.
+
+\textbf{4. Sum of All Binomial Coefficients:}
+\[
+\sum_{k=0}^{n} \binom{n}{k} = 2^n
+\]
+\textit{Proof:} Set $a = b = 1$ in the binomial theorem.
+
+\begin{examplebox}
+Find the coefficient of $x^3$ in $(1+x)^5$:
+\[
+\binom{5}{3} = 10
+\]
+\end{examplebox}
+
+\begin{examplebox}
+Verify Hockey Stick for $r=2$, $n=4$:
+\[
+\binom{2}{2} + \binom{3}{2} + \binom{4}{2} = 1 + 3 + 6 = 10 = \binom{5}{3}
+\]
+\end{examplebox}
+
+\begin{remarkbox}
+These identities are powerful tools for combinatorial arguments. Recognizing when to apply them can simplify complex counting problems.
+\end{remarkbox}
+\newpage
+\subsection{Pigeonhole Principle (PHP)}
+
+\textbf{Statement:} If $n$ objects are placed into $m$ boxes and $n > m$, then at least one box contains at least 2 objects.
+
+\textbf{Generalized Form:} If $n$ objects are placed into $m$ boxes, then some box contains at least $\left\lceil \frac{n}{m} \right\rceil$ objects.
+
+\subsubsection{Why It Works}
+
+Suppose every box contains at most $\left\lceil \frac{n}{m} \right\rceil - 1$ objects. Then the total number of objects is at most:
+\[
+m \cdot \left( \left\lceil \frac{n}{m} \right\rceil - 1 \right) < m \cdot \frac{n}{m} = n
+\]
+This is a contradiction, so some box must have at least $\left\lceil \frac{n}{m} \right\rceil$ objects.
+
+\subsubsection{Strategic Application}
+
+\begin{enumerate}
+    \item \textbf{Define the objects:} What are we counting?
+    \item \textbf{Define the boxes:} What categories or constraints apply?
+    \item \textbf{Count:} Verify that the number of objects exceeds the number of boxes.
+    \item \textbf{Conclude:} Some box must be ``crowded.''
+\end{enumerate}
+
+\begin{examplebox}
+13 socks in 12 drawers: By PHP, at least one drawer has at least $\lceil \frac{13}{12} \rceil = 2$ socks.
+\end{examplebox}
+
+\begin{examplebox}
+\textbf{Harder example:} Among any 6 people, either 3 are mutual friends or 3 are mutual strangers (Ramsey theory).\\
+\textbf{Argument:} Pick any person P. Among the other 5, by PHP, at least 3 are either all friends with P or all strangers with P. In either case, by repeating the argument on this group of 3, we find the required configuration.
+\end{examplebox}
+
+\begin{remarkbox}
+The generalized form is more powerful than the basic version. Knowing the threshold $\lceil \frac{n}{m} \rceil$ can reveal hidden structure in the problem.
+\end{remarkbox}
+
+
+\newpage
+
+
+\subsection{Probability and Expected Value}
+
+\subsubsection{Probability}
+
+\textbf{Definition (Classical):} If all outcomes are equally likely:
+\[
+P(E) = \frac{\# \text{favorable outcomes}}{\# \text{total outcomes}}
+\]
+
+\textbf{Properties:}
+\begin{itemize}
+    \item $0 \le P(E) \le 1$ for any event $E$.
+    \item $P(\text{sample space}) = 1$.
+    \item For disjoint events $E_1, E_2, \ldots$: $P(E_1 \cup E_2 \cup \cdots) = P(E_1) + P(E_2) + \cdots$
+    \item Complement: $P(E^c) = 1 - P(E)$.
+\end{itemize}
+
+\subsubsection{Conditional Probability}
+
+\[
+P(A \mid B) = \frac{P(A \cap B)}{P(B)} \quad \text{(if } P(B) > 0\text{)}
+\]
+
+\textbf{Independence:} Events $A$ and $B$ are independent if $P(A \cap B) = P(A) \cdot P(B)$, equivalently $P(A \mid B) = P(A)$.
+
+\begin{examplebox}
+\textbf{Problem:} A bag contains 3 red and 2 blue marbles. Two marbles are drawn without replacement. What is the probability the second marble is red, given the first is red?
+
+\textbf{Solution:} Let $A$ = second is red, $B$ = first is red.
+\begin{align*}
+P(A \mid B) &= \frac{\text{\# ways both red}}{\text{\# ways first red}} \\
+&= \frac{\text{2 red left from 4 total}}{\text{4 marbles left}} = \frac{2}{4} = \frac{1}{2}
+\end{align*}
+\end{examplebox}
+
+\begin{examplebox}
+\textbf{AMC-Style:} Roll two fair dice. Given that their sum is at least 9, what is the probability that both dice show at least 4?
+
+\textbf{Solution:} Let $A$ = both $\ge 4$, $B$ = sum $\ge 9$.
+
+Outcomes with sum $\ge 9$: (3,6), (4,5), (4,6), (5,4), (5,5), (5,6), (6,3), (6,4), (6,5), (6,6). Count: 10
+
+Outcomes with both $\ge 4$ AND sum $\ge 9$: (4,5), (4,6), (5,4), (5,5), (5,6), (6,4), (6,5), (6,6). Count: 8
+
+\[
+P(A \mid B) = \frac{8}{10} = \frac{4}{5}
+\]
+\end{examplebox}
+
+\subsubsection{Expected Value}
+
+For a random variable $X$ with outcomes $x_i$ and probabilities $P(x_i)$:
+\[
+\mathbb{E}[X] = \sum_i x_i \cdot P(x_i)
+\]
+
+\textbf{Linearity of Expectation (Key Theorem):} For any random variables $X$ and $Y$:
+\[
+\mathbb{E}[X+Y] = \mathbb{E}[X] + \mathbb{E}[Y]
+\]
+This holds even if $X$ and $Y$ are not independent!
+
+\begin{examplebox}
+\textbf{Basic:} Roll a fair six-sided die. Expected value:
+\[
+\mathbb{E}[X] = 1 \cdot \frac{1}{6} + 2 \cdot \frac{1}{6} + 3 \cdot \frac{1}{6} + 4 \cdot \frac{1}{6} + 5 \cdot \frac{1}{6} + 6 \cdot \frac{1}{6} = \frac{21}{6} = 3.5
+\]
+\end{examplebox}
+
+\begin{examplebox}
+\textbf{Linearity Application:} A standard deck has 52 cards. You draw 5 cards. What's the expected number of aces?
+
+\textbf{Solution:} Let $X_i = 1$ if the $i$-th card is an ace, 0 otherwise. Then:
+\[
+\mathbb{E}[\text{\# aces}] = \mathbb{E}[X_1 + X_2 + X_3 + X_4 + X_5] = \sum_{i=1}^{5} \mathbb{E}[X_i]
+\]
+
+For each card, $P(X_i = 1) = \frac{4}{52} = \frac{1}{13}$, so $\mathbb{E}[X_i] = \frac{1}{13}$.
+
+\[
+\mathbb{E}[\text{\# aces}] = 5 \cdot \frac{1}{13} = \frac{5}{13}
+\]
+\end{examplebox}
+
+\subsubsection{Variance and Standard Deviation}
+
+\[
+\text{Var}(X) = \mathbb{E}[X^2] - (\mathbb{E}[X])^2 = \mathbb{E}[(X - \mathbb{E}[X])^2]
+\]
+
+\[
+\sigma(X) = \sqrt{\text{Var}(X)}
+\]
+\newpage
+\subsubsection{Geometric Probability}
+
+When the sample space is a continuous region (line, plane, volume):
+\[
+P(E) = \frac{\text{measure of favorable region}}{\text{measure of total region}}
+\]
+
+\paragraph{The Fundamental Principle}
+
+Every geometric probability problem reduces to this ratio, where ``measure'' most commonly means \textbf{area}. Less frequently, it may mean length or volume. On the AMC, area-based probability is by far the most common.
+
+\paragraph{Translating Words into Geometry}
+
+Phrases such as ``a point is chosen uniformly in a square'' or ``two numbers are chosen independently from $[0,1]$'' signal the same idea: \textbf{introduce coordinates}. Uniform probability implies constant density, so probabilities are ratios of areas.
+
+Typical coordinate models:
+\begin{itemize}
+    \item Unit square: $0 \le x \le 1$, $0 \le y \le 1$
+    \item Rectangle: $a \le x \le b$, $c \le y \le d$
+    \item Disk of radius $R$: $x^2 + y^2 \le R^2$
+\end{itemize}
+
+\paragraph{Identifying the Favorable Region}
+
+Translate every condition into mathematics:
+\begin{itemize}
+    \item ``Distance from the origin is less than $r$'' $\Rightarrow x^2 + y^2 \le r^2$
+    \item ``Closer to point $A$ than to point $B$'' $\Rightarrow$ inequality defined by the perpendicular bisector
+    \item ``$y$ is below the curve $y = f(x)$'' $\Rightarrow 0 \le y \le f(x)$
+\end{itemize}
+
+\textbf{A rough sketch is essential.} It confirms the shape, reveals symmetry, and prevents errors. \textit{Never integrate a region you have not sketched.}
+
+\paragraph{Deciding Whether Integration Is Necessary}
+
+Before proceeding to calculus, ask:
+\begin{itemize}
+    \item Is the region a standard shape (triangle, circle, sector)?
+    \item Can symmetry reduce the problem to a fraction of the total area?
+    \item Is it easier to subtract from the full region?
+\end{itemize}
+
+If yes to any, integration may be unnecessary. The AMC rewards efficiency, not brute force.
+
+\paragraph{Using Integration}
+
+When integration is required, choose the variable order strategically:
+\begin{itemize}
+    \item Vertical boundaries $\Rightarrow$ integrate with respect to $y$ first
+    \item Horizontal boundaries $\Rightarrow$ integrate with respect to $x$ first
+    \item Circular symmetry $\Rightarrow$ consider polar coordinates: $dA = r\,dr\,d\theta$
+\end{itemize}
+
+The integral should reflect the geometry clearly:
+\begin{enumerate}
+    \item The inner integral represents the height or width of a slice
+    \item The outer integral accumulates these slices
+\end{enumerate}
+
+\begin{examplebox}
+\textbf{Basic:} Random point in unit square $[0,1]^2$. Probability that $x + y < 1$?
+
+\textbf{Solution:} Total area $= 1$. Favorable region: triangle with vertices $(0,0), (1,0), (0,1)$, area $= \frac{1}{2}$.
+
+Probability $= \frac{1/2}{1} = \frac{1}{2}$.
+\end{examplebox}
+
+\begin{examplebox}
+\textbf{With Integration:} A point is chosen uniformly from the unit square. Find the probability that $y \le x^2$.
+
+\textbf{Solution:} Total area: $1$
+
+Favorable area:
+\[
+\int_0^1 \int_0^{x^2} dy\,dx = \int_0^1 x^2\,dx = \left[\frac{x^3}{3}\right]_0^1 = \frac{1}{3}
+\]
+
+Probability: $\boxed{\frac{1}{3}}$
+\end{examplebox}
+
+\begin{examplebox}
+\textbf{Polar Coordinates:} A point is chosen uniformly from a disk of radius 1. Find the probability it lies within distance $\frac{1}{2}$ from the center.
+
+\textbf{Solution:} Total area: $\pi(1)^2 = \pi$
+
+Favorable area: $\pi\left(\frac{1}{2}\right)^2 = \frac{\pi}{4}$
+
+Probability: $\frac{\pi/4}{\pi} = \boxed{\frac{1}{4}}$
+\end{examplebox}
+
+\begin{remarkbox}
+\textbf{Common Pitfalls:}
+\begin{itemize}
+    \item Incorrect region identification
+    \item Ignoring symmetry
+    \item Overusing calculus when geometry suffices
+    \item Incorrect integration limits
+\end{itemize}
+Nearly all errors occur \textit{before} the integral is evaluated.
+\end{remarkbox}
+
+\begin{remarkbox}
+Geometric probability is less about calculus and more about disciplined thinking. When each step is justified geometrically, integration becomes a tool of clarity rather than confusion.
+\end{remarkbox}
+\newpage
+\subsection{Principle of Inclusion and Exclusion (PIE)}
+
+For sets $A_1, A_2, \dots, A_n$:
+\[
+\left| \bigcup_{i=1}^{n} A_i \right| = \sum_{i} |A_i| - \sum_{i<j} |A_i \cap A_j| + \sum_{i<j<k} |A_i \cap A_j \cap A_k| - \cdots + (-1)^{n+1} |A_1 \cap A_2 \cap \cdots \cap A_n|
+\]
+
+\textbf{Intuition:} Include all sets, exclude pairwise intersections (overcounted), include triple intersections (excluded too much), and so on, alternating.
+
+\subsubsection{General Formula}
+
+\[
+\left| \bigcup_{i=1}^{n} A_i \right| = \sum_{k=1}^{n} (-1)^{k+1} \sum_{|S|=k} \left| \bigcap_{i \in S} A_i \right|
+\]
+
+where the inner sum is over all subsets $S$ of $\{1, 2, \ldots, n\}$ of size $k$.
+\pagebreak
+\subsubsection{Derangements: A Key Application}
+
+A \textit{derangement} is a permutation with no fixed points. The count is:
+\[
+!n = n! \sum_{k=0}^{n} \frac{(-1)^k}{k!} \approx \frac{n!}{e}
+\]
+
+\textbf{Derivation via PIE:} Let $A_i$ = permutations where element $i$ is fixed. Then:
+\[
+!n = n! - |A_1 \cup A_2 \cup \cdots \cup A_n|
+\]
+
+By PIE:
+\[
+|A_1 \cup \cdots \cup A_n| = \binom{n}{1}(n-1)! - \binom{n}{2}(n-2)! + \cdots
+\]
+
+Simplifying gives the formula above.
+
+\begin{examplebox}
+\textbf{Count integers 1 to 100 divisible by 2, 3, or 5:}
+\begin{align*}
+|A_2 \cup A_3 \cup A_5| &= |A_2| + |A_3| + |A_5| - |A_2 \cap A_3| - |A_2 \cap A_5| - |A_3 \cap A_5| + |A_2 \cap A_3 \cap A_5| \\
+&= 50 + 33 + 20 - 16 - 10 - 6 + 3 = 74
+\end{align*}
+\end{examplebox}
+
+\begin{examplebox}
+\textbf{Classic Derangement Problem:} A postal worker has 4 letters addressed to houses 1, 2, 3, 4 but delivers them randomly. In how many ways can all letters go to the \textit{wrong} house?
+
+\textbf{Solution:} We need a derangement of 4 objects.
+\[
+!4 = 4!\left(1 - 1 + \frac{1}{2!} - \frac{1}{3!} + \frac{1}{4!}\right) = 24\left(1 - 1 + \frac{1}{2} - \frac{1}{6} + \frac{1}{24}\right)
+\]
+
+\[
+= 24\left(\frac{1}{2} - \frac{1}{6} + \frac{1}{24}\right) = 24\left(\frac{12 - 4 + 1}{24}\right) = 24 \cdot \frac{9}{24} = 9
+\]
+
+The 9 derangements are: (2143), (2341), (2413), (3142), (3241), (3412), (4123), (4312), (4321).
+\end{examplebox}
+
+\begin{examplebox}
+\textbf{Probability of Derangement:} If $n$ people randomly receive hats that were randomly shuffled, what is the probability that no one gets their own hat?
+
+\textbf{Solution:} 
+\[
+P(\text{derangement}) = \frac{!n}{n!} = \sum_{k=0}^{n} \frac{(-1)^k}{k!} \approx \frac{1}{e} \approx 0.368
+\]
+
+For large $n$, this probability approaches $\frac{1}{e}$, independent of $n$! This remarkable fact shows that the probability of a complete mismatch stabilizes around 36.8\%.
+\end{examplebox}
+
+\begin{remarkbox}
+PIE scales exponentially in the number of sets (there are $2^n - 1$ terms). For large $n$, alternative methods or approximations may be needed. The derangement formula is one of the most elegant applications of PIE in combinatorics.
+\end{remarkbox}
+\newpage
+\subsection{Bijections (Concept 3.4.16)}
+
+\textbf{Definition:} A bijection between sets $A$ and $B$ is a one-to-one and onto mapping $f: A \to B$. That is:
+\begin{itemize}
+    \item \textbf{Injective:} If $f(a_1) = f(a_2)$, then $a_1 = a_2$ (no two elements map to the same image).
+    \item \textbf{Surjective:} For every $b \in B$, there exists $a \in A$ with $f(a) = b$ (every element of $B$ is mapped to).
+\end{itemize}
+
+\textbf{Counting via Bijections:} If a bijection exists between sets $A$ and $B$, then $|A| = |B|$.
+
+\subsubsection{Strategy for Problem-Solving}
+
+\begin{enumerate}
+    \item \textbf{Recognize two seemingly different structures:} One may be hard to count directly.
+    \item \textbf{Find a bijection:} Map elements of one structure to the other in a natural way.
+    \item \textbf{Verify:} Confirm that the mapping is indeed one-to-one and onto.
+    \item \textbf{Count the simpler structure:} Apply known formulas.
+\end{enumerate}
+
+\subsubsection{Classic Example: Lattice Paths}
+
+The number of paths from $(0,0)$ to $(m,n)$ using only right (R) and up (U) moves equals the number of binary strings of length $m+n$ with exactly $m$ R's (and $n$ U's):
+\[
+\text{Paths} = \binom{m+n}{m}
+\]
+
+Bijection: Map each path to the sequence of its moves, where R is represented as 1 and U as 0.
+
+\begin{examplebox}
+Paths from $(0,0)$ to $(3,2)$: A path like RRURU corresponds to the binary string 11010. Total paths $= \binom{3+2}{3} = \binom{5}{3} = 10$.
+\end{examplebox}
+
+\begin{examplebox}
+\textbf{Non-consecutive selections:} Choose 3 non-consecutive elements from $\{1, 2, \ldots, 7\}$. \\
+Bijection: If we select $a < b < c$ with $b \ge a+2$ and $c \ge b+2$, map to $(a, b-1, c-2)$. This maps to choosing 3 elements from a set of 5, giving $\binom{5}{3} = 10$ ways.
+\end{examplebox}
+
+\begin{remarkbox}
+Bijections are powerful because they transform hard counting problems into easier ones. Learning to recognize opportunities for bijections develops deep combinatorial intuition.
+\end{remarkbox}
+\newpage
+\subsection{Recursion (Concept 3.4.17)}
+Solve small cases → identify recurrence → build up to larger values.  
+
+\textbf{Steps:}
+\begin{enumerate}
+    \item Base cases: manually calculate small $n$
+    \item Recurrence equation: analyze general case
+    \item Iterate until target $n$
+\end{enumerate}
+
+\begin{remarkbox}
+Can also solve via engineering induction or find explicit closed-form solutions using characteristic equations.
+\end{remarkbox}
+
+\begin{tcolorbox}[colback=yellow!10!white,colframe=orange!75!black,title=Engineering Induction (Pattern Guessing)]
+\textbf{How to Use Engineering Induction:}
+\begin{enumerate}
+    \item Compute the first few values ($n=0,1,2,3,4,...$) manually.
+    \item Look for a pattern in these small cases.
+    \item Assume the pattern continues for all larger values.
+    \item Use the assumed pattern to answer the question.
+\end{enumerate}
+\textbf{Warning:} Not rigorous! Pattern may fail for large $n$, but works most of the time for competition math.
+
+\textbf{Example:} For $f(n) = f(n-1) + f(n-2)$ with $f(0)=1, f(1)=1$:
+\begin{itemize}
+    \item Compute: $f(2)=2, f(3)=3, f(4)=5, f(5)=8, f(6)=13$
+    \item Pattern: Looks like Fibonacci! Guess $f(10) \approx 89$
+    \item Trust it and move on (risky but fast)
+\end{itemize}
+\end{tcolorbox}
+
+\subsubsection{Solving Linear Recurrence Relations Explicitly}
+
+A linear recurrence with constant coefficients has the form:
+\[
+f(n) = c_1 f(n-1) + c_2 f(n-2) + \dots + c_k f(n-k) + g(n),
+\]
+where $c_1, \dots, c_k$ are constants and $g(n)$ is some function of $n$ (possibly zero).
+
+\textbf{Goal:} Find $f(n)$ explicitly in terms of $n$.
+
+\subsubsection{Step 1: Solve the Homogeneous Part}
+
+Ignore $g(n)$ for now. Solve:
+\[
+f_h(n) = c_1 f_h(n-1) + c_2 f_h(n-2) + \dots + c_k f_h(n-k).
+\]
+
+\textbf{Characteristic Equation:} Assume $f_h(n) = r^n$, then substitute into the homogeneous recurrence:
+\[
+r^n = c_1 r^{n-1} + c_2 r^{n-2} + \dots + c_k r^{n-k}.
+\]
+
+Divide through by $r^{n-k}$:
+\[
+r^k - c_1 r^{k-1} - c_2 r^{k-2} - \dots - c_k = 0.
+\]
+
+Solve this polynomial to get roots $r_1, r_2, \dots, r_m$ (some may be repeated).
+
+\textbf{Homogeneous solution:}
+\[
+f_h(n) =
+\begin{cases}
+A_1 r_1^n + A_2 r_2^n + \dots + A_m r_m^n & \text{if all roots distinct} \\
+\text{Include powers of } n \text{ for repeated roots.}
+\end{cases}
+\]
+
+\subsubsection{Step 2: Solve the Particular Part}
+
+Now consider the non-homogeneous part $g(n)$. Guess a solution $f_p(n)$ in the same form as $g(n)$:
+\[
+g(n) = a(n) r^n + b(n) n^s r^n + \dots
+\]
+
+\begin{remarkbox}
+If your guess duplicates a term in the homogeneous solution, multiply by $n$ enough times to make it linearly independent.
+\end{remarkbox}
+
+\subsubsection{Step 3: General Solution}
+
+Combine homogeneous and particular solutions:
+\[
+f(n) = f_h(n) + f_p(n).
+\]
+
+Use initial conditions to solve for constants $A_1, \dots, A_m$.
+
+\subsubsection{Fibonacci Sequence Example}
+
+\[
+f(n) = f(n-1) + f(n-2), \quad f(0)=0, f(1)=1.
+\]
+
+\textbf{Characteristic equation:}
+\[
+r^2 - r - 1 = 0 \implies r = \frac{1\pm \sqrt{5}}{2}.
+\]
+
+\textbf{Homogeneous solution:}
+\[
+f_h(n) = A \left(\frac{1+\sqrt{5}}{2}\right)^n + B \left(\frac{1-\sqrt{5}}{2}\right)^n.
+\]
+
+Since $g(n)=0$, the particular solution is zero.
+
+Use initial conditions:
+\[
+\begin{cases}
+f(0) = A + B = 0 \\
+f(1) = A \frac{1+\sqrt{5}}{2} + B \frac{1-\sqrt{5}}{2} = 1
+\end{cases} \implies A = \frac{1}{\sqrt{5}}, B = -\frac{1}{\sqrt{5}}.
+\]
+
+\textbf{Closed form:}
+\[
+\boxed{f(n) = \frac{1}{\sqrt{5}}\left[ \left(\frac{1+\sqrt{5}}{2}\right)^n - \left(\frac{1-\sqrt{5}}{2}\right)^n \right]}
+\]
+
+\subsubsection{Non-Homogeneous Example}
+
+\[
+f(n) = 2 f(n-1) - 2^n, \quad f(0)=5.
+\]
+
+\textbf{Step 1 - Homogeneous:} Solve $f_h(n) = 2 f_h(n-1)$, characteristic root $r=2$, so
+\[
+f_h(n) = C \cdot 2^n.
+\]
+
+\textbf{Step 2 - Particular:} Guess $f_p(n) = A n 2^n$ because $2^n$ is already in homogeneous solution.  
+Plug in:
+\[
+A n 2^n = 2 A (n-1) 2^{n-1} - 2^n \implies A = -1
+\]
+
+\textbf{Step 3 - General solution:} $f(n) = f_h(n) + f_p(n) = C \cdot 2^n - n \cdot 2^n$.  
+
+Use initial condition $f(0)=5 \implies C = 5$.  
+
+\[
+\boxed{f(n) = (5 - n) \cdot 2^n}
+\]
+
+\begin{remarkbox}
+\textbf{Strategy Summary:}
+\begin{enumerate}
+    \item Identify if recurrence is linear with constant coefficients.
+    \item Solve homogeneous part via characteristic equation.
+    \item Find particular solution for non-homogeneous part (guess similar to $g(n)$, multiply by powers of $n$ if necessary).
+    \item Combine solutions and apply initial conditions.
+\end{enumerate}
+\end{remarkbox}
+
+\textbf{Remark 3.4.18:} Can also solve via engineering induction.
+
+\begin{tcolorbox}[colback=yellow!10!white,colframe=orange!75!black,title=Engineering Induction (Pattern Guessing)]
+\textbf{How to Use Engineering Induction:}
+\begin{enumerate}
+    \item Compute the first few values ($n=0,1,2,3,4,...$) manually.
+    \item Look for a pattern in these small cases.
+    \item Assume the pattern continues for all larger values.
+    \item Use the assumed pattern to answer the question.
+\end{enumerate}
+\textbf{Warning:} Not rigorous! Pattern may fail for large $n$, but works most of the time for competition math.
+
+\textbf{Example:} For the previous problem $f(n) = 2f(n-1) - 2^n$ with $f(0)=5$:
+\begin{itemize}
+    \item $f(0) = 5 = 5 \cdot 2^0$
+    \item $f(1) = 2(5) - 2 = 8 = 4 \cdot 2^1$
+    \item $f(2) = 2(8) - 4 = 12 = 3 \cdot 2^2$
+    \item $f(3) = 2(12) - 8 = 16 = 2 \cdot 2^3$
+    \item $f(4) = 2(16) - 16 = 16 = 1 \cdot 2^4$
+    \item Pattern: Coefficients are $5,4,3,2,1,\ldots$ so $f(n) = (5-n) \cdot 2^n$
+    \item Trust it! Answer is $\boxed{(5-n) \cdot 2^n}$
+\end{itemize}
+\end{tcolorbox}
+
+
+\newpage
+
+
+\subsection{Probability States: The States Method}
+
+\subsubsection*{Introduction}
+
+Many problems in elementary probability involve processes that evolve step by step and terminate upon reaching certain conditions. Although each individual step may be simple, the process itself may continue indefinitely, making direct enumeration impractical or impossible. Such problems appear frequently in the AMC 10/12 and AIME, particularly in questions involving repeated trials, random walks, or pattern formation.
+
+The \textbf{states method} provides a systematic framework for analyzing these processes. By partitioning the process into a finite set of well-chosen configurations, called \emph{states}, one can replace an infinite stochastic process with a finite system of equations. The strength of the method lies not in algebraic sophistication, but in careful conceptual modeling.
+
+\subsubsection*{Definition of a State}
+
+A \textbf{state} is a description of the system that contains precisely the information required to determine its future evolution.
+
+\begin{quote}
+Two situations belong to the same state if, from that point onward, the probability structure of the process is identical.
+\end{quote}
+
+This definition immediately excludes full historical tracking. States encode progress, not memory. The art of the method lies in identifying what information is relevant and discarding everything else.
+
+\subsubsection*{Situations Appropriate for the States Method}
+
+The states method is particularly effective when:
+\begin{itemize}
+    \item The process evolves in discrete steps
+    \item The outcome depends only on the current configuration
+    \item The process ends upon reaching one of several terminal conditions
+    \item The problem asks for an expected value or an eventual probability
+\end{itemize}
+
+Typical examples include coin-flipping patterns, gambler's ruin–type random walks, and repeated trials with stopping rules.
+
+\subsubsection*{General Procedure}
+
+Every states problem follows the same sequence:
+\begin{enumerate}
+    \item Define the states
+    \item Assign a variable to each state
+    \item Write equations using transition probabilities
+    \item Solve the resulting system
+\end{enumerate}
+
+The method is uniform across problems; only the state definitions and transition probabilities change.
+
+\subsubsection*{Expected Value States and Probability States}
+
+There are two principal variants of the method.
+
+\paragraph{Expected Value States.}
+Let $E_i$ denote the expected number of additional steps until termination when the system is in state $i$. The corresponding equation is
+\[
+E_i = \sum p_{ij}(E_j + 1),
+\]
+where $p_{ij}$ is the probability of transitioning from state $i$ to state $j$.
+
+\paragraph{Probability States.}
+Let $P_i$ denote the probability of eventual success when starting from state $i$. The corresponding equation is
+\[
+P_i = \sum p_{ij} P_j.
+\]
+
+The absence of the $+1$ term is a fundamental distinction. Confusing these two forms is a common source of error.
+
+\subsubsection*{Worked Example: AIME-Level Random Walk with Bias}
+
+\paragraph{Problem.}
+A frog starts at position $1$ on the number line $\{0,1,2,3,4\}$. At each step, it moves one unit to the right with probability $\tfrac{2}{3}$ and one unit to the left with probability $\tfrac{1}{3}$. If the frog reaches $0$, it is eaten. If it reaches $4$, it escapes. Find the probability that the frog escapes.
+
+\paragraph{State Definition.}
+Each position corresponds to a state. Positions $0$ and $4$ are terminal.
+
+Let $P_i$ denote the probability of escape starting from position $i$.
+
+\paragraph{State Equations.}
+\[
+P_0 = 0, \quad P_4 = 1
+\]
+\[
+P_1 = \tfrac{2}{3}P_2 + \tfrac{1}{3}P_0
+\]
+\[
+P_2 = \tfrac{2}{3}P_3 + \tfrac{1}{3}P_1
+\]
+\[
+P_3 = \tfrac{2}{3}P_4 + \tfrac{1}{3}P_2
+\]
+
+\paragraph{Solving the System.}
+Substitute $P_0 = 0$ and $P_4 = 1$:
+\[
+P_1 = \tfrac{2}{3}P_2
+\]
+\[
+P_3 = \tfrac{2}{3} + \tfrac{1}{3}P_2
+\]
+
+Substitute into the equation for $P_2$:
+\[
+P_2 = \tfrac{2}{3}\left(\tfrac{2}{3} + \tfrac{1}{3}P_2\right) + \tfrac{1}{3}\left(\tfrac{2}{3}P_2\right)
+\]
+
+Simplifying:
+\[
+P_2 = \tfrac{4}{9} + \tfrac{2}{9}P_2 + \tfrac{2}{9}P_2
+= \tfrac{4}{9} + \tfrac{4}{9}P_2
+\]
+
+Thus,
+\[
+\tfrac{5}{9}P_2 = \tfrac{4}{9} \quad \Rightarrow \quad P_2 = \tfrac{4}{5}
+\]
+
+Then,
+\[
+P_1 = \tfrac{2}{3} \cdot \tfrac{4}{5} = \tfrac{8}{15}.
+\]
+
+\paragraph{Answer.}
+The probability that the frog escapes is $\boxed{\tfrac{8}{15}}$.
+
+\paragraph{Remark.}
+The lack of symmetry increases algebraic complexity, but the state framework remains unchanged.
+
+\subsubsection*{States vs Other Methods}
+
+\paragraph{States vs Recursion.}
+Recursive methods track quantities indexed by time or step number and are effective when the process has a fixed length. The states method is superior when the stopping time is random or unbounded.
+
+\paragraph{States vs Conditioning.}
+Conditioning analyzes a problem by breaking it into cases based on the first move. The states method formalizes this idea by recognizing when different cases lead back to the same configuration.
+
+In effect, the states method is \emph{structured conditioning with memory suppression}.
+
+\subsubsection*{Common Pitfalls}
+
+\begin{itemize}
+    \item Defining too many states by tracking irrelevant history
+    \item Forgetting to assign values to terminal states
+    \item Mixing expected value and probability equations
+    \item Ignoring symmetry that could reduce computation
+\end{itemize}
+
+Nearly all errors occur during modeling, not algebra.
+
+\subsubsection*{Method Summary}
+
+\begin{center}
+\fbox{
+\begin{minipage}{0.9\textwidth}
+\textbf{The States Method}
+
+\medskip
+\textbf{Use when:} a process evolves step by step and terminates upon reaching certain conditions.
+
+\medskip
+\textbf{Steps:}
+\begin{enumerate}
+    \item Define states that capture progress, not history
+    \item Assign variables ($E_i$ or $P_i$)
+    \item Write equations using transition probabilities
+    \item Solve the resulting system
+\end{enumerate}
+
+\textbf{Key Distinction:}
+\[
+E_i = \sum p(E_j + 1), \quad P_i = \sum pP_j
+\]
+\end{minipage}
+}
+\end{center}
+
+\subsubsection*{Concluding Remarks}
+
+The states method is not a computational shortcut but a modeling philosophy. Once mastered, it allows infinite random processes to be analyzed through finite logic. This idea recurs throughout probability theory and beyond, making the method an essential tool in a student's mathematical toolkit.
+
+\newpage
+\section{Worked Examples: Basic Counting}
+
+\subsection{Factorials and Permutations}
+
+\paragraph{Example 1.} Number of ways to arrange 5 distinct books on a shelf.
+
+\paragraph{Solution.}
+\textbf{Step 1: Identify the problem type.} We need to arrange 5 distinct objects in order.
+
+\textbf{Step 2: Apply factorial formula.} The number of permutations of $n$ distinct objects is $n!$.
+
+\textbf{Step 3: Calculate.}
+\[
+5! = 5 \times 4 \times 3 \times 2 \times 1 = 120
+\]
+
+\paragraph{Answer.} $\boxed{120}$
+
+\paragraph{Example 2.} Arrange 3 students out of 7 in a line.
+
+\paragraph{Solution.}
+\textbf{Step 1: Identify the problem type.} We need to select and arrange 3 students from 7 (order matters).
+
+\textbf{Step 2: Apply permutation formula.} $P(n,r) = \frac{n!}{(n-r)!}$
+
+\textbf{Step 3: Calculate.}
+\[
+P(7,3) = \frac{7!}{(7-3)!} = \frac{7!}{4!} = \frac{5040}{24} = 210
+\]
+
+\paragraph{Answer.} $\boxed{210}$
+
+\subsection{Combinations}
+
+\paragraph{Example 3.} Choose 4 students out of 10 for a committee.
+
+\paragraph{Solution.}
+\textbf{Step 1: Identify the problem type.} We need to select 4 students from 10 where order doesn't matter.
+
+\textbf{Step 2: Apply combination formula.} $\binom{n}{r} = \frac{n!}{r!(n-r)!}$
+
+\textbf{Step 3: Calculate.}
+\[
+\binom{10}{4} = \frac{10!}{4!6!} = \frac{10 \times 9 \times 8 \times 7}{4 \times 3 \times 2 \times 1} = \frac{5040}{24} = 210
+\]
+
+\paragraph{Answer.} $\boxed{210}$
+
+\paragraph{Example 4.} From 5 men and 6 women, form a team of 3 with at least 1 woman.
+
+\paragraph{Solution.}
+\textbf{Step 1: Identify cases.} At least 1 woman means: 1 woman + 2 men, 2 women + 1 man, or 3 women.
+
+\textbf{Step 2: Count each case.}
+\begin{itemize}
+    \item 1 woman, 2 men: $\binom{6}{1}\binom{5}{2} = 6 \times 10 = 60$
+    \item 2 women, 1 man: $\binom{6}{2}\binom{5}{1} = 15 \times 5 = 75$
+    \item 3 women, 0 men: $\binom{6}{3}\binom{5}{0} = 20 \times 1 = 20$
+\end{itemize}
+
+\textbf{Step 3: Add the cases.}
+\[
+60 + 75 + 20 = 155
+\]
+
+\paragraph{Answer.} $\boxed{155}$
+
+\subsection{Complementary Counting}
+
+\paragraph{Example 5.} Number of 3-digit numbers without the digit 5.
+
+\paragraph{Solution.}
+\textbf{Step 1: Count using complement.} Instead of counting numbers without 5 directly, count all 3-digit numbers and subtract those with at least one 5.
+
+\textbf{Step 2: Count total 3-digit numbers.} Total = $9 \times 10 \times 10 = 900$ (first digit: 1--9, others: 0--9).
+
+\textbf{Step 3: Count numbers without 5.} 
+\begin{itemize}
+    \item First digit: 8 choices (1,2,3,4,6,7,8,9)
+    \item Second digit: 9 choices (0,1,2,3,4,6,7,8,9)
+    \item Third digit: 9 choices (0,1,2,3,4,6,7,8,9)
+\end{itemize}
+Total without 5: $8 \times 9 \times 9 = 648$
+
+\paragraph{Answer.} $\boxed{648}$
+
+\subsection{Casework / Casebash}
+
+\paragraph{Example 6.} How many integers from 1 to 1000 are divisible by 3 or 5?
+
+\paragraph{Solution.}
+\textbf{Step 1: Apply Inclusion-Exclusion Principle.} $|A \cup B| = |A| + |B| - |A \cap B|$
+
+\textbf{Step 2: Count multiples.}
+\begin{itemize}
+    \item Divisible by 3: $\lfloor \frac{1000}{3} \rfloor = 333$
+    \item Divisible by 5: $\lfloor \frac{1000}{5} \rfloor = 200$
+    \item Divisible by both (i.e., by 15): $\lfloor \frac{1000}{15} \rfloor = 66$
+\end{itemize}
+
+\textbf{Step 3: Calculate using PIE.}
+\[
+333 + 200 - 66 = 467
+\]
+
+\paragraph{Answer.} $\boxed{467}$
+
+\paragraph{Example 6.1.} How many 4-digit numbers have digits summing to 10?
+
+\paragraph{Solution.}
+\textbf{Step 1: Set up equation.} We need $a+b+c+d=10$ where $a\in\{1,2,\ldots,9\}$ and $b,c,d\in\{0,1,\ldots,9\}$.
+
+\textbf{Step 2: Transform to non-negative integers.} Let $a'=a-1\ge0$. Then $a'+b+c+d=9$ with all variables $\ge 0$.
+
+\textbf{Step 3: Apply stars and bars.} Number of solutions: $\binom{9+4-1}{4-1} = \binom{12}{3} = 220$
+
+\textbf{Step 4: Subtract invalid cases.} If any digit $\ge 10$, it's invalid. 
+\begin{itemize}
+    \item If $a' \ge 10$: impossible since $a' \le 8$
+    \item If $a' = 9$: forces $b=c=d=0$, giving 1 case
+    \item If $b \ge 10$: let $b'' = b-10$, then $a'+b''+c+d=-1$ (impossible, but we counted this)
+    \item Actually, if $b=10$: needs $a'+c+d=0$, so $a'=c=d=0$, giving 1 case
+    \item Similarly for $c$ and $d$: 1 case each
+\end{itemize}
+Total invalid: $1 + 1 + 1 + 1 = 4$
+
+\textbf{Step 5: Final count.} $220 - 4 = 216$
+
+\paragraph{Answer.} $\boxed{216}$
+
+\section{Worked Examples: Advanced Counting}
+
+\subsection{Word Rearrangements}
+
+\paragraph{Example 7.} Arrange letters in "BANANA".
+
+\paragraph{Solution.}
+\textbf{Step 1: Count letters.} BANANA has 6 letters: B appears 1 time, A appears 3 times, N appears 2 times.
+
+\textbf{Step 2: Apply formula for permutations with repetition.} 
+\[
+\frac{n!}{n_1! n_2! \cdots n_k!}
+\]
+where $n$ is total letters and $n_i$ are the frequencies.
+
+\textbf{Step 3: Calculate.}
+\[
+\frac{6!}{1! \cdot 3! \cdot 2!} = \frac{720}{1 \cdot 6 \cdot 2} = \frac{720}{12} = 60
+\]
+
+\paragraph{Answer.} $\boxed{60}$
+
+\subsection{Stars and Bars}
+
+\paragraph{Example 8.} Distribute 10 identical balls into 3 boxes with at least 1 in each.
+
+\paragraph{Solution.}
+\textbf{Step 1: Handle the constraint.} Since each box must have at least 1 ball, place 1 ball in each box first.
+
+\textbf{Step 2: Count remaining balls.} We have $10 - 3 = 7$ balls left to distribute freely.
+
+\textbf{Step 3: Apply stars and bars.} Number of ways to distribute $n$ identical objects into $k$ bins:
+\[
+\binom{n+k-1}{k-1}
+\]
+
+\textbf{Step 4: Calculate.}
+\[
+\binom{7+3-1}{3-1} = \binom{9}{2} = \frac{9 \times 8}{2} = 36
+\]
+
+\paragraph{Answer.} $\boxed{36}$
+
+\paragraph{Example 9.} Non-negative integer solutions of $x_1+x_2+x_3=7$.
+
+\paragraph{Solution.}
+\textbf{Step 1: Identify problem type.} We need to find the number of ways to distribute 7 identical units among 3 variables.
+
+\textbf{Step 2: Apply stars and bars formula.}
+\[
+\binom{n+k-1}{k-1} = \binom{7+3-1}{3-1} = \binom{9}{2}
+\]
+
+\textbf{Step 3: Calculate.}
+\[
+\binom{9}{2} = \frac{9 \times 8}{2} = 36
+\]
+
+\paragraph{Answer.} $\boxed{36}$
+
+\subsection{Recursion}
+
+\paragraph{Example 10.} Fibonacci recurrence $f(n)=f(n-1)+f(n-2)$ with $f(1)=1,f(2)=1$. Find $f(5)$.
+
+\paragraph{Solution.}
+\textbf{Step 1: Apply recurrence.} Use $f(n)=f(n-1)+f(n-2)$ repeatedly.
+
+\textbf{Step 2: Compute values.}
+\begin{align*}
+f(3) &= f(2) + f(1) = 1 + 1 = 2 \\
+f(4) &= f(3) + f(2) = 2 + 1 = 3 \\
+f(5) &= f(4) + f(3) = 3 + 2 = 5
+\end{align*}
+
+\paragraph{Answer.} $\boxed{5}$
+
+\paragraph{Example 10.1.} Ways to tile a $2\times n$ board with $1\times 2$ dominoes. Find for $n=5$.
+
+\paragraph{Solution.}
+\textbf{Step 1: Set up recurrence.} Let $f(n)$ = number of tilings. A tiling ends with either a vertical domino (leaving a $2\times(n-1)$ board) or two horizontal dominoes (leaving a $2\times(n-2)$ board).
+\[
+f(n) = f(n-1) + f(n-2)
+\]
+
+\textbf{Step 2: Base cases.} $f(1) = 1$ (one vertical), $f(2) = 2$ (two verticals or two horizontals).
+
+\textbf{Step 3: Compute.}
+\[
+f(3) = 3, \quad f(4) = 5, \quad f(5) = 8
+\]
+
+\paragraph{Answer.} $\boxed{8}$
+
+\paragraph{Example 11.} Number of binary strings of length 5 with no consecutive 1's.
+
+\paragraph{Solution.}
+\textbf{Step 1: Define recurrence.} Let $f(n)$ = number of valid strings of length $n$. A string either ends in 0 (any valid string of length $n-1$) or ends in 1 (must have 0 before it, so valid strings of length $n-2$ followed by 01).
+\[
+f(n) = f(n-1) + f(n-2)
+\]
+
+\textbf{Step 2: Base cases.} $f(1) = 2$ (strings: 0, 1), $f(2) = 3$ (strings: 00, 01, 10).
+
+\textbf{Step 3: Compute.}
+\[
+f(3) = 5, \quad f(4) = 8, \quad f(5) = 13
+\]
+
+\paragraph{Answer.} $\boxed{13}$
+
+\paragraph{Example 11.1.} Binary strings of length 8 with no consecutive 1's and starting with 1.
+
+\paragraph{Solution.}
+\textbf{Step 1: Fix first digit.} If the string starts with 1, the second digit must be 0 (to avoid consecutive 1's).
+
+\textbf{Step 2: Reduce problem.} After fixing first two digits as "10", we need valid strings of length 6.
+
+\textbf{Step 3: Compute using recurrence.} From Example 11, $f(6) = f(5) + f(4) = 13 + 8 = 21$.
+
+\paragraph{Answer.} $\boxed{21}$
+
+\subsection{Binomial Theorem and Identities}
+
+\paragraph{Example 12.} Coefficient of $x^3$ in $(1+x)^5$.
+
+\paragraph{Solution.}
+\textbf{Step 1: Apply Binomial Theorem.} 
+\[
+(1+x)^n = \sum_{k=0}^{n} \binom{n}{k} x^k
+\]
+
+\textbf{Step 2: Identify coefficient.} The coefficient of $x^3$ is $\binom{5}{3}$.
+
+\textbf{Step 3: Calculate.}
+\[
+\binom{5}{3} = \frac{5!}{3!2!} = \frac{5 \times 4}{2} = 10
+\]
+
+\paragraph{Answer.} $\boxed{10}$
+
+\paragraph{Example 13.} Verify Hockey Stick Identity $\sum_{i=2}^{4}\binom{i}{2} = \binom{5}{3}$.
+
+\paragraph{Solution.}
+\textbf{Step 1: Compute left side.}
+\[
+\binom{2}{2} = 1, \quad \binom{3}{2} = 3, \quad \binom{4}{2} = 6
+\]
+\[
+\sum_{i=2}^{4}\binom{i}{2} = 1 + 3 + 6 = 10
+\]
+
+\textbf{Step 2: Compute right side.}
+\[
+\binom{5}{3} = 10
+\]
+
+\textbf{Step 3: Verify equality.} Both sides equal 10, so the identity holds.
+
+\paragraph{Answer.} Identity verified: $\boxed{\sum_{i=2}^{4}\binom{i}{2} = \binom{5}{3} = 10}$
+
+\subsection{Probability and Expected Value}
+
+\paragraph{Example 14.} Roll a fair die. What is the expected value of the outcome?
+
+\paragraph{Solution.}
+\textbf{Step 1: Define expected value.} 
+\[
+E[X] = \sum_{i} x_i \cdot P(X = x_i)
+\]
+
+\textbf{Step 2: List outcomes and probabilities.} Each outcome $\{1,2,3,4,5,6\}$ has probability $\frac{1}{6}$.
+
+\textbf{Step 3: Calculate.}
+\[
+E[X] = \sum_{i=1}^{6} i \cdot \frac{1}{6} = \frac{1+2+3+4+5+6}{6} = \frac{21}{6} = 3.5
+\]
+
+\paragraph{Answer.} $\boxed{3.5}$
+
+\paragraph{Example 15.} Toss 2 fair coins. What is the expected number of heads?
+
+\paragraph{Solution.}
+\textbf{Step 1: List outcomes.} Possible results: HH, HT, TH, TT, each with probability $\frac{1}{4}$.
+
+\textbf{Step 2: Count heads in each outcome.}
+\begin{itemize}
+    \item 0 heads (TT): probability $\frac{1}{4}$
+    \item 1 head (HT, TH): probability $\frac{2}{4}$
+    \item 2 heads (HH): probability $\frac{1}{4}$
+\end{itemize}
+
+\textbf{Step 3: Calculate expected value.}
+\[
+E[X] = 0 \cdot \frac{1}{4} + 1 \cdot \frac{2}{4} + 2 \cdot \frac{1}{4} = 0 + \frac{2}{4} + \frac{2}{4} = 1
+\]
+
+\paragraph{Answer.} $\boxed{1}$
+
+\paragraph{Example 16.} A point is chosen randomly in the unit square $[0,1]\times[0,1]$. What is the probability that $x+y<1$?
+
+\paragraph{Solution.}
+\textbf{Step 1: Identify the region.} The constraint $x+y<1$ defines a triangle with vertices $(0,0)$, $(1,0)$, and $(0,1)$.
+
+\textbf{Step 2: Calculate area of triangle.}
+\[
+\text{Area} = \frac{1}{2} \cdot 1 \cdot 1 = \frac{1}{2}
+\]
+
+\textbf{Step 3: Compute probability.} 
+\[
+P = \frac{\text{Area of favorable region}}{\text{Total area}} = \frac{1/2}{1} = \frac{1}{2}
+\]
+
+\paragraph{Answer.} $\boxed{\frac{1}{2}}$
+
+\paragraph{Example 16.1.} Two points are chosen randomly on distinct sides of a unit square. What is the probability their connecting segment crosses the interior?
+
+\paragraph{Solution.}
+\textbf{Step 1: Count side pairs.} There are $\binom{4}{2} = 6$ ways to choose 2 distinct sides.
+
+\textbf{Step 2: Analyze by configuration.}
+\begin{itemize}
+    \item Adjacent sides: 4 pairs. Segment always crosses interior. Probability for each: 1.
+    \item Opposite sides: 2 pairs. Segment always crosses interior. Probability for each: 1.
+\end{itemize}
+
+\textbf{Step 3: Average over all configurations.}
+\[
+P = \frac{4 \cdot 1 + 2 \cdot 1}{6} = \frac{6}{6} = 1
+\]
+
+\paragraph{Answer.} $\boxed{1}$ (Note: All segments between points on distinct sides cross the interior.)
+
+\subsection{Principle of Inclusion and Exclusion (PIE)}
+
+\paragraph{Example 17.} Count numbers from 1 to 100 divisible by 2, 3, or 5.
+
+\paragraph{Solution.}
+\textbf{Step 1: Define sets.} Let $A_2$, $A_3$, $A_5$ be numbers divisible by 2, 3, 5 respectively.
+
+\textbf{Step 2: Count individual sets.}
+\begin{itemize}
+    \item $|A_2| = \lfloor 100/2 \rfloor = 50$
+    \item $|A_3| = \lfloor 100/3 \rfloor = 33$
+    \item $|A_5| = \lfloor 100/5 \rfloor = 20$
+\end{itemize}
+
+\textbf{Step 3: Count pairwise intersections.}
+\begin{itemize}
+    \item $|A_2 \cap A_3| = \lfloor 100/6 \rfloor = 16$
+    \item $|A_2 \cap A_5| = \lfloor 100/10 \rfloor = 10$
+    \item $|A_3 \cap A_5| = \lfloor 100/15 \rfloor = 6$
+\end{itemize}
+
+\textbf{Step 4: Count triple intersection.}
+\[
+|A_2 \cap A_3 \cap A_5| = \lfloor 100/30 \rfloor = 3
+\]
+
+\textbf{Step 5: Apply PIE.}
+\[
+|A_2\cup A_3\cup A_5| = 50+33+20 -16-10-6 +3 = 74
+\]
+
+\paragraph{Answer.} $\boxed{74}$
+
+\subsection{Probability States}
+
+\paragraph{Example 18.} Frog jumps on 3-step ladder. Steps numbered 0 (bottom) to 3 (top). Frog jumps 1 or 2 steps with probability 0.5 each. Find probability to reach top from bottom.
+
+\paragraph{Solution.}
+\textbf{Step 1: Define states.} Let $p_i$ = probability to reach step 3 starting from step $i$.
+
+\textbf{Step 2: Boundary conditions.} $p_3=1$ (already at top), $p_4=0$ (would overshoot, not relevant).
+
+\textbf{Step 3: Write recurrence relations.}
+\[
+p_0 = 0.5\,p_1 + 0.5\,p_2
+\]
+\[
+p_1 = 0.5\,p_2 + 0.5\,p_3
+\]
+\[
+p_2 = 0.5\,p_3 + 0.5\,p_4
+\]
+
+\textbf{Step 4: Solve backwards.}
+\[
+p_2 = 0.5(1) + 0.5(0) = 0.5
+\]
+\[
+p_1 = 0.5(0.5) + 0.5(1) = 0.25 + 0.5 = 0.75
+\]
+\[
+p_0 = 0.5(0.75) + 0.5(0.5) = 0.375 + 0.25 = 0.625
+\]
+
+\paragraph{Answer.} $\boxed{\frac{5}{8}}$ or $0.625$
+
+\paragraph{Example 18.1.} A token starts at 0 on a line and moves +1 with probability $p$ or -1 with probability $1-p$ until hitting -2 or +3. Find the probability of reaching +3 first.
+
+\paragraph{Solution.}
+\textbf{Step 1: Define states.} Let $q_i$ = probability of reaching +3 before -2 starting from position $i$.
+
+\textbf{Step 2: Boundary conditions.} $q_{-2}=0$ (failed), $q_3=1$ (success).
+
+\textbf{Step 3: Write recurrence.} For $-1 \le i \le 2$:
+\[
+q_i = p\,q_{i+1} + (1-p)q_{i-1}
+\]
+
+\textbf{Step 4: Solve system.} This is a second-order linear recurrence. After solving (details omitted for brevity):
+\[
+q_0=\dfrac{p^2(2-p)}{1-p+p^2}
+\]
+
+\paragraph{Answer.} $\boxed{\dfrac{p^2(2-p)}{1-p+p^2}}$
+
+\textbf{Example 18.2 (Hard):} A gambler starts with \$5. Each round, they win \$1 with probability $\frac{2}{3}$ or lose \$1 with probability $\frac{1}{3}$. The game ends when they reach \$10 or \$0. What is the probability they reach \$10 before going broke?
+
+\textbf{Solution (Step-by-Step):}
+
+\textbf{Step 1: Define States.} Let $P_k$ = probability of reaching \$10 starting from \$$k$.
+
+\textbf{Step 2: Boundary Conditions.} 
+$P_0 = 0$ (already broke) and $P_{10} = 1$ (already won).
+
+\textbf{Step 3: Recurrence Relation.} For $1 \le k \le 9$:
+\[
+P_k = \frac{2}{3}P_{k+1} + \frac{1}{3}P_{k-1}
+\]
+
+\textbf{Step 4: Rearrange.} Multiply by 3:
+\[
+3P_k = 2P_{k+1} + P_{k-1} \implies 2P_{k+1} - 3P_k + P_{k-1} = 0
+\]
+
+\textbf{Step 5: Solve Characteristic Equation.} Let $P_k = r^k$:
+\[
+2r^2 - 3r + 1 = 0 \implies (2r-1)(r-1) = 0 \implies r = 1 \text{ or } r = \frac{1}{2}
+\]
+
+\textbf{Step 6: General Solution.}
+\[
+P_k = A \cdot 1^k + B \cdot \left(\frac{1}{2}\right)^k = A + B \cdot \left(\frac{1}{2}\right)^k
+\]
+
+\textbf{Step 7: Apply Boundary Conditions.}
+\begin{itemize}
+    \item $P_0 = 0$: $A + B = 0 \implies B = -A$
+    \item $P_{10} = 1$: $A + B \cdot \left(\frac{1}{2}\right)^{10} = 1$
+\end{itemize}
+Substitute $B = -A$:
+\[
+A - A \cdot \left(\frac{1}{2}\right)^{10} = 1 \implies A\left(1 - \frac{1}{1024}\right) = 1 \implies A = \frac{1024}{1023}
+\]
+Thus $B = -\frac{1024}{1023}$.
+
+\textbf{Step 8: Find $P_5$.}
+\[
+P_5 = \frac{1024}{1023} - \frac{1024}{1023} \cdot \left(\frac{1}{2}\right)^5 = \frac{1024}{1023}\left(1 - \frac{1}{32}\right) = \frac{1024}{1023} \cdot \frac{31}{32} = \frac{31}{1023} \cdot 32 = \frac{992}{1023}
+\]
+
+\textbf{Answer:} The probability is $\boxed{\dfrac{992}{1023}}$ or approximately 0.9697.
+
+\subsection{Bijections}
+
+\paragraph{Example 19.} Number of ways to choose 3 non-consecutive elements from $\{1,2,\dots,7\}$.
+
+\paragraph{Solution.}
+\textbf{Step 1: Transform the problem.} If we choose elements $a_1 < a_2 < a_3$ that are non-consecutive, we need $a_2 \ge a_1 + 2$ and $a_3 \ge a_2 + 2$.
+
+\textbf{Step 2: Create bijection.} Define $b_1 = a_1$, $b_2 = a_2 - 1$, $b_3 = a_3 - 2$. Then $b_1 < b_2 < b_3$ and they range from 1 to $7-2=5$.
+
+\textbf{Step 3: Count.} This is equivalent to choosing 3 elements from $\{1,2,3,4,5\}$:
+\[
+\binom{5}{3} = 10
+\]
+
+\paragraph{Answer.} $\boxed{10}$
+
+\subsection{Pigeonhole Principle}
+
+\paragraph{Example 20.} If 13 socks are placed in 12 drawers, show that at least one drawer contains at least 2 socks.
+
+\paragraph{Solution.}
+\textbf{Step 1: State the Pigeonhole Principle.} If $n$ objects are placed in $k$ containers and $n > k$, then at least one container has $> 1$ object.
+
+\textbf{Step 2: Apply to this problem.} We have 13 socks (objects) and 12 drawers (containers), with $13 > 12$.
+
+\textbf{Step 3: Conclude.} By PHP, at least one drawer must contain $\ge 2$ socks.
+
+\paragraph{Answer.} Proven by Pigeonhole Principle. $\boxed{\text{At least one drawer has } \ge 2 \text{ socks}}$
+
+\end{document}

@@ -1,0 +1,560 @@
+/*! purgecss start ignore */
+html {
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+}
+
+body,
+button,
+input,
+textarea,
+select,
+code,
+pre {
+  font-family: inherit;
+}
+
+html.dark {
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+html.transitioning-color-scheme,
+html.transitioning-color-scheme * {
+  transition-duration: 0ms !important;
+}
+
+/* Scrollbar styles */
+/* Thanks https://joshwcomeau.com/! */
+@media (orientation: landscape) {
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+    background-color: var(--border);
+  }
+  ::-webkit-scrollbar-track {
+    border-radius: 3px;
+    background-color: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: var(--border-strong);
+    border: 2px solid var(--border);
+  }
+  .dark ::-webkit-scrollbar {
+    background-color: var(--bg-surface);
+  }
+  .dark ::-webkit-scrollbar-thumb {
+    border: 2px solid var(--bg-surface);
+    background-color: var(--border-strong);
+  }
+}
+
+.react-markdown > pre {
+  font-size: 1em;
+  line-height: 1.75;
+  padding: 0;
+  margin: 0;
+  background-color: transparent !important;
+  color: var(--text-primary);
+  font-family: inherit;
+  overflow: visible;
+}
+
+/* Additional vertical padding used by kbd tag. */
+.markdown {
+  @apply leading-normal break-words;
+}
+
+.markdown p {
+  @apply mb-4;
+}
+
+.markdown pre {
+  @apply mt-4 mb-4;
+  font-size: 0.875rem;
+}
+
+.markdown > * + * {
+  @apply mt-0 mb-4;
+}
+
+.markdown > *:first-child {
+  @apply mt-0;
+}
+
+.markdown li > p + p {
+  @apply mt-6;
+}
+
+.markdown a {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.dark .markdown a {
+  color: var(--accent-glow);
+}
+
+.markdown a:hover {
+  color: var(--accent-strong);
+}
+
+.markdown strong a,
+.markdown a strong {
+  @apply font-bold;
+}
+
+.markdown {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply relative;
+    font-family: inherit;
+    font-weight: 900;
+  }
+}
+
+.markdown h5 {
+  @apply mt-6 mb-4 text-sm leading-tight font-semibold;
+}
+
+.markdown h6 {
+  @apply mt-6 mb-4 text-sm leading-tight font-semibold;
+  color: var(--text-secondary);
+}
+
+.markdown blockquote {
+  border-left: 4px solid var(--accent);
+  padding-right: 1rem;
+  padding-left: 1rem;
+  color: var(--text-secondary);
+}
+
+.dark .markdown blockquote {
+  color: var(--text-secondary);
+  border-left-color: var(--accent);
+}
+
+.markdown code.inline-code {
+  @apply text-sm;
+}
+
+.markdown h1 code.inline-code {
+  @apply text-3xl;
+}
+
+.markdown h2 code.inline-code {
+  @apply text-2xl;
+}
+
+.markdown h3 code.inline-code {
+  @apply text-xl;
+}
+
+.markdown h4 code.inline-code {
+  @apply text-lg;
+}
+
+.markdown code.inline-code {
+  @apply inline rounded-sm px-1 py-0.5 font-mono;
+  background-color: var(--accent-soft);
+  color: var(--accent);
+}
+
+.markdown table:not(.no-markdown) {
+  @apply text-base;
+  border-color: var(--border-strong);
+  th,
+  td {
+    @apply border px-3 py-1;
+  }
+  & > *:last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
+.markdown ul:not(.no-markdown) {
+  @apply mb-6 list-disc pl-8;
+}
+.markdown ol {
+  @apply mb-6 pl-4;
+}
+
+.markdown ul:not(.no-markdown) ul {
+  list-style-type: circle;
+  @apply mt-1 mb-2;
+}
+.markdown ul:not(.no-markdown) ol {
+  @apply mt-1 mb-2;
+}
+.markdown ol:not(.no-markdown) ul {
+  @apply mt-1 mb-2;
+}
+.markdown ol:not(.no-markdown) ol {
+  @apply mt-1 mb-2;
+}
+
+.markdown ul:not(.no-markdown) ul:last-child {
+  @apply mb-0;
+}
+.markdown ul:not(.no-markdown) ol:last-child {
+  @apply mb-0;
+}
+.markdown ol:not(.no-markdown) ul:last-child {
+  @apply mb-0;
+}
+.markdown ol:not(.no-markdown) ol:last-child {
+  @apply mb-0;
+}
+.markdown ul:not(.no-markdown) ul ul {
+  list-style-type: square;
+}
+
+.markdown ul:not(.no-markdown) > li {
+  @apply mb-2;
+}
+.markdown ul:not(.no-markdown) > li:last-of-type {
+  @apply mb-0;
+}
+.markdown ol:not(.no-markdown) > li {
+  @apply mb-2;
+}
+.markdown ol:not(.no-markdown) > li:last-of-type {
+  @apply mb-0;
+}
+
+.markdown ul ul > li {
+  @apply mb-1;
+}
+.markdown ol ol > li {
+  @apply mb-1;
+}
+
+.markdown ul p {
+  @apply mb-0;
+}
+.markdown ol p {
+  @apply mb-0;
+}
+
+.markdown ol {
+  counter-reset: number;
+}
+
+.markdown ol > li {
+  display: flex;
+  counter-increment: number;
+}
+
+.markdown ol > li:before {
+  content: counters(number, '.') '.';
+  margin-right: 0.5rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.dark .markdown ol > li:before {
+  color: var(--accent-glow);
+}
+
+.markdown kbd {
+  @apply inline-block rounded-sm border px-1 py-0.5 align-middle font-mono text-xs font-normal;
+  border-color: var(--border-strong);
+}
+
+/* Override pygments style background color. */
+.markdown .highlight pre {
+  background-color: var(--bg-surface-alt) !important;
+}
+
+.spoiler-body > pre {
+  margin-left: -1rem !important;
+  margin-right: -1rem !important;
+}
+
+.spoiler-body > pre:first-child {
+  margin-top: -2rem !important;
+}
+.spoiler-body > pre:last-child {
+  margin-bottom: -2rem !important;
+}
+.tailwind-alert > * + * {
+  @apply mb-2;
+}
+.tailwind-alert p {
+  @apply mb-2;
+}
+.tailwind-alert ul {
+  @apply mb-2;
+}
+.tailwind-alert ul li {
+  @apply mb-1;
+}
+.tailwind-alert > ul:last-child li:last-child {
+  @apply mb-0;
+}
+.tailwind-alert blockquote {
+  @apply text-sm;
+}
+.markdown .tailwind-alert a {
+  color: var(--text-primary);
+}
+
+.markdown .tailwind-alert--info a {
+  @apply dark:text-blue-200;
+}
+.tailwind-alert--info blockquote {
+  @apply border-blue-300 text-blue-700 dark:border-blue-500/50 dark:text-blue-300;
+}
+.markdown .tailwind-alert--info code.inline-code {
+  @apply bg-blue-100 dark:bg-blue-800/50 dark:text-blue-200;
+}
+
+.markdown .tailwind-alert--warning a {
+  @apply dark:text-yellow-200;
+}
+.tailwind-alert--warning blockquote {
+  @apply border-yellow-300 text-yellow-700 dark:border-yellow-500/50 dark:text-yellow-300;
+}
+.markdown .tailwind-alert--warning code.inline-code {
+  @apply bg-yellow-100 dark:bg-yellow-800/50 dark:text-yellow-200;
+}
+
+.markdown .tailwind-alert--optional a {
+  @apply dark:text-purple-200;
+}
+.tailwind-alert--optional blockquote {
+  @apply border-purple-300 text-purple-700 dark:border-purple-500/50 dark:text-purple-300;
+}
+.markdown .tailwind-alert--optional code.inline-code {
+  @apply bg-purple-100 dark:bg-purple-800/50 dark:text-purple-200;
+}
+
+.markdown .tailwind-alert--danger a {
+  @apply dark:text-red-200;
+}
+.tailwind-alert--danger blockquote {
+  @apply border-red-300 text-red-700 dark:border-red-500/50 dark:text-red-300;
+}
+.markdown .tailwind-alert--danger code.inline-code {
+  @apply bg-red-100 dark:bg-red-800/50 dark:text-red-200;
+}
+
+.quiz p {
+  margin-bottom: 0.5rem;
+}
+
+.no-y-margin > *:first-child {
+  margin-top: 0 !important;
+}
+.no-y-margin > *:last-child {
+  margin-bottom: 0 !important;
+}
+.tailwind-alert a {
+  @apply font-normal underline;
+  color: var(--text-primary);
+}
+
+.table-alternating-stripes {
+  background-color: var(--bg-surface);
+}
+.table-alternating-stripes tr:nth-child(even) {
+  background-color: var(--bg-surface-alt);
+}
+.dark .table-alternating-stripes {
+  background-color: var(--bg-surface);
+}
+.dark .table-alternating-stripes tr:nth-child(even) {
+  background-color: var(--bg-surface-alt);
+}
+
+.dark-mde-container .editor-toolbar {
+  border-color: var(--border-strong);
+}
+.dark-mde-container .CodeMirror {
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+}
+
+/* from https://www.lekoarts.de/en/blog/language-tabs-for-gatsbys-code-blocks */
+.gatsby-highlight {
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+}
+.gatsby-highlight pre[class*='language-'] {
+  -webkit-overflow-scrolling: touch;
+}
+.gatsby-highlight pre[class*='language-']::before {
+  background: var(--accent);
+  border-radius: 0 0 0.25rem 0.25rem;
+  color: var(--text-inverse);
+  font-size: 12px;
+  letter-spacing: 0.025rem;
+  padding: 0.1rem 0.5rem;
+  position: absolute;
+  right: 1rem;
+  text-align: right;
+  text-transform: uppercase;
+  top: 0;
+}
+.gatsby-highlight.dark-mode pre[class*='language-cpp']::before {
+  content: 'cpp';
+  background: var(--accent);
+  color: var(--text-inverse);
+}
+.gatsby-highlight.dark-mode pre[class*='language-java']::before {
+  content: 'java';
+  background: var(--accent);
+  color: var(--text-inverse);
+}
+.gatsby-highlight.dark-mode pre[class*='language-py']::before {
+  content: 'python';
+  background: var(--accent);
+  color: var(--text-inverse);
+}
+.gatsby-highlight.light-mode pre[class*='language-cpp']::before {
+  content: 'cpp';
+  background: var(--border);
+  color: #ffffff;
+}
+.gatsby-highlight.light-mode pre[class*='language-java']::before {
+  content: 'java';
+  background: var(--border);
+  color: #ffffff;
+}
+.gatsby-highlight.light-mode pre[class*='language-py']::before {
+  content: 'python';
+  background: var(--border);
+  color: #ffffff;
+}
+
+.yt-video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+.yt-video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.form-input {
+  @apply rounded-md focus:ring-3;
+  border-color: var(--border-strong);
+  --tw-ring-color: var(--accent);
+}
+
+.dark .ais-Highlight-highlighted,
+.dark .ais-Snippet-highlighted {
+  background-color: var(--accent-soft);
+}
+
+.problems-page .problems-pagination.ais-Pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.problems-page .problems-pagination,
+.problems-page .problems-pagination .ais-Pagination-item {
+  color: var(--text-muted);
+}
+
+.problems-page .problems-pagination .ais-Pagination-list {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.problems-page .problems-pagination .ais-Pagination-link {
+  display: inline-flex;
+  min-width: 2.15rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  /* Was hardcoded lavender with pure-black text. Uses the same moulded
+     material as every other control on the site now. */
+  border: 1px solid transparent;
+  background:
+    var(--btn-dark-face) padding-box,
+    var(--btn-dark-rim) border-box;
+  box-shadow: var(--btn-drop), var(--btn-dark-inset);
+  /* !important is deliberate and scoped: InstantSearch ships its own theme in
+     a separate bundle that sets these on the same elements, and it is not a
+     sheet this project controls. Everything else here wins on specificity. */
+  color: var(--btn-dark-ink) !important;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  padding: 0.3125rem 0.5rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease;
+}
+
+.problems-page
+  .problems-pagination
+  .ais-Pagination-item--selected
+  .ais-Pagination-link {
+  background:
+    var(--btn-face) padding-box,
+    var(--btn-rim) border-box;
+  box-shadow: var(--btn-drop), var(--btn-inset);
+  /* The selected page sits on the light face, so it needs the dark ink or it
+     is white-on-white — which is exactly what the vendor sheet produced. */
+  color: var(--btn-ink) !important;
+}
+
+.problems-page .problems-pagination .ais-Pagination-link:hover {
+  background:
+    var(--btn-dark-face-hover) padding-box,
+    var(--btn-dark-rim) border-box;
+}
+
+.problems-page .problems-pagination .ais-Pagination-link:visited {
+  color: inherit;
+}
+
+.problems-page .problems-pagination .ais-Pagination-link:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.problems-page
+  .problems-pagination
+  .ais-Pagination-item--disabled
+  .ais-Pagination-link {
+  opacity: 0.5;
+}
+
+.katex * {
+  border-color: currentColor;
+}
+/*! purgecss end ignore */
+
+.tw-forms-disable input {
+  --tw-ring-color: transparent !important;
+}
+.tw-forms-disable-all-descendants * {
+  --tw-ring-color: transparent !important;
+}
+.gatsby-image-wrapper-rounded img {
+  @apply rounded-full;
+}
+
+.markdown img {
+  background-color: var(--bg-surface-alt);
+}

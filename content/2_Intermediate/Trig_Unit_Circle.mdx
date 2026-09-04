@@ -1,0 +1,370 @@
+---
+id: trig-unit-circle
+title: Unit Circle and Angle Measurement
+author: Pranav Ramesh 
+description: The geometric foundation of trigonometry
+prerequisites: []
+---
+
+## Introduction
+
+If right-triangle trigonometry is the vocabulary of trig, the **unit circle** is the grammar that lets everything else make sense. Recall that with right triangles, sine and cosine are only defined for *acute* angles: angles strictly between $0°$ and $90°$. The unit circle breaks this restriction entirely. It extends sine, cosine, and tangent to every real-number angle, positive or negative, large or small.
+
+The **unit circle** is the circle of radius $1$ centered at the origin of the coordinate plane. Its equation is simply:
+
+$$
+x^2 + y^2 = 1
+$$
+
+Every point $(x, y)$ on this circle will turn out to encode a complete trigonometric story.
+
+## Radians: A Better Unit
+
+Before diving into the circle itself, we need to talk about how we *measure* angles. You are likely familiar with degrees, but most serious mathematics uses **radians**.
+
+One radian is the angle subtended at the center of a circle by an arc whose length equals the radius. Since the circumference of the unit circle is $2\pi$, a full revolution corresponds to exactly $2\pi$ radians. Hence:
+
+$$
+2\pi \text{ rad} = 360°
+$$
+
+To convert between the two systems, let $d$ be an angle in degrees and $r$ its radian measure:
+
+$$
+r = \frac{\pi d}{180}, \qquad d = \frac{180r}{\pi}
+$$
+
+Some conversions worth memorizing:
+
+| Degrees | Radians |
+|---|---|
+| $30°$ | $\dfrac{\pi}{6}$ |
+| $45°$ | $\dfrac{\pi}{4}$ |
+| $60°$ | $\dfrac{\pi}{3}$ |
+| $90°$ | $\dfrac{\pi}{2}$ |
+| $180°$ | $\pi$ |
+| $360°$ | $2\pi$ |
+
+Radians are preferred not merely by convention, it's because they make calculus, series expansions, and virtually every formula in higher mathematics easier. When an angle appears raw in a formula (like $e^{i\theta}$ or $\frac{d}{d\theta}\sin\theta = \cos\theta$), it is *always* in radians.
+
+## Connecting the Circle to Right Triangles
+
+Pick any point $P = (x, y)$ on the unit circle and draw the segment from the origin $O$ to $P$. Drop a perpendicular from $P$ to the $x$-axis, landing at $A = (x, 0)$. This produces a right triangle $OAP$ with:
+
+- Hypotenuse $OP = 1$ (radius of the unit circle)
+- Horizontal leg $OA = |x|$
+- Vertical leg $AP = |y|$
+
+![A right triangle inscribed in the unit circle, showing the relationship between the angle θ and the x, y coordinates of a point on the circle.](https://i.ibb.co/nX1cwHZ/Untitled-design-9.png)
+*Credit: Brilliant*
+
+Let $\theta$ be the angle at $O$, measured counterclockwise from the positive $x$-axis. Applying the standard SOH-CAH-TOA definitions:
+
+$$
+\cos\theta = \frac{\text{adjacent}}{\text{hypotenuse}} = \frac{OA}{1} = x, \qquad \sin\theta = \frac{\text{opposite}}{\text{hypotenuse}} = \frac{AP}{1} = y
+$$
+
+This yields the central fact:
+
+$$
+\boxed{(\cos\theta,\; \sin\theta) \text{ are precisely the } (x,y)\text{-coordinates of the point on the unit circle at angle } \theta.}
+$$
+
+The power of this definition is that it works for *any* angle. When $\theta$ moves into the second quadrant, $x$ becomes negative, so $\cos\theta < 0$.
+
+### The Pythagorean Identity
+
+Since every point on the unit circle satisfies $x^2 + y^2 = 1$, substituting $x = \cos\theta$ and $y = \sin\theta$ gives immediately:
+
+$$
+\cos^2\theta + \sin^2\theta = 1
+$$
+
+This is the **Pythagorean Identity**, the single most useful trig identity. Dividing through by $\cos^2\theta$ or $\sin^2\theta$ yields two more:
+
+$$
+1 + \tan^2\theta = \sec^2\theta, \qquad \cot^2\theta + 1 = \csc^2\theta
+$$
+
+## Signed Angles and the Four Quadrants
+
+An angle on the unit circle is always measured from the positive $x$-axis with the vertex at the origin. It is **positive** when swept counterclockwise and **negative** when swept clockwise. The terminal side is the ray from the origin through the point on the unit circle.
+
+![Diagram illustrating positive (counterclockwise) and negative (clockwise) angle measurement on the unit circle, with labeled quadrants.](https://ds055uzetaobb.cloudfront.net/brioche/uploads/2TuaCRiknI-img_20160108_130353.jpg)
+*Credit: Brilliant*
+
+The signs of $\sin\theta$ and $\cos\theta$ depend on which quadrant the terminal side falls in:
+
+| Quadrant | $x$ | $y$ | $\cos\theta$ | $\sin\theta$ |
+|---|---|---|---|---|
+| I ($0 < \theta < \frac{\pi}{2}$) | $+$ | $+$ | $+$ | $+$ |
+| II ($\frac{\pi}{2} < \theta < \pi$) | $-$ | $+$ | $-$ | $+$ |
+| III ($\pi < \theta < \frac{3\pi}{2}$) | $-$ | $-$ | $-$ | $-$ |
+| IV ($\frac{3\pi}{2} < \theta < 2\pi$) | $+$ | $-$ | $+$ | $-$ |
+
+A useful mnemonic: **A**ll **S**tudents **T**ake **C**alculus... going counterclockwise from Quadrant I, the functions that are positive are All, Sine, Tangent, Cosine.
+
+<div style={{display:"flex",justifyContent:"center",margin:"1.5rem 0"}}>
+<svg width="340" height="340" viewBox="0 0 340 340" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>ASTC diagram: which trig functions are positive in each quadrant</title>
+  <desc>A coordinate plane divided into four quadrants. Quadrant I (top-right): All positive. Quadrant II (top-left): Sine positive. Quadrant III (bottom-left): Tangent positive. Quadrant IV (bottom-right): Cosine positive.</desc>
+
+  {/* Quadrant fills */}
+  <rect x="170" y="10"  width="160" height="160" fill="#EAF3DE" rx="4"/>
+  <rect x="10"  y="10"  width="160" height="160" fill="#E6F1FB" rx="4"/>
+  <rect x="10"  y="170" width="160" height="160" fill="#FAEEDA" rx="4"/>
+  <rect x="170" y="170" width="160" height="160" fill="#FBEAF0" rx="4"/>
+
+  {/* Axes */}
+  <line x1="10" y1="170" x2="330" y2="170" stroke="#888780" strokeWidth="1.5" markerEnd="url(#ax)"/>
+  <line x1="170" y1="330" x2="170" y2="10"  stroke="#888780" strokeWidth="1.5" markerEnd="url(#ax)"/>
+
+  <defs>
+    <marker id="ax" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#888780" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    </marker>
+  </defs>
+
+  {/* Axis labels */}
+  <text x="334" y="174" fontFamily="var(--font-sans, sans-serif)" fontSize="13" fill="#5F5E5A" dominantBaseline="central">x</text>
+  <text x="166" y="6"   fontFamily="var(--font-sans, sans-serif)" fontSize="13" fill="#5F5E5A" textAnchor="middle">y</text>
+
+  <text x="250" y="72" fontFamily="var(--font-sans, sans-serif)" fontSize="22" fontWeight="600" fill="#3B6D11" textAnchor="middle" dominantBaseline="central">ALL</text>
+  <text x="250" y="100" fontFamily="var(--font-sans, sans-serif)" fontSize="12" fill="#639922" textAnchor="middle" dominantBaseline="central">sin, cos, tan</text>
+  <text x="250" y="118" fontFamily="var(--font-sans, sans-serif)" fontSize="11" fill="#888780" textAnchor="middle" dominantBaseline="central">all positive</text>
+  <text x="316" y="22" fontFamily="var(--font-sans, sans-serif)" fontSize="11" fill="#888780" textAnchor="end">I</text>
+
+  <text x="90" y="72" fontFamily="var(--font-sans, sans-serif)" fontSize="22" fontWeight="600" fill="#185FA5" textAnchor="middle" dominantBaseline="central">SIN</text>
+  <text x="90" y="100" fontFamily="var(--font-sans, sans-serif)" fontSize="12" fill="#378ADD" textAnchor="middle" dominantBaseline="central">sin positive</text>
+  <text x="90" y="118" fontFamily="var(--font-sans, sans-serif)" fontSize="11" fill="#888780" textAnchor="middle" dominantBaseline="central">cos, tan negative</text>
+  <text x="24" y="22" fontFamily="var(--font-sans, sans-serif)" fontSize="11" fill="#888780">II</text>
+
+  <text x="90" y="232" fontFamily="var(--font-sans, sans-serif)" fontSize="22" fontWeight="600" fill="#854F0B" textAnchor="middle" dominantBaseline="central">TAN</text>
+  <text x="90" y="260" fontFamily="var(--font-sans, sans-serif)" fontSize="12" fill="#BA7517" textAnchor="middle" dominantBaseline="central">tan positive</text>
+  <text x="90" y="278" fontFamily="var(--font-sans, sans-serif)" fontSize="11" fill="#888780" textAnchor="middle" dominantBaseline="central">sin, cos negative</text>
+  <text x="24" y="322" fontFamily="var(--font-sans, sans-serif)" fontSize="11" fill="#888780">III</text>
+
+  <text x="250" y="232" fontFamily="var(--font-sans, sans-serif)" fontSize="22" fontWeight="600" fill="#993556" textAnchor="middle" dominantBaseline="central">COS</text>
+  <text x="250" y="260" fontFamily="var(--font-sans, sans-serif)" fontSize="12" fill="#D4537E" textAnchor="middle" dominantBaseline="central">cos positive</text>
+  <text x="250" y="278" fontFamily="var(--font-sans, sans-serif)" fontSize="11" fill="#888780" textAnchor="middle" dominantBaseline="central">sin, tan negative</text>
+  <text x="316" y="322" fontFamily="var(--font-sans, sans-serif)" fontSize="11" fill="#888780" textAnchor="end">IV</text>
+</svg>
+</div>
+
+## Special Angles
+
+The **special angles** are those for which the coordinates can be computed exactly from $30$-$60$-$90$ and $45$-$45$-$90$ triangle relationships. Memorizing these is essential for every competition and course involving trigonometry.
+
+![The full unit circle with all special angles labeled in both degrees and radians, along with their exact coordinate pairs.](https://i.ibb.co/1J96KFxM/Untitled-design-10.png)
+*Credit: Brilliant*
+
+| $\theta$ (radians) | $\theta$ (degrees) | $\cos\theta$ | $\sin\theta$ | $\tan\theta$ |
+|---|---|---|---|---|
+| $0$ | $0°$ | $1$ | $0$ | $0$ |
+| $\dfrac{\pi}{6}$ | $30°$ | $\dfrac{\sqrt{3}}{2}$ | $\dfrac{1}{2}$ | $\dfrac{1}{\sqrt{3}}$ |
+| $\dfrac{\pi}{4}$ | $45°$ | $\dfrac{\sqrt{2}}{2}$ | $\dfrac{\sqrt{2}}{2}$ | $1$ |
+| $\dfrac{\pi}{3}$ | $60°$ | $\dfrac{1}{2}$ | $\dfrac{\sqrt{3}}{2}$ | $\sqrt{3}$ |
+| $\dfrac{\pi}{2}$ | $90°$ | $0$ | $1$ | undefined |
+| $\pi$ | $180°$ | $-1$ | $0$ | $0$ |
+| $\dfrac{3\pi}{2}$ | $270°$ | $0$ | $-1$ | undefined |
+
+Rather than memorizing this table as a list of facts, notice the pattern in the sine column for the first quadrant:
+
+$$
+\sin 0° = \frac{\sqrt{0}}{2}, \quad \sin 30° = \frac{\sqrt{1}}{2}, \quad \sin 45° = \frac{\sqrt{2}}{2}, \quad \sin 60° = \frac{\sqrt{3}}{2}, \quad \sin 90° = \frac{\sqrt{4}}{2}
+$$
+
+The numerators run $\sqrt{0}, \sqrt{1}, \sqrt{2}, \sqrt{3}, \sqrt{4}$ in order. The cosine column runs the same sequence in reverse.
+
+### Coordinates in the Unit Circle
+
+A right triangle $AOB$ with right angle at $A$ lies on the Cartesian plane such that $\overline{OA}$ lies on the $x$-axis, point $O$ lies at the origin, and point $B$ lies anywhere on the unit circle. Note that $OB = 1$ unit.
+
+![Right triangle AOB on the coordinate plane with O at the origin, A on the x-axis, and B on the unit circle, illustrating how OA = cos θ and AB = sin θ.](https://ds055uzetaobb.cloudfront.net/brioche/uploads/1yjY1i2R36-img_20160106_191745.jpg)
+*Credit: Brilliant*
+
+When defining sine and cosine in terms of the unit circle, lengths can be negative. If $\overline{OA}$ extends along the negative $x$-axis, then $OA$ is negative; if $\overline{AB}$ extends below the $x$-axis, $AB$ is negative. Under this convention:
+
+$$
+\sin(\theta) = \frac{AB}{OB} = \frac{AB}{1} = AB, \qquad \cos(\theta) = \frac{OA}{OB} = \frac{OA}{1} = OA
+$$
+
+The sine of an angle is the $y$-coordinate of its point on the unit circle; the cosine is the $x$-coordinate.
+
+### Worked Examples
+
+> **Example 1.** A line through the origin meets the unit circle at angle $\theta = \dfrac{\pi}{4}$. Find the coordinates of that point.
+
+Since the coordinates are $(\cos\theta, \sin\theta)$:
+
+$$
+\cos\frac{\pi}{4} = \frac{\sqrt{2}}{2}, \qquad \sin\frac{\pi}{4} = \frac{\sqrt{2}}{2}
+$$
+
+So the point is $\left(\dfrac{\sqrt{2}}{2}, \dfrac{\sqrt{2}}{2}\right)$. $\square$
+
+> **Example 2.** A point on the unit circle has $x$-coordinate $\dfrac{1}{2}$. Find $\tan^2\theta$.
+
+Since $x = \cos\theta$, we have $\cos^2\theta = \dfrac{1}{4}$. By the Pythagorean identity:
+
+$$
+\sin^2\theta = 1 - \cos^2\theta = 1 - \frac{1}{4} = \frac{3}{4}
+$$
+
+Therefore:
+
+$$
+\tan^2\theta = \frac{\sin^2\theta}{\cos^2\theta} = \frac{3/4}{1/4} = 3 \qquad \square
+$$
+
+## Allied Angles (Reduction Formulas)
+
+One of the most practical payoffs of the unit circle is a complete set of reduction formulas that let you express any trig function of a "compound" angle like $90° + \theta$ or $270° - \theta$ purely in terms of $\sin\theta$, $\cos\theta$, and $\tan\theta$. Competitions use these constantly; so does every calculus course.
+
+### How to derive them?
+
+The key insight is that the unit circle encodes *geometry*, not algebra. For any angle $\alpha$, the point $(\cos\alpha, \sin\alpha)$ sits on the circle. When you add or subtract a multiple of $90°$, the point *rotates* to a new quadrant. Reading off the new coordinates tells you exactly which function appears and what sign it carries.
+
+**The two-step recipe:**
+
+1. **Function type** : if the shift is an *odd* multiple of $90°$ (i.e. $90°$, $270°$), the function *swaps*: $\sin \leftrightarrow \cos$, $\tan \leftrightarrow \cot$, $\sec \leftrightarrow \csc$. If the shift is an *even* multiple of $90°$ (i.e. $0°$, $180°$, $360°$), the function *stays the same*.
+
+2. **Sign** : imagine $\theta$ is a small positive acute angle and ask: in which quadrant does the compound angle land? Use ASTC to determine the sign of that function there.
+
+That's it. You can derive any entry in the tables below on the fly.
+
+**Worked derivation: $\sin(90° + \theta)$:**
+
+Place $\theta$ in Quadrant I, so the point is $(\cos\theta, \sin\theta)$. Rotating $90°$ counterclockwise maps $(x, y) \mapsto (-y, x)$, so the new point is $(-\sin\theta, \cos\theta)$. The $y$-coordinate of this new point is $\cos\theta$, and $90° + \theta$ lands in Quadrant II where sine is positive. Hence:
+
+$$
+\sin(90° + \theta) = \cos\theta
+$$
+
+Every formula below follows from the same rotation argument.
+
+### Shifts by $90°$
+
+| Function | $90° - \theta$ | $90° + \theta$ |
+|---|---|---|
+| $\sin$ | $\cos\theta$ | $\cos\theta$ |
+| $\cos$ | $\sin\theta$ | $-\sin\theta$ |
+| $\tan$ | $\cot\theta$ | $-\cot\theta$ |
+| $\cot$ | $\tan\theta$ | $-\tan\theta$ |
+| $\sec$ | $\csc\theta$ | $-\csc\theta$ |
+| $\csc$ | $\sec\theta$ | $\sec\theta$ |
+
+*Function swaps* (sin↔cos, tan↔cot, sec↔csc). Sign from ASTC: $90° - \theta$ stays in Q I (all positive); $90° + \theta$ lands in Q II (only sine and cosecant positive).
+
+### Shifts by $180°$
+
+| Function | $180° - \theta$ | $180° + \theta$ |
+|---|---|---|
+| $\sin$ | $\sin\theta$ | $-\sin\theta$ |
+| $\cos$ | $-\cos\theta$ | $-\cos\theta$ |
+| $\tan$ | $-\tan\theta$ | $\tan\theta$ |
+| $\cot$ | $-\cot\theta$ | $\cot\theta$ |
+| $\sec$ | $-\sec\theta$ | $-\sec\theta$ |
+| $\csc$ | $\csc\theta$ | $-\csc\theta$ |
+
+*Function stays the same*. $180° - \theta$ is in Q II (sin and csc positive, rest negative); $180° + \theta$ is in Q III (tan and cot positive, rest negative).
+
+### Shifts by $270°$
+
+| Function | $270° - \theta$ | $270° + \theta$ |
+|---|---|---|
+| $\sin$ | $-\cos\theta$ | $-\cos\theta$ |
+| $\cos$ | $-\sin\theta$ | $\sin\theta$ |
+| $\tan$ | $\cot\theta$ | $-\cot\theta$ |
+| $\cot$ | $\tan\theta$ | $-\tan\theta$ |
+| $\sec$ | $-\csc\theta$ | $\csc\theta$ |
+| $\csc$ | $-\sec\theta$ | $-\sec\theta$ |
+
+*Function swaps* again (odd multiple of $90°$). $270° - \theta$ is in Q III (tan and cot positive); $270° + \theta$ is in Q IV (cos and sec positive).
+
+### Shifts by $360°$ (and negative angles)
+
+| Function | $-\theta$ | $360° - \theta$ | $360° + \theta$ |
+|---|---|---|---|
+| $\sin$ | $-\sin\theta$ | $-\sin\theta$ | $\sin\theta$ |
+| $\cos$ | $\cos\theta$ | $\cos\theta$ | $\cos\theta$ |
+| $\tan$ | $-\tan\theta$ | $-\tan\theta$ | $\tan\theta$ |
+| $\cot$ | $-\cot\theta$ | $-\cot\theta$ | $\cot\theta$ |
+| $\sec$ | $\sec\theta$ | $\sec\theta$ | $\sec\theta$ |
+| $\csc$ | $-\csc\theta$ | $-\csc\theta$ | $\csc\theta$ |
+
+*Function stays the same* (even multiple of $90°$). $360° + \theta$ is just periodicity, a full revolution returns to the same point. $-\theta$ and $360° - \theta$ both reflect across the $x$-axis: the $y$-coordinate negates while $x$ stays fixed, which is exactly why sine is an **odd** function ($\sin(-\theta) = -\sin\theta$) and cosine is an **even** function ($\cos(-\theta) = \cos\theta$).
+
+### Quick-fire examples
+
+> Simplify $\tan(180° + \theta)$.
+
+$180°$ shift → function stays the same ($\tan$). $180° + \theta$ lands in Q III where tangent is positive. So $\tan(180° + \theta) = \tan\theta$. $\square$
+
+> Simplify $\cos(270° - \theta)$.
+
+$270°$ shift → function swaps ($\cos \to \sin$). $270° - \theta$ lands in Q III where cosine is negative. So $\cos(270° - \theta) = -\sin\theta$. $\square$
+
+> Simplify $\csc(90° + \theta)$.
+
+$90°$ shift → function swaps ($\csc \to \sec$). $90° + \theta$ lands in Q II where cosecant is positive. So $\csc(90° + \theta) = \sec\theta$. $\square$
+
+## Contest Problems
+
+> **Unit Circle Sign Problem**
+>
+> If $R = \sin 130° + \cos 130°$, which of the following is true?
+>
+> $R = 0 \qquad R \leq 0 \qquad R < 0 \qquad R > 0$
+
+![Graph of sine and cosine over one full period, illustrating where each function is positive and negative.](https://ds055uzetaobb.cloudfront.net/brioche/uploads/lLNWR2O8jb-500px-sine_cosine_one_periodsvg.png)
+*Credit: Brilliant*
+
+The angle $130°$ lies in Quadrant II, so $\sin 130° > 0$ and $\cos 130° < 0$. To determine the sign of their sum, note that $130° = 180° - 50°$. Using the cofunction shift:
+
+$$
+\sin 130° = \sin(180° - 50°) = \sin 50°
+$$
+$$
+\cos 130° = -\cos 50°
+$$
+
+So $R = \sin 50° - \cos 50°$. Since $50° > 45°$, we have $\sin 50° > \cos 50°$ (sine exceeds cosine for angles past $45°$ in the first quadrant), hence:
+
+$$
+R = \sin 50° - \cos 50° > 0
+$$
+
+$\boxed{R > 0}$
+
+## The Unit Circle Toolkit
+
+Much like GCD and LCM problems reduce to isolating one prime at a time, unit circle problems reduce to identifying the *quadrant* and *reference angle*. Here is a summary of the key tools:
+
+| Situation | Tool |
+|---|---|
+| Evaluating $\sin\theta$ or $\cos\theta$ for a special angle | Unit circle table |
+| Angle outside $[0°, 360°]$ | Reduce modulo $360°$ (or $2\pi$) |
+| Angle in Quadrant II/III/IV | Reference angle + ASTC sign rule |
+| Equation involving $\sin^2\theta + \cos^2\theta$ | Pythagorean identity |
+| Expression mixing $\sin$ and $\tan$ | Convert to $\sin$/$\cos$, simplify |
+| Degree–radian conversion | $r = \dfrac{\pi d}{180}$ |
+
+### Reference Angles
+
+For any angle $\theta$, the **reference angle** $\hat\theta$ is the acute angle between the terminal side and the $x$-axis. The absolute values $|\sin\theta|$ and $|\cos\theta|$ equal $\sin\hat\theta$ and $\cos\hat\theta$; the signs are determined by ASTC.
+
+| Quadrant | Reference angle $\hat\theta$ |
+|---|---|
+| I | $\theta$ |
+| II | $\pi - \theta$ |
+| III | $\theta - \pi$ |
+| IV | $2\pi - \theta$ |
+
+## Remarks
+
+The unit circle is the gateway to everything deeper in trigonometry: the graphs of sine and cosine as periodic functions, the complex exponential $e^{i\theta} = \cos\theta + i\sin\theta$ (Euler's formula), Fourier series, and the geometry of rotations in any dimension. Whenever you encounter a trigonometric expression, ask yourself: *where on the unit circle does this live, and what does the geometry tell me?* That habit will make most competition trig problems feel almost effortless.
+
+## Practice Problems
+
+<Problems problems="practice" />

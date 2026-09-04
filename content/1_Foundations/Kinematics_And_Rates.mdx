@@ -1,0 +1,233 @@
+---
+id: kinematics-and-rates
+title: Kinematics and Rates
+author: Macquel Ko, Siddhant Arora
+description: Solving tricky problems involving rate, proportions, and distance-rate formula
+---
+
+## Overview
+
+*If 100 machines produce 100 donuts in 100 seconds, how long would it take 5 machines to produce 5 donutes?*
+
+Take a look at the *riddle* above. As you probably already knew, the answer is **not** 5 seconds, it is indeed 100 seconds.
+
+Throughout this module, we will explore some more ~~challenging~~ variants of such problems involving rates. These problems do appear quite often on the AMCs, but not so much on the AIME. This section will provide knowledge on how to use the distance-rate formula and manipulate rates to solve for unknowns. 
+
+## Key Ideas
+
+All one really needs to solve such problems is what fraction of a task can a person, object, whatever complete of the given task in 1 unit of time. 
+
+>Suppose Person X can complete $Y\%$ of a task in $Z$ hours.
+
+Then we can derive the following:
+
+1) Person $X$ can complete $\frac{Y}{Z}\%$ of the task in $1$ hour.
+2) Person $X$ can complete $100\%$ of the task in $\frac{100Z}{Y}$ hours.
+
+Also, Person $X$ can complete $\frac{Y}{100Z}$ of the task in $1$ hour.
+
+For instance, if Bob takes $5$ hours to do $20\%$ of a task, he can finish the task in $\frac{100\cdot5}{20}$ hours, i.e, $25$ hours. He does $\frac{1}{25}$ of the task in an hour. 
+
+We will use this simple concept to easily solve more complex applications later on. Additionally, consider:
+
+- $d = rt$ where d is distance, r is the rate, and t is time. This formula is at the heart of rate-based problems in the AMC and AIME.
+
+- This formula can be rearranged to fit other contexts of problems. For example, you can alter the variables' meaning to form the equation 
+$ts = d$
+where s is speed, t is time, and d is distance. You could also interpret distance as other metrics, for example, items produced.
+
+- To understand this better, we can imagine the quantities here as being linked to their respective units of measurement.
+For example, if $d$ is measured in miles and $t$ is measured in hours, then $r$ will be measured in miles per hour (mph).
+Now the distance-rate formula is intuitive, because miles per hour times hours gives miles. This is literally the 
+distance-rate formula.
+
+- Take note of the givens in a certain problem and use them to create an equation to solve for the unknown quantity. For example, 
+if you are given 
+the rate and the distance, you can use the relation $\frac{d}{r} = t$ to create an equation for t.
+
+- Most of the rate problems in the AMC and the AIME involve speed as the rate.
+
+## Combining Rates
+
+To combine rates, we will utilize the above derivation on the fraction of a task that can be complete in a unit of time.
+
+1) Person $A$ completes $\dfrac{1}{a}$ of a task in an hour
+2) Person $B$ completes $\dfrac{1}{b}$ of a task in an hour
+3) Intuitively, to find the fraction of the task they complete in an hour, we add the rates! Hence, $A$ and $B$, working together, complete $\dfrac{1}{a} + \dfrac{1}{b}$ of the task in an hour.
+4) Also, they complete $N(\dfrac{1}{a} + \dfrac{1}{b})$ of the task in $N$ hours. Hence, to complete the whole task, it takes $\dfrac{1}{\dfrac{1}{a} + \dfrac{1}{b}}$ hours!
+
+We can generalize the above to many people instead of only two, all we have to do is add.
+
+> Alice can paint $30\%$ of a fence in $5$ hours. Bob can paint $70\%$ of the same fence in $3$ hours. How long does it take for both of them, working together from the start, to completely finish painting the fence?
+
+From the above, we can find that Alice can complete $\dfrac{3}{50}$ of the fence in an hour and Bob can complete $\dfrac{7}{30}$ of the fence in an hour.
+
+ Together, they paint $\dfrac{3}{50}+\dfrac{7}{30} = \dfrac{22}{75}$ of the fence in an hour. Hence, it takes the reciprocal of that, i.e, $\boxed{\dfrac{75}{22}}$ hours.
+
+## Worked Example
+
+> ### Problem (2014 AMC 10A #15 / AMC 12A #11)
+> David drives from his home to the airport. He drives 35 miles in the first hour, 
+> but realizes he will be 1 hour late if he continues at this speed. 
+> He then increases his speed by 15 mph for the rest of the trip and arrives 30 minutes early. 
+> How many miles is the airport from his home?
+
+> Let the total distance be $$d$$ miles.
+
+If David continued at $$35$$ mph, total time would be $$\frac{d}{35}$$ hours, which is $$1$$ hour late:
+$$
+\frac{d}{35} = T + 1
+$$
+
+After driving $$35$$ miles in the first hour, the remaining distance is $$d - 35$$ at $$50$$ mph, taking $$\frac{d - 35}{50}$$ hours. Total time is:
+$$
+1 + \frac{d - 35}{50} = T - \frac{1}{2}
+$$
+
+Subtract:
+$$
+\frac{d}{35} - \left(1 + \frac{d - 35}{50}\right) = \frac{3}{2}
+$$
+
+Multiply by $$350$$:
+$$
+10d - 350 - 7(d - 35) = 525
+$$
+
+Simplify:
+$$
+10d - 350 - 7d + 245 = 525
+$$
+$$
+3d - 105 = 525
+$$
+$$
+3d = 630
+$$
+$$
+d = 210
+$$
+
+$$
+\boxed{210} miles
+$$
+
+> ### Example 2 (2008 AIME, Problem #3)
+> Ed and Sue bike at equal and constant rates. Similarly, they jog at equal and constant rates, and they swim at equal and constant rates. 
+> Ed covers $$74$$ kilometers after biking for $$2$$ hours, jogging for $$3$$ hours, and swimming for $$4$$ hours, 
+> while Sue covers $$91$$ kilometers after jogging for $$2$$ hours, swimming for $$3$$ hours, and biking for $$4$$ hours. 
+> Their biking, jogging, and swimming rates are all whole numbers of kilometers per hour. Find the sum of the squares of Ed’s biking, 
+> jogging, and swimming rates.
+
+**Solution:** 
+Let us begin by establishing some variables to represent the relevant rates (in kilometers per hour). 
+Let $$b$$ denote the biking rate of Ed and Sue, let $$j$$ denote the jogging rate of Ed and Sue, and
+let $$s$$ denote the swimming rate of Ed and Sue. Using Equation (1.8), we have
+$$
+2b + 3j + 4s = 74
+$$
+
+and
+
+$$4b + 2j + 3s = 91.$$ (1.9)
+
+Therefore, we have three unknowns, but only two equations. Normally,
+such a system of linear equations cannot have a unique solution for $$b$$, $$j$$, and $$s$$, 
+but because we are also given that $$b$$, $$j$$, and $$s$$ are whole numbers, it will turn out that a unique solution is forthcoming.
+
+We must compute $$b^2 + j^2 + s^2$$. The strategy is to eliminate one of the variables by using the two equations above. 
+For instance, by doubling the first equation, we can solve for $$4b$$ in each equation and set the results equal to each other:
+$$
+148 - 6j - 8s = 4b = 91 - 2j - 3s.
+$$
+
+Hence,
+$$4j + 5s = 57,$$ (1.10)
+
+or
+
+$$4j = 57 - 5s.$$ (1.11)
+
+Equation (1.10) will clearly have a limited number of solutions in positive whole integers for $$j$$ and $$s$$. Furthermore, in Equation (1.11), note that $$57 - 5s$$ will be a positive multiple of $$4$$ only if $$s = 1, 5,$$ or $$9$$. The corresponding values of $$j$$ are $$j = 13, 8,$$ or $$3$$, respectively. For each pair $$(s, j)$$, we can solve for $$b$$ by using either equation in (1.9). The results are summarized in the table below:
+
+$$
+\begin{array}{c|c|c}
+s & j & b \\
+\hline
+1 & 13 & 15.5 \\
+5 & 8 & 15 \\
+9 & 3 & 14.5
+\end{array}
+$$
+
+Only the second option consists entirely of whole number values, so we conclude that $$s = 5$$, $$j = 8$$, and $$b = 15$$. The sum of the squares of these rates is
+$$
+s^2 + j^2 + b^2 = 25 + 64 + 225 = 314.
+$$
+
+$$
+\boxed{314}
+$$
+
+### (2007 AIME II, Problem #4)
+> The workers in a factory produce widgets and whoosits. For each product,
+> production time is constant and identical for all workers, but not necessarily equal for the two products. 
+> In one hour, 100 workers can produce 300 widgets and 200 whoosits. In two hours, 60 workers can produce 240 widgets and 300 whoosits. 
+> In three hours, 50 workers can produce 150 widgets and $$m$$ whoosits. Find $$m$$.
+
+**Solution:**
+Staying consistent to our theme in this chapter, we begin by introducing some variables. There are a lot of numbers weighing on this problem. It would be useful to simply determine how long it takes for one worker to make one widget, and the time it takes for one worker to make one whoosit. Therefore, we proceed as follows.
+
+Let $$x$$ denote the time (in hours) required for one worker to produce one widget, and let $$y$$ denote the time (in hours) required for one worker to produce one whoosit. We wish to write an equation, in terms of $$x$$ and $$y$$, for the amount of time required (given as one hour) for 100 workers to produce 300 widgets and 200 whoosits. Note that 100 workers can produce one widget in $$\frac{x}{100}$$ hours. Thus, to produce 300 widgets requires $$300 \cdot \frac{x}{100} = 3x$$ hours. Similarly, 200 whoosits requires $$200 \cdot \frac{y}{100} = 2y$$ hours. The total time required to produce both is $$3x + 2y$$ hours. Thus, we are given that
+
+$$
+3x + 2y = 1.
+$$
+
+Similarly, for two hours, the given information tells us that
+
+$$
+240 \cdot \frac{x}{60} + 300 \cdot \frac{y}{60} = 4x + 5y = 2.
+$$
+
+The system of equations
+
+$$3x + 2y = 1 \quad \text{and} \quad 4x + 5y = 2$$ (1.15)
+
+can be easily solved. For instance, we can use the method of elimination by multiplying the first equation by 4 and the second equation by 3 to get
+
+$$
+12x + 8y = 4 \quad \text{and} \quad 12x + 15y = 6.
+$$
+
+Subtracting the former equation from the latter eliminates $$x$$, and we obtain $$7y = 2$$, so that $$y = \frac{2}{7}$$. Then plugging this result into any of the equations obtained above, we quickly deduce that $$x = \frac{1}{7}$$.
+
+Now, in three hours, we have
+
+$$
+150 \cdot \frac{x}{50} + m \cdot \frac{y}{50} = 3.
+$$
+
+That is,
+
+$$
+3 \cdot \frac{1}{7} + \frac{m}{50} \cdot \frac{2}{7} = 3.
+$$
+
+Hence, (150 + 2m)/350 = 3.
+
+Therefore,
+
+$$
+150 + 2m = 1050,
+$$
+
+so that $$2m = 900$$. Hence, we conclude that $$m = 450$$.
+
+$$
+\boxed{450}
+$$
+
+## Practice Problems
+
+<Problems problems="practice" />

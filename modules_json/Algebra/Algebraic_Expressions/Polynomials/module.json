@@ -1,0 +1,555 @@
+{
+  "MODULE_ID": "algebra-algebraic-expressions-polynomials",
+  "practice": [
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-auto-0221",
+      "name": "Berkeley Math Circle Monthly Contest 1 #0hot",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomials",
+        "Quadratic functions"
+      ],
+      "statement": "Problem:\n\nLet $P(x)$ be a nonzero polynomial with real coefficients such that\n$$\nP(x) = P(0) + P(1) x + P(2) x^{2}\n$$\nholds for all $x$. What are the roots of $P(x)$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution.\n\nLet $c = P(0)$. Selecting $x = 1$ in the given, we have that $P(0) + P(1) + P(2) = P(1)$, so $P(2) = -c$. Selecting $x = 2$, we find that\n$$\n-c = c + 2 P(1) + 4(-c) \\Longrightarrow P(1) = c .\n$$\nTherefore, $P(x) = c + c x - c x^{2}$. As $c \\neq 0$, we solve $1 + x - x^{2} = 0$ to get the answers $x = \\frac{1}{2}(1 \\pm \\sqrt{5})$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-auto-0435",
+      "name": "Berkeley Math Circle Monthly Contest 1 #0hur",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomials",
+        "Polynomials mod p",
+        "Recurrence relations"
+      ],
+      "statement": "Problem:\n\nGiven a polynomial $P(x)$ with integer coefficients, assume that for every positive integer $n$ we have $P(n) > n$. Consider the sequence\n$$\nx_{1} = 1,\\quad x_{2} = P(x_{1}),\\quad \\ldots,\\quad x_{n} = P(x_{n-1}),\\quad \\ldots\n$$\nIf for every positive integer $N$ there exists a member of the sequence divisible by $N$, prove that $P(x) = x + 1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAssume the contrary. The polynomial $Q(x) = P(x) - x$ is non-decreasing for all $x$ greater than some $M$, as otherwise it wouldn't be positive, and it has to be bigger than $1$ for each $n$.\n\nIf there are infinitely many integers $n$ such that $P(n) = n + 1$ then we would have $P(x) = x + 1$ (nonzero polynomial $P(x) - x - 1$ can have only finitely many zeroes). Therefore there exists an index $k \\in \\mathbb{N}$ such that $x_{k} > M$ and $P(x_{l}) - x_{l} \\geq 2$ for $l \\geq k$.\n\nAssume that $d = x_{l+1} - x_{l} \\geq 2$. Then $d$ is a divisor of $P(x_{l+1}) - P(x_{l})$, i.e., of $x_{l+2} - x_{l+1}$. Since, if $a \\equiv b \\pmod{d}$, then $P(a) \\equiv P(b)$, by induction all the numbers $x_{l}, x_{l+1}, \\ldots$ have the same remainder modulo $d$. If that remainder is not zero then no term of the sequence could be divisible by $d^{m}$ for sufficiently large $m$, which would contradict the assumptions.\n\nHence $x_{l}$ is divisible by $x_{l+1} - x_{l}$ for all $l \\geq k$. Let $x_{l} = c_{l} (P(x_{l}) - x_{l})$. Then $P(x_{l}) = \\frac{c_{l} + 1}{c_{l}} x_{l}$ holds for infinitely many pairs of integers $(x_{l}, c_{l})$ such that $x_{l} \\to \\infty$. Because $\\frac{c_{l} + 1}{c_{l}} x_{l} = \\left(1 + \\frac{1}{c_{l}}\\right) x_{l} \\leq 2 x_{l}$, the degree of $P$ cannot exceed $1$ so that either $P(x) = 2x$ or $P(x) = x$. Neither of these polynomials satisfy the given condition, and this is a contradiction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-auto-0457",
+      "name": "Berkeley Math Circle Monthly Contest 2 #0hvd",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 2",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomials",
+        "Sums and products",
+        "Recursion, bijection"
+      ],
+      "statement": "Problem:\nDetermine whether there exists a polynomial $f(x, y)$ of two variables, with real coefficients, with the following property: A positive integer $m$ is a triangular number if and only if there do not exist positive integers $x$ and $y$ such that $f(x, y)=m$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe answer is yes.\n\nThe difference between the $n$th and $(n+1)$st triangular numbers is $n+1$. Therefore, a positive integer $m$ is not a triangular number if and only if it has the form\n$$\n\\frac{n^{2}+n}{2}+y\n$$\nwhere $1 \\leq y \\leq n$. Define $x = n - y + 1$; then the conditions $1 \\leq y$ and $y \\leq n$ are equivalent to $y \\geq 1$ and $x \\geq 1$. Conversely, $n = x + y - 1$, so the polynomial\n$$\nf(x, y) = \\frac{(x + y - 1)^{2} + (x + y - 1)}{2} + y = \\frac{(x + y)(x + y - 1)}{2} + y\n$$\nhits exactly the non-triangular numbers as $x$ and $y$ range over positive integers."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-auto-0471",
+      "name": "Berkeley Math Circle: Monthly Contest 6 #0hvr",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Polynomials",
+        "Recurrence relations"
+      ],
+      "statement": "Problem:\nFind all functions $f: \\mathbb{Q} \\rightarrow \\mathbb{R}$ from rational to real numbers such that for all rational $p, q$,\n$$\nf(p+2q) - f(p-2q) = 2(f(p+q) - f(p-q)).\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $P(p, q)$ be the given condition. Expanding $P(p-q, q) + 2P(p, q) + P(p+q, q)$ gives\n$$\nf(p+3q) - f(p-3q) = 3(f(p+q) - f(p-q)).\n$$\nLet $F$ be the quadratic that equals $f$ at $-1, 0, 1$. Plugging in $p=0.5, q=0.5$, we get that it also intersects $f$ at $2$. Plugging in $p=1.5, q=0.5$ then gives that it also intersects $f$ at $3$, and continuing this induction gives that it is equal to $f$ for all positive integers. Continuing this reasoning in the other direction gives that it is equal to $f$ for all negative integers as well.\n\nWe now claim that $f$ is in fact equal to $F$. Let $r/s$ be a rational number. Consider the arithmetic sequence from $-r$ to $r$ with difference $r/s$. By similar reasoning, $f$ is a quadratic over this sequence. However, $F$ contains three of the terms: $-r, 0, r$. Therefore, $f$ is equal to $F$ over this sequence; in particular, $f(r/s) = F(r/s)$.\n\nTherefore, $f$ is a quadratic, and all quadratics work, so the answer is all quadratics."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-auto-1304",
+      "name": "Harvard-MIT Mathematics Tournament #0iiw",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomials",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\nLet $f(x)$ be a degree $2006$ polynomial with complex roots $c_{1}, c_{2}, \\ldots, c_{2006}$, such that the set\n$$\n\\left\\{\\left|c_{1}\\right|,\\left|c_{2}\\right|, \\ldots,\\left|c_{2006}\\right|\\right\\}\n$$\nconsists of exactly $1006$ distinct values. What is the minimum number of real roots of $f(x)$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe complex roots of the polynomial must come in pairs, $c_{i}$ and $\\overline{c_{i}}$, both of which have the same absolute value. If $n$ is the number of distinct absolute values $\\left|c_{i}\\right|$ corresponding to those of non-real roots, then there are at least $2n$ non-real roots of $f(x)$. Thus $f(x)$ can have at most $2006-2n$ real roots. However, it must have at least $1006-n$ real roots, as $\\left|c_{i}\\right|$ takes on $1006-n$ more values. By definition of $n$, these all correspond to real roots. Therefore $1006-n \\leq$ number of real roots $\\leq 2006-2n$, so $n \\leq 1000$, and number of real roots $\\geq 1006-n \\geq 6$. It is easy to see that equality is attainable."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-auto-1517",
+      "name": "USAMO #0iot",
+      "url": "https://usamoguide.com/",
+      "source": "USAMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Greatest common divisors (gcd)",
+        "Prime numbers",
+        "Factorization techniques",
+        "Chinese remainder theorem",
+        "Quadratic residues",
+        "Polynomials"
+      ],
+      "statement": "Prove that for each positive integer $n$, there are pairwise relatively prime integers $k_0, k_1, \\dots, k_n$, all strictly greater than 1, such that $k_0 k_1 \\cdots k_n - 1$ is the product of two consecutive integers.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "We proceed by induction. The case $n=1$ is clear, since we may pick $k_0 = 3$ and $k_1 = 7$. Let us assume now that for a certain $n$ there are pairwise relatively prime integers $1 < k_0 < k_1 < \\cdots < k_n$ such that $k_0 k_1 \\cdots k_n - 1 = a_n(a_n - 1)$, for some positive integer $a_n$. Then choosing $k_{n+1} = a_n^2 + a_n + 1$ yields\n$$\nk_0 k_1 \\cdots k_{n+1} = (a_n^2 - a_n + 1)(a_n^2 + a_n + 1) = a_n^4 + a_n^2 + 1,\n$$\nso $k_0 k_1 \\cdots k_{n+1} - 1$ is the product of the two consecutive integers $a_n^2$ and $a_n^2 + 1$. Moreover,\n$$\n\\gcd(k_0 k_1 \\cdots k_n, k_{n+1}) = \\gcd(a_n^2 - a_n + 1, a_n^2 + a_n + 1) = 1,\n$$\nhence $k_0, k_1, \\dots, k_{n+1}$ are pairwise relatively prime. This completes the proof.\n\nWrite the relation to be proved as\n$$\n4k_0 k_1 \\cdots k_n = 4a(a+1) + 4 = (2a+1)^2 + 3.\n$$\nThere are infinitely many primes for which $-3$ is a quadratic residue. Let $2 < p_0 < p_1 < \\dots < p_n$ be such primes. Using the Chinese Remainder Theorem to specify $a$ modulo $p_n$, we can find an integer $a$ such that $(2a+1)^2 + 3 = 4p_0 p_1 \\cdots p_n m$ for some positive integer $m$. Grouping the factors of $m$ appropriately with the $p_i$'s, we obtain $(2a+1)^2 + 3 = 4k_0 k_1 \\cdots k_n$ with $k_i$ pairwise relatively prime. We then have $k_0 k_1 \\cdots k_n - 1 = a(a+1)$, as desired.\n\nWe are supposed to show that for every positive integer $n$, there is a positive integer $x$ such that $x(x+1)+1 = x^2+x+1$ has at least $n$ distinct prime divisors. We can actually prove a more general statement.\n\n**Claim.** Let $P(x) = a_d x^d + \\cdots + a_1 x + 1$ be a polynomial of degree $d \\ge 1$ with integer coefficients. Then for every positive integer $n$, there is a positive integer $x$ such that $P(x)$ has at least $n$ distinct prime divisors.\n\nThe proof follows from the following two lemmas.\n\n**Lemma 1.** The following set is infinite:\n$$\nQ = \\{p \\mid p \\text{ a prime for which there is an integer } x \\text{ such that } p \\text{ divides } P(x)\\}.\n$$\n*Proof.* The proof is analogous to Euclid's proof that there are infinitely many primes. Namely, if we assume that there are only finitely many primes $p_1, p_2, \\dots, p_k$ in $Q$, then for each integer $m$, $P(m p_1 p_2 \\cdots p_k)$ is an integer with no prime factors, which must equal 1 or $-1$. However, since $P$ has degree $d \\ge 1$, it takes each of the values 1 and $-1$ at most $d$ times, a contradiction. $\\square$\n\n**Lemma 2.** Let $p_1, p_2, \\dots, p_n$, $n \\ge 1$ be primes in $Q$. Then there is a positive integer $x$ such that $P(x)$ is divisible by $p_1 p_2 \\cdots p_n$.\n*Proof.* For $i = 1, 2, \\dots, n$, since $p_i \\in Q$ we can find an integer $c_i$ such that $P(x)$ is divisible by $p_i$ whenever $x \\equiv c_i(\\text{mod } p_i)$. By the Chinese Remainder Theorem, the system of $n$ congruences $x \\equiv c_i(\\text{mod } p_i)$, $i = 1, 2, \\dots, n$ has positive integer solutions. For every positive integer $x$ that solves this system, $P(x)$ is divisible by $p_1 p_2 \\cdots p_n$. $\\square$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-auto-1715",
+      "name": "Harvard-MIT Mathematics Tournament #0iub",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cartesian coordinates",
+        "Distance chasing",
+        "Polynomials"
+      ],
+      "statement": "Problem:\nLet $f(x) = 2x^{3} - 2x$. For what positive values of $a$ do there exist distinct $b, c, d$ such that $(a, f(a))$, $(b, f(b))$, $(c, f(c))$, $(d, f(d))$ is a rectangle?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nSay we have four points $(a, f(a)), (b, f(b)), (c, f(c)), (d, f(d))$ on the curve which form a rectangle. If we interpolate a cubic through these points, that cubic will be symmetric around the center of the rectangle. But the unique cubic through the four points is $f(x)$, and $f(x)$ has only one point of symmetry, the point $(0, 0)$.\n\nSo every rectangle with all four points on $f(x)$ is of the form $(a, f(a)), (b, f(b)), (-a, f(-a)), (-b, f(-b))$, and without loss of generality we let $a, b > 0$. Then for any choice of $a$ and $b$ these points form a parallelogram, which is a rectangle if and only if the distance from $(a, f(a))$ to $(0, 0)$ is equal to the distance from $(b, f(b))$ to $(0, 0)$.\n\nLet $g(x) = x^{2} + (f(x))^{2} = 4x^{6} - 8x^{4} + 5x^{2}$, and consider $g(x)$ restricted to $x \\geq 0$. We are looking for all the values of $a$ such that $g(x) = g(a)$ has solutions other than $a$.\n\nNote that $g(x) = h(x^{2})$ where $h(x) = 4x^{3} - 8x^{2} + 5x$. This polynomial $h(x)$ has a relative maximum of $1$ at $x = \\frac{1}{2}$ and a relative minimum of $\\frac{25}{27}$ at $x = \\frac{5}{6}$. Thus the polynomial $h(x) - h(1/2)$ has the double root $1/2$ and factors as $(4x^{2} - 4x + 1)(x - 1)$, the largest possible value of $a^{2}$ for which $h(x^{2}) = h(a^{2})$ is $a^{2} = 1$, or $a = 1$. The smallest such value is that which evaluates to $25/27$ other than $5/6$, which is similarly found to be $a^{2} = 1/3$, or $a = \\frac{\\sqrt{3}}{3}$.\n\nThus, for $a$ in the range $\\frac{\\sqrt{3}}{3} \\leq a \\leq 1$ the equation $g(x) = g(a)$ has nontrivial solutions and hence an inscribed rectangle exists."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-auto-2260",
+      "name": "Harvard-MIT Mathematics Tournament #0j9g",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomials",
+        "QM-AM-GM-HM / Power Mean",
+        "Convex hulls"
+      ],
+      "statement": "Problem:\nSuppose that there are 16 variables $\\{a_{i, j}\\}_{0 \\leq i, j \\leq 3}$, each of which may be 0 or 1. For how many settings of the variables $a_{i, j}$ do there exist positive reals $c_{i, j}$ such that the polynomial\n$$\nf(x, y) = \\sum_{0 \\leq i, j \\leq 3} a_{i, j} c_{i, j} x^{i} y^{j}\n$$\n$(x, y \\in \\mathbb{R})$ is bounded below?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: 126\n\nFor some choices of the $a_{i, j}$, let $S = \\{(i, j) \\mid a_{i, j} = 1\\}$, and let $S' = S \\cup \\{(0,0)\\}$. Let $C(S')$ denote the convex hull of $S'$. We claim that the problem conditions are satisfied (there exist positive coefficients for the terms so that the polynomial is bounded below) if and only if the vertices of $C(S')$ all have both coordinates even.\n\nFor one direction, suppose that $C(S')$ has a vertex $v = (i', j')$ with at least one odd coordinate; WLOG, suppose it is $i'$. Since $v$ is a vertex, it maximizes some objective function $a i + b j$ over $C(S')$ uniquely, and thus also over $S'$. Since $(0,0) \\in S'$, we must have $a i' + b j' > 0$. Now consider plugging in $(x, y) = (-t^{a}, t^{b})$ ($t > 0$) into $f$. This gives the value\n$$\nf(-t^{a}, t^{b}) = \\sum_{(i, j) \\in S} (-1)^{i} c_{i, j} t^{a i + b j}\n$$\nBut no matter what positive $c_{i, j}$ we choose, this expression is not bounded below as $t$ grows infinitely large, as there is a $-c_{i', j'} t^{a i' + b j'}$ term, with $a i' + b j' > 0$, and all other terms have smaller powers of $t$. So the polynomial cannot be bounded below.\n\nFor the other direction, suppose the vertices of $C(S')$ all have both coordinates even. If all points in $S'$ are vertices of $C(S')$, then the polynomial is a sum of squares, so it is bounded below. Otherwise, we assume that some points in $S'$ are not vertices of $C(S')$. It suffices to consider the case where there is exactly one such point. Call this point $w = (i', j')$. Let $V(S')$ denote the set of the vertices of $C(S')$, and let $n = |V(S')|$. Enumerate the points of $V(S')$ as $v_1, v_2, \\ldots, v_n$. Let $i_k, j_k$ denote the $i$ and $j$ coordinates of $v_k$, respectively.\n\nSince $w \\in C(S')$, there exist nonnegative constants $\\lambda_1, \\lambda_2, \\ldots, \\lambda_n$ such that $\\sum_{k=1}^n \\lambda_k = 1$ and $\\sum_{k=1}^n \\lambda_k v_k = w$. (Here, we are treating the ordered pairs as vectors.) Then, by weighted AM-GM, we have\n$$\n\\sum_{k=1}^n \\lambda_k |x|^{i_k} |y|^{j_k} \\geq |x|^{i'} |y|^{j'}\n$$\nLet $c$ be the $\\lambda$-value associated with $(0,0)$. Then by picking $c_{i_k, j_k} = \\lambda_k$ and $c_{i', j'} = 1$, we find that $p(x, y) \\geq -c$ for all $x, y$, as desired.\n\nWe now find all possible convex hulls $C(S')$ (with vertices chosen from $(0,0), (0,2), (2,0)$, and $(2,2)$), and for each convex hull, determine how many possible settings of $a_{i, j}$ give that convex hull. There are 8 such possible convex hulls: the point $(0,0)$ only, 3 lines, 3 triangles, and the square. The point has 2 possible choices, each line has 4 possible choices, each triangle has 16 possible choices, and the square has 64 possible choices, giving $2 + 3 \\cdot 4 + 3 \\cdot 16 + 64 = 126$ total choices."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-auto-2356",
+      "name": "Bay Area Mathematical Olympiad #0jc4",
+      "url": "https://usamoguide.com/",
+      "source": "Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomials",
+        "Greatest common divisors (gcd)"
+      ],
+      "statement": "Problem:\nFind all nonzero polynomials $P(x)$ with integer coefficients that satisfy the following property: whenever $a$ and $b$ are relatively prime integers, then $P(a)$ and $P(b)$ are relatively prime as well. Prove that your answer is correct. (Two integers are relatively prime if they have no common prime factors. For example, $-70$ and $99$ are relatively prime, while $-70$ and $15$ are not relatively prime.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $P(x)= \\pm x^{n}$ for each integer $n \\geq 0$.\n\nIt is evident that these polynomials meet the condition, since the only possible prime factors of $P(a)$ are the prime factors of $a$, so if $a$, $b$ have no prime factors in common, $P(a)$, $P(b)$ can't either.\n\nConsider any polynomial $P$ not of this form; we show that it does not meet the condition. Write\n$$\nP(x)=c_{n} x^{n}+c_{n-1} x^{n-1}+\\cdots+c_{0} .\n$$\nReplacing $P(x)$ by $-P(x)$ if necessary, we may assume $c_{n}>0$.\n\nSuppose that $c_{n}=1$ and the next nonzero coefficient $c_{k}$ is negative. Then we have $x^{n-1}<P(x)<x^{n}$ for all large enough $x$. In all other cases, we have $x^{n}<P(x)<x^{n+1}$ for all large enough $x$. In either situation, if we choose $q$ to be a large enough prime, then $P(q)$ is a positive integer lying between two consecutive powers of $q$. In particular, $P(q)$ cannot itself be a power of $q$, so it must have some other prime factor $r \\neq q$.\n\nThen the numbers $q$ and $q+r$ are relatively prime. But since\n$$\nr=(q+r)-q \\mid P(q+r)-P(q)\n$$\nboth $P(q)$ and $P(q+r)$ are divisible by $r$, so they are not relatively prime. Hence, the polynomial $P$ does not satisfy the required condition."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-auto-2744",
+      "name": "IMO Team Selection Team Selection Test #0jmw",
+      "url": "https://usamoguide.com/",
+      "source": "IMO Team Selection Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Rotation",
+        "Complex numbers in geometry",
+        "Polynomials",
+        "Polynomials mod p"
+      ],
+      "statement": "Let $r$ be a rational number in the interval $[-1, 1]$, and let $\\theta = \\cos^{-1} r$. Call a subset $S$ of the plane good if $S$ is unchanged upon rotation by $\\theta$ around any point of $S$ (in both clockwise and counterclockwise directions). Determine all values of $r$ satisfying the following property: The midpoint of any two points in a good set also lies in the set.\n\n(This problem was suggested by Ricky Liu.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "We claim the answer is $r = 1 - \\frac{1}{4k}$ for all positive integers $k$.\n\nSuppose $A$ and $B$ are points in $S$. Place $A$ and $B$ on the complex plane such that $A = 0$ and $B = 1$, and let $\\omega = \\cos\\theta + i\\sin\\theta = r + i\\sqrt{1-r^2}$. We claim that any good set containing $A$ and $B$ contains the good set $T$ of numbers of the form $f(\\omega)$, where $f(x)$ is a Laurent polynomial—that is, $x^n f(x)$ is a polynomial for some (possibly negative) integer $n$—with integer coefficients, and $f(1) = 0$ or $1$.\n\nWe first show that $T$ is good. Indeed, for any $p \\in T$, the rotation $R_p$ about $p$ by $\\theta$ sends $z \\mapsto R_p(z) = (z-p)\\omega + p$. If $p = f(\\omega)$ and $z = g(\\omega) \\in T$, then $h(x) = (g(x)-f(x)) \\cdot x + f(x)$ satisfies $R_p(z) = h(\\omega)$ and $h(1) = g(1) = 0$ or $1$, so $R_p(z) \\in T$. Similarly, $R_p^{-1}(z) = (z-p) \\cdot \\omega^{-1} + p \\in T$, so $T$ is good.\n\nNext we show that any good set $S$ containing $0$ and $1$ contains all of $T$. Let $f(x)$ be any Laurent polynomial with integer coefficients with $f(1) = 0$ or $1$. We will show that $f(\\omega) \\in S$. We induct on the sum $s$ of the absolute value of the coefficients of $f(x)$. The case $s=0$ is trivial. For $s=1$, $f(\\omega)$ must be a power of $\\omega$, which is of the form $R_0^k(1) \\in S$. For $s \\ge 2$, $f(x)$ must have at least one positive and one negative coefficient, so write $f(x) = x^a - x^b + g(x)$, where the sum of the absolute values of the coefficients of $g(x)$ is $s-2$. Since $g(1) = f(1)$, $g(\\omega) \\in S$ by induction. Then\n$$\nx^{-a}f(x) = (x^{-b}g(x) - 1) \\cdot x^{b-a} + 1,\n$$\nso $f(\\omega) = R_0^a \\circ R_1^{b-a} \\circ R_0^{-b}(g(\\omega)) \\in S$, completing the induction.\n\nIt follows that $r$ satisfies the desired condition if and only if we can write $\\frac{1}{2} = f(\\omega) \\in T$. Then there is a polynomial $g(x) = x^n(2f(x)-1)$, all but one of whose coefficients are even, that has $\\omega$ as a root. If $r = \\pm 1$, so $\\omega = \\pm 1$, this is clearly impossible. Otherwise, let $r = \\frac{a}{b}$ with $a$ and $b$ relatively prime. Then the minimal polynomial $p(x)$ of $\\omega$ over the integers is $bx^2 - 2ax + b$ if $b$ is odd and $\\frac{b}{2}x^2 - ax + \\frac{b}{2}$ if $b$ is even. This minimal polynomial must divide $g(x)$. But since $g(x)$ is congruent to a power of $x$ modulo 2, $p(x)$ must also be congruent to a power of $x$ modulo 2. The only possibility is for $b$ to be a multiple of 4 (and $a$ to be odd).\n\nFinally, since $g(1) = 2f(1) - 1 = \\pm 1$ and $p(1) | g(1)$, we must have that $p(1) = \\pm 1$ as well. Since $p(1) = \\frac{b}{2} - a + \\frac{b}{2} = b - a$, we must have $b = a \\pm 1$. Since $|r| \\le 1$, $|a| \\le |b|$. We find then that the only possibilities are $r = 1 - \\frac{1}{4k}$, where we can let $a = 4k-1$ and $b = 4k$, so $p(1) = 1$. Then letting $f(x) = \\frac{1}{2}(x^{-1}p(x) + 1) = kx - (2k-1) + kx^{-1}$, we find that $f(1) = 1$, so $\\frac{1}{2} = f(\\omega) \\in T$, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-auto-2931",
+      "name": "HMMT November 2016 #0js3",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2016",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomials",
+        "Coloring schemes, extremal arguments"
+      ],
+      "statement": "Problem:\n\nDetermine the largest integer $n$ such that there exist monic quadratic polynomials $p_{1}(x), p_{2}(x), p_{3}(x)$ with integer coefficients so that for all integers $i \\in [1, n]$ there exists some $j \\in [1,3]$ and $m \\in \\mathbb{Z}$ such that $p_{j}(m) = i$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe construction for $n=9$ can be achieved with the polynomials $x^{2}+x+1$, $x^{2}+x+2$, and $x^{2}+5$.\n\nFirst we consider what kinds of polynomials we can have. Let $p(x) = (x+h)^{2} + k$. $h$ is either an integer or half an integer. Let $k=0$. If $h$ is an integer then $p(x)$ hits the perfect squares $0, 1, 4, 9$, etc. If $h$ is half an integer, then let $k=1/4$. Then $p(x)$ hits the product of two consecutive integers, i.e. $0, 2, 6, 12$, etc.\n\nAssume there is a construction for $n=10$. In both of the cases above, the most a polynomial can hit out of $10$ is $4$, in the $0, 1, 4, 9$ case. Thus $p_{1}$ must hit $1, 2, 5, 10$, and $p_{2}$ and $p_{3}$ hit $3$ integers each, out of $3, 4, 6, 7, 8, 9$. The only ways we can hit $3$ out of $7$ consecutive integers is with the sequences $0, 2, 6$ or $0, 1, 4$. The only way a $0, 2, 6$ works is if it hits $3, 5$, and $9$, which doesn't work since $5$ was hit by $p_{2}$. Otherwise, $p_{2}$ is $0, 1, 4$, which doesn't work as $p_{2}$ hits $3, 4$, and $7$, and $p_{3}$ must hit $6, 8$, and $9$, which is impossible. Thus no construction for $n=10$ exists."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-auto-3408",
+      "name": "USA TSTST #0k5c",
+      "url": "https://usamoguide.com/",
+      "source": "USA TSTST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Polynomials",
+        "Divisibility / Factorization"
+      ],
+      "statement": "As usual, let $\\mathbb{Z}[x]$ denote the set of single-variable polynomials in $x$ with integer coefficients.\nFind all functions $\\theta : \\mathbb{Z}[x] \\to \\mathbb{Z}$ such that for any polynomials $p, q \\in \\mathbb{Z}[x]$,\n* $\\theta(p + 1) = \\theta(p) + 1$, and\n* if $\\theta(p) \\neq 0$ then $\\theta(p)$ divides $\\theta(p \\cdot q)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "The answer is $\\theta : p \\mapsto p(c)$, for each choice of $c \\in \\mathbb{Z}$. Obviously these work, so we prove these are the only ones. In what follows, $x \\in \\mathbb{Z}[x]$ is the identity polynomial, and $c = \\theta(x)$.\n\n**First solution (Merlijn Staps)** Consider an integer $n \\neq c$. Because $x - n \\mid p(x) - p(n)$, we have\n$$\n\\theta(x-n) \\mid \\theta(p(x)-p(n)) \\implies c-n \\mid \\theta(p(x))-p(n).\n$$\nOn the other hand, $c-n \\mid p(c)-p(n)$. Combining the previous two gives $c-n \\mid \\theta(p(x))-p(c)$, and by letting $n$ large we conclude $\\theta(p(x))-p(c) = 0$, so $\\theta(p(x)) = p(c)$.\n\n\n**Second solution** First, we settle the case $\\deg p = 0$. In that case, from the second property, $\\theta(m) = m + \\theta(0)$ for every integer $m \\in \\mathbb{Z}$ (viewed as a constant polynomial). Thus $m + \\theta(0) \\mid 2m + \\theta(0)$, hence $m + \\theta(0) \\mid -\\theta(0)$, so $\\theta(0) = 0$ by taking $m$ large. Thus $\\theta(m) = m$ for $m \\in \\mathbb{Z}$.\nNext, we address the case of $\\deg p = 1$. We know $\\theta(x+b) = c+b$ for $b \\in \\mathbb{Z}$. Now for each particular $a \\in \\mathbb{Z}$, we have\n$$\nc+k \\mid \\theta(x+k) \\mid \\theta(ax+ak) = \\theta(ax) + ak \\implies c+k \\mid \\theta(ax) - ac.\n$$\nfor any $k \\neq -c$. Since this is true for large enough $k$, we conclude $\\theta(ax) = ac$. Thus $\\theta(ax+b) = ac+b$.\nWe now proceed by induction on $\\deg p$. Fix a polynomial $p$ and assume it's true for all $p$ of smaller degree. Choose a large integer $n$ (to be determined later) for which $p(n) \\neq p(c)$. We then have\n$$\n\\frac{p(c)-p(n)}{c-n} = \\theta\\left(\\frac{p-p(n)}{x-n}\\right) \\mid \\theta(p-p(n)) = \\theta(p)-p(n).\n$$\nSubtracting off $c-n$ times the left-hand side gives\n$$\n\\frac{p(c)-p(n)}{c-n} \\mid \\theta(p)-p(c).\n$$\nThe left-hand side can be made arbitrarily large by letting $n \\to \\infty$, since $\\deg p \\geq 2$. Thus $\\theta(p) = p(c)$, concluding the proof."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-auto-3411",
+      "name": "USA TSTST #0k5f",
+      "url": "https://usamoguide.com/",
+      "source": "USA TSTST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Factorization techniques",
+        "Techniques: modulo, size analysis, order analysis, inequalities",
+        "Polynomials",
+        "Telescoping series",
+        "Quadratic forms"
+      ],
+      "statement": "For an integer $n > 0$, denote by $\\mathcal{F}(n)$ the set of integers $m > 0$ for which the polynomial $p(x) = x^2 + mx + n$ has an integer root.\n\na. Let $S$ denote the set of integers $n > 0$ for which $\\mathcal{F}(n)$ contains two consecutive integers. Show that $S$ is infinite but\n$$\n\\sum_{n \\in S} \\frac{1}{n} \\le 1.\n$$\n\nb. Prove that there are infinitely many positive integers $n$ such that $\\mathcal{F}(n)$ contains three consecutive integers.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "We prove the following.\n**Claim.** The set $S$ is given explicitly by $S = \\{x(x+1)y(y+1) \\mid x, y > 0\\}$.\n*Proof.* Note that $m, m+1 \\in \\mathcal{F}(n)$ if and only if there exist integers $q > p \\ge 0$ such that\n$$\nm^2 - 4n = p^2 \\\\\n(m+1)^2 - 4n = q^2.\n$$\nSubtraction gives $2m + 1 = q^2 - p^2$, so $p$ and $q$ are different parities. We can thus let $q - p = 2x + 1$, $q + p = 2y + 1$, where $y \\ge x \\ge 0$ are integers. It follows that\n$$\n\\begin{aligned}\n4n &= m^2 - p^2 \\\\\n   &= \\left( \\frac{q^2 - p^2 - 1}{2} \\right)^2 - p^2 \\\\\n   &= \\left( \\frac{q^2 - p^2 - 1}{2} - p \\right) \\left( \\frac{q^2 - p^2 - 1}{2} + p \\right) \\\\\n   &= \\frac{q^2 - (p^2 + 2p + 1)}{2} \\cdot \\frac{q^2 - (p^2 - 2p + 1)}{2} \\\\\n   &= \\frac{1}{4}(q - p - 1)(q - p + 1)(q + p - 1)(q + p + 1) \\\\\n   &= \\frac{1}{4}(2x)(2x + 2)(2y)(2y + 2) \\\\\n\\implies n &= x(x + 1)y(y + 1).\n\\end{aligned}\n$$\nSince $n > 0$ we require $x, y > 0$. Conversely, if $n = x(x+1)y(y+1)$ for positive $x$ and $y$ then $m = \\sqrt{p^2 + 4n} = \\sqrt{(y-x)^2 + 4n} = 2xy + x + y = x(y+1) + (x+1)y$ and $m + 1 = 2xy + x + y + 1 = xy + (x+1)(y+1)$. Thus we conclude the main claim. $\\square$\n\nFrom this, part (a) follows as\n$$\n\\sum_{n \\in S} n^{-1} \\le \\left( \\sum_{x \\ge 1} \\frac{1}{x(x+1)} \\right) \\left( \\sum_{y \\ge 1} \\frac{1}{y(y+1)} \\right) = 1 \\cdot 1 = 1.\n$$\n\nAs for (b), retain the notation in the proof of the claim. Now $m + 2 \\in S$ if and only if $(m+2)^2 - 4n$ is a square, say $r^2$. Writing in terms of $p$ and $q$ as parameters we find\n$$\n\\begin{aligned}\nr^2 &= (m+2)^2 - 4n = m^2 - 4n + 4m + 4 = p^2 + 2 + 2(2m+1) \\\\\n   &= p^2 + 2(q^2 - p^2) + 2 = 2q^2 - p^2 + 2 \\\\\n\\iff 2q^2 + 2 &= p^2 + r^2 \\quad (\\dagger)\n\\end{aligned}\n$$\n\nwith $q > p$ of different parity and $n = \\frac{1}{16}(q-p-1)(q-p+1)(q+p-1)(q+p+1)$.\nNote that (by taking modulo 8) we have $q \\not\\equiv p \\equiv r \\pmod 2$, and so there are no parity issues and we will always assume $p < q < r$ in $(\\dagger)$. Now, for every $q$, the equation $(\\dagger)$ has a canonical solution $(p, r) = (q-1, q+1)$, but this leaves $n = 0$. Thus we want to show for infinitely many $q$ there is a third way to write $2q^2 + 2$ as a sum of squares, which will give the desired $p$.\nTo do this, choose large integers $q$ such that $q^2 + 1$ is divisible by at least three distinct $1 \\bmod 4$ primes. Since each such prime can be written as a sum of two squares, using Lagrange identity, we can deduce that $2q^2 + 2$ can be written as a sum of two squares in at least three different ways, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-auto-3495",
+      "name": "Berkeley Math Circle: Monthly Contest 5 #0k7r",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 5",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cauchy-Schwarz",
+        "Polynomials"
+      ],
+      "statement": "Problem:\nLet $P$ be a polynomial with positive real coefficients. Prove that if\n$$\nP\\left(\\frac{1}{x}\\right) \\geq \\frac{1}{P(x)}\n$$\nholds for $x=1$, then it holds for every $x>0$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $P(x)=a_{n} x^{n}+a_{n-1} x^{n-1}+\\cdots+a_{1} x+a_{0}$, so $a_{k}>0$ for every $k$. Since the statement holds for $x=1$, $P(1) \\geq 1$. Then by Cauchy-Schwarz,\n$$\nP(x) P\\left(\\frac{1}{x}\\right)=\\left(\\sum_{k=0}^{n}\\left(\\sqrt{a_{k} x^{k}}\\right)^{2}\\right)\\left(\\sum_{k=0}^{n}\\left(\\sqrt{\\frac{a_{k}}{x^{k}}}\\right)^{2}\\right) \\geq\\left(\\sum_{k=0}^{n} a_{k}\\right)^{2}=P(1)^{2} \\geq 1\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-auto-4018",
+      "name": "Berkeley Math Circle: Monthly Contest 3 #0kma",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 3",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomials mod p",
+        "Polynomials"
+      ],
+      "statement": "Problem:\nLet $P$ be a polynomial with integer coefficients such that $P(2020) = P(2021) = 2021$. Prove that $P$ has no integer roots.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet\n$$\nP(x) = a_n x^n + a_{n-1} x^{n-1} + \\cdots + a_1 x + a_0.\n$$\nIf we plug in $x = 2020$, all terms except $a_0$ will be even, so since $P(2020)$ is odd, $a_0$ must be odd. But then if we plug in any other even number for $x$, $P(x)$ will still be odd since all the terms except $a_0$ will still be even, so $P(x)$ cannot be $0$. Thus, $P(x)$ can have no even roots.\n\nHowever, if we plug in an odd number for $x$, the term $a_i x^i$ in $P(x)$ has the same parity as the term $a_i \\cdot 2021^i$ in $P(2021)$ for each $i = 1, \\ldots, n$. Thus, the sum $P(x)$ has the same parity as the sum $P(2021)$. But $P(2021)$ is odd, so $P(x)$ must be odd as well, and so not $0$. Thus, $P(x)$ cannot have odd roots either, so it has no integer roots."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-auto-4028",
+      "name": "Berkeley Math Circle: Monthly Contest 5 #0kmk",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 5",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Prime numbers",
+        "Polynomials"
+      ],
+      "statement": "Problem:\n\nProve that there exists infinitely many integers $n$ such that $n^{4}+2020$ has a prime divisor larger than $2 n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nNote that if $p$ is a prime that divides $x^{4}+2020$ for some $x$, then we can find $n$ such that $p \\mid n^{4}+2020$ and $n < p/2$. Indeed, just take $n$ to be the remainder when $p-x$ or $x$ is divided by $p$, whichever is smaller.\n\nSuppose $S$ is a set of good integers satisfying the property; we show how to find one more. By so-called Schur's theorem, there are infinitely many primes $p$ that divide $x^{4}+2020$ for some $x$. Take such a prime $p$ large enough, not dividing $s^{4}+2020$ for any $s \\in S$; then taking the $n$ generated in the previous paragraph, we get a new pair $(p, n)$, with $n \\notin S$ guaranteed."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-auto-4052",
+      "name": "HMMT November 2021 #0kn8",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2021",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Integers",
+        "Polynomials",
+        "Linear and quadratic inequalities"
+      ],
+      "statement": "Problem:\nLet $n$ be an integer and\n$$\nm=(n-1001)(n-2001)(n-2002)(n-3001)(n-3002)(n-3003) .\n$$\nGiven that $m$ is positive, find the minimum number of digits of $m$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nOne can show that if $m>0$, then we must either have $n>3003$ or $n<1001$. If $n<1001$, each term other than $n-1001$ has absolute value at least $1000$, so $m>1000^{5}$, meaning that $m$ has at least $16$ digits. However, if $n>3003$, it is clear that the minimal $m$ is achieved at $n=3004$, which makes\n$$\nm=2002 \\cdot 1002 \\cdot 1001 \\cdot 3 \\cdot 2 \\cdot 1=12 \\cdot 1001 \\cdot 1001 \\cdot 1002\n$$\nwhich is about $12 \\cdot 10^{9}$ and thus has $11$ digits."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-auto-4110",
+      "name": "AIME II #0kou",
+      "url": "https://usamoguide.com/",
+      "source": "AIME II",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Generating functions",
+        "Techniques: modulo, size analysis, order analysis, inequalities",
+        "Polynomials"
+      ],
+      "statement": "There is a polynomial $P(x)$ with integer coefficients such that\n$$\nP(x) = \\frac{(x^{2310} - 1)^6}{(x^{105} - 1)(x^{70} - 1)(x^{42} - 1)(x^{30} - 1)}\n$$\nholds for every $0 < x < 1$. Find the coefficient of $x^{2022}$ in $P(x)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-auto-4119",
+      "name": "HMMT November 2022 #0kp3",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2022",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Quadratic functions",
+        "Polynomials"
+      ],
+      "statement": "Problem:\n\nVijay chooses three distinct integers $a, b, c$ from the set $\\{1,2,3,4,5,6,7,8,9,10,11\\}$. If $k$ is the minimum value taken on by the polynomial $a(x-b)(x-c)$ over all real numbers $x$, and $l$ is the minimum value taken on by the polynomial $a(x-b)(x+c)$ over all real numbers $x$, compute the maximum possible value of $k-l$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nQuadratics are minimized at the average of their roots, so\n$$\n\\begin{aligned}\n& k = a\\left(\\frac{b+c}{2} - b\\right)\\left(\\frac{b+c}{2} - c\\right) \\\\\n& l = a\\left(\\frac{b-c}{2}\\right)\\left(\\frac{c-b}{2}\\right) = -\\frac{a(b-c)^2}{4}, \\text{ and } \\\\\n& l = a\\left(\\frac{b-c}{2} - b\\right)\\left(\\frac{b-c}{2} + c\\right) = a\\left(\\frac{-b-c}{2}\\right)\\left(\\frac{b+c}{2}\\right) = -\\frac{a(b+c)^2}{4} .\n\\end{aligned}\n$$\nTherefore,\n$$\nk-l = -\\frac{a}{4}\\left((b-c)^2 - (b+c)^2\\right) = a b c\n$$\nThus, $k-l = a b c$ is maximized when $a, b$, and $c$ are $9, 10$, and $11$ in some order, so the answer is $9 \\cdot 10 \\cdot 11 = 990$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-auto-4149",
+      "name": "HMMT November 2022 #0kpx",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2022",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomials",
+        "Quadratic functions"
+      ],
+      "statement": "Problem:\nLet $P(x)$ be a quadratic polynomial with real coefficients. Suppose that $P(1)=20$, $P(-1)=22$, and $P(P(0))=400$. Compute the largest possible value of $P(10)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $P(x) = a x^{2} + b x + c$. The given equations give us:\n$$\n\\begin{aligned}\n& a + b + c = 20 \\\\\n& a - b + c = 22\n\\end{aligned}\n$$\nHence $b = -1$, $a + c = 21$, and so the final equation gives us $a c^{2} = 400$. Substituting $a = 21 - c$ and solving the cubic in $c$, we get $c = -4, 5, 20$. Of these, the smallest value $c = -4$ (and hence $P(x) = 25 x^{2} - x - 4$) ends up giving the largest value of $P(10)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-auto-4294",
+      "name": "HMMT February #0kty",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomials"
+      ],
+      "statement": "Problem:\n\nSuppose $P(x)$ is a cubic polynomial with integer coefficients such that $P(\\sqrt{5})=5$ and $P(\\sqrt[3]{5})=5 \\sqrt[3]{5}$. Compute $P(5)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWrite $P(x)=a x^{3}+b x^{2}+c x+d$, where $a, b, c, d$ are integers. Then we have that\n$$\n\\begin{aligned}\nP(\\sqrt{5})-5 & =(5 a+c) \\sqrt{5}+(5 b+d-5)=0 \\\\\nP(\\sqrt[3]{5})-5 \\sqrt[3]{5} & =(5 a+d)+(c-5) \\sqrt[3]{5}+b \\sqrt[3]{25}=0\n\\end{aligned}\n$$\nRecall that $\\sqrt{5}$ is irrational. In particular, since $(5 a+c) \\sqrt{5}+(5 b+d-5)=0$, we must have $5 a+c=0$ and $5 b+d-5=0$. Similarly, from the condition on $\\sqrt[3]{5}$, we must have $5 a+d=c-5=b=0$.\nThis is enough to imply $(a, b, c, d)=(-1,0,5,5)$, so $P(x)=-x^{3}+5 x+5$. Hence, our final answer is $P(5)=-125+25+5=-95$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-auto-4371",
+      "name": "HMMT February 2023 #0kw3",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2023",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomials mod p",
+        "Polynomials",
+        "Field Theory"
+      ],
+      "statement": "Problem:\nLet\n$$\nP=\\prod_{i=0}^{2016}\\left(i^{3}-i-1\\right)^{2}\n$$\nThe remainder when $P$ is divided by the prime $2017$ is not zero. Compute this remainder.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $Q(x)=x^{3}-x-1=(x-a)(x-b)(x-c)$, for $a, b, c \\in \\mathbb{F}_{p^{3}}$. Then, we can write\n$$\nP=\\prod_{i=0}^{2016}(i-a)(i-b)(i-c)\n$$\nIf we consider each root separately, then\n$$\nP=-\\left(a^{2017}-a\\right)\\left(b^{2017}-b\\right)\\left(c^{2017}-c\\right)\n$$\nThe key observation is that $a^{2017}, b^{2017}, c^{2017}$ is some nontrivial cycle of $a, b, c$. This is because by Frobenius' identity, $(a+b)^{p}=a^{p}+b^{p}$. So, if $P(x)=0, P\\left(x^{2017}\\right)=0$. But, $x^{2017} \\neq x$, since $x \\notin \\mathbb{F}_{p}$. This implies the claim. So, in the end, we wish to compute\n$$\n(b-a)^{2}(c-b)^{2}(a-c)^{2}\n$$\nNote that $P^{\\prime}(x)=3 x^{2}-1=(x-b)(x-c)+(x-a)(x-b)+(x-c)(x-a)$. So it suffices to compute\n$$\n\\left(1-3 a^{2}\\right)\\left(1-3 b^{2}\\right)\\left(1-3 c^{2}\\right)=-27 P\\left(\\frac{1}{\\sqrt{3}}\\right) P\\left(-\\frac{1}{\\sqrt{3}}\\right)\n$$\nWe can compute this is equal to $-27\\left(1-\\frac{2}{3 \\sqrt{3}}\\right)\\left(1+\\frac{2}{3 \\sqrt{3}}\\right)=-23$.\n\nAlternatively, this is the discriminant of $P(x)$. We utilize the well-known formula that the discriminant of $x^{3}+a x+b$ is $-4 a^{3}-27 b^{2}=-23$. So, the answer is $1994$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-auto-4473",
+      "name": "HMMT February 2024 #0kyx",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2024",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomials",
+        "Vieta's formulas",
+        "Polynomials mod p",
+        "Chinese remainder theorem",
+        "Quadratic residues",
+        "Quadratic reciprocity"
+      ],
+      "statement": "Problem:\n\nA polynomial $f \\in \\mathbb{Z}[x]$ is called splitty if and only if for every prime $p$, there exist polynomials $g_p, h_p \\in \\mathbb{Z}[x]$ with $\\operatorname{deg} g_p, \\operatorname{deg} h_p < \\operatorname{deg} f$ and all coefficients of $f - g_p h_p$ are divisible by $p$. Compute the sum of all positive integers $n \\leq 100$ such that the polynomial $x^4 + 16 x^2 + n$ is splitty.\n\nProposed by: Pitchayut Saengrungkongka",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe claim that $x^4 + a x^2 + b$ is splitty if and only if either $b$ or $a^2 - 4b$ is a perfect square. (The latter means that the polynomial splits into $(x^2 - r)(x^2 - s)$.)\n\nAssuming the characterization, one can easily extract the answer. For $a = 16$ and $b = n$, one of $n$ and $64 - n$ has to be a perfect square. The solutions to this that are at most $64$ form $8$ pairs that sum to $64$ (if we include $0$), and then we additionally have $81$ and $100$. This means the sum is $64 \\cdot 8 + 81 + 100 = 693$.\n\nNow, we move on to prove the characterization.\n\n## Necessity.\n\nTake a prime $p$ such that neither $a^2 - 4b$ nor $b$ is a quadratic residue modulo $p$ (exists by Dirichlet + CRT + QR). Work in $\\mathbb{F}_p$. Now, suppose that\n\n$$\nx^4 + a x^2 + b = (x^2 + m x + n)(x^2 + s x + t)\n$$\n\nThen, looking at the $x^3$-coefficient gives $m + s = 0$ or $s = -m$. Looking at the $x$-coefficient gives $m(n - t) = 0$.\n\n- If $m = 0$, then $s = 0$, so $x^4 + a x^2 + b = (x^2 + n)(x^2 + t)$, which means $a^2 - 4b = (n + t)^2 - 4 n t = (n - t)^2$, a quadratic residue modulo $p$, contradiction.\n- If $n = t$, then $b = n t$ is a square modulo $p$, a contradiction. (The major surprise of this problem is that this suffices, which will be shown below.)\n\n## Sufficiency.\n\nClearly, the polynomial splits in $p = 2$ because in $\\mathbb{F}_2[x]$, we have $x^4 + a x^2 + b = (x^2 + a x + b)^2$. Now, assume $p$ is odd.\n\nIf $a^2 - 4b$ is a perfect square, then $x^4 + a x^2 + b$ splits into $(x^2 - r)(x^2 - s)$ even in $\\mathbb{Z}[x]$.\n\nIf $b$ is a perfect square, then let $b = k^2$. We then note that\n\n- $x^4 + a x^2 + b$ splits in form $(x^2 - r)(x^2 - s)$ if $\\left(\\frac{a^2 - 4k^2}{p}\\right) = 1$.\n- $x^4 + a x^2 + b$ splits in form $(x^2 + r x + k)(x^2 - r x + k)$ if $a = 2k - r^2$, or $\\left(\\frac{2k - a}{p}\\right) = 1$.\n- $x^4 + a x^2 + b$ splits in form $(x^2 + r x - k)(x^2 - r x - k)$ if $a = -2k - r^2$, or $\\left(\\frac{-2k - a}{p}\\right) = 1$.\n\nSince $(2k - a)(-2k - a) = a^2 - 4k^2$, it follows that at least one of these must happen."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

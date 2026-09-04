@@ -1,0 +1,182 @@
+---
+id: complementary-counting
+title: Complementary Counting
+author: Siddhant Arora
+description: Solving for the inverse of a problem to ease the solving process
+prerequisites: [counting-fundamentals]
+---
+
+## Overview
+
+There are tons of problems that ask for a number of values satisfying a condition involving "at least $X$" or "not all" that may initially seem like they revolve around tedious casework.
+
+Complementary counting exploits the condition that:
+
+**Favourable Outcomes $=$ Total Outcomes $-$ Unfavourable Outcomes**
+
+As a result, often times it is simpler to solve for both *total outcomes* and *unfavourable outcomes* (i.e, outcomes that do *not* satisfy the given condition) rather than directly solving for *favourable outcomes*.
+
+## Introductory Example
+
+> How many 3-digit numbers have at least one 5?
+
+Doing this directly is quite tedious. We first casework on the number of $5$s in the number and then use counting techniques to sum all the possibilities. It goes as follows:
+
+1. Only one "5":
+
+   The single $5$ can sit in any of the three positions, and the other two digits must avoid $5$. Reading the products as hundreds $\times$ tens $\times$ units:
+
+   - $5$ in the hundreds place: $1 \times 9 \times 9 = 81$
+   - $5$ in the tens place: $8 \times 1 \times 9 = 72$
+   - $5$ in the units place: $8 \times 9 \times 1 = 72$
+
+   This case contributes $81 + 72 + 72 = 225$.
+
+2. Exactly two "5"s:
+
+   - $5$ in the hundreds and tens places: $1 \times 1 \times 9 = 9$
+   - $5$ in the hundreds and units places: $1 \times 9 \times 1 = 9$
+   - $5$ in the tens and units places: $8 \times 1 \times 1 = 8$
+
+   This case contributes $9 + 9 + 8 = 26$.
+
+3. All three "5"s:
+
+   Only $555$ works, contributing $1$.
+
+Summing every case:
+
+$$225 + 26 + 1 = 252$$
+
+Notice the asymmetry in every case? Whenever the hundreds digit is free it has only $8$ valid choices, since it cannot be $0$, while a free tens or units digit has $9$. This mess and large amount of things that we need to keep track of make the direct approach tedious here.
+
+Now we solve the same problem by counting the complement instead. The condition "at least one $5$" fails only for numbers that contain no $5$ whatsoever, so:
+
+$$\text{(at least one 5)} = \text{(total)} - \text{(no 5)}$$
+
+Total 3-digit numbers: every integer from $100$ to $999$, which is $900$.
+
+Numbers with no $5$ anywhere:
+
+- Hundreds digit: any of $\{1,2,3,4,6,7,8,9\}$, so $8$ choices.
+- Tens digit: any of $\{0,1,2,3,4,6,7,8,9\}$, so $9$ choices.
+- Units digit: $9$ choices.
+
+That gives $8 \times 9 \times 9 = 648$. Therefore:
+
+$$900 - 648 = 252$$
+
+The same answer, gotten much faster!
+
+## Patterns
+
+Complementary counting tends to be useful whenever the favourable set splits into many cases but the unfavourable set is small or uniform. The phrasing of a problem is usually the giveaway!
+
+- *at least one* $\to$ the complement is *none*.
+- *at least two* $\to$ the complement is *zero or one*.
+- *not all* $\to$ the complement is *all*.
+- *at least two share a property* $\to$ the complement is *everything distinct*.
+
+## Examples
+
+### Example 1: Probability
+
+> A fair coin is flipped $5$ times. What is the probability of getting at least one heads?
+
+Doing this directly means summing the probabilities of exactly one, two, three, four, and five heads. The complement of "at least one heads" is "no heads," meaning all five flips land tails:
+
+$$P(\text{no heads}) = \left(\frac{1}{2}\right)^5 = \frac{1}{32}$$
+
+So:
+
+$$P(\text{at least one heads}) = 1 - \frac{1}{32} = \frac{31}{32}$$
+
+### Example 2: Repeated Value
+
+> A standard six-sided die is rolled four times. What is the probability that at least two of the rolls show the same value?
+
+The favourable event, "at least two match," encompasses many configurations, but the complement, "all four rolls distinct," is quite simple!
+
+Total outcomes: $6^4 = 1296$.
+
+All distinct: $6 \times 5 \times 4 \times 3 = 360$.
+
+$$P(\text{at least two match}) = 1 - \frac{360}{1296} = 1 - \frac{5}{18} = \frac{13}{18}$$
+
+This is the same engine behind the famous birthday problem, where counting "everyone has a distinct birthday" is far cleaner than dealing with overlaps.
+
+### Example 3
+
+> **1992 AIME · Problem 2.** A positive integer is called *ascending* if, in its decimal representation, there are at least two digits and each digit is less than any digit to its right. How many ascending positive integers are there?
+
+**Solution.** An ascending integer has a one-to-one bijection by its set of digits, i.e, any chosen set admits exactly one strictly increasing arrangement. The digit $0$ never appears, since as the smallest digit it would be forced into the leftmost slot, which a positive integer cannot have. The digits are therefore from the set $\{1, 2, \dots, 9\}$, and ascending integers correspond exactly to subsets $S \subseteq \{1, \dots, 9\}$ with $|S| \ge 2$.
+
+The total subset count is $2^9 = 512$, and the excluded subsets are those with $|S| < 2$, namely the empty set and the nine sets with size $1$.
+
+$$2^9 - \binom{9}{0} - \binom{9}{1} = 512 - 1 - 9 = \boxed{502}.$$
+
+### Example 4
+
+> **2021 AMC 10A · Problem 23.** Frieda the frog begins a sequence of hops on a $3 \times 3$ grid of squares, moving one square per hop and choosing the direction (up, down, left, or right) uniformly at random; she never hops diagonally. A hop that would leave the grid wraps around to the opposite edge. Starting from the center square, Frieda makes at most four hops and stops as soon as she lands on a corner. What is the probability that she reaches a corner on one of the four hops?
+
+**Solution.** Classify squares by type: $m$ (center), $e$ (edge, non-corner), $c$ (corner). From any edge square the four neighbours are two corners, the center, and one more edge (reached by wraparound). Recall the *recursion* module, we can derive some *transitions* to let us conduct recursion.
+
+"w.p." refers to "With Probability":
+
+$$m \to e \text{ w } 1, \qquad e \to c \text{ w.p. } \tfrac12, \quad e \to m \text{ w.p. } \tfrac14, \quad e \to e \text{ w.p. } \tfrac14.$$
+
+Corners are absorbing.
+
+*Path enumeration.* After the forced opening hop $m \to e$, the frog stays within $\{e, m\}$ until a $e \to c$. The corner-reaching paths of length at most $4$ are:
+
+$$
+\begin{aligned}
+m\,e\,c &: 1 \cdot \tfrac12 = \tfrac12, \\
+m\,e\,e\,c &: 1 \cdot \tfrac14 \cdot \tfrac12 = \tfrac18, \\
+m\,e\,m\,e\,c &: 1 \cdot \tfrac14 \cdot 1 \cdot \tfrac12 = \tfrac18, \\
+m\,e\,e\,e\,c &: 1 \cdot \tfrac14 \cdot \tfrac14 \cdot \tfrac12 = \tfrac1{32}.
+\end{aligned}
+$$
+
+Summing:
+
+$$\tfrac12 + \tfrac18 + \tfrac18 + \tfrac1{32} = \frac{16 + 4 + 4 + 1}{32} = \boxed{\tfrac{25}{32}}.$$
+
+*State counting (alternative).* Track the number of length-$n$ hop sequences reaching each square (the corresponding cell in these matrices refers to the number of ways to reach that cell on the actual $3$ x $3$ grid)
+
+$$
+1\text{ hop}: \begin{bmatrix} 0&1&0 \\ 1&0&1 \\ 0&1&0 \end{bmatrix}
+\qquad
+2\text{ hops}: \begin{bmatrix} 2&1&2 \\ 1&4&1 \\ 2&1&2 \end{bmatrix}
+$$
+
+$$
+3\text{ hops}: \begin{bmatrix} 2&5&2 \\ 5&4&5 \\ 2&5&2 \end{bmatrix}
+\qquad
+4\text{ hops}: \begin{bmatrix} 10&9&10 \\ 9&20&9 \\ 10&9&10 \end{bmatrix}
+$$
+
+Each interior entry is the sum of its non-corner neighbours' counts from the previous step, with wraparound. We sum the number of corner cases over the total possibilities, i.e, $4^n$, where $n$ is the number of hops across all cases:
+
+$$\frac{8}{4^2} + \frac{8}{4^3} + \frac{40}{4^4} = \frac{8}{16} + \frac{8}{64} + \frac{40}{256} = \frac{25}{32}.$$
+
+## Practice
+
+1. How many 4-digit numbers contain at least one digit equal to $7$?
+2. Five distinct books are placed in a row. In how many arrangements are two particular books *not* next to each other?
+3. A bag holds $4$ red and $6$ blue marbles. Three are drawn without replacement. What is the probability that at least one is red?
+4. How many subsets of $\{1, 2, \dots, 8\}$ contain at least one odd number?
+
+<details>
+<summary>Answers</summary>
+
+1. $9000 - 8 \cdot 9^3 = 9000 - 5832 = 3168$.
+2. $5! - 2 \cdot 4! = 120 - 48 = 72$.
+3. $1 - \dfrac{\binom{6}{3}}{\binom{10}{3}} = 1 - \dfrac{20}{120} = \dfrac{5}{6}$.
+4. $2^8 - 2^4 = 256 - 16 = 240$. The subsets with no odd number are exactly the subsets of the four even elements.
+
+</details>
+
+## Practice Problems
+
+<Problems problems="practice" />

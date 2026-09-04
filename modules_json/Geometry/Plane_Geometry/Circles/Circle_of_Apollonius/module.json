@@ -1,0 +1,116 @@
+{
+  "MODULE_ID": "geometry-plane-geometry-circles-circle-of-apollonius",
+  "practice": [
+    {
+      "uniqueId": "geometry-plane-geometry-circles-circle-of-apollonius-auto-1468",
+      "name": "Team Selection Test #0ing",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Tangents",
+        "Cyclic quadrilaterals",
+        "Brocard point, symmedians",
+        "Miquel point",
+        "Circle of Apollonius",
+        "Triangle trigonometry",
+        "Angle chasing",
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle"
+      ],
+      "statement": "Triangle $ABC$ is inscribed in circle $\\omega$. The tangent lines to $\\omega$ at $B$ and $C$ meet at $T$. Point $S$ lies on ray $BC$ such that $AS \\perp AT$. Points $B_1$ and $C_1$ lie on ray $ST$ (with $C_1$ in between $B_1$ and $S$) such that $B_1T = BT = C_1T$. Prove that triangles $ABC$ and $AB_1C_1$ are similar to each other.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**Solution 1.** (Based on work by Oleg Golberg) We start with an important geometric observation.\n\n**Lemma.** Triangle $ABC$ inscribed in circle $\\omega$. Lines $BT$ and $CT$ are tangent to $\\omega$. Let $M$ be the midpoint of side $BC$. Then $\\angle BAT = \\angle CAM$. (Line $AT$ is a symmedian of triangle.)\n\n*Proof.* We consider the above configuration. (If $\\angle BAC$ is obtuse, our proof can be modified slightly.) Let $D$ denote the second intersection (other than $A$) of line $AT$ and circle $\\omega$. Because $BT$ is tangent to $\\omega$ at $B$, $\\angle TBD = \\angle TAB$. Hence triangles $TBD$ and $TAB$ are similar, implying that $BD/AB = TB/TA$. Likewise, triangles $TCD$ and $TAC$ are similar and $CD/AC = TC/TA$. By equal tangents, $TB = TC$. Consequently, we have $BD/AB = TB/TA = TC/TA = CD/AC$, implying that\n$$\nBD \\cdot AC = CD \\cdot AB.\n$$\nBy the **Ptolemy's theorem** to cyclic quadrilateral $ABDC$, we have $BD \\cdot AC + AB \\cdot CD = AD \\cdot BC$.\nCombining the last two equations, we obtain that $2 BD \\cdot AC = AD \\cdot BC$ or\n$$\n\\frac{AC}{AD} = \\frac{BC}{2BD} = \\frac{MC}{BD}.\n$$\nFurther considering that $\\angle ACM = \\angle ACB = \\angle ADB$ (since $ABDC$ is cyclic), we conclude that\ntriangle $ABD$ is similar to triangle $AMC$, implying that $\\angle BAT = \\angle BAD = \\angle CAM$. $\\square$\n\nBecause $BT$ is tangent to $\\omega$, $\\angle CBT = \\angle CAB$, and so\n$$\n\\angle TBA = \\angle ABC + \\angle CBT = \\angle ABC + \\angle CAB = 180^\\circ - \\angle BCA.\n$$\nBy the lemma, we have $\\angle BAT = \\angle CAM$. Applying the Law of Sines to triangles $BAT$ and $CAM$, we obtain\n$$\n\\frac{BT}{AT} = \\frac{\\sin \\angle BAT}{\\sin \\angle TBA} = \\frac{\\sin \\angle CAM}{\\sin \\angle BCA} = \\frac{MC}{AM}.\n$$\nNote that $TB = TC_1$. Thus, $TC_1/TA = MC/MA$. By equal tangents, $TB = TC$. In isosceles triangle $BTC$, $M$ is the midpoint of base $BC$. Consequently, $\\angle TMS = \\angle TAC = \\angle TAS = 90^\\circ$, implying that $TMAP$ is cyclic. Hence $\\angle AMC = \\angle ATC_1$. Because\n$$\n\\frac{AM}{AT} = \\frac{MC}{TC_1} \\quad (*)\n$$\nand $\\angle AMC = \\angle ATC_1$, triangles $MAC$ and $TAC_1$ are similar. Because $BC/BM = B_1C_1/TC_1 = 2$, triangles $ABC$ and $AB_1C_1$ are similar.\n\n\n**Solution 2.** (By Alex Zhai) We maintain the notations in the first proof. As shown at the end of the first proof, it suffices to show that $(*)$.\n\n![](attached_image_1.png)\n\nLet $O$ be the circumcenter of $ABC$. Note that triangles $OMC$, $OCT$ are similar to each other, implying that $OM/OC = OC/OT$ or $OM \\cdot OT = OC^2 = OA^2$. Thus triangles $OAM$ and $OTA$ are also similar to each other. Further note that triangles $OMC$ and $CMT$ are also similar to each other. These similarities (which amount to the circumcircle of $ABC$ being a circle of Apollonius) give\n$$\n\\frac{AM}{AT} = \\frac{OM}{OA} = \\frac{OM}{OC} = \\frac{MC}{CT} = \\frac{MC}{TB} = \\frac{MC}{TC_1},\n$$\nwhich is $(*)$.\n\n\n**Solution 3.** (Based on work by Sherry Gong) We maintain the notations of the previous solutions. Let $\\omega$ intersect lines $AT$ and $AS$ again at $X$ and $Y$ (other than $A$), respectively. Let lines $YB$ and $CX$ meet at $B_2$, and let $YC$ and $BX$ meet at $C_2$. Applying Pascal's theorem to cyclic (degenerated) hexagon $BBYAXC$ shows that intersections of three pairs of lines $BB$ and $AX$, $BY$ and $XC$, and $YA$ and $CB$ are collinear; that is, $B_2, C_2, S$ are collinear. Likewise, applying Pascal's theorem to cyclic (degenerated) hexagon $CCYAXB$ shows that $B_2, C_2, T$ are collinear. We conclude that $B_2, C_2, S, T$ are collinear.\n\n![](attached_image_2.png)\n\nSince $ACXY$ is cyclic, $\\angle YCX = \\angle YAX = 180^\\circ - \\angle XAB = 90^\\circ$. Thus $\\angle B_2CC_2 = \\angle XCC_2 = 180^\\circ - \\angle YCX = 90^\\circ$. Likewise, $\\angle C_2BB_2 = 90^\\circ$. It follows that $BCC_2B_2$ is inscribed in a circle with $B_2C_2$ as its diameter. Thus the circumcenter of this circle is the intersection of lines $ST$ and the perpendicular of segment $BC$. This circumcenter must be $T$, and consequently, $B_2 = B_1$ and $C_2 = C_1$.\n\n![](attached_image_3.png)\n\nBecause $AYBC$ and $B_1C_1CB$ are cyclic, by Miquel's theorem, $SACC_1$. (Indeed, $\\angle ACB = 180^\\circ - \\angle B_1YS$ and $\\angle BCC_1 = 180^\\circ - \\angle YB_1S$ lead to $\\angle ACC_1 = 360^\\circ - \\angle ACB - \\angle BCC_1 = 180^\\circ - YSB_1$.) Also, by Miquel's theorem, $YAC_1B_1$ is cyclic. (Indeed, $\\angle C_1AX = \\angle C_1CS = \\angle SB_1Y$.) By these cyclic quadrilaterals, it is not difficult to obtain $\\angle ACS = \\angle AC_1S$ (or $\\angle ACB = \\angle AC_1B_1$) and $\\angle ABC = \\angle AYC = \\angle AYC_1 = \\angle AB_1C_1$. Consequently, triangles $ABC$ and $AB_1C_1$ are similar to each other."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-circles-circle-of-apollonius-auto-2937",
+      "name": "HMMT February 2016 #0js9",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2016",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Circle of Apollonius",
+        "Cyclic quadrilaterals",
+        "Spiral similarity",
+        "Miquel point",
+        "Polar triangles, harmonic conjugates",
+        "Angle chasing"
+      ],
+      "statement": "Problem:\n\nLet $ABC$ be a triangle with incenter $I$ whose incircle is tangent to $\\overline{BC}$, $\\overline{CA}$, $\\overline{AB}$ at $D, E, F$. Point $P$ lies on $\\overline{EF}$ such that $\\overline{DP} \\perp \\overline{EF}$. Ray $BP$ meets $\\overline{AC}$ at $Y$ and ray $CP$ meets $\\overline{AB}$ at $Z$. Point $Q$ is selected on the circumcircle of $\\triangle AYZ$ so that $\\overline{AQ} \\perp \\overline{BC}$.\nProve that $P, I, Q$ are collinear.\n\n![](attached_image_1.png)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe proof proceeds through a series of seven lemmas.\n\nLemma 1. Lines $DP$ and $EF$ are the internal and external angle bisectors of $\\angle BPC$.\n\nProof. Since $DEF$ is the cevian triangle of $ABC$ with respect to its Gergonne point, we have that\n$$\n-1=(\\overline{EF} \\cap \\overline{BC}, D ; B, C)\n$$\nThen since $\\angle DPF=90^\\circ$ we see $P$ is on the Apollonian circle of $BC$ through $D$. So the conclusion follows.\n\nLemma 2. Triangles $BPF$ and $CEP$ are similar.\n\nProof. Invoking the angle bisector theorem with the previous lemma gives\n$$\n\\frac{BP}{BF}=\\frac{BP}{BD}=\\frac{CP}{CD}=\\frac{CP}{CE}\n$$\nBut $\\angle BFP=\\angle CEP$, so $\\triangle BFP \\sim \\triangle CEP$.\n\nLemma 3. Quadrilateral $BZYC$ is cyclic; in particular, line $YZ$ is the antiparallel of line $BC$ through $\\angle BAC$.\n\nProof. Remark that $\\angle YBZ=\\angle PBF=\\angle ECP=\\angle YCZ$.\n\nLemma 4. The circumcircles of triangles $AYZ$, $AEF$, $ABC$ are concurrent at a point $X$ such that $\\triangle XBF \\sim \\triangle XCE$.\n\nProof. Note that line $EF$ is the angle bisector of $\\angle BPZ=\\angle CPY$. Thus\n$$\n\\frac{ZF}{FB}=\\frac{ZP}{PB}=\\frac{YP}{PC}=\\frac{YE}{EC}\n$$\nThen, if we let $X$ be the Miquel point of quadrilateral $Z Y C B$, it follows that the spiral similarity mapping segment $BZ$ to segment $CY$ maps $E$ to $F$; therefore the circumcircle of $\\triangle AEF$ must pass through $X$ too.\n\nLemma 5. Ray $XP$ bisects $\\angle FXE$.\n\nProof. The assertion amounts to\n$$\n\\frac{XF}{XE}=\\frac{BF}{EC}=\\frac{FP}{PE}\n$$\nThe first equality follows from the spiral similarity $\\triangle BFX \\sim \\triangle CEX$, while the second is from $\\triangle BFP \\sim \\triangle CEP$. So the proof is complete by the converse of angle bisector theorem.\n\nLemma 6. Points $X, P, I$ are collinear.\n\nProof. On one hand, $\\angle FXI=\\angle FAI=\\frac{1}{2} \\angle A$. On the other hand, $\\angle FXP=\\frac{1}{2} \\angle FXE=\\frac{1}{2} \\angle A$. Hence, $X, P, I$ collinear.\n\nLemma 7. Points $X, Q, I$ are collinear.\n\nProof. On one hand, $\\angle AXQ=90^\\circ$, because we established earlier that line $YZ$ was antiparallel to line $BC$ through $\\angle A$, hence $AQ \\perp BC$ means exactly that $\\angle AZQ=AYQ=90^\\circ$. On the other hand, $\\angle AXI=90^\\circ$ according to the fact that $X$ lies on the circle with diameter $AI$. This completes the proof of the lemma.\n\nFinally, combining the final two lemmas solves the problem."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-circles-circle-of-apollonius-auto-3790",
+      "name": "USA TSTST #0kfy",
+      "url": "https://usamoguide.com/",
+      "source": "USA TSTST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Inversion",
+        "Spiral similarity",
+        "Miquel point",
+        "Brocard point, symmedians",
+        "Polar triangles, harmonic conjugates",
+        "Circle of Apollonius",
+        "Angle chasing"
+      ],
+      "statement": "Let $ABC$ be a scalene triangle with incenter $I$. The incircle of $ABC$ touches $BC$, $CA$, $AB$ at points $D$, $E$, $F$, respectively. Let $P$ be the foot of the altitude from $D$ to $EF$, and let $M$ be the midpoint of $BC$. The rays $AP$ and $IP$ intersect the circumcircle of triangle $ABC$ again at points $G$ and $Q$, respectively. Show that the incenter of triangle $GQM$ coincides with $D$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Refer to the figure below.\n![](attached_image_1.png)\n\n**Claim** — The point $Q$ is the Miquel point of $BFEC$. Also, $\\overline{QD}$ bisects $\\angle BQC$.\n*Proof*. Inversion around the incircle maps line $EF$ to $(AIEF)$ and the nine-point circle of $\\triangle DEF$ to the circumcircle of $\\triangle ABC$ (as the midpoint of $EF$ maps to $A$, etc.). This implies $P$ maps to $Q$; that is, $Q$ coincides with the second intersection of $(AFIE)$ with $(ABC)$. This is the claimed Miquel point.\nThe spiral similarity mentioned then gives $\\frac{QB}{BF} = \\frac{QC}{CE}$, so $\\overline{QD}$ bisects $\\angle BQC$. $\\square$\n\n**Claim** — We have $(QG; BC) = -1$, so in particular $\\overline{GD}$ bisects $\\angle BGC$.\n*Proof*. Note that\n$$\n-1 = (AI; EF) \\stackrel{Q}{=} (\\overline{AQ} \\cap \\overline{EF}, P; E, F) \\stackrel{A}{=} (QG; BC).\n$$\nThe last statement follows from Apollonian circle, or more bluntly $\\frac{GB}{GC} = \\frac{QB}{QC} = \\frac{BD}{DC}$. $\\square$\n\nHence $\\overline{QD}$ and $\\overline{GD}$ are angle bisectors of $\\angle BQC$ and $\\angle BGC$. However, $\\overline{QM}$ and $\\overline{QG}$ are isogonal in $\\angle BQC$ (as median and symmedian), and similarly for $\\angle BGC$, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-circles-circle-of-apollonius-auto-4280",
+      "name": "HMMT November 2022 #0ktk",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2022",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Circle of Apollonius",
+        "Tangents",
+        "Inversion",
+        "Distance chasing"
+      ],
+      "statement": "Problem:\n\nAlice and Bob play the following \"point guessing game.\" First, Alice marks an equilateral triangle $A B C$ and a point $D$ on segment $B C$ satisfying $B D=3$ and $C D=5$. Then, Alice chooses a point $P$ on line $A D$ and challenges Bob to mark a point $Q \\neq P$ on line $A D$ such that $\\frac{B Q}{Q C}=\\frac{B P}{P C}$. Alice wins if and only if Bob is unable to choose such a point. If Alice wins, what are the possible values of $\\frac{B P}{P C}$ for the $P$ she chose?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFirst, if $P=A$ then clearly Bob cannot choose a $Q$. So we can have $B P: P C=1$.\n\nOtherwise, we need $A P$ to be tangent to the Apollonius Circle. The key claim is that $A B=A C=A P$. To see why, simply note that since $B$ and $C$ are inverses with respect to the Apollonius Circle, we get that $\\odot(A, A B)$ and the Apollonius Circle are orthogonal. This gives the claim.\n\nFinding answer is easy. Let $M$ be the midpoint of $B C$, and let $T$ be the center of that Apollonius Circle. We easily compute $A D=7$, so we have two cases.\n\n- If $P$ lies on $\\overrightarrow{A D}$, then $D P=1$. Since $\\triangle D P T \\sim \\triangle A D M$, we get that $T D=7$. Thus, $\\frac{B P}{P C}=\\sqrt{\\frac{B T}{T C}}=\\sqrt{\\frac{4}{12}}=\\frac{1}{\\sqrt{3}}$.\n\n- Now, note that the two ratios must have product $B D / D C=3 / 5$ by the Ratio lemma. So the other ratio must be $\\frac{3 \\sqrt{3}}{5}$.\n\nTherefore, the solution set is $\\left\\{\\frac{1}{\\sqrt{3}}, 1, \\frac{3 \\sqrt{3}}{5}\\right\\}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+---
+id: sfft-factoring
+title: Simon's Favorite Factoring Trick
+author: Siddhant Arora
+description: Adding constants to factors multi-variable equations
+prerequisites: []
+---
+
+## Overview
+
+As you may have experienced, factoring is key to simplifying an equation and making key conclusions about a problem. This is particularly true when the equation involves solely integers (also called *diophantine equations*).
+
+However, we run into a caveat as some equations are difficult to factor into *nice* numbers in just their given state. For instance, it is not immediately obvious how to factor:
+
+$mn + m + n + 6$
+
+into a product of two expressions each involving integer coefficients. **Simon's Favorite Factoring Trick (SFFT)** is a technique used to accomplish exactly this. It involves adding a certain constant to an equation (and also subtracting it so that the equation does not change) in such a way that the equation can be factored.
+
+## Motivation
+
+Again, consider the equation:
+
+$mn + m + n + 6$
+
+If we factor out $m$ from the first two terms, we get:
+
+$m(n + 1) + n + 6$.
+
+We are now quite close to being able to factor except for the fact that there is no other $n + 1$ term. However, consider splitting $6$ into $1$ and $5$:
+
+$m(n + 1) + n + 1 + 5$
+
+$=m(n + 1) + 1(n + 1) + 5$
+
+$=(m + 1)(n + 1) + 5$
+
+By splitting the $6$ into $1$ and $5$ we are able to factor the equation! Generally, **SFFT** can be formalized as follows:
+
+> The equation: $xy+jx+ky=a$, can be factored as $(x+k)(y+j)=a+jk$
+
+
+
+We will now consider more examples into how even adding a constant can help factor such equations:
+
+> 1\) $mn + m + n$
+Taking $m$ from the first two terms: $m(n + 1) + n$. Now, we can easily factor by adding $1$ (and also subtracting it to preserve the original equation).
+
+$m(n + 1) + 1(n + 1) - 1$
+
+ $(m + 1)(n + 1) - 1$
+
+> 2\) $m^2 + 3m^2n^2 = 30n^2 + 517$
+Seeing only $m^2$ and $n^2$ terms, substitute $x = m^2$ and $y = n^2$:
+
+ $x + 3xy - 30y = 517$
+
+ $x(1 + 3y) - 30y = 517$; Since we need a $1 + 3y$ term and we have a $-30y$ term, we need a $-10$ outside the parentheses, but this requires adding $-10$ to both sides so we get:
+
+ $x(1 + 3y) - 30y - 10 = 517 - 10$
+
+ $x(1 + 3y) - 10(1 + 3y) = 507$
+
+ $(x - 10)(3y + 1) = 507$
+
+ $(m^2 - 10)(3n^2 + 1) = 507$
+
+## Integers!
+
+Perhaps one of the most prominent use-cases of **SFFT** is in dealing with integer equations or *diophantines*. For instance, if we are asked to find all integer solutions to a certain equation, we can isolate variables and factor them via **SFFT** and iterate over factor pairs that multiply to the constant on the other side of the equation. Consider one of our primary examples:
+
+> $mn + m + n = 17$
+
+Factor by adding $1$ to both sides:
+
+
+$(m + 1)(n + 1) = 18$
+
+Now, we can find all factors pairs that multiply to $18$: $(1, 18), (2, 9), (3, 6), (6, 3), (9, 2), (18, 1), (-1, -18), (-2, -9), (-3, -6), (-6, -3), (-9, -2), (-18, -1)$
+
+In each pair, we can make $m + 1$ be the left integer and $n + 1$ be the right integer to get $(m, n) = (0, 17), (1, 8), (2, 5), (5, 2), (8, 1), (17, 0), (-2, -19), (-3, -10), (-4, -7), (-7, -4), (-10, -3), (-19, -2)$
+
+This technique can be structured as follows to solve *diophantines*:
+
+1) Construct the equation if needed, i.e, convert word statement to equation
+2) Isolate all variables to one side
+3) Add a constant for **SFFT** and factor
+4) Iterate over factor pairs of the constant on the other side and isolate for the variables to find all valid pairs. Be careful to not include any extraneous solutions (e.g. check whether the solutions require positive integers)!
+
+<Problems problems="practice" />

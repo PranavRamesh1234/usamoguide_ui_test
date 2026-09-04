@@ -1,0 +1,92 @@
+---
+id: roots-of-unity
+title: Roots of Unity
+author: USAMO Guide Team
+description: Geometry and sums of $n$th roots.
+prerequisites: [complex-polar-form]
+---
+
+## Overview
+
+Roots of unity are equally spaced points on the unit circle. Their symmetry
+collapses many sums to $0$.
+
+## Core Skills
+
+### Parameterize the Roots
+
+Write $z_k=e^{2\pi i k/n}$ and use symmetry of the regular $n$-gon.
+
+### Use the Geometric Sum
+
+Apply $1+z+\cdots+z^{n-1}=0$ when $z^n=1$ and $z\ne 1$.
+
+### Filter by Exponents
+
+If a sum includes $z^{mk}$, reduce $m$ modulo $n$ to see which terms survive.
+
+## Key Ideas
+
+- $z^n=1$ gives $z_k = e^{2\pi i k/n}$.
+- The roots form a regular $n$-gon centered at the origin.
+- $1 + z + z^2 + \cdots + z^{n-1} = 0$ for $z^n=1$, $z\ne 1$.
+
+## Worked Example
+
+If $z^5=1$ and $z\ne 1$, compute $1+z+z^2+z^3+z^4$.
+
+This is the full sum of the 5th roots except $1$, so it equals $0$.
+
+## More Examples
+### Example 1: Sum of All Roots
+
+Find the sum of all cube roots of unity.
+
+It is $0$.
+
+### Example 2: Power Sum
+
+If $\omega^7 = 1$ and $\omega \ne 1$, find $1 + \omega^2 + \omega^4 + \omega^6$.
+
+This is half the roots, so the sum is $-1$.
+
+### Example 3: Geometry Interpretation
+
+What is the sum of the vertices of a regular $n$-gon centered at the origin?
+
+By symmetry, it is $0$.
+
+### Example 4: Roots of Unity Trick (remember this one!)
+
+Let $\omega \ne 1$ be a 13th root of unity. Your job is to compute the following expression: $\prod_{k=1}^{12}(1 - \omega^k)$.
+
+Using the following trick: $x^{13} - 1 = (x - 1)(x^{12} + x^{11} + \cdots + 1)$ and substituting in $x = 1$, we get that the product is $13$.
+
+### Example 5: Roots of Unity Reciprocals (also very common, so be sure to understand this completely and be able to recognize this!)
+
+Given that if $\omega^7 = 1$ and also $\omega \ne 1$, find the following: $\sum_{k=0}^{6} \frac{1}{1 + \omega^k}$.
+
+The trick here is to pair terms $\frac{1}{1 + \omega^k}$ and $\frac{1}{1 + \omega^{-k}}$ gives $1$ for each pair, and the $k = 0$ term is $\frac{1}{2}$. So, we get that the total is simply $\frac{7}{2}$.
+
+### Example 6: Roots of Unity + Recursion (think out of the box!)
+
+Let $\omega$ be a primitive cube root of unity. Your job is to find $(2 + \omega)^{10} + (2 + \omega^2)^{10}$.
+
+First of all, since $2 + \omega$ and $2 + \omega^2$ are roots of $x^2 - 3x + 3 = 0$, the we can see that the sequence satisfies a linear recurrence, and working off this gives $243$.
+
+
+## Strategy Checklist
+
+- Write roots in exponential form.
+- Use geometric series for full sums.
+- Reduce exponents modulo $n$.
+
+## Common Pitfalls
+
+- Forgetting to exclude the root $z=1$.
+- Treating the sum as $5$ instead of $0$.
+- Forgetting to reduce exponents modulo $n$.
+
+## Practice Problems
+
+<Problems problems="practice" />

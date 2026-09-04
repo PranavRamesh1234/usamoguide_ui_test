@@ -1,0 +1,589 @@
+{
+  "MODULE_ID": "modular-arithmetic",
+  "practice": [
+    {
+      "uniqueId": "number-theory-modular-arithmetic-auto-0001",
+      "name": "Berkeley Math Circle #0hip",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Divisibility / Factorization",
+        "Modular Arithmetic",
+        "Integers",
+        "Sums and products"
+      ],
+      "statement": "Problem:\nProve that\n$$\nn(n+1)(2 n+1)\n$$\nis always divisible by $6$, for $n$ a positive integer.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe number is even, because either $n$ or $n+1$ is even.\nNow we show it is always divisible by three. Assume for contradiction that it isn't. Then neither $n$ nor $n+1$ is divisible by three, so $n+2$ must be. However, $2 n+1 = 2(n+2) - 3$ is then also a multiple of three, which is a contradiction.\n\nIn fact, one can also notice the result from the fact that\n$$\n1^{2} + 2^{2} + \\cdots + n^{2} = \\frac{n(n+1)(2 n+1)}{6} .\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-auto-0008",
+      "name": "Berkeley Math Circle Monthly Contest 1 #0hiw",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Modular Arithmetic",
+        "Integers"
+      ],
+      "statement": "Problem:\n\nAre there natural numbers $a$ and $b$ that make the equation\n$$\n2 a^{2} + 1 = 4 b^{2}\n$$\ntrue? (The natural numbers are the counting numbers, $1, 2, 3, \\ldots$ )",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe answer is no. Suppose that $a$ and $b$ are any natural numbers. Then $2 a^{2}$ is even, and so is $4 b^{2}$. But an even number plus $1$ will be odd, not even, so the equation can never be made to work, i.e. there are no natural numbers that satisfy the equation."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-auto-0032",
+      "name": "Berkeley Math Circle Monthly Contest 7 #0hjk",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 7",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Prime numbers",
+        "Modular Arithmetic"
+      ],
+      "statement": "Problem:\n\nFind all positive prime numbers $p$ such that $p+2$ and $p+4$ are prime as well.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFor $p=3$, $p+2=5$, $p+4=7$ and these are obviously prime.\n\nFor $p>3$, we know that $p$ is not divisible by $3$. The remainder of $p$ when divided by $3$ can be either $1$ or $2$. If it is $1$, then $p+2$ is divisible by $3$; if it is $2$, then $p+4$ is divisible by $3$. Hence $p=3$ is the only solution."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-auto-0050",
+      "name": "Berkeley Math Circle Monthly Contest 5 #0hk2",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 5",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Modular Arithmetic",
+        "Multiplicative order"
+      ],
+      "statement": "Problem:\nCalculate, with proof, the last digit of\n\n$$\n3^{3^{3^{3^{3}}}}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWhen $3$ is raised to the successive powers $1, 2, 3, 4, \\ldots$, the units digits are $3, 9, 7, 1, \\ldots$ From then on, since the digit $1$ has been reached, the units digits will repeat in this cycle of four elements. So it is necessary to find the remainder when\n$$\nn_{4} = 3^{3^{3^{3}}}\n$$\nis divided by $4$.\nWhen powers of $3$ are divided by $4$, the remainders are $3, 1, \\ldots$ Here the number $1$ appears after two steps, and the remainders therefore repeat in a two-element cycle. So it is necessary to find the remainder when\n$$\nn_{3} = 3^{3^{3}}\n$$\nis divided by $2$.\nBut $n_{3}$ is clearly odd, so $n_{4}$ has a remainder of $3$ when divided by $4$ and the original number $n_{5}$ has a last digit of $7$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-auto-0069",
+      "name": "Berkeley Math Circle #0hkl",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Modular Arithmetic",
+        "Integers"
+      ],
+      "statement": "Problem:\nFind the units digit of $17^{2021}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe units digits of powers of $17$ cycle: $7, 9, 3, 1, 7, 9, 3, 1, \\ldots$, so the units digit of $17^{n}$ is $1$ whenever $n$ is a multiple of $4$. Since $2020$ is a multiple of $4$, $17^{2020}$ has units digit $1$, so $17^{2021}$ has units digit $7$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-auto-0097",
+      "name": "Berkeley Math Circle Monthly Contest 3 #0hld",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 3",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Modular Arithmetic",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\n\nFind all prime numbers $p$ such that $p^{2}+8$ is prime number, as well.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFor $p=3$ we have $p^{2}+8=17$, which is prime.\n\nIf $p \\neq 3$ then $p$ is not divisible by $3$. The remainder of $p$ when divided by $3$ is either $1$ or $2$. This means that $p=3k+1$ for some integer $k$, or $p=3l+2$ for some integer $l$.\n\nIn the first case we get $p^{2}=(3k+1)^{2}=9k^{2}+6k+1$ and in the second, $p^{2}=(3l+2)^{2}=9l^{2}+12l+4$.\n\nIn both cases $p^{2}$ gives a remainder $1$ upon division by $3$. Hence $p^{2}+8$ is divisible by $3$ for all prime numbers different than $3$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-auto-0113",
+      "name": "Berkeley Math Circle #0hlt",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Modular Arithmetic",
+        "Induction / smoothing",
+        "Algebraic properties of binomial coefficients"
+      ],
+      "statement": "Problem:\nProve that for $n \\geq 1$, the last $n+2$ digits of $11^{10^{n}}$ are $6000 \\ldots 0001$, with $n$ zeros between the 6 and the final 1.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe statement is that $11^{10^{n}} = k \\cdot 10^{n+2} + 6 \\cdot 10^{n+1} + 1$ for some positive integer $k$; we prove it by induction on $n$.\n\nFor the base case $n=1$, we expand $(10+1)^{10}$ by the binomial theorem and obtain\n$$\n\\left(\\text{ terms divisible by } 10^{3}\\right) + \\binom{10}{2} 10^{2} + \\binom{10}{1} 10^{1} + 1 = \\left(\\text{ terms divisible by } 10^{3}\\right) + 4500 + 100 + 1\n$$\nwhose last three digits are indeed 601.\n\nNow, for $n \\geq 2$, if the statement holds for $n-1$, then to prove it for $n$, we continue the process, using the binomial theorem twice:\n$$\n\\begin{gathered}\n11^{10^{n}} = \\left(11^{10^{n-1}}\\right)^{10} = \\left(k \\cdot 10^{n+1} + \\left[6 \\cdot 10^{n} + 1\\right]\\right)^{10} \\\\\n= \\left(\\text{ terms divisible by } 10^{2n+2}\\right) + \\binom{10}{1}\\left(k \\cdot 10^{n+1}\\right)\\left(6 \\cdot 10^{n} + 1\\right)^{9} + \\left(6 \\cdot 10^{n} + 1\\right)^{10}\n\\end{gathered}\n$$\nand all the terms except the last are divisible by $10^{n+2}$. Therefore it suffices to find the last $n+2$ digits of $\\left(6 \\cdot 10^{n} + 1\\right)^{10}$, which equals\n$$\n\\left(\\text{ terms divisible by } 10^{2n}\\right) + \\binom{10}{1} 6 \\cdot 10^{n} + 1 = \\left(\\text{ terms divisible by } 10^{2n}\\right) + 6 \\cdot 10^{n+1} + 1\n$$\nSince $2n \\geq n+2$, we have what we need."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-auto-0122",
+      "name": "Berkeley Math Circle Monthly Contest 4 #0hm2",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 4",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Prime numbers",
+        "Modular Arithmetic"
+      ],
+      "statement": "Problem:\n\nFind all prime numbers $p$ such that $p^{2} + 2007p - 1$ is prime as well.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nIf $p = 3$, then $p^{2} + 2007p - 1 = 6029$ which is a prime.\n\nFor $p \\neq 3$, we know that $p = 3k \\pm 1$ for some integer $k$. Hence\n$$\np^{2} + 2007p - 1 = (3k \\pm 1)^{2} + 2007(3k \\pm 1) - 1 = 9k^{2} \\pm 6k + 1 + 2007 \\cdot 3k \\pm 2007 - 1 = 9k^{2} \\pm 6k + 2007 \\cdot 3k \\pm 2007.\n$$\nThis expression is divisible by $3$ and can't be prime (unless it equals $3$, but for $p > 3$ it is much larger than $3$). Thus the only such prime number is $p = 3$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-auto-0138",
+      "name": "Berkeley Math Circle Monthly Contest 1 #0hmi",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Prime numbers",
+        "Modular Arithmetic"
+      ],
+      "statement": "Problem:\nShow that there are infinitely many prime numbers whose last digit is not $1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAssume there are only finitely many such primes $p_{1}, \\ldots, p_{k}$. Consider the number\n$$\nN = 10 p_{1} p_{2} \\ldots p_{k} - 1\n$$\nSince $N$ has last digit $9$, there must be a prime $p$ dividing $N$ which does not have last digit $1$ (otherwise $N$ must have last digit $1$). But by construction, $p$ cannot divide $N$, because it leaves a remainder of $p-1$ when divided by $p$. This is a contradiction, so our assumption was wrong and there must be infinitely many such primes."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-auto-0140",
+      "name": "Berkeley Math Circle: Monthly Contest 7 #0hmk",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 7",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Techniques: modulo, size analysis, order analysis, inequalities",
+        "Modular Arithmetic"
+      ],
+      "statement": "Problem:\n\nIn a certain kingdom, the only coin values are $3$ and $5$. Determine all possible amounts of money you can have using only these coins.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe amounts of money that you can have are all positive integers except $1, 2, 4$, and $7$. We can see that all these are impossible. To show that all other amounts are possible, it is clear that $3$ and $5$ are possible. Also, $6, 8, 9$, and $10$ are all possible, since\n$$\n\\begin{aligned}\n6 & = 3 + 3, \\\\\n8 & = 3 + 5, \\\\\n9 & = 3 + 3 + 3, \\\\\n10 & = 5 + 5.\n\\end{aligned}\n$$\nNow, any higher amount of money has a remainder of $0, 1$, or $2$ when divided by $3$. If it has a remainder of $0$, it is $9$ plus a multiple of $3$; if it has a remainder of $1$, it is $10$ plus a multiple of $3$; and if it has a remainder of $2$, it is $8$ plus a multiple of $3$. No matter what, it is one of $8, 9$, or $10$ plus a multiple of $3$, so we can just add more $3$ coins to get from one of $8, 9$, or $10$ to our number. Thus, all higher amounts of money can be made."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-auto-0142",
+      "name": "Berkeley Math Circle: Monthly Contest 6 #0hmm",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Modular Arithmetic",
+        "Invariants / monovariants"
+      ],
+      "statement": "Problem:\n\nA castle has infinitely many rooms labeled $1,2,3, \\ldots$, which are divided into several halls. Suppose room $n$ is on the same hall as rooms $3 n+1$ and $n+10$ for every $n$. Determine the maximum possible number of different halls in the castle.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThere are at most three different halls in the castle. Because rooms $n$ and $n+10$ are on the same hall, any two rooms with the same units digit must be on the same hall.\n\nNow, repeatedly using the rule that rooms $n$ and $3 n+1$ are on the same hall, we find that room $1$ is on the same hall as rooms $4$, $13$, $40$, and $121$, so all rooms with units digit $0,1,3$, or $4$ are on the same hall. There need not be any other rooms on this hall, since whenever $n$ has units digit in this set, so does $3 n+1$, and so does $(n-1) / 3$, if it is a whole number.\n\nSimilarly, room $2$ is on the same hall as rooms $7$ and $22$, so all rooms with units digit $2$ or $7$ are on the same hall, and there need not be any other rooms on this hall. Finally, rooms $5$, $16$, $49$, and $148$ are on the same hall, so all rooms with units digit $5,6,8$ or $9$ are on the same hall. Thus, we see that there are at most three different halls in the castle."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-auto-0220",
+      "name": "Berkeley Math Circle Monthly Contest 2 #0hos",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 2",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Modular Arithmetic",
+        "Quadratic residues"
+      ],
+      "statement": "Problem:\n\nIf the sum of digits in a decimal representation of a natural number $n$ is equal to 2006, prove that $n$ can't be a perfect square of an integer.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe remainder of $n$ upon division by $3$ is equal to the sum of its digits, i.e. $2006$. Hence number $n$ has a remainder $2$ upon division by $3$ and no square can have that remainder."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-auto-0256",
+      "name": "Berkeley Math Circle: Monthly Contest 7 #0hps",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 7",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Invariants / monovariants",
+        "Modular Arithmetic"
+      ],
+      "statement": "Problem:\n\nMr. Fat moves around on the lattice points according to the following rules: From point $(x, y)$ he may move to any of the points $(y, x)$, $(3x, -2y)$, $(-2x, 3y)$, $(x+1, y+4)$ and $(x-1, y-4)$. Show that if he starts at $(0,1)$ he can never get to $(0,0)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nObserve that for each of Mr. Fat's moves, the value of $x + y \\pmod{5}$ is invariant. Therefore, Mr. Fat can never reach $(0,0)$ from $(0,1)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-auto-0285",
+      "name": "Berkeley Math Circle Monthly Contest 6 #0hql",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Divisibility / Factorization",
+        "Modular Arithmetic"
+      ],
+      "statement": "Problem:\n\nWally has a very unusual combination lock number. It has five digits, all different, and is divisible by $111$. If he removes the middle digit and replaces it at the end, the result is a larger number that is still divisible by $111$. If he removes the digit that is now in the middle and replaces it at the end, the result is a still larger number that is still divisible by $111$. What is Wally's combination lock number? Explain your answer!",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe solution is $74259$. The numbers $74259$, $74592$, and $74925$ are all divisible by $111$. Denote the original number by $\\overline{abcde}$ (the line prevents confusion with $a \\cdot b \\cdot c \\cdot d \\cdot e$). Then we have\n$$\n\\begin{aligned}\n& 111 \\mid \\overline{abcde} \\\\\n& 111 \\mid \\overline{abdec}\n\\end{aligned}\n$$\nSubtracting,\n$$\n\\begin{gathered}\n111 \\mid \\overline{abdec} - \\overline{abcde} \\\\\n111 \\mid \\overline{dec} - \\overline{cde}\n\\end{gathered}\n$$\nSince the number $\\overline{dec} - \\overline{cde} = 90d + 9e - 99c$ is divisible by $9$ we get $33 \\mid \\overline{dec} - \\overline{cde}$. Since it is given that $\\overline{abdec} > \\overline{abcde}$, $\\overline{cde} \\leq \\overline{dec} - 333$.\nHowever, we could have done the above logic with $d, e, c$ instead of $c, d, e$ and gotten $\\overline{dec} \\leq \\overline{ecd} - 333$. Consequently $\\overline{cde} \\leq \\overline{ecd} - 666$. Since obviously $\\overline{ecd} \\leq 999$, $\\overline{cde}$ is one of the multiples of $37$ up to $333$:\n$$\n000\\quad 037\\quad 074\\quad 111\\quad 148\\quad 185\\quad 222\\quad 259\\quad 296\\quad 333\n$$\nWe can immediately eliminate $000, 111, 222$, and $333$, since we know that the digits are all different. We can also eliminate $074, 185$, and $296$, since $\\overline{ecd} > \\overline{dec}$. The three remaining choices are all of the form $111 \\cdot k + 37$. So\n$$\n\\begin{aligned}\n111 \\mid \\overline{abcde} & \\\\\n& = \\overline{ab000} + \\overline{cde} \\\\\n& = 999 \\cdot \\overline{ab} + \\overline{ab} + 111 \\cdot k + 37 \\\\\n111 \\mid \\overline{ab} + 37 &\n\\end{aligned}\n$$\nwhence $\\overline{ab} = 74$. This leaves only three possibilities for Wally's combination lock number: $74037$, $74148$, and $74259$, of which only the last has all unlike digits."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-auto-0329",
+      "name": "Berkeley Math Circle: Monthly Contest 4 #0hrt",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 4",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Modular Arithmetic",
+        "Recurrence relations"
+      ],
+      "statement": "Problem:\nA sequence $a_{1}, a_{2}, \\ldots$ of positive integers satisfies\n$$\na_{n+1}=a_{n}^{3}+103\n$$\nfor every positive integer $n$. Prove that the sequence contains at most one perfect square.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nIt's easy to check that no two consecutive terms can be perfect squares, since the only squares which differ by $103$ are $51^{2}$ and $52^{2}$.\n\nNow, note that squares are $0$, $1$, or $4$ mod $8$. After a perfect square appears, the next term must be $-1$ or $0 \\bmod 8$, and thereafter all terms are $-1$, $-2$ modulo $8$, so no more squares."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-auto-0367",
+      "name": "Berkeley Math Circle Monthly Contest 8 #0hsv",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 8",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Modular Arithmetic",
+        "Recursion, bijection",
+        "Induction / smoothing",
+        "Recurrence relations"
+      ],
+      "statement": "Problem:\nLet $M_{n}$ be the number of integers $N$ such that\n(a) $0 \\leq N < 10^{n}$;\n(b) $N$ is divisible by $4$;\n(c) The sum of the digits of $N$ is also divisible by $4$.\nProve that $M_{n} \\neq 10^{n} / 16$ for all positive integers $n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nSince $10^{n} / 16$ is not an integer for $n=1,2,3$, we may assume that $n \\geq 4$. Let\n$$\n\\tilde{M}_{n} = M_{n} - \\frac{10^{n}}{16}\n$$\nWe note that numbers whose hundreds digit is between $2$ and $9$ inclusive make no total contribution to $\\tilde{M}_{n}$ for $n \\geq 3$. This is because, given the remaining digits, divisibility by $4$ (which depends only on the tens and units digits) occurs one-fourth of the time, and exactly two of the eight choices for the hundreds digit brings the total of the digits to a multiple of $4$. Similarly, numbers with hundreds digit $0$ or $1$ but thousands digit at least $2$ make no contribution to $\\tilde{M}_{n}$. (We require the hundreds digit to be less than $2$ to avoid double counting.) Continuing in this way, we find that only the $25 \\cdot 2^{n}$ numbers with all but the last two digits equal to $0$ or $1$ can make $\\tilde{M}_{n}$ nonzero. Let $L_{n}$ be the number of such numbers satisfying conditions (a), (b), and (c). We thus have\n$$\n\\tilde{M}_{n} = L_{n} - \\frac{25 \\cdot 2^{n}}{16}\n$$\nNow let $f(i, k)$ be the number of binary strings of length $k$ whose sum is congruent to $i \\bmod 4$. Since there are respectively $9, 4, 6, 6$ multiples of $4$ less than $100$ with digit sums $\\equiv 0, 1, 2, 3 \\bmod 4$, we have\n$$\nL_{n} = 9 f(0, n-2) + 4 f(3, n-2) + 6 f(2, n-2) + 6 f(1, n-2).\n$$\nIf we let $\\tilde{f}(i, k) = f(i, k) - 2^{k} / 4$, we can subtract $25 \\cdot 2^{n} / 16$ from both sides of the above equation to get\n$$\n\\tilde{M}_{n} = 9 \\tilde{f}(0, n-2) + 4 \\tilde{f}(3, n-2) + 6 \\tilde{f}(2, n-2) + 6 \\tilde{f}(1, n-2)\n$$\nOn the other hand, dividing a binary $k$-string with sum $i$ into a $k-1$-string and a single bit and noting that the sum of the $k-1$-string is either $i$ or $i-1$, we get the recurrence\n$$\nf(i, k) = f(i, k-1) + f(i-1, k-1)\n$$\nwhich is equivalent to\n$$\n\\tilde{f}(i, k) = \\tilde{f}(i, k-1) + \\tilde{f}(i-1, k-1).\n$$\nTogether with the boundary conditions\n$$\n\\begin{array}{ll}\nf(0,0)=1, & f(1,0)=f(2,0)=f(3,0)=0, \\\\\n\\tilde{f}(0,0)=\\frac{3}{4}, & \\tilde{f}(1,0)=\\tilde{f}(2,0)=\\tilde{f}(3,0)=-\\frac{1}{4},\n\\end{array}\n$$\nthis enables us to calculate values of $\\tilde{f}(i, k)$ and therefore of $\\tilde{M}_{n}$. It is trivial to prove by induction that for $k \\geq 1$,\n$$\n\\tilde{f}(i, k) = -\\tilde{f}(i+2, k),\n$$\nfrom which it follows after a short computation using (4) that\n$$\n\\tilde{f}(i, k+4) = -4 \\tilde{f}(i, k), \\quad k \\geq 1\n$$\nNow we substitute this equation into (3), yielding\n$$\n\\tilde{M}_{n+4} = -4 \\tilde{M}_{n}, \\quad n \\geq 3\n$$\nThis implies that $\\tilde{M}_{n+4}$ is nonzero if $\\tilde{M}_{n}$ is. We have already noted that $\\tilde{M}_{3}$ is nonzero because it is not an integer. Computing $\\tilde{M}_{4}=2$, $\\tilde{M}_{5}=-1$, and $\\tilde{M}_{6}=-6$ by hand using (5), (4), and (3) completes the proof that $\\tilde{M}_{n}$ is nonzero for all $n \\geq 1$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-auto-0409",
+      "name": "Berkeley Math Circle #0hu1",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Modular Arithmetic",
+        "Techniques: modulo, size analysis, order analysis, inequalities"
+      ],
+      "statement": "Problem:\n\nDoes there exist an integer such that its cube is equal to $3 n^{2} + 3 n + 7$, where $n$ is an integer?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSuppose that there exist integers $n$ and $m$ such that $m^{3} = 3 n^{2} + 3 n + 7$. Then from $m^{3} \\equiv 1 \\pmod{3}$ it follows that $m = 3k + 1$ for some $k \\in \\mathbb{Z}$. Substituting into the initial equation we obtain $3k\\left(3k^{2} + 3k + 1\\right) = n^{2} + n + 2$. It is easy to check that $n^{2} + n + 2$ cannot be divisible by $3$, and so this equality cannot be true. Therefore our equation has no solutions in integers."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-auto-0421",
+      "name": "Berkeley Math Circle: Monthly Contest 6 #0hud",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Modular Arithmetic",
+        "Techniques: modulo, size analysis, order analysis, inequalities"
+      ],
+      "statement": "Problem:\n\nAerith has an unlimited number of coins of values $5$, $m-1$, and $m$, and $71$ is the greatest value that cannot be made with a combination of these coins. Find all possible values of $m$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nBy the Chicken McNugget Theorem, the largest coin value that can't be achieved with $5$ and $m-1$ is\n$$\n5(m-1)-5-(m-1)=4m-9 \\geq 71,\n$$\nso $4m \\geq 80$ and thus $m \\geq 20$.\n\nSince $71$ is not possible, there cannot be a number less than $71$ which is $1 \\pmod{5}$ and divisible by $m$ or $m-1$, since then you could add some number of $5$'s to it to get $71$. In particular, $m$ and $m-1$ cannot be $1 \\pmod{5}$, so $m$ can't be $1$ or $2 \\pmod{5}$.\n\nSince all numbers above $71$ are achievable, $76$ has to be achievable, and without using any $5$'s. If $m \\geq 36$, the only way this can happen is if it's either $2m$ or $2(m-1)$, so $m=38$ or $m=39$. If $m=39$, then there's no way to get $72$. However, if $m=38$, then we can get:\n$$\n\\begin{aligned}\n&72=37+7\\cdot 5, \\\\\n&73=38+7\\cdot 5, \\\\\n&74=2\\cdot 37, \\\\\n&75=37+38, \\\\\n&76=2\\cdot 38.\n\\end{aligned}\n$$\nWe also can't get $71$, so $m=38$ is a solution.\n\nIf $m \\leq 37$, then $2m$ also can't be $1 \\pmod{5}$, so $m$ can't be $3 \\pmod{5}$. Also, $2(m-1)$ can't be $1 \\pmod{5}$, so $m$ can't be $4 \\pmod{5}$. Thus $m$ has to be a multiple of $5$. But then $m-1 \\equiv 4 \\pmod{5}$, so the only way we could get $76$ is if it's $4(m-1)$, which gives $m=20$. This works since $71$ can't be achieved but\n$$\n\\begin{aligned}\n&72=3\\cdot 19+3\\cdot 5, \\\\\n&73=2\\cdot 19+20+3\\cdot 5, \\\\\n&74=19+2\\cdot 20+3\\cdot 5, \\\\\n&75=15\\cdot 5, \\\\\n&76=2\\cdot 38.\n\\end{aligned}\n$$\nThus, the two solutions are $m=20$ and $m=38$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-auto-0495",
+      "name": "Berkeley Math Circle Monthly Contest 3 #0hwf",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 3",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Modular Arithmetic",
+        "Recurrence relations"
+      ],
+      "statement": "Problem:\n\nDefine a sequence $a_{0}, a_{1}, a_{2}, \\ldots$ in the following way: $a_{0}=0$, and for $n \\geq 0$,\n$$\na_{n+1}=a_{n}+5^{a_{n}} .\n$$\nLet $k$ be any positive integer. Prove that the remainders when $a_{0}, a_{1}, \\ldots, a_{2^{k-1}}$ are divided by $2^{k}$ are all different.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe begin with a simple numerical lemma.\n\nLemma 1. For all $k \\geq 0, 5^{2^{k}}-1$ is divisible by $2^{k+2}$.\n\nProof. By induction. For $k=0$, the statement may be checked directly. To step from $k$ to $k+1$, we write\n$$\n5^{2^{k+1}}-1=\\left(5^{2^{k}}\\right)^{2}-1=\\left(5^{2^{k}}-1\\right)\\left(5^{2^{k}}+1\\right)\n$$\nand note that the first factor is divisible by $2^{k+2}$ by the induction hypothesis and the second factor is clearly divisible by 2, so the product is divisible by $2^{k+3}$.\n\nNow we turn to the main lemma of the proof.\n\nLemma 2. Fix $k \\geq 0$. For all $r \\geq 0$, the difference\n$$\na_{r+2^{k}}-a_{r}\n$$\nis divisible by $2^{k}$, not divisible by $2^{k+1}$, and independent of $r$ mod $2^{k+2}$.\n\nProof. By induction. For $k=0$,\n$$\na_{r+1}-a_{r}=5^{a_{r}}\n$$\nis clearly divisible by 1, not divisible by 2, and congruent to the constant value $1^{a_{r}}=1 \\bmod 4$. Now assume that the statement is true for $k$; we will prove it for $k+1$. We know that $a_{r+2^{k}}-a_{r}$ has the form $2^{k} \\cdot m$ for $m$ odd. The difference $a_{r+2^{k+1}}-a_{r+2^{k}}$ has the same value, $2^{k} \\cdot m$, to the modulus $2^{k+2}$. Therefore, $\\bmod 2^{k+2}$,\n$$\na_{r+2^{k+1}}-a_{r}=\\left(a_{r+2^{k+1}}-a_{r+2^{k}}\\right)+\\left(a_{r+2^{k}}-a_{r}\\right) \\equiv 2^{k} \\cdot m+2^{k} \\cdot m=2^{k+1} m\n$$\nso this difference is divisible by $2^{k+1}$ but not $2^{k+2}$.\n\nIt remains to prove that $a_{r+2^{k+1}}-a_{r}$ is constant $\\bmod 2^{k+3}$, i.e. that $2^{k+3}$ divides the difference between two values for consecutive values of $r$ :\n$$\n\\begin{aligned}\n\\left(a_{r+2^{k+1}+1}-a_{r+1}\\right)-\\left(a_{r+2^{k+1}}-a_{r}\\right) & =\\left(a_{r+2^{k+1}+1}-a_{r+2^{k+1}}\\right)-\\left(a_{r+1}-a_{r}\\right) \\\\\n& =5^{a_{r+2^{k+1}}}-5^{a_{r}} \\\\\n& =5^{a_{r}}\\left(5^{a_{r+2^{k+1}}-a_{r}}-1\\right) .\n\\end{aligned}\n$$\nWe have already proved that $a_{r+2^{k+1}}-a_{r}$ is divisible by $2^{k+1}$. By Lemma $1, 5^{2^{k+1}} \\equiv 1 \\bmod 2^{k+3}$, so $5^{a_{r+2^{k+1}}-a_{r}}$ is also 1 $\\bmod 2^{k+3}$, completing the proof.\n\nTo solve the problem, suppose that $r$ and $s$ are two nonnegative integers such that $0 \\leq r<s \\leq 2^{k}-1$ and $a_{r} \\equiv a_{s} \\bmod 2^{k}$. Let $s-r=2^{\\ell} \\cdot m$, where $m$ is odd. Mod $2^{\\ell+1}, a_{t+2^{\\ell}}-a_{t} \\equiv 2^{\\ell}$ for all $t \\geq 0$ and therefore\n$$\na_{s}-a_{r} \\equiv\\left(a_{r+2^{\\ell}}-a_{r}\\right)+\\left(a_{r+2 \\cdot 2^{\\ell}}-a_{r+2^{\\ell}}\\right)+\\cdots+\\left(a_{r+m \\cdot 2^{\\ell}}-a_{r+(m-1) 2^{\\ell}}\\right) \\equiv m \\cdot 2^{\\ell} \\not \\equiv 0,\n$$\nimplying that $\\ell+1 \\geq k+1$, i.e. $\\ell \\geq k$. Thus $s-r \\geq 2^{k}$, which is a contradiction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-auto-0519",
+      "name": "Berkeley Math Circle Monthly Contest 8 #0hx3",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 8",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Techniques: modulo, size analysis, order analysis, inequalities",
+        "Modular Arithmetic",
+        "Quadratic forms"
+      ],
+      "statement": "Problem:\n\nLet $n$ be a positive integer which is divisible by $5$ and which can be written as the sum of two (not necessarily distinct) squares. Prove that $n$ can be written as the sum of two squares one of which is greater than or equal to four times the other.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $n = a^2 + b^2$, where $a$ and $b$ are nonnegative integers. Suppose that each of the squares $a^2$ and $b^2$ is less than $4$ times the other, so\n$$\na < 2b \\text{ and } b < 2a.\n$$\nSince $a^2 + b^2$ is divisible by $5$, so is $a^2 + b^2 - 5b^2 = a^2 - 4b^2 = (a + 2b)(a - 2b)$. Thus $5$ divides either $a + 2b$ or $a - 2b$. If $5 \\mid a - 2b$, then $5 \\mid 2(a - 2b) + 5b = 2a + b$. Thus $5$ divides either $a + 2b$ or $2a + b$, and by switching the labels $a$ and $b$ we may assume that $5 \\mid a + 2b$.\n\nThen\n$$\n5 \\mid 4(a + 2b) - 5b = 4a + 3b\n$$\nand\n$$\n5 \\mid 3(a + 2b) - 10b = 3a - 4b.\n$$\nNote that\n$$\n\\begin{aligned}\n\\left(\\frac{4a + 3b}{5}\\right)^2 + \\left(\\frac{3a - 4b}{5}\\right)^2 &= \\frac{16a^2 + 24ab + 9b^2 + 9a^2 - 24ab + 16b^2}{25} \\\\\n&= \\frac{25a^2 + 25b^2}{25} = a^2 + b^2 = n.\n\\end{aligned}\n$$\nWe claim that\n$$\n\\left(\\frac{4a + 3b}{5}\\right)^2 \\geq 4\\left(\\frac{3a - 4b}{5}\\right)^2\n$$\nwhich is equivalent to\n$$\n4a + 3b \\geq 2|3a - 4b|\n$$\nwhich in turn is equivalent to the pair of inequalities\n$$\n4a + 3b \\geq 2(3a - 4b) \\text{ and } 4a + 3b \\geq -2(3a - 4b)\n$$\nSimplifying the first inequality yields $11b \\geq 2a$ which is true since $2b \\geq a$. Simplifying the second inequality yields $10a \\geq 5b$ which is true since $2a \\geq b$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-auto-0529",
+      "name": "Berkeley Math Circle #0hxd",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Techniques: modulo, size analysis, order analysis, inequalities",
+        "Modular Arithmetic",
+        "Greatest common divisors (gcd)",
+        "Factorization techniques",
+        "Quadratic residues",
+        "Multiplicative order"
+      ],
+      "statement": "Problem:\nFind all nonnegative integer solutions $(a, b, c, d)$ to the equation\n$$\n2^{a} 3^{b}-5^{c} 7^{d}=1.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe answer is $(1,0,0,0)$, $(3,0,0,1)$, $(1,1,1,0)$ and $(2,2,1,1)$. The solution involves several cases. It's clear that $a \\geq 1$, otherwise the left-hand side is even. The remainder of the solution involves several cases.\n\n- First, suppose $b=0$.\n- If $c \\geq 1$, then modulo 5 we discover $2^{a} \\equiv 1 \\pmod{5}$ and hence $4 \\mid a$. But then modulo 3 this gives $-5^{c} 7^{d} \\equiv 0$, which is a contradiction.\n- Hence assume $c=0$. Then this becomes $2^{a}-7^{d}=1$. This implies $1+7^{d} \\equiv 2^{a} \\pmod{16}$, and hence $a \\leq 3$. Exhausting the possible values of $a=0,1,2,3$ we discover that $(3,0,0,1)$ and $(1,0,0,0)$ are solutions.\n\n- Henceforth suppose $b>0$. Taking modulo 3, we discover that $5^{c} \\equiv -1 \\pmod{3}$, so $c$ must be odd and in particular not equal to zero. Then, taking modulo 5 we find that\n$$\n1 \\equiv 2^{a} 3^{b} \\equiv 2^{a-b} \\pmod{5}\n$$\nThus, $a \\equiv b \\pmod{4}$. Now we again have several cases.\n\n- First, suppose $d=0$. Then $2^{a} 3^{b}=5^{c}+1$. Taking modulo 4, we see that $a=1$ is necessary, so $b \\equiv 1 \\pmod{4}$. Clearly we have a solution $(1,1,1,0)$ here. If $b \\geq 2$, however, then taking modulo 9 we obtain $5^{c} \\equiv -1 \\pmod{9}$, which occurs only if $c \\equiv 0 \\pmod{3}$. But then $5^{3}+1=126$ divides $5^{c}+1=2^{a} 3^{b}$, which is impossible.\n\n- Now suppose $d \\neq 0$ and $a, b$ are odd. Then $6 M^{2} \\equiv 1 \\pmod{7}$, where $M=2^{\\frac{a-1}{2}} 3^{\\frac{b-1}{2}}$ is an integer. Hence $M^{2} \\equiv -1 \\pmod{7}$, but this is not true for any integer $M$.\n\n- Finally, suppose $b, c, d \\neq 0$, and $a=2x, b=2y$ are even integers with $x \\equiv y \\pmod{2}$, and that $c$ is odd. Let $M=2^{x} 3^{y}$. We obtain $(M-1)(M+1)=5^{c} 7^{d}$. As $\\gcd(M-1, M+1) \\leq 2$, this can only occur in two situations.\n\n* In one case, $M-1=5^{c}$ and $M+1=7^{d}$. Then $5^{c}+1=2^{x} 3^{y}$. We have already discussed this equation; it is valid only when $x=y=1$ and $c=1$, which gives $(a, b, c, d)=(2,2,1,1)$.\n* In the other case, $M+1=5^{c}$ and $M-1=7^{d}$. Taking the first relation modulo 3, we obtain that $M \\equiv 2^{c}-1 \\equiv 1 \\pmod{3}$. Hence $y=0$, and $x$ is even. Now $2^{x}+1=5^{c}$ and $2^{x}-1=7^{d}$. But if $x$ is even then $3=2^{2}-1\\mid 2^{x}-1\\mid 7^{d}$, which is impossible. Hence there are no solutions here.\n\nIn summary, the only solutions are $(1,0,0,0)$, $(3,0,0,1)$, $(1,1,1,0)$ and $(2,2,1,1)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-auto-0572",
+      "name": "BAMO #0hyk",
+      "url": "https://usamoguide.com/",
+      "source": "BAMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Modular Arithmetic"
+      ],
+      "statement": "Problem:\nProve that $1993^{1993} + 1994^{1994} + 1995^{1995} + 1996^{1996}$ is divisible by $10$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nSince $5^{2} = 25$ ends in $5$ again, and $6^{2} = 36$ ends in $6$ again, no matter to what power we raise $5$ or $6$, the resulting numbers will end in $5$ or $6$, respectively. Thus, $1995^{1995}$ ends in $5$ and $1996^{1996}$ ends in $6$.\n\nFurther, $4^{1} = 4$, $4^{2} = 16$, $4^{3} = 64$, $4^{4} = 256$, etc., i.e., an odd power of $4$ ends in $4$, and an even power of $4$ ends in $6$ (why?). Hence, $1994^{1994}$ ends in $6$.\n\nSo, the last digit of $1994^{1994} + 1995^{1995} + 1996^{1996}$ is the same as the last digit of $6 + 5 + 6 = 17$, i.e., it ends in $7$.\n\nIt remains to show that $1993^{1993}$ ends in $3$ (so that $3 + 7 = 10$).\n\nIndeed, $3^{1} = 3$, $3^{2} = 9$, $3^{3} = 27$, $3^{4} = 81$, $3^{5} = 243$, and the pattern will be $3, 9, 7, 1, 3, 9, 7, 1, \\ldots$, etc. So we need to figure out into which of these slots the $1993$rd power of $3$ will fall. Equivalently, we need to find the remainder of $1993$ when divided by $4$ (the length of the pattern above is $4$). Now, $1993 = 4 \\cdot 498 + 1$: $3^{1993}$ will complete $498$ cycles of the pattern, and will end in $3$.\n\nThis shows that $1993^{1993}$ ends in $3$. Therefore, the last digit of the total sum is the last digit of $3 + 6 + 5 + 6 = 20$, $0$, which makes the sum divisible by $10$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-auto-0628",
+      "name": "Harvard-MIT Math Tournament #0i04",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Modular Arithmetic"
+      ],
+      "statement": "Problem:\nA combination lock has a 3 number combination, with each number an integer between $0$ and $39$ inclusive. Call the numbers $n_{1}$, $n_{2}$, and $n_{3}$. If you know that $n_{1}$ and $n_{3}$ leave the same remainder when divided by $4$, and $n_{2}$ and $n_{1}+2$ leave the same remainder when divided by $4$, how many possible combinations are there?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThere are $40$ choices for the last number, and for each of these we have $10$ choices for each of the first two numbers, thus giving us a total of $4000$ possible combinations. It is interesting to note that these restrictions are actually true for Master locks."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-auto-0653",
+      "name": "Berkeley Math Circle #0i0t",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Quadratic residues",
+        "Modular Arithmetic",
+        "Pigeonhole principle"
+      ],
+      "statement": "Problem:\n\nDo there exist three different prime numbers such that the sum of any two of them is a square?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe answer is no. We work modulo $4$ (i.e., we look at remainders on division by $4$). Note that any square is $\\equiv 0$ or $1 \\bmod 4$. Indeed, if $n=2k$ is even, $n^{2}=4k^{2} \\equiv 0$, while if $n=2k+1$ is odd, $n^{2}=4k^{2}+4k+1 \\equiv 1$.\n\nNow suppose some three such primes exist. If they are all odd, then each of them is $\\equiv 1$ or $3 \\pmod{4}$; some two must then have the same value modulo $4$ (both $1$ or both $3$), and then their sum is $\\equiv 2 \\pmod{4}$, so it cannot be a square.\n\nThus, the primes are not all odd, so one of them is $2$. Since they are all different, the other two are odd. If these two are both $\\equiv 3$, then again their sum is $\\equiv 2$ and cannot be a square. So one of them is $\\equiv 1$, but then this prime plus $2$ is congruent to $3$, so that sum cannot be a square. So, once again, we can find two of the three primes whose sum is not a square."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-auto-0677",
+      "name": "Harvard-MIT Math Tournament #0i1h",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Modular Arithmetic",
+        "Multiplicative order"
+      ],
+      "statement": "Problem:\n\nWhat is the last digit of $17^{103} + 5$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $\\langle N \\rangle$ be the last digit of $N$. $\\left\\langle 17^{2} \\right\\rangle = 9$, $\\left\\langle 17^{3} \\right\\rangle = 3$, $\\left\\langle 17^{4} \\right\\rangle = 1$, and $\\left\\langle 17^{5} \\right\\rangle = 7$. Since this pattern keeps on repeating itself, $\\left\\langle 17^{4N} \\right\\rangle = 1$ for any integer $N$. Thus $\\left\\langle 17^{2 \\cdot 25} \\right\\rangle = \\left\\langle 17^{100} \\right\\rangle = 1$, so $\\left\\langle 17^{103} \\right\\rangle = 3$, and $\\left\\langle 17^{103} + 5 \\right\\rangle = \\langle 3 + 5 \\rangle = 8$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

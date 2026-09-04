@@ -1,0 +1,1106 @@
+{
+  "MODULE_ID": "number-theory-modular-arithmetic-inverses-mod-n",
+  "practice": [
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-0019",
+      "name": "Berkeley Math Circle Monthly Contest 7 #0hj7",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 7",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Greatest common divisors (gcd)",
+        "Inverses mod n"
+      ],
+      "statement": "Problem:\n\nLet $x$ and $y$ be integers such that $\\frac{3x + 4y}{5}$ is an integer. Prove that $\\frac{4x - 3y}{5}$ is an integer.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe basic strategy is to combine the facts that $x$, $y$, and $\\frac{3x + 4y}{5}$ are all integers. Here is one solution:\n$$\n2(x) + 1(y) - 2\\left(\\frac{3x + 4y}{5}\\right) = \\frac{5(2x + y) - 2(3x + 4y)}{5} = \\frac{10x + 5y - 6x - 8y}{5} = \\frac{4x - 3y}{5}\n$$\nSince the left side is clearly an integer, so is the right side."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-0417",
+      "name": "Berkeley Math Circle Monthly Contest 2 #0hu9",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 2",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Greatest common divisors (gcd)",
+        "Inverses mod n"
+      ],
+      "statement": "Problem:\n\nLet $n > 3$ be a positive integer. Define an integer $k$ to be snug if $1 \\leq k < n$ and\n$$\n\\gcd(k, n) = \\gcd(k+1, n).\n$$\nProve that the product of all snug integers is congruent to $1$ modulo $n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $k$ be a snug integer. Note that any factor that divides $n$, $k$, and $k+1$ must also divide $(k+1)-k=1$, so\n$$\n\\gcd(k, n) = \\gcd(k+1, n) = 1.\n$$\nIn particular, $k$ has a multiplicative inverse $h \\bmod n$ (we can choose $h$ such that $0 < h < n$). We claim that $h$ is also snug. Clearly $\\gcd(h, n) = 1$; note that\n$$\n(h+1) \\cdot k = h k + k \\equiv k + 1 \\pmod{n};\n$$\nsince $k$ and $k+1$ are invertible $\\bmod n$, so is $h+1$.\nThus we can pair up snug residues $\\bmod n$ into pairs with product $1$, unless there is a snug $k$ that is its own multiplicative inverse. We claim that there is no such $k$ except possibly $k=1$. Indeed, if $k^2 \\equiv 1 \\pmod{n}$, then $n$ divides\n$$\nk^2 - 1 = (k+1)(k-1).\n$$\nSince $k$ is snug, $n$ is relatively prime to $k+1$ and hence divides $k-1$, implying that $k=1$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-0425",
+      "name": "Berkeley Math Circle Monthly Contest 1 #0huh",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Prime numbers",
+        "Factorization techniques",
+        "Inverses mod n"
+      ],
+      "statement": "Problem:\n\nFor integers $n \\geq 1$, prove that the product\n$$\n3 \\cdot 12 \\cdot 21 \\cdot 30 \\cdots (9n-6)\n$$\nis divisible by $n!$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $p$ be a prime number. We will prove that the number $A$ of factors of $p$ in $3 \\cdot 12 \\cdots (9n-6)$ is greater than or equal to the number $B$ of factors of $p$ in $n!$.\n\nWe first explain the widely known method for computing $B$. Out of the numbers from $1$ to $n$, exactly $\\lfloor n / p \\rfloor$ of them are multiples of $p$; they will contribute $\\lfloor n / p \\rfloor$ \"first\" factors of $p$ to the product $n!$. In addition, $\\left\\lfloor n / p^{2} \\right\\rfloor$ of these numbers are also divisible by $p^{2}$, giving $\\left\\lfloor n / p^{2} \\right\\rfloor$ \"second\" factors of $p$. This continues, and we get\n$$\nB = \\left\\lfloor \\frac{n}{p} \\right\\rfloor + \\left\\lfloor \\frac{n}{p^{2}} \\right\\rfloor + \\left\\lfloor \\frac{n}{p^{3}} \\right\\rfloor + \\cdots,\n$$\nwhere the sum continues until eventually all of its terms become $0$ due to a lack of terms divisible by very high powers of $p$.\n\nNow we estimate $A$. If $p = 3$, then $A = n$ since every term of the arithmetic sequence $3, 12, 21, \\ldots$ is divisible by $3$ but not $9$. In this case it is clear that\n$$\nB = \\left\\lfloor \\frac{n}{3} \\right\\rfloor + \\left\\lfloor \\frac{n}{3^{2}} \\right\\rfloor + \\left\\lfloor \\frac{n}{3^{3}} \\right\\rfloor + \\cdots \\leq \\frac{n}{3} + \\frac{n}{3^{2}} + \\frac{n}{3^{3}} + \\cdots = \\frac{n}{2} < n.\n$$\n\nNow assume that $p \\neq 3$. Divide the arithmetic progression $3, 12, 21, \\ldots, (9n-6)$ into $\\lfloor n / p \\rfloor$ blocks of length $p$, discarding any terms that remain; because the common difference $9$ is relatively prime to $p$, each block will have one representative of each congruence class $\\bmod\\ p$, and in particular exactly one multiple of $p$. Thus the product $3 \\cdot 12 \\cdot 21 \\cdot 30 \\cdots (9n-6)$ will have at least $\\lfloor n / p \\rfloor$ \"first\" factors of $p$. By the same argument, using blocks of length $p^{2}$, there are at least $\\left\\lfloor n / p^{2} \\right\\rfloor$ \"second\" factors of $p$, and so on, so\n$$\nA \\geq \\left\\lfloor \\frac{n}{p} \\right\\rfloor + \\left\\lfloor \\frac{n}{p^{2}} \\right\\rfloor + \\left\\lfloor \\frac{n}{p^{3}} \\right\\rfloor + \\cdots = B\n$$\nas desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-0476",
+      "name": "Berkeley Math Circle Monthly Contest 3 #0hvw",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 3",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inverses mod n",
+        "Greatest common divisors (gcd)"
+      ],
+      "statement": "Problem:\nLet $N$ be a positive integer such that $N$ is divisible by $81$ and the number formed by reversing the digits of $N$ is also divisible by $81$. Prove that the sum of the digits of $N$ is divisible by $81$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe begin with a lemma.\nLemma. For all $k \\geq 0$, $10^{k} \\equiv 1 + 9k \\pmod{81}$.\nProof. Binomial theorem:\n$$\n10^{k} = (1 + 9)^{k} = 1^{k} + \\binom{k}{1} 1^{k-1} 9 + \\text{terms divisible by } 9^{2}.\n$$\nWe now write $N$ in terms of its digits as\n$$\n\\begin{aligned}\nN &= a_{0} + 10 a_{1} + \\cdots + 10^{n} a_{n} \\\\\n&\\equiv (a_{0} + 9 \\cdot 0 \\cdot a_{0}) + (a_{1} + 9 \\cdot 1 \\cdot a_{1}) + \\cdots + (a_{n} + 9 \\cdot n \\cdot a_{n}) \\\\\n&\\equiv a_{0} + a_{1} + \\cdots + a_{n} + 9(0 a_{0} + 1 a_{1} + 2 a_{2} + \\cdots + n a_{n}) \\pmod{81}\n\\end{aligned}\n$$\nCorrespondingly, the number formed by reversing the digits of $N$ is\n$$\na_{n} + 10 a_{n-1} + \\cdots + 10^{n} a_{0} \\equiv a_{0} + a_{1} + \\cdots + a_{n} + 9(n a_{0} + (n-1) a_{1} + \\cdots + 0 a_{n}) \\pmod{81}.\n$$\nIf we add these two numbers, we get that $81$ divides\n$$\n2(a_{0} + \\cdots + a_{n}) + 9(n a_{0} + n a_{1} + \\cdots + n a_{n}) = (9n + 2)(a_{0} + \\cdots + a_{n}).\n$$\nSince $9n + 2$ is not divisible by $3$, the conclusion follows."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-0501",
+      "name": "Berkeley Math Circle Monthly Contest 6 #0hwl",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Prime numbers",
+        "Greatest common divisors (gcd)",
+        "Inverses mod n",
+        "Polynomials mod p",
+        "Multiplicative order"
+      ],
+      "statement": "Problem:\n\nDecide whether there exist positive integers $a, b, c$ such that $3(a b + b c + c a)$ divides $a^{2} + b^{2} + c^{2}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe answer is no: such integers do not exist. In what follows, $\\nu_{p}(n)$ will denote the exponent of $p$ in the prime factorization of $n$.\n\nAssume without loss of generality that $a, b, c$ do not have some common divisor, and $a^{2} + b^{2} + c^{2} = 3k(a b + b c + c a)$. Write\n$$\n(3k + 2)\\left(a^{2} + b^{2} + c^{2}\\right) = 3k \\cdot (a + b + c)^{2}.\n$$\n\nSince $3k + 2 \\equiv 2 \\pmod{3}$, there is a prime $p \\equiv 2 \\pmod{3}$ with $\\nu_{p}(3k + 2)$ odd (in particular, $p \\mid 3k + 2$).\nWe first show that $p \\neq 2$. Let us assume on the contrary that $\\nu_{2}(3k + 2)$ is odd (in particular, $k$ is even). Remark that since $a, b, c$ are not all even, $\\nu_{2}\\left(a^{2} + b^{2} + c^{2}\\right) \\leq 1$. Furthermore,\n$$\n\\nu_{2}(a + b + c) = 0 \\Longleftrightarrow \\nu_{2}\\left(a^{2} + b^{2} + c^{2}\\right) = 0.\n$$\n\nNow we consider two cases.\n- Assume $\\nu_{2}(k) \\geq 2$. Then $\\nu_{2}(3k + 2) = 1$, $\\nu_{2}\\left(a^{2} + b^{2} + c^{2}\\right) \\leq 1$. Therefore\n$$\n\\nu_{2}(k) + 2\\nu_{2}(a + b + c) \\geq 2 \\geq \\nu_{2}(3k + 2) + \\nu_{2}\\left(a^{2} + b^{2} + c^{2}\\right)\n$$\nbut equality cannot occur since the relations\n$$\n\\nu_{2}(a + b + c) = 0 \\quad \\text{and} \\quad \\nu_{2}\\left(a^{2} + b^{2} + c^{2}\\right) = 1\n$$\ncannot hold simultaneously.\n\n- Assume $\\nu_{2}(k) = 1$. Then $\\nu_{2}(3k + 2) > 1$ and is odd. Now\n$$\n\\nu_{2}(3k + 2) + \\nu_{2}\\left(a^{2} + b^{2} + c^{2}\\right) = 1 + 2\\nu_{2}(a + b + c).\n$$\nThus $\\nu_{2}\\left(a^{2} + b^{2} + c^{2}\\right)$ must be even, so it is zero; consequently $\\nu_{2}(a + b + c) = 0$ as well and we obtain $1 < v_{2}(3k + 2) = 1$.\n\nNow for the interesting part. Remark $p \\mid a + b + c$ and $p \\mid a^{2} + b^{2} + c^{2}$. Without loss of generality $b \\not\\equiv 0 \\pmod{p}$, so that\n$$\na^{2} + b^{2} + (a + b)^{2} \\equiv 0 \\pmod{p} \\Longrightarrow a^{2} + a b + b^{2} \\equiv 0 \\pmod{p}\n$$\nThen if $x = a b^{-1}$, we get that $x^{2} + x + 1 \\equiv 0 \\pmod{p}$. But the left-hand side is the third cyclotomic polynomial, so either $p = 3$ or $3 \\mid p - 1$, but neither is the case.\n\nTherefore, such a triple $(a, b, c)$ does not exist."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-0504",
+      "name": "Berkeley Math Circle: Monthly Contest 2 #0hwo",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 2",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other",
+        "Inverses mod n",
+        "Primitive roots mod p / p^n"
+      ],
+      "statement": "Problem:\nShow that for sufficiently large primes $p$, there is an Eulerian circuit on the complete graph with $p$ vertices that does not contain any cycles of length at most $2023$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nTake a generator $g \\pmod{p}$ so that $g$ is not equivalent to anything of the form $-a / b$ for integers $a, b \\leq 2023$. For big enough primes, such a $g$ must exist as there are at most a constant number of such fractions.\n\nNow number the vertices with the residues $\\bmod\\ p$. For any residue $r \\pmod{p}$, consider the sequence of vertices $P_{r}$ formed by the multiples of $r$, starting from $r$ and ending at $p r \\equiv 0 \\pmod{p}$. We claim that the concatenation of $P_{1}, P_{g}, P_{g^{2}}, \\ldots$ works.\n\nClearly no $P_{r}$ contains a cycle. Thus, if a cycle were to exist, it would have to be formed by the end of one $P$ and the start of another. In other words, we would have $c g^{i+1} \\equiv (p-d) g^{i} \\pmod{p}$ for $c+d \\leq 2023$. However, this is impossible by choice of $g$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-0703",
+      "name": "USA IMO #0i27",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inverses mod n",
+        "φ (Euler's totient)",
+        "Prime numbers",
+        "Pigeonhole principle",
+        "Counting two ways"
+      ],
+      "statement": "For a set $S$, let $|S|$ denote the number of elements in $S$. Let $A$ be a set of positive integers with $|A| = 2001$. Prove that there exists a set $B$ such that\n(i) $B \\subseteq A$;\n(ii) $|B| \\geq 668$;\n(iii) for any $u, v \\in B$ (not necessarily distinct), $u + v \\notin B$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**First Solution.** (By Reid Barton) For a positive integer $n$, let $Z_n$ denote the set of residues modulo $n$. Let $\\phi(n)$ be the **Euler function** which is defined to be the number of integers between $1$ and $n$ relatively prime to $n$. Call a set $A$ of residues modulo $3^n$ **sum-free** if for any $a, b \\in A$, $a+b$ is not (congruent to) an element of $A$.\n\nLemma. For any $n \\ge 1$, there exist $3^n - 1$ sum-free sets of $3^{n-1}$ residues modulo $3^n$ such that every nonzero residue modulo $3^n$ appears in exactly $3^{n-1}$ of the subsets.\n\n*Proof.* We construct the desired subsets inductively. For $n = 1$ we take the sets $\\{1\\}$ and $\\{2\\}$.\n\nLet $n \\ge 1$, and suppose that the statement holds for $n$, that is, we have $3^n - 1$ sum-free subsets $A_1, A_2, \\dots, A_{3^{n-1}}$ of $Z_{3^n}$ such that every nonzero element of $Z_{3^n}$ belongs to exactly $3^{n-1}$ of the $A_i$. Construct sets $B_1, B_2, \\dots, B_{3^{n-1}}$ by\n$$\nB_i = \\{ x \\in Z_{3^{n+1}} \\mid x \\equiv m' \\pmod{3^n}, m' \\in A_i \\}.\n$$\nThen each $B_i$ contains $3|A_i| = 3^n$ residues, and the $B_i$ are sum-free, because if $a, b \\in B_i$, $(a+b) \\pmod{3^n}$ is not in $A_i$ so $a+b$ is not in $B_i$. Moreover, each element $x$ of $Z_{3^{n+1}}$ which is not $0$ modulo $3^n$ (i.e., all elements except $0, 3^n, 2 \\cdot 3^n$) is in exactly $3^{n-1}$ of the $B_i$, namely those corresponding to the $A_i$ containing $x \\pmod{3^n}$.\n\nNow define sets\n$$\nC = \\{3^n, 3^n + 1, \\dots, 2 \\cdot 3^n - 1\\}\n$$\nand\n$$\nU = \\{ x \\in Z_{3^{n+1}} \\mid \\gcd(x, 3) = 1 \\}.\n$$\nThen $C \\subset Z_{3^{n+1}}$, $|C| = 3^n$. Note that $C$ is sum-free, because if $a, b \\in C$ with $3^n \\le a, b < 2 \\cdot 3^n$ then $2 \\cdot 3^n \\le a+b < 4 \\cdot 3^n$ so $a+b$ is not congruent modulo $3^{n+1}$ to an element of $C$. For each $y \\in U$, let $C_y = yC = \\{yx \\mid x \\in C\\}$. Then $C_y$ is also sum-free for every $y \\in U$, because if we had $ya$ and $yb$ in $C_y$ with $ya + yb \\in C_y$, then $a$ and $b$ would be elements of $C$ summing to an element of $C$. Also, every $C_y$ contains $|C| = 3^n$ residues because multiplication by $y$ is invertible. Since $|U| = \\phi(3^{n+1}) = 2 \\times 3^n$, there are $2 \\cdot 3^n$ of sets $C_y$.\n\nConsider the sets\n$B_1, B_2, \\dots, B_{3^{n-1}}, C_1, C_2, C_4, C_5, C_7, \\dots, C_{3^{n+1}-2}, C_{3^{n+1}-1}$.\nThere are $3^n - 1 + 2 \\cdot 3^n = 3^{n+1} - 1$ of these sets, so it suffices to check that every nonzero residue modulo $3^{n+1}$ appears in exactly $3^n$ of them.\n\nLet $m$ be a nonzero residue modulo $3^{n+1}$, and write $m = 3^k s$, $0 \\le k \\le n$, $\\gcd(s, 3) = 1$. We consider two cases.\n\n(i) $k < n$. Then $m$ is a nonzero residue modulo $3^n$, so $m$ is contained in exactly $3^{n-1}$ of the sets $B_i$, namely those which correspond to $A_i$ with $m' \\in A_i$ (where $m \\equiv m' \\pmod{3^n}$). The number of sets $C_i$ containing $m$ is the number of solutions to $y^{-1}m \\in C$ with $y \\in U$, or the number of $z \\in U$ such that $zm \\in C$. Since $m \\neq 0$, as $z$ ranges over $Z_{3^{n+1}}$, one third of the residues $zm$ are in $C$; likewise, since $3m \\neq 0$, one third of the residues $3zm$ are in $C$. Since $U = Z_{3^{n+1}} \\setminus 3Z_{3^{n+1}}$, $zm \\in C$ for one third of the values $z \\in U$. So $m$ is in one third of the sets $C_y$, giving $\\frac{1}{3}|U| = 2 \\cdot 3^{n-1}$ more sets containing $m$. The total number of sets containing $m$ is then $3^{n-1} + 2 \\cdot 3^{n-1} = 3^n$.\n\n(ii) $k=n$. Then $m = 3^n$ or $2 \\cdot 3^n$ ($s=1$ or $2$ respectively). Then $m \\bmod 3^n = 0$, so $m$ does not appear in any of the sets $A_i$. However, $m$ appears in every set $C_y$ with $y \\equiv s \\pmod 3$, so $m$ appears in $3^n$ of the $C_y$. Thus the total number of sets containing $m$ is again $3^n$.\n\nThus the sets $\\{B_i\\}$, $\\{C_y\\}$ have the desired properties and the Lemma holds by induction.\n$\\blacksquare$\n\nNow let $3^n$ be a power of $3$ larger than the sum of any two elements of $A$. By the Lemma, there exist $3^n - 1$ sets $S_1, \\dots, S_{3^{n-1}}$ of $3^{n-1}$ residues modulo $3^n$ such that every nonzero residue modulo $3^n$ appears in exactly $3^{n-1}$ of the $S_i$. Let $n_i$ be the number of elements of $A$ contained in $S_i$. Since every element of $A$ appears $3^{n-1}$ times,\n$$\n\\sum_{i=1}^{3^n-1} n_i = 3^{n-1} |A|\n$$\nso some $n_i$ is at least\n$$\n\\frac{3^{n-1}|A|}{3^n-1} > \\frac{1}{3}|A| = \\frac{2001}{3} = 667.\n$$\nLet $B$ be the set of elements of $A$ contained in $S_i$. Then $|B| \\ge 668$, and if $u, v \\in B$, then $u + v \\notin B$, because $S_i$ is sum-free. Thus the set $B$ has the desired properties.\n\n**Second Solution.** Let the elements of $A$ be $a_1, \\dots, a_{2001}$. Let $p$ be a prime number such that $p \\equiv 2 \\pmod 3$ and $p$ is larger than all the $a_i$. Such a prime $p$ exists by **Dirichlet's Theorem**, although the result can also be easily proven directly. There is at least one prime congruent to $2$ modulo $3$ (namely, $2$). Suppose there were only finitely many primes congruent to $2$ modulo $3$, and let their product be $P$. Then $3P-1$, which is larger than $P$ and congruent to $2$ modulo $3$, must have another prime divisor congruent to $2$ modulo $3$, contradiction. Thus, the original assumption was wrong, and there are infinitely many odd primes that are congruent to $2$ modulo $3$. Specifically, one such prime is larger than all $a_i$.\n\nAll elements of $S$ are distinct and nonzero modulo $p$. Call a number $n$ **mediocre** if the least positive residue of $n$ modulo $p$ lies in $[(p+1)/3, (2p-1)/3]$. For any $1 \\le i \\le 2001$, there are exactly $(p+1)/3$ integer values of $k \\in [1, p-1]$ such that $ka_i$ is mediocre. Thus, there are\n$$\n\\frac{2001(p+1)}{3} = 667(p+1)\n$$\npairs of $(k, i)$ such that $ka_i$ is mediocre. By the **Pigeonhole Principle**, there exists some $k$ for which the set\n$$\nB = \\{a_i \\mid ka_i \\text{ is mediocre}\\}\n$$\nhas at least $668$ elements.\n\nWe now claim that this $B$ satisfies the desired properties. It suffices to show that $k$ times the sum of any two elements of $B$ is not mediocre and hence cannot equal $k$ times any element of $B$. To that end, note that $k$ times the sum of any two elements of $B$ cannot be mediocre because it is congruent modulo $p$ to some number in $[2(p+1)/3, 2(2p-1)/3]$ or, equivalently, to some number in $[0, (p-2)/3] \\cup [(2p+2)/3, p-1]$, which is a set containing no mediocre numbers. Thus, the set $B$ satisfies the desired properties."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-0872",
+      "name": "Harvard-MIT Math Tournament #0i6w",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inverses mod n",
+        "Sums and products"
+      ],
+      "statement": "Problem:\nDenote by $\\langle x\\rangle$ the fractional part of the real number $x$ (for instance, $\\langle 3.2\\rangle=0.2$ ). A positive integer $N$ is selected randomly from the set $\\{1,2,3, \\ldots, M\\}$, with each integer having the same probability of being picked, and $\\left\\langle\\frac{87}{303} N\\right\\rangle$ is calculated. This procedure is repeated $M$ times and the average value $A(M)$ is obtained. What is $\\lim _{M \\rightarrow \\infty} A(M)$ ?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThis method of picking $N$ is equivalent to uniformly randomly selecting a positive integer. Call this the average value of $\\left\\langle\\frac{87}{303} N\\right\\rangle$ for $N$ a positive integer. In lowest terms, $\\frac{87}{303}=\\frac{29}{101}$, so the answer is the same as the average value of $\\frac{0}{101}, \\frac{1}{101}, \\ldots, \\frac{100}{101}$, which is $\\frac{1+2+\\cdots+100}{101 \\cdot 101}=\\frac{100 \\cdot 101 / 2}{101 \\cdot 101}=\\frac{50}{101}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-1256",
+      "name": "USAMO #0ihk",
+      "url": "https://usamoguide.com/",
+      "source": "USAMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inverses mod n",
+        "Prime numbers",
+        "Greatest common divisors (gcd)"
+      ],
+      "statement": "Let $p$ be a prime number and let $s$ be an integer with $0 < s < p$. Prove that there exist integers $m$ and $n$ with $0 < m < n < p$ and\n$$\n\\{\\frac{sm}{p}\\} < \\{\\frac{sn}{p}\\} < \\frac{s}{p}\n$$\nif and only if $s$ is not a divisor of $p-1$.\n(For $x$ a real number, let $\\lfloor x \\rfloor$ denote the greatest integer less than or equal to $x$, and let $\\{x\\} = x - \\lfloor x \\rfloor$ denote the fractional part of $x$.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "First suppose that $s$ is a divisor of $p-1$; write $d = (p-1)/s$. As $x$ varies among $1, 2, \\dots, p-1$, $\\{sx/p\\}$ takes the values $1/p, 2/p, \\dots, (p-1)/p$ once each in some order. The possible values with $\\{sx/p\\} < s/p$ are precisely $1/p, \\dots, (s-1)/p$. From the fact that $\\{sd/p\\} = (p-1)/p$, we realize that the values $\\{sx/p\\} = (p-1)/p, (p-2)/p, \\dots, (p-s+1)/p$ occur for\n$$\nx = d, 2d, \\dots, (s-1)d\n$$\n(which are all between 0 and $p$), and so the values $\\{sx/p\\} = 1/p, 2/p, \\dots, (s-1)/p$ occur for\n$$\nx = p - d, p - 2d, \\dots, p - (s-1)d,\n$$\nrespectively. From this it is clear that $m$ and $n$ cannot exist as requested.\n\nConversely, suppose that $s$ is not a divisor of $p-1$. Put $m = \\lfloor p/s \\rfloor$; then $m$ is the smallest positive integer such that $\\{ms/p\\} < s/p$, and in fact $\\{ms/p\\} = (ms - p)/p$. However, we cannot have $\\{ms/p\\} = (s-1)/p$ or else $(m-1)s = p-1$, contradicting our hypothesis that $s$ does not divide $p-1$. Hence the unique $n \\in \\{1, \\dots, p-1\\}$ for which $\\{nx/p\\} = (s-1)/p$ has the desired properties (since the fact that $\\{nx/p\\} < s/p$ forces $n \\ge m$, but $m \\ne n$).\n\nWe prove the contrapositive statement:\nLet $p$ be a prime number and let $s$ be an integer with $0 < s < p$. Prove that the following statements are equivalent:\n(a) $s$ is a divisor of $p-1$;\n(b) if integers $m$ and $n$ are such that $0 < m < p$, $0 < n < p$, and\n$$\n\\{\\frac{sm}{p}\\} < \\{\\frac{sn}{p}\\} < \\frac{s}{p},\n$$\nthen $0 < n < m < p$.\nSince $p$ is prime and $0 < s < p$, $s$ is relatively prime to $p$ and\n$$\nm_1s + a_1p = 1,\\ m_2s + a_2p = 2, \\dots, m_s s + a_s p = s.\n$$\nHence $\\{m_k s/p\\} = k/p$ for $1 \\le k \\le s$.\nStatement (b) holds if and only $0 < m_s < m_{s-1} < \\dots < m_1 < p$. For $1 \\le k \\le s-1$, $m_k s - m_{k+1} s = (a_{k+1} - a_k) p - 1$, or $(m_k - m_{k+1}) s \\equiv -1 \\pmod p$. Since $0 < m_{k+1} < m_k < p$, by (1), we have $m_k - m_{k+1} = d$. We conclude that (b) holds if and only if $m_s, m_{s-1}, \\dots, m_1$ form an arithmetic progression with common difference $-d$. Clearly $m_s = 1$, so $m_1 = 1 + (s-1)d = jp - d + 1$ for some $j$. Then $j=1$ because $m_1$ and $d$ are both positive and less than $p$, so $sd = p-1$. This proves (a).\n\nConversely, if (a) holds, then $sd = p-1$ and $m_k \\equiv -d s m_k \\equiv -d k \\pmod p$. Hence $m_k = p-dk$ for $1 \\le k \\le s$. Thus $m_s, m_{s-1}, \\dots, m_1$ form an arithmetic progression with common difference $-d$. Hence (b) holds."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-1463",
+      "name": "$10^{\\text {th }}$ Annual Harvard-MIT Mathematics Tournament #0inb",
+      "url": "https://usamoguide.com/",
+      "source": "$10^{\\text {th }}$ Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inverses mod n",
+        "Techniques: modulo, size analysis, order analysis, inequalities"
+      ],
+      "statement": "Problem:\n\nLet $a$ and $b$ be integer solutions to $17 a + 6 b = 13$. What is the smallest possible positive value for $a - b$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFirst group as $17(a-b) + 23b = 13$. Taking this equation modulo $23$, we get $-6(a-b) \\equiv -10 \\pmod{23}$. Since $-4$ is an inverse of $-6$ modulo $23$, then we multiply to get $(a-b) \\equiv 17 \\pmod{23}$. Therefore, the smallest possible positive value for $(a-b)$ is $17$. This can be satisfied by $a = 5$, $b = -12$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-1500",
+      "name": "Harvard-MIT Mathematics Tournament #0ioc",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Techniques: modulo, size analysis, order analysis, inequalities",
+        "Inverses mod n"
+      ],
+      "statement": "Problem:\nA student at Harvard named Kevin\nWas counting his stones by $11$\nHe messed up $n$ times\nAnd instead counted $9$s\nAnd wound up at $2007$.\nHow many values of $n$ could make this limerick true?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $21$. The mathematical content is that $9n + 11k = 2007$, for some nonnegative integers $n$ and $k$. As $2007 = 9 \\cdot 223$, $k$ must be divisible by $9$. Using modulo $11$, we see that $n$ is $3$ more than a multiple of $11$. Thus, the possibilities are $n = 223, 212, 201, \\ldots, 3$, which are $21$ in number."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-2367",
+      "name": "HMMT November 2012 #0jcf",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2012",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inverses mod n",
+        "Integers"
+      ],
+      "statement": "Problem:\n\nFind the number of ordered $2012$-tuples of integers $(x_{1}, x_{2}, \\ldots, x_{2012})$, with each integer between $0$ and $2011$ inclusive, such that the sum $x_{1} + 2x_{2} + 3x_{3} + \\cdots + 2012x_{2012}$ is divisible by $2012$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe claim that for any choice of $x_{2}, x_{3}, \\ldots, x_{2012}$, there is exactly one possible value of $x_{1}$ satisfying the condition. We have\n$$\nx_{1} + 2x_{2} + \\ldots + 2012x_{2012} \\equiv 0 \\pmod{2012}\n$$\nor\n$$\nx_{1} \\equiv -\\left(2x_{2} + 3x_{3} + \\cdots + 2012x_{2012}\\right) \\pmod{2012}.\n$$\nIndeed, we see that the right hand side is always an integer between $0$ and $2011$, so $x_{1}$ must equal this number.\n\nNow, there are $2012$ choices for each of the $2011$ variables $x_{2}, \\ldots, x_{2012}$, and each of the $2012^{2011}$ possible combinations gives exactly one valid solution, so the total number of $2012$-tuples is $2012^{2011}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-2578",
+      "name": "HMMT 2013 #0jia",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2013",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Chinese remainder theorem",
+        "Inverses mod n",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\n\nLet $m$ be an odd positive integer greater than $1$. Let $S_{m}$ be the set of all non-negative integers less than $m$ which are of the form $x+y$, where $x y-1$ is divisible by $m$. Let $f(m)$ be the number of elements of $S_{m}$.\n\na. Prove that $f(m n)=f(m) f(n)$ if $m, n$ are relatively prime odd integers greater than $1$.\n\nb. Find a closed form for $f\\left(p^{k}\\right)$, where $k>0$ is an integer and $p$ is an odd prime.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFor a positive integer $n$, let $\\mathbb{Z} / n \\mathbb{Z}$ denote the set of residues modulo $n$ and $(\\mathbb{Z} / n \\mathbb{Z})^{*}$ denote the set of residues modulo $n$ that are relatively prime to $n$. Then, rephrased, $S_{m}$ is the set of residues modulo $m$ of the form $x+x^{-1}$, where $x \\in (\\mathbb{Z} / m \\mathbb{Z})^{*}$.\n\nFor part (a), suppose $a = x + x^{-1} \\in S_{m}$ and $b = y + y^{-1} \\in S_{n}$. By the Chinese Remainder Theorem, there exists a residue $z \\in (\\mathbb{Z} / m n \\mathbb{Z})^{*}$ such that $m \\mid (x-z)$ and $n \\mid (y-z)$, and thus $z + z^{-1} \\equiv x + x^{-1} \\pmod{m}$ and $z + z^{-1} \\equiv y + y^{-1} \\pmod{n}$. Therefore, all $f(m) f(n)$ residues modulo $m n$ which result from applying the Chinese Remainder Theorem to an element each of $S_{m}$ and $S_{n}$ are in $S_{m n}$. Conversely, given $z + z^{-1} \\in (\\mathbb{Z} / m n \\mathbb{Z})^{*}$, taking $z + z^{-1}$ modulo $m$ and $n$ gives elements of $S_{m}$ and $S_{n}$, so indeed $f(m n) = f(m) f(n)$.\n\nWe now proceed to part (b). For each $x \\in (\\mathbb{Z} / p^{k} \\mathbb{Z})^{*}$, denote $q(x)$ to be the largest non-negative integer $i \\leq k$ such that $p^{i}$ divides $x^{2}-1$ (this is clearly well-defined). For a given $x$, let $g(x)$ be the number of $y \\in (\\mathbb{Z} / p^{k} \\mathbb{Z})^{*}$ such that $x + x^{-1} \\equiv y + y^{-1} \\pmod{p^{k}}$. Note that this condition is equivalent to $(x-y)(x y-1) \\equiv 0 \\pmod{p^{k}}$.\n\nFirst, consider the case in which $q(x) \\geq k / 2$, in which case we have $p^{\\lceil k / 2 \\rceil} \\mid (x-1)(x+1)$, and because $p$ is odd, $x \\equiv \\pm 1 \\pmod{p^{\\lceil k / 2 \\rceil}}$. Thus, either $(x-1)^{2} \\equiv 0 \\pmod{p^{k}}$ or $(x+1)^{2} \\equiv 0 \\pmod{p^{k}}$, and it follows that $x + x^{-1} \\equiv \\pm 2 \\pmod{p^{k}}$ (clearly $2$ and $-2$ are distinct). Conversely, $x + x^{-1} \\equiv \\pm 2$ implies $(x \\pm 1) \\equiv 0 \\pmod{p^{\\lceil k / 2 \\rceil}}$, which in turn implies $q(x) \\geq k / 2$. It is now clear that there are exactly two elements of $S_{m}$ corresponding to residues of the form $x + x^{-1}$ with $q(x) \\geq k / 2$, and all other elements of $S_{m}$ come from $x$ with $q(x) < k / 2$.\n\nFix $x$ with $q(x) < k / 2$; we will compute $g(x)$. Suppose $(x-y)(x y-1) \\equiv 0 \\pmod{p^{k}}$, and say $x-y, x y-1$ have $j, j'$ factors of $p$, respectively. If $j \\leq j'$, note that $x^{2}-1 \\equiv x y-1 \\equiv 0 \\pmod{p^{j}}$, so $j \\leq q(x)$. Similarly, if $j' \\leq j$, $x \\equiv y \\pmod{p^{j'}}$, so $x^{2}-1 \\equiv x y-1 \\equiv 0 \\pmod{p^{j'}}$, and so $j' \\leq q(x)$. It follows that $\\min(j, j') \\leq q(x)$, and thus $\\max(j, j') \\geq k - q(x)$.\n\nSuppose $p^{k-q(x)} \\mid (x-y)$. Then, $x y-1 \\equiv x^{2}-1 \\equiv 0 \\pmod{p^{q(x)}}$ because $q(x) < k / 2$, so any $y$ with $p^{k-q(x)} \\mid (x-y)$ satisfies $(x-y)(x y-1) \\equiv 0 \\pmod{p^{k}}$. Now, suppose $p^{k-q(x)} \\mid (x y-1)$, that is, $y \\equiv x^{-1} \\pmod{p^{k-q(x)}}$. Then, $x y \\equiv 1 \\pmod{p^{q(x)}}$, and since $x^{2} \\equiv 1 \\pmod{p^{q(x)}}$, we have $x \\equiv y \\pmod{p^{q(x)}}$, so again we have $(x-y)(x y-1) \\equiv 0 \\pmod{p^{k}}$. It follows that the set of $y$ satisfying $(x-y)(x y-1) \\equiv 0 \\pmod{p^{k}}$ is exactly the set of $y$ with $y \\equiv x \\pmod{p^{k-q(x)}}$ or $y \\equiv x^{-1} \\pmod{p^{k-q(x)}}$. $x, x^{-1}$ are distinct residues modulo $p^{k-q(x)}$, because $x^{2}-1$ has fewer than $k / 2$ factors of $p$, so it follows that $g(x) = 2 p^{q(x)}$. In particular, note that these values are distinct for different values of $q(x) < k / 2$, so $x + x^{-1} \\equiv y + y^{-1}$ implies $q(x) = q(y)$ or $q(x), q(y) \\geq k / 2$.\n\nFor each integer $i$ with $0 \\leq i < k / 2$, we need to compute the number of $x \\in (\\mathbb{Z} / p^{k} \\mathbb{Z})$ with $q(x) = i$. Clearly, this is the number of $x$ with $p^{i} \\mid x^{2}-1$ minus the number of $x$ with $p^{i+1} \\mid x^{2}-1$. When $i = 0$, the number of $x$ with $p^{i} \\mid x^{2}-1$ is clearly $p^{k-1}(p-1)$, and when $i > 0$, this number is $2 p^{k-i}$, as we have $x \\equiv \\pm 1 \\pmod{p^{i}}$.\n\nWe can now count the number of elements of $S_{p^{k}}$ using casework on the value of $q(x)$ where we take $x$ to be such that $x + x^{-1}$ is a particular element of $S_{m}$. Applying the results from the previous two paragraphs, our answer is\n$$\n2 + \\frac{p^{k-1}(p-3)}{2} + \\sum_{i=1}^{\\lceil k / 2 \\rceil - 1} \\frac{2 p^{k-i} - 2 p^{k-i-1}}{2 p^{i}}\n$$\nwhere the summand $2$ comes from $\\pm 2 \\in S_{p^{k}}$, corresponding to all $x$ with $q(x) > k / 2$, the next summand comes from those $x$ with $q(x) = 0$, and each additional summand comes from those $x$ with $q(x) = i$ in the relevant range. We may evaluate the last sum as a geometric series, to obtain the final closed form answer of\n$$\n2 + \\frac{p^{k-1}(p-3)}{2} + \\frac{p^{k-1} - p^{\\frac{1+(-1)^{k}}{2}}}{p+1}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-2583",
+      "name": "HMMT November #0jif",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inverses mod n",
+        "Techniques: modulo, size analysis, order analysis, inequalities"
+      ],
+      "statement": "Problem:\n\nFor an integer $n \\geq 0$, let $f(n)$ be the smallest possible value of $|x+y|$, where $x$ and $y$ are integers such that $3x - 2y = n$. Evaluate $f(0) + f(1) + f(2) + \\cdots + f(2013)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $2416$\n\nFirst, we can use $3x - 2y = n$ to get $x = \\frac{n + 2y}{3}$. Thus $|x + y| = \\left| \\frac{n + 5y}{3} \\right|$. Given a certain $n$, the only restriction on $y$ is that $3 \\mid n + 2y \\Longleftrightarrow 3 \\mid n + 5y$. Hence the set of possible $x + y$ equals the set of integers of the form $\\frac{n + 5y}{3}$, which in turn equals the set of integers congruent to $3^{-1} n \\equiv 2n \\pmod{5}$. (Prove this!)\n\nThus $f(n) = |x + y|$ is minimized when $x + y$ equals the least absolute remainder $(2n)_5$ when $2n$ is divided by $5$, i.e., the number between $-2$ and $2$ (inclusive) congruent to $2n$ modulo $5$. We immediately find $f(n) = f(n + 5m)$ for all integers $m$, and the following initial values of $f$:\n\n$f(0) = |(0)_5| = 0$\n\n$f(1) = |(2)_5| = 2$\n\n$f(2) = |(4)_5| = 1$\n\n$f(3) = |(6)_5| = 1$\n\n$f(4) = |(8)_5| = 2$\n\nSince $2013 = 403 \\cdot 5 - 2$, it follows that\n\n$$\nf(0) + f(1) + \\cdots + f(2013) = 403 [f(0) + f(1) + \\cdots + f(4)] - f(2014) = 403 \\cdot 6 - 2 = 2416.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-2605",
+      "name": "HMMT 2014 #0jj1",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2014",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Expected values",
+        "Inverses mod n"
+      ],
+      "statement": "Problem:\n\nTwo fair octahedral dice, each with the numbers $1$ through $8$ on their faces, are rolled. Let $N$ be the remainder when the product of the numbers showing on the two dice is divided by $8$. Find the expected value of $N$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nIf the first die is odd, which has probability $\\frac{1}{2}$, then $N$ can be any of $0, 1, 2, 3, 4, 5, 6, 7$ with equal probability, because multiplying each element of $\\{0, \\ldots, 7\\}$ with an odd number and taking modulo $8$ results in the same numbers, as all odd numbers are relatively prime to $8$. The expected value in this case is $3.5$.\n\nIf the first die is even but not a multiple of $4$, which has probability $\\frac{1}{4}$, then using similar reasoning, $N$ can be any of $0, 2, 4, 6$ with equal probability, so the expected value is $3$.\n\nIf the first die is $4$, which has probability $\\frac{1}{8}$, then $N$ can be any of $0, 4$ with equal probability, so the expected value is $2$.\n\nFinally, if the first die is $8$, which has probability $\\frac{1}{8}$, then $N = 0$.\n\nThe total expected value is:\n$$\n\\frac{1}{2}(3.5) + \\frac{1}{4}(3) + \\frac{1}{8}(2) + \\frac{1}{8}(0) = \\frac{11}{4}.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-2620",
+      "name": "HMMT November 2014 #0jjg",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2014",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inverses mod n"
+      ],
+      "statement": "Problem:\n\nFor any positive integer $x$, define $\\operatorname{Accident}(x)$ to be the set of ordered pairs $(s, t)$ with $s \\in \\{0,2,4,5,7,9,11\\}$ and $t \\in \\{1,3,6,8,10\\}$ such that $x+s-t$ is divisible by $12$. For any nonnegative integer $i$, let $a_{i}$ denote the number of $x \\in \\{0,1, \\ldots, 11\\}$ for which $|\\operatorname{Accident}(x)|=i$. Find\n$$\na_{0}^{2}+a_{1}^{2}+a_{2}^{2}+a_{3}^{2}+a_{4}^{2}+a_{5}^{2}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: 26\n\nModulo twelve, the first set turns out to be $\\{-1 \\cdot 7, 0 \\cdot 7, \\ldots, 5 \\cdot 7\\}$ and the second set turns out to be $\\{6 \\cdot 7, \\ldots, 10 \\cdot 7\\}$. We can eliminate the factor of $7$ and shift to reduce the problem to $s \\in \\{0,1, \\ldots, 6\\}$ and $t \\in \\{7, \\ldots, 11\\}$. With this we can easily compute $\\left(a_{0}, a_{1}, a_{2}, a_{3}, a_{4}, a_{5}\\right) = (1,2,2,2,2,3)$. Therefore, the answer is $26$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-2634",
+      "name": "IMO Team Selection Test #0jju",
+      "url": "https://usamoguide.com/",
+      "source": "IMO Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Quadratic residues",
+        "Inverses mod n",
+        "Prime numbers"
+      ],
+      "statement": "Let $a_1, a_2, a_3, \\dots$ be a sequence of integers, with the property that every consecutive group of $a_i$'s averages to a perfect square. More precisely, for every positive integers $n$ and $k$, the quantity\n$$\n\\frac{a_n + a_{n+1} + \\dots + a_{n+k-1}}{k}\n$$\nis always the square of an integer. Prove that the sequence must be constant (all $a_i$ are equal to the same perfect square).",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "We prove the following equivalent statement: we show that if $f : \\mathbb{N} \\to \\mathbb{Z}$ is a function such that $(f(m) - f(n))(m - n)$ is always the square of an integer, then $f$ must be of the form $A^2x + B$ for integers $A, B$. First, since $p(f(n + p) - f(n))$ is a square for any prime $p$ and positive integer $n$, $p$ must divide $f(n + p) - f(n)$. (Similarly, we may prove $p^k \\mid f(n + p^k) - f(n)$ by induction, but we will not need to do so.)\n\n**Lemma.** If $p \\mid f(a) - f(b)$ but $p \\nmid a - b$ for some $a, b$, then $p \\mid f(m) - f(n)$ for all $m, n$. (In other words, $f$ is either injective or constant modulo $p$.)\n*Proof.* For each integer $r$, define $S_r = \\{x : f(x) \\equiv r \\pmod{p}\\}$, which must be a union of residue classes modulo $p$ (restricted to the positive integers). Then we need to show that either (1) for every $r$, $S_r$ covers at most one residue class (and thus exactly one), or (2) for some $r$, $S_r$ covers all residue classes.\n\nSuppose otherwise; then there exists $r$ such that $S = S_r$ covers between 2 and $p-1$ residues (so $p \\ge 3$). If $n \\notin S$ (i.e. $f(n) \\not\\equiv r \\pmod p$), then for any $s \\in S$,\n$$\n(n-s)(f(n)-f(s)) \\equiv (n-s)(f(n)-r) \\not\\equiv 0 \\pmod{p}\n$$\nis a nonzero quadratic residue. Hence $\\left(\\frac{n-s}{p}\\right) = \\left(\\frac{f(n)-r}{p}\\right) \\neq 0$.\nNow let $T = \\{t : \\left(\\frac{f(t)-r}{p}\\right) = 1\\}$ and $U = \\{u : \\left(\\frac{f(u)-r}{p}\\right) = -1\\}$, so $T, U$ partition $\\mathbb{N} \\setminus S$. By the previous paragraph, $\\left(\\frac{a}{p}\\right) = 1$ for any $a = t-s$ in the difference set $T-S$; similarly, $\\left(\\frac{b}{p}\\right) = -1$ for any $b \\in U-S$. This immediately upper bounds $|T-S|$ and $|U-S|$ by $\\frac{p-1}{2}$, the number of (nonzero) quadratic residues and nonresidues.\nBut $|T| + |U| = p - |S| \\ge 1$, so if $|T| \\ge |U|$ (so $T$ is nonempty), then Cauchy-Davenport yields\n$$\n\\frac{p-1}{2} \\ge |T-S| \\ge \\min(p, |T| + |S| - 1) \\ge \\min\\left(p, \\frac{p-|S|}{2} + |S| - 1\\right) = \\min\\left(p, \\frac{p + (|S| - 2)}{2}\\right),\n$$\ncontradicting $|S| \\ge 2$. The case $|U| \\ge |T|$ is analogous. $\\square$\n\nNote that $f(n+1) - f(n)$ is always a square. If $f$ is nonconstant, $\\gcd_{n \\ge 1}(f(n+1) - f(n)) \\ne 0$ must be a square itself (say $g^2$, with $g > 0$). If $g=1$, then $f$ is nonconstant (and thus injective, by the lemma) modulo every prime $p$. In particular, $p \\nmid f(n+1) - f(n)$ for all $n$ and $p$, which forces $f(x+1) - f(x) \\equiv 1 \\implies f(x) \\equiv x+d$ for some constant $d$. Otherwise, if $g > 1$, $f'(x) \\equiv \\frac{f(x)-f(1)}{g^2}$ has $(f'(m) - f'(n))(m-n)$ always a square and $\\gcd_{n \\ge 1}(f'(n+1) - f'(n)) = 1$, so $f(x) \\equiv g^2(x+d) + c$ for some constants $d, c$.\n\nIt follows that $f(x) \\equiv A^2x + B$ ($A, B \\in \\mathbb{Z}$) are the only possible solutions, which indeed all work (note that we get $f$ constant when $A=0$).\n\nWe give an alternate proof of the lemma. Define $r$ and $S = S_r$ as in the previous proof.\nSince $p \\ge 3$, there exists a smallest quadratic nonresidue $\\alpha \\in [2, p-1]$ modulo $p$. In particular, $\\alpha-1 \\in [1, p-2]$ is a quadratic residue. Now fix two distinct residues $x, y$ (mod $p$) in $S$. We claim that for $N = x+\\alpha(y-x)$, we have $f(N) \\equiv r \\pmod p$. Suppose otherwise; then $f(N) \\not\\equiv r \\equiv f(x) \\equiv f(y)$. But then $[f(N)-f(x)][N-x] \\equiv [f(N)-r]\\alpha(y-x)$ and $[f(N)-f(y)][N-y] \\equiv [f(N)-r](\\alpha-1)(y-x)$ must both be nonzero squares, forcing $\\left(\\frac{\\alpha}{p}\\right) = \\left(\\frac{\\alpha-1}{p}\\right)$, which is absurd.\nHence $x+\\alpha(y-x) = (1-\\alpha)x + \\alpha y$ lies in $S$ (interpret relations modulo $p$ where clearly appropriate) for any distinct residues $x, y \\in S$; of course, it also does when $x \\equiv y \\in S$. This condition is affine, so for convenience, fix distinct residues $a, b \\in S$ and define $A = (S-a)(b-a)^{-1}$. Then $0, 1 \\in A$ and we still have $(1-\\alpha)x + \\alpha y \\in A$ whenever $x, y \\in A$.\nBy plugging in $x \\equiv 0$, we get $\\alpha A \\subseteq A$, and from $y \\equiv 0$, we get $(1-\\alpha)A \\subseteq A$. Therefore (noting that $p \\nmid \\alpha, 1-\\alpha$)\n$$\nA + A \\equiv (1-\\alpha)(1-\\alpha)^{p-2}A + \\alpha\\alpha^{p-2}A \\subseteq (1-\\alpha)A + \\alpha A \\subseteq A,\n$$\nso $A+1 \\subseteq A \\implies A = \\mathbb{Z}/p\\mathbb{Z} \\implies S = \\mathbb{Z}/p\\mathbb{Z}$, as desired.\n\nWe present yet another proof of the lemma. The previous proof shows that if $x, y \\in S$, then $x + \\alpha(y-x) \\in S$. We claim that $N = x + (\\alpha+1)(y-x)$ lies in $S$ as well. Indeed, the only way $[f(N)-f(y)][N-y] \\equiv [f(N)-r]\\alpha(y-x)$ and $[f(N)-f(x+\\alpha(y-x))][N-(x+\\alpha(y-x))] \\equiv [f(N)-r](y-x)$ can both be quadratic residues is if $p \\mid f(N)-r$, so $N \\in S$.\nBut $[x+(\\alpha+1)(y-x)] - [x+\\alpha(y-x)] = y-x$, so we conclude that $x+k\\alpha(y-x)$ and $x+k(\\alpha+1)(y-x)$ lie in $S$ for all $k \\ge 0$. Since $p \\nmid \\alpha$, $x+k\\alpha(y-x)$ covers all residues modulo $p$, so $S = \\mathbb{Z}/p\\mathbb{Z}$, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-2761",
+      "name": "HMMT November 2015 #0jnd",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2015",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Chinese remainder theorem",
+        "Fermat / Euler / Wilson theorems",
+        "Greatest common divisors (gcd)",
+        "Inverses mod n",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\nA number $n$ is bad if there exists some integer $c$ for which $x^{x} \\equiv c \\pmod{n}$ has no integer solutions for $x$. Find the number of bad integers between $2$ and $42$ inclusive.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nCall a number good if it is not bad. We claim all good numbers are products of distinct primes, none of which are equivalent to $1$ modulo another.\n\nWe first show that all such numbers are good. Consider $n = p_{1} p_{2} \\ldots p_{k}$, and let $x$ be a number satisfying $x \\equiv c \\pmod{p_{1} p_{2} \\ldots p_{k}}$ and $x \\equiv 1 \\pmod{(p_{1}-1)(p_{2}-1) \\ldots (p_{k}-1)}$. Since, by assumption, $p_{1} p_{2} \\ldots p_{k}$ and $(p_{1}-1)(p_{2}-1) \\ldots (p_{k}-1)$ are relatively prime, such an $x$ must exist by CRT. Then $x^{x} \\equiv c^{1} = c \\pmod{n}$, for any $c$, as desired.\n\nWe now show that all other numbers are bad. Suppose that there exist some $p_{1}, p_{2} \\mid n$ such that $\\gcd(p_{1}, p_{2}-1) \\neq 1$ (which must hold for some two primes by assumption), and hence $\\gcd(p_{1}, p_{2}-1) = p_{1}$. Consider some $c$ for which $p_{1} c$ is not a $p_{1}$th power modulo $p_{2}$, which must exist as $p_{1} c$ can take any value modulo $p_{2}$ (as $p_{1}, p_{2}$ are relatively prime). We then claim that $x^{x} \\equiv p_{1} c \\pmod{n}$ is not solvable.\n\nSince $p_{1} p_{2} \\mid n$, we have $x^{x} \\equiv p_{1} c \\pmod{p_{1} p_{2}}$, hence $p_{1} \\mid x$. But then $x^{x} \\equiv p_{1} c$ is a $p_{1}$th power modulo $p_{2}$ as $p_{1} \\mid x$, contradicting our choice of $c$. As a result, all such numbers are bad.\n\nFinally, it is easy to see that $n$ is bad if it is not squarefree. If $p_{1}$ divides $n$ twice, then letting $c = p_{1}$ makes the given equivalence unsolvable.\n\nHence, there are $16$ numbers (13 primes: $2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41$; and 3 semiprimes: $3 \\cdot 5 = 15$, $3 \\cdot 11 = 33$, $5 \\cdot 7 = 35$) that are good, which means that $41 - 16 = 25$ numbers are bad."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-2787",
+      "name": "HMMT February 2015 #0jo3",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2015",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Techniques: modulo, size analysis, order analysis, inequalities",
+        "Inverses mod n",
+        "Greatest common divisors (gcd)",
+        "φ (Euler's totient)",
+        "Counting two ways"
+      ],
+      "statement": "Problem:\nLet $m, n$ be positive integers with $m \\geq n$. Let $S$ be the set of pairs $(a, b)$ of relatively prime positive integers such that $a, b \\leq m$ and $a+b>m$.\nFor each pair $(a, b) \\in S$, consider the nonnegative integer solution $(u, v)$ to the equation $a u-b v=n$ chosen with $v \\geq 0$ minimal, and let $I(a, b)$ denote the (open) interval $(v / a, u / b)$.\nProve that $I(a, b) \\subseteq(0,1)$ for every $(a, b) \\in S$, and that any fixed irrational number $\\alpha \\in(0,1)$ lies in $I(a, b)$ for exactly $n$ distinct pairs $(a, b) \\in S$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe fact that $I(a, b) \\subseteq (0,1)$ follows from the small-ness of $n \\leq m < a+b$: the smallest solution $(u, v)$ has $0 \\leq v \\leq a-1$, so $u = \\frac{n + b v}{a} < \\frac{(a+b) + b(a-1)}{a} = b+1$ forces $1 \\leq u \\leq b$.\n\nFor the main part of the problem, it suffices (actually, is equivalent) to show that\n(i) $0,1$ each appear exactly $n$ times as endpoints of intervals $I(a, b)$; and\n(ii) each reduced rational $p/q \\in (0,1)$ appears an equal (possibly zero, if $q$ is large) number of times as left and right endpoints of intervals $I(a, b)$.\n\nWe prove these separately as follows:\n(i) $0$ is a (left) endpoint precisely when $v/a = 0$, or equivalently $(a, b) \\in S$ has $a \\mid n$ (look at $v$ mod $a$). Since $n \\leq m$, we get $\\phi(d)$ good pairs $(d, b) \\in S$ for fixed $d \\mid n$. Indeed, for any coprime residue class modulo $d$, there's exactly one representative $b$ with $b \\leq m < b + d$. (Conceptually, it may be enlightening to think of $S$ as part of the Euclidean algorithm tree generated by $(1,1)$.)\nThus $0$ occurs as an endpoint $\\sum_{d \\mid n} \\phi(d) = n$ times. Similarly, $1$ is an endpoint precisely when $u = b$, or equivalently $(a, b) \\in S$ has $b \\mid n$ (look at $u \\bmod b$). By the same reasoning as before, we get $n$ right endpoint occurrences of $1$.\n\n(ii) Fix $p/q \\in (0,1)$ with $p, q$ coprime, so $q \\geq 2$. We want to show that $v_1 / a_1 = p/q$ occurs for the same number of $(a_1, b_1) \\in S$ as $u_2 / b_2 = p/q$ occurs for $(a_2, b_2) \\in S$. (In fact, we will show that the number of occurrences of the former in $(x, b_1) \\in S$ equals the number of the latter in $(a_2, x) \\in S$.) The former occurs precisely when $1 \\leq a_1 \\leq m$, $q \\mid a_1$, and (given the first two conditions) $v_1 \\equiv p(a_1/q) \\pmod{a_1}$. Given the first two conditions, the third is equivalent to $-n b_1^{-1} \\equiv p(a_1/q) \\pmod{a_1}$, or $b_1(a_1/q) \\equiv -n p^{-1} \\pmod{a_1}$. This is equivalent to having $(a_1/q) \\mid n$ and $b_1 \\equiv (-n/(a_1/q)) p^{-1} \\pmod{q}$.\n\nSimilarly, the latter occurs precisely when $1 \\leq b_2 \\leq m$, $q \\mid b_2$, $(b_2/q) \\mid n$, and $a_2 \\equiv (n/(b_2/q)) p^{-1} \\pmod{q}$.\n\nAs hinted at before, if we consider the occurrences for a fixed value $x = a_1 = b_2$, then the number of permitted residue classes $b_1 \\pmod{a_1} = x$ (in the former) is the same as the number of permitted residue classes $a_2 \\pmod{b_2} = x$ (in the latter): $y \\pmod{x}$ is permitted in the former if and only if $-y \\pmod{x}$ is permitted in the latter; note that $(y, x) = 1$ if and only if $(-y, x) = 1$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-2790",
+      "name": "HMMT February 2015 #0jo6",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2015",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inverses mod n",
+        "Integers"
+      ],
+      "statement": "Problem:\n\nThe fraction $\\frac{1}{2015}$ has a unique \"(restricted) partial fraction decomposition\" of the form\n$$\n\\frac{1}{2015}=\\frac{a}{5}+\\frac{b}{13}+\\frac{c}{31}\n$$\nwhere $a, b, c$ are integers with $0 \\leq a<5$ and $0 \\leq b<13$. Find $a+b$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: 14 This is equivalent to $1=13 \\cdot 31 a+5 \\cdot 31 b+5 \\cdot 13 c$. Taking modulo $5$ gives $1 \\equiv 13 \\cdot 31 a \\pmod{5}$, and since $13 \\cdot 31 \\equiv 3 \\pmod{5}$, we have $1 \\equiv 3a \\pmod{5}$, so $a \\equiv 2 \\pmod{5}$. Taking modulo $13$ gives $1 \\equiv 5 \\cdot 31 b \\pmod{13}$, and $5 \\cdot 31 = 155 \\equiv -1 \\pmod{13}$, so $1 \\equiv -b \\pmod{13}$, thus $b \\equiv 12 \\pmod{13}$. The size constraints on $a, b$ give $a=2, b=12$, so $a+b=14$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-2910",
+      "name": "HMMT November 2015 #0jri",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2015",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Greatest common divisors (gcd)",
+        "Inverses mod n",
+        "Fractions",
+        "Sums and products",
+        "Telescoping series"
+      ],
+      "statement": "Problem:\n\nRosencrantz plays $n \\leq 2015$ games of question, and ends up with a win rate (i.e. $\\frac{\\# \\text{ of games won }}{\\# \\text{ of games played }}$) of $k$. Guildenstern has also played several games, and has a win rate less than $k$. He realizes that if, after playing some more games, his win rate becomes higher than $k$, then there must have been some point in time when Rosencrantz and Guildenstern had the exact same win-rate. Find the product of all possible values of $k$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $\\frac{1}{2015}$\n\nWrite $k=\\frac{m}{n}$, for relatively prime integers $m, n$. For the property not to hold, there must exist integers $a$ and $b$ for which\n$$\n\\frac{a}{b}<\\frac{m}{n}<\\frac{a+1}{b+1}\n$$\n(i.e. at some point, Guildenstern must \"jump over\" $k$ with a single win)\n$$\n\\Longleftrightarrow a n+n-m>b m>a n\n$$\nhence there must exist a multiple of $m$ strictly between $a n$ and $a n+n-m$.\n\nIf $n-m=1$, then the property holds as there is no integer between $a n$ and $a n+n-m=a n+1$. We now show that if $n-m \\neq 1$, then the property does not hold. By Bzout's Theorem, as $n$ and $m$ are relatively prime, there exist $a$ and $x$ such that $a n=m x-1$, where $0<a<m$. Then $a n+n-m \\geq a n+2=m x+1$, so $b=x$ satisfies the conditions. As a result, the only possible $k$ are those in the form $\\frac{n}{n+1}$.\n\nWe know that Rosencrantz played at most 2015 games, so the largest non-perfect winrate he could possibly have is $\\frac{2014}{2015}$. Therefore, $k \\in\\left\\{\\frac{1}{2}, \\frac{2}{3}, \\ldots, \\frac{2014}{2015}\\right\\}$, the product of which is $\\frac{1}{2015}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-3046",
+      "name": "HMMT February 2016 #0jva",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2016",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Cartesian coordinates",
+        "Inverses mod n"
+      ],
+      "statement": "Problem:\n\nLet $S=\\{(x, y) \\mid x, y \\in \\mathbb{Z}, 0 \\leq x, y \\leq 2016\\}$. Given points $A=(x_1, y_1)$, $B=(x_2, y_2)$ in $S$, define\n$$\nd_{2017}(A, B) = (x_1 - x_2)^2 + (y_1 - y_2)^2 \\pmod{2017}\n$$\n\nThe points $A=(5,5)$, $B=(2,6)$, $C=(7,11)$ all lie in $S$. There is also a point $O \\in S$ that satisfies\n$$\nd_{2017}(O, A) = d_{2017}(O, B) = d_{2017}(O, C)\n$$\n\nFind $d_{2017}(O, A)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nNote that the triangle is a right triangle with right angle at $A$. Therefore,\n$$\nR^2 = \\frac{(7-2)^2 + (11-6)^2}{4} = \\frac{25}{2} = (25)\\left(2^{-1}\\right) \\equiv 1021 \\pmod{2017}.\n$$\n(An equivalent approach works for general triangles; the fact that the triangle is right simply makes the circumradius slightly easier to compute.)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-3058",
+      "name": "HMMT February 2016 #0jvm",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2016",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inverses mod n",
+        "Chinese remainder theorem",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\n\nDefine $\\phi^{!}(n)$ as the product of all positive integers less than or equal to $n$ and relatively prime to $n$. Compute the number of integers $2 \\leq n \\leq 50$ such that $n$ divides $\\phi^{!}(n)+1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nNote that, if $k$ is relatively prime to $n$, there exists a unique $0 < k^{-1} < n$ such that $k k^{-1} \\equiv 1 \\pmod{n}$. Hence, if $k^{2} \\not\\equiv 1 \\pmod{n}$, we can pair $k$ with its inverse to get a product of $1$.\n\nIf $k^{2} \\equiv 1 \\pmod{n}$, then $(n-k)^{2} \\equiv 1 \\pmod{n}$ as well, and $k(n-k) \\equiv -k^{2} \\equiv -1 \\pmod{n}$. Hence these $k$ can be paired up as well, giving products of $-1$. When $n \\neq 2$, there is no $k$ such that $k^{2} \\equiv 1 \\pmod{n}$ and $k \\equiv n-k \\pmod{n}$, so the total product $\\pmod{n}$ is $(-1)^{\\frac{m}{2}}$, where $m$ is the number of $k$ such that $k^{2} \\equiv 1 \\pmod{n}$.\n\nFor prime $p$ and positive integer $i$, the number of solutions to $k^{2} \\equiv 1 \\pmod{p^{i}}$ is $2$ if $p$ is odd, $4$ if $p=2$ and $i \\geq 3$, and $2$ if $p=i=2$. So, by Chinese remainder theorem, if we want the product to be $-1$, we need $n = p^{k}$, $2p^{k}$, or $4$. We can also manually check the $n=2$ case to work.\n\nCounting the number of integers in the allowed range that are of one of these forms (or, easier, doing complementary counting), we get an answer of $30$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-3169",
+      "name": "February 2017 #0jyp",
+      "url": "https://usamoguide.com/",
+      "source": "February 2017",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inverses mod n",
+        "Factorization techniques",
+        "Pythagorean triples",
+        "Sums and products",
+        "Other"
+      ],
+      "statement": "Problem:\n\na. Does $\\sum_{i=1}^{p-1} \\frac{1}{i} \\equiv 0 \\pmod{p^2}$ for all odd prime numbers $p$? (Note that $\\frac{1}{i}$ denotes the number such that $i \\cdot \\frac{1}{i} \\equiv 1 \\pmod{p^2}$)\n\nb. Do there exist 2017 positive perfect cubes that sum to a perfect cube?\n\nc. Does there exist a right triangle with rational side lengths and area 5?\n\nd. A magic square is a $3 \\times 3$ grid of numbers, all of whose rows, columns, and major diagonals sum to the same value. Does there exist a magic square whose entries are all prime numbers?\n\ne. Is $\\prod_{p} \\frac{p^2+1}{p^2-1} = \\frac{2^2+1}{2^2-1} \\cdot \\frac{3^2+1}{3^2-1} \\cdot \\frac{5^2+1}{5^2-1} \\cdot \\frac{7^2+1}{7^2-1} \\cdot \\ldots$ a rational number?\n\nf. Do there exist an infinite number of pairs of distinct integers $(a, b)$ such that $a$ and $b$ have the same set of prime divisors, and $a+1$ and $b+1$ also have the same set of prime divisors?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-3229",
+      "name": "HMMT November #0k0d",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Techniques: modulo, size analysis, order analysis, inequalities",
+        "Inverses mod n",
+        "Simple Equations",
+        "Combinatorial optimization"
+      ],
+      "statement": "Problem:\nA malfunctioning digital clock shows the time $9:57\\ \\mathrm{AM}$; however, the correct time is $10:10\\ \\mathrm{AM}$. There are two buttons on the clock, one of which increases the time displayed by 9 minutes, and another which decreases the time by 20 minutes. What is the minimum number of button presses necessary to correctly set the clock to the correct time?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe need to increase the time by 13 minutes. If we click the 9 minute button $a$ times and the 20 minute button $b$ times, then we must have $9a - 20b = 13$. Note that if this equation is satisfied, then $b$ increases as $a$ increases, so it suffices to minimize $a$. This means that $a$ must end in a 7. However, since $63 - 20b = 13$ has no integer solution, the next smallest possible value of $a$ is 17, which gives the solution $(a, b) = (17, 7)$, or 24 button presses."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-3328",
+      "name": "HMMT February 2018 #0k34",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2018",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inverses mod n",
+        "Polynomials mod p"
+      ],
+      "statement": "Problem:\nFind the number of unordered pairs $\\{a, b\\}$, where $a, b \\in\\{0,1,2, \\ldots, 108\\}$ such that $109$ divides $a^{3}+b^{3}-a b$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe start with the equation\n$$\na^{3}+b^{3} \\equiv a b \\pmod{109}\n$$\nIf either $a$ or $b$ are $0$, then we get $a^{3} \\equiv 0$, implying that both are $0$. Thus, $\\{0,0\\}$ is a pair. For the rest of the problem, let's assume that neither $a$ nor $b$ are $0$. Multiplying both sides by $a^{-1} b^{-2}$ yields\n$$\n\\left(a b^{-1}\\right)^{2}+a^{-1} b \\equiv b^{-1}\n$$\nfrom which we make the substitution\n$$\n\\begin{aligned}\na & =x y^{-1} \\\\\nb & =y^{-1}\n\\end{aligned}\n$$\nto get the equation\n$$\ny \\equiv x^{2}+x^{-1}\n$$\nPlugging this value back into $(a, b)$, we get that all solutions must be of the form\n$$\n(a, b)=\\left(\\left(x+x^{-2}\\right)^{-1},\\left(x^{2}+x^{-1}\\right)^{-1}\\right)\n$$\nwhere $1 \\leq x \\leq 108$. It now suffices to find all nonzero unordered pairs $\\{m, n\\}$ of the form $\\left\\{x+x^{-2}, x^{2}+x^{-1}\\right\\}$, where $1 \\leq x \\leq 108$. There are four values of $x$ for which $x+x^{-2} \\equiv x^{2}+x^{-1}$, and of these values, three of them give $x+x^{-2} \\equiv 0$. This is because we can re-arrange the equation at hand to get\n$$\nx^{4}-x^{3}+x-1 \\equiv 0\n$$\nwhich factors into\n$$\n(x-1)\\left(x^{3}+1\\right) \\equiv 0.\n$$\nIf $x=1$, then $\\{m, n\\}=\\{2,2\\}$, and if $x^{3}+1 \\equiv 0$ (which has three solutions: $46, 64$ and $108$), then\n$$\n\\{m, n\\}=\\left\\{x^{-1}\\left(x^{3}+1\\right), x^{-2}\\left(x^{3}+1\\right)\\right\\}=\\{0,0\\}\n$$\nTherefore, we keep $x=1$ and discard $x=46,64,108$. Of the remaining $104$ values of $x$, $m \\neq n$, and neither are $0$. We have to worry about collisions between distinct values of $x$. There are two ways a collision can occur: if there exists $x \\neq y$ such that\n$$\n\\left(x+x^{-2}, x^{2}+x^{-1}\\right)=\\left(y+y^{-2}, y^{2}+y^{-1}\\right)\n$$\nor if there exists $x \\neq y$ such that\n$$\n\\left(x+x^{-2}, x^{2}+x^{-1}\\right)=\\left(y^{2}+y^{-1}, y+y^{-2}\\right)\n$$\nThe first case cannot occur: if $x+x^{-2} \\equiv y+y^{-2}$, we have that $x^{2}+x^{-1}=x\\left(x+x^{-2}\\right) \\neq y\\left(x+x^{-2}\\right)=y\\left(y+y^{-2}\\right)=y^{2}+y^{-1}$. As a consequence of this, the second case only occurs if $y=x^{-1}$. Therefore, the remaining $104$ values of $x$ can be partitioned into $52$ pairs of $\\left(x, x^{-1}\\right)$, which ends up producing $52$ distinct unordered pairs $\\{m, n\\}$. Adding this to the $x=1$ case and $\\{0,0\\}$, we get a total of\n$$\n52+1+1=54\n$$\nunordered pairs."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-3362",
+      "name": "HMMT February #0k42",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Roots of unity",
+        "Primitive roots mod p / p^n",
+        "Inverses mod n"
+      ],
+      "statement": "Problem:\nLet $\\omega_{1}, \\omega_{2}, \\ldots, \\omega_{100}$ be the roots of $\\frac{x^{101}-1}{x-1}$ (in some order). Consider the set\n$$\nS=\\left\\{\\omega_{1}^{1}, \\omega_{2}^{2}, \\omega_{3}^{3}, \\ldots, \\omega_{100}^{100}\\right\\}\n$$\nLet $M$ be the maximum possible number of unique values in $S$, and let $N$ be the minimum possible number of unique values in $S$. Find $M-N$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThroughout this solution, assume we're working modulo $101$.\n\nFirst, $N=1$. Let $\\omega$ be a primitive $101$st root of unity. We then let $\\omega_{n}=\\omega^{1 / n}$, which we can do because $101$ is prime, so $1 / n$ exists for all nonzero $n$ and $1 / n=1 / m \\Longrightarrow m=n$. Thus the set contains only one distinct element, $\\omega$.\n\n$M=100$ is impossible. Fix $\\zeta$, a primitive $101$st root of unity, and let $\\omega_{n}=\\zeta^{\\pi(n)}$ for each $n$. Suppose that there are $100$ distinct such $n \\pi(n)$ exponents; then $\\pi$ permutes the set $\\{1,2, \\cdots, 100\\}$. Fix $g$, a primitive root of $101$; write $n=g^{e_{n}}$ and $\\pi(n)=g^{\\tau\\left(e_{n}\\right)}$. Then $\\left\\{e_{n}\\right\\}=\\{0,1,2, \\ldots, 100\\}$ and $\\tau$ is a permutation of this set, as is $e_{n}+\\tau\\left(e_{n}\\right)$. However, this is impossible: $\\sum_{n=1}^{100} e_{n}+\\tau\\left(e_{n}\\right)=5050+5050 \\equiv 5050\\pmod{100}$, which is a contradiction. Thus there cannot be $100$ distinct exponents.\n\n$M=99$ is possible. Again, let $\\zeta$ be a primitive root of unity and let $\\omega_{n}=\\zeta^{1 /(n+1)}$, except when $n=100$, in which case let $\\omega_{100}$ be the last possible root. Notice that $\\frac{n}{n+1}=\\frac{m}{m+1}$ if and only if $n=m$, so this will produce $99$ different elements in the set.\n\nThus $M-N=99-1=98$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-3476",
+      "name": "HMMT February 2019 #0k78",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2019",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inverses mod n",
+        "φ (Euler's totient)",
+        "Greatest common divisors (gcd)",
+        "Pigeonhole principle"
+      ],
+      "statement": "Problem:\n\nDetermine the number of subsets $S$ of $\\{1,2, \\ldots, 1000\\}$ that satisfy the following conditions:\n- $S$ has 19 elements, and\n- the sum of the elements in any non-empty subset of $S$ is not divisible by 20.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFirst we prove that each subset must consist of elements that have the same residue mod 20. Let a subset consist of elements $a_{1}, \\ldots, a_{19}$, and consider two lists of partial sums\n$$\n\\begin{aligned}\n& a_{1}, a_{1}+a_{2}, a_{1}+a_{2}+a_{3}, \\ldots, a_{1}+a_{2}+\\cdots+a_{19} \\\\\n& a_{2}, a_{1}+a_{2}, a_{1}+a_{2}+a_{3}, \\ldots, a_{1}+a_{2}+\\cdots+a_{19}\n\\end{aligned}\n$$\nThe residues mod 20 of the partial sums in each list must be pairwise distinct, otherwise subtracting the sum with less terms from the sum with more terms yields a subset whose sum of elements is 0 (mod 20). Since the residues must also be nonzero, each list forms a complete nonzero residue class $\\bmod\\ 20$. Since the latter 18 sums in the two lists are identical, $a_{1} \\equiv a_{2}(\\bmod 20)$. By symmetric arguments, $a_{i} \\equiv a_{j}(\\bmod 20)$ for any $i, j$.\n\nFurthermore this residue $1 \\leq r \\leq 20$ must be relatively prime to 20, because if $d=\\operatorname{gcd}(r, 20)>1$ then any $20 / d$ elements of the subset will sum to a multiple of 20. Hence there are $\\varphi(20)=8$ possible residues. Since there are 50 elements in each residue class, the answer is $\\binom{50}{19}$. We can see that any such subset whose elements are a relatively prime residue $r(\\bmod 20)$ works because the sum of any $1 \\leq k \\leq 19$ elements will be $k r \\neq 0(\\bmod 20)$.\n\nTherefore, the total number of such subsets is $8 \\cdot \\binom{50}{19}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-3609",
+      "name": "USA IMO TST #0kax",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO TST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Determinants",
+        "Greatest common divisors (gcd)",
+        "Inverses mod n",
+        "Induction / smoothing"
+      ],
+      "statement": "We say a function $f: \\mathbb{Z}_{\\ge 0} \\times \\mathbb{Z}_{\\ge 0} \\to \\mathbb{Z}$ is *great* if for any nonnegative integers $m$ and $n$,\n$$\nf(m+1, n+1)f(m, n) - f(m+1, n)f(m, n+1) = 1.\n$$\nIf $A = (a_0, a_1, \\dots)$ and $B = (b_0, b_1, \\dots)$ are two sequences of integers, we write $A \\sim B$ if there exists a great function $f$ satisfying $f(n, 0) = a_n$ and $f(0, n) = b_n$ for every nonnegative integer $n$ (in particular, $a_0 = b_0$).\nProve that if $A, B, C$, and $D$ are four sequences of integers satisfying $A \\sim B, B \\sim C$, and $C \\sim D$, then $D \\sim A$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**First solution (Nikolai Beluhov)** Let $k = a_0 = b_0 = c_0 = d_0$. We let $f, g, h$ be great functions for $(A, B), (B, C), (C, D)$ and write the following infinite array:\n$$\n\\left[ \\begin{array}{ccccccccc} \\vdots & \\vdots & b_3 & \\vdots & \\vdots & & & \\\\ \\cdots & g(2,2) & g(2,1) & b_2 & f(1,2) & f(2,2) & \\cdots & \\\\ \\cdots & g(1,2) & g(1,1) & b_1 & f(1,1) & f(2,1) & \\cdots & \\\\ c_3 & c_2 & c_1 & k & a_1 & a_2 & a_3 & \\\\ \\cdots & h(2,1) & h(1,1) & d_1 & & & & \\\\ \\cdots & h(2,2) & h(1,2) & d_2 & & & & \\\\ \\vdots & \\vdots & d_3 & & & & \\ddots & \\end{array} \\right]\n$$\nThe greatness condition is then equivalent to saying that any $2 \\times 2$ sub-grid has determinant $\\pm 1$ (the sign is $+1$ in two quadrants and $-1$ in the other two), and we wish to fill in the lower-right quadrant. To this end, it suffices to prove the following.\n**Lemma**\nSuppose we have a $3 \\times 3$ sub-grid\n$$\n\\begin{bmatrix} a & b & c \\\\ x & y & z \\\\ p & q & \\end{bmatrix}\n$$\nsatisfying the determinant conditions. Then we can fill in the ninth entry in the lower right with an integer while retaining greatness.\n*Proof.* We consider only the case where the $3 \\times 3$ is completely contained inside the bottom-right quadrant, since the other cases are exactly the same (or even by flipping the signs of the top row or left column appropriately).\nIf $y = 0$ we have $-1 = bz = bx = xq$, hence $qz = -1$, and we can fill in the entry arbitrarily.\nOtherwise, we have $bx \\equiv xq \\equiv bz \\equiv -1 \\pmod y$. This is enough to imply $qz \\equiv -1 \\pmod y$, and so we can fill in the integer $\\frac{qz+1}{y}$. $\\square$\n\n\n**Second solution (Ankan Bhattacharya)** We will give an explicit classification of great sequences:\n**Lemma**\nThe pair $(A, B)$ is great if and only if $a_0 = b_0$, $a_0 \\mid a_1b_1 + 1$, and $a_n \\mid a_{n-1} + a_{n+1}$ and $b_n \\mid b_{n-1} + b_{n+1}$ for all $n$.\n*Proof of necessity.* It is clear that $a_0 = b_0$. Then $a_0f(1,1) - a_1b_1 = 1$, i.e. $a_0 \\mid a_1b_1 + 1$. Now, focus on six entries $f(x,y)$ with $x \\in \\{n-1, n, n+1\\}$ and $y \\in \\{0, 1\\}$. Let $f(n-1,1) = u$, $f(n,1) = v$, and $f(n+1,1) = w$, so\n$$\n\\begin{aligned}\nva_{n-1} - u a_n &= 1, \\\\\nwa_n - v a_{n+1} &= 1.\n\\end{aligned}\n$$\nThen\n$$\nu + w = \\frac{v(a_{n-1} + a_{n+1})}{a_n}\n$$\nand from above $\\gcd(v, a_n) = 1$, so $a_n \\mid a_{n-1} + a_{n+1}$; similarly for $b_n$. (If $a_n = 0$, we have $v a_{n-1} = 1$ and $v a_{n+1} = -1$, so this is OK.) $\\square$\n*Proof of sufficiency.* Now consider two sequences $a_0, a_1, \\dots$ and $b_0, b_1, \\dots$ satisfying our criteria. We build a great function $f$ by induction on $(x, y)$. More strongly, we will assume as part of the inductive hypothesis that any two adjacent entries of $f$ are relatively prime and that for any three consecutive entries horizontally or vertically, the middle one divides the sum of the other two.\nFirst we set $f(1,1)$ so that $a_0 f(1,1) = a_1 b_1 + 1$, which is possible.\nConsider an uninitialized $f(s,t)$; without loss of generality suppose $s \\ge 2$. Then we know five values of $f$ and wish to set a sixth one $z$, as in the matrix below:\n$$\n\\begin{pmatrix}\nu & x \\\\\nv & y \\\\\nw & z\n\\end{pmatrix}\n$$\n(We imagine $a$-indices to increase southwards and $b$-indices to increase eastwards.) If $v \\ne 0$, then the choice $y \\cdot \\frac{u+w}{v} - x$ works as $u y - v x = 1$. If $v = 0$, it easily follows that $\\{u, w\\} = \\{1, -1\\}$ and $y = w$ as $y w = 1$. Then we set the uninitialized entry to anything.\nNow we verify that this is compatible with the inductive hypothesis. From the determinant $1$ condition, it easily follows that $\\gcd(w, z) = \\gcd(v, z) = 1$. The proof that $y \\mid x + z$ is almost identical to a step performed in the “necessary” part of the lemma and we do not repeat it here. By induction, a desired great function $f$ exists. $\\square$\nWe complete the solution. Let $A, B, C$, and $D$ be integer sequences for which $(A, B)$, $(B, C)$, and $(C, D)$ are great. Then $a_0 = b_0 = c_0 = d_0$, and each term in each sequence (after the zeroth term) divides the sum of its neighbors. Since $a_0$ divides all three of $a_1b_1 + 1$, $b_1c_1 + 1$, and $c_1d_1 + 1$, it follows $a_0$ divides $d_1a_1 + 1$, and thus $(D, A)$ is great as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-3730",
+      "name": "Bay Area Mathematical Olympiad #0kea",
+      "url": "https://usamoguide.com/",
+      "source": "Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inverses mod n",
+        "Factorization techniques",
+        "Recurrence relations"
+      ],
+      "statement": "Problem:\n\nThe integer $202020$ is a multiple of $91$. For every positive integer $n$, show how $n$ additional $2$'s may be inserted into the digits of $202020$ so that the resulting $(n+6)$-digit integer is also a multiple of $91$. For example, a possible way to do this when $n=5$ is $22020220222$ (the inserted $2$'s are underlined).",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nEvery integer of the form $202\\ldots2020$ (where the dots represent any number of $2$'s) is divisible by $91$. There are a variety of ways to discover and prove this fact, some of which we outline here:\n\nMethod 1.\nFor $n=1$, there are four options: $2202020$, $2022020$, $2020220$, and $2020202$. Long division shows that only $2022020$ is divisible by $91$. Let $a_{0}=202020$ and $a_{1}=2022020$. Then $a_{1}-a_{0}=1820000$. Clearly, adding $182 \\cdot 10^{k}$ for some $k \\geq 0$ preserves divisibility by $91$. From this, we conjecture that recursively defining $a_{n}=a_{n-1}+182 \\cdot 10^{n+3}$ yields integers of the desired form. We let $.^{2}$ denote a string of $n$ twos and $..$ denote a string of $n$ zeros. If $a_{n-1}=20 .^{2} .020$, then\n$$\na_{n}=a_{n-1}+182 \\cdot 10^{n+3}=20 .^{2} 020+182 \\ldots 000=202 \\ldots .^{2} 020 .\n$$\nBy induction, it follows that $a_{n}$ is a multiple of $91$ of the form $202 \\ldots 2020$, for any $n \\geq 0$.\n\n\nMethod 2.\nAs in (a), we can see that the only solution for $n=1$ is $2022020$. Let $a_{0}=202020$ and $a_{1}=2022020$. Then $a_{1}-10 a_{0}=1820$. Clearly, adding $1820$ preserves divisibility by $91$. We conjecture that recursively defining $a_{n}=10 a_{n-1}+1820$ yields integers of the desired form. If $a_{n-1}=202 \\ldots 2020$, then\n$$\na_{n}=10 a_{n-1}+1820=10 \\cdot 202 \\ldots 2020+1820=202 \\ldots 20200+1820=202 \\ldots 22020.\n$$\nBy induction, it follows that $a_{n}$ is a multiple of $91$ of the form $202 \\ldots 2020$, for any $n \\geq 0$.\n\n\nMethod 3.\nLong division or factoring yields $202020 \\div 91=2220$, so we conjecture that $22220 \\times 91$, $222220 \\times 91$, etc. will have a nice pattern of digits. Indeed, these numbers are of the form $202 \\ldots 2020$ (where the dots represent $2$'s), and we can explain why with long arithmetic:\n$$\n\\begin{aligned}\n222 \\ldots 20 \\times 100 & =222 \\ldots 2000 \\\\\n-222 \\ldots 20 \\times 10 & =-22 \\ldots 2200 \\\\\n+222 \\ldots 20 \\times 1 & =+2 \\ldots 2220 \\\\\n\\hline\n222 \\ldots 20 \\times 91 & =202 \\ldots 2020\n\\end{aligned}\n$$\n(all ellipses represent strings of $2$'s which may be made any length).\n\n\nMethod 4.\nAs in (a), we see that the only solution for $n=1$ is $2022020$. Let $...$ denote a string of $n$ twos, for any $n \\geq 0$. We conjecture that $a_{n}=20 \\ldots 020$ is divisible by $91$ for any $n \\geq 0$. We can check that $a_{1}=202020$ and $a_{0}=2002$ are divisible by $91$. Since $1000 \\equiv -1 \\pmod{91}$, we have\n$$\n\\begin{aligned}\na_{n+2} & =20 .^{2} 22020=1000 \\cdot 20 .^{2} 22+20 \\\\\n& \\equiv 1000 \\cdot (20 .^{2} 22-20)=1000 \\cdot 20 .^{2} 02 \\\\\n& =100 \\cdot 20 .^{2} 020=100 \\cdot a_{n} \\pmod{91} .\n\\end{aligned}\n$$\nBut $\\gcd(100,91)=1$, so if $91 \\mid a_{n}$, then $91 \\mid a_{n+2}$. By induction, we have $91 \\mid a_{n}$ for all $n \\geq 0$.\n\n\nMethod 5.\nAs in (a), we see that the only solution for $n=1$ is $2022020$. Let $.^{2}$ denote a string of $n$ twos, for $n \\geq 0$. Notice that $-10 \\cdot 9 \\equiv 1$ and $10^{3} \\equiv -1 \\pmod{91}$. Therefore,\n$$\n\\begin{aligned}\n20 \\ldots 2 .^{2} 020 & =22.2^{2} 222-2 \\cdot 10^{k+3}-202 \\\\\n& \\equiv \\frac{2}{9} \\cdot 99 \\ldots 999+2 \\cdot 10^{k}-20 \\\\\n& \\equiv -20 \\cdot (10^{k+5}-1)+2 \\cdot 10^{k}-20 \\\\\n& =-2 \\cdot 10^{k+6}+20+2 \\cdot 10^{k}-20 \\\\\n& \\equiv -2 \\cdot 10^{k}+2 \\cdot 10^{k}=0 \\pmod{91} .\n\\end{aligned}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-3734",
+      "name": "HMMO #0kee",
+      "url": "https://usamoguide.com/",
+      "source": "HMMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inverses mod n",
+        "Techniques: modulo, size analysis, order analysis, inequalities"
+      ],
+      "statement": "Problem:\n\nCompute the sum of all positive integers $a \\leq 26$ for which there exist integers $b$ and $c$ such that $a+23 b+15 c-2$ and $2 a+5 b+14 c-8$ are both multiples of $26$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAssume $b$ and $c$ exist. Considering the two values modulo $13$, we find\n$$\n\\begin{cases}a+10 b+2 c \\equiv 2 & (\\bmod\\ 13) \\\\ 2 a+5 b+c \\equiv 8 & (\\bmod\\ 13)\\end{cases}\n$$\nSubtracting twice the second equation from the first, we get $-3 a \\equiv -14\\ (\\bmod\\ 13)$. So, we have $a \\equiv 9$ $(\\bmod\\ 13)$. Therefore we must either have $a=9$ or $a=22$.\n\nMoreover, both $a=9$ and $a=22$ yield solutions with $b=0$ and $c=3,16$, depending on the value of $a$. Thus the answer is $9+22=31$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-3884",
+      "name": "HMMT November 2021 #0kik",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2021",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Chinese remainder theorem",
+        "Inverses mod n"
+      ],
+      "statement": "Problem:\n\nIntegers $0 \\leq a, b, c, d \\leq 9$ satisfy\n$$\n\\begin{gathered}\n6a + 9b + 3c + d = 88 \\\\\na - b + c - d = -6 \\\\\na - 9b + 3c - d = -46\n\\end{gathered}\n$$\nFind $1000a + 100b + 10c + d$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $N = \\overline{abcd}$ be an at most-four digit number. Note that the first equation gives us $N \\equiv 4 \\pmod{7}$. The second equation gives us $N \\equiv 6 \\pmod{11}$. The third equation gives us $N \\equiv 7 \\pmod{13}$. Using CRT, we get $N \\equiv \\frac{1}{2} \\equiv 501 \\pmod{1001}$. Thus, we have $N = 501 + 1001k$ for some integer $0 \\leq k \\leq 9$. The only value of $k$ that satisfies the first equation is $k = 6$, which yields $N = 6507$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-3911",
+      "name": "2021 AMC 10 B Fall #0kjb",
+      "url": "https://usamoguide.com/",
+      "source": "2021 AMC 10 B Fall",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inverses mod n",
+        "Sums and products"
+      ],
+      "statement": "For each integer $n \\ge 2$, let $S_n$ be the sum of all products $jk$, where $j$ and $k$ are integers and $1 \\le j < k \\le n$. What is the sum of the 10 least values of $n$ such that $S_n$ is divisible by 3?\n(A) 196 (B) 197 (C) 198 (D) 199 (E) 200",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-3930",
+      "name": "AMC 12 A #0kju",
+      "url": "https://usamoguide.com/",
+      "source": "AMC 12 A",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion",
+        "Counting two ways",
+        "Inverses mod n"
+      ],
+      "statement": "Let $m \\ge 5$ be an odd integer, and let $D(m)$ denote the number of quadruples $(a_1, a_2, a_3, a_4)$ of distinct integers with $1 \\le a_i \\le m$ for all $i$ such that $m$ divides $a_1 + a_2 + a_3 + a_4$. There is a polynomial $q(x) = c_3x^3 + c_2x^2 + c_1x + c_0$ such that $D(m) = q(m)$ for all odd integers $m \\ge 5$. What is $c_1$?\n(A) -6    (B) -1    (C) 4    (D) 6    (E) 11",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-3937",
+      "name": "AMC 12 A #0kk1",
+      "url": "https://usamoguide.com/",
+      "source": "AMC 12 A",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inverses mod n",
+        "Enumeration with symmetry",
+        "Counting two ways"
+      ],
+      "statement": "Let $m \\ge 5$ be an odd integer, and let $D(m)$ denote the number of quadruples $(a_1, a_2, a_3, a_4)$ of distinct integers with $1 \\le a_i \\le m$ for all $i$ such that $m$ divides $a_1 + a_2 + a_3 + a_4$. There is a polynomial $q(x) = c_3x^3 + c_2x^2 + c_1x + c_0$ such that $D(m) = q(m)$ for all odd integers $m \\ge 5$. What is $c_1$?\n(A) $-6$ (B) $-1$ (C) $4$ (D) $6$ (E) $11$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Let $s(m,r)$ denote the number of quadruples $(a_1, a_2, a_3, a_4)$ of distinct residue classes modulo $m$ such that $a_1 + a_2 + a_3 + a_4 \\equiv r \\pmod{m}$. Because the total number of quadruples of distinct residue classes is $m(m-1)(m-2)(m-3)$, it follows that\n$$\n\\sum_{r=1}^{m} s(m, r) = m(m-1)(m-2)(m-3).\n$$\nNote that the pairing $(a_1, a_2, a_3, a_4) \\longleftrightarrow (a_1+1, a_2+1, a_3+1, a_4+1)$ provides a one-to-one correspondence between quadruples of distinct residue classes that sum to $r$ and quadruples of distinct residue classes that sum to $r+4$. Hence $s(m, r) = s(m, r+4)$, so\n$$\ns(m, r) = s(m, r+4) = s(m, r+8) = \\dots\n$$\nNow $\\gcd(4, m) = 1$ because $m$ is odd, so the numbers $r, r+4, r+8, \\dots, r+4(m-1)$ form a complete residue system modulo $m$. Thus the values $s(m, r)$ are all equal. From the displayed summation above it follows that\n$$\ns(m, r) = (m-1)(m-2)(m-3) = m^3 - 6m^2 + 11m - 6\n$$\nfor all $r$. Because $D(m) = s(m, 0)$, it follows that the required polynomial is $q(x) = x^3 - 6x^2 + 11x - 6$, and $c_1 = 11$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-4129",
+      "name": "2022 AIME I #0kpd",
+      "url": "https://usamoguide.com/",
+      "source": "2022 AIME I",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inverses mod n",
+        "Integers"
+      ],
+      "statement": "Find the three-digit positive integer $abc$ whose representation in base nine is $\\underline{b}\\ \\underline{c}\\ \\underline{a}$ base $9$, where $a$, $b$, and $c$ are (not necessarily distinct) digits.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-4173",
+      "name": "Berkeley Math Circle #0kql",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inverses mod n",
+        "Greatest common divisors (gcd)"
+      ],
+      "statement": "Problem:\n\nLet $a$ and $b$ be integers. Show that $29$ divides $3a + 2b$ if and only if $29$ divides $11a + 17b$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe give two solutions to this problem:\n\nFirst, observe that $11a + 17b \\equiv 23(3a + 2b) \\pmod{29}$, so if $3a + 2b \\equiv 0 \\pmod{29}$, then $11a + 17b \\equiv 0 \\pmod{29}$. Similarly, if $11a + 17b \\equiv 0 \\pmod{29}$, then since $23$ is coprime to $29$, we can invert $23 \\pmod{29}$ and find that $3a + 2b \\equiv 0 \\pmod{29}$.\n\n\nFor another solution, we will find a linear combination $m(3a + 2b) + n(11a + 17b)$ which is a multiple of $29$ for some integers $m$ and $n$ which are not themselves multiples of $29$. This will imply that $m(3a + 2b)$ is a multiple of $29$ if and only if $n(11a + 17b)$ is, and since we are choosing $m$ and $n$ to not be multiples of $29$, it will follow that $3a + 2b$ is a multiple of $29$ if and only if $11a + 17b$ is.\n\nRewriting this, we want to find\n$$\n(3m + 11n)a + (2m + 17n)b = 29d\n$$\nfor some multiple $29d$ of $29$.\n\nWe can check the simplest case by setting $d = a + b$ and solving the linear system\n$$\n\\begin{aligned}\n& 3m + 11n = 29 \\\\\n& 2m + 17n = 29\n\\end{aligned}\n$$\nSolving this system gives $m = 6$, $n = 1$, and since these are integer values, we're done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-4252",
+      "name": "Berkeley Math Circle Monthly Contest 7 #0kss",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 7",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inverses mod n",
+        "Factorization techniques"
+      ],
+      "statement": "Problem:\nLet $n$ be a nonnegative integer and let $r$ be an odd number. Show that there is some $0 \\leq i < 2^{n}$ such that\n$$\n\\binom{2^{n}+i}{i} \\equiv r \\pmod{2^{n+1}}.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe can write $\\binom{2^{n}+i}{i}$ as $\\prod_{k=1}^{i} \\frac{2^{n}+k}{k}$. For any $k \\leq i < 2^{n}$, the number of times $2$ divides $2^{n}+k$ is just the number of times $2$ divides $k$, so this product must have an equal number of factors of $2$ in the numerator and denominator, and therefore must be odd. Thus, as there are $2^{n}$ values of $i$ and $2^{n}$ possible values of $r$ $\\pmod{2^{n+1}}$, the problem is equivalent to showing that $\\binom{2^{n}+i}{i}$ is injective $\\pmod{2^{n+1}}$ for $0 \\leq i < 2^{n}$.\n\nLet $0 \\leq i < j < 2^{n}$. Taking the ratio of the corresponding coefficients gives $\\prod_{k=i+1}^{j} \\frac{2^{n}+k}{k}$. Let $\\nu$ be maximal so that there is a multiple of $2^{\\nu}$ in the range $(i, j]$, and let this multiple be $m 2^{\\nu}$ where $m$ is odd.\n\nNow take the ratio $\\bmod 2^{n-\\nu+1}$. For $k = m 2^{\\nu}$, $\\frac{2^{n}+k}{k} = \\frac{2^{n-\\nu}+m}{m}$, which is not equivalent to one, whereas for $k \\neq m 2^{\\nu}$, $\\frac{2^{n}+k}{k}$ is equivalent to one. Therefore, the total product is not one $\\bmod 2^{n-\\nu+1}$, so it is not one $\\bmod 2^{n+1}$, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-4314",
+      "name": "HMMT November 2023 #0kui",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2023",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Techniques: modulo, size analysis, order analysis, inequalities",
+        "Inverses mod n",
+        "Linear and quadratic inequalities"
+      ],
+      "statement": "Problem:\n\nLucas writes two distinct positive integers on a whiteboard. He decreases the smaller number by $20$ and increases the larger number by $23$, only to discover the product of the two original numbers is equal to the product of the two altered numbers. Compute the minimum possible sum of the original two numbers on the board.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet the original numbers be $m < n$. We know\n$$\nm n = (m - 20)(n + 23) = m n - 20 n + 23 m - 460 \\Longrightarrow 23 m - 20 n = 460\n$$\nFurthermore, $23 m < 23 n$ hence $460 < 3 n \\Longrightarrow n \\geq 154$. Furthermore, we must have $23 \\mid n$ hence the least possible value of $n$ is $161$ which corresponds $m = 160$.\nThis yields a minimum sum of $161 + 160 = 321$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-4329",
+      "name": "HMIC 2023 #0kux",
+      "url": "https://usamoguide.com/",
+      "source": "HMIC 2023",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inverses mod n",
+        "Quadratic residues",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\nA prime number $p$ is mundane if there exist positive integers $a$ and $b$ less than $\\frac{p}{2}$ such that $\\frac{a b-1}{p}$ is a positive integer. Find, with proof, all prime numbers that are not mundane.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe cases $p=11$, $p=17$, $p=19$ fail by $3 \\cdot 4$, $3 \\cdot 6$, and $4 \\cdot 5$, respectively, so assume that $p \\geq 21$. The key idea is the following identity:\n$$\n\\frac{1}{10}-\\left(-\\frac{2}{5}\\right)=\\frac{1}{2}\n$$\nTo see how to utilize this, notice that $10<\\frac{p}{2}$ and $-\\frac{5}{2}(\\bmod p)=\\frac{p-5}{2}<\\frac{p}{2}$. Thus, by plugging in $a=10$ and $a=\\frac{p-5}{2}$, we see that both $\\frac{1}{10}(\\bmod p)$ and $-\\frac{2}{5}(\\bmod p)$ must be greater than $\\frac{p}{2}$, so it must lie in the interval $\\left[\\frac{p+1}{2}, p-1\\right]$.\nHowever, their difference is $\\equiv \\frac{1}{2} \\equiv \\frac{p+1}{2}(\\bmod p)$, giving a contradiction.\n\n\nSolution 2:\nThe case $p=11$ fails by $3 \\cdot 4$, so assume $p=2^{k} n+1 \\geq 17$ for some odd $n$.\n- If $n=1$, then $p=2^{k}+1$. Since $p+1$ cannot have a divisor greater than $2$, $\\frac{p+1}{2}$ must be prime, so both $2^{k-1}+1$ and $2^{k}+1$ are consecutive Fermat primes. Since $k-1$ and $k$ must be powers of $2$, this forces $k=2$, which gives $p=5$.\n- If $n=3$, then $p=3 \\cdot 2^{k}+1$. Since $2p+1$ cannot have a divisor greater than $4$, we have $\\frac{2p+1}{3}=2^{k+1}+1$ must be prime, $k=2^{c}-1$. $c \\in\\{1,2\\}$ gives $p \\in\\{7,25\\}$; the latter is not even a prime. If $c \\geq 3$, then\n$$\n5 \\mid 3 \\cdot 2^{2^{c}-1}+1=p\n$$\ncontradiction.\n- If $n \\geq 5$, then\n$$\n2^{k+1} \\cdot \\frac{p-n}{2} \\equiv 1 \\quad(\\bmod p)\n$$\nshows that this case yields no solutions.\n\n\nSolution 3:\nAssume $p \\geq 3$. Let $q>2$ be the smallest prime not dividing $p-1$.\nLemma: $q^{2}<\\frac{p}{2}$ unless $p \\in S=\\{5,7,13,19,31,37,43,61,211\\}$.\nProof. Casework on $q$.\n- $q=3$ gives $p=5$.\n- $q=5$ gives $p \\in\\{13,19,37,43\\}$.\n- $q=7$ gives $p \\in\\{31,61\\}$.\n- $q=11$ gives $p=211$.\nNo larger $q$ work because\n$$\n13^{2}<\\frac{2 \\cdot 3 \\cdot 5 \\cdot 7 \\cdot 11}{2}\n$$\nand $p_{n+1}^{2}<\\frac{p_{1} p_{2} \\ldots p_{n}}{2}$ for $n \\geq 5$ by induction using $p_{i+1}<2 p_{i}$, where $p_{i}$ are the primes in increasing order.\nNow, $q' \\mid\\left(q'-1\\right) p+1$ for all primes $q'<q$ by minimality of $q$, but $q \\mid k p+1$ for some $0<k<q-1$, since $q \\nmid p-1$. Therefore, $q \\operatorname{rad}(k+1) \\mid k p+1$, so\n$$\n(q \\operatorname{rad}(k+1)) \\cdot \\frac{k p+1}{q \\operatorname{rad}(k+1)} \\equiv 1 \\quad(\\bmod p)\n$$\nIf $p \\notin S$, the first factor can be bounded as\n$$\nq \\operatorname{rad}(k+1)<q^{2}<\\frac{p}{2}\n$$\nand the second factor as\n$$\n\\frac{k p+1}{q \\operatorname{rad}(k+1)}<\\frac{(k+1) p}{(k+1) 2}=\\frac{p}{2}\n$$\nTherefore, no $p \\notin S$ satisfy the problem condition.\nTo finish the problem, it suffices to show no $p \\in S \\setminus\\{5,7,13\\}$ work. Indeed,\n$$\n\\begin{aligned}\n& 4 \\cdot 5 \\equiv 1 \\\\\n& 4 \\cdot 8(\\bmod 19) \\\\\n& 5 \\cdot 15 \\equiv 1 \\\\\n& 4 \\cdot(\\bmod 31)(\\bmod 37) \\\\\n& 4 \\cdot 14 \\equiv 1 \\\\\n& 8 \\cdot 23 \\equiv 1 \\quad(\\bmod 43) \\\\\n& 4 \\cdot 53 \\equiv 1 \\quad(\\bmod 61) \\\\\n&\\hline \\bmod 211),\n\\end{aligned}\n$$\nas desired.\n\n\nSolution 4:\nAssume $p \\geq 3$. We look for $a, b$ where $|a-b|$ is small. Consider the equation $x(x+k) \\equiv 1$ $(\\bmod p)$, which is equivalent to $(2 x+k)^{2} \\equiv 4+k^{2}(\\bmod p)$. Taking $k=1,2,6$, at least one of the values $5,8,40$ is a quadratic residue modulo $p$, so this equation has a solution with $k \\in\\{1,2,6\\}$. Now take an $x$ satisfying this equation and consider replacing $x$ with $p-k-x$ if this is $\\geq 2$ and smaller. This gives the desired $a, b$ unless $x<p / 2<x+k$. We now casework based on $k$.\n- If $k=1$, then $x<p / 2<x+1$, which force $x=\\frac{p-1}{2}$. Hence,\n$$\n1 \\equiv x(x+1) \\equiv\\left(-\\frac{1}{2}\\right)\\left(\\frac{1}{2}\\right) \\equiv-\\frac{1}{4} \\quad(\\bmod p)\n$$\nforcing $p=5$.\n- If $k=2$, then $x<p / 2<x+2$, which force $x \\in\\left\\{\\frac{p-1}{2}, \\frac{p-3}{2}\\right\\} \\equiv\\left\\{-\\frac{1}{2},-\\frac{3}{2}\\right\\}$. Now we have,\n$$\n\\begin{aligned}\n& x \\equiv-\\frac{1}{2} \\Longrightarrow 1 \\equiv x(x+2) \\equiv\\left(-\\frac{1}{2}\\right)\\left(\\frac{3}{2}\\right) \\equiv-\\frac{3}{4} \\quad(\\bmod p) \\Longrightarrow p=7 \\\\\n& x \\equiv-\\frac{3}{2} \\Longrightarrow 1 \\equiv x(x+2) \\equiv\\left(-\\frac{3}{2}\\right)\\left(\\frac{1}{2}\\right) \\equiv-\\frac{3}{4} \\quad(\\bmod p) \\Longrightarrow p=7\n\\end{aligned}\n$$\nforcing $p=7$.\n- If $k=6$, then we have $x<p / 2<x+6$, then $x \\in\\left\\{\\frac{p-1}{2}, \\frac{p-3}{2}, \\ldots, \\frac{p-11}{2}\\right\\} \\equiv\\left\\{-\\frac{1}{2},-\\frac{3}{2}, \\ldots,-\\frac{11}{2}\\right\\}$. We have\n\n| $x$ | $x(x+6)$ | $p$ |\n| :---: | :---: | :---: |\n| $-\\frac{1}{2}$ | $-\\frac{11}{4}$ | 3,5 |\n| $-\\frac{3}{2}$ | $-\\frac{27}{4}$ | 31 |\n| $-\\frac{5}{2}$ | $-\\frac{35}{4}$ | 3,13 |\n| $-\\frac{7}{2}$ | $-\\frac{35}{4}$ | 3,13 |\n| $-\\frac{9}{2}$ | $-\\frac{27}{4}$ | 31 |\n| $-\\frac{11}{2}$ | $-\\frac{11}{4}$ | 3,5 |\n\nThus, all that remains is to eliminate $p=31$. This is by $4 \\cdot 8 \\equiv 1(\\bmod 31)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-4438",
+      "name": "HMMT November 2023 #0kxy",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2023",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inverses mod n",
+        "Greatest common divisors (gcd)",
+        "Algebraic properties of binomial coefficients",
+        "Sums and products"
+      ],
+      "statement": "Problem:\nLet $r_{k}$ denote the remainder when $\\binom{127}{k}$ is divided by $8$. Compute $r_{1} + 2 r_{2} + 3 r_{3} + \\cdots + 63 r_{63}$.\nProposed by: Rishabh Das",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $p_{k} = \\frac{128 - k}{k}$, so\n$$\n\\binom{127}{k} = p_{1} p_{2} \\cdots p_{k}\n$$\nNow, for $k \\leq 63$, unless $32 \\mid \\gcd(k, 128 - k) = \\gcd(k, 128)$, $p_{k} \\equiv -1 \\pmod{8}$. We have $p_{32} = \\frac{96}{32} = 3$. Thus, we have the following characterization:\n$$\nr_{k} = \\begin{cases}\n1 & \\text{ if } k \\text{ is even and } k \\leq 31 \\\\\n7 & \\text{ if } k \\text{ is odd and } k \\leq 31 \\\\\n5 & \\text{ if } k \\text{ is even and } k \\geq 32 \\\\\n3 & \\text{ if } k \\text{ is odd and } k \\geq 32\n\\end{cases}\n$$\nWe can evaluate this sum as\n$$\n\\begin{aligned}\n4 \\cdot (0 + 1 + 2 + 3 + \\cdots + 63)\n& + 3 \\cdot (-0 + 1 - 2 + 3 - \\cdots - 30 + 31) \\\\\n& + (32 - 33 + 34 - 35 + \\cdots + 62 - 63) \\\\\n= 4 \\cdot 2016 + 3 \\cdot 16 + (-16) = 8064 + 32 = 8096.\n\\end{aligned}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-4450",
+      "name": "HMMT November #0kya",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inverses mod n",
+        "Sums and products"
+      ],
+      "statement": "Problem:\n\nFor integers $2 \\leq n \\leq 100$, let $f(n)$ denote the unique integer $1 \\leq a < n$ such that $101 a \\equiv 1 \\pmod{n}$. Estimate\n$$\n\\sum_{n=2}^{100} \\frac{f(n)}{n}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-4472",
+      "name": "HMMT November #0kyw",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inverses mod n",
+        "Greatest common divisors (gcd)",
+        "φ (Euler's totient)",
+        "Sums and products"
+      ],
+      "statement": "Problem:\nFor each positive integer $n$, let $f(n)$ be either the unique integer $r \\in \\{0,1, \\ldots, n-1\\}$ such that $n$ divides $15 r-1$, or $0$ if such $r$ does not exist. Compute\n$$\nf(16)+f(17)+f(18)+\\cdots+f(300) .\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nNote we only need to sum $f(n)$ for $n$ relatively prime to $15$. For any such $n > 1$, there exists a positive integer $b$ such that $15 f(n) - 1 = b n$. Since $b n \\leq 15(n-1) - 1 < 15 n$ it follows that $b \\in \\{1, \\ldots, 14\\}$. Moreover, we have $b n \\equiv 1 \\pmod{15}$. These two conditions uniquely determine $b$.\n\nNow, we are in business to compute the sum. Let $S$ be the set of positive integers $a \\in \\{0,1,2, \\ldots, 14\\}$ such that $\\gcd(a, 15) = 1$. For each $a \\in S$, we first sum $f(n)$ over $n = 15k + a$ for $k \\in \\{1,2, \\ldots, 19\\}$. Given $a$, we can uniquely determine $b$ from $b \\equiv -1/a \\pmod{15}$. Thus, the sum of $f(n)$ across all numbers of the form $n = 15k + a$ is\n\n$$\n\\begin{aligned}\n\\sum_{k=1}^{19} f(15k + a) &= \\sum_{k=1}^{19} \\frac{b(15k + a) + 1}{15} \\\\\n&= 19 \\cdot \\frac{a b + 1}{15} + b \\sum_{k=1}^{19} k \\\\\n&= 19 \\cdot \\frac{a b + 1}{15} + 190 b\n\\end{aligned}\n$$\n\nWe now sum the above expression across all $a \\in S$.\n\n- The sum of the first term $19 \\cdot \\frac{a b + 1}{15}$ needs to be evaluated manually. The pairs $(a, b)$ that work are $(1,14), (2,7), (4,11), (8,13)$, and four other pairs obtained by swapping $a$ and $b$. Thus, the sum of the first term over all $a \\in S$ is\n$$\n19 \\cdot 2 \\cdot \\left(\\frac{1 \\cdot 14 + 1}{15} + \\frac{2 \\cdot 7 + 1}{15} + \\frac{4 \\cdot 11 + 1}{15} + \\frac{8 \\cdot 13 + 1}{15}\\right) = 19 \\cdot 2 \\cdot (1 + 1 + 3 + 7) = 456.\n$$\n\n- To evaluate the sum of the second term $190 b$, we note that as $a$ varies through $S$, $b$ attains every value in $S$ exactly once. We have $|S| = \\varphi(15) = 8$ and $b \\in S \\Longleftrightarrow 15 - b \\in S$, so the sum of elements of $S$ is $\\frac{15 \\cdot 8}{2} = 60$. Hence, the sum of the second term over all $a \\in S$ is $190 \\cdot 60 = 11400$.\n\nHence, the answer is $11400 + 456 = 11856$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-4679",
+      "name": "TST2025 #0l4n",
+      "url": "https://usamoguide.com/",
+      "source": "TST2025",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inverses mod n",
+        "Games / greedy algorithms"
+      ],
+      "statement": "Let $n$ be a positive integer. Ana and Banana play a game. Banana thinks of a function $f: \\mathbb{Z} \\to \\mathbb{Z}$ and a prime number $p$. He tells Ana that $f$ is nonconstant, $p < 100$, and $f(x+p) = f(x)$ for all integers $x$. Ana's goal is to determine the value of $p$. She writes down $n$ integers $x_1, \\dots, x_n$. After seeing this list, Banana writes down $f(x_1), \\dots, f(x_n)$ in order. Ana wins if she can determine the value of $p$ from this information. Find the smallest value of $n$ for which Ana has a winning strategy.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-4706",
+      "name": "HMMT February #0l5e",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inverses mod n",
+        "Greatest common divisors (gcd)",
+        "σ (sum of divisors)",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\nA subset $S$ of $\\{1,2,3,\\ldots ,2025\\}$ is called balanced if for all elements $a$ and $b$ both in $S$, there exists an element $c$ in $S$ such that $2025$ divides $a + b - 2c$. Compute the number of nonempty balanced subsets.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe work mod $2025$, so the condition becomes that for any $a$, $b \\in S$, we have $\\frac{a + b}{2} \\in S$.\n\nFirst, we prove that $S$ must be an arithmetic sequence. Observe that if $S$ is balanced, then so is the shift $S + k = \\{s + k \\mid s \\in S\\}$ for all $k$, so we can assume $0 \\in S$. Let $s$ be an element of $S$ such that $d = \\gcd (s, 2025)$ is minimal. Observe that for any $t \\in S$, we have $\\frac{t}{2} = \\frac{0 + t}{2} \\in S$. Thus, $\\frac{s}{2^n}$ is in $S$ for all $n$. Because $\\gcd (2, 2025) = 1$, this implies $2^n s \\bmod 2025 \\in S$ for all $n$. We prove the following claim.\n\nClaim 1. For all positive integers $m$, we have $ms \\in S$.\n\nProof. We proceed with induction on the number of 1's in the binary representation of $m$.\n\nBase Case: $m$ has one 1 in binary, so $m$ is a power of 2. Then $ms \\in S$ as noted above.\n\nInduction Step: Assume the claim holds for all $m$ which have $k$ 1's in their binary representations. Suppose $m$ has $k + 1$ 1's in its binary representation. Let $2^{n}$ be the largest power of 2 which is at most $m$. Then $m - 2^{n}$ has $k$ 1's in its binary representation, so $2(m - 2^{n})$ does as well. By the induction hypothesis, $2(m - 2^{n})s \\in S$. Also, $2^{n + 1}s \\in S$, so\n$$\nm s = \\frac{2^{n + 1}s + 2(m - 2^{n})s}{2} \\in S,\n$$\nas desired. $\\square$\n\nIt follows that every multiple of $s$ is in $S$. The multiples of $s$ are precisely the multiples of $d$, so $S$ contains every multiple of $d$. Now assume for sake of contradiction that $S$ contains some element $t$ which is not a multiple of $d$, so we can write $t = cd + r$ such that $0 < r < d$. Then $2t \\in S$, so\n$$\nr = \\frac{2t + (- 2c)d}{2} \\in S.\n$$\nBut then $\\gcd (r, 2025) \\leq r < d$, contradicting the minimality of $d$. Thus $S$ is precisely the multiples of $d$.\n\nIt can be verified that for any $d \\mid 2025$, the set of multiples of $d$ is balanced. Indeed, as $d$ is odd, for any $ad$, $bd \\in S$, their average $\\frac{(a + b)d}{2}$ is a multiple of $d$ and hence also in $S$. Thus, any shift of such a set is also balanced; as seen above, these classify all balanced sets. For each $d \\mid 2025$, there are $d$ choices for $S$, so the answer is\n$$\n\\sum_{d \\mid 2025} d = \\frac{3^5 - 1}{2} \\cdot \\frac{5^3 - 1}{4} = \\left\\lceil \\frac{3751}{2} \\right\\rceil.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-inverses-mod-n-auto-4803",
+      "name": "2025 AIME I #0l83",
+      "url": "https://usamoguide.com/",
+      "source": "2025 AIME I",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inverses mod n",
+        "Enumeration with symmetry",
+        "Counting two ways"
+      ],
+      "statement": "There are $8! = 40320$ eight-digit positive integers that use each of the digits $1, 2, 3, 4, 5, 6, 7, 8$ exactly once. Let $N$ be the number of these integers that are divisible by $22$. Find the difference between $N$ and $2025$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

@@ -1,0 +1,573 @@
+{
+  "MODULE_ID": "expected-value",
+  "practice": [
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-expected-values-auto-0091",
+      "name": "MathNet #0hl7",
+      "url": "https://usamoguide.com/",
+      "source": "MathNet",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Expected values"
+      ],
+      "statement": "Problem:\n\nFrank and Joe are playing ping pong. For each game, there is a $30\\%$ chance that Frank wins and a $70\\%$ chance Joe wins. During a match, they play games until someone wins a total of 21 games. What is the expected value of number of games played per match?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe expected value of the ratio of Frank's to Joe's score is $3:7$, so Frank is expected to win $9$ games for each of Frank's $21$. Thus the expected number of games in a match is $30$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-expected-values-auto-0111",
+      "name": "Berkeley Math Circle: Monthly Contest 6 #0hlr",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Expected values"
+      ],
+      "statement": "Problem:\n\nBob has five airplane tickets with prices $\\$ 100, \\$ 120, \\$ 140, \\$ 160$, and $\\$ 180$. Bob gives an offer to Aerith: she can distribute his tickets among two bags, after which, without looking inside, Bob will randomly choose a bag and a ticket from it for Aerith to keep. What strategy should Aerith use to maximize the expected value of her ticket?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet the first bag be the one with less tickets. Let $a < b$ and $S, T$ be the numbers and prices of tickets in the respective bags. We have $a + b = 5$ and $S + T = \\$ 700$. The expected values of random tickets for each bag is then $S / a$ and $T / b$, the average of which is\n$$\n\\frac{S / a + T / b}{2} = \\frac{b S + a T}{2 a b} = \\frac{(b - a) S + a \\cdot \\$ 700}{2 a b}.\n$$\nFor fixed $a < b$, this is maximized when $S$ is as large as possible. Thus if $(a, b) = (1, 4)$, the first bag then should contain $\\$ 180$, whereas for $(a, b) = (2, 3)$, it should contain $\\$ 180 + \\$ 160 = \\$ 340$.\n\nUsing the first strategy, she has an expected value of $\\frac{\\$ 180 / 1 + \\$(700 - 180) / 4}{2} = \\$ 155$, and using the second, she has an expected value of $\\frac{\\$ 340 / 2 + \\$(700 - 340) / 3}{2} = \\$ 145$, so the best strategy is the first strategy: put the $\\$ 180$ ticket in one bag and the rest in another."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-expected-values-auto-0281",
+      "name": "Berkeley Math Circle: Monthly Contest 7 #0hqh",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 7",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorial Geometry",
+        "Expected values"
+      ],
+      "statement": "Problem:\n\nGiven ten points in the plane, show that it is always possible to cover all of them with non-overlapping unit circles.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSuppose we place the circles in a hexagonal tiling so they are all tangent to each other. Then each circle has area $\\pi$, and each circle is inscribed in a hexagon. In each hexagon, the distance from the center to each side is $1$. Thus, each of the six equilateral triangles making up the hexagon has height $1$ and thus side length $2 / \\sqrt{3}$. Therefore, the triangle's area is\n$$\n\\frac{1}{2} \\cdot 1 \\cdot \\frac{2}{\\sqrt{3}} = \\frac{1}{\\sqrt{3}}\n$$\nSince the hexagon is made of six triangles, it has area $6 \\cdot 1 / \\sqrt{3} = 2 \\sqrt{3}$. Thus, the portion of the plane covered by circles is the area of each circle divided by the area of the hexagon it is inscribed in, or\n$$\n\\frac{\\pi}{2 \\sqrt{3}} \\approx 0.907\n$$\nSo, if we use unit circles in a hexagonal tiling with a randomly chosen center, each point has a $90.7\\%$ chance of being covered by a circle, so the expected number of our $10$ points that are covered is $9.07 > 9$. Since every tiling covers a whole number of points and the expected number covered is more than $9$, there must be some tiling that covers at least $10$ points."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-expected-values-auto-0480",
+      "name": "Berkeley Math Circle: Monthly Contest 2 #0hw0",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 2",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Induction / smoothing",
+        "Expected values",
+        "Sums and products",
+        "Coloring schemes, extremal arguments"
+      ],
+      "statement": "Problem:\nLet $A$ be a set of size $2023$. Find the maximum number of pairs of elements $x, y \\in A$ so that $x-y$ is a power of $e$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $a_{n}$ be the maximum possible number of such pairs for a set of size $n$. Let $s_{2}(n)$ be the number of ones in $n$'s binary representation. Let $S(n)=\\sum_{k=0}^{n-1} s_{2}(k)$. We show that $a_{n}=S(n)$.\n\nFor the construction, we can take the binary representations of all numbers from $0$ to $n-1$, and interpret them as numbers \"base $e$\". Every $x$ corresponding to some integer $0 \\leq k < n$ then has $s_{2}(k)$ working values of $y$, corresponding to all ways to replace a $1$ with a $0$ in $k$'s binary representation.\n\nFor optimality, we use strong induction. The base case of $n=1$ holds as $a_{1}=0=s_{2}(0)$.\n\nNow assume $n>1$. If $A$ has no working pairs $x, y$, we are done. Otherwise, let $t$ be an integer so that there is at least one pair $x, y \\in A$ so that $x-y=e^{t}$.\n\nLet $G$ be the graph of such pairs in $A$. If $G$ is not connected, we can increase the number of edges of $G$ by shifting the vertices of one component of $G$ to create at least one edge to another component. Thus we can assume that all elements of $A$ are sums of powers of $e$. For an element $z \\in A$, let $c_{z}$ be the coefficient of $e^{t}$ in the representation of $A$ as a sum.\n\nLet $X$ be the set of $z$ so that $c_{z} \\geq c_{x}$ and let $Y$ be the set of $z$ so that $c_{z} \\leq c_{y}$. Note that $X \\sqcup Y = A$. By strong induction, there are at most $a_{|X|}$ working pairs in $X$, and at most $a_{|Y|}$ pairs in $Y$. By definition of $X$ and $Y$, any pair between them can only have one possible difference, namely $e^{t}$. Thus, there are at most $\\min (|X|,|Y|)$ pairs between them.\n\nThus, we have the recurrence $a_{n} \\leq \\max_{X+Y=n}\\left(a_{X}+a_{Y}\\right)+\\min (X, Y)$. It thus suffices to show that if $Y \\geq X$, $S(X+Y)-S(Y) \\geq S(X)+X$, which expands to\n$$\n\\sum_{k=Y}^{Y+X-1} s_{2}(k) \\geq \\sum_{k=0}^{X-1}\\left(1+s_{2}(k)\\right).\n$$\nAn exercise to the interested reader is to show this by strong induction on $X$.\n\nNow it remains to evaluate $S(2023)$. By linearity of expectation, $S(2048)$ is equal to $2048 \\cdot 11 / 2$. For every number from $2032=2048-16$ to $2048$, $7$ digits must be $1$ and the remaining four each have a half chance of being $1$, giving $S(2048)-S(2032)=16 \\cdot(7+4 / 2)$. Similarly $S(2032)-S(2024)=8 \\cdot(7+3 / 2)$, $S(2024)-S(2023)$ is just the number of ones in $2023=11111100111_{2}$ is $9$. Thus the answer is\n$$\n2048 \\cdot 11 / 2 - 16 \\cdot (7+4/2) - 8 \\cdot (7+3/2) - 9 = 11043.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-expected-values-auto-0579",
+      "name": "BAMO #0hyr",
+      "url": "https://usamoguide.com/",
+      "source": "BAMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Counting two ways",
+        "Expected values"
+      ],
+      "statement": "Problem:\n\nIn the $O$-$E$ game, a round starts with player $A$ paying $c$ cents to player $B$. Then $A$ secretly arranges the numbers $1, 3, 5, 7, 9, 11, 13$ in some order as a sequence $a_{1}, a_{2}, \\ldots, a_{7}$, and $B$ secretly arranges $2, 4, 6, 8, 10, 12, 14$ as a sequence $b_{1}, b_{2}, \\ldots, b_{7}$. Finally, the players show their sequences and $B$ pays $A$ one cent for each $i$ in $X=\\{1,2,3,4,5,6,7\\}$ such that $a_{i}<b_{i}$. This finishes the round. What number $c$ would make the game fair? (The game is fair if the total payments by $A$ to $B$ equals the total payments by $B$ to $A$ after all possible distinct rounds are played exactly once.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $k$ be in $X$. There are $7!\\,6!\\,(8-k)$ choices of the sequences $a_{1}, a_{2}, \\ldots, a_{7}$ and $b_{1}, b_{2}, \\ldots, b_{7}$ for which $2k-1$ is an $a_{j}$ with $a_{j}<b_{j}$. Indeed, the $a$'s can be any of the $7!$ permutations of the 7 odd integers; then $j$ is the subscript such that $a_{j}=2k-1$, and $b_{j}$ must be one of the $8-k$ numbers in $\\{2k, 2k+2, \\ldots, 14\\}$; the remaining 6 even integers can be arranged in $6!$ ways.\n\nThe total of the payments by $B$ to $A$ for the $(7!)^{2}$ possible rounds is then\n$$\n\\sum_{k=1}^{7} 7!\\,6!\\,(8-k) = 7!\\,6!\\,(7+6+\\cdots+1) = 7!\\,6!\\,28 = (7!)^{2} 4\n$$\n$A$ pays to $B$ a total of $(7!)^{2}c$; so $c=4$ makes the game fair.\n\nSolution:\n\nFor those who know that the sum of expected values (averages) is the expected value of the sum, we note that in the first spot, $1, 3, 5, 7, 9, 11, 13$ are equally likely, and hence the average payment is the average of the payments for each of these numbers, $7/7, 6/7, 5/7, 4/7, 3/7, 2/7, 1/7$. Hence in the first spot the average payment is\n$$\n\\frac{(7/7 + 6/7 + 5/7 + 4/7 + 3/7 + 2/7 + 1/7)}{7} = 4/7 \\text{ of a cent. }\n$$\nSince there are 7 spots, with an average payment of $4/7$ cent each, the total payment averages 4 cents; so $c=4$ makes the game fair."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-expected-values-auto-0779",
+      "name": "Harvard-MIT Math Tournament #0i4b",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Expected values"
+      ],
+      "statement": "Problem:\n\nOne fair die is rolled; let $a$ denote the number that comes up. We then roll $a$ dice; let the sum of the resulting $a$ numbers be $b$. Finally, we roll $b$ dice, and let $c$ be the sum of the resulting $b$ numbers. Find the expected (average) value of $c$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n$343 / 8$\n\nThe expected result of an individual die roll is $(1+2+3+4+5+6)/6 = 7/2$. For any particular value of $b$, if $b$ dice are rolled independently, then the expected sum is $(7/2) b$. Likewise, when we roll $a$ dice, the expected value of their sum $b$ is $(7/2) a$, so the expected value of $c$ is $(7/2)^2 a$. Similar reasoning again shows us that the expected value of $a$ is $7/2$ and so the expected value of $c$ overall is $(7/2)^3 = 343/8$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-expected-values-auto-0999",
+      "name": "Harvard-MIT Mathematics Tournament #0iaf",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Counting two ways",
+        "Algebraic properties of binomial coefficients",
+        "Expected values"
+      ],
+      "statement": "Problem:\nFor any subset $S \\subseteq \\{1,2, \\ldots, 15\\}$, a number $n$ is called an \"anchor\" for $S$ if $n$ and $n+|S|$ are both members of $S$, where $|S|$ denotes the number of members of $S$. Find the average number of anchors over all possible subsets $S \\subseteq \\{1,2, \\ldots, 15\\}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe first find the sum of the numbers of anchors of all subsets $S$; this is equivalent to finding, for each $n$, the number of sets for which $n$ is an anchor, and then summing over all $n$. Suppose that $n$ is an anchor for $S$, and $S$ has $k$ elements. Then $n, n+k \\in S \\Rightarrow k \\geq 2$, and also $n+k \\leq 15$, or $k \\leq 15-n$. The remaining $k-2$ elements of $S$ (other than $n$ and $n+k$) may be freely chosen from the remaining 13 members of $\\{1,2, \\ldots, 15\\}$, so we get $\\binom{13}{k-2}$ possible sets $S$. Summing over all allowed values of $k$, we then have $\\binom{13}{0}+\\binom{13}{1}+\\binom{13}{2}+\\cdots+\\binom{13}{13-n}$ sets with $n$ as an anchor. If we sum over all $n=1,2, \\ldots, 13$ (since there are no possible values of $k$ when $n>13$), we get a total of\n$$\n13\\binom{13}{0}+12\\binom{13}{1}+11\\binom{13}{2}+\\cdots+\\binom{13}{12}\n$$\nIf we call this quantity $A$, then, by symmetry, $2A$ equals\n$$\n\\begin{aligned}\n& 13\\binom{13}{0}+12\\binom{13}{1}+11\\binom{13}{2}+\\cdots+\\binom{13}{12} \\\\\n& + \\left(\\binom{13}{1}+2\\binom{13}{2}+\\cdots+12\\binom{13}{12}+13\\binom{13}{13}\\right) = 13 \\cdot 2^{13}.\n\\end{aligned}\n$$\nSo $A=13 \\cdot 2^{12}$ is the total number of anchors over all possible sets $S$. Finally, to find the average number of anchors, we divide by the number of sets, which is $2^{15}$; thus, the answer is $13 \\cdot 2^{12} / 2^{15} = 13 / 8$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-expected-values-auto-1160",
+      "name": "Harvard-MIT Mathematics Tournament #0iew",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Expected values"
+      ],
+      "statement": "Problem:\nIf $a$, $b$, and $c$ are random real numbers from $0$ to $1$, independently and uniformly chosen, what is the average (expected) value of the smallest of $a$, $b$, and $c$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $d$ be a fourth random variable, also chosen uniformly from $[0,1]$. For fixed $a$, $b$, and $c$, the probability that $d < \\min \\{a, b, c\\}$ is evidently equal to $\\min \\{a, b, c\\}$. Hence,\nif we average over all choices of $a$, $b$, $c$, the average value of $\\min \\{a, b, c\\}$ is equal to the probability that, when $a$, $b$, $c$, and $d$ are independently randomly chosen, $d < \\min \\{a, b, c\\}$, i.e., that $d$ is the smallest of the four variables. On the other hand, by symmetry, the probability that $d$ is the smallest of the four is simply equal to $1/4$, so that is our answer."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-expected-values-auto-1207",
+      "name": "Harvard-MIT Mathematics Tournament #0ig7",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Expected values"
+      ],
+      "statement": "Problem:\n\nIn a town of $n$ people, a governing council is elected as follows: each person casts one vote for some person in the town, and anyone that receives at least five votes is elected to council. Let $c(n)$ denote the average number of people elected to council if everyone votes randomly. Find $\\lim_{n \\rightarrow \\infty} c(n) / n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n$1 - 65 / 24e$\n\nLet $c_{k}(n)$ denote the expected number of people that will receive exactly $k$ votes. We will show that $\\lim_{n \\rightarrow \\infty} c_{k}(n) / n = 1/(e \\cdot k!)$. The probability that any given person receives exactly $k$ votes, which is the same as the average proportion of people that receive exactly $k$ votes, is\n$$\n\\binom{n}{k} \\cdot \\left(\\frac{1}{n}\\right)^{k} \\cdot \\left(\\frac{n-1}{n}\\right)^{n-k} = \\left(\\frac{n-1}{n}\\right)^{n} \\cdot \\frac{n(n-1) \\cdots (n-k+1)}{k! \\cdot (n-1)^{k}}.\n$$\nTaking the limit as $n \\rightarrow \\infty$ and noting that $\\lim_{n \\rightarrow \\infty} \\left(1-\\frac{1}{n}\\right)^{n} = \\frac{1}{e}$ gives that the limit is $1/(e \\cdot k!)$, as desired. Therefore, the limit of the average proportion of the town that receives at least five votes is\n$$\n1 - \\frac{1}{e}\\left(\\frac{1}{0!} + \\frac{1}{1!} + \\frac{1}{2!} + \\frac{1}{3!} + \\frac{1}{4!}\\right) = 1 - \\frac{65}{24e}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-expected-values-auto-1317",
+      "name": "Harvard-MIT Mathematics Tournament #0ij9",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Expected values"
+      ],
+      "statement": "Problem:\n\nAt a nursery, $2006$ babies sit in a circle. Suddenly each baby pokes the baby immediately to either its left or its right, with equal probability. What is the expected number of unpoked babies?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe probability that any given baby goes unpoked is $1/4$. So the answer is $2006/4 = 1003/2$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-expected-values-auto-1342",
+      "name": "Harvard-MIT Mathematics Tournament #0ijy",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Expected values",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\n\nWrite down at least one, and up to ten, different 3-digit prime numbers. If you somehow fail to do this, we will ignore your submission for this problem. Otherwise, you're entered into a game with other teams. In this game, you start with 10 points, and each number you write down is like a bet: if no one else writes that number, you gain 1 point, but if anyone else writes that number, you lose 1 point. Thus, your score on this problem can be anything from 0 to 20.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThere are 143 three-digit primes. None of the following necessarily applies to the actual contest, but it might be useful to think about. Suppose that you're trying to maximize your expected score on this problem. Then you should write down a number if you think the probability that someone else is writing it is less than $1 / 2$ (of course, limit yourself to 10 numbers). You should avoid writing down any number if you think the probability that someone else is writing it is more than $1 / 2$ (of course, write down at least 1 number). Suppose that you expect a total of $M$ different numbers are going to be written down, but have no idea what numbers they might be. If you think $M \\geq 72$, you should write down 10 numbers at random; if $M \\leq 71$, you should write just 1 number."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-expected-values-auto-1497",
+      "name": "10th Annual Harvard-MIT Mathematics Tournament #0io9",
+      "url": "https://usamoguide.com/",
+      "source": "10th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Expected values"
+      ],
+      "statement": "Problem:\n\nForty two cards are labeled with the natural numbers $1$ through $42$ and randomly shuffled into a stack. One by one, cards are taken off of the top of the stack until a card labeled with a prime number is removed. How many cards are removed on average?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $\\frac{43}{14}$. Note that there are $13$ prime numbers amongst the cards. We may view these as separating the remaining $29$ cards into $14$ groups of nonprimes - those appearing before the first prime, between the first and second, etc. Each of these groups is equally likely to appear first, so $29/14$ nonprimes are removed on average. We are done since exactly one prime is always drawn."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-expected-values-auto-1565",
+      "name": "Harvard-MIT Mathematics Tournament #0iq5",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Expected values",
+        "Enumeration with symmetry"
+      ],
+      "statement": "Problem:\n\nLet $S=\\{1,2, \\ldots, 2008\\}$. For any nonempty subset $A \\subset S$, define $m(A)$ to be the median of $A$ (when $A$ has an even number of elements, $m(A)$ is the average of the middle two elements). Determine the average of $m(A)$, when $A$ is taken over all nonempty subsets of $S$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFor any subset $A$, we can define the \"reflected subset\" $A' = \\{i \\mid 2009 - i \\in A\\}$. Then $m(A) = 2009 - m(A')$. Note that as $A$ is taken over all nonempty subsets of $S$, $A'$ goes through all the nonempty subsets of $S$ as well. Thus, the average of $m(A)$ is equal to the average of $\\frac{m(A) + m(A')}{2}$, which is the constant $\\frac{2009}{2}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-expected-values-auto-1581",
+      "name": "1st Annual Harvard-MIT November Tournament #0iql",
+      "url": "https://usamoguide.com/",
+      "source": "1st Annual Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Expected values"
+      ],
+      "statement": "Problem:\n\nSandra the Maverick has 5 pairs of shoes in a drawer, each pair a different color. Every day for 5 days, Sandra takes two shoes out and throws them out the window. If they are the same color, she treats herself to a practice problem from a past HMMT. What is the expected value (average number) of practice problems she gets to do?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $\\frac{5}{9}$\n\nOn any given day, there is a $\\frac{1}{9}$ chance that the second shoe that Sandra chooses makes a pair with the first shoe she chose. Thus the average number of problems she does in a day is $\\frac{1}{9}$, so, by the linearity of expectation, she does $\\frac{5}{9}$ problems total, on average."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-expected-values-auto-1638",
+      "name": "1st Annual Harvard-MIT November Tournament #0is6",
+      "url": "https://usamoguide.com/",
+      "source": "1st Annual Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Expected values"
+      ],
+      "statement": "Problem:\n\nJoe B. is frustrated with chess. He breaks the board, leaving a $4 \\times 4$ board, and throws 3 black knights and 3 white kings at the board. Miraculously, they all land in distinct squares! What is the expected number of checks in the resulting position? (Note that a knight can administer multiple checks and a king can be checked by multiple knights.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe first compute the expected number of checks between a single knight-king pair. If the king is located at any of the 4 corners, the knight has 2 possible checks. If the king is located in one of the 8 squares on the side of the board but not in the corner, the knight has 3 possible checks. If the king is located in any of the 4 central squares, the knight has 4 possible checks. Summing up, $4 \\cdot 2 + 8 \\cdot 3 + 4 \\cdot 4 = 48$ of the $16 \\cdot 15$ knight-king positions yield a single check, so each pair yields $\\frac{48}{16 \\cdot 15} = \\frac{1}{5}$ expected checks. Now, note that each of the 9 knight-king pairs is in each of $16 \\cdot 15$ possible positions with equal probability, so by linearity of expectation the answer is $9 \\cdot \\frac{1}{5} = \\frac{9}{5}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-expected-values-auto-1713",
+      "name": "Harvard-MIT November Tournament #0iu9",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Expected values",
+        "Recursion, bijection"
+      ],
+      "statement": "Problem:\nSuppose that instead there are 6 rooms with 4 doors. In each room, 1 door leads to the next room in the sequence (or, for the last room, Bowser's level), while the other 3 doors lead to the first room. Now what is the expected number of doors through which Mario will pass before he reaches Bowser's level?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: 5460 This problem works in the same general way as the last problem, but it can be more succintly solved using the general formula, which is provided below in the solution to the next problem."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-expected-values-auto-1719",
+      "name": "Harvard-MIT November Tournament #0iuf",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Expected values",
+        "Recurrence relations"
+      ],
+      "statement": "Problem:\n\nIn general, if there are $d$ doors in every room (but still only 1 correct door) and $r$ rooms, the last of which leads into Bowser's level, what is the expected number of doors through which Mario will pass before he reaches Bowser's level?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $\\frac{d\\left(d^{r}-1\\right)}{d-1}$\n\nLet $E_{i}$ be the expected number of doors through which Mario will pass in the future if he is currently in room $i$ for $i=1,2, \\ldots, r+1$ (we will set $E_{r+1}=0$). We claim that\n$$\nE_{i} = 1 + \\frac{d-1}{d} E_{1} + \\frac{1}{d} E_{i+1}.\n$$\nThis is because, as before, there is a $\\frac{d-1}{d}$ chance of ending up in room $1$, and a $\\frac{1}{d}$ chance of ending up in room $i+1$. Note that we can re-write this equation as\n$$\nd E_{i} = d + (d-1) E_{1} + E_{i+1}.\n$$\nWe can solve this system of equations as follows: let $E_{1} = E_{i} + c_{i}$. Then we can re-write each equation as\n$$\nd E_{1} - d \\cdot c_{i} = d + (d-1) E_{1} + E_{1} - c_{i+1},\n$$\nso $c_{i+1} = d \\cdot c_{i} + d$, and $c_{1} = 0$. We can then see that\n$$\nc_{i} = d \\frac{d^{i-1} - 1}{d-1}\n$$\n(either by finding the pattern or by using more advanced techniques, such as those given at http://en.wikipedia.org/wiki/Recurrence_relation).\n\nSolving for $E_{1}$ using $E_{1} = E_{r} + c_{r}$ and $E_{r} = 1 + \\frac{d-1}{d} E_{1}$, we get\n$$\nE_{1} = \\frac{d\\left(d^{r}-1\\right)}{d-1}.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-expected-values-auto-1726",
+      "name": "12th Annual Harvard-MIT Mathematics Tournament #0ium",
+      "url": "https://usamoguide.com/",
+      "source": "12th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Expected values",
+        "Invariants / monovariants",
+        "Recursion, bijection"
+      ],
+      "statement": "Problem:\n\nStan has a stack of 100 blocks and starts with a score of 0, and plays a game in which he iterates the following two-step procedure:\n\na. Stan picks a stack of blocks and splits it into 2 smaller stacks each with a positive number of blocks, say $a$ and $b$. (The order in which the new piles are placed does not matter.)\n\nb. Stan adds the product of the two piles' sizes, $ab$, to his score.\n\nThe game ends when there are only 1-block stacks left. What is the expected value of Stan's score at the end of the game?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $E(n)$ be the expected value of the score for an $n$-block game. It suffices to show that the score is invariant regardless of how the game is played. We proceed by induction. We have $E(1) = 0$ and $E(2) = 1$. We require that $E(n) = E(n-k) + E(k) + (n-k)k$ for all $k$. Setting $k = 1$, we hypothesize that $E(n) = n(n-1)/2$. This satisfies the recursion and base cases so $E(100) = 100 \\cdot 99 / 2 = 4950$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-expected-values-auto-1743",
+      "name": "$12^{\\text {th }}$ Annual Harvard-MIT Mathematics Tournament #0iv3",
+      "url": "https://usamoguide.com/",
+      "source": "$12^{\\text {th }}$ Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Expected values",
+        "Enumeration with symmetry"
+      ],
+      "statement": "Problem:\n\nTwo jokers are added to a $52$ card deck and the entire stack of $54$ cards is shuffled randomly. What is the expected number of cards that will be between the two jokers?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nEach card has an equal likelihood of being either on top of the jokers, in between them, or below the jokers. Thus, on average, $1 / 3$ of them will land between the two jokers."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-expected-values-auto-1762",
+      "name": "12th Annual Harvard-MIT Mathematics Tournament #0ivm",
+      "url": "https://usamoguide.com/",
+      "source": "12th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Expected values",
+        "Angle chasing"
+      ],
+      "statement": "Problem:\n\nFour points, $A$, $B$, $C$, and $D$, are chosen randomly on the circumference of a circle with independent uniform probability. What is the expected number of sides of triangle $A B C$ for which the projection of $D$ onto the line containing the side lies between the two vertices?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nBy linearity of expectations, the answer is exactly 3 times the probability that the orthogonal projection of $D$ onto $A B$ lies interior to the segment. This happens exactly when either $\\angle D A B$ or $\\angle D B A$ is obtuse, which is equivalent to saying that $A$ and $B$ lie on the same side of the diameter through $D$. This happens with probability $1 / 2$. Therefore, desired answer is $3 / 2$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-expected-values-auto-1798",
+      "name": "12th Annual Harvard-MIT Mathematics Tournament #0iwm",
+      "url": "https://usamoguide.com/",
+      "source": "12th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Expected values",
+        "Sums and products"
+      ],
+      "statement": "Problem:\n\nVon Neumann's Poker: The first step in Von Neumann's game is selecting a random number on $[0,1]$. To generate this number, Chebby uses the factorial base: the number $0 . A_{1} A_{2} A_{3} A_{4} \\ldots$ stands for $\\sum_{n=0}^{\\infty} \\frac{A_{n}}{(n+1)!}$, where each $A_{n}$ is an integer between $0$ and $n$, inclusive.\n\nChebby has an infinite number of cards labeled $\\mathbf{0}, \\mathbf{1}, \\mathbf{2}, \\ldots$. He begins by putting cards $\\mathbf{0}$ and $\\mathbf{1}$ into a hat and drawing randomly to determine $A_{1}$. The card assigned $A_{1}$ does not get reused. Chebby then adds in card $2$ and draws for $A_{2}$, and continues in this manner to determine the random number. At each step, he only draws one card from two in the hat.\n\nUnfortunately, this method does not result in a uniform distribution. What is the expected value of Chebby's final number?\n\nYour score on this problem will be the larger of $0$ and $\\lfloor 25(1-d)\\rfloor$, where $d$ is the positive difference between your answer and the correct answer.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-expected-values-auto-1848",
+      "name": "$12^{\\text {th }}$ Annual Harvard-MIT Mathematics Tournament #0iy0",
+      "url": "https://usamoguide.com/",
+      "source": "$12^{\\text {th }}$ Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Expected values"
+      ],
+      "statement": "Problem:\n\nPaul fills in a $7 \\times 7$ grid with the numbers $1$ through $49$ in a random arrangement. He then erases his work and does the same thing again (to obtain two different random arrangements of the numbers in the grid). What is the expected number of pairs of numbers that occur in either the same row as each other or the same column as each other in both of the two arrangements?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nEach of the $\\binom{49}{2}$ pairs of numbers has a probability of $\\frac{14 \\cdot \\binom{7}{2}}{\\binom{49}{2}} = 1/4$ of being in the same row or column in one of the arrangements, so the expected number that are in the same row or column in both arrangements is\n$$\n\\binom{49}{2} \\cdot (1/4)^2 = \\frac{147}{2}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-expected-values-auto-1913",
+      "name": "13th Annual Harvard-MIT Mathematics Tournament #0izt",
+      "url": "https://usamoguide.com/",
+      "source": "13th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Expected values"
+      ],
+      "statement": "Problem:\n\nPick a random integer between $0$ and $4095$, inclusive. Write it in base $2$ (without any leading zeroes). What is the expected number of consecutive digits that are not the same (that is, the expected number of occurrences of either $01$ or $10$ in the base $2$ representation)?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $\\frac{20481}{4096}$\n\nNote that every number in the range can be written as a $12$-digit binary string. For $i=1,2, \\ldots, 11$, let $R_{i}$ be a random variable which is $1$ if the $i$th and $(i+1)$st digits differ in a randomly chosen number in the range. By linearity of expectation, $E\\left(\\sum_{i} R_{i}\\right) = \\sum E\\left(R_{i}\\right)$.\n\nSince we choose every binary string of length $12$ with equal probability, the sum of the expectations is $\\frac{11}{2}$. However, this is not the expected number of $01$s and $10$s — we need to subtract the occasions where the leading digit is zero. There is a $\\frac{1}{2}$ chance that the number starts with a $0$, in which case we must ignore the first digit change — unless the number was $0$, in which case there are no digit changes. Therefore, our answer is $\\frac{11}{2} - \\frac{1}{2} + \\frac{1}{4096} = \\frac{20481}{4096}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-expected-values-auto-1919",
+      "name": "Harvard-MIT November Tournament #0izz",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Expected values"
+      ],
+      "statement": "Problem:\n\nJeff has a 50 point quiz at 11 am. He wakes up at a random time between 10 am and noon, then arrives at class 15 minutes later. If he arrives on time, he will get a perfect score, but if he arrives more than 30 minutes after the quiz starts, he will get a 0, but otherwise, he loses a point for each minute he's late (he can lose parts of one point if he arrives a nonintegral number of minutes late). What is Jeff's expected score on the quiz?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nIf Jeff wakes up between 10:00 and 10:45, he gets 50. If he wakes up between 10:45 and 11:15, and he wakes up $k$ minutes after 10:45, then he gets $50 - k$ points. Finally, if he wakes up between 11:15 and 12:00 he gets 0 points. So he has a $\\frac{3}{8}$ probability of 50, a $\\frac{3}{8}$ probability of 0, and a $\\frac{1}{4}$ probability of a number chosen uniformly between 20 and 50 (for an average of 35). Thus his expected score is $\\frac{3}{8} \\times 50 + \\frac{1}{4} \\times 35 = \\frac{75 + 35}{4} = \\frac{110}{4} = \\frac{55}{2}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-expected-values-auto-1979",
+      "name": "13th Annual Harvard-MIT Mathematics Tournament #0j1n",
+      "url": "https://usamoguide.com/",
+      "source": "13th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Factorization techniques",
+        "Expected values",
+        "Sums and products"
+      ],
+      "statement": "Problem:\n\nCall a positive integer almost-square if it can be written as $a \\cdot b$, where $a$ and $b$ are integers and $a \\leq b \\leq \\frac{4}{3} a$. How many almost-square positive integers are less than or equal to $1000000$? Your score will be equal to $25-65 \\frac{|A-C|}{\\min (A, C)}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $130348$\n\nTo get a good estimate for the number of almost-square integers, note that any number of the form $a \\cdot b$, with $b \\leq \\frac{4}{3} a$, will be by definition almost-square. Let's assume that it's relatively unlikely that a number is almost-square in more than one way. Then the number of almost-square numbers less than $n$ will be approximately\n$$\n\\sum_{a=1}^{\\sqrt{n}} \\sum_{b=a}^{\\frac{4}{3} a} 1 = \\frac{1}{3} \\sum_{a=1}^{\\sqrt{n}} a = \\frac{1}{6} \\sqrt{n}(\\sqrt{n}+1)\n$$\nwhich is about $\\frac{n}{6}$. So, $\\frac{n}{6}$ will be a fairly good estimate for the number of almost-square numbers less than $n$, making $160000$ a reasonable guess.\n\nWe can do better, though. For example, we summed $\\frac{a}{3}$ all the way up to $\\sqrt{n}$, but we are really overcounting here because when $a$ is close to $\\sqrt{n}$, $a \\cdot b$ will be less than $n$ only when $b \\leq \\frac{n}{a}$, as opposed to $b \\leq \\frac{4 a}{3}$. So we should really be taking the sum\n\n$$\n\\begin{aligned}\n& \\sum_{a=1}^{\\sqrt{\\frac{3 n}{4}}} \\sum_{b=a}^{\\frac{4 a}{3}} 1 + \\sum_{a=\\sqrt{\\frac{3 n}{4}}}^{\\sqrt{n}} \\sum_{b=a}^{\\frac{n}{a}} 1 \\\\\n& \\quad = \\sum_{a=1}^{\\sqrt{\\frac{3 n}{4}}} \\frac{a}{3} + \\sum_{a=\\sqrt{\\frac{3 n}{4}}}^{\\sqrt{n}} \\left(\\frac{n}{a} - a\\right) \\\\\n& \\quad \\approx \\frac{1}{6} \\frac{3 n}{4} + n\\left(\\log (\\sqrt{n}) - \\log \\left(\\sqrt{\\frac{3 n}{4}}\\right)\\right) - \\left(\\frac{n}{2} - \\frac{3 n}{8}\\right) \\\\\n& \\quad = \\frac{n}{8} + n \\frac{\\log (4) - \\log (3)}{2} - \\frac{n}{8} \\\\\n& \\quad = n \\frac{\\log (4) - \\log (3)}{2}\n\\end{aligned}\n$$\n\nIn the process of taking the sum, we saw that we had something between $\\frac{n}{8}$ and $\\frac{n}{6}$, so we could also guess something between $166000$ and $125000$, which would give us about $145000$, an even better answer. If we actually calculate $\\frac{\\log (4) - \\log (3)}{2}$, we see that it's about $0.14384$, so $143840$ would be the best guess if we were to use this strategy. In reality, we would want to round down a bit in both cases, since we are overcounting (because numbers could be almost-square in multiple ways), so we should probably answer something like $140000$.\n\nA final refinement to our calculation (and perhaps easier than the previous one), is to assume that the products $a \\cdot b$ that we consider are randomly distributed between $1$ and $n$, and to compute the expected number of distinct numbers we end up with. This is the same type of problem as number 31 on this contest, and we compute that if we randomly distribute $k$ numbers between $1$ and $n$ then we expect to end up with $n\\left(1-\\left(1-\\frac{1}{n}\\right)^{k}\\right)$ distinct numbers. When $k = n \\frac{\\log (4) - \\log (3)}{2}$, we get that this equals\n$$\n\\begin{aligned}\nn\\left(1-\\left(\\left(1-\\frac{1}{n}\\right)^{n}\\right)^{\\frac{\\log (4) - \\log (3)}{2}}\\right) & = n\\left(1-\\sqrt{e^{\\log (3) - \\log (4)}}\\right) \\\\\n& = n\\left(1-\\sqrt{\\frac{3}{4}}\\right) \\\\\n& = n\\left(1-\\frac{\\sqrt{3}}{2}\\right) \\\\\n& \\approx 0.134 n\n\\end{aligned}\n$$\nGiving us an answer of $134000$, which is very close to the correct answer.\n\nThe actual answer was found by computer, using the following C++ program:\n\n```\n#include <stdio.h>\nbool isAlmostSquare(int n) {\n    for(int k=1; k*k<=n; k++)\n        if(n%k==0 && 3*(n/k) <= 4*k) return true;\n    return false;\n}\n\nint main() {\n    int c = 0;\n    for(int n=1; n<=1000000; n++)\n        if(isAlmostSquare(n)) c++;\n    printf(\"%d\\n\",c);\n    return 0;\n}\n```"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

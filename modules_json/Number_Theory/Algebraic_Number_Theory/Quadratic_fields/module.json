@@ -1,0 +1,157 @@
+{
+  "MODULE_ID": "number-theory-algebraic-number-theory-quadratic-fields",
+  "practice": [
+    {
+      "uniqueId": "number-theory-algebraic-number-theory-quadratic-fields-auto-0319",
+      "name": "Berkeley Math Circle #0hrj",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Pell's equations",
+        "Infinite descent / root flipping",
+        "Quadratic fields"
+      ],
+      "statement": "Problem:\n\nFind all pairs of integers $x, y$ such that $2 x^{2} - 6 x y + 3 y^{2} = -1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe first characterize all solutions to the equation $a^{2} - 3 b^{2} = 1$ in nonnegative integers. This is a Pell equation, and the method used is standard. Suppose we have $(a + b \\sqrt{3})(a - b \\sqrt{3}) = a^{2} - 3 b^{2} = 1$ with $a > 1$; then we can set $a' = 2a - 3b$, $b' = 2b - a$. Then $(a + b \\sqrt{3}) = (2 + \\sqrt{3})(a' + b' \\sqrt{3})$ and $a'^{2} - 3 b^{2} = (4a^{2} - 12ab + 9b^{2}) - 3(4b^{2} - 4ab + a^{2}) = a^{2} - 3b^{2} = 1$. Moreover, we claim $a'$ and $b'$ are also nonnegative, with $a' < a$. To see this, note that $9b^{2} = 3(a^{2} - 1) < 4a^{2} \\Rightarrow 3b < 2a \\Rightarrow a' = 2a - 3b > 0$; $3b^{2} = a^{2} - 1 > 0 \\Rightarrow b > 0 \\Rightarrow a^{2} = 3b^{2} + 1 \\leq 4b^{2} \\Rightarrow b' = 2b - a \\geq 0$; and $b > 0 \\Rightarrow 9b^{2} > 3b^{2} + 1 = a^{2} \\Rightarrow a - a' = 3b - a > 0$.\n\nThus, a solution $(a, b)$ in nonnegative integers with $a > 1$ yields a new solution $(a', b')$ such that $a' < a$ and $(a + b \\sqrt{3}) = (2 + \\sqrt{3})(a' + b' \\sqrt{3})$. If $a' > 1$, we can repeat this process to obtain nonnegative integers $a'', b''$ such that $a'' < a'$ and $(a' + b' \\sqrt{3}) = (2 + \\sqrt{3})(a'' + b'' \\sqrt{3})$. Continuing in this manner, we obtain a sequence of solutions with $a > a' > a'' > \\cdots$. But this sequence of nonnegative integers cannot decrease forever, so eventually we get to some $n$ for which $a^{(n)} = 1$. The equation then implies $b^{(n)} = 0$, so $a + b \\sqrt{3} = (2 + \\sqrt{3})^{n}(a^{(n)} + b^{(n)} \\sqrt{3}) = (2 + \\sqrt{3})^{n}$. Then, it follows that $(2 - \\sqrt{3})^{n} = a - b \\sqrt{3}$. (This can be proven by comparing the binomial expansions of $(2 + \\sqrt{3})^{n}$ and $(2 - \\sqrt{3})^{n}$, or by a straightforward induction on $n$; note that the equation $a + b \\sqrt{3} = (2 + \\sqrt{3})^{n}$ uniquely determines the integers $a$ and $b$.) Thus, we conclude that\n$$\na = \\frac{(2 + \\sqrt{3})^{n} + (2 - \\sqrt{3})^{n}}{2}, \\quad b = \\frac{(2 + \\sqrt{3})^{n} - (2 - \\sqrt{3})^{n}}{2 \\sqrt{3}}.\n$$\nIf we had wanted all integer solutions to the equation $a^{2} - 3 b^{2} = 1$, rather than all nonnegative integer solutions, we simply note that the equation is invariant under switching signs of $a$ and/or $b$, so the set of all solutions is simply the set of solutions given above with possible sign changes thrown in.\n\nNow we consider the given equation, $2 x^{2} - 6 x y + 3 y^{2} = -1$. This can be rewritten as $x^{2} - 3(y - x)^{2} = 1$. Thus, by letting $a = x$, $b = y - x$, we have an equivalence between our given equation and the Pell equation, so we can express our solutions to the former in terms of those of the latter: $x = a$ and $y = a + b$ gives\n$$\nx = \\pm \\frac{(2 + \\sqrt{3})^{n} + (2 - \\sqrt{3})^{n}}{2}, \\quad y = x \\pm \\frac{(2 + \\sqrt{3})^{n} - (2 - \\sqrt{3})^{n}}{2 \\sqrt{3}}\n$$\nwhere $n$ is any nonnegative integer. It can be checked by computation that any such pair is a valid, integral solution, and the foregoing argument shows that all solutions are of this form."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-algebraic-number-theory-quadratic-fields-auto-0737",
+      "name": "USA IMO #0i35",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Greatest common divisors (gcd)",
+        "Unique factorization",
+        "Quadratic fields",
+        "Cyclic quadrilaterals",
+        "Triangle trigonometry"
+      ],
+      "statement": "Let $a > b > c > d$ be positive integers and suppose\n$$\nac + bd = (b + d + a - c)(b + d - a + c).\n$$\nProve that $ab + cd$ is not prime.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**First Solution.** For the sake of contradiction, assume that $ab + cd$ is prime. Note that\n$$\nab + cd = (a + d)c + (b - c)a = m \\cdot \\gcd(a + d, b - c)\n$$\nfor some positive integer $m$. Writing $g = \\gcd(a+d, b-c)$, we have\n$$\nm = \\frac{a+d}{g} \\cdot c + \\frac{b-c}{g} \\cdot a \\geq c+a > 1.\n$$\nTherefore, because $ab+cd$ is prime, $g=1$.\nSubstituting $ac+bd = (a+d)b - (b-c)a$ for the left-hand side of the given condition, we obtain\n$$\n(a+d)b - (b-c)a = (a+d)(b+d-a+c) + (b-c)(b+d-a+c),\n$$\nor\n$$\n(a+d)(a-c-d) = (b-c)(b+c+d).\n$$\nHence, there exists a positive integer $k$ such that\n$$\na-c-d = k(b-c),\n$$\n$$\nb+c+d = k(a+d).\n$$\nAdding these equations, we obtain $a+b = k(a+b-c+d)$ and thus $k(c-d) = (k-1)(a+b)$. Recall that $a > b > c > d > 0$. If $k=1$, then $c=d$, a contradiction. If $k \\ge 2$, then\n$$\n2 \\ge \\frac{k}{k-1} = \\frac{a+b}{c-d} > \\frac{2b}{c} > 2,\n$$\na contradiction.\nTherefore, our original assumption was wrong, and $ab+cd$ is not prime.\n\n\n**Second Solution.** (By Yonggao Chen, China) We give a proof by contradiction. Assume that $p = ab+cd$ is prime. Then $ab \\equiv -cd \\pmod p$. By (1),\n$$\nb^2(b^2 + bd + d^2) = b^2(a^2 - ac + c^2) = (ab)^2 - ab(bc) + b^2c^2.\n$$\nIt follows that\n$$\n\\begin{aligned} b^2(b^2 + bd + d^2) &\\equiv (ab)^2 - ab(bc) + b^2c^2 \\\\ &\\equiv (cd)^2 + cd(bc) + b^2c^2 \\\\ &\\equiv c^2(b^2 + bd + d^2) \\pmod p, \\end{aligned}\n$$\nimplying that $p \\mid (b^2 - c^2)(b^2 + bd + d^2)$. Observe that $0 < b^2 - c^2 < b^2 < ab < p$. Thus, $p$ and $b^2 - c^2$ must be relatively prime, so\n$$\np \\mid (b^2 + bd + d^2). \\qquad (2)\n$$\nBecause\n$$\n0 < b^2 + bd + d^2 < ab + ab + cd = 2ab + cd < 2p,\n$$\nwe must have $b^2 + bd + d^2 = p = ab + cd$ or, equivalently,\n$$\nb(b+d-a) = d(c-d).\n$$\nBecause $ab + cd$ is prime, $b$ must be relatively prime to $d$, so $b \\mid c - d$. This is impossible, because $0 < c - d < b$.\n\n\n**Third Solution.** (By Zhiqiang Zhang, China) Let $x = a - c$, $y = a + c$, $u = b - d$, and $v = b + d$. By the given condition, we have\n$$\n\\begin{aligned} y^2 - x^2 + v^2 - u^2 &= 4(ac + bd) \\\\ &= 4[(b+d) + (a-c)][(b+d) - (a-c)] \\\\ &= 4(v+x)(v-x) = 4(v^2 - x^2), \\end{aligned}\n$$\nor\n$$\ny^2 - u^2 = 3(v^2 - x^2). \\qquad (3)\n$$\nLet $s = a + b + c + d$, $x_1 = s - 2d$, $x_2 = s - 2c$, $x_3 = s - 2b$, and $x_4 = s - 2a$. Then $x_1 = y + u$, $x_2 = v + x$, $x_3 = y - u$, $x_4 = v - x$. Because $a > b > c > d$, $x_1 > x_2 > x_3 > x_4$. Now (3) reads\n$$\nx_1x_3 = 3x_2x_4. \\qquad (4)\n$$\nBecause\n$$\nxu + vy = (a - c)(b - d) + (a + c)(b + d) = 2(ab + cd)\n$$\nand\n$$\nx_1x_2 + x_3x_4 = (y + u)(v + x) + (y - u)(v - x) = 2(xu + yv),\n$$\nwe have\n$$\nab + cd = \\frac{1}{4}(x_1x_2 + x_3x_4). \\qquad (5)\n$$\nLet $g = \\gcd(x_1, x_4)$. It is clear that $s \\equiv x_i \\pmod 2$ for $i = 1, 2, 3, 4$. We consider the following cases.\n(i) $s \\equiv 1 \\pmod 2$. First suppose that $g = 1$. Then by (4), there exists some positive integer $k$ such that $x_3 = kx_4$ and, consequently, $kx_1 = 3x_2$. Because $x_3 > x_4$, $k > 1$; because $x_1 > x_2$, $k < 3$. Therefore, $k = 2$. But then $x_3$ is even, contradicting the assumption that each $x_i$ is odd.\nIt follows that $g > 1$, and that $g$ divides $x_1x_2+x_3x_4 = 4(ab+cd)$.\nBecause $x_1$ and $x_4$ are odd, $g$ is odd as well, implying that $g \\mid (ab+cd)$. Also observe that $x_1x_2+x_3x_4 \\ge 3x_1+2x_4 \\ge 3g+2g = 5g$, so that $g < ab+cd$. Therefore, $ab+cd$ is divisible by a number strictly between 1 and $ab+cd$, implying that it is composite.\n(ii) $s \\equiv x_i \\equiv 0 \\pmod{2}$. Let $x_i' = x_i/2$ for $i = 1, 2, 3, 4$, and let $g' = \\gcd(x_1', x_2')$. Then $g = 2g' \\ge 2$ and $x_1' > x_2' > x_3' > x_4'$. Note also that (4) and (5) become\n$$\nx_1'x_3' = 3x_2'x_4' \\quad \\text{and} \\quad ab + cd = x_1'x_2' + x_3x_4', \\quad (4')\n$$\nrespectively.\nIf $g' > 1$, then $g' \\mid (ab + cd)$. Since $ab + cd > x_2' \\ge g'$, $ab + cd$ must be composite.\nIf $g' = 1$, then by (4'), $x_3' = kx_4'$ and $kx_1' = 3x_2'$ for some positive integer $k$. Then again by $x_3' > x_4'$ and $x_1' > x_2'$, $k = 2$. Hence 2 divides both $x_2'$ and $x_3'$ implying that $ab+cd$ is even (by (4')). Since $ab+cd > a > 2$, $ab+cd$ is composite.\nFrom the above arguments, we conclude that $ab + cd$ is not prime.\n\n\n**Fourth Solution.** (By Andrei Vorobiev, Russia) Let $x = b+d+a-c$. It is clear that $x > 1$. We have $c \\equiv a+b+d \\pmod x$ and $d \\equiv c-a-b \\pmod x$. These congruences, combined with the given condition, yield\n$$\n\\begin{aligned}\n0 &\\equiv ac + bd \\equiv a(a + b + d) + bd \\\\\n&\\equiv (a + b)(a + d) \\pmod x\n\\end{aligned}\n$$\nand\n$$\n\\begin{aligned}\n0 &\\equiv ac + bd \\equiv ac + b(c - a - b) \\\\\n&\\equiv (a + b)(c - b) \\pmod x.\n\\end{aligned}\n$$\nHence, $x \\mid (a+b)(a+d)$ and $x \\mid (a+b)(c-b)$.\nBecause $a+b > (a+b) - (c-d) = x$ and $2x = 2[a + (b-c) + d] > 2a > a+b$, $a+b$ is not divisible by $x$. Thus, there is a prime $p$ that divides each of $x$, $(a+d)$, and $(c-b)$. To finish, we only need to prove that $p$ is a proper divisor of $ab+cd$. In fact, $ab+cd > a+d \\ge p$ and\n$$\np \\mid (a+d)b + (c-b)d = ab + cd,\n$$\nas desired.\n\n\n**Fifth Solution.** Let $ABCD$ be the quadrilateral with $AB = a, BC = d, CD = b, AD = c, \\angle BAD = 60^\\circ$, and $\\angle BCD = 120^\\circ$. Such a quadrilateral exists in view of (1) and the **Law of Cosines**; the common value in (1) is $BD^2$. Let $\\angle ABC = \\alpha$, so that $\\angle CDA = 180^\\circ - \\alpha$. Applying the Law of Cosines to triangles $ABC$ and $ACD$ gives\n$$\na^2 + d^2 - 2ad \\cos \\alpha = AC^2 = b^2 + c^2 + 2bc \\cos \\alpha.\n$$\nHence, $2 \\cos \\alpha = (a^2 + d^2 - b^2 - c^2)/(ad + bc)$, and\n$$\nAC^2 = a^2 + d^2 - ad \\frac{a^2 + d^2 - b^2 - c^2}{ad + bc} = \\frac{(ab + cd)(ac + bd)}{ad + bc}.\n$$\nBecause $ABCD$ is cyclic, the **Ptolemy's Theorem** yields\n$$\n(AC \\cdot BD)^2 = (AB \\cdot CD + AD \\cdot BD)^2 = (ab + cd)^2\n$$\nIt follows that\n$$\n(ac + bd)(a^2 - ac + c^2) = (ab + cd)(ad + bc). \\quad (6)\n$$\n(Note that straightforward algebra can also be used to obtain (6) from (1).) Observe that\n$$\nab + cd > ac + bd > ad + bc. \\quad (7)\n$$\nThe first inequality follows from $(a-d)(b-c) > 0$, and the second from $(a-b)(c-d) > 0$.\nNow assume that $ab+cd$ is prime. It then follows from (7) that $ab+cd$ and $ac+bd$ are relatively prime. Hence, from (6), it must be true that $ac+bd$ divides $ad+bc$. However, this is impossible by (7). Thus, $ab+cd$ must not be prime.\n\n\n**Sixth Solution.** (By Reid Barton and Gabriel Carroll) Let $\\omega = e^{\\frac{2\\pi i}{3}}$. Then\n$$\n\\omega^3 = 1 \\quad \\text{and} \\quad 1 + \\omega + \\omega^2 = 0. \\qquad (8)\n$$\nWe are going to use two fundamental facts about the ring $\\mathbb{Z}[\\omega]$:\n* Fact 1. $\\mathbb{Z}[\\omega]$ is a unique factorization domain (UFD);\n* Fact 2. the units in $\\mathbb{Z}[\\omega]$ are $\\pm 1, \\pm\\omega, \\pm\\omega^2$.\nFactoring (1) in $\\mathbb{Z}[\\omega]$ gives\n$$\n(c + \\omega a)(c + \\omega^2 a) = (b - \\omega d)(b - \\omega^2 d). \\qquad (9)\n$$\n**Lemma 1.** If $a > b > c > d$ are positive integers satisfying (9), and $ab + cd$ is prime, then $c + \\omega a$ and $b - \\omega d$ are not relatively prime.\n*Proof.* Assume for the sake of contradiction that $c + \\omega a$ and $b - \\omega d$ are relatively prime. Since complex conjugation is an automorphism of $\\mathbb{Z}[\\omega]$ sending $\\omega$ to $\\omega^2$, $c + \\omega^2 a$ and $b - \\omega^2 d$ must also be relatively prime. From the two facts, we conclude that $c + \\omega a = u(b - \\omega^2 d)$ for some unit $u \\in \\{\\pm 1, \\pm \\omega, \\pm \\omega^2\\}$.\nIf $u = \\pm 1$, then $c + \\omega a = \\pm (b - \\omega^2 d) = \\pm (b + d) \\pm \\omega d$ (by the second part of (8)), contradicting $a \\neq \\pm d$.\nIf $u = \\pm \\omega$, then $c + \\omega a = \\pm \\omega(b - \\omega^2 d) = \\mp d \\pm \\omega b$ (by the first part of (8), contradicting both $a \\neq \\pm b$ and $c \\neq \\mp d$).\nIf $u = \\pm \\omega^2$, then $c + \\omega a = \\pm \\omega^2(b - \\omega^2 d) = \\pm(\\omega^2 b - \\omega d) = \\mp b \\mp (b+d)\\omega$ (by (8)), contradicting $c \\neq \\mp b$.\nIn all cases, we reach a contradiction, so $c + \\omega a$ and $b - \\omega d$ are not relatively prime. ■\n**Lemma 2.** If $a > b > c > d$ are positive integers satisfying (1) and $ab + cd$ is prime, then $ad = cb + cd$.\n*Proof.* Since $a, b, c, d$ satisfy (1), they also satisfy (9), so by Lemma 1, there exists some prime $p = q + r\\omega \\in \\mathbb{Z}[\\omega]$ such that $p \\mid c + \\omega a$ and $p \\mid b - \\omega d$. Then $\\overline{p} = q + r\\omega^2 \\mid b - \\omega^2 d$, so $p\\overline{p} \\mid (c + \\omega a)(b - \\omega^2 d)$. Note that\n$$\nN(p) = p\\overline{p} = q^2 - qr + r^2\n$$\nand that\n$$\n(c + \\omega a)(b - \\omega^2 d) = bc + \\omega ab - \\omega^2 dc - \\omega^3 ad \\\\ = (-ad + bc + dc) + (ab + cd)\\omega.\n$$\nTherefore, $N(p) \\mid [(-ad + bc + dc) + (ab + cd)\\omega]$. Since $N(p) \\in \\mathbb{Z}$, we must have $N(p) \\mid (-ad + bc + dc)$ and $N(p) \\mid ab + cd$. Since $ab + cd$ is prime, $N(p) = ab + cd$, and so $ab + cd \\mid (-ad + bc + cd)$. But\n$$\nab + cd - (-ad + bc + dc) = (ab - bc) + ad > 0\n$$\nand\n$$\nab + cd + (-ad + bc + dc) > ab - ad > 0,\n$$\nso $|-ad+bc+cd| < ab+cd$. Hence, we must have $-ad+bc+cd = 0$, that is, $ad = cb + cd$.\nNow suppose that $a > b > c > d > 0$ are integers satisfying (1). Then\n$$\n\\begin{aligned}\n(a-c)^2 + (a-c)c + c^2 &= a^2 - 2ac + c^2 + ac - c^2 + c^2 \\\\\n&= a^2 - ac + c^2 \\\\\n&= b^2 + bd + d^2.\n\\end{aligned}\n$$\nSince $c > d > 0$, we must have $a - c < b$ implying $(a - c)d < bd < bc$, or $ad < cb + cd$. By Lemma 2, $ab + cd$ cannot be prime, and we are done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-algebraic-number-theory-quadratic-fields-auto-2818",
+      "name": "BAMO #0joy",
+      "url": "https://usamoguide.com/",
+      "source": "BAMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Techniques: modulo, size analysis, order analysis, inequalities",
+        "Recurrence relations",
+        "Quadratic fields"
+      ],
+      "statement": "Problem:\nLet $k$ be a positive integer. Prove that there exist integers $x$ and $y$, neither of which is divisible by $3$, such that $x^{2} + 2y^{2} = 3^{k}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFor the first several values of $k$ it is straightforward to find solutions $x_{k}$ and $y_{k}$ satisfying $x_{k}^{2} + 2y_{k}^{2} = 3^{k}$, leading to this table of solutions.\n\n| $k$ | $x_{k}$ | $y_{k}$ |\n| ---: | ---: | ---: |\n| 1 | 1 | 1 |\n| 2 | 1 | 2 |\n| 3 | 5 | 1 |\n| 4 | 7 | 4 |\n| 5 | 1 | 11 |\n\nThe key is to realize that negating any value of $x_{k}$ or $y_{k}$ also yields a solution, so we may recast the table as follows.\n\n| $k$ | $x_{k}$ | $y_{k}$ |\n| ---: | ---: | ---: |\n| 1 | -1 | -1 |\n| 2 | 1 | -2 |\n| 3 | 5 | -1 |\n| 4 | 7 | 4 |\n| 5 | -1 | 11 |\n\nIt is now apparent that we should take $x_{k+1} = x_{k} - 2y_{k}$ and $y_{k+1} = x_{k} + y_{k}$. One then confirms that\n$$\n\\begin{aligned}\nx_{k+1}^{2} + 2y_{k+1}^{2} &= (x_{k}^{2} - 4x_{k}y_{k} + 4y_{k}^{2}) + 2(x_{k}^{2} + 2x_{k}y_{k} + y_{k}^{2}) \\\\\n&= 3(x_{k}^{2} + 2y_{k}^{2}),\n\\end{aligned}\n$$\nfrom which it easily follows by induction that $x_{k}^{2} + 2y_{k}^{2} = 3^{k}$ for all $k \\geq 1$. Finally, one can also show by induction that $x_{k} \\equiv y_{k} \\equiv (-1)^{k} \\bmod 3$, hence none of the $x_{k}$ or $y_{k}$ are divisible by $3$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-algebraic-number-theory-quadratic-fields-auto-3542",
+      "name": "Berkeley Math Circle: Monthly Contest 5 #0k92",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 5",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Prime numbers",
+        "Quadratic fields",
+        "Techniques: modulo, size analysis, order analysis, inequalities",
+        "Other"
+      ],
+      "statement": "Problem:\n\nShow that $x^{2}+y^{2}=z^{5}+z$ has infinitely many relatively prime integer solutions.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe use that there are infinitely many primes $p=4k+1$, and that all these primes can be written as a sum of two squares. Now, let $z=p$ be such a prime. Then $p=a^{2}+b^{2}$ for some integers $a$ and $b$, so\n$$\nz^{5}+z = p(p^{4}+1) = (a^{2}+b^{2})(p^{4}+1) = (a p^{2}+b)^{2} + (b p^{2}-a)^{2}.\n$$\nThus, we let $x = a p^{2} + b$ and $y = b p^{2} - a$, and $x$, $y$, and $z$ are relatively prime since $p$ is prime."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-algebraic-number-theory-quadratic-fields-auto-4469",
+      "name": "HMMT February 2024 #0kyt",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2024",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial interpolation: Newton, Lagrange",
+        "Complex numbers",
+        "Quadratic residues",
+        "Greatest common divisors (gcd)",
+        "Quadratic fields",
+        "Unique factorization"
+      ],
+      "statement": "Problem:\n\nAcross all polynomials $P$ such that $P(n)$ is an integer for all integers $n$, determine, with proof, all possible values of $P(i)$, where $i^{2} = -1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe claim the answer is every complex number $a+b i$ where $a$ and $b$ are rationals whose simplified denominators are not multiples of any prime congruent to $1$ modulo $4$. The proof consists of two main steps: proving that powers of $p \\equiv 1 \\bmod 4$ can't appear in the denominator, and showing all possible values are attainable. We show three different methods of the former part.\n\n## Impossibility via elementary number theory\n\nWe first show that no other values are possible. Indeed, it is well known that any polynomial that maps $\\mathbb{Z}$ into itself must be of the form $P(n)=\\sum_{k=0}^{m} a_{k}\\binom{n}{k}$ for integers $a_{k}$ and where we treat the binomials as formal polynomials. This may be proved via finite differences.\n\nIt is therefore sufficient to show that for any $k,\\binom{i}{k}$ can be simplified to a fraction of the form $\\frac{a+b i}{c}$, where $a, b, c$ are integers and $c$ is not divisible by any prime that is $1$ modulo $4$. We have that\n$$\n\\binom{i}{k}=\\frac{i \\cdot(i-1) \\cdot \\ldots \\cdot(i-(k-1))}{k \\cdot(k-1) \\cdot \\ldots \\cdot 1}\n$$\nPick any prime $p$ that is $1$ modulo $4$. Since $p$ is $1$ modulo $4$, there exist distinct residue classes $x, y$ modulo $p$ so that $x^{2} \\equiv y^{2} \\equiv -1 \\bmod p$. We will show that for every integer, $r \\leq k$ divisible by $p$ in the denominator, we can pair it with a disjoint set, $\\{r_{x}, r_{y}\\}$, of two positive integers less than $k$ in these two residue classes so that $(i-r_{x})(i-r_{y})$ has real and complex parts divisible by the highest power of $p$ dividing $r$. Thus any factor of $p$ that is $1$ modulo $4$ in the denominator, exists in the numerator as well, which suffices. Start with $u=1$ and repeat the following process for increasing $u$ until there is nothing left to do.\n\nFor every positive integer $j \\leq k$ such that $p^{u} \\mid j$, there exist unique $j_{x}^{\\prime}, j_{y}^{\\prime} \\in [j-p^{u}, j)$ satisfying $j_{x}^{\\prime} \\equiv x \\bmod p, j_{y}^{\\prime} \\equiv y \\bmod p$ and $p^{u} \\mid j_{x}^{\\prime 2}+1, j_{y}^{\\prime 2}+1$. So pair $j$ with the set $\\{j_{x}^{\\prime}, j_{y}^{\\prime}\\}$, and pair its old partners if any to the old partners of $j_{x}^{\\prime}$ and $j_{y}^{\\prime}$.\n\nThe important feature of this assignment process is that we always have at step $u, p^{\\min (u, v_{p}(r))} \\mid r_{x} + r_{y}, r_{x}^{2}+1, r_{y}^{2}+1$. Thus at the end of the process, $(i-r_{x})(i-r_{y})=\\frac{1}{2}\\left((r_{x}+r_{y})^{2}-(r_{x}^{2}+1)-(r_{y}^{2}+1)\\right)-(r_{x}+r_{y}) i$ has real and complex parts divisible by $p^{v_{p}(r)}$ as claimed.\n\n## Impossibility via Gaussian Integers\n\nWe work in the ring of Gaussian Integers $\\mathbb{Z}[i]=\\{a+b i: a, b \\in \\mathbb{Z}\\}$, which is sitting inside number field $\\mathbb{Q}[i]=\\{a+b i: a, b \\in \\mathbb{Q}\\}$. It's well-known that $\\mathbb{Z}[i]$ is a unique factorization domain. For any Gaussian prime $\\pi$, let $\\nu_{\\pi}(z)$ denote the exponent of $\\pi$ in the factorization of $z$.\n\nLet $p \\equiv 1(\\bmod 4)$ be a prime. It's well known that $p$ splits into two Gaussian primes, $p=\\pi \\bar{\\pi}$. Note that it suffices to show\n$$\n\\nu_{\\pi}(i(i-1)(i-2) \\ldots(i-k+1)) \\geq \\nu_{\\pi}(k!)=\\left\\lfloor\\frac{k}{p}\\right\\rfloor+\\left\\lfloor\\frac{k}{p^{2}}\\right\\rfloor+\\ldots\n$$\nbecause the similar statement for $\\bar{\\pi}$ will follow. The key claim is the following:\n\nClaim. For any integer $t \\geq 1$ and $n$, at least one of numbers $i-n-1, i-n-2, \\ldots, i-n-p^{t}$ is divisible by $\\pi^{t}$.\n\nProof. First, we show that there exists integer $r$ such that $\\pi^{t} \\mid i-r$. To that end, by Hensel's lemma, there exists an integer $s$ for which $p^{t} \\mid s^{2}+1$. Thus,\n$$\n\\pi^{t} \\bar{\\pi}^{t} \\mid (s-i)(s+i)\n$$\nHowever, $\\operatorname{gcd}(s-i, s+i) \\mid 2$, so $\\pi^{t}$ must divide either $s-i$ or $s+i$. In particular, $r=s$ or $r=-s$ work.\n\nTo complete the problem, pick the unique $x \\in \\{1,2, \\ldots, p^{t}\\}$ such that $n+x \\equiv r(\\bmod p)^{t}$, so $i-(n+x) \\equiv i-r\\left(\\bmod p^{t}\\right)$ and hence divisible by $\\pi^{t}$.\n\nUsing the claim repeatedly, we find that among numbers $i, i-1, i-2, \\ldots, i-k+1$,\n- at least $\\left\\lfloor\\frac{k}{p}\\right\\rfloor$ are divisible by $\\pi$ (this is by selecting $\\left\\lfloor\\frac{k}{p}\\right\\rfloor$ disjoint contiguous block of size $p$ ),\n- at least $\\left\\lfloor\\frac{k}{p^{2}}\\right\\rfloor$ are divisible by $\\pi^{2}$,\n- at least $\\left\\lfloor\\frac{k}{p^{3}}\\right\\rfloor$ are divisible by $\\pi^{3}$,\n- $\\quad \\vdots$\n\nUsing these altogether suffices to prove (*).\n\n## Impossibility via $\\boldsymbol{p}$-adics\n\nLet $P(i)=a+b i$, and note that $P(-i)=a-b i$. Fix some $p \\equiv 1 \\bmod 4$, and consider the $p$-adic integers $\\mathbb{Z}_{p}$ lying in $\\mathbb{Q}_{p}$. Note that $x^{2}+1=0$ has a solution in $\\mathbb{Z}_{p}$, and hence $\\pm i \\in \\mathbb{Z}_{p}$. Now take a sequence of integers $m_{k}$ converging to $i$ in $\\mathbb{Z}_{p}$, so $-m_{k}$ converges to $-i$. Then since polynomials are continuous, $P\\left(m_{k}\\right)$ converges to $P(i)$ and $P\\left(-m_{k}\\right)$ converges to $P(-i)$, so $P\\left(m_{k}\\right)+P\\left(-m_{k}\\right)$ and $P\\left(m_{k}\\right)-P\\left(-m_{k}\\right)$ converge to $2 x$ and $2 y i$ respectively. Finally, since $P\\left(m_{k}\\right)$ and $P\\left(-m_{k}\\right)$ are integers, they have nonnegative $p$-adic valuation, and so by continuity, $2 x$ and $2 y$ have nonegative $p$-adic valuation. Thus, when written as simplified fractions, $a$ and $b$ cannot have any powers of $p$ in their denominator, as desired.\n\n## Construction\n\nWe now show that all of the claimed values are possible. The set of polynomials, $P$, taking $\\mathbb{Z}$ to itself is closed under addition and multiplication, and therefore so is the set of possible values of $P(i)$. It clearly contains $\\mathbb{Z}[i]$ by taking linear polynomials. Thus it suffices to show that $p^{-1}$ is attainable for every prime $p$ that is not $1$ modulo $4$. $2^{-1}$ is achieved by taking $P(x)=\\frac{1}{4} x(x-1)(x-2)(x-3)+3$, so we may focus our attention only on the case where $p$ is $3$ modulo $4$. It is then further sufficient to show that some $(a+b i) p^{-1}$ is attainable for $a, b \\in \\mathbb{Z}$ not both divisible by $p$ because then $(a-b i) \\cdot(a+b i) p^{-1}=\\left(a^{2}+b^{2}\\right) p^{-1}$ is also obtainable and cannot be an integer since $-1$ is not a quadratic residue modulo $p$, so Bézout's Theorem shows that $p^{-1}$ is attainable. Now with this goal in mind, observe that\n$$\n\\left|\\binom{i}{p}\\right|=\\frac{1^{2} \\cdot\\left(1^{2}+1^{2}\\right) \\cdot \\ldots \\cdot\\left(1^{2}+(p-1)^{2}\\right)}{p \\cdot(2 p-1) \\cdot \\ldots \\cdot 1}\n$$\nhas denominator divisible by $p$, but numerator not divisible by $p$ since again, $-1$ is not a quadratic residue modulo $p$. Hence we can find some integer $m$ so that $m\\binom{i}{p}=(a+b i) p^{-1}$ where $a$ and $b$ that aren't both divisible by $p$ as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-algebraic-number-theory-quadratic-fields-auto-4759",
+      "name": "TST2025 #0l6v",
+      "url": "https://usamoguide.com/",
+      "source": "TST2025",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Techniques: modulo, size analysis, order analysis, inequalities",
+        "Quadratic residues",
+        "Determinants",
+        "Complex numbers in geometry",
+        "Quadratic fields"
+      ],
+      "statement": "Problem:\nProve that there exists a real number $\\varepsilon > 0$ such that there are infinitely many sequences of integers $0 < a_1 < a_2 < \\dots < a_{2025}$ satisfying\n$$\n\\text{gcd}(a_1^2 + 1, a_2^2 + 1, \\dots, a_{2025}^2 + 1) > a_{2025}^{1+\\varepsilon}.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

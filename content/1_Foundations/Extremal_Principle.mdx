@@ -1,0 +1,226 @@
+---
+id: extremal-principle
+title: The Extremal Principle
+author: Lefteris Demosthenous
+description: Finding the theoretical maximum or minimum limits of a given scenario.
+prerequisites: []
+---
+
+<IncompleteSection />
+
+## Overview
+
+The extremal principle asks: what is the largest or smallest value something can
+achieve? On the AMC 8 this shows up as optimization — maximize the sum, minimize
+the product, find the best arrangement. The strategy is to push a variable to its
+extreme and see what happens.
+
+Extremal arguments also appear in counting, geometry, and number theory. Testing the most extreme possible case sometimes immediately reveals the structure of the problem.
+
+## Key Ideas
+
+- Identify what quantity you are optimizing.
+- Carefully determine all constraints.
+- Push variables toward their largest or smallest allowed values.
+- Test boundary cases first.
+- In integer problems, extremal values are frequently achieved when variables are as equal as possible or as unequal as possible.
+- Always check whether the extremal configuration is actually allowed.
+
+## Core Skills
+
+### Maximizing a Sum or Product
+
+Under a constraint like $a + b = 10$, the product $ab$ is maximized when
+$a = b = 5$.
+
+More generally, products tend to grow when quantities are balanced.
+
+### Minimizing with Integer Constraints
+
+Find the arrangement of integers that pushes the target quantity to its lowest
+value. For example, if positive integers have fixed sum 20, the smallest possible product occurs when one integer is as small as possible.
+
+### Boundary Testing
+
+When the problem says "at most" or "at least," test those boundaries.
+
+If 1≤x≤10,then checking x=1 and x=10 is often very useful.
+
+## Worked Example
+
+Find the largest possible product of two positive integers that sum to 20.
+
+If $a + b = 20$, then $ab = a(20-a) = -a^2 + 20a$. This is maximized at
+$a = 10$, giving $ab = 100$.
+
+## More Examples
+
+### Example 1: Fixed Sum Product
+
+Find the minimum possible value of $xy$ if $x+y=15$ and $x,y$ are positive integers.
+
+To minimize the product, make the integers as unequal as possible:
+
+$$
+x=1,\quad y=14.
+$$
+
+Thus,
+
+$$
+xy=14.
+$$
+
+### Example 2: Smallest Possible Value
+
+Three positive integers have sum $18$. What is the smallest possible value of their product?
+
+Push two integers as small as possible:
+
+$$
+1,\ 1,\ 16.
+$$
+
+Thus the minimum product is
+
+$$
+1\cdot1\cdot16=16.
+$$
+
+### Example 3: Boundary Case Geometry
+
+A rectangle has perimeter $20$. What is the largest possible area?
+
+If the side lengths are $x$ and $y$, then
+
+$$
+2x+2y=20,
+$$
+
+so
+
+$$
+x+y=10.
+$$
+
+The area is
+
+$$
+xy,
+$$
+
+which is maximized when
+
+$$
+x=y=5.
+$$
+
+Thus the largest possible area is
+
+$$
+25.
+$$
+
+NOTE: Solutions from here on out won't be detailed step by step solutions, but just simple solutions that provide the key ideas and insights, so that you can fill in the gaps (to make you think!!). This is because problem solving strategy and intuition matters more than just knowing how to do specific problems.
+
+### Example 4: Consecutive Integers
+
+Find the largest product of two consecutive positive integers whose sum is less than $50$.
+
+Let the integers be $n$ and $n+1$. Then
+
+$$
+n+(n+1)<50.
+$$
+
+Thus,
+
+$$
+2n+1<50,
+$$
+
+so
+
+$$
+n\le24.
+$$
+
+The largest product occurs at the boundary:
+
+$$
+24\cdot25=600.
+$$
+
+### Example 5: Largest Possible Average
+
+Five integers each lie between $1$ and $10$, inclusive. What is the largest possible average?
+
+To maximize the average, maximize every number:
+
+$$
+10,10,10,10,10.
+$$
+
+Thus the largest average is
+
+$$
+10.
+$$
+
+### Example #6: Rod Wave Takes over Arby's
+
+When Rod Wave took over Arby's, fans began to flee to their local Arby's in search of the legendary Meat Mountain x Rod Wave Concert collab. 
+
+Each participant has $10$ minutes inside an Arby’s and can choose between two activities:
+- ordering the Meat Mountain for $+8$ slop points per minute, but $-3$ focus points due to chaos and crowd distraction, or  
+- participating in the Rod Wave Concert, which gives $+10$ musical points per minute but $-5$ slop points due to no food.
+
+The balance of high levels of slop, music, and focus, leads to the most dopamine. 
+
+Let $x$ be the number of minutes spent ordering the Meat Mountain.
+
+The total “dopamine efficiency score” is modeled as:
+
+$$
+E(x)=8x - 3x + 10(10-x) - 5(10-x).
+$$
+
+Simplify:
+
+$$
+E(x)=5x + 100 - 10x - 50 = 50 - 5x.
+$$
+
+To maximize $E(x)$, minimize $x$ subject to $0 \le x \le 10$.
+
+Thus,
+
+$$
+x=0,
+$$
+
+and the maximum efficiency is:
+
+$$
+E(0)=50.
+$$
+## Strategy Checklist
+
+- Identify exactly what quantity is being optimized.
+- Determine all constraints before computing.
+- Test extreme and boundary values first.
+- For fixed sums, balanced values often maximize products.
+- For fixed-sum integer constraints, minimum products occur when variables are as unequal as possible.
+- Verify the extremal case actually satisfies all conditions.
+
+### Common Mistakes
+
+- Forgetting to check boundary cases.
+- Assuming the extremum occurs in the middle without justification.
+- Ignoring whether variables must be integers.
+- Finding an extremal value that violates the constraints.
+- Forgetting that positive integer conditions restrict possible cases.
+
+## Practice Problems
+
+<Problems problems="practice" />

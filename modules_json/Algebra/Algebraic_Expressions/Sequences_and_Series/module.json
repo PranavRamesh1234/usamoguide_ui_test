@@ -1,0 +1,325 @@
+{
+  "MODULE_ID": "algebra-algebraic-expressions-sequences-and-series",
+  "practice": [
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-auto-0049",
+      "name": "Berkeley Math Circle #0hk1",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Sequences and Series"
+      ],
+      "statement": "Problem:\n\nIn the sequence\n$$\n1, 4, 7, 10, 13, 16, 19, \\ldots\n$$\neach term is 3 less than the next term. Find the 1000th term of the sequence.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nTo get from the first term to the 1000th term, we must add three 999 times. That amounts to adding $3 \\cdot 999$ which is $2997$. So the 1000th term is $1 + 2997 = 2998$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-auto-0354",
+      "name": "MathNet #0hsi",
+      "url": "https://usamoguide.com/",
+      "source": "MathNet",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Sequences and Series",
+        "Simple Equations"
+      ],
+      "statement": "Problem:\nWhen a single number is added to each member of the sequence $20, 50, 100$, the sequence becomes expressible as $x, a x, a^{2} x$. Find $a$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n$\\frac{5}{3}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-auto-0938",
+      "name": "USA IMO 2003 #0i8q",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO 2003",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Invariants / monovariants",
+        "Induction / smoothing",
+        "Sequences and Series"
+      ],
+      "statement": "Let $n \\neq 0$. For every sequence of integers\n$$\na = a_0, a_1, a_2, \\dots, a_n\n$$\nsatisfying $0 \\le a_i \\le i$, for $i = 0, \\dots, n$, define another sequence\n$$\nt(a) = t(a)_0, t(a)_1, t(a)_2, \\dots, t(a)_n\n$$\nby setting $t(a)_i$ to be the number of terms in the sequence $a$ that precede the term $a_i$ and are different from $a_i$. Show that, starting from any sequence $a$ as above, fewer than $n$ applications of the transformation $t$ lead to a sequence $b$ such that $t(b) = b$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**First Solution.** Note first that the transformed sequence $t(a)$ also satisfies the inequalities $0 \\le t(a)_i \\le i$, for $i = 0, \\dots, n$. Call any integer sequence that satisfies these inequalities an *index bounded sequence*.\nWe prove now that $a_i \\le t(a)_i$, for $i = 0, \\dots, n$. Indeed, this is clear if $a_i = 0$. Otherwise, let $x = a_i > 0$ and $y = t(a)_i$. None of the first $x$ consecutive terms $a_0, a_1, \\dots, a_{x-1}$ is greater than $x-1$, so they are all different from $x$ and precede $x$ (see the diagram below). Thus $y \\ge x$, that is, $a_i \\le t(a)_i$, for $i = 0, \\dots, n$.\n\n$$\n\\begin{array}{c|cccccc}\n & 0 & 1 & \\dots & x-1 & \\dots & i \\\\\\hline\n a & a_0 & a_1 & \\dots & a_{x-1} & \\dots & x \\\\\nt(a) & t(a)_0 & t(a)_1 & \\dots & t(a)_{x-1} & \\dots & y\n\\end{array}\n$$\n\nThis already shows that the sequences stabilize after finitely many applications of the transformation $t$, because the value of the index $i$ term in index bounded sequences cannot exceed $i$. Next we prove that if $a_i = t(a)_i$, for some $i = 0, \\dots, n$, then no further applications of $t$ will ever change the index $i$ term. We consider two cases.\n\n* In this case, we assume that $a_i = t(a)_i = 0$. This means that no term on the left of $a_i$ is different from 0, that is, they are all 0. Therefore the first $i$ terms in $t(a)$ will also be 0 and this repeats (see the diagram below).\n\n$$\n\\begin{array}{c|cccc}\n & 0 & 1 & \\dots & i \\\\\\hline\n a & 0 & 0 & \\dots & 0 \\\\\nt(a) & 0 & 0 & \\dots & 0\n\\end{array}\n$$\n\n* In this case, we assume that $a_i = t(a)_i = x > 0$. The first $x$ terms are all different from $x$. Because $t(a)_i = x$, the terms $a_x, a_{x+1}, \\dots, a_{i-1}$ must then all be equal to $x$. Consequently, $t(a)_j = x$ for $j = x, \\dots, i-1$ and further applications of $t$ cannot change the index $i$ term (see the diagram below).\n\n|   | 0 | 1 | ... | $x - 1$ | $x$ | $x + 1$ | ... | $i$ |\n|---|---|---|-----|---------|-----|---------|-----|-----|\n| $a$ | $a_0$ | $a_1$ | ... | $a_{x-1}$ | $x$ | $x$ | ... | $x$ |\n| $t(a)$ | $t(a)_0$ | $t(a)_1$ | ... | $t(a)_{x-1}$ | $x$ | $x$ | ... | $x$ |\n\nFor $0 \\le i \\le n$, the index $i$ entry satisfies the following properties: (i) it takes integer values; (ii) it is bounded above by $i$; (iii) its value does not decrease under transformation $t$; and (iv) once it stabilizes under transformation $t$, it never changes again. This shows that no more than $n$ applications of $t$ lead to a sequence that is stable under the transformation $t$.\n\nFinally, we need to show that no more than $n-1$ applications of $t$ is needed to obtain a fixed sequence from an initial $n+1$-term index bounded sequence $a = (a_0, a_1, \\dots, a_n)$. We induct on $n$.\n\nFor $n=1$, the two possible index bounded sequences $(a_0, a_1) = (0, 0)$ and $(a_0, a_1) = (0, 1)$ are already fixed by $t$ so we need zero applications of $t$.\n\nAssume that any index bounded sequence $(a_0, a_1, \\dots, a_n)$ reach a fixed sequence after no more than $n-1$ applications of $t$. Consider an index bounded sequence $a = (a_0, a_1, \\dots, a_{n+1})$. It suffices to show that $a$ will be stabilized in no more than $n$ applications of $t$. We approach indirectly by assuming on the contrary that $n+1$ applications of transformations are needed. This can happen only if $a_{n+1} = 0$ and each application of $t$ increased the index $n+1$ term by exactly 1. Under transformation $t$, the resulting value of index $i$ term will not be effected by index $j$ term for $i < j$. Hence by the induction hypothesis, the subsequence $a' = (a_0, a_1, \\dots, a_n)$ will be stabilized in no more than $n-1$ applications of $t$. Because index $n$ term is stabilized at value $x \\le n$ after no more than $\\min\\{x, n-1\\}$ applications of $t$ and index $n+1$ term obtains value $x$ after exactly $x$ applications of $t$ under our current assumptions. We conclude that the index $n+1$ term would become equal to the index $n$ term after no more than $n-1$ applications of $t$. However, once two consecutive terms in a sequence are equal they stay equal and stabilize together. Because the index $n$ term needs no more than $n-1$ transformations to be stabilized, $a$ can be stabilized in no more than $n-1$ applications of $t$, which contradicts our assumption of $n+1$ applications needed. Thus our assumption was wrong and we need at most $n$ applications of transformation $t$ to stabilize an $(n + 1)$-term index bounded sequence. This completes our inductive proof.\n\n**Second Solution.** We prove that for $n \\ge 2$, the claim holds without the initial condition $0 \\le a_i \\le i$. (Of course this does not prove anything stronger, but it's convenient.) We do this by induction on $n$, the case $n=2$ being easy to check by hand as in the first solution.\n\nNote that if $c = (c_0, \\dots, c_n)$ is a sequence in the image of $t$, and $d$ is the sequence $(c_1, \\dots, c_n)$, then the following two statements are true:\n\n(a) If $e$ is the sequence obtained from $d$ by subtracting 1 from each nonzero term, then $t(d) = t(e)$. (If there are no zero terms in $d$, then subtracting 1 clearly has no effect. If there is a zero term in $d$, it must occur at the beginning, and then every nonzero term is at least 2.)\n\n(b) One can compute $t(c)$ by applying $t$ to the sequence $c_1, \\dots, c_n$, adding 1 to each nonzero term, and putting a zero in front.\n\nThe recipe of (b) works for computing $t^i(c)$ for any $i$, by (a) and induction on $i$.\n\nWe now apply the induction hypothesis to $t(a)_1, \\dots, t(a)_n$ to see that it stabilizes after $n-2$ more applications of $t$; by the recipe above, that means $a$ stabilizes after $n-1$ applications of $t$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-auto-0964",
+      "name": "Harvard-MIT Mathematics Tournament #0i9g",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Sequences and Series"
+      ],
+      "statement": "Problem:\n\nThe sequence of real numbers $x_{1}, x_{2}, x_{3}, \\ldots$ satisfies $\\lim_{n \\rightarrow \\infty}\\left(x_{2 n}+x_{2 n+1}\\right)=315$ and $\\lim_{n \\rightarrow \\infty}\\left(x_{2 n}+x_{2 n-1}\\right)=2003$. Evaluate $\\lim_{n \\rightarrow \\infty}\\left(x_{2 n} / x_{2 n+1}\\right)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe have $\\lim_{n \\rightarrow \\infty}\\left(x_{2 n+1}-x_{2 n-1}\\right)=\\lim_{n \\rightarrow \\infty}\\left[\\left(x_{2 n}+x_{2 n+1}\\right)-\\left(x_{2 n}+x_{2 n-1}\\right)\\right]=315-2003=-1688$; it follows that $x_{2 n+1} \\rightarrow -\\infty$ as $n \\rightarrow \\infty$. Then\n\n$$\n\\lim_{n \\rightarrow \\infty} \\frac{x_{2 n}}{x_{2 n+1}}=\\lim_{n \\rightarrow \\infty} \\frac{x_{2 n}+x_{2 n+1}}{x_{2 n+1}}-1=-1\n$$\n\nsince $x_{2 n}+x_{2 n+1} \\rightarrow 315$ while $x_{2 n+1} \\rightarrow -\\infty$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-auto-1531",
+      "name": "Harvard-MIT Mathematics Tournament #0ip7",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Sequences and Series",
+        "Quadratic functions"
+      ],
+      "statement": "Problem:\n\nDetermine all pairs $(a, b)$ of real numbers such that $10, a, b, a b$ is an arithmetic progression.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe answer is $(4, -2)$ and $\\left(\\frac{5}{2}, -5\\right)$.\n\nSince $10, a, b$ is an arithmetic progression, we have\n$$\na = \\frac{1}{2}(10 + b).\n$$\nAlso, we have $a + a b = 2 b$, and so\n$$\na(1 + b) = 2b.\n$$\nSubstituting the expression for $a$ gives\n$$\n(10 + b)(1 + b) = 4b.\n$$\nSolving this quadratic equation gives the solutions $b = -2$ and $b = -5$. The corresponding values for $a$ can be found by $a = \\frac{1}{2}(10 + b)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-auto-1647",
+      "name": "Team Selection Test #0isf",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Sequences and Series",
+        "Invariants / monovariants"
+      ],
+      "statement": "Two sequences of integers, $a_1, a_2, a_3, \\dots$ and $b_1, b_2, b_3, \\dots$, satisfy the equation\n$$\n(a_n - a_{n-1})(a_n - a_{n-2}) + (b_n - b_{n-1})(b_n - b_{n-2}) = 0\n$$\nfor each integer $n$ greater than $2$. Prove that there is a positive integer $k$ such that $a_k = a_{k+2008}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Define $d(i, j) = (a_i - a_j)^2 + (b_i - b_j)^2$. Notice that\n$$\n(a_n - a_{n-1})^2 + (a_n - a_{n-2})^2 - (a_{n-1} - a_{n-2})^2 = 2(a_n - a_{n-1})(a_n - a_{n-2})\n$$\nand\n$$\n(b_n - b_{n-1})^2 + (b_n - b_{n-2})^2 - (b_{n-1} - b_{n-2})^2 = 2(b_n - b_{n-1})(b_n - b_{n-2}).\n$$\nAdding these two equations and using the given implies that\n$$\nd(n, n-1) + d(n, n-2) - d(n-1, n-2) = 0,\n$$\nhence\n$$\nd(n, n-1) = d(n-1, n-2) - d(n, n-2) \\le d(n-1, n-2),\n$$\nwhere equality holds if and only if $a_n = a_{n-2}$ and $b_n = b_{n-2}$. Therefore, the sequence\n$$\n\\{d(n, n-1)\\}_{n=2}^{\\infty} = (d(2, 1), d(3, 2), d(4, 3), \\dots)\n$$\nis nonincreasing. Since all the terms of this sequence are nonnegative integers, the sequence must eventually become constant: $d(n, n-1) = d(n-1, n-2)$ for all sufficiently large $n$, which in particular implies $a_n = a_{n-2}$ for all sufficiently large $n$. So whenever $n$ is large enough, we have\n$$\na_{n+2008} = a_{n+2006} = a_{n+2004} = \\dots = a_n.\n$$\n\n(Based on work by Palmer Mebane) Let $x_n = a_n - a_{n-1}$ and $y_n = b_n - b_{n-1}$. Then the given equation reads\n$$\nx_n(x_n + x_{n-1}) + y_n(y_n + y_{n-1}) = 0.\n$$\nTo see this, note that $0 \\le (x_{n-1} + x_n)^2 + (y_{n-1} + y_n)^2$, with equality if and only if $x_n = -x_{n-1}$ and $y_n = -y_{n-1}$. Expanding and using the given equation we obtain\n$$\n0 = 2x_n(x_n + x_{n-1}) + 2y_n(y_n + y_{n-1}) \\le (x_{n-1} + x_n)^2 + (y_{n-1} + y_n)^2\n$$\nor\n$$\nx_n^2 + y_n^2 \\le x_{n-1}^2 + y_{n-1}^2,\n$$\nwith equality if and only if $x_n = -x_{n-1}$ and $y_n = -y_{n-1}$. Thus we have the claim.\n\nTherefore, because $x_n^2 + y_n^2 \\ge 0$ is an integer, by the well-ordering principle, $x_n^2 + y_n^2 < x_{n-1}^2 + y_{n-1}^2$ can only hold finitely many times. Thus there is a $k$ such that for all $n > k$, $x_n = -x_{n-1}$ and $y_n = -y_{n-1}$. This gives us the desired $k$ such that $a_k = a_{k+2008}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-auto-1771",
+      "name": "IMO 2009 #0ivv",
+      "url": "https://usamoguide.com/",
+      "source": "IMO 2009",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Sequences and Series"
+      ],
+      "statement": "Suppose that $s_1, s_2, s_3, \\dots$ is a strictly increasing sequence of positive integers such that the subsequences $s_{s_1}, s_{s_2}, s_{s_3}, \\dots$ and $s_{s_{1+1}}, s_{s_{2+1}}, s_{s_{3+1}}, \\dots$ are both arithmetic progressions. Prove that the sequence $s_1, s_2, s_3, \\dots$ is itself an arithmetic progression.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Let $D$ be the common difference of the progression $s_{s_1}, s_{s_2}, s_{s_3}, \\dots$. Also, define $d_n = s_{n+1} - s_n$. For every $n$, $d_n \\ge 1$ because $s_1, s_2, s_3, \\dots$ is strictly increasing. Therefore, for all $i < j$, we have\n$$\ns_j - s_i = d_i + d_{i+1} + \\dots + d_{j-1} = \\sum_{k=i}^{j-1} d_k \\ge \\sum_{k=i}^{j-1} 1 = j - i. \\quad (1)\n$$\nTaking $i = s_n$ and $j = s_{n+1}$ gives $D = s_{s_{n+1}} - s_{s_n} \\ge d_n$ for any $n$.\nThus, the sequence of integers $d_1, d_2, d_3, \\dots$ is bounded both above (by $D$) and below (by 1), so it\nhas a maximum and a minimum value. Call these values $M$ and $m$ respectively; that is, define\n$m = \\min\\{d_1, d_2, \\dots\\} \\text{ and } M = \\max\\{d_1, d_2, \\dots\\}.$\n\nIf $M = m$, then all the $d_n$ are equal, and we are done.\nNow we approach indirectly by assuming that $M \\neq m$, and seeking a contradiction.\nFor all $i < j$, we have\n$$\ns_j - s_i = d_i + d_{i+1} + \\dots + d_{j-1} \\leq M(j - i).\n$$\nBy definition of $m$, there exists $n$ such that $s_{n+1} - s_n = m$, and so\n$$\nD = s_{s_{n+1}} - s_{s_n} \\leq M(s_{n+1} - s_n) = Mm. \\qquad (2)\n$$\nMoreover, if equality holds, then $d_{s_n}, d_{s_{n+1}}, \\dots, d_{s_{n+1}-1}$ must all equal $M$.\nLikewise, for all $i < j$, we can see that $s_j - s_i \\geq m(j - i)$. There exists $n$ such that $s_{n+1} - s_n = M$, and so\n$$\nD = s_{s_{n+1}} - s_{s_n} \\geq m(s_{n+1} - s_n) = Mm. \\qquad (3)\n$$\nIf equality holds, then $d_{s_n}, d_{s_{n+1}}, \\dots, d_{s_{n+1}-1}$ must all equal $m$.\nClearly, (2) and (3) imply $D = Mm$.\nNow, we claim that for every $n$ such that $d_n = m$, there exists $n' > n$ such that $d_{n'} = M$ — namely, $n' = s_n$. Indeed, from the equality in (2), we must have $d_{s_n} = M$. And by (1), $s_n \\geq s_1 + n - 1 \\geq n$; moreover, since $d_{s_n} \\neq d_n$, we cannot have $s_n = n$, so $s_n > n$ strictly. Similarly, using (3), for every $n$ such that $d_n = M$, there exists $n' > n$ such that $d_{n'} = m$ — again given by $n' = s_n$.\nIteratively applying these two facts, we see that there are infinitely many values of $n$ for which $d_n = m$ and infinitely many values of $n$ for which $d_n = M$. These imply, in turn, that there are infinitely many values of $n$ for which $d_{s_n} = M$, and infinitely many values of $n$ for which $d_{s_n} = m$.\nNow, the two sequences $s_{s_1}, s_{s_2}, s_{s_3}, \\dots$ and $s_{s_{1+1}}, s_{s_{2+1}}, s_{s_{3+1}}, \\dots$ are both arithmetic progressions; therefore, when we take differences of corresponding terms, we again get an arithmetic progression. This sequence of differences is just\n$$\nd_{s_1}, d_{s_2}, d_{s_3}, \\dots\n$$\nWe saw that this sequence contains infinitely many $m$'s and infinitely many $M$'s. But an arithmetic progression cannot have even two terms equal to each other unless it is constant. It follows that $M = m$, as required."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-auto-2127",
+      "name": "Harvard-MIT Mathematics Tournament #0j5r",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Generating functions",
+        "Algebraic properties of binomial coefficients",
+        "Sequences and Series"
+      ],
+      "statement": "Problem:\nLet\n$$\nF(x) = \\frac{1}{\\left(2 - x - x^{5}\\right)^{2011}},\n$$\nand note that $F$ may be expanded as a power series so that $F(x) = \\sum_{n=0}^{\\infty} a_n x^n$. Find an ordered pair of positive real numbers $(c, d)$ such that\n$$\n\\lim_{n \\rightarrow \\infty} \\frac{a_n}{n^d} = c.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $\\left(\\frac{1}{6^{2011} 2010!},\\ 2010\\right)$\n\nFirst notice that all the roots of $2 - x - x^{5}$ that are not $1$ lie strictly outside the unit circle. As such, we may write\n$$\n2 - x - x^{5} = 2(1 - x)(1 - r_1 x)(1 - r_2 x)(1 - r_3 x)(1 - r_4 x)\n$$\nwhere $|r_i| < 1$, and let\n$$\n\\frac{1}{2 - x - x^{5}} = \\frac{b_0}{1 - x} + \\frac{b_1}{1 - r_1 x} + \\ldots + \\frac{b_4}{1 - r_4 x}.\n$$\nWe calculate $b_0$ as\n$$\nb_0 = \\lim_{x \\rightarrow 1} \\frac{1 - x}{2 - x - x^{5}} = \\lim_{x \\rightarrow 1} \\frac{-1}{-1 - 5 x^{4}} = \\frac{1}{6}.\n$$\nNow raise the equation above to the $2011$th power:\n$$\n\\frac{1}{\\left(2 - x - x^{5}\\right)^{2011}} = \\left(\\frac{1/6}{1 - x} + \\frac{b_1}{1 - r_1 x} + \\ldots + \\frac{b_4}{1 - r_4 x}\\right)^{2011}\n$$\nExpand the right hand side using multinomial expansion and then apply partial fractions. The result will be a sum of the terms $(1 - x)^{-k}$ and $(1 - r_i x)^{-k}$, where $k \\leq 2011$.\n\nSince $|r_i| < 1$, the power series of $(1 - r_i x)^{-k}$ will have exponentially decaying coefficients, so we only need to consider the $(1 - x)^{-k}$ terms. The coefficient of $x^n$ in the power series of $(1 - x)^{-k}$ is $\\binom{n + k - 1}{k - 1}$, which is a $(k - 1)$th degree polynomial in $n$. So when we sum up all coefficients, only the power series of $(1 - x)^{-2011}$ will have impact on the leading term $n^{2010}$.\n\nThe coefficient of the $(1 - x)^{-2011}$ term in the multinomial expansion is $\\left(\\frac{1}{6}\\right)^{2011}$. The coefficient of the $x^n$ term in the power series of $(1 - x)^{-2011}$ is $\\binom{n + 2010}{2010} = \\frac{1}{2010!} n^{2010} + \\ldots$. Therefore,\n$$(c, d) = \\left(\\frac{1}{6^{2011} 2010!},\\ 2010\\right).$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-auto-2205",
+      "name": "Harvard-MIT Mathematics Tournament #0j7x",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers",
+        "Sequences and Series"
+      ],
+      "statement": "Problem:\nLet $a$ and $b$ be positive real numbers. Define two sequences of real numbers $\\{a_{n}\\}$ and $\\{b_{n}\\}$ for all positive integers $n$ by $(a+b i)^{n}=a_{n}+b_{n} i$. Prove that\n$$\n\\frac{\\left|a_{n+1}\\right|+\\left|b_{n+1}\\right|}{\\left|a_{n}\\right|+\\left|b_{n}\\right|} \\geq \\frac{a^{2}+b^{2}}{a+b}\n$$\nfor all positive integers $n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $z=a+b i$. It is easy to see that what we are asked to show is equivalent to\n$$\n\\frac{\\left|z^{n+1}+\\bar{z}^{n+1}\\right|+\\left|z^{n+1}-\\bar{z}^{n+1}\\right|}{\\left|z^{n}+\\bar{z}^{n}\\right|+\\left|z^{n}-\\bar{z}^{n}\\right|} \\geq \\frac{2 z \\bar{z}}{|z+\\bar{z}|+|z-\\bar{z}|}\n$$\nCross-multiplying, we see that it suffices to show\n$$\n\\begin{gathered}\n\\left|z^{n+2}+z^{n+1} \\bar{z}+z \\bar{z}^{n+1}+\\bar{z}^{n+2}\\right|+\\left|z^{n+2}-z^{n+1} \\bar{z}+z \\bar{z}^{n+1}-\\bar{z}^{n+2}\\right| \\\\\n+\\left|z^{n+2}+z^{n+1} \\bar{z}-z \\bar{z}^{n+1}-\\bar{z}^{n+2}\\right|+\\left|z^{n+2}-z^{n+1} \\bar{z}-z \\bar{z}^{n+1}+\\bar{z}^{n+2}\\right| \\\\\n\\geq 2\\left|z^{n+1} \\bar{z}+z \\bar{z}^{n+1}\\right|+2\\left|z^{n+1} \\bar{z}-z \\bar{z}^{n+1}\\right|\n\\end{gathered}\n$$\nHowever, by the triangle inequality,\n$$\n\\left|z^{n+2}+z^{n+1} \\bar{z}+z \\bar{z}^{n+1}+\\bar{z}^{n+2}\\right|+\\left|z^{n+2}-z^{n+1} \\bar{z}-z \\bar{z}^{n+1}+\\bar{z}^{n+2}\\right| \\geq 2\\left|z^{n+1} \\bar{z}+z \\bar{z}^{n+1}\\right|\n$$\nand\n$$\n\\left|z^{n+2}-z^{n+1} \\bar{z}+z \\bar{z}^{n+1}-\\bar{z}^{n+2}\\right|+\\left|z^{n+2}+z^{n+1} \\bar{z}-z \\bar{z}^{n+1}-\\bar{z}^{n+2}\\right| \\geq 2\\left|z^{n+1} \\bar{z}-z \\bar{z}^{n+1}\\right|\n$$\nThis completes the proof."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-auto-2436",
+      "name": "HMMT 2013 #0jec",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2013",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Linear and quadratic inequalities",
+        "Sequences and Series"
+      ],
+      "statement": "Problem:\n\nThe real numbers $x, y, z$ satisfy $0 \\leq x \\leq y \\leq z \\leq 4$. If their squares form an arithmetic progression with common difference $2$, determine the minimum possible value of $|x-y| + |y-z|$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n$|x-y| + |y-z| = z - x = \\frac{z^2 - x^2}{z + x} = \\frac{4}{z + x}$, which is minimized when $z = 4$ and $x = \\sqrt{12}$. Thus, our answer is $4 - \\sqrt{12} = 4 - 2\\sqrt{3}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-auto-2439",
+      "name": "HMMT #0jef",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Sequences and Series"
+      ],
+      "statement": "Problem:\n\nLet $\\{a_n\\}_{n \\geq 1}$ be an arithmetic sequence and $\\{g_n\\}_{n \\geq 1}$ be a geometric sequence such that the first four terms of $\\{a_n+g_n\\}$ are $0, 0, 1$, and $0$, in that order. What is the 10th term of $\\{a_n+g_n\\}$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $-54$\n\nLet the terms of the geometric sequence be $a, r a, r^{2} a, r^{3} a$. Then, the terms of the arithmetic sequence are $-a, -r a, -r^{2} a + 1, -r^{3} a$. However, if the first two terms of this sequence are $-a, -r a$, the next two terms must also be $(-2 r + 1) a, (-3 r + 2) a$. It is clear that $a \\neq 0$ because $a_{3} + g_{3} \\neq 0$, so $-r^{3} = -3 r + 2 \\Rightarrow r = 1$ or $-2$. However, we see from the arithmetic sequence that $r = 1$ is impossible, so $r = -2$.\n\nFinally, by considering $a_{3}$, we see that $-4 a + 1 = 5 a$, so $a = 1/9$. We also see that $a_{n} = (3 n - 4) a$ and $g_{n} = (-2)^{n-1} a$, so our answer is $a_{10} + g_{10} = (26 - 512) a = -486 a = -54$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-auto-4516",
+      "name": "AMC 10 A #0l04",
+      "url": "https://usamoguide.com/",
+      "source": "AMC 10 A",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Sequences and Series",
+        "Factorization techniques"
+      ],
+      "statement": "The first three terms of a geometric sequence are the integers $a$, $720$, and $b$, where $a < 720 < b$. What is the sum of the digits of the least possible value of $b$?\n\n(A) 9   (B) 12   (C) 16   (D) 18   (E) 21",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "The prime factorization of $720$ is $2^4 \\cdot 3^2 \\cdot 5$. Let $r = \\frac{m}{n}$ be the common ratio of the geometric sequence, where $m$ and $n$ are relatively prime positive integers. If $n$ had any prime factor greater than $5$, then $b = 720r$ would not be an integer. Analogously, if $m$ had any prime factor greater than $5$, then $a = \\frac{720}{r}$ would not be an integer. It follows that $r = 2^i \\cdot 3^j \\cdot 5^k$, where $i, j$, and $k$ are (not necessarily positive) integers. Furthermore, $|i| \\le 4$, $|j| \\le 2$, and $|k| \\le 1$.\n\nTo minimize the value of $b$, it suffices to minimize the value of $r > 1$. Taking $r = \\frac{16}{15} = 2^4 \\cdot 3^{-1} \\cdot 5^{-1}$ yields the sequence $675$, $720$, $768$. To check that no lesser values of $r$ exist, first observe that $\\frac{17}{16}$ is not a possible value for $r$, so both $n$ and $m$ are greater than $17$. This means that $m$ and $n$ must borrow at least two prime factors each from $720$, but $720$ has only three distinct prime factors, so this is impossible. It follows that the least possible value of $b$ is $768$, and the requested sum of digits is $7 + 6 + 8 = 21$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-auto-4539",
+      "name": "AMC 10 A #0l0r",
+      "url": "https://usamoguide.com/",
+      "source": "AMC 10 A",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Sequences and Series",
+        "Simple Equations"
+      ],
+      "statement": "The numbers, in order, of each row and the numbers, in order, of each column of a $5 \\times 5$ array of integers form an arithmetic progression of length $5$. The numbers in positions $(5, 5)$, $(2, 4)$, $(4, 3)$, and $(3, 1)$ are $0$, $48$, $16$, and $12$, respectively. What number is in position $(1, 2)$?\n$$\n\\begin{bmatrix}\n\\cdot & ? & \\cdot & \\cdot & \\cdot \\\\\n\\cdot & \\cdot & \\cdot & 48 & \\cdot \\\\\n12 & \\cdot & \\cdot & \\cdot & \\cdot \\\\\n\\cdot & \\cdot & 16 & \\cdot & \\cdot \\\\\n\\cdot & \\cdot & \\cdot & \\cdot & 0\n\\end{bmatrix}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**Answer (C):** Let $a_{ij}$ be the integer at row $i$ and column $j$. It is given that $a_{55} = 0$, $a_{24} = 48$, $a_{43} = 16$, and $a_{31} = 12$. Suppose $a_{54} = d$. Then row $5$ is $4d, 3d, 2d, d, 0$ because it is an arithmetic progression with common difference $-d$. The arithmetic progression in column $1$ gives\n$$\na_{41} = \\frac{a_{31} + a_{51}}{2} = \\frac{12 + 4d}{2} = 6 + 2d.\n$$\n\nRow $4$ gives\n$$\na_{43} = 16 = \\frac{2a_{44} + a_{41}}{3} = \\frac{\\frac{4}{3}d + 32 + 6 + 2d}{3},\n$$\nwhich implies $48 = \\frac{10}{3}d + 38$, so $d = 3$. Filling in column $3$ with common difference $16 - 6 = 10$ and column $1$ with difference $12 - 12 = 0$ produces $a_{13} = 46$ and $a_{11} = 12$. Finally,\n$$\na_{12} = \\frac{a_{13} + a_{11}}{2} = \\frac{46 + 12}{2} = 29.\n$$\n\nThe full array looks like this:\n$$\n\\begin{bmatrix}\n12 & \\underline{\\mathbf{29}} & 46 & 63 & 80 \\\\\n12 & 24 & 36 & \\mathbf{48} & 60 \\\\\n\\mathbf{12} & 19 & 26 & 33 & 40 \\\\\n12 & 14 & \\mathbf{16} & 18 & 20 \\\\\n12 & 9 & 6 & 3 & \\mathbf{0}\n\\end{bmatrix}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-auto-4681",
+      "name": "HMMT February 2025 #0l4p",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2025",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Greatest common divisors (gcd)",
+        "Sequences and Series"
+      ],
+      "statement": "Problem:\n\nLet $a$, $b$, and $c$ be pairwise distinct positive integers such that $\\frac{1}{a}$, $\\frac{1}{b}$, $\\frac{1}{c}$ is an increasing arithmetic sequence in that order. Prove that $\\gcd(a, b) > 1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nObserve that $\\frac{1}{a} + \\frac{1}{c} = \\frac{2}{b}$, so $b(a + c) = 2ac$, and thus $a \\mid b(a + c)$. If we assume that $\\gcd(a, b) = 1$, then we must have $a \\mid a + c$, so $a \\mid c$. However, $\\frac{1}{a} < \\frac{1}{c}$, so $a > c$, contradiction. Thus, $\\gcd(a, b) > 1$, as desired.\n\nSolution:\n\nObserve that $\\frac{2}{b} - \\frac{1}{a} = \\frac{1}{c}$, so $(2a - b)c = ab$ and thus $2a - b \\mid ab$. If we assume that $\\gcd(a, b) = 1$, then $\\gcd(2a - b, a) = 1$, so $2a - b \\mid b$. Then $2a - b \\mid (2a - b) + b = 2a$, so $2a - b \\mid \\gcd(2a, b) \\leq 2$. Thus $2a - b \\leq 2$. But $a > b$, contradiction. Thus, $\\gcd(a, b) > 1$, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

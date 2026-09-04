@@ -1,0 +1,113 @@
+---
+id: amgm-inequality
+title: AM-GM Inequality
+author: USAMO Guide Team
+description: A standard tool for bounding sums and products.
+prerequisites: []
+---
+
+## Overview
+
+AM-GM is the fastest way to bound expressions with fixed products or sums. It
+also provides clean equality conditions. In general, there are usually two types of inequality problems that appear. 
+
+- The Olympiad version, which is generally the more common version, asks you to prove or find the minimum or maximum.
+- The Computational version is far more unique. Usually, they give you an equation that is the equality case, and you have to determine how to use it to your advantage.
+
+## Key Ideas
+
+- For nonnegative $a_1, a_2, \ldots, a_n$, $\frac{a_1 + a_2 + \ldots + a_n}{n} \ge \sqrt[n]{a_1 a_2 \ldots a_n}$.
+- Equality holds when all variables are equal; that is, when $a_1 = a_2 = \ldots = a_n$, then $\frac{a_1 + a_2 + \ldots + a_n}{n} = \sqrt[n]{a_1 a_2 \ldots a_n}$.
+
+## Core Skills
+
+### Check Nonnegativity
+
+Firstly, it is important to ensure that one carefully checks that the terms on which the inequality is applied are nonnegative terms. 
+If the variables can be negative, you should try to play around with them a bit more. For instance, reframe the expression with squares before applying it.
+
+### Normalize Expressions
+
+Recall, the right-hand side is a product. Rewrite the expression to look like a sum of terms with a fixed product. 
+Then apply AM-GM directly.
+
+### Use Equality Cases
+
+The equality condition tells you where the minimum or maximum occurs. Use it
+to solve for parameters. For instance, in many computational competitions, they won't ask you to prove an inequality. 
+Instead, they may give you the equality, and you have to spot it!
+
+## Examples
+
+### Example 1. (Basic)
+
+> **Problem.** Compute the minimum possible value of $x + \frac{4}{x}$ for $x>0$.
+
+*Solution.* By AM-GM, it follows that
+
+$$
+\frac{x + \frac{4}{x}}{2} \ge \sqrt{x \cdot \frac{4}{x}} = 2
+$$
+
+So, $x + \frac{4}{x} \ge 4$, with equality at $x=2$. Note that we can derive $x=2$ as the equality occurs when $x = \tfrac{4}{x}$.
+
+### Example 2. (More variables)
+
+> **Problem.** Let $a,b,c \ge 0$ be positive real numbers with $abc=1$, compute the minimum of $a+b+c$.
+
+*Solution.* By AM-GM, $a+b+c \ge 3\sqrt[3]{abc} = 3$.
+
+This occurs when $a = b = c = 1$.
+
+### Example 3. (Opposite)
+
+> **Problem.** Let $x$ and $y$ be positive real numbers such that $x+y=10$. Compute the maximum possible value of $xy$.
+
+*Solution.* By AM-GM, 
+
+$$
+\frac{x+y}{2} \ge \sqrt{xy} \iff 5 \geq \sqrt{xy}
+$$
+
+so $xy \le \boxed{25}$ at $x=y=5$.
+
+### Example 4. (Splitting)
+
+> **Problem.** Let $x$ be a positive real number. Compute the minimum possible value of $x^2 + \frac{16}{x}$.
+
+*Solution.* By AM-GM, 
+
+$$
+x^2 + \frac{8}{x}+\dfrac{8}{x} \ge 3 \sqrt[3]{x^2 \cdot \frac{64}{x^2}} = 3 \cdot 4 = 12.
+$$
+
+Notably, this occurs when $x^2 = \frac{8}{x}$, and so when $x = 2$.
+
+### Example 5. (Unique)
+
+> **Problem.** Let $x,y>2$ be real numbers satisfying $(x - 2)(y - 2) = 81$. Compute the minimum possible value of $x+y$.
+
+*Solution.* From the given constraints, $x, y > 2$, rewrite this into $x - 2, y - 2, > 0$ and then apply AM-GM:
+
+$$
+(x-2) + (y-2) \ge 2 \sqrt{(x-2)(y-2)} = 2 \sqrt{81} = 18
+$$
+
+which becomes $x+y \geq 22$. The equality occurs when $x - 2 = y-2$, which is when $x = y = 11$.
+
+## Strategy Checklist
+
+- Confirm all terms are nonnegative.
+- Rewrite to expose a fixed product or fixed sum.
+- Apply AM-GM and note when equality holds.
+- Verify the equality point satisfies the domain.
+
+## Common Pitfalls
+
+- Applying AM-GM to negative terms.
+- Forgetting to check the equality condition.
+- Mixing up minimum and maximum in fixed-sum/product problems.
+
+## Practice Problems
+
+<Problems problems="practice" />

@@ -1,0 +1,127 @@
+{
+  "MODULE_ID": "algebra-abstract-algebra-group-theory",
+  "practice": [
+    {
+      "uniqueId": "algebra-abstract-algebra-group-theory-auto-1039",
+      "name": "USA IMO #0ibj",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Greatest common divisors (gcd)",
+        "Group Theory"
+      ],
+      "statement": "Suppose $a_1, \\dots, a_n$ are integers whose greatest common divisor is $1$. Let $S$ be a set of integers with the following properties.\n\na. For $i = 1, \\dots, n$, $a_i \\in S$.\n\nb. For $i, j = 1, \\dots, n$ (not necessarily distinct), $a_i - a_j \\in S$.\n\nc. For any integers $x, y \\in S$, if $x + y \\in S$, then $x - y \\in S$.\n\nProve that $S$ must be equal to the set of all integers.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "We may as well assume that none of the $a_i$ is equal to $0$. We start with the following observations.\n\nd. $0 = a_1 - a_1 \\in S$ by (b).\n\ne. $-s = 0 - s \\in S$ whenever $s \\in S$, by (a) and (d).\n\nf. If $x, y \\in S$ and $x - y \\in S$, then $x + y \\in S$ by (c) and (e).\n\nBy (f) plus strong induction on $m$, we have that $ms \\in S$ for any $m \\ge 0$ whenever $s \\in S$. By (d) and (e), the same holds even if $m \\le 0$, and so we have the following.\n\ng. For $i = 1, \\dots, n$, $S$ contains all multiples of $a_i$.\n\nWe next verify that\n\nh. For $i, j \\in \\{1, \\dots, n\\}$ and any integers $c_i, c_j$, $c_i a_i + c_j a_j \\in S$.\n\nWe do this by induction on $|c_i| + |c_j|$. If $|c_i| \\le 1$ and $|c_j| \\le 1$, this follows from (b), (d), (f), so we may assume that $\\max\\{|c_i|, |c_j|\\} \\ge 2$. Suppose without loss of generality (by switching $i$ with $j$ and/or negating both $c_i$ and $c_j$) that $c_i \\ge 2$; then\n$$\nc_i a_i + c_j a_j = a_i + ((c_i - 1)a_i + c_j a_j)\n$$\nand we have $a_i \\in S$, $(c_i - 1)a_i + c_j a_j \\in S$ by the induction hypothesis, and $(c_i - 2)a_i + c_j a_j \\in S$ again by the induction hypothesis. So $c_i a_i + c_j a_j \\in S$ by (f), and (h) is verified.\n\nLet $e_i$ be the largest integer such that $2^{e_i}$ divides $a_i$; without loss of generality we may assume that $e_1 \\ge e_2 \\ge \\dots \\ge e_n$. Let $d_i$ be the greatest common divisor of $a_1, \\dots, a_i$. We prove by induction on $i$ that $S$ contains all multiples of $d_i$ for $i = 1, \\dots, n$; the case $i = n$ is the desired result. Our base cases are $i = 1$ and $i = 2$, which follow from (g) and (h), respectively.\n\nAssume that $S$ contains all multiples of $d_i$, for some $2 \\le i < n$. Let $T$ be the set of integers $m$ such that $m$ is divisible by $d_i$ and $m + r a_{i+1} \\in S$ for all integers $r$. Then $T$ contains nonzero positive and negative numbers, namely any multiple of $a_i$ by (h). By (c), if $t \\in T$ and $s$ divisible by $d_i$ (so in $S$) satisfy $t - s \\in T$, then $t + s \\in T$. By taking $t = s = d_i$, we deduce that $2d_i \\in T$; by induction (as in the proof of (g)), we have $2md_i \\in T$ for any integer $m$ (positive, negative or zero).\n\nFrom the way we ordered the $a_i$, we see that the highest power of $2$ dividing $d_i$ is greater than or equal to the highest power of $2$ dividing $a_{i+1}$. In other words, $a_{i+1}/d_{i+1}$ is odd. We can thus find integers $f, g$ with $f$ even such that $f d_i + g a_{i+1} = d_{i+1}$. (Choose such a pair without any restriction on $f$, and replace $(f, g)$ with $(f - a_{i+1}/d_{i+1}, g + d_i/d_{i+1})$ if needed to get an even $f$.) Then for any integer $r$, we have $r f d_i \\in T$ and so $r d_{i+1} \\in S$. This completes the induction and the proof of the desired result.\n\n(By Tony Zhang) We present a different way of completing the proof after the observing (d) through (h) of the preceding solution. We proceed to prove the following lemma by induction:\n\n**Lemma** Let $m \\ge 2$. For $i_1, i_2, \\dots, i_m \\in \\{1, \\dots, n\\}$ and $k_{i_1}, \\dots, k_{i_m} \\in \\mathbb{Z}$:\n$$\n(k_{i_1} a_{i_1} + k_{i_2} a_{i_2}) + 2(k_{i_3} a_{i_3} + \\dots + k_{i_m} a_{i_m}) \\in S.\n$$\n*Proof:* Observation (h) proves the $m=2$ case, so now assume that the Lemma is true for all $m$ less than or equal to some $r$. Now by induction hypothesis, the following terms are in $S$:\n$$\n(k_{i_1} a_{i_1} + k_{i_{r+1}} a_{i_{r+1}}) + 2(k_{i_3} a_{i_3} + \\dots + k_{i_r} a_{i_r}) \\in S\n$$\n$$\n(k_{i_2} a_{i_2} + k_{i_{r+1}} a_{i_{r+1}}) \\in S.\n$$\nYet their difference is\n$$\n(k_{i_1} a_{i_1} - k_{i_2} a_{i_2}) + 2(k_{i_3} a_{i_3} + \\dots + k_{i_r} a_{i_r}),\n$$\nwhich is in $S$ by induction hypothesis, so by observation (f), their sum is in $S$:\n$$\n(k_{i_1} a_{i_1} + k_{i_2} a_{i_2}) + 2(k_{i_3} a_{i_3} + \\dots + k_{i_r} a_{i_r} + k_{i_{r+1}} a_{i_{r+1}}),\n$$\nwhich completes the induction, and the proof of the Lemma.\n\nWe apply the Lemma to prove that $1 \\in S$; by the comment following observation (f) in the previous solution, this will prove that $S = \\mathbb{Z}$. Apply the lemma with $m = n$, $i_1 = 1$, $i_2 = 2$, ..., $i_n = n$. Since we are given that the greatest common divisor of the $a_i$ is $1$, there exist integers $k_1, \\dots, k_n$ such that $k_1 a_1 + \\dots + k_n a_n = 1$. Since we can't have all $a_i$ even, without loss of generality, assume that $a_1$ is odd. Now let $i$ iterate from $2$ to $n$, and at each stage perform the following operations if $k_i$ is odd:\n\na. replace $k_i$ with $k_i + a_1$,\n\nb. replace $k_1$ with $k_1 - a_i$.\n\nNote that this preserves the sum $k_1 a_1 + \\dots + k_n a_n = 1$, but it makes all the $k_i$ between $2$ and $n$ even; therefore, the lemma applies, and we find that $1 \\in S$, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-abstract-algebra-group-theory-auto-2707",
+      "name": "IMO Team Selection Test #0jlv",
+      "url": "https://usamoguide.com/",
+      "source": "IMO Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Primitive roots mod p / p^n",
+        "Polynomials mod p",
+        "Roots of unity",
+        "Irreducibility: Rational Root Theorem, Gauss's Lemma, Eisenstein",
+        "Vieta's formulas",
+        "Group Theory"
+      ],
+      "statement": "For a prime $p$, a subset $S$ of residues modulo $p$ is called a *sum-free multiplicative subgroup of $\\mathbb{F}_p$* if:\n\n* there is a nonzero residue $\\alpha$ modulo $p$ such that $S = \\{1, \\alpha^1, \\alpha^2, \\dots\\}$ (all considered mod $p$), and\n* there are no $a, b, c \\in S$ (not necessarily distinct) such that $a + b \\equiv c \\pmod p$.\n\nProve that for every integer $N$, there is a prime $p$ and a sum-free multiplicative subgroup $S$ of $\\mathbb{F}_p$ such that $|S| \\ge N$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "We prove a stronger statement, generalizing the desired condition \"$0 \\notin S + S - S$\" to \"$0 \\notin a_1S + a_2S + \\dots + a_kS$\", for fixed integers $a_1, \\dots, a_k$ with nonzero sum $a_1 + \\dots + a_k$. (In the original problem we have $(a_1, \\dots, a_k) = (1, 1, -1)$ (so $k=3$).\n\nFix a positive integer $N$ (we will specify further later), and take a large prime $p \\equiv 1 \\pmod N$ (we don't need Dirichlet—there are infinitely many by a cyclotomic polynomial argument, along the lines of using $x^2 + 1$ for $N=4$).\n\nAgain, we will specify the size of $p$ later. Now let $\\alpha$ be an $N$th root of unity modulo $p$ (i.e. $\\alpha = g^{(p-1)/N}$ for a primitive root $g$, so $\\alpha$ has order $N$). Then the key is the following lemma:\n\n**Lemma.** If the sumset $a_1S + a_2S + \\dots + a_kS$ contains $0 \\pmod p$ for arbitrarily large primes $p \\equiv 1 \\pmod N$, then there exist indices $i_1, i_2, \\dots, i_k$ between $0$ and $N-1$ such that the polynomial $f(x) = a_1x^{i_1} + \\dots + a_kx^{i_k}$ is divisible by the $N$th cyclotomic polynomial $\\Phi_N(x)$ (over $\\mathbb{Q}$, and thus $\\mathbb{Z}$).\n\n(We will use the irreducibility of $\\Phi_N$, but we only need special cases such as $N$ prime, where the proof is easy.)\n\n*Proof.* The idea is to “transfer” from $N$th roots of unity modulo $p$ to “actual” $N$th roots of unity. First, the sumset’s containing $0$ is equivalent to the existence of $0 \\le i_1, i_2, \\dots, i_k \\le N-1$ (since $\\alpha^N \\equiv 1 \\pmod p$) such that $f(\\alpha) \\equiv 0 \\pmod p$.\n\nWe present two (similar) ways to do this. One is to use the Mobius-inversion-type definition of cyclotomic polynomials to show that in $\\mathbb{F}_p$, the roots of the polynomial $\\Phi_N(x)$ are precisely the residues of order $N$; in particular, $p$ divides $\\Phi_N(\\alpha)$. Now by Bezout's identity, there exist integer polynomials $A(x), B(x)$ and a nonzero integer $C$ such that $C \\gcd(\\Phi_N(x), f(x)) = A(x)f(x) + B(x)\\Phi_N(x)$, where the $\\gcd$ (over $\\mathbb{Q}$) is, without loss of generality, monic. Assume for the sake of contradiction that $\\gcd(\\Phi_N(x), f(x))$ is constant, so, without loss of generality, identically $1$. Then plugging in $\\alpha$, we get $p$ divides $C$ for arbitrarily large primes $p \\equiv 1 \\pmod N$, which is absurd. Thus $f(x)$ and $\\Phi_N(x)$ share a complex root, and by the irreducibility of $\\Phi_N(x)$, $f(x)$ is divisible by $\\Phi_N(x)$. ($*$)\n\nAlternatively, by counting roots, it is easy to show that in $\\mathbb{F}_p$, we have the polynomial identity $x^N-1 \\equiv (x-\\alpha)\\dots(x-\\alpha^N)$. If $z$ is a primitive $N$th root of unity, then in $\\mathbb{C}$, we have $x^N-1 = (x-z)\\dots(x-z^N)$, so the symmetric sums of $z, \\dots, z^N$ are congruent modulo $p$ to those of $\\alpha, \\dots, \\alpha^N$. It follows by the theorem of symmetric sums that the product of $f(\\alpha)$ over all valid indices $0 \\le i_1, \\dots, i_k \\le N-1$ (each choice determines some $f$) is an integer congruent modulo $p$ to the (integer) product of $f(z)$ over all valid indices $0 \\le i_1, \\dots, i_k \\le N-1$. Thus arbitrarily large primes $p$ divide the integer $\\prod_{[0,N-1]^k} f(z)$, which must therefore be $0$. Thus there exists a choice of indices such that $f(z)$ is identically $0$, and thus the minimal polynomial $\\Phi_N(x)$ (again, we use irreducibility as in $(*$)) of $z$ divides $f(x)$. $\\square$\n\nWith the lemma in hand, the rest is easy. Choose $N=q$ any prime. Then $\\Phi_N(x) = \\Phi_q(x) = (x^q-1)/(x-1)$ divides $f(x) = a_1x^{i_1} + \\dots + a_kx^{i_k}$, a $k$-term polynomial that is either identically zero or otherwise a nonzero polynomial of degree at most $N-1=q-1$. However, if $f$ is not identically zero, and $q>k$, then since $(x^q-1)/(x-1) = x^{q-1} + \\dots + 1$ has degree $q-1$ (which is at least the degree of $f$), the coefficients of $f$ must all be equal. Yet $i_1, \\dots, i_k$ cannot cover all of $0, 1, \\dots, q-1$, so one of the coefficients of $f$ must be $0$, and therefore all must be $0$.\n\nIt follows that $f$ is identically zero, so $f(1) = a_1 + \\dots + a_k = 0$, contradiction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-abstract-algebra-group-theory-auto-2773",
+      "name": "HMMT February #0jnp",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Group Theory",
+        "Modular Arithmetic"
+      ],
+      "statement": "Problem:\n\nFind the smallest integer $n \\geq 5$ for which there exists a set of $n$ distinct pairs $(x_{1}, y_{1}), \\ldots, (x_{n}, y_{n})$ of positive integers with $1 \\leq x_{i}, y_{i} \\leq 4$ for $i=1,2, \\ldots, n$, such that for any indices $r, s \\in \\{1,2, \\ldots, n\\}$ (not necessarily distinct), there exists an index $t \\in \\{1,2, \\ldots, n\\}$ such that $4$ divides $x_{r}+x_{s}-x_{t}$ and $y_{r}+y_{s}-y_{t}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $8$\n\nIn other words, we have a set $S$ of $n$ pairs in $(\\mathbb{Z} / 4 \\mathbb{Z})^{2}$ closed under addition. Since $1+1+1+1 \\equiv 0 \\pmod{4}$ and $1+1+1 \\equiv -1 \\pmod{4}$, $(0,0) \\in S$ and $S$ is closed under (additive) inverses. Thus $S$ forms a group under addition (a subgroup of $(\\mathbb{Z} / 4 \\mathbb{Z})^{2}$). By Lagrange's theorem (from basic group theory), $n \\mid 4^{2}$, so $n \\geq 8$. To achieve this bound, one possible construction is $\\{1,2,3,4\\} \\times \\{2,4\\}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-abstract-algebra-group-theory-auto-3237",
+      "name": "19th Bay Area Mathematical Olympiad #0k0l",
+      "url": "https://usamoguide.com/",
+      "source": "19th Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Enumeration with symmetry",
+        "Group Theory",
+        "3D Shapes"
+      ],
+      "statement": "Problem:\n\nTwo three-dimensional objects are said to have the same coloring if you can orient one object (by moving or turning it) so that it is indistinguishable from the other. For example, suppose we have two unit cubes sitting on a table, and the faces of one cube are all black except for the top face which is red, and the faces of the other cube are all black except for the bottom face, which is colored red. Then these two cubes have the same coloring.\n\nIn how many different ways can you color the edges of a regular tetrahedron, coloring two edges red, two edges black, and two edges green? (A regular tetrahedron has four faces that are each equilateral triangles. The figure below depicts one coloring of a tetrahedron, using thick, thin, and dashed lines to indicate three colors.)\n\n![](attached_image_1.png)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThere are nine non-equivalent colorings where two edges are red, two are black, and two are green. In the illustrations below, we will indicate the three colors by drawing edges thick, thin, or dashed. We will partition the colorings into three cases, determined by the number of pairs of edges that are colored the same: three, one, or zero (two is impossible). For each case, without loss of generality, we fix the position of the two thick edges and carefully examine all possible colorings, and determine which are equivalent.\n\n- Each pair of opposite edges is colored the same. Fixing the two thick edges, there are two possible configurations shown below.\n\n![](attached_image_2.png)\n\nThese two colorings are non-equivalent. To see why, note that the only rotations available are 2-fold (180-degree) rotations about axes joining midpoints of opposite sides, or 3-fold (120-degree) rotations about axes joining a vertex with the center of the opposite face. The 2-fold rotations leave both pictures alone (none of them turns one picture into the other), and the 3-fold rotations do not keep the thick lines in place.\n\n- Exactly one pair of opposite sides is the same color. For example, suppose that the two opposite sides are colored with thick lines. Keeping this pair in place, there are only two configurations.\n\n![](attached_image_3.png)\n\nNote that these two colorings are in fact equivalent, since you can turn one into the other by performing a 2-fold rotation about the axis joining the midpoint of the two thick edges. Since there are three choices of colors we can use for the pair, this case has a total of 3 non-equivalent colorings.\n\n- No pairs of opposite edges have the same color. Again, we will fix two thick edges and carefully count the possibilities.\n\n![](attached_image_4.png)\n\nThese are the only possible choices, once we fix the thick edges, and they are all nonequivalent, since no rotation will keep the two thick edges in place. Furthermore, the first two tetrahedra each have a thick-thick-thin face, but the first one has a face with edges colored thick-thin-dashed (going clockwise), whereas the second has a thick-thin-dashed face (going counterclockwise). For the next two tetrahedra, both have thick-thick-dashed faces, but the first has a thick-dashed-thin clockwise face, but the last has a thick-dashed-thin counterclockwise face.\n\nIn sum, there are $2+3+4=9$ non-equivalent colorings.\n\nSolution:\n\nBrilliancy Prize Alternative Solution: Suraj Mathashery of Kennedy Middle School wrote a nice solution that was the only paper which correctly applied the \"count all the colorings as a string and divide out by the symmetries\" method. Many people correctly counted (exercise) that there are 90 ways to arrange the letters RRGGBB as a string, and then divided this number \"because of rotations\" to get an answer. The problem is that there is no single number one can choose! Here is a sketch of Suraj's method. You are urged to fill in the gaps.\n\n- There are 90 colorings if we don't worry about any rotations.\n- These fall into two categories: The colorings where all three pairs of opposite edges are colored the same way, and those colorings where this is not the case.\n- The first category has just 6 colorings; the second has $90-6=84$.\n- The first category has just three rotations that change it; while the second category has 12.\n- Hence the number of non-equivalent colorings is $6 / 3+84 / 12=2+7=9$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-abstract-algebra-group-theory-auto-3677",
+      "name": "HMMT February 2020 #0kct",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2020",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Chinese remainder theorem",
+        "Primitive roots mod p / p^n",
+        "Group Theory",
+        "Factorization techniques"
+      ],
+      "statement": "Problem:\nLet $A$ be a set of integers such that for each integer $m$, there exists an integer $a \\in A$ and positive integer $n$ such that $a^{n} \\equiv m \\pmod{100}$. What is the smallest possible value of $|A|$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWork in $R = \\mathbb{Z} / 100 \\mathbb{Z} \\cong \\mathbb{Z} / 4 \\mathbb{Z} \\times \\mathbb{Z} / 25 \\mathbb{Z}$.\nCall an element $r \\in R$ type $(s, t)$ if $s = \\nu_{2}(r) \\leq 2$ and $t = \\nu_{5}(r) \\leq 2$. Also, define an element $r \\in R$ to be coprime if it is of type $(0,0)$, powerful if it is of types $(0,2)$, $(2,0)$, or $(2,2)$, and marginal otherwise.\n\nThen, note that if $r \\in R$ is marginal, then any power of $r$ is powerful. Therefore all marginal elements must be in $A$.\n\nWe claim that all powerful elements are the cube of some marginal element. To show this, take a powerful element $r$. In modulo 4 or 25, if $r$ is a unit, then since 3 is coprime to both the sizes of $(\\mathbb{Z} / 4 \\mathbb{Z})^{\\times}$ and $(\\mathbb{Z} / 25 \\mathbb{Z})^{\\times}$, it is the cube of some element. Otherwise, if $r$ is zero then it is the cube of 2 or 5, respectively (since this case happens at least once this means that the constructed cube root is marginal).\n\nWe now claim that 4 additional elements are needed to generate the coprime elements. To see this, note that $R^{\\times} \\cong \\mathbb{Z} / 2 \\mathbb{Z} \\times \\mathbb{Z} / 20 \\mathbb{Z}$ since there are primitive roots $\\bmod\\ 4$ and 25. Under this isomorphism, one can show that $(1,1)$, $(1,2)$, $(1,4)$, and $(0,1)$ generate anything, and that no element in $R^{\\times}$ has more than one of these as a multiple.\n\nTo wrap up, note that there are $100 - (20 + 1)(2 + 1) = 37$ marginal elements, so 41 elements are needed in total."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

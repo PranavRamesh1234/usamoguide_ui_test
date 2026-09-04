@@ -1,0 +1,260 @@
+---
+id: shoelace-theorem-p1
+title: Shoelace Theorem I
+author: Pranav Ramesh
+description: Computing polygon areas from coordinates using the Shoelace (Surveyor's) Formula, with AMC/AIME-level applications.
+prerequisites: [coordinate-geometry-basics, line-equations]
+difficulty: AMC 10/12
+---
+
+## Overview
+
+The **Shoelace Theorem** (also called the **Surveyor's Formula** or **Gauss's Area Formula**) gives the exact area of any polygon whose vertices are known as coordinate pairs. Unlike decomposition into triangles or the use of bounding rectangles, the Shoelace Theorem works directly and mechanically — making it one of the most powerful tools in coordinate geometry competitions.
+
+A single formula handles triangles, quadrilaterals, pentagons, and any simple (non-self-intersecting) polygon, no matter how irregular.
+
+## 1. Statement of the Theorem
+
+Suppose polygon $P$ has vertices
+
+$$
+A_1 = (x_1, y_1),\quad A_2 = (x_2, y_2),\quad \ldots,\quad A_n = (x_n, y_n)
+$$
+
+listed in **clockwise** order (counterclockwise also works — just take the absolute value). Then:
+
+$$
+[P] = \frac{1}{2} \left| \sum_{i=1}^{n} (x_i y_{i+1} - x_{i+1} y_i) \right|
+$$
+
+where indices are taken **mod $n$**, so $x_{n+1} = x_1$ and $y_{n+1} = y_1$.
+
+This can be expanded as:
+
+$$
+[P] = \frac{1}{2} \Big| (x_1 y_2 - x_2 y_1) + (x_2 y_3 - x_3 y_2) + \cdots + (x_n y_1 - x_1 y_n) \Big|
+$$
+
+### Summation Form
+
+$$
+[P] = \frac{1}{2} \left| \sum_{i=1}^{n} (x_i y_{i+1} - x_{i+1} y_i) \right|
+$$
+
+### Signed Area
+
+Without the absolute value, the formula gives a **signed area**: positive if vertices are listed counterclockwise, negative if clockwise. The signed area is useful in advanced settings (e.g., computing winding numbers or oriented areas in vector geometry).
+
+## 2. Why It's Called "Shoelace"
+
+List the coordinates in two columns, then repeat the first row at the bottom:
+
+$$
+\begin{array}{cc} x_1 & y_1 \\ x_2 & y_2 \\ x_3 & y_3 \\ \vdots & \vdots \\ x_n & y_n \\ x_1 & y_1 \end{array}
+$$
+
+Multiply diagonally **down-right** (the $\searrow$ diagonals) and sum them, then multiply diagonally **down-left** (the $\swarrow$ diagonals) and sum them. The area is half the absolute difference:
+
+$$
+[P] = \frac{1}{2}\left|\left(\sum \searrow\right) - \left(\sum \swarrow\right)\right|
+$$
+
+When you draw the crossing arrows connecting each pair of entries, the diagram looks like **laced-up shoes** — hence the name.
+
+### Visual for a Triangle
+
+For triangle with vertices $(x_1,y_1)$, $(x_2,y_2)$, $(x_3,y_3)$:
+
+$$
+[ABC] = \frac{1}{2}\left|(x_1 y_2 - x_2 y_1) + (x_2 y_3 - x_3 y_2) + (x_3 y_1 - x_1 y_3)\right|
+$$
+
+This is equivalent to:
+
+$$
+[ABC] = \frac{1}{2} \left| \det \begin{pmatrix} x_1 - x_3 & x_2 - x_3 \\ y_1 - y_3 & y_2 - y_3 \end{pmatrix} \right|
+$$
+
+## 3. Special Cases
+
+### Triangle
+
+$$
+[ABC] = \frac{1}{2}\left|x_1(y_2 - y_3) + x_2(y_3 - y_1) + x_3(y_1 - y_2)\right|
+$$
+
+This is the most commonly used form in competitions. Memorize it.
+
+### Quadrilateral with diagonals $d_1$, $d_2$ at angle 90
+
+For a quadrilateral with perpendicular diagonals: $[\text{quad}] = \frac{1}{2}d_1 d_2$. This is a special case of Shoelace and is worth knowing separately.
+
+### Collinearity Test
+
+If $[ABC] = 0$, the three points are **collinear**. 
+
+## 4. Key Properties and Insights
+
+### 4.1 Order Independence (up to sign)
+
+You may list vertices in any consistent rotational order (all CW or all CCW). Reversing the order negates the signed area but does not change $|[P]|$. Mixing orders (some CW, some CCW) gives wrong answers — always traverse the boundary **consistently**.
+
+### 4.2 Translation Invariance
+
+Shifting all vertices by a constant vector $(a, b)$ does not change the area. Algebraically, translating $(x_i, y_i) \to (x_i + a, y_i + b)$ causes cross terms in $x_i y_{i+1} - x_{i+1} y_i$ to cancel. This means you can **translate one vertex to the origin** before applying Shoelace to simplify arithmetic.
+
+### 4.3 Scaling
+
+If all coordinates are scaled by factor $k$ (i.e., $(x_i, y_i) \to (k x_i, k y_i)$), the area scales by $k^2$. This is because each term $x_i y_{i+1} - x_{i+1} y_i$ becomes $k^2(x_i y_{i+1} - x_{i+1} y_i)$.
+
+### 4.4 Decomposition Consistency
+
+For any triangulation of the polygon (dividing it into non-overlapping triangles), the sum of triangle areas equals the Shoelace area. The Shoelace formula implicitly performs this triangulation from the "origin" of the signed-area calculation.
+
+### 4.5 Works for Non-Convex Polygons
+
+Shoelace works for **any simple polygon** (no self-intersections), convex or not. Self-intersecting polygons require special care (the formula gives a signed sum that can cause cancellation.)
+
+## 5. Connection to the Determinant
+
+The Shoelace formula is deeply connected to the **$2 \times 2$ determinant**:
+
+$$
+\det\begin{pmatrix} a & b \\ c & d \end{pmatrix} = ad - bc
+$$
+
+Each term $x_i y_{i+1} - x_{i+1} y_i$ is the determinant of the $2\times 2$ matrix formed by the $i$-th and $(i+1)$-th vertices. Geometrically, this determinant equals the **signed area of the parallelogram** spanned by the two position vectors, so half of it is the area of the triangle formed with the origin.
+
+The full Shoelace sum is therefore the signed area of the polygon as seen from the origin, computed by summing up the signed areas of the "fan" of triangles from the origin to each edge.
+
+## 6. Worked Examples
+
+### Worked Example 1 — Triangle
+
+Find the area of $\triangle ABC$ with $A(1,2)$, $B(4,-6)$, $C(3,5)$.
+
+**Solution:**
+$$
+[ABC] = \frac{1}{2}|1(-6-5) + 4(5-2) + 3(2-(-6))|
+$$
+$$
+= \frac{1}{2}|1(-11)+4(3)+3(8)|
+$$
+$$
+= \frac{1}{2}|-11+12+24| = \frac{1}{2}(25) = \frac{25}{2}
+$$
+
+$\boxed{\dfrac{25}{2}}$
+
+### Worked Example 2 — Quadrilateral
+
+Find the area of the quadrilateral with vertices $A(0,0)$, $B(4,0)$, $C(5,3)$, $D(1,4)$ in that order.
+
+**Solution (Shoelace):**
+
+$$
+[ABCD] = \frac{1}{2}|(x_A y_B - x_B y_A)+(x_B y_C - x_C y_B)+(x_C y_D - x_D y_C)+(x_D y_A - x_A y_D)|
+$$
+
+$$
+= \frac{1}{2}|(0\cdot0-4\cdot0)+(4\cdot3-5\cdot0)+(5\cdot4-1\cdot3)+(1\cdot0-0\cdot4)|
+$$
+
+$$
+= \frac{1}{2}|0 + 12 + 17 + 0| = \frac{29}{2}
+$$
+
+$\boxed{\dfrac{29}{2}}$
+
+### Worked Example 3 — Medians and Centroid (AMC Style)
+
+In right triangle $ABC$, we have $\angle ACB = 90°$, $AC = 2$, $BC = 3$. Medians $AD$ and $BE$ are drawn to sides $BC$ and $AC$ respectively. $AD$ and $BE$ intersect at point $F$. Find the area of $\triangle ABF$.
+
+**Solution:**
+
+Place the right angle at the origin: $C=(0,0)$, $A=(2,0)$, $B=(0,3)$.
+
+- $D$ is the midpoint of $BC$: $D = (0, 3/2)$.
+- $E$ is the midpoint of $AC$: $E = (1, 0)$.
+
+The intersection $F$ of medians $AD$ and $BE$ is the **centroid**:
+$$
+F = \left(\frac{2+0+0}{3},\ \frac{0+3+0}{3}\right) = \left(\frac{2}{3}, 1\right)
+$$
+
+Now find $[ABF]$ with $A=(2,0)$, $B=(0,3)$, $F=(2/3,1)$:
+
+$$
+[ABF] = \frac{1}{2}\left|2(3-1)+0(1-0)+\frac{2}{3}(0-3)\right|
+$$
+$$
+= \frac{1}{2}\left|4 + 0 - 2\right| = \frac{1}{2}(2) = 1
+$$
+
+**Alternatively**, the centroid divides the triangle into 6 smaller triangles of equal area. Since $[ABC] = \frac{1}{2}(2)(3)=3$, each small triangle has area $\frac{3}{6}=\frac{1}{2}$. But $\triangle ABF$ consists of **two** of these small triangles (the ones adjacent to side $AB$), so $[ABF] = 2 \cdot \frac{1}{2} = 1$.
+
+$\boxed{1}$
+
+> **Key Insight:** The centroid divides any triangle into 6 triangles of equal area. The triangle formed by two vertices and the centroid always has area $= \frac{1}{3}[ABC]$.
+
+### Worked Example 4 — AMC 2004 #16 (Logarithmic Quadrilateral)
+
+The vertices of a quadrilateral lie on the graph of $y = \ln x$, and the $x$-coordinates of these vertices are consecutive positive integers. The area of the quadrilateral is $\ln\frac{91}{90}$. What is the $x$-coordinate of the leftmost vertex?
+
+$$
+\textbf{(A) } 6 \qquad \textbf{(B) } 7 \qquad \textbf{(C) } 10 \qquad \textbf{(D) } 12 \qquad \textbf{(E) } 13
+$$
+
+**Solution:**
+
+Let the four vertices be $(n,\ln n)$, $(n+1,\ln(n+1))$, $(n+2,\ln(n+2))$, $(n+3,\ln(n+3))$.
+
+Apply the Shoelace formula. The area is:
+
+$$
+\frac{1}{2}\Big|\big[n\ln(n+1) - (n+1)\ln n\big] + \big[(n+1)\ln(n+2)-(n+2)\ln(n+1)\big]
+$$
+$$
++ \big[(n+2)\ln(n+3)-(n+3)\ln(n+2)\big] + \big[(n+3)\ln n - n\ln(n+3)\big]\Big|
+$$
+
+Collecting terms by logarithm:
+
+$$
+= \frac{1}{2}\Big|\ln n\big[n - (n+1) + (n+3) - n\big] + \ln(n+1)\big[(n)-(n) + (n+1)-(n+2)\big]
+$$
+$$
++ \ln(n+2)\big[(n+1)-(n+2)+(n+2)-(n+3)\big] + \ln(n+3)\big[(n+2)-(n+3)+\cdots\big]\Big|
+$$
+
+More cleanly, group by which $x_i y_{j} - x_j y_i$ contributes:
+
+$$
+= \frac{1}{2}\left|\ln\left(\frac{n^{n+1}(n+1)^{n+2}(n+2)^{n+3}(n+3)^n}{(n+1)^n(n+2)^{n+1}(n+3)^{n+2}n^{n+3}}\right)\right|
+$$
+
+Simplify exponents:
+
+$$
+= \frac{1}{2}\left|\ln\left(\frac{(n+1)^2(n+2)^2}{n^2(n+3)^2}\right)\right| = \left|\ln\left(\frac{(n+1)(n+2)}{n(n+3)}\right)\right|
+$$
+
+Since the vertices are on a concave curve ($\ln x$ is concave), the expression inside is greater than 1 for $n \geq 1$ (verify: $(n+1)(n+2) = n^2+3n+2 > n^2+3n = n(n+3)$), so no absolute value needed:
+
+$$
+\ln\left(\frac{(n+1)(n+2)}{n(n+3)}\right) = \ln\frac{91}{90}
+$$
+
+Therefore $\frac{(n+1)(n+2)}{n(n+3)} = \frac{91}{90}$.
+
+Since $91 = 7 \times 13$, the numerator $(n+1)(n+2)$ must contain a factor of $13$. From the answer choices, candidates are $n = 12$ (giving $n+1=13$) or $n=11$ (giving $n+2=13$).
+
+- $n=12$: $\frac{13 \cdot 14}{12 \cdot 15} = \frac{182}{180} = \frac{91}{90}$. ✓
+- $n=11$: $\frac{12 \cdot 13}{11 \cdot 14} = \frac{156}{154} = \frac{78}{77} \neq \frac{91}{90}$. ✗
+
+The answer is $\boxed{12}$.
+
+> **Technique Spotlight:** This problem demonstrates that Shoelace can handle points on a curve — you just treat the coordinates algebraically and simplify using logarithm rules. The key was recognizing that all the messy $\ln$ terms collapse beautifully.
+
+# Part 2:
+Due to Size constraints, this module has been split in two. Check out Part 2 for the rest of the content. 

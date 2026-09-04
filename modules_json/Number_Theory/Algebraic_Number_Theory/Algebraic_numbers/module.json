@@ -1,0 +1,102 @@
+{
+  "MODULE_ID": "number-theory-algebraic-number-theory-algebraic-numbers",
+  "practice": [
+    {
+      "uniqueId": "number-theory-algebraic-number-theory-algebraic-numbers-auto-2683",
+      "name": "HMMT 2014 HMIC #0jl7",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2014 HMIC",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Roots of unity",
+        "Algebraic numbers",
+        "Field Theory"
+      ],
+      "statement": "Problem:\n\nLet $\\omega$ be a root of unity and $f$ be a polynomial with integer coefficients. Show that if $|f(\\omega)|=1$, then $f(\\omega)$ is also a root of unity.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSuppose $\\omega$ is a primitive $n$th root, so that $\\Phi_{n}(x)$ is the minimal polynomial of $\\omega$ (over $\\mathbb{Q}$). Thus $f(\\omega) f\\left(\\omega^{-1}\\right)=1$ implies $\\Phi_{n}(x) \\mid f(x) f\\left(x^{-1}\\right)-1$ (divisibility as Laurent polynomials). Hence $\\left|f\\left(\\omega^{k}\\right)\\right|=1$ whenever $\\operatorname{gcd}(k, n)=1$, and $\\prod_{\\operatorname{gcd}(k, n)=1}\\left(t-f\\left(\\omega^{k}\\right)\\right)$ is a monic integer-coefficient polynomial with all roots within the unit disk, so its roots must all be roots of unity (since 0 is clearly not a root), and we're done.\n\nSolution:\n\nWe follow the paper here, but fill in some of the details to make the ideas as accessible as possible. We will use the fact that if $A$ is a finitely generated abelian group, then any subgroup $B$ is also finitely generated, and furthermore, $\\operatorname{rank}(B) \\leq \\operatorname{rank}(A)$. (For instance, see Theorem 14.6.5 in Artin's Algebra, 3rd ed. for a proof of finite generation, which for our particular case of modules over a PID (namely, $\\mathbb{Z}$) can be done in parallel to the $\\operatorname{rank}(B) \\leq \\operatorname{rank}(A)$ proof—the proof is very similar to Gaussian elimination.)\n\nLet $K=\\mathbb{Q}(\\omega)$, $V$ the set of algebraic integers in $K$ of modulus 1 (which must be units of $K$), $U \\supseteq V$ the set of units in $K$, $R=U \\cap \\mathbb{R}$ the set of real units in $K$ (which, importantly, is also the set of units in $K \\cap \\mathbb{R}$), and $L=K \\cap \\mathbb{R}$ denote the maximal real subfield of $K$.\n\nThe key is that $\\operatorname{rank}(V)=\\operatorname{rank}(U)-\\operatorname{rank}(R)$. To prove this, we note that for $u \\in U$, $\\bar{u} \\in U$ as well (since $\\bar{K}=K$), so $u \\bar{u}=|u|^{2} \\in R$ and $u / \\bar{u} \\in V$, which gives $u^{2}=(u \\bar{u})(u / \\bar{u}) \\in R V$. Thus $S:=\\left\\{u^{2}: u \\in U\\right\\} \\subseteq R V \\subseteq U$. But $U$ is a finitely generated abelian group by Dirichlet's unit theorem, so $S, R V$ are as well, and furthermore $\\operatorname{rank}(S) \\leq \\operatorname{rank}(R V) \\leq \\operatorname{rank}(U)$. Now take multiplicatively independent $u_{1}, \\ldots, u_{\\operatorname{rank}(U)} \\in U$; then clearly $u_{1}^{2}, \\ldots, u_{\\operatorname{rank}(U)}^{2} \\in S$ are multiplicatively independent as well, so $\\operatorname{rank}(U) \\leq \\operatorname{rank}(S)$, whence $\\operatorname{rank}(R V)=\\operatorname{rank}(U)$. Of course, $R \\cap V=\\{ \\pm 1\\}$, so $\\operatorname{rank}(R V)=\\operatorname{rank}(R)+\\operatorname{rank}(V)-\\operatorname{rank}(R \\cap V)=\\operatorname{rank}(R)+\\operatorname{rank}(V)$ (the proof here for $\\mathbb{Z}$-modules is essentially the same as that for $\\mathbb{Q}$-vector spaces), finishing the proof.\n\n$V$ contains only roots of unity if and only if $\\operatorname{rank}(V)=0$ (no free elements), so we must prove $\\operatorname{rank}(U)=\\operatorname{rank}(R)$. Let $r, s$ denote the number of real and complex embeddings of a number field, so $[K: \\mathbb{Q}]=r(K)+2 s(K)$, $[L: \\mathbb{Q}]=r(L)+2 s(L)$, and thus $r(K)+2 s(K)=[K: L](r(L)+2 s(L))$. By Dirichlet's unit theorem, $\\operatorname{rank}(U)=r(K)+s(K)-1$ and $\\operatorname{rank}(R)=r(L)+s(L)-1$.\n\nIf $K=L$ (equivalently, $K$ is totally real), we're trivially done. Otherwise, if $[K: L]>1$, it's easy to check that we have $\\operatorname{rank}(U)=\\operatorname{rank}(R)$ if and only if $[K: L]=2$ and $r(K)=s(L)=0$ ($K$ is totally imaginary and $L$ is totally real)—then $r(L)=s(K)$ automatically holds. This is precisely the condition that $K$ is a CM-field.\n\n(CM-field $K$ just means $K$ is totally imaginary (no real embeddings), and $K$ is a quadratic extension of $K \\cap \\mathbb{R}$.)\n\nIn particular, the cyclotomic field $K=\\mathbb{Q}(\\omega)=\\mathbb{Q}[\\omega]$ is a totally imaginary quadratic extension of the totally real field $\\mathbb{Q}\\left(\\omega+\\omega^{-1}\\right)=\\mathbb{Q}\\left[\\omega+\\omega^{-1}\\right]$. Indeed, it is easy to check that the latter is simply $K \\cap \\mathbb{R}$, and $K=\\mathbb{Q}\\left(\\omega+\\omega^{-1}, \\omega-\\omega^{-1}= \\pm \\sqrt{\\left(\\omega+\\omega^{-1}\\right)^{2}-4}\\right)$. So we're done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-algebraic-number-theory-algebraic-numbers-auto-2908",
+      "name": "HMMT February 2015 #0jrg",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2015",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Roots of unity",
+        "Symmetric functions",
+        "Polynomials mod p",
+        "Fermat / Euler / Wilson theorems",
+        "Algebraic numbers"
+      ],
+      "statement": "Problem:\nLet $z = e^{\\frac{2\\pi i}{101}}$ and let $\\omega = e^{\\frac{2\\pi i}{10}}$. Prove that\n$$\n\\prod_{a=0}^{9} \\prod_{b=0}^{100} \\prod_{c=0}^{100} \\left(\\omega^{a} + z^{b} + z^{c}\\right)\n$$\nis an integer and find (with proof) its remainder upon division by $101$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $p = 101$ and $r = 10$. Note that $p \\nmid r$.\n\nIn the sequel, we will repeatedly use the polynomial identities $\\prod_{k (\\bmod p)} (x - z^{k}) = x^{p} - 1$, and $\\prod_{j (\\bmod r)} (x - \\omega^{j}) = x^{r} - 1$.\n\nThe product is an integer by standard symmetric sum theory (concrete precursor to Galois theory, though one doesn't need the full language). More precisely, it expands into an integer-coefficient polynomial symmetric in the $\\omega^{j}$ (for the $r$ residues $j (\\bmod r)$), and also symmetric in the $z^{k}$ (for the $p$ residues $k (\\bmod p)$). So by the fundamental theorem of symmetric sums, it can be written as an integer-coefficient polynomial in the symmetric sums of the $\\omega^{j}$ together with the symmetric sums of the $z^{k}$. But these symmetric sums are integers themselves, so the original expression is indeed an integer.\n\nTo actually compute the remainder modulo $p$, note by the Frobenius endomorphism $(u + v)^{p} \\equiv u^{p} + v^{p} \\pmod{p}$ that\n$$\n\\begin{aligned}\n\\prod_{a, b, c} (\\omega^{a} + z^{b} + z^{c}) &= \\prod_{a, b} (-1)^{p} \\left( (-\\omega^{a} - z^{b})^{p} - 1 \\right) \\\\\n&\\equiv \\prod_{a, b} (\\omega^{p a} + z^{p b} - (-1)^{p}) = \\prod_{a, b} (\\omega^{p a} + 2) \\quad (\\bmod p)\n\\end{aligned}\n$$\nwhere we use $p \\equiv 1 \\pmod{2}$ in the last step. This simplifies further to\n$$\n\\begin{aligned}\n\\prod_{a} (-1)^{p} (-2 - \\omega^{p a})^{p} &= \\prod_{a} (-1)^{p} (-2 - \\omega^{a})^{p} \\\\\n&= (-1)^{p r} [(-2)^{r} - 1]^{p} \\equiv (-1)^{p r} [(-2)^{r} - 1] \\quad (\\bmod p)\n\\end{aligned}\n$$\nwhere we've used the fact that $\\{p a \\bmod r\\} = \\{a \\bmod r\\}$ (since $p$ is invertible $\\bmod r$), as well as Fermat's little theorem on $(-2)^{r} - 1$.\n\nFinally, we plug in the specific numbers:\n$$\n(-1)^{101 \\cdot 10} [(-2)^{10} - 1] = 1023 \\equiv 13 \\pmod{101}\n$$\n\nSolution:\nHere we sketch a better solution found by several teams, but missed by the author (primarily due to blindness from having first found the first solution). The proof of the first part (that the product is an integer) is the same, so we only sketch different proofs of the second part (computation of the remainder $\\bmod p$).\n\nFor example, we can use the algebraic integer formulation from the previous solution. Indeed, note that $D := \\prod_{a, b, c} (\\omega^{a} + z^{b} + z^{c}) - \\prod_{a, b, c} (\\omega^{a} + 1^{b} + 1^{c})$ is an algebraic integer divisible by $z - 1$. But $D$ is also a difference of integers, hence an integer itself. The only way $\\frac{D}{z - 1}$ can be an algebraic integer is if $p \\mid D$ (Why?), so it simply remains to compute the remainder when the integer $\\prod_{a, b, c} (\\omega^{a} + 1^{b} + 1^{c})$ is divided by $p$, which is quite easy.\n\nAlternatively (as some contestants/teams found), we can get rid of $\\omega$ first (rather than $z$ as in the previous solution), so (up to sign) we want to evaluate $\\prod_{b, c} (1 + (z^{b} + z^{c})^{r}) \\pmod{p}$. But we have a polynomial identity $\\prod_{b, c} (1 + (T^{b} + T^{c})^{r}) \\in \\Phi_{p}(T) \\cdot \\mathbb{Z}[x] + M$ for some constant integer $M$, where $\\Phi_{p}(T) = T^{p-1} + \\cdots + T + 1$ denotes the $p$th cyclotomic polynomial. But note that $\\Phi_{p}(z) = 0$ is congruent to $\\Phi_{p}(1) = p$ modulo $p$, so\n$$\n\\prod_{b, c} (1 + (z^{b} + z^{c})^{r}) - \\prod_{b, c} (1 + (1^{b} + 1^{c})^{r})\n$$\nis an integer divisible by $p$. The rest is easy.\n\nFinally, as before:\n$$\n(-1)^{101 \\cdot 10} [(-2)^{10} - 1] = 1023 \\equiv 13 \\pmod{101}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-algebraic-number-theory-algebraic-numbers-auto-3749",
+      "name": "HMMT February 2020 #0ket",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2020",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial operations",
+        "Algebraic numbers",
+        "Sums and products"
+      ],
+      "statement": "Problem:\nA polynomial $P(x)$ is a base-$n$ polynomial if it is of the form $a_{d} x^{d} + a_{d-1} x^{d-1} + \\cdots + a_{1} x + a_{0}$, where each $a_{i}$ is an integer between $0$ and $n-1$ inclusive and $a_{d} > 0$. Find the largest positive integer $n$ such that for any real number $c$, there exists at most one base-$n$ polynomial $P(x)$ for which $P(\\sqrt{2} + \\sqrt{3}) = c$.\nProposed by: James Lin",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nIt is equivalent to determine the largest $n$ such that we cannot find two distinct base-$n$ polynomials $P_{1}$ and $P_{2}$ such that $P_{1}(\\sqrt{2} + \\sqrt{3}) = P_{2}(\\sqrt{2} + \\sqrt{3})$. The difference of two base-$n$ polynomials is a polynomial with integer coefficients whose absolute values are less than $n$, and all such polynomials are the difference of two base-$n$ polynomials. We compute the minimal polynomial of $x = \\sqrt{2} + \\sqrt{3}$ first: since $x^{2} = 5 + 2\\sqrt{6}$, we have $\\left(x^{2} - 5\\right)^{2} = 24$ so $x^{4} - 10x^{2} + 1 = 0$. Therefore $\\sqrt{2} + \\sqrt{3}$ is a root of $\\left(x^{2} + 1\\right)\\left(x^{4} - 10x^{2} + 1\\right) = x^{6} - 9x^{4} - 9x^{2} + 1$. The coefficients of this polynomial have magnitude at most $9$, so $n < 10$.\n\nIn the other direction, observe that $(\\sqrt{2} + \\sqrt{3})^{k}$ is of the form $a + b\\sqrt{6}$ for integers $a$ and $b$ if $k$ is even, and $a\\sqrt{2} + b\\sqrt{3}$ if $k$ is odd. As no integer linear combination of the first expression can equal the second, we can treat these cases separately. Suppose $Q(x) = c_{d} x^{2d} + c_{d-1} x^{2d-2} + \\cdots + c_{0}$ is an even polynomial with $|c_{i}| < 9$ for all $i$ and $c_{d} \\neq 0$. Let $y = (\\sqrt{2} + \\sqrt{3})^{2} = 5 + 2\\sqrt{6}$ and observe that $y > 9$. Then\n$$\n\\begin{aligned}\n|c_{d} y^{d}| & \\geq y^{d} \\\\\n& > \\frac{8}{y-1}(y^{d} - 1) \\\\\n& = 8y^{d-1} + 8y^{d-2} + \\cdots + 8y + 8 \\\\\n& \\geq |c_{d-1} y^{d-1} + c_{d-2} y^{d-2} + \\cdots + c_{0}|\n\\end{aligned}\n$$\nTherefore $Q(\\sqrt{2} + \\sqrt{3}) = c_{d} y^{d} + c_{d-1} y^{d-1} + \\cdots + c_{0} \\neq 0$, so no two distinct base-$9$ polynomials coincide at $x = \\sqrt{2} + \\sqrt{3}$.\n\nThe same logic applies for the odd polynomial case after dividing out a factor of $\\sqrt{2} + \\sqrt{3}$, so $n = 9$ works."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-algebraic-number-theory-algebraic-numbers-auto-4757",
+      "name": "HMMT February #0l6t",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial operations",
+        "Algebraic numbers"
+      ],
+      "statement": "Problem:\nLet $\\mathcal{S}$ be the set of all nonconstant monic polynomials $P$ with integer coefficients satisfying $P\\left(\\sqrt{3} + \\sqrt{2}\\right) = P\\left(\\sqrt{3} - \\sqrt{2}\\right)$. If $Q$ is an element of $\\mathcal{S}$ with minimal degree, compute the only possible value of $Q(10) - Q(0)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFirst, note that the polynomial $x^{4} - 10x^{2} + 1$ has both $\\sqrt{3} + \\sqrt{2}$ and $\\sqrt{3} - \\sqrt{2}$ as roots. It suffices to check whether a polynomial of degree at most 3 belongs in $\\mathcal{S}$. Suppose $f(x) = a x^{3} + b x^{2} + c x + d \\in \\mathcal{S}$. We compute\n\n$$(\\sqrt{3} + \\sqrt{2})^{3} - (\\sqrt{3} - \\sqrt{2})^{3} = 22\\sqrt{2}$$\n$$(\\sqrt{3} + \\sqrt{2})^{2} - (\\sqrt{3} - \\sqrt{2})^{2} = 4\\sqrt{6}$$\n$$(\\sqrt{3} + \\sqrt{2})^{1} - (\\sqrt{3} - \\sqrt{2})^{1} = 2\\sqrt{2},$$\n\nso we get that\n\n$$f(\\sqrt{3} + \\sqrt{2}) - f(\\sqrt{3} - \\sqrt{2}) = (22\\sqrt{2})a + (4\\sqrt{6})b + (2\\sqrt{2})c.$$ \n\nBy resolving linear dependencies, it's clear that $b = 0$ and $c = -11a$. It follows that if $f$ is not the zero polynomial, it must be cubic. It is then clear that $f(x) = x^{3} - 11x + d$ has minimal degree in $\\mathcal{S}$, and thus $Q(10) - Q(0) = f(10) - f(0) = \\boxed{890}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

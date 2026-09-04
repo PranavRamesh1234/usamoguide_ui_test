@@ -1,0 +1,1973 @@
+{
+  "MODULE_ID": "discrete-mathematics-combinatorics-inclusion-exclusion",
+  "practice": [
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-0291",
+      "name": "Berkeley Math Circle: Monthly Contest 6 #0hqr",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recursion, bijection",
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\nSuppose you have three children and 40 pieces of candy. How many ways are there to distribute the candy such that each child gets more than one but fewer than 20 pieces?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe can use the \"stars and bars\" method, since this is the equivalent of giving 40 pieces of candy to three children, such that each child gets at least two pieces. This is the same as giving $40-6=34$ pieces to the three children with no restrictions (since we can pretend six pieces are already given out, two to each child). This is the same as arranging the 36 pieces of candy and two \"dividers\" (one between the first child's candy and the second child's candy and one between the second child's candy and the third child's candy) in a row. Thus, the number of ways to do this is\n$$\n\\left(\\begin{array}{c}\n36 \\\\\n2\n\\end{array}\\right)=\\frac{36 \\cdot 35}{2}=630\n$$\nHowever, this counts cases where one child gets at least 20 pieces of candy, which we don't want, so we need to subtract these cases. Only one child could get at least 20 pieces, or we would run out of candy, so there are three ways to choose the child who gets at least 20 pieces. Then, we have 20 pieces of candy to distribute among three children so that two of them (the ones who didn't already get 20) get at least 2 pieces each, which is the equivalent of distributing $20-4=16$ pieces among 3 children with no restrictions (since we can think of four of the pieces as being already given out). This can be done in $\\left(\\begin{array}{c}18 \\\\ 2\\end{array}\\right)$ ways, since it is the same as lining up 16 pieces of candy and two \"dividers.\" Putting this together, we get\n$$\n\\left(\\begin{array}{c}\n36 \\\\\n2\n\\end{array}\\right)-3\\left(\\begin{array}{c}\n18 \\\\\n2\n\\end{array}\\right)=630-3 \\cdot 153=171\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-0508",
+      "name": "Berkeley Math Circle Monthly Contest 7 #0hws",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 7",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Coloring schemes, extremal arguments",
+        "Inclusion-exclusion",
+        "Sums and products"
+      ],
+      "statement": "Problem:\n\nLet $n$ and $k$ be positive integers with $n < \\sqrt{(k-1) 2^{k}}$. Prove that it is possible to color each element of the set $\\{1,2, \\ldots, n\\}$ red or green such that no $k$-term arithmetic progression is monochromatic.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $A$ be the number of $k$-term arithmetic progressions in $\\{1,2, \\ldots, n\\}$. For any common difference $d$, an arithmetic progression of difference $d$ fits in $\\{1,2, \\ldots, n\\}$ iff its initial term $a$ satisfies\n$$\n1 \\leq a < a + (k-1)d \\leq n\n$$\nwhich is equivalent to\n$$\n1 \\leq a \\leq n - (k-1)d ;\n$$\nthis inequality has $n - (k-1)d$ solutions, as long as $n - (k-1)d \\geq 0$. Thus the total number of arithmetic progressions is\n$$\nA = \\sum_{d=1}^{\\left\\lfloor \\frac{n}{k-1} \\right\\rfloor} (n - (k-1)d)\n$$\nAs shown in the figure, the terms of this sum can be seen as the areas of nonoverlapping rectangles lying under the graph of $y = n - (k-1)x$. Their sum therefore does not exceed the area of the triangle enclosed by this line and the axes:\n$$\nA \\leq \\frac{1}{2} \\cdot \\frac{n}{k-1} \\cdot n = \\frac{n^{2}}{2(k-1)}\n$$\nNow consider any $k$-term arithmetic progression. The number of colorings in which it is monochromatic is\n$$\n2^{n} \\cdot \\frac{2}{2^{k}}\n$$\n![](attached_image_1.png)\nsince, of the $2^{k}$ ways that its terms might be colored, only 2 are monochromatic. Therefore the number of colorings that make no $k$-term arithmetic progression monochromatic is at least\n$$\n\\begin{aligned}\n& 2^{n} - A \\left(2^{n} \\cdot \\frac{2}{2^{k}}\\right) \\\\\n& \\geq 2^{n} - \\frac{n^{2}}{2(k-1)} \\cdot 2^{n} \\cdot \\frac{2}{2^{k}} \\\\\n& = 2^{n} \\left(1 - \\frac{n^{2}}{(k-1) 2^{k}}\\right)\n\\end{aligned}\n$$\nIf $n^{2} < (k-1) 2^{k}$ (equivalently, $n < \\sqrt{(k-1) 2^{k}}$) then this lower bound will be positive, implying that there is at least one coloring with the desired property."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-0512",
+      "name": "Berkeley Math Circle: Monthly Contest 6 #0hww",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Quadratic residues",
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\n\nProve that there are infinitely many positive integers $n$ for which $n^{2}+1$ has no repeated prime factors (that is, $n^{2}+1$ is squarefree).",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nBy Fermat's Christmas theorem, the only primes which may divide $n^{2}+1$ other than $2$ are those which are $1 \\pmod{4}$, and moreover $2^{2} \\nmid n^{2}+1$ for any $n$.\n\nConsider primes $p \\equiv 1 \\pmod{4}$. Observe that for any $x$, we have\n$$\n\\#\\{n \\leq x \\mid n^{2}+1 \\equiv 0 \\pmod{p^{2}}\\} \\leq \\frac{2}{p^{2}} x + 2\n$$\nsince there are at most two solutions $\\bmod\\ p^{2}$ to $n^{2} \\equiv -1 \\pmod{p^{2}}$.\n\nSumming over all primes $p \\equiv 1 \\pmod{4}$ now implies the result, since\n$$\n\\sum_{p \\equiv 1} \\frac{2}{p^{2}} < 2\\left(\\frac{1}{4^{2}} + \\frac{1}{8^{2}} + \\ldots\\right) = \\frac{\\pi^{2}}{6} \\cdot \\frac{1}{8} < 1\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-0553",
+      "name": "Harvard-MIT Mathematics Tournament #0hy1",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\n\nHow many positive integers less than $1998$ are relatively prime to $1547$? (Two integers are relatively prime if they have no common factors besides $1$.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $1487$. The factorization of $1547$ is $7 \\cdot 13 \\cdot 17$, so we wish to find the number of positive integers less than $1998$ that are not divisible by $7$, $13$, or $17$. By the Principle of Inclusion-Exclusion, we first subtract the numbers that are divisible by one of $7$, $13$, and $17$, add back those that are divisible by two of $7$, $13$, and $17$, then subtract those divisible by three of them. That is,\n$$\n1997-\\left\\lfloor\\frac{1997}{7}\\right\\rfloor-\\left\\lfloor\\frac{1997}{13}\\right\\rfloor-\\left\\lfloor\\frac{1997}{17}\\right\\rfloor+\\left\\lfloor\\frac{1997}{7 \\cdot 13}\\right\\rfloor+\\left\\lfloor\\frac{1997}{7 \\cdot 17}\\right\\rfloor+\\left\\lfloor\\frac{1997}{13 \\cdot 17}\\right\\rfloor-\\left\\lfloor\\frac{1997}{7 \\cdot 13 \\cdot 17}\\right\\rfloor,\n$$\nor $1487$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-0777",
+      "name": "Harvard-MIT Math Tournament #0i49",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion",
+        "Counting two ways"
+      ],
+      "statement": "Problem:\nA certain cafeteria serves ham and cheese sandwiches, ham and tomato sandwiches, and tomato and cheese sandwiches. It is common for one meal to include multiple types of sandwiches. On a certain day, it was found that 80 customers had meals which contained both ham and cheese; 90 had meals containing both ham and tomatoes; 100 had meals containing both tomatoes and cheese. 20 customers' meals included all three ingredients. How many customers were there?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution: 230. Everyone who ate just one sandwich is included in exactly one of the first three counts, while everyone who ate more than one sandwich is included in all four counts. Thus, to count each customer exactly once, we must add the first three figures and subtract the fourth twice: $80+90+100-2 \\cdot 20=230$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-0797",
+      "name": "Harvard-MIT Math Tournament #0i4t",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\nA certain cafeteria serves ham and cheese sandwiches, ham and tomato sandwiches, and tomato and cheese sandwiches. It is common for one meal to include multiple types of sandwiches. On a certain day, it was found that 80 customers had meals which contained both ham and cheese; 90 had meals containing both ham and tomatoes; 100 had meals containing both tomatoes and cheese. 20 customers' meals included all three ingredients. How many customers were there?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n230. Everyone who ate just one sandwich is included in exactly one of the first three counts, while everyone who ate more than one sandwich is included in all four counts. Thus, to count each customer exactly once, we must add the first three figures and subtract the fourth twice: $80+90+100-2 \\cdot 20=230$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-0805",
+      "name": "Harvard-MIT Math Tournament #0i51",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\n\nCount how many 8-digit numbers there are that contain exactly four nines as digits.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThere are $\\binom{8}{4} \\cdot 9^{4}$ sequences of 8 numbers with exactly four nines. A sequence of digits of length 8 is not an 8-digit number, however, if and only if the first digit is zero. There are $\\binom{7}{4} 9^{3}$-digit sequences that are not 8-digit numbers. The answer is thus $\\binom{8}{4} \\cdot 9^{4} - \\binom{7}{4} 9^{3} = 433755$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-0808",
+      "name": "Harvard-MIT Math Tournament #0i54",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\n\nHow many four-digit numbers are there in which at least one digit occurs more than once?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThere are $9000$ four-digit numbers altogether. If we consider how many four-digit numbers have all their digits distinct, there are $9$ choices for the first digit (since we exclude leading zeroes), and then $9$ remaining choices for the second digit, then $8$ for the third, and $7$ for the fourth, for a total of $9 \\cdot 9 \\cdot 8 \\cdot 7 = 4536$. Thus the remaining $9000 - 4536 = 4464$ numbers have a repeated digit."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-0843",
+      "name": "Harvard-MIT Math Tournament #0i63",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\n\nTwo $4 \\times 4$ squares are randomly placed on an $8 \\times 8$ chessboard so that their sides lie along the grid lines of the board. What is the probability that the two squares overlap?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n$529/625$. Each square has $5$ horizontal $\\cdot$ $5$ vertical $=25$ possible positions, so there are $625$ possible placements of the squares. If they do not overlap, then either one square lies in the top four rows and the other square lies in the bottom four rows, or one square lies in the left four columns and the other lies in the right four columns. The first possibility can happen in $2 \\cdot 5 \\cdot 5=50$ ways (two choices of which square goes on top, and five horizontal positions for each square); likewise, so can the second. However, this double-counts the $4$ cases in which the two squares are in opposite corners, so we have $50+50-4=96$ possible non-overlapping arrangements $\\Rightarrow 25^{2}-96=529$ overlapping arrangements."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-0882",
+      "name": "Harvard-MIT Math Tournament #0i76",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion",
+        "Counting two ways"
+      ],
+      "statement": "Problem:\n\nCount the number of triangles with positive area whose vertices are points whose $(x, y)$-coordinates lie in the set $\\{(0,0),(0,1),(0,2),(1,0),(1,1),(1,2),(2,0),(2,1),(2,2)\\}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThere are $\\binom{9}{3} = 84$ triples of points. 8 of them form degenerate triangles (the ones that lie on a line), so there are $84 - 8 = 76$ nondegenerate triangles."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-0940",
+      "name": "Harvard-MIT Mathematics Tournament #0i8s",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Greatest common divisors (gcd)",
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\n\nHow many positive rational numbers less than $\\pi$ have denominator at most $7$ when written in lowest terms? (Integers have denominator $1$.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe can simply list them. The table shows that there are $3+3+6+6+12+6+18=54$.\n\n| Denominator | Values |\n| ---: | :--- |\n| 1 | $\\frac{1}{1}, \\frac{2}{1}, \\frac{3}{1}$ |\n| 2 | $\\frac{1}{2}, \\frac{3}{2}, \\frac{5}{2}$ |\n| 3 | $\\frac{1}{3}, \\frac{2}{3}, \\frac{4}{3}, \\frac{5}{3}, \\frac{7}{3}, \\frac{8}{3}$ |\n| 4 | $\\frac{1}{4}, \\frac{3}{4}, \\frac{5}{4}, \\frac{7}{4}, \\frac{9}{4}, \\frac{11}{4}$ |\n| 5 | $\\frac{1}{5}, \\frac{2}{5}, \\frac{3}{5}, \\frac{4}{5}, \\frac{6}{5}, \\frac{7}{5}, \\frac{8}{5}, \\frac{9}{5}, \\frac{11}{5}, \\frac{12}{5}, \\frac{13}{5}, \\frac{14}{5}$ |\n| 6 | $\\frac{1}{6}, \\frac{5}{6}, \\frac{7}{6}, \\frac{11}{6}, \\frac{13}{6}, \\frac{17}{6}$ |\n| 7 | $\\frac{1}{7}, \\frac{2}{7}, \\ldots, \\frac{6}{7}, \\frac{8}{7}, \\frac{9}{7}, \\ldots, \\frac{13}{7}, \\frac{15}{7}, \\frac{16}{7}, \\ldots, \\frac{20}{7}$ |"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-0976",
+      "name": "Harvard-MIT Mathematics Tournament #0i9s",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion",
+        "Coloring schemes, extremal arguments"
+      ],
+      "statement": "Problem:\n\nWe wish to color the integers $1,2,3, \\ldots, 10$ in red, green, and blue, so that no two numbers $a$ and $b$, with $a-b$ odd, have the same color. (We do not require that all three colors be used.) In how many ways can this be done?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe condition is equivalent to never having an odd number and an even number in the same color. We can choose one of the three colors for the odd numbers and distribute the other two colors freely among the 5 even numbers; this can be done in $3 \\cdot 2^{5}=96$ ways. We can also choose one color for the even numbers and distribute the other two colors among the 5 odd numbers, again in 96 ways. This gives a total of 192 possibilities. However, we have double-counted the $3 \\cdot 2=6$ cases where all odd numbers are the same color and all even numbers are the same color, so there are actually $192-6=186$ possible colorings."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-1040",
+      "name": "USA IMO #0ibk",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion",
+        "Generating functions",
+        "Enumeration with symmetry",
+        "Roots of unity",
+        "Complex numbers"
+      ],
+      "statement": "Let $n$ be a positive integer. Consider sequences $a_0, a_1, \\dots, a_n$ such that $a_i \\in \\{1, 2, \\dots, n\\}$ for each $i$ and $a_n = a_0$.\n\na. Call such a sequence *good* if for all $i = 1, 2, \\dots, n$, $a_i - a_{i-1} \\not\\equiv i \\pmod n$. Suppose that $n$ is odd. Find the number of good sequences.\n\nb. Call such a sequence *great* if for all $i = 1, 2, \\dots, n$, $a_i - a_{i-1} \\not\\equiv i, 2i \\pmod n$. Suppose that $n$ is an odd prime. Find the number of great sequences.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**First Solution:** The answer is $(n-1)^n - (n-1)$ for part (a) and $(n-1)((n-2)^{n-1} - 1)$ for part (b).\n\na. Observe that the number of good sequences is clearly the same for any choice of $a_0$. For fixed $a_0$, call the condition $a_i - a_{i-1} \\not\\equiv i \\pmod n$ *condition (i)*. Now let $S_i$ be the set of sequences $A = \\{a_i\\}_{i=1}^n, a_i \\in \\{1, 2, \\dots, n\\}$ such that $A$ satisfies conditions (1), (2), \\dots, $(n-i)$ and fails to satisfy conditions $(n-i+2)$, $(n-i+3)$, \\dots, $(n)$. Note that there is no constraint on whether or not $A$ satisfies condition $(n-i+1)$. Finally, let $F$ be the set of sequences that fails all conditions (1), (2), \\dots, $(n)$. Then we claim that the number of good sequences starting with $a_0$ is\n$$\nm = |S_1| - |S_2| + |S_3| - \\dots + |S_n| - |F|.\n$$\nConsider the following table, representing the conditions on sequences in $S_i$.\n$$\n\\begin{array}{c|ccccccc}\nS_1 & (1) & (2) & (3) & \\dots & (n-2) & (n-1) & \\\\\n\\hline\nS_2 & (1) & (2) & (3) & \\dots & (n-2) & \\overline{(n)} & \\\\\n\\hline\nS_3 & (1) & (2) & (3) & \\dots & \\overline{(n-1)} & \\overline{(n)} & \\\\\n\\hline\n\\vdots & \\vdots & \\vdots & \\vdots & \\dots & \\vdots & \\vdots & \\vdots \\\\\n\\hline\nS_n & \\overline{(2)} & \\overline{(3)} & \\dots & \\overline{(n-2)} & \\overline{(n-1)} & \\overline{(n)} & \\\\\n\\hline\nF & (1) & (2) & (3) & \\dots & \\overline{(n-2)} & \\overline{(n-1)} & \\overline{(n)}\n\\end{array}\n$$\nConditions that appear as $(j)$ in row $i$ are satisfied by sequences in $S_i$, and those that appear as $\\overline{(j)}$ are failed.\n\nNow take any sequence $A$. If $A$ is good, then $A$ is counted exactly once in $|S_1|$ and is not counted anywhere else. Otherwise, if $A$ is not good, let $(i)$ be the first condition that $A$ fails. If $i > 1$, then $A$ belongs to exactly the sets $S_{n-1}, S_{n-2}$. As one of $|S_{n-1}|, |S_{n-2}|$ is added and one is subtracted, $A$ has no net contribution to $m$. Finally, if $i = 1$, then $A$ belongs to $S_n$ and $F$, so again $A$ does not contribute to $m$. Therefore, $m$ is indeed the number of good sequences.\n\nWe are left with computing the sizes of the $S_i$'s and $F$. This is easy, as the failure of the final $i-1$ conditions determines the terms $a_{n-1}, a_{n-2}, \\dots, a_{n-i+1}$, whereas there are just $n-1$ ways to satisfy each of the conditions (1), (2), \\dots, $(n-i)$, producing $(n-1)^{n-i}$ subsequences $a_0, a_1, \\dots, a_{n-i}$. As there is no constraint on $a_{n-i+1} - a_{n-i}$, we have found all sequences in $S_i$. Hence, $|S_i| = (n-1)^{n-i}$. As for $F$, there is clearly exactly one way to fail every single condition, because $1+2+\\dots+(n-1) = \\frac{n(n-1)}{2}$ is divisible by $n$. Therefore, $|S_n| - F = 0$ and\n$$\n\\begin{align*}\nm &= |S_1| - |S_2| + \\dots - |S_{n-1}| \\\\\n&= (n-1)^{n-1} - (n-1)^{n-2} + \\dots - (n-1) \\\\\n&= \\frac{(n-1)^n - (n-1)}{n}.\n\\end{align*}\n$$\nAs there were originally $n$ choices for $a_0$, multiplying by $n$ gives the desired answer.\n\nb. We can use the same argument as in part (a), but we must recompute the values of $|S_i|$ and $|F|$. Note that for $1 \\le i \\le n-1$, there are exactly two ways to fail condition (i) (because $n$ is odd) while condition (n) is degenerate and reduces to the single restriction $a_n - a_{n-1} \\not\\equiv 0 \\pmod{n}$. Hence, we have\n$$\n|S_1| = (n-2)^{n-1} \\quad \\text{and} \\quad |S_i| = 2^{i-2}(n-2)^{n-i},\n$$\nfor $2 \\le i \\le n$. Finding $|F|$ is trickier in this case, however. Considering the differences $b_i = a_i - a_{i-1}$, $i = 1, 2, \\dots, n$, we wish to count the number of choices of $\\{b_i\\}_{i=1}^n$ such that\n$$\nb_1 + b_2 + \\dots + b_n \\equiv 0 \\pmod{n},\n$$\nwhere $b_i = i$ or $2i \\pmod{n}$ for each $i$. Note that because of the degenerate condition $(n)$, $b_n \\equiv 0 \\pmod{n}$ is forced; hence, we are actually looking at $2^{n-1}$ sums $b_1 + b_2 + \\dots + b_{n-1}$ rather than $2^n$. Now, as $n \\mid [1 + 2 + \\dots + (n-1)] = \\frac{n(n-1)}{2}$, we can equivalently consider sums of terms $c_i = b_i - i$. That is, we wish to find the number of choices of $c_1, c_2, \\dots, c_{n-1}$ such that\n$$\nc_1 + c_2 + \\dots + c_{n-1} \\equiv 0 \\pmod{n},\n$$\nwhere $c_i = 0$ or $i$ for each $i$. We now introduce an extra term $c_n$ that can be either 0 or $n$. The only effect of this extra term is to double the number of choices of $\\{c_i\\}_{i=1}^n$ compared to the number of choices of $\\{c_i\\}_{i=1}^{n-1}$. That is, letting\n$$\nF' = \\{(c_1, c_2, \\dots, c_n) \\mid \\begin{aligned}[t] & c_i = 0 \\text{ or } i, \\\\ & c_1 + c_2 + \\dots + c_n \\equiv 0 \\pmod{n} \\end{aligned}\\},\n$$\nwe have $|F| = \\frac{1}{2}|F'|$.\n\nObserve that we can identify choices $(c_1, c_2, \\dots, c_n)$ with subsets of $T = \\{1, 2, \\dots, n\\}$; the elements of $F'$ are then simply the subsets of $T$ that have sum divisible by $n$. The empty set and the set $T$ are two sets that clearly satisfy this property. All remaining subsets $U \\subset T$ have from 1 to $n-1$ elements. Write $U+k$ for the set $\\{x+k \\mid x \\in U\\}$ (taken mod $n$); this is the rotation of $U$ by $k$ shifts to the right. Then because $n$ is prime and $0 < |U| < n$, the subsets $U, U+1, U+2, \\dots, U+(n-1)$ form an equivalence class of exactly $n$ distinct subsets. Furthermore, the sums of the elements in $U$ and $U + k$ differ by $k|U|(\\text{mod } n)$, so exactly one element of each class has sum divisible by $n$. It follows that\n$$\n|F'| = 2 + \\frac{2^n - 2}{n}, \\quad |F| = \\frac{1}{2}|F'| = \\frac{2^{n-1} + n - 1}{n}.\n$$\nTherefore,\n$$\n\\begin{align*}\nm &= |S_1| - |S_2| + |S_3| - \\dots + |S_n| - |F| \\\\\n&= (n-2)^{n-1} - (n-2)^{n-2} + 2(n-2)^{n-3} \\\\\n&\\quad - 2^2(n-2)^{n-4} + \\dots + 2^{n-2} - \\frac{2^{n-1} + n-1}{n} \\\\\n&= (n-2)^{n-1} - \\frac{(n-2)^{n-1} - 2^{n-1}}{n} - \\frac{2^{n-1} + n-1}{n} \\\\\n&= \\frac{(n-1)(n-2)^{n-1} - (n-1)}{n}.\n\\end{align*}\n$$\nAs before, multiplying by $n$ gives the desired answer.\n\n\n**Second Solution:** The answer is $(n-1)^n - (n-1)$ for part (a) and $(n-1)((n-2)^{n-1} - 1)$ for part (b). Observe that the number of good sequences is clearly the same for any choice of $a_0$. Fixing $a_0$, we represent the choices for the differences $a_i - a_{i-1} \\pmod n$ with the generating function\n$$\ng_i(x) = 1 + x + x^2 + \\dots + x^{i-1} + x^{i+1} + \\dots + x^{n-1} = p(x) - x^i,\n$$\nwhere $p(x) = 1 + x + x^2 + \\cdots + x^{n-1}$. Then the generating function representing all the possibilities for $a_1 - a_0, a_2 - a_1, \\ldots, a_{n-1} - a_{n-2}$ is\n$$\ng(x) = \\prod_{i=1}^{n-1} g_i(x) = \\prod_{i=1}^{n-1} (p(x) - x^i).\n$$\nThe condition that $a_0 - a_{n-1} \\not\\equiv 0 \\pmod{n}$ means that we wish to sum the coefficients of the $x^k$ terms of $g(x)$ for $n \\not\\mid k$.\n\nNow the sum of all the coefficients is simply $g(1) = (n-1)^{n-1}$. The sum of the coefficients of the $x^k$ terms for $n \\mid k$ can be obtained by taking\n$$\n\\frac{1}{n} \\sum_{j=0}^{n-1} g(\\epsilon^j),\n$$\nwhere $\\epsilon = e^{2\\pi i/n}$ is a primitive $n^{\\text{th}}$ root of unity. As we noted above, $g(1) = (n-1)^{n-1}$. For $n > j > 0$, note that $p(\\epsilon^j) = 0$, so\n$$\ng(\\epsilon^j) = \\prod_{k=1}^{n-1} -\\epsilon^{kj} = (-1)^{n-1} \\epsilon^{n(n-1)/2} j = 1,\n$$\nas $n$ is odd. Therefore, the sum of the coefficients of the terms with powers not dividing $n$ is\n$$\n(n-1)^{n-1} - \\frac{1}{n}((n-1)^{n-1} + (n-1)) = \\frac{1}{n}((n-1)^n - (n-1)).\n$$\nRemembering that we had $n$ choices of $a_0$ to begin with, we obtain $(n-1)^n - (n-1)$ as the answer to part (a).\n\nFor part (b), we change our generating functions to\n$$\nh_i(x) = p(x) - (x^i + x^{2i}), \\quad h(x) = \\prod_{i=1}^{n-1} h_i(x).\n$$\nNote that for $1 \\le i \\le n-1$, the terms $x^i$ and $x^{2i}$ both appear because $i \\ne 2i \\pmod n$ as $n$ is odd. For the final condition, however, $n \\equiv 2n \\equiv 0 \\pmod n$, so we are still counting those terms—and only those terms—with powers not divisible by $n$. Hence, using the same method as before, we have $h(1) = (n-2)^{n-1}$,\n$$\nh(\\epsilon^j) = \\prod_{k=1}^{n-1} -\\epsilon^{kj}(1 + \\epsilon^{kj}) = \\prod_{k=1}^{n-1} (1 + \\epsilon^k),\n$$\nfor $1 \\le j \\le n-1$, as $n$ is prime. Now, $1+\\epsilon^i$, $i=0,1,\\dots,n-1$, are all of the roots of the polynomial $(x-1)^n-1$. Therefore, their product is $(-1)^n = -1$ times the constant coefficient of the polynomial, $-2$. Hence, the product of the roots not including $i=0$ (in which case $1+\\epsilon^0 = 2$) is 1. Therefore, $h(\\epsilon^j) = 1$.\n\nIt follows that the number of sequences for a fixed $a_0$ is\n$$\n(n-2)^{n-1} - \\frac{1}{n}((n-2)^{n-1} + (n-1)) = \\frac{1}{n}((n-1)((n-2)^{n-1} - 1)),\n$$\nso the answer to part (b) is $(n-1)((n-2)^{n-1} - 1)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-1108",
+      "name": "Harvard-MIT Mathematics Tournament #0idg",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\nA committee of 5 is to be chosen from a group of 9 people. How many ways can it be chosen, if Bill and Karl must serve together or not at all, and Alice and Jane refuse to serve with each other?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nIf Bill and Karl are on the committee, there are $\\binom{7}{3} = 35$ ways for the other group members to be chosen. However, if Alice and Jane are on the committee with Bill and Karl, there are $\\binom{5}{1} = 5$ ways for the last member to be chosen, yielding 5 unacceptable committees.\n\nIf Bill and Karl are not on the committee, there are $\\binom{7}{5} = 21$ ways for the 5 members to be chosen, but again if Alice and Jane were to be on the committee, there would be $\\binom{5}{3} = 10$ ways to choose the other three members, yielding 10 more unacceptable committees.\n\nSo, we obtain $(35 - 5) + (21 - 10) = 41$ ways the committee can be chosen."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-1134",
+      "name": "Harvard-MIT Mathematics Tournament #0ie6",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Enumeration with symmetry",
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\n\nOn an infinite checkerboard, the union of any two distinct unit squares is called a (disconnected) domino. A domino is said to be of type $(a, b)$, with $a \\leq b$ integers not both zero, if the centers of the two squares are separated by a distance of $a$ in one orthogonal direction and $b$ in the other. (For instance, an ordinary connected domino is of type $(0,1)$, and a domino of type $(1,2)$ contains two squares separated by a knight's move.)\n\n![](attached_image_1.png)\n\nEach of the three pairs of squares above forms a domino of type $(1,2)$.\n\nTwo dominoes are said to be congruent if they are of the same type. A rectangle is said to be $(a, b)$-tileable if it can be partitioned into dominoes of type $(a, b)$.\n\nLet $0 < m \\leq n$ be integers. How many different (i.e., noncongruent) dominoes can be formed by choosing two squares of an $m \\times n$ array?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe must have $0 \\leq a < m$, $0 \\leq b < n$, $a \\leq b$, and $a$ and $b$ not both $0$. The number of pairs $(a, b)$ with $b < a < m$ is $m(m-1)/2$, so the answer is\n$$\nm n - \\frac{m(m-1)}{2} - 1 = m n - \\frac{m^2 - m + 2}{2}.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-1201",
+      "name": "Harvard-MIT Mathematics Tournament #0ig1",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\nWhat is the probability that in a randomly chosen arrangement of the numbers and letters in \"HMMT2005,\" one can read either \"HMMT\" or \"2005\" from left to right? (For example, in \"5HM0M20T,\" one can read \"HMMT.\")",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n$\\frac{23}{144}$\nTo read \"HMMT,\" there are $\\binom{8}{4}$ ways to place the letters, and $\\frac{4!}{2}$ ways to place the numbers. Similarly, there are $\\binom{8}{4} \\frac{4!}{2}$ arrangements where one can read \"2005.\" The number of arrangements in which one can read both is just $\\binom{8}{4}$. The total number of arrangements is $\\frac{8!}{4}$, thus the answer is\n$$\n\\frac{\\binom{8}{4} \\frac{4!}{2} + \\binom{8}{4} \\frac{4!}{2} - \\binom{8}{4}}{\\frac{8!}{4}} = \\binom{8}{4} \\frac{4}{8!} \\cdot 23 = \\frac{23}{144}.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-1263",
+      "name": "Harvard-MIT Mathematics Tournament #0ihr",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\n\nVernonia High School has 85 seniors, each of whom plays on at least one of the school's three varsity sports teams: football, baseball, and lacrosse. It so happens that 74 are on the football team; 26 are on the baseball team; 17 are on both the football and lacrosse teams; 18 are on both the baseball and football teams; and 13 are on both the baseball and lacrosse teams. Compute the number of seniors playing all three sports, given that twice this number are members of the lacrosse team.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSuppose that $n$ seniors play all three sports and that $2n$ are on the lacrosse team. Then, by the principle of inclusion-exclusion,\n$$\n85 = (74 + 26 + 2n) - (17 + 18 + 13) + n = 100 + 2n - 48 + n = 52 + 3n.\n$$\nIt is easily seen that $n = 11$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-1316",
+      "name": "Harvard-MIT Mathematics Tournament #0ij8",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Enumeration with symmetry",
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\n\nA moth starts at vertex $A$ of a certain cube and is trying to get to vertex $B$, which is opposite $A$, in five or fewer \"steps,\" where a step consists in traveling along an edge from one vertex to another. The moth will stop as soon as it reaches $B$. How many ways can the moth achieve its objective?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $X$, $Y$, $Z$ be the three directions in which the moth can initially go. We can symbolize the trajectory of the moth by a sequence of $X$'s, $Y$'s, and $Z$'s in the obvious way: whenever the moth takes a step in a direction parallel or opposite to $X$, we write down $X$, and so on.\n\nThe moth can reach $B$ in either exactly $3$ or exactly $5$ steps. A path of length $3$ must be symbolized by $X Y Z$ in some order. There are $3! = 6$ such orders.\n\nA trajectory of length $5$ must be symbolized by $X Y Z X X$, $X Y Z Y Y$, or $X Y Z Z Z$, in some order. There are $3 \\cdot \\frac{5!}{3!1!1!} = 3 \\cdot 20 = 60$ possibilities here. However, we must remember to subtract out those trajectories that already arrive at $B$ by the $3$rd step: there are $3 \\cdot 6 = 18$ of those.\n\nThe answer is thus $60 - 18 + 6 = 48$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-1333",
+      "name": "Harvard-MIT Mathematics Tournament #0ijp",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion",
+        "Counting two ways"
+      ],
+      "statement": "Problem:\nA dot is marked at each vertex of a triangle $A B C$. Then, $2$, $3$, and $7$ more dots are marked on the sides $A B$, $B C$, and $C A$, respectively. How many triangles have their vertices at these dots?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAltogether there are $3+2+3+7=15$ dots, and thus $\\binom{15}{3}=455$ combinations of $3$ dots. Of these combinations, $\\binom{2+2}{3}+\\binom{2+3}{3}+\\binom{2+7}{3}=4+10+84=98$ do not give triangles because they are collinear (the rest do give triangles). Thus $455-98=357$ different triangles can be formed."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-1336",
+      "name": "Harvard-MIT Mathematics Tournament #0ijs",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\n\nVernonia High School has 85 seniors, each of whom plays on at least one of the school's three varsity sports teams: football, baseball, and lacrosse. It so happens that 74 are on the football team; 26 are on the baseball team; 17 are on both the football and lacrosse teams; 18 are on both the baseball and football teams; and 13 are on both the baseball and lacrosse teams. Compute the number of seniors playing all three sports, given that twice this number are members of the lacrosse team.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSuppose that $n$ seniors play all three sports and that $2n$ are on the lacrosse team. Then, by the principle of inclusion-exclusion,\n$$\n85 = (74 + 26 + 2n) - (17 + 18 + 13) + n = 100 + 2n - 48 + n = 52 + 3n.\n$$\nIt is easily seen that $n = 11$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-1424",
+      "name": "Harvard-MIT Mathematics Tournament #0im8",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\nA candy company makes 5 colors of jellybeans, which come in equal proportions. If I grab a random sample of 5 jellybeans, what is the probability that I get exactly 2 distinct colors?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThere are $\\binom{5}{2} = 10$ possible pairs of colors. Each pair of colors contributes $2^{5} - 2 = 30$ sequences of beans that use both colors. Thus, the answer is $10 \\cdot 30 / 5^{5} = 12 / 125$.\n\nAnswer: $\\dfrac{12}{125}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-1530",
+      "name": "11th Annual Harvard-MIT Mathematics Tournament #0ip6",
+      "url": "https://usamoguide.com/",
+      "source": "11th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\n\nFour students from Harvard, one of them named Jack, and five students from MIT, one of them named Jill, are going to see a Boston Celtics game. However, they found out that only 5 tickets remain, so 4 of them must go back. Suppose that at least one student from each school must go see the game, and at least one of Jack and Jill must go see the game, how many ways are there of choosing which 5 people can see the game?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet us count the number of ways of distributing the tickets so that one of the conditions is violated. There is $1$ way to give all the tickets to MIT students, and $\\binom{7}{5}$ ways to give all the tickets to the $7$ students other than Jack and Jill. Therefore, the total number of valid ways is $\\binom{9}{5} - 1 - \\binom{7}{5} = 104$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-1576",
+      "name": "Harvard-MIT Mathematics Tournament #0iqg",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\n\nLet $n>2$ be a positive integer. Prove that there are $\\frac{1}{2}(n-2)(n+1)$ ways to walk from $(0,0)$ to $(n, 2)$ using only up and right unit steps such that the walk never visits the line $y=x$ after it leaves the origin.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe first two steps can only go to the right. Then we need to compute the number of ways of walking from $(2,0)$ to $(n, 2)$ which does not pass through the point $(2,2)$. There are $\\binom{n}{2}$ ways to walk from $(2,0)$ to $(n, 2)$, and exactly one of those paths passes through the point $(2,2)$. So the number of valid paths is $\\binom{n}{2}-1=\\frac{1}{2} n(n-1)-1=\\frac{1}{2}(n-2)(n+1)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-1607",
+      "name": "Harvard-MIT Mathematics Tournament #0irb",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion",
+        "Recursion, bijection"
+      ],
+      "statement": "Problem:\n\nLet $n > 4$ be a positive integer. Determine the number of ways to walk from $(0,0)$ to $(n, 2)$ using only up and right unit steps such that the path does not meet the lines $y = x$ or $y = x - n + 2$ except at the start and at the end.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nIt is easy to see that the first two steps and the last two steps must all be right steps. So we need to compute the number of walks from $(2,0)$ to $(n-2,2)$ that do not pass through $(2,2)$ and $(n-2,0)$. There are $\\binom{n-2}{2}$ paths from $(2,0)$ to $(n-2,2)$, and exactly two of them are invalid. So the answer is\n$$\n\\binom{n-2}{2} - 2 = \\frac{1}{2}(n-2)(n-3) - 2 = \\frac{1}{2}\\left(n^2 - 5n + 2\\right).\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-1632",
+      "name": "Harvard-MIT Mathematics Tournament #0is0",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion",
+        "Algebraic properties of binomial coefficients"
+      ],
+      "statement": "Problem:\nLet $n>6$ be a positive integer. Determine the number of ways to walk from $(0,0)$ to $(n, 3)$ using only up and right unit steps such that the path does not meet the lines $y=x$ or $y=x-n+3$ except at the start and at the end.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $\\quad \\frac{1}{6}(n-6)(n-1)(n+1)$\n\nConsider the first point of the path that lies on $x=3$. There are two possibilities for this point: $(3,0)$ and $(3,1)$, and there is exactly one valid way of getting to each point from the origin. Similarly, consider the last point of the path that lies on $x=n-3$. There are two possibilities: $(n-3,2)$ and $(n-3,3)$, and there is exactly one valid way of getting to the destination from each of the two points. Now we count the number of valid paths from each of $(3,0)$ and $(3,1)$, to each of $(n-3,2)$ and $(n-3,3)$, and the answer will be the sum.\n\n- From $(3,1)$ to $(n-3,2)$: there are no forbidden points along the way, so there are $n-5$ ways.\n- From $(3,0)$ to $(n-3,2)$: the path must not pass through $(n-3,0)$, and there is exactly one invalid path. So there are $\\binom{n-4}{2}-1$ ways.\n- From $(3,1)$ to $(n-3,3)$: the path must not pass through $(3,3)$, and there is exactly one invalid path. So there are $\\binom{n-4}{2}-1$ ways.\n- From $(3,0)$ to $(n-3,3)$: the path must not pass through $(n-3,0)$ and $(3,3)$, and there are exactly two invalid paths. So there are $\\binom{n-3}{3}-2$ ways.\n\nSumming, we obtain the answer:\n$$\nn-5+\\binom{n-4}{2}-1+\\binom{n-4}{2}-1+\\binom{n-3}{3}-2=\\frac{n^{3}-6 n^{2}-n+6}{6}=\\frac{(n-6)(n-1)(n+1)}{6}.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-1716",
+      "name": "$12^{\\text {th }}$ Annual Harvard-MIT Mathematics Tournament #0iuc",
+      "url": "https://usamoguide.com/",
+      "source": "$12^{\\text {th }}$ Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Counting two ways",
+        "Inclusion-exclusion",
+        "Recursion, bijection"
+      ],
+      "statement": "Problem:\n\nGiven a rearrangement of the numbers from $1$ to $n$, each pair of consecutive elements $a$ and $b$ of the sequence can be either increasing (if $a < b$) or decreasing (if $b < a$). How many rearrangements of the numbers from $1$ to $n$ have exactly two increasing pairs of consecutive elements?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nNotice that each such permutation consists of $3$ disjoint subsets of $\\{1, \\ldots, n\\}$ whose union is $\\{1, \\ldots, n\\}$, each arranged in decreasing order. For instance, if $n=6$, in the permutation $415326$ (which has the two increasing pairs $15$ and $26$), the three sets are $\\{4,1\\}$, $\\{5,3,2\\}$, and $6$. There are $3^{n}$ ways to choose which of the first, second, or third set each element is in. However, we have overcounted: some choices of these subsets result in permutations with $1$ or $0$ increasing pairs, such as $\\{6,5,4\\}$, $\\{3,2\\}$, $\\{1\\}$.\n\nThus, we must subtract the number of ordered partitions of $\\{1,2, \\ldots, n\\}$ into $3$ subsets for which the minimum value of the first is not less than the maximum of the second, or the minimum value of the second is not less than the maximum of the third.\n\nWe first prove that the number of permutations having exactly one increasing consecutive pair of elements is $2^{n}-(n+1)$. To do so, note that there are $2^{n}$ ways to choose which elements occur before the increasing pair, and upon choosing this set we must arrange them in decreasing order, followed by the remaining elements arranged in decreasing order. The resulting permutation will have either one increasing pair or none. There are exactly $n+1$ subsets for which the resulting permutation has none, namely, $\\{\\}$, $\\{n\\}$, $\\{n, n-1\\}$, $\\{n, n-1, n-2\\}$, etc. Thus the total number of permutations having one increasing pair is $2^{n}-(n+1)$ as desired.\n\nWe now count the partitions of $\\{1,2, \\ldots, n\\}$ whose associated permutation has exactly one increasing pair. For each of the $2^{n}-(n+1)$ permutations $p$ having exactly one increasing pair, there are $n+1$ partitions of $\\{1,2, \\ldots, n\\}$ into $3$ subsets whose associated permutation is $p$. This is because there are $n+1$ ways to choose the \"breaking point\" to split one of the subsets into two. Thus there are a total of $(n+1)\\left(2^{n}-(n+1)\\right)$ partitions whose associated permutation has exactly one increasing pair.\n\nFinally, we must count the number of partitions whose associated permutation is $n, n-1, \\ldots, 3,2,1$, i.e. has no increasing pair. There are $\\frac{(n+2)(n+1)}{2}$ ways of placing two barriers between these elements to split the numbers into three subsets, and so there are $\\frac{(n+2)(n+1)}{2}$ such partitions of $\\{1,2, \\ldots, n\\}$ into three subsets.\n\nThus, subtracting off the partitions we did not want to count, the answer is\n$$\n3^{n}-(n+1)\\left(2^{n}-(n+1)\\right)-\\binom{n+2}{2} = 3^{n}-(n+1) \\cdot 2^{n} + \\frac{n(n+1)}{2}.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-1778",
+      "name": "$12^{\\text {th }}$ Annual Harvard-MIT Mathematics Tournament #0iw2",
+      "url": "https://usamoguide.com/",
+      "source": "$12^{\\text {th }}$ Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\n\nIn how many ways can you rearrange the letters of \"HMMTHMMT\" such that the consecutive substring \"HMMT\" does not appear?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThere are $8!/(4!2!2!)=420$ ways to order the letters. If the permuted letters contain \"HMMT\", there are $5 \\cdot 4!/ 2!=60$ ways to order the other letters, so we subtract these. However, we have subtracted \"HMMTHMMT\" twice, so we add it back once to obtain 361 possibilities."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-1844",
+      "name": "Harvard-MIT Mathematics Tournament #0ixw",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\n\nIn how many ways can you rearrange the letters of \"HMMTHMMT\" such that the consecutive substring \"HMMT\" does not appear?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThere are $8!/(4!2!2!) = 420$ ways to order the letters. If the permuted letters contain \"HMMT\", there are $5 \\cdot 4!/2! = 60$ ways to order the other letters, so we subtract these. However, we have subtracted \"HMMTHMMT\" twice, so we add it back once to obtain $361$ possibilities."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-1875",
+      "name": "$12^{\\text {th }}$ Annual Harvard-MIT Mathematics Tournament #0iyr",
+      "url": "https://usamoguide.com/",
+      "source": "$12^{\\text {th }}$ Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Factorization techniques",
+        "Counting two ways",
+        "Inclusion-exclusion",
+        "Recursion, bijection"
+      ],
+      "statement": "Problem:\n\nThe squares of a $3 \\times 3$ grid are filled with positive integers such that $1$ is the label of the upper-leftmost square, $2009$ is the label of the lower-rightmost square, and the label of each square divides the one directly to the right of it and the one directly below it. How many such labelings are possible?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe factor $2009$ as $7^{2} \\cdot 41$ and place the $41$'s and the $7$'s in the squares separately. The number of ways to fill the grid with $1$'s and $41$'s so that the divisibility property is satisfied is equal to the number of nondecreasing sequences $a_{1}, a_{2}, a_{3}$ where each $a_{i} \\in \\{0,1,2,3\\}$ and the sequence is not $0,0,0$ and not $1,1,1$ (here $a_{i}$ corresponds to the number of $41$'s in the $i$th column). Thus there are $\\binom{3+4-1}{3}-2=18$ ways to choose which squares are divisible by $41$.\n\nTo count the arrangements of divisibility by $7$ and $49$, we consider three cases.\n\nIf $49$ divides the middle square, then each of the squares to the right and below it are divisible by $49$. The two squares in the top row (besides the upper left) can be $(1,1), (1,7), (1,49), (7,7), (7,49)$, or $(49,49)$ (in terms of the highest power of $7$ dividing the square). The same is true, independently, for the two blank squares on the left column, for a total of $6^{2}=36$ possibilities in this case.\n\nIf $1$ is the highest power of $7$ dividing the middle square, there are also $36$ possibilities by a similar argument.\n\nIf $7$ is the highest power of $7$ dividing the middle square, there are $8$ possibilities for the upper right three squares. Thus there are $64$ possibilities in this case.\n\nThus there are a total of $136$ options for the divisibility of each number by $7$ and $7^{2}$, and $18$ options for the divisibility of the numbers by $41$. Since each number divides $2009$, this uniquely determines the numbers, and so there are a total of $18 \\cdot 136 = 2448$ possibilities."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-1963",
+      "name": "Harvard-MIT Mathematics Tournament #0j17",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\n\nHow many ways are there to choose 2010 functions $f_{1}, \\ldots, f_{2010}$ from $\\{0,1\\}$ to $\\{0,1\\}$ such that $f_{2010} \\circ f_{2009} \\circ \\cdots \\circ f_{1}$ is constant? Note: a function $g$ is constant if $g(a)=g(b)$ for all $a, b$ in the domain of $g$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n$4^{2010}-2^{2010}$\n\nIf all 2010 functions are bijective, then the composition $f_{2010} \\circ f_{2009} \\circ \\cdots \\circ f_{1}$ will be bijective also, and therefore not constant. If, however, one of $f_{1}, \\ldots, f_{2010}$ is not bijective, say $f_{k}$, then $f_{k}(0)=f_{k}(1)=q$, so $f_{2010} \\circ f_{2009} \\circ \\cdots \\circ f_{k+1} \\circ f_{k} \\circ \\cdots f_{1}(0)=f_{2010} \\circ f_{2009} \\circ \\cdots \\circ f_{k+1}(q)=f_{2010} \\circ f_{2009} \\circ \\cdots \\circ f_{k+1} \\circ f_{k} \\circ \\cdots f_{1}(1)$. So the composition will be constant unless all $f_{i}$ are bijective. Since there are 4 possible functions from $\\{0,1\\}$ to $\\{0,1\\}$ and 2 of them are bijective, we subtract the cases where all the functions are bijective from the total to get $4^{2010}-2^{2010}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-1971",
+      "name": "Harvard-MIT November Tournament #0j1f",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Enumeration with symmetry",
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\n\nIn the game of projective set, each card contains some nonempty subset of six distinguishable dots. A projective set deck consists of one card for each of the 63 possible nonempty subsets of dots. How many collections of five cards have an even number of each dot? The order in which the cards appear does not matter.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: 109368\n\nWe'll first count sets of cards where the order does matter. Suppose we choose the first four cards. Then there is exactly one card that can make each dot appear twice. However, this card could be empty or it could be one of the cards we've already chosen, so we have to subtract for these two cases. First, there are $63 \\cdot 62 \\cdot 61 \\cdot 60$ ways to choose the first four cards.\n\nLet's now count how many ways there are that the fifth card could be empty. The fifth card is empty if and only if the first four cards already have an even number of each dot. Suppose we choose the first two cards. There is a possible fourth card if the third card is not either of the first two or the card that completes a set. If that is the case, then the fourth card is unique. This comes to $63 \\cdot 62 \\cdot 60$ cases.\n\nNow consider how many ways there are for the fifth card to be a duplicate. This is just the number of ways for three cards to have an even number of each dot, then have two copies of the same card in the other two slots, one of which needs to be the fifth slot. The number of ways for three cards to have an even number of each dot is just the number of ways to choose two cards. Therefore, we'll choose two cards ($63 \\cdot 62$ ways), choose the slot in the first four positions for the duplicate card (4 ways), and the duplicate card, which can't be any of the nonduplicated cards, so there are 60 choices. Therefore, there are $63 \\cdot 62 \\cdot 4 \\cdot 60$ ways for the fifth card to be the same as one of the first four.\n\nThis means that the number of five card sets where the order does matter is $63 \\cdot 62 \\cdot 61 \\cdot 60 - 63 \\cdot 62 \\cdot 60 - 63 \\cdot 62 \\cdot 4 \\cdot 60$, so our final answer is\n$$\n\\frac{63 \\cdot 62 \\cdot 61 \\cdot 60 - 63 \\cdot 62 \\cdot 60 - 63 \\cdot 62 \\cdot 4 \\cdot 60}{120} = \\frac{63 \\cdot 62 \\cdot (61 - 1 - 4)}{2} = 63 \\cdot 31 \\cdot 56 = 109368.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-1974",
+      "name": "13th Annual Harvard-MIT Mathematics Tournament #0j1i",
+      "url": "https://usamoguide.com/",
+      "source": "13th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\n\nThere are 101 people participating in a Secret Santa gift exchange. As usual each person is randomly assigned another person for whom (s)he has to get a gift, such that each person gives and receives exactly one gift and no one gives a gift to themself. What is the probability that the first person neither gives gifts to or receives gifts from the second or third person? Express your answer as a decimal rounded to five decimal places.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n0.96039\n\nLet $D_{k}$ denote the number of derangements of $\\{1,2, \\ldots, k\\}$. (A derangement is a permutation in which no element appears in its original position.)\n\nCall the first three people $A$, $B$, and $C$. Let $X \\rightarrow Y$ denote that $X$ gives a gift to $Y$ and let $X \\nrightarrow Y$ denote that $X$ gives a gift to anyone other than $Y$. We are fine unless we have $A \\rightarrow B$, $B \\rightarrow A$, $A \\rightarrow C$, or $C \\rightarrow A$. We will compute the number of ways for various things to occur, then combine it into what we want.\n\nThere are $D_{n-1}$ ways to have $A \\rightarrow B \\nrightarrow A$. This is because if $A \\rightarrow B$, we can treat $A$ and $B$ as a single vertex, and since $B \\nrightarrow A$, we have a derangement. Similarly, there are $D_{n-1}$ ways to have $B \\rightarrow A \\nrightarrow B$. Thirdly, there are $D_{n-2}$ ways to have $A \\rightarrow B \\rightarrow A$, since $D_{n-2}$ says how many ways the other $n-2$ people can exchange their gifts. So there are $2 D_{n-1} + D_{n-2}$ ways to have a conflict between $A$ and $B$.\n\nSimilarly, there are $2 D_{n-1} + D_{n-2}$ ways to have a conflict between $A$ and $C$.\n\nUsing similar arguments, we can show that there are $D_{n-2}$ ways for $B \\rightarrow A \\rightarrow C \\nrightarrow B$ to occur and $D_{n-3}$ ways for $B \\rightarrow A \\rightarrow C \\rightarrow B$ to occur. We get the same results when $B$ and $C$ are reversed. This gives $2 D_{n-2} + 2 D_{n-3}$ ways for a conflict to occur within all three people.\n\nBy the Principle of Inclusion-Exclusion, the total number of ways to have a conflict is\n\n(# conflicts between $A$ and $B$) + (# conflicts between $A$ and $C$) $-$ (# conflicts between $A$, $B$, and $C$),\n\nwhich evaluates to $4 D_{n-1} - 2 D_{n-3}$.\n\nApproximating $D_{n}$ as $\\frac{n!}{e}$ (the actual formula is this quantity rounded to the nearest integer, so this is a great approximation), we find that the probability of no conflicts is\n\n$$\n1 - \\frac{4 D_{n-1} - 2 D_{n-3}}{D_{n}} \\approx 1 - 4\\left(\\frac{(n-1)!/ e}{n!/ e}\\right) - 2\\left(\\frac{(n-3)!/ e}{n!/ e}\\right) = \\frac{n(n-1)(n-2) - 4(n-1)(n-2) - 2}{n(n-1)(n-2)}.\n$$\n\nSubstitute $m = n-1$ (this makes $m = 100$, so the expression is easier to evaluate) to get a probability of\n\n$$\n\\begin{gathered}\n\\frac{m^{3} - m - 4 m^{2} + 4 m - 2}{m^{3} - m} = \\frac{m^{3} - 4 m^{2} + 3 m - 2}{m^{3} - m} = \\frac{1,000,000 - 40,000 + 300 - 2}{100 \\cdot 9999} = \\frac{960298}{100 \\cdot 9999} \\\\\n= 0.960208 \\cdot (1.000100010001 \\ldots) = 0.960208 + 0.0000960208 + \\ldots = 0.9603940 \\ldots\n\\end{gathered}\n$$\n\nTo five decimal places, the desired probability is 0.96039 ."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-2039",
+      "name": "Team Selection Test 2010 #0j3b",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test 2010",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Counting two ways",
+        "Inclusion-exclusion",
+        "Generating functions",
+        "Induction / smoothing"
+      ],
+      "statement": "Let $m$, $n$ be positive integers with $m \\ge n$, and let $S$ be the set of all ordered $n$-tuples $(a_1, a_2, \\dots, a_n)$ of positive integers such that $a_1 + a_2 + \\dots + a_n = m$. Show that\n$$\n\\sum_{S} 1^{a_1} 2^{a_2} \\cdots n^{a_n} = \\binom{n}{n} n^m - \\binom{n}{n-1} (n-1)^m + \\cdots + (-1)^{n-2} \\binom{n}{2} 2^m + \\cdots + (-1)^{n-1} \\binom{n}{1}.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Let $m = k + n$, and let $T$ be the set of all $n$-term sequences of nonnegative integers $(b_1, b_2, \\dots, b_n)$ such that $b_1 + b_2 + \\dots + b_n = k$. It suffices for us to show that\n$$\nn! \\sum_{T} 1^{b_1} 2^{b_2} \\cdots n^{b_n} = \\binom{n}{n} n^{k+n} - \\binom{n}{n-1} (n-1)^{k+n} + \\cdots + (-1)^{n-2} \\binom{n}{2} 2^{k+n} + \\cdots + (-1)^{n-1} \\binom{n}{1}.\n$$\nWe claim that both sides of the desired equation count the number of ways to color $k+n$ objects with $n$ colors such that each color is used at least once. For $1 \\le t \\le n$, the number of ways to color $k+n$ objects with $t$ colors is $t^{k+n}$, so the principle of inclusion-exclusion shows exactly that the right hand side counts these colorings.\nIt suffices to show that the left hand side also counts these colorings. Label the objects $1$, $2$, $\\dots$, $k+n$ in some order, and, for $1 \\le i \\le n$, let $c_i$ be the smallest object of color $i$. Take $b_i = c_{i+1} - c_i$, where we let $c_{n+1} = n+k+1$. Then, notice that any such coloring is specified uniquely by the following data: (a) the order in which the colors first appear, (b) the number of objects between $c_i$ and $c_{i+1}$ for each $i$, where we take $c_{n+1} = n+k+1$, and (c) the colors of the objects between $c_i$ and $c_{i+1}$. We now count how many ways these data can be chosen. There are $n!$ choices for datum (a), and it is independent of (b) and (c). Datum (b) is specified uniquely by a choice of $(b_1, b_2, \\dots, b_n)$ such that $b_1 + b_2 + \\dots + b_n = k$, that is, an element of $T$. Given such a choice of $(b_1, b_2, \\dots, b_n)$, there are $1^{b_1} 2^{b_2} \\dots n^{b_n}$ ways to color the intermediate objects, as each of the $b_i$ between $c_i$ and $c_{i+1}$ admits $i$ choices of color since only $i$ colors appear before $c_{i+1}$. Summing over all choices of (a), (b), and (c), we see that the number of colorings of this type is\n$$\nn! \\sum_{T} 1^{b_1} 2^{b_2} \\dots n^{b_n},\n$$\nwhich matches the left hand side of the desired equation, completing the proof.\n\nDenote by $S_m$ the set of all $n$-term sequences of positive integers $(a_1, a_2, \\dots, a_n)$ such that $a_1 + a_2 + \\dots + a_n = m$. Let $x_m = \\sum_{S_m} 1^{a_1} 2^{a_2} \\dots n^{a_n}$, with $x_m = 0$ if $m < n$, and consider the corresponding generating function\n$$\nF_n(t) = x_0 + x_1 t + x_2 t^2 + \\dots\n$$\nComputing, we find that\n$$\n\\begin{aligned}\nF_n(t) &= (t + t^2 + \\dots)(2t + 4t^2 + \\dots) \\dots (nt + n^2 t^2 + \\dots) \\\\\n&= \\frac{t}{1-t} \\cdot \\frac{2t}{1-2t} \\dots \\frac{nt}{1-nt} \\\\\n&= \\frac{n! \\cdot t^n}{(1-t)(1-2t)\\dots(1-nt)}.\n\\end{aligned}\n$$\nConsider now the two-variable generating function $G_n(t, y)$ defined recursively by\n$$\nG_0(t, y) = \\sum_{k=0}^{\\infty} y^k t^k = \\frac{1}{1 - yt}\n$$\nand\n$$\nG_n(t, y) = G_{n-1}(t, y+1) - G_{n-1}(t, y) \\text{ for } n > 0.\n$$\nWe may identify the coefficient of $t^m$ in $G_n(t, 0)$ as the $n^{\\text{th}}$ forward finite difference of the function $f(y) = y^m$. Therefore, it is given by\n$$\n\\binom{n}{n} n^m - \\binom{n}{n-1} (n-1)^m + \\dots + (-1)^{n-2} \\binom{n}{2} 2^m + (-1)^{n-1} \\binom{n}{1}.\n$$\n(If the reader is not familiar with the theory of finite differences, the claim also follows from a straightforward induction.)\nWe have just shown that the two sides of the desired equality are the coefficients of $t^m$ in the generating functions $F_n(t)$ and $G_n(t, 0)$. Hence, it now suffices to show that $F_n(t) = G_n(t, 0)$. For this, we will show that\n$$\nG_n(t, y) = \\frac{n! \\cdot t^n}{\\prod_{i=0}^{n} (1 - (i + y)t)}\n$$\nwhich would complete the proof, as this expression easily reduces to $F_n(t)$ upon taking $y = 0$.\n\nWe proceed by induction on $n$. The base case $n = 0$ is evident. Now, suppose the claim holds for some $n$; by the definition of $G_n(t, y)$, we may compute\n$$\n\\begin{align*}\nG_{n+1}(t, y) &= G_n(t, y+1) - G_n(t, y) \\\\\n&= \\frac{n! \\cdot t^n}{\\prod_{i=0}^{n} (1 - (i+y+1)t)} - \\frac{n! \\cdot t^n}{\\prod_{i=0}^{n} (1 - (i+y)t)} \\\\\n&= \\frac{n! \\cdot t^n}{\\prod_{i=1}^{n} (1 - (i+y)t)} \\left[ \\frac{1}{1 - (y+n+1)t} - \\frac{1}{1-yt} \\right] \\\\\n&= \\frac{n! \\cdot t^n (n+1)t}{\\prod_{i=0}^{n+1} (1 - (i+y)t)} \\\\\n&= \\frac{(n+1)! \\cdot t^{n+1}}{\\prod_{i=0}^{n+1} (1 - (i+y)t)},\n\\end{align*}\n$$\nwhich completes the induction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-2049",
+      "name": "Harvard-MIT Mathematics Tournament #0j3l",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion",
+        "Recursion, bijection"
+      ],
+      "statement": "Problem:\n\nHow many functions $f$ from $\\{-1005, \\ldots, 1005\\}$ to $\\{-2010, \\ldots, 2010\\}$ are there such that the following two conditions are satisfied?\n- If $a<b$ then $f(a)<f(b)$.\n- There is no $n$ in $\\{-1005, \\ldots, 1005\\}$ such that $|f(n)|=|n|$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n1173346782666677300072441773814388000553179587006710786401225043842699552460942166630860530296635550451340979280520076254075674281115861153481382802215759660187535547742576438723339358416669577500092164040953524568775945548174193534942676658300874363534940758284460070506487793628698617665091500712606599653369601270652785265395252421526230453391663029147626307238236936317097185710159031027213077163904641486042344023229134898694061514152602472819982881754236287571777547773095196303344069568818906550290181303676270430674255022334151384481231298380228052789795136259575164777156839054346649261636296328387580363485290432998645986136263334820489196727284224277862513752097555840785649600229752375936602715066379840750364737247138698043643997666645078800424951226185976296135724493276537166006715747717529280910646607622693561789482959920478796128008380531607300324374576791477561588149503503233438722120375989849417170824022285625696175702674672425296659832806573593366687426134220941793862073304875379841739367812328016147753553650608276170780327863681648860839124954588222610166915992867657815394480973063139752195206598739798365623873142903285397696996674592752643229234106717245366005816917271187760792"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-2163",
+      "name": "Team Selection Test #0j6r",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Prime numbers",
+        "Polynomials mod p",
+        "Inclusion-exclusion",
+        "Counting two ways",
+        "Algebraic properties of binomial coefficients",
+        "Polynomial interpolation: Newton, Lagrange",
+        "Recurrence relations"
+      ],
+      "statement": "Let $p$ be a prime. We say that a sequence of integers $\\{z_n\\}_{n=0}^{\\infty}$ is a $p$-pod if for each $e \\ge 0$, there is an $N \\ge 0$ such that whenever $m \\ge N$, $p^e$ divides the sum\n$$\n\\sum_{k=0}^{m} (-1)^k \\binom{m}{k} z_k.\n$$\n\nProve that if both sequences $\\{x_n\\}_{n=0}^{\\infty}$ and $\\{y_n\\}_{n=0}^{\\infty}$ are $p$-pods, then the sequence $\\{x_n y_n\\}_{n=0}^{\\infty}$ is a $p$-pod.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Let\n$$\nX_n = \\sum_{i=0}^{n} (-1)^i \\binom{n}{i} x_i \\quad \\text{and} \\quad Y_n = \\sum_{i=0}^{n} (-1)^i \\binom{n}{i} y_i.\n$$\nFor nonnegative integers $i \\le j$, consider the expression\n$$\n\\sum_{k=i}^{j} (-1)^k \\binom{k}{i} \\binom{j}{k}.\n$$\nViewing $\\binom{j}{k}$ as the number of ways to choose a $k$-element subset of a $j$-element set and $\\binom{k}{i}$ as the number of ways to choose an $i$-element subset which is contained in this chosen $k$-element set, the principle of inclusion-exclusion shows that $(-1)^j$ times this sum is the number of ways to choose an $i$-element subset from a $j$-element set that coincides with the set itself. Thus, the sum is $(-1)^i$ if $i = j$ and $0$ otherwise. Therefore, we may write\n$$\n\\begin{aligned}\n\\sum_{r=0}^{n} (-1)^r \\binom{n}{r} x_r y_r &= \\sum_{i=0}^{n} \\sum_{j=0}^{n} (-1)^{i+j} x_i y_j \\sum_{r=0}^{n} (-1)^r \\binom{n}{r} \\left[ \\sum_{k=i}^{r} (-1)^k \\binom{k}{i} \\binom{r}{k} \\right] \\left[ \\sum_{\\ell=j}^{r} (-1)^\\ell \\binom{\\ell}{j} \\binom{r}{\\ell} \\right] \\\\\n&= \\sum_{k=0}^{n} \\sum_{\\ell=0}^{n} \\left[ \\sum_{i=0}^{k} (-1)^{k-i} \\binom{k}{i} x_i \\right] \\left[ \\sum_{j=0}^{\\ell} (-1)^{\\ell-j} \\binom{\\ell}{j} y_j \\right] \\left[ \\sum_{r=0}^{n} (-1)^r \\binom{n}{r} \\binom{r}{k} \\binom{r}{\\ell} \\right] \\\\\n&= \\sum_{k=0}^{n} \\sum_{\\ell=0}^{n} (-1)^{n+k+\\ell} X_k Y_\\ell \\left[ \\sum_{r=0}^{n} (-1)^{n-r} \\binom{n}{r} \\binom{r}{k} \\binom{r}{\\ell} \\right].\n\\end{aligned}\n$$\nAgain by the principle of inclusion-exclusion, the final expression in brackets counts the number of ways to choose a $k$-element subset and an $\\ell$-element subset of an $n$-element set whose union is the entire set (again by the principle of inclusion-exclusion), so it is $0$ if $k + \\ell < n$.\n\nNow, let $e$ be arbitrary, let $N$ be so large that $p^e$ divides both $X_m$ and $Y_m$ whenever $m \\ge N/2$ (such an $N$ exists by the definition of $p$-pod), and take $n \\ge N$. Then, whenever $k + \\ell \\ge n \\ge N$, at least one of $k$ or $\\ell$ is at least $N/2$, so $p^e$ will divide either $X_k$ or $Y_\\ell$. We conclude that $p^e$ divides every term in the sum, and that therefore for each $n \\ge N$, $p^e$ divides\n$$\n\\sum_{r=0}^{n} (-1)^r \\binom{n}{r} x_r y_r,\n$$\nhence $\\{x_n y_n\\}_{n=0}^\\infty$ is a $p$-pod.\n\n\nSolution 2:\n\nFor a sequence $\\{z_n\\}_{n=0}^\\infty$ and an integer $m \\ge 0$, define\n$$\n\\Delta^m z_n = \\sum_{k=0}^{m} (-1)^{m-k} \\binom{m}{k} z_{n+k},\n$$\nso that $\\{\\Delta^m z_n\\}_{n=0}^\\infty$ is the sequence of $m$-fold finite differences in $\\{z_n\\}$. With this notation, $\\{z_n\\}$ is a $p$-pod if and only if for every $e > 0$ there is an $N \\ge 0$ such that whenever $m \\ge N$, $p^e \\mid \\Delta^m z_0$.\n\nLemma 1. The sequence $\\{z_n\\}$ is a $p$-pod if and only if for every $e > 0$ there is an $N \\ge 0$ such that whenever $m \\ge N$, $p^e$ divides $\\Delta^m z_n$ for every $n \\ge 0$.\n\n*Proof.* Indeed, recall (or verify) that for any $m, n \\ge 0$, we have\n$$\n\\Delta^{m+1} z_n = \\Delta^m z_{n+1} - \\Delta^m z_n, \\quad \\text{or} \\quad \\Delta^m z_{n+1} = \\Delta^m z_n + \\Delta^{m+1} z_n. \\qquad (33)\n$$\nA trivial induction using (33) shows that the same $N$ as in the definition of $p$-pod works for all $n \\ge 0$. $\\square$\n\nNow, let $\\{x_n\\}$ and $\\{y_n\\}$ be $p$-pods. By Lemma 1, there exists an $N$ such that for all $n$, $\\Delta^m x_n \\equiv 0 \\pmod{p^e}$ for $m \\ge N$. Let $f(t)$ be the monic degree $N$ polynomial with rational coefficients such that $f(n) = x_n$ for $n = 0, 1, \\dots, N$. By definition, we see that $\\Delta^m x_0 = \\Delta^m f(0)$ for $m \\le N$; further, because $\\Delta^m f(n) = 0$ for $m \\ge N$, we see that $\\Delta^m x_0 \\equiv \\Delta^m f(0) \\pmod{p^e}$ for all $m \\ge 0$. An easy induction using (33) then shows that $\\Delta^m x_n \\equiv \\Delta^m f(n) \\pmod{p^e}$ for all $m, n \\ge 0$. Taking $m = 0$ in particular gives that $f(n) \\equiv x_n \\pmod{p^e}$ for all $n \\ge 0$. Similarly, we find a polynomial $g(t)$ such that $g(n) \\equiv y_n \\pmod{p^e}$ for all $n \\ge 0$.\n\nBut then $h(t) = f(t)g(t)$ has the property that $h(n) \\equiv x_n y_n \\pmod{p^e}$ for all $n \\ge 0$. Therefore, if $h(t)$ has degree $M$, then for any $m \\ge M$ and $n \\ge 0$ we have\n$$\n\\Delta^m \\{x_n y_n\\} \\equiv \\Delta^m h(n) \\equiv 0 \\pmod{p^e},\n$$\nand we are done by Lemma 1."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-2190",
+      "name": "Harvard-MIT November Tournament #0j7i",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\n\nToward the end of a game of Fish, the $2$ through $7$ of spades, inclusive, remain in the hands of three distinguishable players: $\\mathrm{DBR}$, $\\mathrm{RB}$, and $DB$, such that each player has at least one card. If it is known that $DBR$ either has more than one card or has an even-numbered spade, or both, in how many ways can the players' hands be distributed?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $450$\n\nFirst, we count the number of distributions where each player has at least $1$ card. The possible distributions are:\n\n- Case 1: $4 / 1 / 1$ : There are $3$ choices for who gets $4$ cards, $6$ choices for the card that one of the single-card players holds, and $5$ choices for the card the other single-card player holds, or $3 \\times 6 \\times 5 = 90$ choices.\n\n- Case 2: $3 / 2 / 1$ : There are $6$ choices for the single card, $\\binom{5}{2} = 10$ choices for the pair of cards, and $3! = 6$ choices for which player gets how many cards, for a total of $6 \\times 10 \\times 6 = 360$ choices.\n\n- Case 3: $2 / 2 / 2$ : There are $\\binom{6}{2} = 15$ choices for the cards $DBR$ gets, $\\binom{4}{2} = 6$ for the cards that $RB$ gets, and $DB$ gets the remaining two cards. This gives a total of $15 \\times 6 = 90$ choices.\n\nThus, we have a total of $90 + 360 + 90 = 540$ ways for the cards to be distributed so that each person holds at least one.\n\nNext, we look at the number of ways that the condition cannot be satisfied if each player has at least one card. Then, $DBR$ must have no more than one card, and cannot have an even spade. We only care about cases where he has a non-zero number of cards, so he must have exactly $1$ odd spade. Then, we see that there are $2^{5} - 2 = 30$ ways to distribute the other $5$ cards among $RB$ and $DB$ so that neither has $0$ cards. Since there are $3$ odd spades, this gives $3 \\times 30$ bad cases, so we have $540 - 90 = 450$ ones where all the problem conditions hold."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-2208",
+      "name": "USAMO #0j80",
+      "url": "https://usamoguide.com/",
+      "source": "USAMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion",
+        "Counting two ways"
+      ],
+      "statement": "Let $A$ be a set with $|A| = 225$, meaning that $A$ has $225$ elements. Suppose further that there are eleven subsets $A_1, \\dots, A_{11}$ of $A$ such that $|A_i| = 45$ for $1 \\le i \\le 11$ and $|A_i \\cap A_j| = 9$ for $1 \\le i < j \\le 11$. Prove that $|A_1 \\cup A_2 \\cup \\dots \\cup A_{11}| \\ge 165$, and give an example for which equality holds.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Let $S$ be the complement of $A_1 \\cup A_2 \\cup \\dots \\cup A_{11}$ in $A$; we wish to prove that $|S| \\le 60$. For $\\ell \\ge 0$, define\n$$\n\\theta(\\ell) = \\left(1 - \\frac{\\ell}{2}\\right) \\left(1 - \\frac{\\ell}{3}\\right) = 1 - \\frac{2}{3}\\ell + \\frac{1}{3}\\binom{\\ell}{2}.\n$$\nNote that $\\theta(0) = 1$ and $\\theta(\\ell) \\ge 0$ for any integer $\\ell > 0$. For $n \\in A$, let $\\ell(n)$ be the number of sets among $A_1, \\dots, A_{11}$ containing $n$. Since $S$ is the intersection of the complements of the $A_i$, we see that\n$$\n|S| \\le \\sum_{n \\in A} \\theta(\\ell(n)).\n$$\nOn the other hand, we have\n$$\n\\sum_{n \\in A} \\theta(\\ell(n)) = \\sum_{n \\in A} \\left(1 - \\frac{2}{3}\\ell(n) + \\frac{1}{3}\\binom{\\ell(n)}{2}\\right) = |A| - \\frac{2}{3}\\sum_i |A_i| + \\frac{1}{3}\\sum_{i<j} |A_i \\cap A_j|.\n$$\nPutting these two equations together, we obtain\n$$\n|S| \\le 225 - \\frac{2}{3} \\cdot 11 \\cdot 45 + \\frac{1}{3} \\cdot \\binom{11}{2} \\cdot 9 = 60,\n$$\nand therefore $|A_1 \\cup A_2 \\cup \\dots \\cup A_{11}| \\ge 165$.\n\nIt remains to give an example showing that this lower bound is best possible. Let $p_1, p_2, \\dots, p_{11}$ be a set of $11$ distinct primes, and let $A'$ denote the set of all products of three of these primes. Let $A'' = \\{q_1, q_2, q_3, \\dots, q_{60}\\}$ be a set of $60$ distinct positive integers that are all coprime to $p_1, \\dots, p_{11}$. Set $A = A' \\cup A''$, and define\n$$\nA_i = \\{n \\in A' : p_i \\mid n\\}.\n$$\nThen $|A_i| = \\binom{10}{2} = 45$, $|A_i \\cap A_j| = \\binom{9}{1} = 9$, and\n$$\n|A_1 \\cup A_2 \\cup \\dots \\cup A_{11}| = |A'| = \\binom{11}{3} = 165.\n$$\nFinally, $|A| = |A'| + |A''| = 165 + 60 = 225$, so this $A$ and $A_1, \\dots, A_{11}$ give a valid example."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-2227",
+      "name": "Harvard-MIT November Tournament #0j8j",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\n\nJulia is learning how to write the letter $C$. She has $6$ differently-colored crayons, and wants to write $Cc\\ Cc\\ Cc\\ Cc\\ Cc$. In how many ways can she write the ten $C$s, in such a way that each upper case $C$ is a different color, each lower case $C$ is a different color, and in each pair the upper case $C$ and lower case $C$ are different colors?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSuppose Julia writes $Cc$ a sixth time, coloring the upper-case $C$ with the unique color different from that of the first five upper-case $C$s, and doing the same with the lower-case $C$ (note: we allow the sixth upper-case $C$ and lower-case $c$ to be the same color). Note that because the colors on the last $Cc$ are forced, and any forced coloring of them is admissible, our problem is equivalent to coloring these six pairs.\n\nThere are $6!$ ways for Julia to color the upper-case $C$s. We have two cases for coloring the lower-case $C$s:\n\n- Case 1: the last pair of $C$s use two different colors. In this case, all six lower-case $C$s have a different color to their associated upper-case $C$, and in addition the six lower-case $C$s all use each color exactly once. In other words, we have a derangement* of the six colors, based on the colors of the upper-case $C$s. We calculate $D_{6}=265$ ways to color the lower-case $C$s here.\n\n- Case 2: the last pair of $C$s have both $C$s the same color. Then, the color of the last lower-case $C$ is forced, and with the other five $C$s we, in a similar way to before, have a derangement of the remaining five colors based on the colors of the first five lower-case $C$s, so we have $D_{5}=44$ ways to finish the coloring.\n\nOur answer is thus $720(265+44)=222480$.\n\n*A derangement is a permutation $\\pi$ of the set $\\{1,2, \\ldots, n\\}$ such that $\\pi(k) \\neq k$ for all $k$, i.e. there are no fixed points of the permutation. To calculate $D_{n}$, the number of derangements of an $n$-element set, we can use an inclusion-exclusion argument. There are $n!$ ways to permute the elements of the set. Now, we subtract the number of permutations with at least one fixed point, which is $\\binom{n}{1}(n-1)!=\\frac{n!}{1!}$, since we choose a fixed point, then permute the other $n-1$ elements. Correcting for overcounting, we add back the number of permutations with at least two fixed points, which is $\\binom{n}{2}(n-2)!=\\frac{n!}{2!}$. Continuing in this fashion by use of the principle of inclusion-exclusion, we get\n$$\nD_{n}=n!\\left(\\frac{1}{0!}-\\frac{1}{1!}+\\frac{1}{2!}+\\cdots+\\frac{(-1)^{n}}{n!}\\right)\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-2297",
+      "name": "15th Annual Harvard-MIT Mathematics Tournament #0jah",
+      "url": "https://usamoguide.com/",
+      "source": "15th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Coloring schemes, extremal arguments",
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\n\nConsider the cube whose vertices are the eight points $(x, y, z)$ for which each of $x$, $y$, and $z$ is either $0$ or $1$. How many ways are there to color its vertices black or white such that, for any vertex, if all of its neighbors are the same color then it is also that color? Two vertices are neighbors if they are the two endpoints of some edge of the cube.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $118$\n\nDivide the $8$ vertices of the cube into two sets $A$ and $B$ such that each set contains $4$ vertices, any two of which are diagonally adjacent across a face of the cube. We do casework based on the number of vertices of each color in set $A$.\n\n- Case 1: $4$ black. Then all the vertices in $B$ must be black, for $1$ possible coloring.\n\n- Case 2: $3$ black, $1$ white. Then there are $4$ ways to assign the white vertex. The vertex in $B$ surrounded by the black vertices must also be black. Meanwhile, the three remaining vertices in $B$ may be any configuration except all black, for a total of $4\\left(2^{3}-1\\right)=28$ possible colorings.\n\n- Case 3: $2$ black, $2$ white. Then, there are $6$ ways to assign the $2$ white vertices. The $4$ vertices of $B$ cannot all be the same color. Additionally, we cannot have $3$ black vertices of $B$ surround a white vertex of $A$ with the other vertex of $B$ white, and vice-versa, so we have a total of $6\\left(2^{4}-2-4\\right)=60$ possible colorings.\n\n- Case 4: $1$ black, $3$ white. As in case $2$, there are $28$ possible colorings.\n\n- Case 5: $4$ white. As in case $1$, there is $1$ possible coloring.\n\nSo there is a total of $1+28+60+28+1=118$ possible colorings."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-2419",
+      "name": "HMMT November 2013 #0jdv",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2013",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion",
+        "Recursion, bijection"
+      ],
+      "statement": "Problem:\nLet $S=\\{1,2, \\ldots, 2013\\}$. Find the number of ordered triples $(A, B, C)$ of subsets of $S$ such that $A \\subseteq B$ and $A \\cup B \\cup C=S$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $5^{2013}$ OR $125^{671}$\nLet $n=2013$. Each of the $n$ elements can be independently placed in 5 spots: there are $2^{3}-1$ choices with element $x$ in at least one set, and we subtract the $2^{1}$ choices with element $x$ in set $A$ but not $B$. Specifying where the elements go uniquely determines $A, B, C$, so there are $5^{n}=5^{2013}$ ordered triples."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-2453",
+      "name": "HMMT November 2013 #0jet",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2013",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cartesian coordinates",
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\n\nSuppose $A$, $B$, $C$, and $D$ are four circles of radius $r>0$ centered about the points $(0, r)$, $(r, 0)$, $(0,-r)$, and $(-r, 0)$ in the plane. Let $O$ be a circle centered at $(0,0)$ with radius $2 r$. In terms of $r$, what is the area of the union of circles $A$, $B$, $C$, and $D$ subtracted by the area of circle $O$ that is not contained in the union of $A$, $B$, $C$, and $D$?\n\n(The union of two or more regions in the plane is the set of points lying in at least one of the regions.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $8 r^{2}$\n\nLet $U$ denote the union of the four circles, so we seek\n$$\nU-([O]-U)=2U-[O]=2\\left[(2r)^{2}+4 \\cdot \\frac{1}{2} \\pi r^{2}\\right]-\\pi(2r)^{2}=8 r^{2}\n$$\n(Here we decompose $U$ into the square $S$ with vertices at $(\\pm r, \\pm r)$ and the four semicircular regions of radius $r$ bordering the four sides of $U$.)\n\nSolution:\n\nThere are three different kinds of regions: let $x$ be an area of a small circle that does not contain the two intersections with the other two small circles, $y$ be an area of intersection of two small circles, and $z$ be one of those four areas that is inside the big circle but outside all of the small circles.\n\nThen the key observation is $y = z$. Indeed, adopting the union $U$ notation from the previous solution, we have $4z = [O] - U = \\pi(2r)^{2} - U$, and by the inclusion-exclusion principle, $4y = [A] + [B] + [C] + [D] - U = 4\\pi r^{2} - U$, so $y = z$. Now $U = (4x + 4y) - (4z) = 4x$. But the area of each $x$ is simply $2r^{2}$ by moving the curved outward parts to fit into the curved inward parts to get a $r \\times 2r$ rectangle. So the answer is $8 r^{2}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-2458",
+      "name": "HMMT November 2013 #0jey",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2013",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\nFind the number of subsets $S$ of $\\{1,2, \\ldots, 6\\}$ satisfying the following conditions:\n- $S$ is non-empty.\n- No subset of $S$ has the property that the sum of its elements is $10$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $34$\n\nWe do casework based on the largest element of $S$. Call a set $n$-free if none of its subsets have elements summing to $n$.\n\nCase 1: The largest element of $S$ is $6$. Then $4 \\notin S$. If $5 \\notin S$, then we wish to find all $4$-free subsets of $\\{1,2,3\\}$ (note that $1+2+3=6<10$). We just cannot include both $1,3$, so we have $2(2^{2}-1)=6$ choices here.\n\nIf $5 \\in S$, then we want $4,5$-free subsets of $\\{1,2,3\\}$. The only $4$-but-not-$5$-free subset is $\\{2,3\\}$, so we have $6-1$ choices here, for a case total of $6+5=11$.\n\nCase 2: The largest element of $S$ is $5$. We seek $5,10$-free subsets of $\\{1,2,3,4\\}$. We just cannot have both $1,4$ or both $2,3$ (note that getting $10$ requires the whole set), so we have $(2^{2}-1)^{2}=9$ subsets in this case.\n\nCase 3: The largest element of $S$ is at most $4$. (So we want a $4$-free subset of $\\{1,2,3,4\\}$.) The only way to sum to $10$ with $1,2,3,4$ is by using all the terms, so we simply discount the empty set and $\\{1,2,3,4\\}$, for a total of $2^{4}-2=14$ subsets.\n\nIn conclusion, the total number of subsets is $11+9+14=34$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-2486",
+      "name": "HMMT November 2013 #0jfq",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2013",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion",
+        "Polynomial operations"
+      ],
+      "statement": "Problem:\n\nFind the number of ordered triples of integers $(a, b, c)$ with $1 \\leq a, b, c \\leq 100$ and $a^{2} b + b^{2} c + c^{2} a = a b^{2} + b c^{2} + c a^{2}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThis factors as $(a-b)(b-c)(c-a)=0$. By the inclusion-exclusion principle, we get $3 \\cdot 100^{2} - 3 \\cdot 100 + 100 = 29800$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-2494",
+      "name": "HMMT November 2013 #0jfy",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2013",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion",
+        "Prime numbers",
+        "Sums and products"
+      ],
+      "statement": "Problem:\n\nFind the number of positive integers less than $1000000$ that are divisible by some perfect cube greater than $1$. Your score will be $\\max \\left\\{0,\\left\\lfloor 20-200\\left|1-\\frac{k}{S}\\right|\\right\\rfloor\\right\\}$, where $k$ is your answer and $S$ is the actual answer.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $168089$\n\nUsing the following code, we get the answer (denoted by the variable $ans$):\n\nans $=0$\nfor $n$ in xrange $(1,1000000)$ :\n```\ndivisible_by_cube = True\nfor i in xrange(2,101):\n    if n%(i*i*i)==0:\n        divisible_by_cube = False\n        break\nif divisible_by_cube: ans = ans + 1\nprint ans\n```\nThis gives the output\n$168089$\n\nAlternatively, let $N=1000000$ and denote by $P$ the set of primes. Then by PIE, the number of $n \\in (0, N)$ divisible by a nontrivial cube, or equivalently, by $p^{3}$ for some $p \\in P$, is\n$$\n\\sum_{p \\in P}\\left\\lfloor\\frac{N-1}{p^{3}}\\right\\rfloor-\\sum_{p<q \\in P}\\left\\lfloor\\frac{N-1}{p^{3} q^{3}}\\right\\rfloor \\pm \\cdots\n$$\nwhich deviates from\n$$\n\\sum_{p \\in P} \\frac{N-1}{p^{3}}-\\sum_{p<q \\in P} \\frac{N-1}{p^{3} q^{3}} \\pm \\cdots=(N-1)\\left(1-\\prod_{p \\in P}\\left(1-p^{-3}\\right)\\right)\n$$\nby at most the sum of\n- $N^{1 / 3} \\sup _{t \\in \\mathbb{R}}|t-\\lfloor t\\rfloor|=N^{1 / 3}$, for terms $\\left\\lfloor\\frac{N-1}{p_{1}^{3} \\cdots p_{r}^{3}}\\right\\rfloor$ with $p_{1} \\cdots p_{r} \\leq(N-1)^{1 / 3}$, and\n- $(N-1) \\sum_{k>(N-1)^{1 / 3}} k^{-3}<(N-1)\\left[(N-1)^{-1}+\\int_{(N-1)^{1 / 3}}^{\\infty} x^{-3} d x\\right]=1+(N-1) \\frac{(N-1)^{-2 / 3}}{2}=$ $O\\left(N^{1 / 3}\\right)$, for the remaining terms.\n\nSo we are really interested in $10^{6}-10^{6} \\prod_{p \\in P}\\left(1-p^{-3}\\right)$ (which, for completeness, is $168092.627 \\ldots$). There are a few simple ways to approximate this:\n- We can use a partial product of $\\prod_{p \\in P}\\left(1-p^{-3}\\right)$. Using just $1-2^{-3}=0.875$ gives an answer of $125000$ (this is also just the number of $x \\leq N$ divisible by $2^{3}=8$), $(1-2^{-3})(1-3^{-3}) \\approx 0.843$ gives $157000$ (around the number of $x$ divisible by $2^{3}$ or $3^{3}$), etc. This will give a lower bound, of course, so we can guess a bit higher. For instance, while $157000$ gives a score of around $7$, rounding up to $160000$ gives $\\approx 10$.\n- We can note that $\\prod_{p \\in P}\\left(1-p^{-3}\\right)=\\zeta(3)^{-1}$ is the inverse of $1+2^{-3}+3^{-3}+\\cdots$. This is a bit less efficient, but successive partial sums (starting with $1+2^{-3}$) give around $111000$, $139000$, $150000$, $157000$, etc. Again, this gives a lower bound, so we can guess a little higher.\n- We can optimize the previous approach with integral approximation after the $r$th term: $\\zeta(3)$ is the sum of $1+2^{-3}+\\cdots+r^{-3}$ plus something between $\\int_{r+1}^{\\infty} x^{-3} d x=\\frac{1}{2}(r+1)^{-2}$ and $\\int_{r}^{\\infty} x^{-3} d x=\\frac{1}{2} r^{-2}$. Then starting with $r=1$, we get intervals of around $(111000,334000),(152000,200000)$, $(161000,179000),(165000,173000)$, etc. Then we can take something like the average of the two endpoints as our guess; such a strategy gets a score of around $10$ for $r=2$ already, and $\\approx 17$ for $r=3$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-2603",
+      "name": "HMMT 2014 #0jiz",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2014",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recursion, bijection",
+        "Counting two ways",
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\n\nAn up-right path from $(a, b) \\in \\mathbb{R}^{2}$ to $(c, d) \\in \\mathbb{R}^{2}$ is a finite sequence $\\left(x_{1}, y_{1}\\right), \\ldots,\\left(x_{k}, y_{k}\\right)$ of points in $\\mathbb{R}^{2}$ such that $(a, b)=\\left(x_{1}, y_{1}\\right),(c, d)=\\left(x_{k}, y_{k}\\right)$, and for each $1 \\leq i<k$ we have that either $\\left(x_{i+1}, y_{i+1}\\right)=\\left(x_{i}+1, y_{i}\\right)$ or $\\left(x_{i+1}, y_{i+1}\\right)=\\left(x_{i}, y_{i}+1\\right)$. Two up-right paths are said to intersect if they share any point.\n\nFind the number of pairs $(A, B)$ where $A$ is an up-right path from $(0,0)$ to $(4,4)$, $B$ is an up-right path from $(2,0)$ to $(6,4)$, and $A$ and $B$ do not intersect.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe number of up-right paths from $(0,0)$ to $(4,4)$ is $\\binom{8}{4}$ because any such up-right path is identical to a sequence of 4 $U$'s and 4 $R$'s, where $U$ corresponds to a step upwards and $R$ corresponds to a step rightwards. Therefore, the total number of pairs of (possibly intersecting) up-right paths from $(0,0)$ to $(4,4)$ and $(2,0)$ to $(6,4)$ is $\\binom{8}{4}^{2}$.\n\nWe will now count the number of intersecting pairs of up-right paths and subtract it to get the answer. Consider an up-right path $A$ from $(0,0)$ to $(4,4)$ and an up-right path $B$ from $(2,0)$ to $(6,4)$. If they intersect, take the point $(x, y)$ where they first meet each other, and switch the parts of the paths after $(x, y)$ to make an up-right path $A^{\\prime}$ from $(0,0)$ to $(6,4)$ and an up-right path $B^{\\prime}$ from $(2,0)$ to $(4,4)$.\n\nConversely, given an up-right path $A^{\\prime}$ from $(0,0)$ to $(6,4)$ and an up-right path $B^{\\prime}$ from $(2,0)$ to $(4,4)$, they must intersect somewhere, so we can again take their first intersection point and switch the ends to get the original up-right path $A$ from $(0,0)$ to $(4,4)$ and up-right path $B$ from $(2,0)$ to $(6,4)$, where $A$ and $B$ intersect.\n\nConsequently, the number of intersecting pairs of up-right paths is exactly equal to the number of pairs of up-right paths from $(0,0)$ to $(6,4)$ and $(2,0)$ to $(4,4)$, which is $\\binom{10}{4}\\binom{6}{4}$. The number of pairs that do not intersect is therefore $\\binom{8}{4}^{2}-\\binom{10}{4}\\binom{6}{4}=4900-3150=1750$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-2699",
+      "name": "HMMT 2014 #0jln",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2014",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion",
+        "Recursion, bijection"
+      ],
+      "statement": "Problem:\n\nEli, Joy, Paul, and Sam want to form a company; the company will have 16 shares to split among the 4 people. The following constraints are imposed:\n\n- Every person must get a positive integer number of shares, and all 16 shares must be given out.\n- No one person can have more shares than the other three people combined.\n\nAssuming that shares are indistinguishable, but people are distinguishable, in how many ways can the shares be given out?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: 315\n\nWe are finding the number of integer solutions to $a+b+c+d=16$ with $1 \\leq a, b, c, d \\leq 8$. We count the number of solutions to $a+b+c+d=16$ over positive integers, and subtract the number of solutions in which at least one variable is larger than $8$.\n\nIf at least one variable is larger than $8$, exactly one of the variables is larger than $8$. We have $4$ choices for this variable. The number of solutions to $a+b+c+d=16$ over positive integers, where $a>8$, is just the number of solutions to $a'+b+c+d=8$ over positive integers, since we can substitute $a' = a-8$.\n\nThus, by the stars and bars formula (the number of positive integer solutions to $x_1+\\cdots+x_m=n$ is $\\binom{n-1}{m-1}$), the answer is\n\n$$\n\\binom{16-1}{4-1} - \\binom{4}{1} \\binom{(16-8)-1}{4-1} = 35 \\cdot 13 - 4 \\cdot 35 = 315.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-2900",
+      "name": "HMMT February 2015 #0jr8",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2015",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion",
+        "Modular Arithmetic"
+      ],
+      "statement": "Problem:\n\nLet $S$ be the set of all 3-digit numbers with all digits in the set $\\{1,2,3,4,5,6,7\\}$ (so in particular, all three digits are nonzero). For how many elements $\\overline{a b c}$ of $S$ is it true that at least one of the (not necessarily distinct) \"digit cycles\"\n$$\n\\overline{a b c}, \\overline{b c a}, \\overline{c a b}\n$$\nis divisible by $7$? (Here, $\\overline{a b c}$ denotes the number whose base 10 digits are $a, b$, and $c$ in that order.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: 127\n\nSince the value of each digit is restricted to $\\{1,2, \\ldots, 7\\}$, there is exactly one digit representative of each residue class modulo $7$.\n\nNote that $7 \\mid \\overline{a b c}$ if and only if $100 a + 10 b + c \\equiv 0 \\pmod{7}$ or equivalently $2a + 3b + c \\equiv 0$. So we want the number of triples of residues $(a, b, c)$ such that at least one of $2a + 3b + c \\equiv 0$, $2b + 3c + a \\equiv 0$, $2c + 3a + b \\equiv 0$ holds.\n\nLet the solution sets of these three equations be $S_1, S_2, S_3$ respectively, so by PIE and cyclic symmetry we want to find $3|S_1| - 3|S_1 \\cap S_2| + |S_1 \\cap S_2 \\cap S_3|$.\n\nClearly $|S_1| = 7^2$, since for each of $a$ and $b$ there is a unique $c$ that satisfies the equation.\n\nFor $S_1 \\cap S_2$, we may eliminate $a$ to get the system $0 \\equiv 2(2b + 3c) - (3b + c) = b + 5c$ (and $a \\equiv -2b - 3c$), which has $7$ solutions (one for each choice of $c$).\n\nFor $S_1 \\cap S_2 \\cap S_3 \\subseteq S_1 \\cap S_2$, we have from the previous paragraph that $b \\equiv -5c$ and $a \\equiv 10c - 3c \\equiv 0$. By cyclic symmetry, $b, c \\equiv 0$ as well, so there's exactly $1$ solution in this case.\n\nThus the answer is $3 \\cdot 7^2 - 3 \\cdot 7 + 1 = 127$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-2991",
+      "name": "HMMT February 2016 #0jtr",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2016",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Factorization techniques",
+        "τ (number of divisors)",
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\nFind the number of ordered pairs of integers $(a, b)$ such that $a, b$ are divisors of $720$ but $ab$ is not.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFirst consider the case $a, b > 0$. We have $720 = 2^4 \\cdot 3^2 \\cdot 5$, so the number of divisors of $720$ is $5 \\times 3 \\times 2 = 30$. We consider the number of ways to select an ordered pair $(a, b)$ such that $a, b, ab$ all divide $720$. Using the balls and urns method on each of the prime factors, we find the number of ways to distribute the factors of $2$ across $a$ and $b$ is $\\binom{6}{2}$, the factors of $3$ is $\\binom{4}{2}$, the factors of $5$ is $\\binom{3}{2}$. So the total number of ways to select $(a, b)$ with $a, b, ab$ all dividing $720$ is $15 \\times 6 \\times 3 = 270$. The number of ways to select any $(a, b)$ with $a$ and $b$ dividing $720$ is $30 \\times 30 = 900$, so there are $900 - 270 = 630$ ways to select $a$ and $b$ such that $a, b$ divide $720$ but $ab$ doesn't.\n\nNow, each $a, b > 0$ corresponds to four solutions ($\\pm a, \\pm b$) giving the final answer of $2520$. (Note that $ab \\neq 0$.)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-3030",
+      "name": "HMMT February 2016 #0juu",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2016",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Radical axis theorem",
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\n\nNine pairwise noncongruent circles are drawn in the plane such that any two circles intersect twice. For each pair of circles, we draw the line through these two points, for a total of $\\binom{9}{2}=36$ lines. Assume that all 36 lines drawn are distinct. What is the maximum possible number of points which lie on at least two of the drawn lines?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe lines in question are the radical axes of the 9 circles. Three circles with noncollinear centers have a radical center where their three pairwise radical axes concur, but all other intersections between two of the $\\binom{9}{2}$ lines can be made to be distinct. So the answer is\n$$\n\\left(\\begin{array}{c}\n9 \\\\\n2 \\\\\n2\n\\end{array}\\right)-2\\binom{9}{3}=462\n$$\nby just counting pairs of lines, and then subtracting off double counts due to radical centers (each counted three times)."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-3061",
+      "name": "HMMT February 2016 #0jvp",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2016",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion",
+        "Counting two ways"
+      ],
+      "statement": "Problem:\nLet $X$ be the collection of all functions $f:\\{0,1, \\ldots, 2016\\} \\rightarrow \\{0,1, \\ldots, 2016\\}$. Compute the number of functions $f \\in X$ such that\n$$\n\\max _{g \\in X}\\left(\\min _{0 \\leq i \\leq 2016}(\\max (f(i), g(i)))-\\max _{0 \\leq i \\leq 2016}(\\min (f(i), g(i)))\\right)=2015 .\n$$\nProposed by:",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFor each $f, g \\in X$, we define\n$$\nd(f, g):=\\min _{0 \\leq i \\leq 2016}(\\max (f(i), g(i)))-\\max _{0 \\leq i \\leq 2016}(\\min (f(i), g(i)))\n$$\nThus we desire $\\max _{g \\in X} d(f, g)=2015$.\n\nFirst, we count the number of functions $f \\in X$ such that\n$$\n\\exists g: \\min _{i} \\max \\{f(i), g(i)\\} \\geq 2015 \\text{ and } \\exists g: \\min _{i} \\max \\{f(i), g(i)\\}=0 .\n$$\nThat means for every value of $i$, either $f(i)=0$ (then we pick $g(i)=2015$) or $f(i) \\geq 2015$ (then we pick $g(i)=0$). So there are $A=3^{2017}$ functions in this case.\n\nSimilarly, the number of functions such that\n$$\n\\exists g: \\min _{i} \\max \\{f(i), g(i)\\}=2016 \\text{ and } \\exists g: \\min _{i} \\max \\{f(i), g(i)\\} \\leq 1\n$$\nis also $B=3^{2017}$.\n\nFinally, the number of functions such that\n$$\n\\exists g: \\min _{i} \\max \\{f(i), g(i)\\}=2016 \\text{ and } \\exists g: \\min _{i} \\max \\{f(i), g(i)\\}=0\n$$\nis $C=2^{2017}$.\n\nNow $A+B-C$ counts the number of functions with $\\max _{g \\in X} d(f, g) \\geq 2015$ and $C$ counts the number of functions with $\\max _{g \\in X} d(f, g) \\geq 2016$, so the answer is $A+B-2C=2 \\cdot\\left(3^{2017}-2^{2017}\\right)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-3132",
+      "name": "HMMT November #0jxo",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Counting two ways",
+        "Inclusion-exclusion",
+        "Recursion, bijection"
+      ],
+      "statement": "Problem:\n\nA string of digits is defined to be similar to another string of digits if it can be obtained by reversing some contiguous substring of the original string. For example, the strings $101$ and $110$ are similar, but the strings $3443$ and $4334$ are not. (Note that a string is always similar to itself.) Consider the string of digits\n$$\nS=01234567890123456789012345678901234567890123456789\n$$\nconsisting of the digits from $0$ to $9$ repeated five times. How many distinct strings are similar to $S$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe first count the number of substrings that one could pick to reverse to yield a new substring. If we insert two dividers into the sequence of $50$ digits, each arrangement of $2$ dividers among the $52$ total objects specifies a substring that is contained between the two dividers, for a total of $\\binom{52}{2}$ substrings. Next, we account for overcounting. Every substring of length $0$ or $1$ will give the identity string when reversed, so we are overcounting here by $51+50-1=100$ substrings. Next, for any longer substring $s$ that starts and ends with the same digit, removing the digit from both ends results in a substring $s'$, such that reversing $s$ would give the same string as reversing $s'$. Therefore, we are overcounting by $10 \\cdot \\binom{5}{2}$ substrings. Our total number of strings similar to $S$ is therefore $\\binom{52}{2}-100-10 \\cdot \\binom{5}{2}=1126$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-3140",
+      "name": "HMMT November #0jxw",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\n\nOn a $3 \\times 3$ chessboard, each square contains a Chinese knight with $\\frac{1}{2}$ probability. What is the probability that there are two Chinese knights that can attack each other? (In Chinese chess, a Chinese knight can attack any piece which is two squares away from it in a particular direction and one square away in a perpendicular direction, under the condition that there is no other piece immediately adjacent to it in the first direction.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSuppose the $3 \\times 3$ square is\n\n| A | B | C |\n| :---: | :---: | :---: |\n| D | E | F |\n| G | H | I |\n\nWe count the number of ways a board could have two knights attack each other using PIE. First notice that in any setup with two knights attack each other, the center square must be empty. Also, for any pair of knights that attack each other, one must be in a corner, and the other at the center of a nonadjacent side. There are $8 \\cdot 2^{5}$ ways for one pair of knights to attack each other.\n\nNext, we count the number of ways two pairs of knights attack each other: up to symmetry, there are four cases:\n- knights at $A$, $B$, $G$, $H$, and $D$ and $E$ empty;\n- knights at $A$, $H$, $F$, and $B$, $D$, $E$ empty;\n- knights at $A$, $B$, $H$, $I$, and $D$, $E$, $F$ empty;\n- knights at $A$, $C$, $H$, and $D$, $E$, $F$ empty.\n\nFor each of these cases, there are four symmetries, so there are a total of $4 \\cdot (2^{3} + 2^{3} + 2^{2} + 2^{3})$ ways to have two pairs of knights attack each other.\n\nNext, there's only one way for three pairs of knights to attack each other, discounting symmetry: $A$, $B$, $G$, $H$, $I$ have knights, and $D$, $E$, $F$ empty. Then there are $4 \\cdot 2 \\cdot 2$ ways for three knights to attack.\n\nFinally, there is only one way for four knights to attack: knights at $A$, $B$, $C$, $G$, $H$, $I$ and empty squares at $D$, $E$, $F$, for a total of $2$ ways after counting symmetries.\n\nApplying PIE, we get that the total number of boards with at least one pair of knights attacking each other is\n$$\n8 \\cdot 2^{5} - 4 \\cdot (2^{3} + 2^{3} + 2^{2} + 2^{3}) + 4 \\cdot 2 \\cdot 2 - 2 = 158\n$$\nThen the probability the $3 \\times 3$ board has a pair of knights attacking each other is $\\frac{158}{2^{9}} = \\frac{79}{256}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-3215",
+      "name": "February 2017 #0jzz",
+      "url": "https://usamoguide.com/",
+      "source": "February 2017",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\n\nAn ordered pair of sets $(A, B)$ is good if $A$ is not a subset of $B$ and $B$ is not a subset of $A$. How many ordered pairs of subsets of $\\{1,2, \\ldots, 2017\\}$ are good?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFirstly, there are $4^{2017}$ possible pairs of subsets, as each of the $2017$ elements can be in neither subset, in $A$ only, in $B$ only, or in both.\n\nNow let us count the number of pairs of subsets for which $A$ is a subset of $B$. Under these conditions, each of the $2017$ elements could be in neither subset, in $B$ only, or in both $A$ and $B$. So there are $3^{2017}$ such pairs.\n\nBy symmetry, there are also $3^{2017}$ pairs of subsets where $B$ is a subset of $A$. But this overcounts the pairs in which $A$ is a subset of $B$ and $B$ is a subset of $A$, i.e. $A = B$. There are $2^{2017}$ such subsets.\n\nThus, in total, there are $4^{2017} - 2 \\cdot 3^{2017} + 2^{2017}$ good pairs of subsets."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-3297",
+      "name": "HMMT November 2018 #0k29",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2018",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion",
+        "Counting two ways"
+      ],
+      "statement": "Problem:\nA function $f:\\{1,2,3,4,5\\} \\rightarrow\\{1,2,3,4,5\\}$ is said to be nasty if there do not exist distinct $a, b \\in\\{1,2,3,4,5\\}$ satisfying $f(a)=b$ and $f(b)=a$. How many nasty functions are there?\nProposed by: Michael Ren",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe use complementary counting. There are $5^{5}=3125$ total functions. If there is at least one pair of numbers which map to each other, there are $\\binom{5}{2}=10$ ways to choose the pair and $5^{3}=125$ ways to assign the other values of the function for a total of $1250$. But we overcount each time there are two such pairs, so we must subtract off $5 \\cdot 3 \\cdot 5=75$, where there are $5$ options for which number is not in a pair, $3$ options for how the other four numbers are paired up, and $5$ options for where the function outputs when the unpaired number is inputted. This results in a final answer of $3125-(1250-75)=1950$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-3302",
+      "name": "HMMT February 2018 #0k2e",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2018",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion",
+        "Coloring schemes, extremal arguments"
+      ],
+      "statement": "Problem:\nFind the largest positive integer $n$ for which there exist $n$ finite sets $X_{1}, X_{2}, \\ldots, X_{n}$ with the property that for every $1 \\leq a < b < c \\leq n$, the equation\n$$\n\\left|X_{a} \\cup X_{b} \\cup X_{c}\\right| = \\lceil \\sqrt{a b c} \\rceil\n$$\nholds.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFirst, we construct an example for $N=4$. Let $X_{1}, X_{2}, X_{3}, X_{4}$ be pairwise disjoint sets such that $X_{1}=\\varnothing$, $|X_{2}|=1$, $|X_{3}|=2$, and $|X_{4}|=2$. It is straightforward to verify the condition.\n\nWe claim that there are no five sets $X_{1}, X_{2}, \\ldots, X_{5}$ for which $\\#(X_{a} \\cup X_{b} \\cup X_{c}) = \\lceil \\sqrt{a b c} \\rceil$, for $1 \\leq a < b < c \\leq 5$. Note that showing the non-existence of five such sets implies that there are no $n$ sets with the desired property for $n \\geq 5$ as well.\n\nSuppose, for sake of contradiction, that there are such $X_{1}, \\ldots, X_{5}$. Then, note that $|X_{1} \\cup X_{2} \\cup X_{4}| = 3$, $|X_{1} \\cup X_{2} \\cup X_{5}| = 4$, and $|X_{2} \\cup X_{4} \\cup X_{5}| = 7$. Note that\n$$\n|X_{1} \\cup X_{2} \\cup X_{4}| + |X_{1} \\cup X_{2} \\cup X_{5}| = |X_{2} \\cup X_{4} \\cup X_{5}|.\n$$\nFor any sets $A, B, C, D$, we have the following two inequalities:\n$$\n|A \\cup B \\cup C| + |A \\cup B \\cup D| \\geq |A \\cup B \\cup C \\cup D| \\geq |B \\cup C \\cup D|\n$$\nFor $A = X_{1}$, $B = X_{2}$, $C = X_{4}$, and $D = X_{5}$ in the situation above, we conclude that the equalities must both hold in both inequalities. The first equality shows that $X_{1} \\cup X_{2} = \\varnothing$, and therefore both $X_{1}$ and $X_{2}$ are empty.\n\nNow observe that $|X_{1} \\cup X_{4} \\cup X_{5}| = 5 \\neq 7 = |X_{2} \\cup X_{4} \\cup X_{5}|$. This gives a contradiction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-3333",
+      "name": "HMMT February 2018 #0k39",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2018",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\n\n679 contestants participated in HMMT February 2017. Let $N$ be the number of these contestants who performed at or above the median score in at least one of the three individual tests. Estimate $N$.\n\nAn estimate of $E$ earns $\\left\\lfloor 20-\\frac{|E-N|}{2}\\right\\rfloor$ or 0 points, whichever is greater.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nOut of the 679 total contestants at HMMT February 2017, 188 contestants scored at least the median on all three tests, 159 contestants scored at least the median on two tests, and 169 contestants scored at least the median on one test, giving a total of 516 contestants"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-3383",
+      "name": "HMMT November 2018 #0k4n",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2018",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion",
+        "Counting two ways"
+      ],
+      "statement": "Problem:\nAt Easter-Egg Academy, each student has two eyes, each of which can be eggshell, cream, or cornsilk. It is known that $30\\%$ of the students have at least one eggshell eye, $40\\%$ of the students have at least one cream eye, and $50\\%$ of the students have at least one cornsilk eye. What percentage of the students at Easter-Egg Academy have two eyes of the same color?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $80\\%$\n\nFor the purposes of this solution, we abbreviate \"eggshell\" by \"egg\", and \"cornsilk\" by \"corn\". We know that there are only six combinations of eye color possible: egg-cream, egg-corn, egg-egg, cream-corn, cream-cream, corn-corn. If we let the proportions for each of these be represented by $a, b, c, d, e$, and $f$ respectively, we have the following four equalities:\n$$\n\\begin{aligned}\na + b + c &= 0.3 \\\\\na + d + e &= 0.4 \\\\\nb + d + f &= 0.5 \\\\\na + b + c + d + e + f &= 1\n\\end{aligned}\n$$\nwhere the first three equalities come from the given conditions. Adding the first three equations and subtracting the fourth, we obtain that\n$$\na + b + d = 0.2\n$$\nwhich is the proportion of people with different colored eyes. The proportion of people with the same eye color is thus $1 - 0.2 = 0.8$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-3401",
+      "name": "HMMT February 2018 #0k55",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2018",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion",
+        "Algebraic properties of binomial coefficients",
+        "Greatest common divisors (gcd)"
+      ],
+      "statement": "Problem:\n\nHow many ordered sequences of 36 digits have the property that summing the digits to get a number and taking the last digit of the sum results in a digit which is not in our original sequence? (Digits range from 0 to 9.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe will solve this problem for 36 replaced by $n$. We use $[n]$ to denote $\\{1,2, \\ldots, n\\}$ and $\\sigma_{s}$ to denote the last digit of the sum of the digits of $s$.\nLet $D$ be the set of all sequences of $n$ digits and let $S_{i}$ be the set of digit sequences $s$ such that $s_{i}=\\sigma_{s}$, the $i^{\\text{th}}$ digit of $s$. The quantity we are asked to compute is equal to $\\left|D \\backslash \\bigcup_{i=1}^{n} S_{i}\\right|$. We use the principle of inclusion-exclusion to compute this:\n$$\n\\left|D \\backslash \\bigcup_{i=1}^{n} S_{i}\\right|=\\sum_{J \\subseteq[n]}(-1)^{|J|}\\left|\\bigcap_{j \\in J} S_{j}\\right|\n$$\nNote that a digit sequence is in $S_{i}$ if and only if the $n-1$ digits which are not $i$ sum to a multiple of 10. This gives that $\\left|S_{i}\\right|=10 \\cdot 10^{n-2}=10^{n-1}$ as there are 10 ways to pick the $i^{\\text{th}}$ digit and $10^{n-2}$ ways to pick the other digits.\n\nSimilarly, given a subset $J \\subseteq[n]$, we can perform a similar analysis. If a string $s$ is in $\\bigcap_{j \\in J} S_{j}$, we must have that $s_{j}=\\sigma_{s}$ for all $j \\in J$. There are 10 ways to pick $\\sigma_{s}$, which determines $s_{j}$ for all $j \\in J$. From there, there are $10^{(n-|J|)-1}$ ways to pick the remaining digits as if we fix all but one, the last digit is uniquely determined. This gives $10^{n-|J|}$ choices.\n\nHowever, this breaks down when $|J|=n$, as not all choices of $\\sigma_{s}$ lead to any valid solutions. When $|J|=n$, $J=[n]$ and we require that the last digit of $n \\sigma_{s}$ is $\\sigma_{s}$, which happens for $\\operatorname{gcd}(n-1,10)$ values of $\\sigma_{s}$.\n\nWe now compare our expression from the principle of inclusion-exclusion to the binomial expansion of $(10-1)^{n}$. By the binomial theorem,\n$$\n9^{n}=(10-1)^{n}=\\sum_{J \\subseteq[n]}(-1)^{|J|} 10^{n-|J|}\n$$\nThese agree on every term except for the term where $J=[n]$. In this case, we need to add an extra $(-1)^{n} \\operatorname{gcd}(n-1,10)$ and subtract $(-1)^{n}$.\n\nThus our final value for $\\left|D \\backslash \\bigcup_{i=1}^{n} S_{i}\\right|$ is $9^{n}+(-1)^{n}(\\operatorname{gcd}(n-1,10)-1)$, which is $9^{36}+4$ for $n=36$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-3424",
+      "name": "Berkeley Math Circle: Monthly Contest 6 #0k5s",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\n\nThree friends wish to divide five different tasks among themselves, such that every friend must handle at least one task. In how many different ways can this be done?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nIf there were no restriction that all friends are assigned a task, the number of ways to assign would simply be $3^{5} = 243$. So we will use complementary counting.\n\nCall the friends $A$, $B$, and $C$. The number of ways to assign the tasks such that $A$ and $B$ have at least one task, but $C$ has no tasks, is $2^{5} - 2 = 30$. This is obtained by noting that one has two choices of who to give each task, subtracting off the two possibilities where $A$ receives all tasks or $B$ receives all tasks.\n\nSimilarly, the number of ways to assign the tasks such that $B$ and $C$ have at least one task, but $A$ has no tasks, is $2^{5} - 2 = 30$.\n\nSimilarly, the number of ways to assign the tasks such that $C$ and $A$ have at least one task, but $B$ has no tasks, is $2^{5} - 2 = 30$.\n\nFinally, there are three ways to assign all tasks to one person.\n\nIn summary, the answer should be $3^{5} - 3 \\cdot 30 - 3 \\cdot 1 = 150$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-3444",
+      "name": "HMMT February 2019 #0k6c",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2019",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion",
+        "Cartesian coordinates"
+      ],
+      "statement": "Problem:\n\nBob is coloring lattice points in the coordinate plane. Find the number of ways Bob can color five points in $\\{(x, y) \\mid 1 \\leq x, y \\leq 5\\}$ blue such that the distance between any two blue points is not an integer.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe can see that no two blue points can have the same $x$ or $y$ coordinate. The blue points then must make a permutation of $1,2,3,4,5$ that avoid the pattern of $3$-$4$-$5$ triangles. It is not hard to use complementary counting to get the answer from here.\n\nThere are $8$ possible pairs of points that are a distance of $5$ apart while not being in the same row or column (i.e. a pair that is in the $3$-$4$-$5$ position). If such a pair of points is included in the choice of five points, then there are $3! = 6$ possibilities for the remaining three points, yielding $8 \\times 6 = 48$ configurations that have violations. However, we now need to consider overcounting.\n\nThe only way to have more than one violation in one configuration is to have a corner point and then two points adjacent to the opposite corner, e.g. $(1,1), (4,5), (5,4)$. In each such case, there are exactly $2! = 2$ possibilities for the other two points, and there are exactly two violations so there are a total of $2 \\times 4 = 8$ configurations that are double-counted.\n\nTherefore, there are $48 - 8 = 40$ permutations that violate the no-integer-condition, leaving $120 - 40 = 80$ good configurations."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-3477",
+      "name": "HMMT November 2019 #0k79",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2019",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Counting two ways",
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\n\nLet $f(n)$ be the number of distinct digits of $n$ when written in base 10. Compute the sum of $f(n)$ as $n$ ranges over all positive 2019-digit integers.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n$$\nf(n) = f_{0}(n) + \\cdots + f_{9}(n)\n$$\nwhere $f_{d}(n) = 1$ if $n$ contains the digit $d$ and $0$ otherwise. The sum of $f_{d}(n)$ over all 2019-digit positive integers $n$ is just the number of 2019-digit positive integers that contain the digit $d$. For $1 \\leq d \\leq 9$,\n$$\n\\sum_{n} f_{d}(n) = 9 \\cdot 10^{2018} - 8 \\cdot 9^{2018}\n$$\nAlso,\n$$\n\\sum_{n} f_{0}(n) = 9 \\cdot 10^{2018} - 9^{2019}\n$$\nSumming over all possible values of $d$, we compute\n$$\n\\sum_{n} f(n) = \\sum_{d=0}^{9} \\sum_{n} f_{d}(n) = 9\\left(9 \\cdot 10^{2018} - 8 \\cdot 9^{2018}\\right) + 9 \\cdot 10^{2018} - 9^{2019} = 9\\left(10^{2019} - 9^{2019}\\right)\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-3514",
+      "name": "HMMT November 2019 #0k8a",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2019",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion",
+        "Expected values",
+        "Generating functions"
+      ],
+      "statement": "Problem:\n\nYou are trying to cross a 400 foot wide river. You can jump at most 4 feet, but you have many stones you can throw into the river. You will stop throwing stones and cross the river once you have placed enough stones to be able to do so. You can throw straight, but you can't judge distance very well, so each stone ends up being placed uniformly at random along the width of the river. Estimate the expected number $N$ of stones you must throw before you can get across the river.\n\nAn estimate of $E$ will earn $\\left\\lfloor 20 \\min \\left(\\frac{N}{E}, \\frac{E}{N}\\right)^{3}\\right\\rfloor$ points.\n\nProposed by: Carl Schildkraut and Milan Haiman",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "$$\n\\frac{100}{100}+\\frac{100}{99}+\\cdots+\\frac{100}{1} \\approx 100 \\ln 100\n$$\nstone throws (it takes $\\frac{100}{100-k}$ moves on average to get a stone into a new section if $k$ sections already have a stone). So the answer is at least $100 \\ln 100 \\approx 450$.\n\nOn the other hand, if we divide the river into 200 2-foot sections, then once we have a stone in each section we are guaranteed to be able to cross. By a similar argument, we obtain that the answer is at most $200 \\ln 200 \\approx 1050$.\n\nEstimates near these bounds earn about 5 to 7 points. An estimate in between can earn close to 20 points.\n\nTo compute the answer (almost) exactly, we use the following argument.\n\nScale the problem so the river is of size 1, and the jumps are of size 0.01. Suppose that after $n$ throws, the stones thrown are located at positions $0 < x_{1} < x_{2} < \\cdots < x_{n} < 1$. Let $x_{0} = 0$, $x_{n+1} = 1$, $r = 0.01$. Define $P(n)$ to be the probability that you still cannot cross the river after $n$ throws. In other words, there exists $i$ such that $x_{i+1} - x_{i} > r$. Then our answer is $\\sum_{n=0}^{\\infty} P(n)$.\n\nBy PIE we can write\n$$\nP(n) = \\sum_{i=1}^{\\infty} (-1)^{i-1} \\binom{n+1}{i} \\max (1 - i r, 0)^{n}\n$$\nbased on which intervals $x_{i+1} - x_{i}$ have length greater than $r$. Now we switch the order of summation:\n$$\n\\sum_{n=0}^{\\infty} P(n) = \\sum_{n=0}^{\\infty} \\sum_{i=1}^{\\infty} (-1)^{i-1} \\binom{n+1}{i} \\max (1 - i r, 0)^{n} = \\sum_{i=1}^{\\infty} (-1)^{i-1} \\sum_{n=0}^{\\infty} \\binom{n+1}{i} \\max (1 - i r, 0)^{n}\n$$\nLet $x = \\max (1 - i r, 0)$. Then\n$$\n\\sum_{n=0}^{\\infty} \\binom{n+1}{i} x^{n} = x^{i-1} \\sum_{j=0}^{\\infty} \\binom{i+j}{i} x^{j} = \\frac{x^{i-1}}{(1-x)^{i+1}}\n$$\nThus, our answer is\n$$\n\\sum_{i=1}^{\\lfloor 1 / r \\rfloor} (-1)^{i-1} \\frac{(1 - i r)^{i-1}}{(i r)^{i+1}} \\approx 712.811\n$$\nwhere the last approximation uses the C++ code below.\n\n```\n#include <bits/stdc++.h>\nusing namespace std;\ntypedef long double ld;\nint main() {\nld sum = 0, r = 0.01;\nfor (int i = 1; ; ++i) {\nld x = 1-r*i; if (x <= 0) break;\nld ex = pow(x/(1-x),i-1)/(1-x)/(1-x);\nif (i&1) sum += ex;\nelse sum -= ex;\n}\ncout << fixed << setprecision(8) << sum;\n}\n```"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-3602",
+      "name": "Bay Area Mathematical Olympiad #0kaq",
+      "url": "https://usamoguide.com/",
+      "source": "Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "σ (sum of divisors)",
+        "Inclusion-exclusion",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\nEvery positive integer is either nice or naughty, and the Oracle of Numbers knows which are which. However, the Oracle will not directly tell you whether a number is nice or naughty. The only questions the Oracle will answer are questions of the form \"What is the sum of all nice divisors of $n$?\", where $n$ is a number of the questioner's choice. For instance, suppose (just for this example) that $2$ and $3$ are nice, while $1$ and $6$ are naughty. In that case, if you asked the Oracle, \"What is the sum of all nice divisors of $6$?\", the Oracle's answer would be $5$.\nShow that for any given positive integer $n$ less than $1$ million, you can determine whether $n$ is nice or naughty by asking the Oracle at most four questions.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $f(u)$ denote the sum of all nice divisors of $u$. Note that $f(u) \\leq \\sigma(u)$, where $\\sigma(u)$ denotes the sum of all the divisors of $u$, including $1$ and $u$.\n\nWe also note the following facts about the $\\sigma$ function:\n\n1. $\\sigma$ is multiplicative: if $a$ and $b$ are relatively prime (share no prime factors), then $\\sigma(ab) = \\sigma(a) \\sigma(b)$.\n2. If $p$ is prime, then $\\sigma(p^{a}) = 1 + p + p^{2} + \\cdots + p^{a} = \\frac{p^{a+1} - 1}{p - 1} = p^{a} \\left(\\frac{p - 1 / p^{a}}{p - 1}\\right) < p^{a} \\left(\\frac{p}{p - 1}\\right)$.\n\nTo solve the problem, let us consider a few cases.\n\n- Suppose $n$ is prime. Then ask the Oracle to compute $f(n)$. Clearly $f(n) \\geq n$ if and only if $n$ is nice.\n\n- Suppose $n$ is a power of a prime, so $n = p^{a}$ for some prime $p$, with $a > 1$. Again, ask the Oracle to compute $f(n)$. We claim again that $f(n) \\geq n$ if and only if $n$ is nice. Clearly if $n$ is nice, then $f(n) > n$. But if $n$ is naughty, then $f(n) = f(p^{a-1}) \\leq \\sigma(p^{a-1}) < p^{a-1} \\left(\\frac{p}{p-1}\\right) \\leq 2 p^{a-1} \\leq p^{a}$.\n\n- Now suppose that $n$ has at least two prime factors, so we can write $n = p^{a} q^{b} R$, where $p, q$ are the two smallest primes found in the factorization of $n$, $a, b > 0$, and $R$ is an integer whose prime factorization does not contain $p$ or $q$ (of course, $R$ could equal $1$). Note that $R$ contains at most $5$ different primes, since the product of the first $8$ primes is larger than $1$ million. We will modify the previous strategy, where we examined a subset of the divisors of $n$ that were less than $n$ and whose sum was bounded below $n$; this allowed us to focus on $n$ and determine whether it is nice or naughty.\n\nThe subset of the divisors that we seek is the set $D$ of divisors of $n$ that are multiples of $p^{a} q^{b}$; in other words, $D := \\{ p^{a} q^{b} r : r \\text{ divides } R \\}$. We claim that the sum of the elements of $D$ is less than $2n$, and since $p^{a} q^{b} R = n \\in D$, we conclude that $n$ is nice if and only if the sum of the nice members of $D$ is greater than or equal to $n$ (this follows because our claim implies that the members of $D$ that are not $n$ have a sum that is strictly less than $n$).\n\nTwo things remain: to verify the claim that the sum of all the members of $D$ is less than $2n$, and we need to know how to get the Oracle to compute the sum of the nice members of $D$ with at most four questions.\n\n1. The sum of the members of $D$ is equal to $p^{a} q^{b} \\sigma(R)$. By fact #2 above,\n$$\n\\sigma(R) < R \\left(\\frac{p_{1}}{p_{1} - 1}\\right) \\left(\\frac{p_{2}}{p_{2} - 1}\\right) \\cdots\n$$\nwhere the $p_{i}$ range over the distinct prime factors of $R$. We know that there are at most five such prime factors, and this product is bounded above by\n$$\n\\left(\\frac{5}{4}\\right) \\left(\\frac{7}{6}\\right) \\left(\\frac{11}{10}\\right) \\left(\\frac{13}{12}\\right) \\left(\\frac{17}{16}\\right) = \\frac{7 \\cdot 11 \\cdot 13 \\cdot 17}{2^{10 \\cdot 9}} = \\frac{1001 \\cdot 17}{1024 \\cdot 9},\n$$\nwhich is clearly less than $2$.\n\n2. Finally, let the \"universal set\" be the divisors of $n$, and let $P$ and $Q$ denote the divisors of $n/p$ and $n/q$, respectively. It is easy to see that $P \\cup Q$ is the complement of $D$ (since membership in $P$ guarantees that the exponent of $p$ is too small, and membership in $Q$ does the same for $q$). By the inclusion-exclusion principle, the members of $D$ can be obtained by starting with the universal set (all divisors of $n$), removing members of $P$, removing members of $Q$, and then adding back in the members of $P \\cap Q$, which just consists of the divisors of $n/(pq)$. Consequently, the sum of the nice members of $D$ is given by\n$$\nf(n) - f(n/p) - f(n/q) + f(n/(pq))\n$$\nwhich requires just four questions to compute!"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-3679",
+      "name": "HMMO 2020 #0kcv",
+      "url": "https://usamoguide.com/",
+      "source": "HMMO 2020",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Counting two ways",
+        "Inclusion-exclusion",
+        "Recursion, bijection"
+      ],
+      "statement": "Problem:\n\nCompute the number of positive integers less than $10!$ which can be expressed as the sum of at most 4 (not necessarily distinct) factorials.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSince $0! = 1! = 1$, we ignore any possible $0!$'s in our sums.\n\nCall a sum of factorials reduced if for all positive integers $k$, the term $k!$ appears at most $k$ times. It is straightforward to show that every positive integer can be written uniquely as a reduced sum of factorials. Moreover, by repeatedly replacing $k+1$ occurrences of $k!$ with $(k+1)!$, every non-reduced sum of factorials is equal to a reduced sum with strictly fewer terms, implying that the aforementioned reduced sum associated to a positive integer $n$ in fact uses the minimum number of factorials necessary.\n\nIt suffices to compute the number of nonempty reduced sums involving $\\{1!, 2!, \\ldots, 9!\\}$ with at most 4 terms. By stars and bars, the total number of such sums, ignoring the reduced condition, is $\\binom{13}{9} = 714$.\n\nThe sums that are not reduced must either contain two copies of $1!$, three copies of $2!$, or four copies of $3!$. Note that at most one of these conditions is true, so we can count them separately. If $k$ terms are fixed, there are $\\binom{13-k}{9}$ ways to choose the rest of the terms, meaning that we must subtract $\\binom{11}{9} + \\binom{10}{9} + \\binom{9}{9} = 66$. Our final answer is $714 - 66 = 648$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-3708",
+      "name": "HMMO 2020 #0kdo",
+      "url": "https://usamoguide.com/",
+      "source": "HMMO 2020",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion",
+        "Enumeration with symmetry",
+        "Counting two ways"
+      ],
+      "statement": "Problem:\n\nThe numbers $1, 2, \\ldots, 10$ are written in a circle. There are four people, and each person randomly selects five consecutive integers (e.g. $1, 2, 3, 4, 5$, or $8, 9, 10, 1, 2$). If the probability that there exists some number that was not selected by any of the four people is $p$, compute $10000 p$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe unselected numbers must be consecutive. Suppose that $\\{1, 2, \\ldots, k\\}$ are the unselected numbers for some $k$.\n\nIn this case, $1$ cannot be selected, so there are $5$ possible sets of consecutive numbers the people could have chosen. This leads to $5^{4}$ possibilities. Moreover, $10$ must be selected, so we must subtract $4^{4}$ possibilities where neither $1$ nor $10$ are selected.\n\nTherefore, accounting for the rotation of the unselected numbers, we find\n$$\np = \\frac{10\\left(5^{4} - 4^{4}\\right)}{10^{4}} = \\frac{3690}{10000}.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-3930",
+      "name": "AMC 12 A #0kju",
+      "url": "https://usamoguide.com/",
+      "source": "AMC 12 A",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion",
+        "Counting two ways",
+        "Inverses mod n"
+      ],
+      "statement": "Let $m \\ge 5$ be an odd integer, and let $D(m)$ denote the number of quadruples $(a_1, a_2, a_3, a_4)$ of distinct integers with $1 \\le a_i \\le m$ for all $i$ such that $m$ divides $a_1 + a_2 + a_3 + a_4$. There is a polynomial $q(x) = c_3x^3 + c_2x^2 + c_1x + c_0$ such that $D(m) = q(m)$ for all odd integers $m \\ge 5$. What is $c_1$?\n(A) -6    (B) -1    (C) 4    (D) 6    (E) 11",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-4044",
+      "name": "HMMT Spring 2021 #0kn0",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT Spring 2021",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion",
+        "Enumeration with symmetry",
+        "Coloring schemes, extremal arguments"
+      ],
+      "statement": "Problem:\n\nCompute the number of ways to fill each cell in a $8 \\times 8$ square grid with one of the letters $H, M$, or $T$ such that every $2 \\times 2$ square in the grid contains the letters $H, M, M, T$ in some order.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe solve the problem for general $n \\times n$ boards where $n$ even. Let the cell in the $i$-th row and $j$-th column be $a_{i, j}$.\n\nClaim: In any valid configuration, either the rows (or columns) alternate between ( $\\cdots, H, M, H, M, \\cdots$ ) and $(\\cdots, T, M, T, M, \\cdots)$ or $(\\cdots, M, M, M, M, \\cdots)$ and $(\\cdots, H, T, H, T, \\cdots)$.\n\nProof: First note that all configurations which follow the above criteria are valid.\nIf the rows alternate as above we are done. Else there exists one of the below configurations in one of the rows, from which we can deduce the rest of the 3 columns as follows:\n\n| $(a_{i, j-1}, a_{i, j}, a_{i, j+1})$ | $(a_{i+1, j-1}, a_{i+1, j}, a_{i+1, j+1})$ | $(a_{i+2, j-1}, a_{i+2, j}, a_{i+2, j+1})$ |\n| :---: | :---: | :---: |\n| $(H, M, T)$ | $(T, M, H)$ | $(H, M, T)$ |\n| $(T, M, H)$ | $(H, M, T)$ | $(T, M, H)$ |\n| $(H, T, M)$ | $(M, M, H)$ | $(H, T, M)$ |\n| $(M, T, H)$ | $(H, M, M)$ | $(M, T, H)$ |\n| $(T, H, M)$ | $(M, M, T)$ | $(T, H, M)$ |\n| $(M, H, T)$ | $(T, M, M)$ | $(M, H, T)$ |\n| $(T, M, M)$ | $(M, H, T)$ | $(T, M, M)$ |\n| $(M, M, T)$ | $(T, H, M)$ | $(M, M, T)$ |\n| $(H, M, M)$ | $(M, T, H)$ | $(H, M, M)$ |\n| $(M, M, H)$ | $(H, T, M)$ | $(M, M, H)$ |\n\nIt can be noted that the configurations alternate as we move down/up the columns, implying that the 3 columns consist of alternating letters (or $(M, M, \\cdots)$ ). We can now check that all columns obey the above form, and in particular, must alternate as stated in the claim.\n\nIt now suffices to count the number of cases. When the rows alternate between $(\\cdots, H, M, H, M, \\cdots)$ and $(\\cdots, T, M, T, M, \\cdots)$, there are 2 ways to choose which one occupies the odd-numbered rows, and $2^{n}$ ways to alternate between the 2 letters in each row. When the rows alternate between $(\\cdots, H, T, H, T, \\cdots)$ and $(\\cdots, M, M, M, M, \\cdots)$, there are 2 ways to choose which occupies the odd-numbered rows, and $2^{\\frac{n}{2}}$ ways to alternate between the 2 letters in the rows. The number of cases for columns is the same.\n\nFinally, if both the rows and columns alternate as above, it suffices to fix the first 2 rows (then the rest of the board is uniquely determined by extending the columns). There are $2 \\times 2^{2}=8$ ways to do this if the rows are $(\\cdots, H, M, H, M, \\cdots)$ and $(\\cdots, T, M, T, M, \\cdots)$, and $2 \\times 2=4$ ways to do this if the rows are $(\\cdots, M, M, M, M, \\cdots)$ and $(\\cdots, H, T, H, T, \\cdots)$.\n\nHence the total number of configurations is $2\\left(2^{n+1}+2^{\\frac{n}{2}+1}\\right)-12=2^{n+2}+2^{\\frac{n}{2}+2}-12$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-4090",
+      "name": "HMMT February 2022 #0koa",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2022",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\n\nSets $A$, $B$, and $C$ satisfy $|A| = 92$, $|B| = 35$, $|C| = 63$, $|A \\cap B| = 16$, $|A \\cap C| = 51$, $|B \\cap C| = 19$. Compute the number of possible values of $|A \\cap B \\cap C|$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSuppose $|A \\cap B \\cap C| = n$. Then there are $16 - n$ elements in $A$ and $B$ but not $C$, $51 - n$ in $A$ and $C$ but not $B$, and $19 - n$ in $B$ and $C$ but not $A$. Furthermore, there are $25 + n$ elements that are only in $A$, $n$ only in $B$, and $n - 7$ that are only in $C$. Therefore, $7 \\leq n \\leq 16$, so there are 10 possible values."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-4111",
+      "name": "2022 AIME I #0kov",
+      "url": "https://usamoguide.com/",
+      "source": "2022 AIME I",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fractions",
+        "Decimals",
+        "Greatest common divisors (gcd)",
+        "φ (Euler's totient)",
+        "Inclusion-exclusion"
+      ],
+      "statement": "Let $S$ be the set of all rational numbers that can be expressed as a repeating decimal in the form $0.abcd$, where at least one of the digits $a, b, c$, or $d$ is nonzero. Let $N$ be the number of distinct numerators obtained when numbers in $S$ are written as fractions in lowest terms. For example, both $4$ and $410$ are counted among the distinct numerators for numbers in $S$ because $0.\\overline{3636} = \\frac{4}{11}$ and $0.\\overline{1230} = \\frac{410}{3333}$. Find the remainder when $N$ is divided by 1000.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-4120",
+      "name": "HMMT February #0kp4",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Greatest common divisors (gcd)",
+        "Factorization techniques",
+        "Inclusion-exclusion",
+        "Counting two ways",
+        "Enumeration with symmetry"
+      ],
+      "statement": "Problem:\nLet $N$ be the number of triples of positive integers $(a, b, c)$ satisfying\n$$\na \\leq b \\leq c, \\quad \\operatorname{gcd}(a, b, c)=1, \\quad a b c=6^{2020}\n$$\nCompute the remainder when $N$ is divided by 1000.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $n=2020$. If we let $a=2^{p_{1}} \\cdot 3^{q_{1}},\\ b=2^{p_{2}} \\cdot 3^{q_{2}},\\ c=2^{p_{3}} \\cdot 3^{q_{3}}$, then the number of ordered triples $(a, b, c)$ that satisfy the second and third conditions is the number of nonnegative solutions to $p_{1}+p_{2}+p_{3}=n$ and $q_{1}+q_{2}+q_{3}=n$, where at least one of $p_{1}, p_{2}, p_{3}$ is zero and at least one of $q_{1}, q_{2}, q_{3}$ is zero (otherwise, $\\operatorname{gcd}(a, b, c)>1$). By complementary counting, the number is\n$$\n\\left(\\binom{n+2}{2}-\\binom{n-1}{2}\\right)^{2}=9 n^{2}\n$$\nLet $\\ell$ be the number of unordered triples $(a, b, c)$ with $a, b, c$ distinct, and $m$ the number of unordered triples $(a, b, c)$ with two numbers equal. Since it is impossible for $a=b=c$, we have $9 n^{2}=6 \\ell+3 m$.\nWe now count $m$. Without loss of generality, assume $a=b$. For the factors of $2$, we have two choices: either assign $2^{2020}$ to $c$ or assign $2^{1010}$ to both $a$ and $b$. We have a similar two choices for the factors of $3$. Therefore $m=4$.\nOur final answer is\n$$\nN=m+\\ell=\\frac{6 \\ell+3 m+3 m}{6}=\\frac{9 \\cdot 2020^{2}+12}{6}=2+6 \\cdot 1010^{2} \\equiv 602 \\quad(\\bmod 1000)\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-4233",
+      "name": "2022 AIME I #0ks9",
+      "url": "https://usamoguide.com/",
+      "source": "2022 AIME I",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion"
+      ],
+      "statement": "Find the number of ordered pairs of integers $(a, b)$ such that the sequence\n$3, 4, 5, a, b, 30, 40, 50$\nis strictly increasing and no set of four (not necessarily consecutive) terms forms an arithmetic progression.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Neither $a$ nor $b$ can be $6$ or $20$ because either of those numbers would make an arithmetic progression with either the least three numbers or the greatest three numbers. Therefore $a$ and $b$ must be chosen from the remaining $22$ values between $7$ and $29$ not including $20$. Setting $(a, b) = (7, 9)$ results in the only arithmetic progression that contains two of the three least values. Because $20$ is already excluded, no arithmetic progression can be formed using exactly two of the three greatest numbers. All other possible arithmetic progressions must start with one of $3$, $4$, or $5$ and end with one of $30$, $40$, or $50$. The difference of the starting and ending terms must be divisible by $3$, which yields three potential pairs for starting and ending numbers of the arithmetic progression of length four. Using $3$ and $30$, only $(a, b) = (12, 21)$ gives an arithmetic progression. Using $4$ and $40$, only $(a, b) = (16, 28)$ gives an arithmetic progression. The arithmetic sequence starting with $5$ and ending with $50$ would contain $20$ and has already been excluded. Therefore the requested number of ordered pairs is $\\binom{22}{2} - 3 = 228$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-4368",
+      "name": "HMMT February 2023 #0kw0",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2023",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Expected values",
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\n\nFive pairs of twins are randomly arranged around a circle. Then they perform zero or more swaps, where each swap switches the positions of two adjacent people. They want to reach a state where no one is adjacent to their twin. Compute the expected value of the smallest number of swaps needed to reach such a state.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFirst, let's characterize the minimum number of swaps needed given a configuration. Each swap destroys $0$, $1$, or $2$ adjacent pairs. If at least one pair is destroyed, no other adjacent pairs can be formed. Therefore, we only care about the count of adjacent pairs and should never create any new ones. In a maximal block of $k$ adjacent pairs, defined as $k$ consecutive (circular) adjacent pairs, we need at least $\\left\\lceil\\frac{k}{2}\\right\\rceil$ swaps. Maximal blocks are independent as we never create new ones. Thus, we need $\\sum_{i}\\left\\lceil\\frac{k_{i}}{2}\\right\\rceil$ over maximal blocks.\n\nNow we focus on counting the desired quantity over all configurations. As the expression above is linear and because expectation is linear, our answer is the sum of the number of $1$-maximal blocks, $2$-maximal blocks, ..., $5$-maximal blocks. Note that there can't be a $4$-maximal block. This can be computed as\n$$\n\\mathbb{E}[AA] - \\mathbb{E}[AABB] + \\mathbb{E}[AABBCC] - \\mathbb{E}[AABBCCDDEE]\n$$\nwhere $AA \\ldots$ denotes a (not necessarily maximal) block of adjacent pairs and $\\mathbb{E}[AA\\ldots]$ is the expected count of such. (This counts a block of $AA$ as $1$, a block of $AABB$ as $1$, a block of $AABBCC$ as $2$, and a block of $AABBCCDDEE$ as $3$ overall, as desired).\n\nLastly, we compute this quantity. Say there's $n$ pairs. Let's treat each of the $2n$ people as distinguishable. The expected number of $k$ consecutive adjacent pairs (not necessarily as a maximal block) equals\n$$\n\\frac{1}{2^{n}} n \\binom{n}{k} k! (2n-2k)! 2^{k}\n$$\nThe first $n$ comes from choosing the start of this chain, $\\binom{n}{k}$ from choosing which pairs are in this chain, $k!$ from permuting these pairs, $2^{k}$ from ordering the people in each pair in the chain, and $(2n-2k)!$ from permuting the other people.\n\nWe plug in $n=5$ to obtain $\\frac{926}{945}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-4377",
+      "name": "HMMT November 2023 #0kw9",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2023",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Coloring schemes, extremal arguments",
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\n\nDorothea has a $3 \\times 4$ grid of dots. She colors each dot red, blue, or dark gray. Compute the number of ways Dorothea can color the grid such that there is no rectangle whose sides are parallel to the grid lines and whose vertices all have the same color.\n\nSubmit a positive integer $A$. If the correct answer is $C$ and your answer is $A$, you will receive $\\left\\lfloor 20\\left(\\min \\left(\\frac{A}{C}, \\frac{C}{A}\\right)\\right)^{2}\\right\\rfloor$ points.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nTo find an appropriate estimate, we will lower bound the number of rectangles. Let $P(R)$ be the probability a random $3$ by $4$ grid will have a rectangle with all the same color in the grid. Let $P(r)$ be the probability that a specific rectangle in the grid will have the same color. Note $P(r)=\\frac{3}{3^{4}}=\\frac{1}{27}$. Observe that there are $\\binom{4}{2}\\binom{3}{2}=18$ rectangles in the grid. Hence, we know that $P(R) \\leq 18 \\cdot P(r)=\\frac{18}{27}=\\frac{2}{3}$. Thus, $1-P(R)$, the probability no such rectangle is in the grid, is at most $\\frac{1}{3}$. This implies that our answer should be at least $\\frac{3^{12}}{3}=3^{11}$, which is enough for around half points. Closer estimations can be obtained by using more values of Inclusion-Exclusion.\n\nn}=\ncnt = 0\nfor i in range( }3**(3*n))\nmask = i\na= [[], [], []]\nfor x in range(3):\n    for y in range(n):\n        a[x].append(mask % 3)\n        mask //= 3\npairs = [set() for i in range(3)]\nworks = True\nfor i in range(n):\n    for j,k in [(0,1), (0,2), (1,2)]:\n        if a[j][i] == a[k][i]:\n            if (j,k) in pairs[a[j][i]]:\n                works = False\n            else:\n                pairs[a[j][i]].add((j , k))\nif works:\n    cnt += 1\nprint(cnt)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-4378",
+      "name": "HMMT November 2023 #0kwa",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2023",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Möbius inversion",
+        "Abel summation",
+        "Inclusion-exclusion",
+        "Other"
+      ],
+      "statement": "Problem:\n\nIsabella writes the expression $\\sqrt{d}$ for each positive integer $d$ not exceeding $8!$ on the board. Seeing that these expressions might not be worth points on HMMT, Vidur simplifies each expression to the form $a \\sqrt{b}$, where $a$ and $b$ are integers such that $b$ is not divisible by the square of a prime number. (For example, $\\sqrt{20}$, $\\sqrt{16}$, and $\\sqrt{6}$ simplify to $2 \\sqrt{5}$, $4 \\sqrt{1}$, and $1 \\sqrt{6}$, respectively.) Compute the sum of $a+b$ across all expressions that Vidur writes.\n\nSubmit a positive real number $A$. If the correct answer is $C$ and your answer is $A$, you get $\\max \\left(0,\\left\\lceil 20\\left(1-|\\log (A / C)|^{1 / 5}\\right)\\right\\rceil\\right)$ points.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $\\sqrt{n}$ simplify to $a_{n} \\sqrt{b_{n}}$, and replace $8!$ by $x$. First, notice that $\\sum_{n \\leq x} a_{n}$ is small $\\left(O\\left(x^{3 / 2}\\right)\\right.$ in particular) because each term cannot exceed $\\sqrt{x}$. On the other hand, $\\sum_{n \\leq x} b_{n}$ will be large; we have $b_{n}=n$ when $n$ is squarefree, and squarefree numbers occur $\\frac{6}{\\pi^{2}}$ of the time. Thus, it suffices to consider $\\sum_{n \\leq x} b_{n}$.\n\nWe first explain how to derive the formula heuristically. Then, we will provide a rigorous proof that\n$$\nB(x):=\\sum_{n \\leq x} b_{n}=\\frac{\\pi^{2}}{30} x^{2}+O\\left(x^{3 / 2}\\right)\n$$\nFor heuristic explanation, we first rewrite the sum as\n$$\nB(x)=\\sum_{\\substack{a^{2} b \\leq x \\\\ b \\text{ squarefree }}} b=\\sum_{a \\leq x} \\sum_{\\substack{b \\leq x / a^{2} \\\\ b \\text{ squarefree }}} b\n$$\nWe estimate the inner sum as follows: first, recall that the density of squarefree numbers is $\\frac{6}{\\pi^{2}}$. The sum of first $k$ positive integers is approximately $k^{2} / 2$, so the sum of squarefree numbers from $1,2, \\ldots, k$ should roughly be about $\\frac{6}{\\pi^{2}} \\cdot \\frac{k^{2}}{2}=\\frac{3}{\\pi^{2}} k^{2}$. Knowing this, we estimate\n$$\n\\begin{aligned}\nB(x) & \\approx \\sum_{a \\leq x} \\frac{3}{\\pi^{2}}\\left(\\frac{x}{a^{2}}\\right)^{2} \\\\\n& =x^{2} \\sum_{a \\leq x} \\frac{3}{\\pi^{2}} \\frac{1}{a^{4}} \\\\\n& \\approx \\frac{3}{\\pi^{2}} x^{2} \\sum_{a=1}^{\\infty} \\frac{1}{a^{4}} \\\\\n& =\\frac{3}{\\pi^{2}} x^{2} \\cdot \\frac{\\pi^{4}}{90}=\\frac{\\pi^{2}}{30} x^{2}\n\\end{aligned}\n$$\nThe estimate $\\frac{\\pi^{2}}{30} \\cdot(8!)^{2}=534834652$ is good enough for 18 points.\n\nWe now give a rigorous proof, which is essentially the above proof, but the errors are properly treated. To do that, we need several lemmas and some standard techniques in analytic number theory.\n\nLemma 1. The number of squarefree integers not exceeding $x$ is $\\frac{6}{\\pi^{2}} x+O(\\sqrt{x})$.\n\nProof. This is a standard result in analytic number theory, but we give the full proof for completeness.\n$$\n\\mu(n)= \\begin{cases}(-1)^{r} & n \\text{ is the product of } r \\geq 0 \\text{ distinct primes } \\\\ 0 & \\text{ otherwise }\\end{cases}\n$$\nThen, by Inclusion-Exclusion, we have\n$$\n\\begin{aligned}\n\\#\\{\\text{ squarefree } \\leq x\\} & =\\sum_{k \\leq \\sqrt{x}} \\mu(k)\\left\\lfloor\\frac{x}{k^{2}}\\right\\rfloor \\\\\n& =\\sum_{k \\leq \\sqrt{x}} \\mu(k) \\frac{x}{k^{2}}+O(\\sqrt{x}) \\\\\n& =x\\left(\\sum_{k \\leq \\sqrt{x}} \\frac{\\mu(k)}{k^{2}}\\right)+O(\\sqrt{x})\n\\end{aligned}\n$$\nThe inner summation is\n$$\n\\begin{aligned}\n\\sum_{k=1}^{\\infty} \\frac{\\mu(k)}{k^{2}}+O\\left(\\sum_{k \\geq \\sqrt{x}} \\frac{1}{k^{2}}\\right) & =\\prod_{p \\text{ prime }}\\left(1-\\frac{1}{p^{2}}\\right)+O\\left(\\frac{1}{\\sqrt{x}}\\right) \\\\\n& =\\frac{1}{1+\\frac{1}{2^{2}}+\\frac{1}{3^{2}}+\\ldots}+O\\left(\\frac{1}{\\sqrt{x}}\\right) \\\\\n& =\\frac{6}{\\pi^{2}}+O\\left(\\frac{1}{\\sqrt{x}}\\right)\n\\end{aligned}\n$$\nso putting it together, we get that\n$$\n\\#\\{\\text{ squarefree } \\leq x\\}=x\\left(\\frac{6}{\\pi^{2}}+O\\left(\\frac{1}{\\sqrt{x}}\\right)\\right)+O(\\sqrt{x})=\\frac{6}{\\pi^{2}} x+O(\\sqrt{x})\n$$\n\nLemma 2. We have\n$$\n\\sum_{\\substack{n \\text{ squarefree } \\\\ n \\leq x}} n=\\frac{3}{\\pi^{2}} x^{2}+O\\left(x^{3 / 2}\\right)\n$$\nProof. We apply Abel's summation formula on the sequence $a_{n}=\\mathbf{1}_{\\text{squarefree }}(n)$ and weight $\\phi(n)=n$. Define the partial summation $A(x)=\\sum_{n \\leq x} a_{n}$. Applying Abel's summation, we get that\n$$\n\\begin{aligned}\n\\sum_{\\substack{n \\text{ squarefree } \\\\\n n \\leq x}} n & =\\sum_{n \\leq x} a_{n} \\phi(n) \\\\\n& =A(x) \\phi(x)-\\int_{1}^{x} A(t) \\phi^{\\prime}(t) d t \\\\\n& =\\left(\\frac{6}{\\pi^{2}} x+O(\\sqrt{x})\\right) x-\\int_{1}^{x}\\left(\\frac{6}{\\pi^{2}} t+O(\\sqrt{t})\\right) d t \\\\\n& =\\left(\\frac{6}{\\pi^{2}} x^{2}+O\\left(x^{3 / 2}\\right)\\right)-\\left(\\frac{6}{\\pi^{2}} \\cdot \\frac{x^{2}}{2}+O\\left(x^{3 / 2}\\right)\\right) \\\\\n& =\\frac{3}{\\pi^{2}} x^{2}+O\\left(x^{3 / 2}\\right)\n\\end{aligned}\n$$\n\nMain Proof. Once we have Lemma 2., it is easy to get the desired estimate. We have\n$$\n\\begin{aligned}\nB(x) & =\\sum_{\\substack{a^{2} b \\leq x \\\\\n b \\text{ squarefree }}} b \\\\\n& =\\sum_{a \\leq x} \\sum_{\\substack{b \\leq x / a^{2} \\\\\n b \\text{ squarefree }}} b \\\\\n& =\\sum_{a \\leq x} \\frac{3}{\\pi^{2}} \\frac{x^{2}}{a^{4}}+O\\left(\\frac{x^{3 / 2}}{a^{3}}\\right) \\\\\n& =\\frac{3}{\\pi^{2}} x^{2}\\left(\\sum_{a \\leq x} \\frac{1}{a^{4}}\\right)+O\\left(x^{3 / 2} \\sum_{a \\leq x} \\frac{1}{a^{3}}\\right) .\n\\end{aligned}\n$$\nSince $\\sum_{a=1}^{\\infty} \\frac{1}{a^{3}}$ converges, we get that the big-$O$ term is indeed $O\\left(x^{3 / 2}\\right)$. Now, we only need to deal with the main term. Note the estimate\n$$\n\\sum_{a \\leq x} \\frac{1}{a^{4}}=\\sum_{a=1}^{\\infty} \\frac{1}{a^{4}}-\\sum_{a \\geq x} \\frac{1}{a^{4}}=\\frac{\\pi^{4}}{90}+O\\left(\\frac{1}{x^{3}}\\right)\n$$\nHence, we have\n$$\nB(x)=\\frac{3}{\\pi^{2}} x^{2} \\cdot \\frac{\\pi^{4}}{90}+O\\left(x^{3 / 2}\\right)=\\frac{\\pi^{2}}{30} x^{2}+O\\left(x^{3 / 2}\\right)\n$$\n\nHere is the code that gives the exact answer:\n\n```\nimport math\nn=40320\na=[1 for i in range(n+1)]\nfor d in range(1, math.ceil(math.sqrt(n))):\n    for x in range(d**2, n+1, d**2):\n        a[x] = d\nb=[i//a[i]**2 for i in range(1, n+1)]\nprint(sum(a)+sum(b))\n```"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-4401",
+      "name": "HMMT February #0kwx",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cartesian coordinates",
+        "Inclusion-exclusion",
+        "Greatest common divisors (gcd)",
+        "Combinatorial optimization"
+      ],
+      "statement": "Problem:\n\nLet $S$ be the set of all points in the plane whose coordinates are positive integers less than or equal to $100$ (so $S$ has $100^{2}$ elements), and let $\\mathcal{L}$ be the set of all lines $\\ell$ such that $\\ell$ passes through at least two points in $S$. Find, with proof, the largest integer $N \\geq 2$ for which it is possible to choose $N$ distinct lines in $\\mathcal{L}$ such that every two of the chosen lines are parallel.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet the lines all have slope $\\frac{p}{q}$ where $p$ and $q$ are relatively prime. Without loss of generality, let this slope be positive. Consider the set of points that consists of the point of $S$ with the smallest coordinates on each individual line in the set $L$. Consider a point $(x, y)$ in this, because there is no other point in $S$ on this line with smaller coordinates, either $x \\leq q$ or $y \\leq p$. Additionally, since each line passes through at least two points in $S$, we need $x+q \\leq 100$ and $y+p \\leq 100$.\n\nThe shape of this set of points will then be either a rectangle from $(1,1)$ to $(100-q, 100-p)$ with the rectangle from $(q+1, p+1)$ to $(100-q, 100-p)$ removed, or if $100-q<q+1$ or $100-p<p+1$, just the initial rectangle. This leads us to two formulas for the number of lines,\n$$\nN= \\begin{cases}(100-p)(100-q)-(100-2 p)(100-2 q) & p, q<50 \\\\ (100-p)(100-q) & \\text{ otherwise }\\end{cases}\n$$\nIn the first case, we need to minimize the quantity\n$$\n\\begin{aligned}\n(100-p)(100-q)-(100-2 p)(100-2 q) & =100(p+q)-3 p q \\\\\n& =\\frac{10000}{3}-3\\left(q-\\frac{100}{3}\\right)\\left(p-\\frac{100}{3}\\right)\n\\end{aligned}\n$$\nif one of $p, q$ is above $100 / 3$ and the other is below it, we would want to maximize how far these two are from $100 / 3$. The case $(p, q)=(49,1)$ will be the optimal case since all other combinations will have $p, q$'s closer to $100 / 3$, this gives us $4853$ cases.\n\nIn the second case, we need to minimize $p$ and $q$ while keeping at least one above $50$ and them relatively prime. From here we need only check $(p, q)=(50,1)$ since for all other cases, we can reduce either $p$ or $q$ to increase the count. This case gives a maximum of $4950$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-4411",
+      "name": "HMMT February 2023 #0kx7",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2023",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\n\nLet $A$, $E$, $H$, $L$, $T$, and $V$ be chosen independently and at random from the set $\\left\\{0, \\frac{1}{2}, 1\\right\\}$. Compute the probability that $\\lfloor T \\cdot H \\cdot E\\rfloor = L \\cdot A \\cdot V \\cdot A$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThere are $3^{3} - 2^{3} = 19$ ways to choose $L$, $A$, and $V$ such that $L \\cdot A \\cdot V \\cdot A = 0$, since at least one of $\\{L, A, V\\}$ must be $0$, and $3^{3} - 1 = 26$ ways to choose $T$, $H$, and $E$ such that $\\lfloor T \\cdot H \\cdot E\\rfloor = 0$, since at least one of $\\{T, H, E\\}$ must not be $1$, for a total of $19 \\cdot 26 = 494$ ways. There is only one way to make $\\lfloor T \\cdot H \\cdot E\\rfloor = L \\cdot A \\cdot V \\cdot A = 1$, namely setting every variable equal to $1$, so there are $495$ total ways that work out of a possible $3^{6} = 729$, for a probability of $\\frac{55}{81}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-4467",
+      "name": "HMMT November #0kyr",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion",
+        "Recursion, bijection",
+        "Catalan numbers, partitions"
+      ],
+      "statement": "Problem:\nLet $S=\\{1,2,3, \\ldots, 64\\}$. Compute the number of ways to partition $S$ into 16 arithmetic sequences such that each arithmetic sequence has length 4 and common difference 1, 4, or 16.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe key observation is the following:\nClaim 1. No partition can contain all three common differences.\nProof. Indeed, suppose the sequences $x, x+16, x+32, x+48$ and $y, y+4, y+8, y+12$ are both present for some $x$ and $y$ in $S$. Without loss of generality, assume $y \\leq 26$; otherwise, we can take our partition and replace each number $n$ with $65-n$, resulting in the sequence $53-y, 57-y, 61-y, 65-y$ instead.\nNote that $y \\not \\equiv x \\bmod 4$, as otherwise one of $y, y+4, y+8$, or $y+12$ would be equivalent to $x$ modulo 16 and the two sequences would intersect.\nHence, there exists a number $z$ strictly between $y$ and $y+4$ which is equivalent to $x$ modulo 4. The same argument above tells us $z$ cannot be in a difference-4 sequence; it also cannot be in a difference-1 sequence, as such a sequence would contain either $y$ or $y+4$. Thus $z$ is in a difference-16 sequence. Similarly, as $z+4$ lies between $y+4$ and $y+8$, and $z+8$ lies between $y+8$ and $y+12$, both $z+4$ and $z+8$ are in difference-4 sequences.\nSince we assumed $y \\leq 26$, we know $y+32 \\in S$. Note that $y+20$ cannot be part of a difference-16 sequence, as such a sequence would also contain $y+4$. Furthermore, $y+20$ lies between $z+16$ and $z+20$, both of which are in difference-4 sequences; hence, $y+20$ cannot be part of a difference-1 sequence. Thus $y+20$ is in a difference-4 sequence. This sequence must contain either $y+16$ or both $y+28$ and $y+32$.\nIf the sequence contains $y+16$, then since $z+12$ lies strictly between $y+12$ and $y+16$, the same argument as before tells us $z+12$ is in a difference-16 sequence. If the sequence contains $y+28$ and $y+32$, then $z+28$ lies strictly between the two, so $z+28$ is in a difference-16 sequence; this sequence contains $z+12$. In either case, $z+12$ is in a difference-16 sequence.\nNow, we know $z, z+4, z+8$, and $z+12$ are all in difference-16 sequences. These sequences contain all 16 numbers in the same residue class as $z$ modulo 4. Any difference-1 sequence would have to contain a value in this residue class; thus, no difference-1 sequences can be present.\nWe casework on which types of sequences are present.\n\nCase 1: Only sequences of common difference 1 and 16 appear.\nObserve that each sequence of common difference 1 has one number of each residue class modulo 4, while each sequence of common difference 16 has four numbers in the same residue class. Since $S$ has an equal number of elements in each residue class, there must be an equal number of difference-16 sequences in each residue class, so the number of difference-16 sequences is a multiple of 4. Say there are $4x$ of them.\nThen, among the numbers 1 through 16, there are $4x$ of them that lie in difference-16 sequences, so the remaining $16-4x$ lie in $4-x$ difference-1 sequences.\nConversely, if we are given how the numbers from 1 through 16 are split between difference-1 and difference-16 sequences, we can uniquely recover the whole partition on $S$. Indeed, the difference-16 sequences are fixed, which in turn fixes the difference-1 sequences.\nThus, the number of sequences in this case is the number of ordered partitions of 16 into $4x$ 1's and $4-x$ 4's, which is $\\binom{4+3x}{4-x}$. Summing over all $x$, the total for this case is\n$$\n\\binom{16}{0}+\\binom{13}{1}+\\binom{10}{2}+\\binom{7}{3}+\\binom{4}{4}=95\n$$\n\nCase 2: Only sequences of common difference 4 and 16 appear.\nWithin the multiples of 4, any difference-4 and difference-16 sequence intersect, so the 16 multiples of 4 must be covered with either four difference-4 sequences or four difference-16 sequences. The same goes for each residue class mod 4, and we can make each choice independently. Thus the number of partitions in this case is $2^{4}=16$.\n\nCase 3: Only sequences of common difference 1 and 4 appear.\nObserve that if $x$ and $x+4$ are in a difference-4 sequence, then $x+1, x+2$, and $x+3$ must also be in difference-4 sequences, so the difference-4 sequences form contiguous blocks of length $4 \\cdot 4=16$. The difference-1 sequences are themselves contiguous blocks of length 4, so the number of sequences in this case is the number of ordered partitions of 64 into 4's and 16's. This is the same as the number of ordered partitions of 16 into 1's and 4's, which we calculated in Case 1; there are 95 of them.\n\nSumming over all cases, we get $95+16+95=206$. However, we overcount any partition with only one type of sequence, of which there are three (one for each type). Thus, the answer is $206-3=203$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-4506",
+      "name": "HMMT November 2024 #0kzu",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2024",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Coloring schemes, extremal arguments",
+        "Inclusion-exclusion",
+        "Cartesian coordinates"
+      ],
+      "statement": "Problem:\n\nCompute the number of ways to shade in some subset of the 16 cells in a $4 \\times 4$ grid such that each of the 25 vertices of the grid is a corner of at least one shaded cell.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "![](attached_image_1.png)\nObserve that every corner cell must be shaded, as they are the only cells incident to the four corners of the grid. Furthermore, for each side of the grid, the midpoint of that side is incident to exactly two cells; at least one must be shaded. Finally, at least one of the four central cells must be shaded to hit the central vertex of the grid.\n\nWe claim these conditions are also sufficient for a valid coloring. Let us give the points of the grid coordinates from $(0,0)$ to $(4,4)$. Then, the corner cells cover every vertex except for those of the form $(2, x)$ or $(x, 2)$ for $0 \\leq x \\leq 4$. Whichever cell covers $(2,0)$ must also cover $(2,1)$, and likewise the cells covering $(0,2),(2,4)$, and $(4,2)$ cover $(1,2),(2,3)$, and $(3,2)$ respectively. This leaves the center $(2,2)$, which is also covered by assumption.\n\nObserve that for each side of the grid, of the two cells incident to its midpoint, there are 3 ways to color at least one of them. Of the 4 central cells, there are $2^{4}-1=15$ ways to color at least one. Thus, the number of colorings is $3^{4} \\cdot 15=1215$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-4507",
+      "name": "HMMT February 2024 Guts Round #0kzv",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2024 Guts Round",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\nThe numbers $1, 2, \\ldots, 20$ are put into a hat. Claire draws two numbers from the hat uniformly at random, $a < b$, and then puts them back into the hat. Then, William draws two numbers from the hat uniformly at random, $c < d$.\nLet $N$ denote the number of integers $n$ that satisfy exactly one of $a \\leq n \\leq b$ and $c \\leq n \\leq d$. Compute the probability $N$ is even.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe number of integers that satisfy exactly one of the two inequalities is equal to the number of integers that satisfy the first one, plus the number of integers that satisfy the second one, minus twice the number of integers that satisfy both. Parity-wise, this is just the number of integers that satisfy the first one, plus the number of integers that satisfy the second one.\nThe number of integers that satisfy the first one is $b - a + 1$. The probability this is even is $\\frac{10}{19}$, and odd is $\\frac{9}{19}$. This means the answer is\n$$\n\\frac{10^2 + 9^2}{19^2} = \\frac{181}{361}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-4584",
+      "name": "HMMT November 2024 #0l20",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2024",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Enumeration with symmetry",
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\n\nCompute the number of ways to shade exactly 4 distinct cells of a $4 \\times 4$ grid such that no two shaded cells share one or more vertices.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAssign coordinates to the cells of the grid so that the bottom-left, bottom-right, and top-right corners are $(0,0)$, $(3,0)$, and $(3,3)$ respectively.\n\nObserve that for each quadrant of the grid, all four cells of that quadrant share a vertex. Thus, any valid coloring must have exactly one shaded cell in each quadrant. Let $A = (a_1, a_2)$, $B = (b_1, b_2)$, $C = (c_1, c_2)$, and $D = (d_1, d_2)$ denote the shaded cells in the bottom-left, bottom-right, top-left, and top-right quadrants, respectively, so that $0 \\leq a_1, a_2, b_2, c_1 \\leq 1$ and $2 \\leq b_1, c_2, d_1, d_2 \\leq 3$.\n\nObserve that $A$ and $B$ share a vertex if and only if $|b_1 - a_1| \\leq 1$ and $|b_2 - a_2| \\leq 1$. The latter is always true, and the former holds precisely when $a_1 = 1$ and $b_1 = 2$. We conclude that in a valid coloring, $(a_1, b_1)$ must be one of $(0,2)$, $(0,3)$, or $(1,3)$. We can similarly deduce the same holds for $(c_1, d_1)$, $(a_2, c_2)$, and $(b_2, d_2)$.\n\nSuppose the coordinates are chosen according to those constraints. Then, we are guaranteed the pairs of cells $(A, B)$, $(C, D)$, $(A, C)$, and $(B, D)$ do not share any vertices. The only way we get an invalid coloring is if $A$ and $D$ share a vertex, or $B$ and $C$ share a vertex.\n\n![](attached_image_1.png)\n\nSuppose $A$ and $D$ share a vertex. Then we must have $a_1 = a_2 = 1$ and $d_1 = d_2 = 2$, which implies $b_1 = c_2 = 3$ and $b_2 = c_1 = 0$. Thus, there is exactly one way to choose coordinates in the manner above so that $A$ and $D$ share a vertex (as depicted in the figure on the right). Likewise, there is exactly one way for $B$ and $C$ to share a vertex.\n\nThere are $3^4 = 81$ ways to choose the coordinates, so the answer is $81 - 2 = 79$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-4591",
+      "name": "HMMT November 2024 #0l27",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2024",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Induction / smoothing",
+        "Inclusion-exclusion",
+        "Sums and products"
+      ],
+      "statement": "Problem:\nA grid is called groovy if each cell of the grid is labeled with the smallest positive integer that does not appear below it in the same column or to the left of it in the same row. Compute the sum of the entries of a groovy $14 \\times 14$ grid whose bottom left entry is $1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe following diagram is the entire $16 \\times 16$ groovy grid computed out. However, one will not need to write out every single entry to obtain the answer.\n\n| 16 | 15 | 14 | 13 | 12 | 11 | 10 | 9 | 8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 |\n| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |\n| 15 | 16 | 13 | 14 | 11 | 12 | 9 | 10 | 7 | 8 | 5 | 6 | 3 | 4 | 1 | 2 |\n| 14 | 13 | 16 | 15 | 10 | 9 | 12 | 11 | 6 | 5 | 8 | 7 | 2 | 1 | 4 | 3 |\n| 13 | 14 | 15 | 16 | 9 | 10 | 11 | 12 | 5 | 6 | 7 | 8 | 1 | 2 | 3 | 4 |\n| 12 | 11 | 10 | 9 | 16 | 15 | 14 | 13 | 4 | 3 | 2 | 1 | 8 | 7 | 6 | 5 |\n| 11 | 12 | 9 | 10 | 15 | 16 | 13 | 14 | 3 | 4 | 1 | 2 | 7 | 8 | 5 | 6 |\n| 10 | 9 | 12 | 11 | 14 | 13 | 16 | 15 | 2 | 1 | 4 | 3 | 6 | 5 | 8 | 7 |\n| 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |\n| 8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 16 | 15 | 14 | 13 | 12 | 11 | 10 | 9 |\n| 7 | 8 | 5 | 6 | 3 | 4 | 1 | 2 | 15 | 16 | 13 | 14 | 11 | 12 | 9 | 10 |\n| 6 | 5 | 8 | 7 | 2 | 1 | 4 | 3 | 14 | 13 | 16 | 15 | 10 | 9 | 12 | 11 |\n| 5 | 6 | 7 | 8 | 1 | 2 | 3 | 4 | 13 | 14 | 15 | 16 | 9 | 10 | 11 | 12 |\n| 4 | 3 | 2 | 1 | 8 | 7 | 6 | 5 | 12 | 11 | 10 | 9 | 16 | 15 | 14 | 13 |\n| 3 | 4 | 1 | 2 | 7 | 8 | 5 | 6 | 11 | 12 | 9 | 10 | 15 | 16 | 13 | 14 |\n| 2 | 1 | 4 | 3 | 6 | 5 | 8 | 7 | 10 | 9 | 12 | 11 | 14 | 13 | 16 | 15 |\n| 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 |\n\nWe prove the following key claim.\n\nClaim 1. In the $2^{n} \\times 2^{n}$ groovy grid, each row and column is a permutation of the numbers from $1$ to $2^{n}$.\n\nProof. We use induction on $n$. The base case $n=0$ is clear. Now, assume that we know this for a $2^{n} \\times 2^{n}$ groovy grid, and we will prove it for a $2^{n+1} \\times 2^{n+1}$ grid. To that end, we divide the $2^{n+1} \\times 2^{n+1}$ grid into four subgrids of size $2^{n} \\times 2^{n}$.\n\n![](attached_image_1.png)\n\nThe subgrid labeled $A$ is the groovy grid of size $2^{n} \\times 2^{n}$, so by induction, each row and column is a permutation of $\\{1, \\ldots, 2^{n}\\}$. Thus, the bottom left corner of the subgrid labeled $B$ is $2^{n}+1$, and so the subgrid labeled $B$ is the groovy grid where each entry is added by $2^{n}$. Hence, by induction hypothesis, each row and column of the subgrid labeled $B$ is a permutation of $\\{2^{n}+1,2^{n}+2, \\ldots, 2^{n}+2^{n}\\}$. The same argument applies for the subgrid labeled $C$.\n\nFinally, the subgrid labeled $D$ has enough numbers from $1,2, \\ldots, 2^{n}$ and does not need any number greater than $2^{n}$. The bottom left corner is $1$. Hence, it must be a groovy grid. Thus, the induction hypothesis applies, and each row and column of the subgrid labeled $D$ is a permutation of $\\{1,2, \\ldots, 2^{n}\\}$. By considering all subgrids together, we find that each row and column of the entire grid is a permutation of $\\{1,2, \\ldots, 2^{n+1}\\}$.\n\nIn particular, we have that every row and column of the $16 \\times 16$ grid is a permutation of $\\{1,2, \\ldots, 16\\}$. To compute the sum of entries of the $14 \\times 14$ grid, we can take out $2$ rows and $2$ columns and add back the top right $2 \\times 2$ which we know entries $1,2,2,1$ by following the proof of the claim. This gives the final answer of\n$$\n16 \\cdot \\frac{16 \\cdot 17}{2}-2 \\cdot \\frac{16 \\cdot 17}{2}-2 \\cdot \\frac{16 \\cdot 17}{2}+(1+2+2+1)=1638.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-4646",
+      "name": "HMMT November #0l3q",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion",
+        "Recursion, bijection"
+      ],
+      "statement": "Problem:\nA weird checkerboard is a coloring of an $8 \\times 8$ grid constructed by making some (possibly none or all) of the following 14 cuts:\n- the 7 vertical cuts along a gridline through the entire height of the board,\n- and the 7 horizontal cuts along a gridline through the entire width of the board.\n\nThe divided rectangles are then colored black and white such that the bottom left corner of the grid is black, and no two rectangles adjacent by an edge share a color. Compute the number of weird checkerboards that have an equal amount of area colored black and white.\n![](attached_image_1.png)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe can focus on only the black cells of the grid, which we need $32$ of. Moreover, the number of black squares in the bottom row and leftmost column uniquely determine the total number of black squares. Suppose that there are $x$ black cells in the bottom row and $y$ black cells in the leftmost column. Then, each of the $x$ rows with black leftmost cell is identical to the bottom row and has $y$ black cells, while the remaining $8-x$ rows are inverted and have $8-y$ black cells, so the total number of black cells is\n\n$$(8-x)(8-y)+x y=32$$\n\nThis rearranges as\n\n$$2(x-4)(y-4)=0$$\n\nwhich tells us we have $32$ black cells exactly when either the bottom row or leftmost column (or both) contains $4$ black cells.\nThe bottom-left corner is already black. There are $\\binom{7}{3}$ ways to choose three more cells in the bottom row or leftmost column to be black, and $2^{7}$ ways to color the remaining cells in the bottom row or leftmost column with no restrictions. Hence, there are $2^{7}\\binom{7}{3}$ ways for the bottom row to have $4$ black cells, $2^{7}\\binom{7}{3}$ ways for the leftmost column to have $4$ black cells, and $\\binom{7}{3}^{2}$ ways for both to occur. The answer is\n\n$$2\\left(2^{7}\\right)\\binom{7}{3}-\\binom{7}{3}^{2}=7735$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-4672",
+      "name": "HMMT November 2024 #0l4g",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2024",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Coloring schemes, extremal arguments",
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\n\nCompute the number of ways to color each cell of an $18 \\times 18$ square grid either ruby or sapphire such that each contiguous $3 \\times 3$ subgrid has exactly 1 ruby cell.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSubdivide the grid into 36 subgrids of size $3 \\times 3$. Each contains exactly one ruby cell.\nConsider four adjacent subgrids\n$$\n\\begin{array}{c|c}\nA & B \\\\\n\\hline\nC & D\n\\end{array}\n$$\nand the relative positions of the ruby cells within their respective $3 \\times 3$ subgrids. Between $A$ and $C$, we can check that the ruby cells differ by only a horizontal shift. Likewise, between $A$ and $B$, the ruby cells differ by only a vertical shift.\n![](attached_image_1.png)\nThe black star indicates the ruby in A, and the white stars indicate potential locations for rubies in $B, C$.\nIt can further be checked that the shift between $A, B$ is the same as between $C, D$, and likewise between $A, C$ and $B, D$. Also, it cannot be the case that both a horizontal and a vertical shift is present, as some $3 \\times 3$ subgrid will have an invalid number of ruby cells:\n![](attached_image_2.png)\nNow, in the original grid\n![](attached_image_3.png)\nwe conclude that between each of the 5 pairs of adjacent columns of subgrids, there is some constant vertical shift, and that between each of the 5 pairs of adjacent rows of subgrids, there is some constant horizontal shift. However, if there exists both a pair of columns $\\left(x_{1}, x_{2}\\right)$ with a nontrivial vertical shift and also a pair of rows $\\left(y_{1}, y_{2}\\right)$ with a nontrivial horizontal shift, the four subgrids at their intersection $\\left(x_{1}, x_{2}\\right) \\times\\left(y_{1}, y_{2}\\right)$ would violate our reasoning above. Hence, there are either only vertical shifts, only horizontal shifts, or neither. Equivalently, all rubies are contained within either six equally spaced rows or six equally spaced columns. It can be checked that all such configurations are valid.\nTo count the number of ways to place all rubies into six equally spaced rows, we have 3 choices for which rows to choose, and 3 choices within each row for where the rubies are located. This gives $3^{7}$. Symmetrically, there are $3^{7}$ ways to place all rubies into six equally spaced columns. To adjust for overcounting, we note that there are 9 possibilities where all rubies are contained in six rows and six columns. The answer is\n$$\n2 \\cdot 3^{7}-9=4365\n$$\nFor completeness, examples of each of the three cases (no shifts, horizontal shifts only, vertical shifts only) is shown below.\n![](attached_image_4.png)\nNo shifts\n![](attached_image_5.png)\nVertical shifts only\n![](attached_image_6.png)\nHorizontal shifts only"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-4765",
+      "name": "HMMT February #0l71",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion",
+        "Enumeration with symmetry"
+      ],
+      "statement": "Problem:\n\nCompute the number of ways to pick two rectangles in a $5 \\times 5$ grid of squares such that the edges of the rectangles lie on the lines of the grid and the rectangles do not overlap at their interiors, edges, or vertices. The order in which the rectangles are chosen does not matter.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nA rectangle can be specified by two intervals, one specifying its horizontal extent ($x$-coordinates of left and right sides) and one specifying its vertical extent ($y$-coordinates of bottom and top sides). For the rectangles to not overlap, we need either the horizontal intervals or the vertical intervals to be disjoint (possibly both).\n\nFirst, we will count the number of ways for the horizontal intervals to be disjoint. Let these intervals be $[a,b]$ and $[c,d]$. As the order of the rectangles does not matter, we can assume without loss of generality that $a < c$, so $a < b < c < d$. Then there are $\\binom{6}{4}$ choices for $a$, $b$, $c$, and $d$. There are no restrictions on the vertical intervals, so the number of ways to choose them is $\\binom{6}{2}^2$. Thus, the total number of pairs of rectangles for which the horizontal intervals are disjoint is $\\binom{6}{4}\\binom{6}{2}^2$.\n\nBy symmetry, the total number of pairs of rectangles for which the vertical intervals are disjoint is the same. It remains to count the number of ways for both the horizontal and vertical intervals to be disjoint. Again, let the horizontal intervals be $[a,b]$ and $[c,d]$, and let the vertical intervals be $[e,f]$ and $[g,h]$. We can assume $a < b < c < d$ without loss of generality, so there are $\\binom{6}{4}$ ways to choose the horizontal intervals. However, the cases $e < f < g < h$ and $g < h < e < f$ are now distinct, so there are $2\\binom{6}{4}$ ways to choose the vertical intervals. Therefore, there are $2\\binom{6}{4}^2$ pairs of rectangles for which both the horizontal and vertical intervals are disjoint.\n\nThrough inclusion-exclusion, we get the final answer of\n\n$$2 \\cdot \\binom{6}{4}\\binom{6}{2}^2 - 2 \\cdot \\binom{6}{4}^2 = \\boxed{6300}.$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-inclusion-exclusion-auto-4766",
+      "name": "AIME II #0l72",
+      "url": "https://usamoguide.com/",
+      "source": "AIME II",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion",
+        "Factorization techniques",
+        "τ (number of divisors)"
+      ],
+      "statement": "Let $A$ be the set of positive integer divisors of $2025$. Let $B$ be a randomly selected subset of $A$. The probability that $B$ is a nonempty set with the property that the least common multiple of its elements is $2025$ is $\\frac{m}{n}$, where $m$ and $n$ are relatively prime positive integers. Find $m+n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

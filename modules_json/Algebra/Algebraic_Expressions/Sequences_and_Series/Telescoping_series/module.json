@@ -1,0 +1,1398 @@
+{
+  "MODULE_ID": "algebra-algebraic-expressions-sequences-and-series-telescoping-series",
+  "practice": [
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-0076",
+      "name": "Berkeley Math Circle #0hks",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Telescoping series",
+        "Sums and products"
+      ],
+      "statement": "Problem:\nProve that\n$$\n1 \\cdot 1! + 2 \\cdot 2! + \\cdots + n \\cdot n! = (n+1)! - 1\n$$\nfor all positive integers $n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n$$\n\\begin{aligned}\n& 1 \\cdot 1! + 2 \\cdot 2! + \\cdots + n \\cdot n! \\\\\n& = (2-1) \\cdot 1! + (3-1) \\cdot 2! + \\cdots + [(n+1)-n] \\cdot n! \\\\\n& = (2 \\cdot 1! - 1!) + (3 \\cdot 2! - 2!) + \\cdots + [(n+1) \\cdot n! - n!] \\\\\n& = (2! - 1!) + (3! - 2!) + \\cdots + [(n+1)! - n!]\n\\end{aligned}\n$$\nWhen we add together the factorials in the last row, all terms cancel except for the $-1!$ at the beginning and the $(n+1)!$ at the end, so the sum is $(n+1)! - 1$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-0164",
+      "name": "Berkeley Math Circle Take-Home Contest #6 #0hn8",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Take-Home Contest #6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Sums and products",
+        "Telescoping series",
+        "Polynomial operations",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\nLet $d$ be a fixed positive integer. Prove that there exists a unique polynomial $S(n)$ such that for every integer $n \\geq 0$, $S(n) = \\sum_{k=0}^{n} k^{d} = 0^{d} + 1^{d} + \\cdots + n^{d}$. Also prove that $S(n)$ can be expressed in the form\n$$\nc_{0} + c_{1}(2n+1) + c_{2}(2n+2)^{2} + \\cdots + c_{d+1}(2n+1)^{d+1}\n$$\nwhere the $c_{i}$ are rational numbers such that $c_{i} c_{i+1} = 0$ for $i = 0, 1, \\ldots, d$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe shall prove by strong induction on $d \\geq 0$ the existence of a polynomial $P_{d}(x)$ of degree $d+1$ with rational coefficients such that\n- the exponents of $x$ which occur with nonzero coefficients are all of opposite parity from $d$;\n- $P_{d}(2n+1) - P_{d}(2n-1) = n^{d}$ (defined to be $1$ when $n = d = 0$);\n- $P_{d}(1) = 1/2$ if $d = 0$, and $P_{d}(1) = 0$ otherwise.\n\nThen, $S(n) = P_{d}(2n+1)$ will meet our requirements (we know $S(n) = 0^{d} + \\cdots + n^{d}$ by using the second property of $P_{d}$ to form a telescoping sum).\n\nThe base cases are $P_{0}(x) = x/2$, $P_{1}(x) = (x^{2} - 1)/8$. If $d > 1$, consider what happens when $(2n+1)^{d+1} - (2n-1)^{d+1}$ is expanded by the binomial theorem. The result is a polynomial in $n$, in which the powers having the same parity as $d+1$ cancel, leaving $c_{d} n^{d} + c_{d-2} n^{d-2} + \\cdots + c_{2\\lfloor d/2 \\rfloor} n^{2\\lfloor d/2 \\rfloor}$ where, using the binomial theorem, $c_{k} = 2^{k+1} \\binom{d+1}{k}$.\n\nNow first suppose $d$ is odd. By the induction hypothesis, for any odd $k < d$, there exists a rational polynomial $P_{k}$ meeting the conditions above (and every exponent of $x$ is even). Then\n$$\nP_{d}(x) = \\frac{x^{d+1} - c_{d-2} P_{d-2}(x) - c_{d-4} P_{d-4}(x) - \\cdots - c_{1} P_{1}(x) - 1}{c_{d}}\n$$\nmeets all the conditions.\n\nIf, instead, $d$ is even, then for any even $k < d$, there exists an odd rational polynomial $P_{k}$ meeting these conditions, and\n$$\nP_{d}(x) = \\frac{x^{d+1} - c_{d-2} P_{d-2}(x) - c_{d-4} P_{d-4}(x) - \\cdots - c_{0} P_{0}(x)}{c_{d}}\n$$\nmeets our requirements—the first two are clear, and, for the third, we use our earlier computation that $c_{0} = 2$ to find\n$$\n\\frac{1^{d+1} - c_{0} P_{0}(1)}{c_{d}} = \\frac{1 - 1}{c_{d}} = 0\n$$\nas claimed. Thus $P_{d}$ exists as needed."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-0207",
+      "name": "Berkeley Math Circle Monthly Contest 4 #0hof",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 4",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Telescoping series",
+        "Sums and products"
+      ],
+      "statement": "Problem:\nDetermine whether the number\n$$\n\\frac{1}{2 \\sqrt{1}+1 \\sqrt{2}}+\\frac{1}{3 \\sqrt{2}+2 \\sqrt{3}}+\\frac{1}{4 \\sqrt{3}+3 \\sqrt{4}}+\\cdots+\\frac{1}{100 \\sqrt{99}+99 \\sqrt{100}}\n$$\nis rational or irrational. Explain your answer.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nNotice that\n$$\n\\begin{aligned}\n\\frac{1}{(n+1) \\sqrt{n}+n \\sqrt{n+1}} & =\\frac{1}{\\sqrt{n(n+1)}} \\cdot \\frac{1}{\\sqrt{n+1}+\\sqrt{n}} \\\\\n& =\\frac{1}{\\sqrt{n(n+1)}} \\cdot \\frac{\\sqrt{n+1}-\\sqrt{n}}{(\\sqrt{n+1}+\\sqrt{n})(\\sqrt{n+1}-\\sqrt{n})} \\\\\n& =\\frac{1}{\\sqrt{n}}-\\frac{1}{\\sqrt{n+1}} .\n\\end{aligned}\n$$\nNow we see that the given sum is equal to $1-\\frac{1}{\\sqrt{100}}=\\frac{9}{10}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-0287",
+      "name": "MathNet #0hqn",
+      "url": "https://usamoguide.com/",
+      "source": "MathNet",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Sums and products",
+        "Telescoping series"
+      ],
+      "statement": "Problem:\nFind $\\prod_{n=2}^{\\infty}\\left(1-\\frac{1}{n^{2}}\\right)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n$\\prod_{n=2}^{\\infty}\\left(1-\\frac{1}{n^{2}}\\right) = \\prod_{n=2}^{\\infty} \\frac{n^{2}-1}{n^{2}} = \\prod_{n=2}^{\\infty} \\frac{(n-1)(n+1)}{n \\cdot n}$\n\n$= \\frac{1 \\cdot 3}{2 \\cdot 2} \\cdot \\frac{2 \\cdot 4}{3 \\cdot 3} \\cdot \\frac{3 \\cdot 5}{4 \\cdot 4} \\cdot \\frac{4 \\cdot 6}{5 \\cdot 5} \\cdot \\frac{5 \\cdot 7}{6 \\cdot 6} \\cdots$\n\n$= \\frac{1 \\cdot 2 \\cdot 3 \\cdot 4 \\cdot 5 \\cdots}{2 \\cdot 2 \\cdot 3 \\cdot 3 \\cdot 4 \\cdot 4 \\cdot 5 \\cdot 5 \\cdots}$\n\n$= \\frac{1}{2}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-0398",
+      "name": "Berkeley Math Circle Monthly Contest 5 #0htq",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 5",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recurrence relations",
+        "Telescoping series"
+      ],
+      "statement": "Problem:\n\nWeighted coins numbered $2, 3, 4, \\ldots, 2015$ are tossed. The coin numbered $i$ comes up heads with probability $1/(2i^2)$. What is the probability that an odd number of coins come up heads?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $P_n$ be the probability that an odd number out of the coins whose numbers are at most $n$ ($1 \\leq n \\leq 2015$) come up heads. For $2 \\leq n \\leq 2015$, there are two ways for this to happen: coin $n$ is tails and an odd number of the preceding coins are heads, or coin $n$ is heads and an even number of the preceding coins are heads. So we have a recursion\n$$\n\\begin{aligned}\nP_n & = \\left(1 - \\frac{1}{2n^2}\\right) P_{n-1} + \\frac{1}{2n^2} (1 - P_{n-1}) \\\\\n& = \\frac{2n^2 P_{n-1} - 2P_{n-1} + 1}{2n^2} \\\\\n& = \\frac{2(n^2 - 1) P_{n-1} + 1}{2n^2}.\n\\end{aligned}\n$$\nIf we subtract $1/2$ from each side, we have the factorization\n$$\nP_n - \\frac{1}{2} = \\frac{n^2 - 1}{n^2} \\left(P_{n-1} - \\frac{1}{2}\\right)\n$$\nNow, using the initial value $P_1 = 0$, we have\n$$\n\\begin{aligned}\nP_{2015} - \\frac{1}{2} & = -\\frac{1}{2} \\cdot \\prod_{n=2}^{2015} \\frac{n^2 - 1}{n^2} \\\\\n& = -\\frac{1}{2} \\cdot \\prod_{n=2}^{2015} \\frac{(n-1)(n+1)}{n \\cdot n} \\\\\n& = -\\frac{1}{2} \\cdot \\frac{(1 \\cdot 2 \\cdots 2014)(3 \\cdot 4 \\cdots 2016)}{(2 \\cdot 3 \\cdots 2015)(2 \\cdot 3 \\cdots 2015)} \\\\\n& = -\\frac{1}{2} \\cdot \\frac{1 \\cdot 2016}{2015 \\cdot 2} \\\\\n& = -\\frac{504}{2015}\n\\end{aligned}\n$$\nand thus\n$$\nP_{2015} = \\frac{1}{2} - \\frac{504}{2015} = \\frac{1007}{4030}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-0445",
+      "name": "MathNet #0hv1",
+      "url": "https://usamoguide.com/",
+      "source": "MathNet",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Telescoping series",
+        "Sums and products"
+      ],
+      "statement": "Problem:\nFind the sum of the infinite series\n$$\n\\frac{1}{3^{2}-1^{2}}\\left(\\frac{1}{1^{2}}-\\frac{1}{3^{2}}\\right)+\\frac{1}{5^{2}-3^{2}}\\left(\\frac{1}{3^{2}}-\\frac{1}{5^{2}}\\right)+\\frac{1}{7^{2}-5^{2}}\\left(\\frac{1}{5^{2}}-\\frac{1}{7^{2}}\\right)+\\cdots\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n$1-\\frac{1}{3}+\\frac{1}{3}-\\frac{1}{5}+\\cdots=1$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-0520",
+      "name": "Berkeley Math Circle #0hx4",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recurrence relations",
+        "Telescoping series",
+        "Chebyshev polynomials"
+      ],
+      "statement": "Problem:\nLet $a > 2$ be given, and define a sequence $a_{0}, a_{1}, a_{2}, \\ldots$ by\n$$\na_{0} = 1, \\quad a_{1} = a, \\quad a_{n+1} = \\left(\\frac{a_{n}^{2}}{a_{n-1}^{2}} - 2\\right) \\cdot a_{n} .\n$$\nShow that for all integers $k \\geq 0$, we have\n$$\n\\sum_{i=0}^{k} \\frac{1}{a_{i}} < \\frac{a+2-\\sqrt{a^{2}-4}}{2} .\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWrite the recursion as\n$$\n\\frac{a_{n+1}}{a_{n}} = \\left(\\frac{a_{n}}{a_{n-1}}\\right)^{2} - 2\n$$\nLet $b_{n} = a_{n+1} / a_{n}$; then $b_{n} = b_{n-1}^{2} - 2$ and $b_{0} = a$. Let\n$$\nt = \\frac{a + \\sqrt{a^{2} - 4}}{2}\n$$\nThen $a = t + 1 / t$ and it is a simple induction to show that $b_{n} = t^{2^{n}} + t^{-2^{n}}$ for $n \\geq 0$. Then\n$$\na_{n} = a_{0} b_{0} b_{1} \\cdots b_{n-1} = \\prod_{i=0}^{n-1} \\left(t^{2^{i}} + t^{-2^{i}}\\right) = \\prod_{i=0}^{n-1} \\frac{t^{2^{i+1}} - t^{-2^{i+1}}}{t^{2^{i}} - t^{-2^{i}}} = \\frac{t^{2^{n}} - t^{-2^{n}}}{t - t^{-1}}\n$$\nSo\n$$\n\\begin{aligned}\n\\sum_{i=0}^{k} \\frac{1}{a_{i}} & = \\left(t - t^{-1}\\right) \\sum_{i=0}^{k} \\frac{1}{t^{2^{i}} - t^{-2^{i}}} \\\\\n& = \\left(t - t^{-1}\\right) \\sum_{i=0}^{k} \\frac{t^{2^{i}} + 1 - 1}{t^{2^{i+1}} - 1} \\\\\n& = \\left(t - t^{-1}\\right) \\sum_{i=0}^{k} \\left(\\frac{1}{t^{i} - 1} - \\frac{1}{t^{2^{i+1}} - 1}\\right) \\\\\n& = \\left(t - t^{-1}\\right)\\left(\\frac{1}{t - 1} - \\frac{1}{t^{2^{k+1}} - 1}\\right) \\\\\n& < \\left(t - t^{-1}\\right)\\left(\\frac{1}{t - 1}\\right) \\\\\n& = 1 + \\frac{1}{t} \\\\\n& = \\frac{a + 2 - \\sqrt{a^{2} - 4}}{2} .\n\\end{aligned}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-0639",
+      "name": "Harvard-MIT Math Tournament #0i0f",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Telescoping series",
+        "Sums and products",
+        "Polynomial operations"
+      ],
+      "statement": "Problem:\n\nEvaluate $\\sum_{n=2}^{17} \\frac{n^{2}+n+1}{n^{4}+2 n^{3}-n^{2}-2 n}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nObserve that the denominator $n^{4}+2 n^{3}-n^{2}-2 n = n(n-1)(n+1)(n+2)$. Thus we can rewrite the fraction as\n$$\n\\frac{n^{2}-n+1}{n^{4}+2 n^{3}-n^{2}-2 n} = \\frac{a}{n-1} + \\frac{b}{n} + \\frac{c}{n+1} + \\frac{d}{n+2}\n$$\nfor some real numbers $a$, $b$, $c$, and $d$. This method is called partial fractions. Condensing the right hand side as a fraction over $n^{4}+2 n^{3}-n^{2}-2 n$ we get\n$$\nn^{2}-n+1 = a\\left(n^{3}+3 n^{2}+2 n\\right) + b\\left(n^{3}+2 n^{2}-n-2\\right) + c\\left(n^{3}+n^{2}-2 n\\right) + d\\left(n^{3}-n\\right).\n$$\nComparing coefficients of each power of $n$ we get\n$$\na + b + c + d = 0,\\\\\n3a + 2b + c = 2,\\\\\n2a - b - 2c - d = 2,\\\\\n-2b = 2.\n$$\nThis is a system of 4 equations in 4 variables, and its solution is $a=1/2$, $b=-1/2$, $c=1/2$, and $d=-1/2$.\n\nThus the summation becomes\n$$\n\\frac{1}{2}\\left(1-\\frac{1}{2}+\\frac{1}{3}-\\frac{1}{4}+\\frac{1}{2}-\\frac{1}{3}+\\frac{1}{4}-\\frac{1}{5}+\\frac{1}{3}-\\frac{1}{4}+\\frac{1}{5}-\\frac{1}{6}+\\cdots+\\frac{1}{16}-\\frac{1}{17}+\\frac{1}{18}-\\frac{1}{19}\\right).\n$$\nNotice that almost everything cancels to leave us with\n$$\n\\frac{1}{2}\\left(1+\\frac{1}{3}-\\frac{1}{17}-\\frac{1}{19}\\right) = \\frac{592}{969}.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-0690",
+      "name": "USA IMO #0i1u",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Telescoping series",
+        "Sums and products",
+        "Generating functions"
+      ],
+      "statement": "Express\n$$\n\\sum_{k=0}^{n} (-1)^k (n-k)!(n+k)!\n$$\nin closed form.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**First Solution.** (By Tiankai Liu) Let\n$$\nf(k) = (n+1-k)!(n+k)!\n$$\nfor integers $0 \\le k \\le n + 1$. Note that\n$$\n\\begin{aligned}\nf(k) + f(k + 1) &= (n+1-k)!(n+k)! + (n-k)!(n+k+1)! \\\\\n&= (n + 1 - k + n + k + 1)(n-k)!(n+k)! \\\\\n&= 2(n + 1)(n-k)!(n+k)!.\n\\end{aligned}\n$$\nTherefore,\n$$\n\\begin{aligned}\n\\sum_{k=0}^{n} (-1)^k (n-k)!(n+k)! &= \\frac{1}{2(n+1)} \\sum_{k=0}^{n} (-1)^k [f(k) + f(k+1)] \\\\\n&= \\frac{f(0) + (-1)^n f(n+1)}{2(n+1)} \\\\\n&= \\frac{(n+1)!n! + (-1)^n 0!(2n+1)!}{2(n+1)} \\\\\n&= \\frac{(n!)^2}{2} + \\frac{(-1)^n (2n+1)!}{2(n+1)}.\n\\end{aligned}\n$$\n\n\n**Second Solution.** (by Gabriel Carroll) Let\n$$\nf(x) = \\sum_{k=0}^{\\infty} k!x^k \\quad \\text{and} \\quad g(x) = f(x)f(-x).\n$$\nNote that\n$$\n\\begin{align*}\nf'(x) &= \\sum_{k=0}^{\\infty} (k+1)!(k+1)x^k \\\\\n&= \\sum_{k=0}^{\\infty} (k+2)!x^k - \\sum_{k=0}^{\\infty} (k+1)!x^k \\\\\n&= \\frac{f(x) - x - 1}{x^2} - \\frac{f(x) - 1}{x} \\\\\n&= \\frac{f(x)(1-x) - 1}{x^2}\n\\end{align*}\n$$\nand\n$$\n\\begin{align*}\ng'(x) &= f(-x)f'(x) - f(x)f'(-x) \\\\\n&= \\frac{f(-x)f(x)(1-x) - f(-x)}{x^2} - \\frac{f(x)f(-x)(1+x) - f(x)}{x^2} \\\\\n&= \\frac{f(x) - f(-x)}{x^2} - \\frac{2g(x)}{x}.\n\\end{align*}\n$$\nDenote by $[x^k]h(x)$ the coefficient of $x^k$ in a power series $h(x)$. We have\n$$\n\\begin{align*}\n[x^{2n}]g(x) &= \\frac{1}{2n}[x^{2n-1}]g'(x) \\\\\n&= \\frac{1}{2n}[x^{2n-1}]\\left(\\frac{f(x)-f(-x)}{x^2} - \\frac{2g(x)}{x}\\right) \\\\\n&= \\frac{[x^{2n+1}](f(x)-f(-x))}{2n} - \\frac{[x^{2n}]g(x)}{n}.\n\\end{align*}\n$$\nIt follows that\n$$\n[x^{2n}]g(x) \\left(1 + \\frac{1}{n}\\right) = \\frac{2(2n+1)!}{2n},\n$$\nor\n$$\n[x^{2n}]g(x) = \\frac{(2n+1)!}{n+1}. \\qquad (1)\n$$\n---\nOn the other hand,\n$$\n\\begin{aligned}\ng(x) &= f(x)f(-x) = \\sum_{k=0}^{\\infty} k!x^k \\sum_{k=0}^{\\infty} (-1)^k k!x^k \\\\\n&= \\sum_{n=0}^{\\infty} \\left( \\sum_{k=0}^{n} (-1)^{n-k} k!(n-k)! \\right) x^n.\n\\end{aligned}\n$$\nIt follows that\n$$\n\\begin{aligned}\n[x^{2n}]g(x) &= \\sum_{k=0}^{2n} (-1)^{2n-k} k!(2n-k)! = \\sum_{k=0}^{2n} (-1)^k k!(2n-k)! \\\\\n&= 2 \\sum_{k=0}^{n} (-1)^k k!(2n-k)! - (-1)^n n!^2 \\\\\n&= 2 \\sum_{m=0}^{n} (-1)^{n-m} (n-m)!(n+m)! - (-1)^n n!^2.\n\\end{aligned}\n$$\nThe last step can be seen easily by taking $m = n - k$. Thus,\n$$\n[x^{2n}]g(x) = 2 \\sum_{k=0}^{n} (-1)^{n-k} (n-k)!(n+k)! - (-1)^n n!^2,\n$$\nor\n$$\n(-1)^n [x^{2n}] g(x) + n!^2 = 2 \\sum_{k=0}^{n} (-1)^{-k} (n-k)!(n+k)! \\quad (2)\n$$\nCombining (1) and (2) yields\n$$\n\\begin{aligned}\n\\sum_{k=0}^{n} (-1)^k (n-k)!(n+k)! &= \\frac{(-1)^n [x^{2n}] g(x) + (n!)^2}{2} \\\\\n&= \\frac{(-1)^n (2n+1)!}{2(n+1)} + \\frac{(n!)^2}{2}.\n\\end{aligned}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-0755",
+      "name": "Harvard-MIT Math Tournament #0i3n",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Telescoping series"
+      ],
+      "statement": "Problem:\n\nEvaluate $\\sum_{n=0}^{\\infty} \\cot^{-1}\\left(n^{2}+n+1\\right)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n$\\sum_{n=0}^{\\infty} \\cot^{-1} \\left(n^{2}+n+1\\right) = \\sum_{n=0}^{\\infty} \\arctan \\left(\\frac{1}{n^{2}+n+1}\\right) = \\sum_{n=0}^{\\infty} \\arctan (n+1) - \\arctan (n)$ by the sum/difference formula for tangent. This sum, taken out to $n=N$, telescopes to $-\\arctan (0) + \\arctan (N+1)$. So as $N$ goes to infinity, the sum goes to $\\pi / 2$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-0879",
+      "name": "Harvard-MIT Math Tournament #0i73",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Telescoping series",
+        "Sums and products"
+      ],
+      "statement": "Problem:\n\n$$\n\\frac{3}{1^{2} \\cdot 2^{2}}+\\frac{5}{2^{2} \\cdot 3^{2}}+\\frac{7}{3^{2} \\cdot 4^{2}}+\\cdots+\\frac{29}{14^{2} \\cdot 15^{2}}.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe sum telescopes as\n\n$$\n\\left(\\frac{1}{1^{2}}-\\frac{1}{2^{2}}\\right)+\\left(\\frac{1}{2^{2}}-\\frac{1}{3^{2}}\\right)+\\cdots+\\left(\\frac{1}{14^{2}}-\\frac{1}{15^{2}}\\right)=\\frac{1}{1^{2}}-\\frac{1}{15^{2}}=\\frac{224}{225}.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-1033",
+      "name": "Harvard-MIT Mathematics Tournament #0ibd",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "σ (sum of divisors)",
+        "Counting two ways",
+        "Telescoping series",
+        "Floors and ceilings"
+      ],
+      "statement": "Problem:\nProve that\n$$\n\\frac{\\sigma(1)}{1}+\\frac{\\sigma(2)}{2}+\\frac{\\sigma(3)}{3}+\\cdots+\\frac{\\sigma(n)}{n} \\leq 2 n\n$$\nfor every positive integer $n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThis is similar to the previous solution. If $d$ is a divisor of $i$, then so is $i/d$, and $(i/d)/i = 1/d$. Summing over all $d$, we see that $\\sigma(i)/i$ is the sum of the reciprocals of the divisors of $i$, for each positive integer $i$. So, summing over all $i$ from $1$ to $n$, we get the value $1/d$ appearing $\\lfloor n/d \\rfloor$ times, once for each multiple of $d$ that is at most $n$. In particular, the sum is\n$$\n\\frac{1}{1}\\left\\lfloor\\frac{n}{1}\\right\\rfloor+\\frac{1}{2}\\left\\lfloor\\frac{n}{2}\\right\\rfloor+\\frac{1}{3}\\left\\lfloor\\frac{n}{3}\\right\\rfloor+\\cdots+\\frac{1}{n}\\left\\lfloor\\frac{n}{n}\\right\\rfloor < \\frac{n}{1^{2}}+\\frac{n}{2^{2}}+\\cdots+\\frac{n}{n^{2}}.\n$$\nSo now all we need is $1/1^{2} + 1/2^{2} + \\cdots + 1/n^{2} < 2$. This can be obtained from the classic formula $1/1^{2} + 1/2^{2} + \\cdots = \\pi^{2}/6$, or from the more elementary estimate\n$$\n\\begin{aligned}\n1/2^{2} + 1/3^{2} + \\cdots + 1/n^{2} &< 1/(1 \\cdot 2) + 1/(2 \\cdot 3) + \\cdots + 1/((n-1) \\cdot n) \\\\\n&= (1/1 - 1/2) + (1/2 - 1/3) + \\cdots + (1/(n-1) - 1/n) \\\\\n&= 1 - 1/n \\\\\n&< 1.\n\\end{aligned}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-1182",
+      "name": "Harvard-MIT Mathematics Tournament #0ifi",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Telescoping series",
+        "Sums and products"
+      ],
+      "statement": "Problem:\nFind the sum\n$$\n\\frac{2^{1}}{4^{1}-1}+\\frac{2^{2}}{4^{2}-1}+\\frac{2^{4}}{4^{4}-1}+\\frac{2^{8}}{4^{8}-1}+\\cdots .\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nNotice that\n$$\n\\frac{2^{2^{k}}}{4^{2^{k}}-1}=\\frac{2^{2^{k}}+1}{4^{2^{k}}-1}-\\frac{1}{4^{2^{k}}-1}=\\frac{1}{2^{2^{k}}-1}-\\frac{1}{4^{2^{k}}-1}=\\frac{1}{4^{2^{k-1}}-1}-\\frac{1}{4^{2^{k}}-1} .\n$$\nTherefore, the sum telescopes as\n$$\n\\left(\\frac{1}{4^{2^{-1}}-1}-\\frac{1}{4^{2^{0}}-1}\\right)+\\left(\\frac{1}{4^{2^{0}}-1}-\\frac{1}{4^{2^{1}}-1}\\right)+\\left(\\frac{1}{4^{2^{1}}-1}-\\frac{1}{4^{2^{2}}-1}\\right)+\\cdots\n$$\nand evaluates to $1 /(4^{2^{-1}}-1)=1$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-1244",
+      "name": "Harvard-MIT Mathematics Tournament #0ih8",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Telescoping series",
+        "Sums and products",
+        "Polynomial operations"
+      ],
+      "statement": "Problem:\nCompute\n$$\n\\sum_{n=0}^{\\infty} \\frac{n}{n^{4}+n^{2}+1}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nNote that\n$$\nn^{4}+n^{2}+1=\\left(n^{4}+2 n^{2}+1\\right)-n^{2}=\\left(n^{2}+1\\right)^{2}-n^{2}=\\left(n^{2}+n+1\\right)\\left(n^{2}-n+1\\right)\n$$\nDecomposing into partial fractions, we find that\n$$\n\\frac{n}{n^{4}+n^{2}+1}=\\frac{1}{2}\\left(\\frac{1}{n^{2}-n+1}-\\frac{1}{n^{2}+n+1}\\right) .\n$$\nNow, note that if $f(n)=\\frac{1}{n^{2}-n+1}$, then $f(n+1)=\\frac{1}{(n+1)^{2}-(n+1)+1}=\\frac{1}{n^{2}+n+1}$. It follows that\n$$\n\\sum_{n=0}^{\\infty} \\frac{n}{n^{4}+n^{2}+1}=\\frac{1}{2}((f(0)-f(1))+(f(1)-f(2))+(f(2)-f(3))+\\cdots) .\n$$\nSince $f(n)$ tends towards 0 as $n$ gets large, this sum telescopes to $f(0) / 2=1 / 2$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-1301",
+      "name": "Harvard-MIT Mathematics Tournament #0iit",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Telescoping series",
+        "Sums and products"
+      ],
+      "statement": "Problem:\n\nFind\n$$\n\\frac{2^{2}}{2^{2}-1} \\cdot \\frac{3^{2}}{3^{2}-1} \\cdot \\frac{4^{2}}{4^{2}-1} \\cdots \\frac{2006^{2}}{2006^{2}-1}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n$$\n\\prod_{k=2}^{2006} \\frac{k^{2}}{k^{2}-1} = \\prod_{k=2}^{2006} \\frac{k^{2}}{(k-1)(k+1)} = \\prod_{k=2}^{2006} \\frac{k}{k-1} \\prod_{k=2}^{2006} \\frac{k}{k+1} = \\frac{2006}{1} \\cdot \\frac{2}{2007} = \\frac{4012}{2007}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-1323",
+      "name": "Harvard-MIT Mathematics Tournament #0ijf",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Telescoping series",
+        "Sums and products"
+      ],
+      "statement": "Problem:\nA sequence is defined by $A_{0}=0$, $A_{1}=1$, $A_{2}=2$, and, for integers $n \\geq 3$,\n$$\nA_{n}=\\frac{A_{n-1}+A_{n-2}+A_{n-3}}{3}+\\frac{1}{n^{4}-n^{2}}\n$$\n\nCompute $\\lim _{N \\rightarrow \\infty} A_{N}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nIf we sum the given equation for $n=3,4,5, \\ldots, N$, we obtain\n$$\n\\sum_{n=3}^{N} A_{n}=\\sum_{n=3}^{N} \\frac{A_{n-1}+A_{n-2}+A_{n-3}}{3}+\\frac{1}{n^{4}-n^{2}}\n$$\nThis reduces dramatically to\n$$\nA_{N}+\\frac{2 A_{N-1}}{3}+\\frac{A_{N-2}}{3}=A_{2}+\\frac{2 A_{1}}{3}+\\frac{A_{0}}{3}+\\sum_{n=3}^{N} \\frac{1}{n^{4}-n^{2}}\n$$\nLet $\\lim _{N \\rightarrow \\infty} A_{N}=L$. Under this limit, the left hand side of $\\left(^{*}\\right)$ is simply $2 L$. We compute the sum on the right with the help of partial fractions\n$$\n\\begin{aligned}\n\\lim _{N \\rightarrow \\infty} \\sum_{n=3}^{N} \\frac{1}{n^{4}-n^{2}} & =\\sum_{n=3}^{\\infty} \\frac{1}{n^{2}-1}-\\frac{1}{n^{2}} \\\\\n& =\\left(\\sum_{n=3}^{\\infty} \\frac{1}{2}\\left(\\frac{1}{n-1}-\\frac{1}{n+1}\\right)\\right)+\\frac{1}{1^{2}}+\\frac{1}{2^{2}}-\\sum_{n=1}^{\\infty} \\frac{1}{n^{2}} \\\\\n& =\\frac{1}{2}\\left(\\frac{1}{2}+\\frac{1}{3}\\right)+\\frac{5}{4}-\\frac{\\pi^{2}}{6} \\\\\n& =\\frac{5}{3}-\\frac{\\pi^{2}}{6}\n\\end{aligned}\n$$\nWith this we easily find $L=\\frac{1}{2} \\cdot\\left(2+\\frac{2}{3} \\cdot 1+\\frac{1}{3} \\cdot 0+\\frac{5}{3}-\\frac{\\pi^{2}}{6}\\right)=\\frac{13}{6}-\\frac{\\pi^{2}}{12}$, and we are done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-1325",
+      "name": "Harvard-MIT Mathematics Tournament #0ijh",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Telescoping series",
+        "Sums and products"
+      ],
+      "statement": "Problem:\nCompute\n$$\n\\sum_{n=1}^{\\infty} \\frac{2 n+5}{2^{n} \\cdot\\left(n^{3}+7 n^{2}+14 n+8\\right)}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFirst, we manipulate using partial fractions and telescoping:\n$$\n\\begin{aligned}\n\\sum_{n=1}^{\\infty} \\frac{2 n+5}{2^{n} \\cdot\\left(n^{3}+7 n^{2}+14 n+8\\right)} & =\\frac{1}{2} \\cdot \\sum_{n=1}^{\\infty} \\frac{1}{2^{n}}\\left(\\frac{2}{n+1}-\\frac{1}{n+2}-\\frac{1}{n+4}\\right) \\\\\n& =\\frac{1}{4}-\\frac{1}{2} \\sum_{n=1}^{\\infty} \\frac{1}{2^{n} \\cdot(n+4)}\n\\end{aligned}\n$$\nNow, consider the function $f(r, k):=\\sum_{n=1}^{\\infty} \\frac{r^{n}}{n^{k}}$. We have\n$$\n\\begin{aligned}\n\\frac{\\partial f(r, k)}{\\partial r} & =\\frac{\\partial}{\\partial r} \\sum_{n=1}^{\\infty} \\frac{r^{n}}{n^{k}}=\\sum_{n=1}^{\\infty} \\frac{\\partial}{\\partial r}\\left[\\frac{r^{n}}{n^{k}}\\right]=\\sum_{n=1}^{\\infty} \\frac{r^{n-1}}{n^{k-1}}=\\frac{1}{r} f(r, k-1) \\\\\n\\frac{d f(r, 1)}{d r} & =\\frac{1}{r} \\sum_{n=1}^{\\infty} \\frac{r^{n}}{n^{0}}=\\frac{1}{r} \\cdot \\frac{r}{1-r}=\\frac{1}{1-r} \\\\\nf(r, 1) & =\\int \\frac{d r}{1-r}=-\\ln (1-r)+f(0,1)\n\\end{aligned}\n$$\nBy inspection, $f(0,1)=0$, so $f\\left(\\frac{1}{2}, 1\\right)=\\sum_{n=1}^{\\infty} \\frac{1}{n \\cdot 2^{n}}=\\ln (2)$. It is easy to compute the desired sum in terms of $f\\left(\\frac{1}{2}, 1\\right)$, and we find $\\sum_{n=1}^{\\infty} \\frac{1}{2^{n}(n+4)}=16 \\ln (2)-\\frac{131}{12}$. Hence, our final answer is $\\frac{137}{24}-8 \\ln (2)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-1388",
+      "name": "Harvard-MIT Mathematics Tournament #0il8",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Telescoping series",
+        "Sums and products",
+        "Polynomial operations"
+      ],
+      "statement": "Problem:\nCompute the value of the infinite series\n$$\n\\sum_{n=2}^{\\infty} \\frac{n^{4}+3 n^{2}+10 n+10}{2^{n} \\cdot\\left(n^{4}+4\\right)}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe employ the difference of squares identity, uncovering the factorization of the denominator: $n^{4}+4=\\left(n^{2}+2\\right)^{2}-(2 n)^{2}=\\left(n^{2}-2 n+2\\right)\\left(n^{2}+2 n+2\\right)$. Now,\n$$\n\\begin{aligned}\n\\frac{n^{4}+3 n^{2}+10 n+10}{n^{4}+4} & =1+\\frac{3 n^{2}+10 n+6}{n^{4}+4} \\\\\n& =1+\\frac{4}{n^{2}-2 n+2}-\\frac{1}{n^{2}+2 n+2} \\\\\n\\Longrightarrow \\sum_{n=2}^{\\infty} \\frac{n^{4}+3 n^{2}+10 n+10}{2^{n} \\cdot\\left(n^{4}+4\\right)} & =\\sum_{n=2}^{\\infty} \\frac{1}{2^{n}}+\\frac{4}{2^{n} \\cdot\\left(n^{2}-2 n+2\\right)}-\\frac{1}{2^{n} \\cdot\\left(n^{2}+2 n+2\\right)} \\\\\n& =\\frac{1}{2}+\\sum_{n=2}^{\\infty} \\frac{1}{2^{n-2} \\cdot\\left((n-1)^{2}+1\\right)}-\\frac{1}{2^{n} \\cdot\\left((n+1)^{2}+1\\right)}\n\\end{aligned}\n$$\nThe last series telescopes to $\\frac{1}{2}+\\frac{1}{10}$, which leads to an answer of $\\frac{1}{2}+\\frac{1}{2}+\\frac{1}{10}=\\frac{11}{10}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-1407",
+      "name": "10th Annual Harvard-MIT Mathematics Tournament #0ilr",
+      "url": "https://usamoguide.com/",
+      "source": "10th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "φ (Euler's totient)",
+        "σ (sum of divisors)",
+        "Factorization techniques",
+        "Sums and products",
+        "Telescoping series"
+      ],
+      "statement": "Problem:\nFind all pairs $(n, k)$ of positive integers such that\n$$\nsigma(n) \\phi(n) = \\frac{n^{2}}{k}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $(1, 1)$.\n\nIt is clear that for a given integer $n$, there is at most one integer $k$ for which the equation holds. For $n=1$ this is $k=1$. But, for $n>1$, problem 1 asserts that $\\sigma(n) \\phi(n) \\leq n^{2}-1 < n^{2}$, so that $k \\geq 2$. We now claim that $2 > \\frac{n^{2}}{\\sigma(n) \\phi(n)}$. Write $n = p_{1}^{e_{1}} \\cdots p_{k}^{e_{k}}$, where the $p_{i}$ are distinct primes and $e_{i} \\geq 1$ for all $i$, and let $q_{1} < q_{2} < \\cdots$ be the primes in ascending order. Then\n$$\n\\begin{aligned}\n& \\frac{n^{2}}{\\sigma(n) \\phi(n)} = \\prod_{i=1}^{k} \\frac{p_{i}^{2 e_{i}}}{\\frac{p_{i}^{e_{i}+1}-1}{p_{i}-1} \\cdot (p_{i}-1) p_{i}^{e_{i}-1}} = \\prod_{i=1}^{k} \\frac{p_{i}^{2 e_{i}}}{p_{i}^{2 e_{i}} - p_{i}^{e_{i}-1}} \\\\\n& \\quad = \\prod_{i=1}^{k} \\frac{1}{1 - p_{i}^{-1-e_{i}}} \\leq \\prod_{i=1}^{k} \\frac{1}{1 - p_{i}^{-2}} < \\prod_{i=1}^{\\infty} \\frac{1}{1 - q_{i}^{-2}} \\\\\n& \\quad = \\prod_{i=1}^{\\infty} \\left( \\sum_{j=0}^{\\infty} \\frac{1}{q_{i}^{2j}} \\right ) = \\sum_{n=1}^{\\infty} \\frac{1}{n^{2}} \\\\\n& \\quad < 1 + \\sum_{n=2}^{\\infty} \\frac{1}{n^{2}-1} = 1 + \\frac{1}{2} \\left( \\left( \\frac{1}{1} - \\frac{1}{3} \\right ) + \\left( \\frac{1}{2} - \\frac{1}{4} \\right ) + \\left( \\frac{1}{3} - \\frac{1}{5} \\right ) + \\cdots \\right ) = \\frac{7}{4} < 2.\n\\end{aligned}\n$$\nIt follows that there can be no solutions to $k = \\frac{n^{2}}{\\sigma(n) \\phi(n)}$ other than $n = k = 1$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-1494",
+      "name": "Harvard-MIT Mathematics Tournament #0io6",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Telescoping series",
+        "Sums and products"
+      ],
+      "statement": "Problem:\nCompute\n$$\n\\sum_{n=1}^{\\infty} \\frac{1}{n \\cdot (n+1) \\cdot (n+1)!}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $3-e$. We write\n$$\n\\begin{gathered}\n\\sum_{n=1}^{\\infty} \\frac{1}{n \\cdot (n+1) \\cdot (n+1)!} = \\sum_{n=1}^{\\infty} \\left(\\frac{1}{n} - \\frac{1}{n+1}\\right) \\frac{1}{(n+1)!} = \\sum_{n=1}^{\\infty} \\frac{1}{n \\cdot (n+1)!} - \\sum_{n=1}^{\\infty} \\frac{1}{(n+1) \\cdot (n+1)!} \\\\\n\\frac{1}{2} + \\sum_{n=2}^{\\infty} \\frac{1}{n \\cdot (n+1)!} - \\sum_{n=1}^{\\infty} \\frac{1}{(n+1) \\cdot (n+1)!} = \\frac{1}{2} + \\sum_{n=1}^{\\infty} \\frac{1}{(n+1) \\cdot (n+2)!} - \\frac{1}{(n+1) \\cdot (n+1)!} \\\\\n\\frac{1}{2} + \\sum_{n=1}^{\\infty} \\frac{1-(n+2)}{(n+1) \\cdot (n+2)!} = \\frac{1}{2} - \\left(\\frac{1}{3!} + \\frac{1}{4!} + \\cdots\\right) = 3 - \\left(\\frac{1}{0!} + \\frac{1}{1!} + \\frac{1}{2!} + \\cdots\\right) = 3-e.\n\\end{gathered}\n$$\n\nAlternatively, but with considerably less motivation, we can induce telescoping by adding and subtracting $e-2 = 1/2! + 1/3! + \\cdots$, obtaining\n$$\n\\begin{aligned}\n2-e & + \\sum_{n=1}^{\\infty} \\frac{n(n+1)+1}{n \\cdot (n+1) \\cdot (n+1)!} = 2-e + \\sum_{n=1}^{\\infty} \\frac{(n+1)^2 - n}{n \\cdot (n+1) \\cdot (n+1)!} \\\\\n2 & - e + \\sum_{n=1}^{\\infty} \\frac{1}{n \\cdot n!} - \\frac{1}{(n+1) \\cdot (n+1)!} = 3-e\n\\end{aligned}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-1538",
+      "name": "Harvard-MIT Mathematics Tournament #0ipe",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Telescoping series",
+        "Sums and products"
+      ],
+      "statement": "Problem:\nEvaluate the integral $\\int_{0}^{1} \\ln x \\ln (1-x) d x$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $2-\\frac{\\pi^{2}}{6}$\n\nWe have the MacLaurin expansion $\\ln (1-x) = -x - \\frac{x^{2}}{2} - \\frac{x^{3}}{3} - \\cdots$. So\n$$\n\\int_{0}^{1} \\ln x \\ln (1-x) d x = -\\int_{0}^{1} \\ln x \\sum_{n=1}^{\\infty} \\frac{x^{n}}{n} d x = -\\sum_{n=1}^{\\infty} \\frac{1}{n} \\int_{0}^{1} x^{n} \\ln x d x\n$$\nUsing integration by parts, we get\n$$\n\\int_{0}^{1} x^{n} \\ln x d x = \\left.\\frac{x^{n+1} \\ln x}{n+1}\\right|_{0}^{1} - \\int_{0}^{1} \\frac{x^{n}}{n+1} d x = -\\frac{1}{(n+1)^{2}}\n$$\n(We used the fact that $\\lim_{x \\rightarrow 0} x^{n} \\ln x = 0$ for $n > 0$, which can be proven using l'Hôpital's rule.) Therefore, the original integral equals to\n$$\n\\sum_{n=1}^{\\infty} \\frac{1}{n(n+1)^{2}} = \\sum_{n=1}^{\\infty}\\left(\\frac{1}{n} - \\frac{1}{n+1} - \\frac{1}{(n+1)^{2}}\\right)\n$$\nTelescoping the sum and using the well-known identity $\\sum_{n=1}^{\\infty} \\frac{1}{n^{2}} = \\frac{\\pi^{2}}{6}$, we see that the above sum is equal to $2-\\frac{\\pi^{2}}{6}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-1542",
+      "name": "Harvard-MIT Mathematics Tournament #0ipi",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Telescoping series",
+        "Sums and products"
+      ],
+      "statement": "Problem:\nLet $f(r) = \\sum_{j=2}^{2008} \\frac{1}{j^{r}} = \\frac{1}{2^{r}} + \\frac{1}{3^{r}} + \\cdots + \\frac{1}{2008^{r}}$. Find $\\sum_{k=2}^{\\infty} f(k)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $\\frac{2007}{2008}$\nWe change the order of summation:\n$$\n\\sum_{k=2}^{\\infty} \\sum_{j=2}^{2008} \\frac{1}{j^{k}} = \\sum_{j=2}^{2008} \\sum_{k=2}^{\\infty} \\frac{1}{j^{k}} = \\sum_{j=2}^{2008} \\frac{1}{j^{2}\\left(1-\\frac{1}{j}\\right)} = \\sum_{j=2}^{2008} \\frac{1}{j(j-1)} = \\sum_{j=2}^{2008}\\left(\\frac{1}{j-1}-\\frac{1}{j}\\right) = 1-\\frac{1}{2008} = \\frac{2007}{2008}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-1549",
+      "name": "Harvard-MIT Mathematics Tournament #0ipp",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Telescoping series",
+        "Polynomial operations"
+      ],
+      "statement": "Problem:\n\nEvaluate the infinite sum $\\sum_{n=1}^{\\infty} \\frac{n}{n^{4}+4}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n$\\displaystyle\n\\begin{aligned}\n\\sum_{n=1}^{\\infty} \\frac{n}{n^{4}+4} & =\\sum_{n=1}^{\\infty} \\frac{n}{\\left(n^{2}+2 n+2\\right)\\left(n^{2}-2 n+2\\right)} \\\\\n& =\\frac{1}{4} \\sum_{n=1}^{\\infty}\\left(\\frac{1}{n^{2}-2 n+2}-\\frac{1}{n^{2}+2 n+2}\\right) \\\\\n& =\\frac{1}{4} \\sum_{n=1}^{\\infty}\\left(\\frac{1}{(n-1)^{2}+1}-\\frac{1}{(n+1)^{2}+1}\\right)\n\\end{aligned}$\n\nObserve that the sum telescopes. From this we find that the answer is $\\frac{1}{4}\\left(\\frac{1}{0^{2}+1}+\\frac{1}{1^{2}+1}\\right)=\\frac{3}{8}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-1712",
+      "name": "Harvard-MIT November Tournament #0iu8",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Telescoping series",
+        "Sums and products"
+      ],
+      "statement": "Problem:\nCompute\n$$\n\\prod_{n=0}^{\\infty}\\left(1-\\left(\\frac{1}{2}\\right)^{3^{n}}+\\left(\\frac{1}{4}\\right)^{3^{n}}\\right)\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n$\\boxed{\\dfrac{2}{3}}$\n\nWe can rewrite each term as\n$$\n\\frac{1+\\left(\\frac{1}{2}\\right)^{3^{n+1}}}{1+\\left(\\frac{1}{2}\\right)^{3^{n}}}\n$$\nIn the infinite product, each term of the form $1+\\left(\\frac{1}{2}\\right)^{3^{n}}$ with $n>0$ appears once in the numerator and once in the denominator. The only remaining term is $1+\\left(\\frac{1}{2}\\right)^{1}$ in the first denominator."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-1738",
+      "name": "Bay Area Mathematical Olympiad #0iuy",
+      "url": "https://usamoguide.com/",
+      "source": "Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recurrence relations",
+        "Telescoping series",
+        "Sums and products",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\n\nThe Fibonacci sequence is the list of numbers that begins $1$, $2$, $3$, $5$, $8$, $13$ and continues with each subsequent number being the sum of the previous two.\nProve that when the first $n$ elements of the Fibonacci sequence are alternately added and subtracted, the result is an element of the sequence or the negative of an element of the sequence. For example,\n$$\n1-2+3-5=-3\n$$\nand $3$ is an element of the Fibonacci sequence.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nExpanding each number as the sum of the two previous numbers gives, for example,\n$$\n1-2+3-5+8-13=1-(1+1)+(1+2)-(2+3)+(3+5)-(5+8)\\text{.}\n$$\nNow, after removing parentheses, this is a telescoping series: each term subtracts out with its neighbor, so what's left is the last term of this expanded sum, or the second-to-last term of the original sum.\n$$\n=1-1-1+1+2-2-3+3+5-5-8=-8\\text{.}\n$$\nTo make it clear that this pattern always works, it would be nice to write all of this in terms of $F_n$, the $n^{\\text{th}}$ number in the list. When doing so, the previous expression becomes\n$$\nF_1-F_2+F_3-\\ldots \\pm F_n=\\left(F_1\\right)-\\left(F_0+F_1\\right)+\\left(F_1+F_2\\right)-\\ldots \\pm\\left(F_{n-2}+F_{n-1}\\right)\n$$\nand so this works for all $n$ because $F_0=F_1$, so every pair of consecutive terms in this long expression adds up to $0$, except for the $F_{n-1}$ at the end.\n\nPair up the terms. For our example above,\n$$\n1-2+3-5+8-13=(1-2)+(3-5)+(8-13)=1+2+5,\n$$\nwhich shows that after the initial $1$ we get every other term of the sequence. Then, we add, with $1+2=3$, and then $3+5=8$. To make it clear that this pattern always works, you will need to consider examples with an odd number of terms as well as showing that $F_1+F_2+F_4+\\ldots+F_{2n}=F_{2n+1}$.\nOther good arguments include a proof by mathematical induction, which supposes that this pattern works for the sum up to $F_n$ and then proves that it continues working for the sum up to $F_{n+1}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-1759",
+      "name": "Harvard-MIT November Tournament #0ivj",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recurrence relations",
+        "Telescoping series",
+        "Sums and products"
+      ],
+      "statement": "Problem:\nLet $a_{0}, a_{1}, \\ldots$ be a sequence such that $a_{0}=3$, $a_{1}=2$, and $a_{n+2}=a_{n+1}+a_{n}$ for all $n \\geq 0$. Find\n\n$$\n\\sum_{n=0}^{8} \\frac{a_{n}}{a_{n+1} a_{n+2}}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe can re-write $\\frac{a_{n}}{a_{n+1} a_{n+2}}$ as $\\frac{a_{n+2}-a_{n+1}}{a_{n+1} a_{n+2}} = \\frac{1}{a_{n+1}} - \\frac{1}{a_{n+2}}$. We can thus re-write the sum as\n\n$$\n\\left(\\frac{1}{a_{1}}-\\frac{1}{a_{2}}\\right)+\\left(\\frac{1}{a_{2}}-\\frac{1}{a_{3}}\\right)+\\left(\\frac{1}{a_{3}}-\\frac{1}{a_{4}}\\right)+\\ldots+\\left(\\frac{1}{a_{9}}-\\frac{1}{a_{10}}\\right)=\\frac{1}{a_{1}}-\\frac{1}{a_{10}}=\\frac{1}{2}-\\frac{1}{212}=\\frac{105}{212}.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-1794",
+      "name": "Harvard-MIT November Tournament #0iwi",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Telescoping series",
+        "Algebraic properties of binomial coefficients"
+      ],
+      "statement": "Problem:\n\n$$\n\\sum_{n=2009}^{\\infty} \\frac{1}{\\binom{n}{2009}}\n$$\n\nNote that $\\binom{n}{k}$ is defined as $\\frac{n!}{k!(n-k)!}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $\\frac{2009}{2008}$\n\nObserve that\n$$\n\\begin{aligned}\n\\frac{k+1}{k}\\left(\\frac{1}{\\binom{n-1}{k}}-\\frac{1}{\\binom{n}{k}}\\right) & = \\frac{k+1}{k} \\frac{\\binom{n}{k}-\\binom{n-1}{k}}{\\binom{n}{k}\\binom{n-1}{k}} \\\\\n& = \\frac{k+1}{k} \\frac{\\binom{n-1}{k-1}}{\\binom{n}{k}\\binom{n-1}{k}} \\\\\n& = \\frac{k+1}{k} \\frac{(n-1)!k!k!(n-k-1)!(n-k)!}{n!(n-1)!(k-1)!(n-k)!} \\\\\n& = \\frac{k+1}{k} \\frac{k \\cdot k!(n-k-1)!}{n!} \\\\\n& = \\frac{(k+1)!(n-k-1)!}{n!} \\\\\n& = \\frac{1}{\\binom{n}{k+1}}\n\\end{aligned}\n$$\n\nNow apply this with $k=2008$ and sum across all $n$ from $2009$ to $\\infty$. We get\n$$\n\\sum_{n=2009}^{\\infty} \\frac{1}{\\binom{n}{2009}} = \\frac{2009}{2008} \\sum_{n=2009}^{\\infty} \\left( \\frac{1}{\\binom{n-1}{2008}} - \\frac{1}{\\binom{n}{2008}} \\right)\n$$\nAll terms from the sum on the right-hand side cancel, except for the initial $\\frac{1}{\\binom{2008}{2008}}$, which is equal to $1$, so we get\n$$\n\\sum_{n=2009}^{\\infty} \\frac{1}{\\binom{n}{2009}} = \\frac{2009}{2008}.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-1947",
+      "name": "13th Annual Harvard-MIT Mathematics Tournament #0j0r",
+      "url": "https://usamoguide.com/",
+      "source": "13th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Telescoping series"
+      ],
+      "statement": "Problem:\n\nExpress the following in closed form, as a function of $x$:\n\n$\\sin^{2}(x) + \\sin^{2}(2x) \\cos^{2}(x) + \\sin^{2}(4x) \\cos^{2}(2x) \\cos^{2}(x) + \\cdots + \\sin^{2}\\left(2^{2010} x\\right) \\cos^{2}\\left(2^{2009} x\\right) \\cdots \\cos^{2}(2x) \\cos^{2}(x)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n$1 - \\dfrac{\\sin^{2}\\left(2^{2011} x\\right)}{4^{2011} \\sin^{2}(x)}$\n\nNote that\n\\[\n\\begin{aligned}\n& \\sin^{2}(x) + \\sin^{2}(2x) \\cos^{2}(x) + \\cdots + \\sin^{2}\\left(2^{2010} x\\right) \\cos^{2}\\left(2^{2009} x\\right) \\cdots \\cos^{2}(x) \\\\\n& \\quad = \\left(1 - \\cos^{2}(x)\\right) + \\left(1 - \\cos^{2}(2x)\\right) \\cos^{2}(x) + \\cdots + \\left(1 - \\cos^{2}\\left(2^{2010} x\\right)\\right) \\cos^{2}\\left(2^{2009} x\\right) \\cdots \\cos^{2}(x)\n\\end{aligned}\n\\]\nwhich telescopes to $1 - \\cos^{2}(x) \\cos^{2}(2x) \\cos^{2}(4x) \\cdots \\cos^{2}\\left(2^{2010} x\\right)$. To evaluate $\\cos^{2}(x) \\cos^{2}(2x) \\cdots \\cos^{2}\\left(2^{2010} x\\right)$, multiply and divide by $\\sin^{2}(x)$. We then get\n\\[\n1 - \\frac{\\sin^{2}(x) \\cos^{2}(x) \\cos^{2}(2x) \\cdots \\cos^{2}\\left(2^{2010} x\\right)}{\\sin^{2}(x)}\n\\]\nUsing the double-angle formula for sine, we get that $\\sin^{2}(y) \\cos^{2}(y) = \\frac{\\sin^{2}(2y)}{4}$. Applying this 2011 times makes the above expression\n\\[\n1 - \\frac{\\sin^{2}\\left(2^{2011} x\\right)}{4^{2011} \\sin^{2}(x)}\n\\]\nwhich is in closed form."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-1996",
+      "name": "USAMO 2010 #0j24",
+      "url": "https://usamoguide.com/",
+      "source": "USAMO 2010",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Telescoping series",
+        "Prime numbers",
+        "Greatest common divisors (gcd)"
+      ],
+      "statement": "Let $q = \\frac{3p-5}{2}$ where $p$ is an odd prime, and let\n$$\nS_q = \\frac{1}{2 \\cdot 3 \\cdot 4} + \\frac{1}{5 \\cdot 6 \\cdot 7} + \\dots + \\frac{1}{q(q+1)(q+2)}.\n$$\nProve that if $\\frac{1}{p} - 2S_q = \\frac{m}{n}$ for integers $m$ and $n$, then $m-n$ is divisible by $p$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**Solution** (by Titu Andreescu). We have\n$$\n\\begin{aligned}\n\\frac{2}{k(k+1)(k+2)} &= \\frac{(k+2)-k}{k(k+1)(k+2)} \\\\\n&= \\frac{1}{k(k+1)} - \\frac{1}{(k+1)(k+2)} \\\\\n&= \\left( \\frac{1}{k} - \\frac{1}{k+1} \\right) - \\left( \\frac{1}{k+1} - \\frac{1}{k+2} \\right) \\\\\n&= \\frac{1}{k} + \\frac{1}{k+1} + \\frac{1}{k+2} - \\frac{3}{k+1}.\n\\end{aligned}\n$$\nHence\n$$\n\\begin{aligned}\n2S_q &= \\left(\\frac{1}{2} + \\frac{1}{3} + \\frac{1}{4} + \\dots + \\frac{1}{q} + \\frac{1}{q+1} + \\frac{1}{q+2}\\right) - 3\\left(\\frac{1}{3} + \\frac{1}{6} + \\dots + \\frac{1}{q+1}\\right) \\\\\n&= \\left(\\frac{1}{2} + \\frac{1}{3} + \\dots + \\frac{1}{\\frac{3p-1}{2}}\\right) - \\left(1 + \\frac{1}{2} + \\dots + \\frac{1}{\\frac{p-1}{2}}\\right),\n\\end{aligned}\n$$\nand so\n$$\n\\begin{aligned}\n1 - \\frac{m}{n} &= 1 + 2S_q - \\frac{1}{p} \\\\\n&= \\frac{1}{\\frac{p+1}{2}} + \\dots + \\frac{1}{p-1} + \\frac{1}{p+1} + \\dots + \\frac{1}{\\frac{3p-1}{2}} \\\\\n&= \\left( \\frac{1}{\\frac{p+1}{2}} + \\frac{1}{\\frac{3p-1}{2}} \\right) + \\dots + \\left( \\frac{1}{p-1} + \\frac{1}{p+1} \\right) \\\\\n&= \\frac{p}{\\left( \\frac{p+1}{2} \\right) \\left( \\frac{3p-1}{2} \\right)} + \\dots + \\frac{p}{(p-1)(p+1)}.\n\\end{aligned}\n$$\nBecause the denominator of each term in the sum is relatively prime to $p$, it follows that $n-m$ is divisible by $p$, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-2034",
+      "name": "Harvard-MIT Mathematics Tournament #0j36",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Telescoping series",
+        "Sums and products"
+      ],
+      "statement": "Problem:\nEvaluate\n$$\n\\sum_{k=1}^{2010} \\cos^{2}(k)\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $1005+\\dfrac{\\sin (4021)-\\sin (1)}{4 \\sin (1)}$\n\nWe use the identity $\\cos^{2}(k) = \\dfrac{1+\\cos(2k)}{2}$. Then our expression evaluates to\n$$\n\\sum_{k=1}^{2010} \\cos^{2}(k) = \\sum_{k=1}^{2010} \\frac{1+\\cos(2k)}{2} = \\frac{1}{2} \\sum_{k=1}^{2010} 1 + \\frac{1}{2} \\sum_{k=1}^{2010} \\cos(2k) = 1005 + \\frac{\\cos(2) + \\cos(4) + \\cdots + \\cos(4020)}{2}\n$$\nTo evaluate $\\cos(2) + \\cos(4) + \\cdots + \\cos(4020)$, let $y = \\cos(2) + \\cos(4) + \\cdots + \\cos(4020)$. Consider $y \\sin(1) = \\cos(2) \\sin(1) + \\cos(4) \\sin(1) + \\cdots + \\cos(4020) \\sin(1)$.\n\nObserve that for any $x$, $\\cos(x) \\sin(1) = \\dfrac{\\sin(x+1) - \\sin(x-1)}{2}$.\n\nThen\n$$\ny \\sin(1) = \\frac{\\sin(3) - \\sin(1)}{2} + \\frac{\\sin(5) - \\sin(3)}{2} + \\cdots + \\frac{\\sin(4021) - \\sin(4019)}{2}\n$$\nThis is a telescoping sum; we get\n$$\ny \\sin(1) = \\frac{\\sin(4021) - \\sin(1)}{2}\n$$\nTherefore,\n$$\ny = \\frac{\\sin(4021) - \\sin(1)}{2 \\sin(1)}\n$$\nSo our original expression evaluates to\n$$\n1005 + \\frac{\\sin(4021) - \\sin(1)}{4 \\sin(1)}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-2041",
+      "name": "Harvard-MIT Mathematics Tournament #0j3d",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Sums and products",
+        "Telescoping series"
+      ],
+      "statement": "Problem:\nLet $f(n) = \\sum_{k=2}^{\\infty} \\frac{1}{k^{n} \\cdot k!}$. Calculate $\\sum_{n=2}^{\\infty} f(n)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $3-e$\n$$\n\\begin{aligned}\n\\sum_{n=2}^{\\infty} f(n) & = \\sum_{k=2}^{\\infty} \\sum_{n=2}^{\\infty} \\frac{1}{k^{n} \\cdot k!} \\\\\n& = \\sum_{k=2}^{\\infty} \\frac{1}{k!} \\sum_{n=2}^{\\infty} \\frac{1}{k^{n}} \\\\\n& = \\sum_{k=2}^{\\infty} \\frac{1}{k!} \\cdot \\frac{1}{k(k-1)} \\\\\n& = \\sum_{k=2}^{\\infty} \\frac{1}{(k-1)!} \\cdot \\frac{1}{k^{2}(k-1)}\n\\end{aligned}\n$$\n$$\n\\begin{aligned}\n& = \\sum_{k=2}^{\\infty} \\frac{1}{(k-1)!}\\left(\\frac{1}{k-1}-\\frac{1}{k^{2}}-\\frac{1}{k}\\right) \\\\\n& = \\sum_{k=2}^{\\infty}\\left(\\frac{1}{(k-1)(k-1)!}-\\frac{1}{k \\cdot k!}-\\frac{1}{k!}\\right) \\\\\n& = \\sum_{k=2}^{\\infty}\\left(\\frac{1}{(k-1)(k-1)!}-\\frac{1}{k \\cdot k!}\\right)-\\sum_{k=2}^{\\infty} \\frac{1}{k!} \\\\\n& = \\frac{1}{1 \\cdot 1!}-\\left(e-\\frac{1}{0!}-\\frac{1}{1!}\\right) \\\\\n& = 3-e\n\\end{aligned}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-2087",
+      "name": "Harvard-MIT Mathematics Tournament #0j4n",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recurrence relations",
+        "Telescoping series",
+        "Sums and products"
+      ],
+      "statement": "Problem:\nA sequence of integers $\\{a_{i}\\}$ is defined as follows: $a_{i} = i$ for all $1 \\leq i \\leq 5$, and $a_{i} = a_{1} a_{2} \\cdots a_{i-1} - 1$ for all $i > 5$. Evaluate $a_{1} a_{2} \\cdots a_{2011} - \\sum_{i=1}^{2011} a_{i}^{2}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $-1941$\n\nFor all $i \\geq 6$, we have $a_{i} = a_{1} a_{2} \\cdots a_{i-1} - 1$. So\n$$\n\\begin{aligned}\na_{i+1} & = a_{1} a_{2} \\cdots a_{i} - 1 \\\\\n& = \\left(a_{1} a_{2} \\cdots a_{i-1}\\right) a_{i} - 1 \\\\\n& = \\left(a_{i} + 1\\right) a_{i} - 1 \\\\\n& = a_{i}^{2} + a_{i} - 1.\n\\end{aligned}\n$$\nTherefore, for all $i \\geq 6$, we have $a_{i}^{2} = a_{i+1} - a_{i} + 1$, and we obtain that\n$$\n\\begin{aligned}\n& a_{1} a_{2} \\cdots a_{2011} - \\sum_{i=1}^{2011} a_{i}^{2} \\\\\n= & a_{2012} + 1 - \\sum_{i=1}^{5} a_{i}^{2} - \\sum_{i=6}^{2011} a_{i}^{2} \\\\\n= & a_{2012} + 1 - \\sum_{i=1}^{5} i^{2} - \\sum_{i=6}^{2011} \\left(a_{i+1} - a_{i} + 1\\right) \\\\\n= & a_{2012} + 1 - 55 - \\left(a_{2012} - a_{6} + 2006\\right) \\\\\n= & a_{6} - 2060 \\\\\n= & -1941\n\\end{aligned}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-2384",
+      "name": "Harvard-MIT Mathematics Tournament #0jcw",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "φ (Euler's totient)",
+        "Pick's theorem",
+        "Telescoping series",
+        "Greatest common divisors (gcd)"
+      ],
+      "statement": "Problem:\n\nFor any positive integer $n$, let $N=\\varphi(1)+\\varphi(2)+\\ldots+\\varphi(n)$. Show that there exists a sequence\n$$\na_{1}, a_{2}, \\ldots, a_{N}\n$$\ncontaining exactly $\\varphi(k)$ instances of $k$ for all positive integers $k \\leq n$ such that\n$$\n\\frac{1}{a_{1} a_{2}}+\\frac{1}{a_{2} a_{3}}+\\cdots+\\frac{1}{a_{N} a_{1}}=1 .\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe write all fractions of the form $b / a$, where $a$ and $b$ are relatively prime, and $0 \\leq b \\leq a \\leq n$, in ascending order. For instance, for $n=5$, this is the sequence\n$$\n\\frac{0}{1}, \\frac{1}{5}, \\frac{1}{4}, \\frac{1}{3}, \\frac{2}{5}, \\frac{1}{2}, \\frac{3}{5}, \\frac{2}{3}, \\frac{3}{4}, \\frac{4}{5}, \\frac{1}{1}\n$$\n\nThis sequence is known as the Farey sequence.\nNow, if we look at the the sequence of the denominators of the fractions, we see that $k$ appears $\\varphi(k)$ times when $k>1$, although 1 appears twice. Thus, there are $N+1$ elements in the Farey sequence. Let the Farey sequence be\n\n$$\n\\frac{b_{1}}{a_{1}}, \\frac{b_{2}}{a_{2}}, \\ldots, \\frac{b_{N+1}}{a_{N+1}}\n$$\n\nNow, $a_{N+1}=1$, so the sequence $a_{1}, a_{2}, \\ldots, a_{N}$ contains $\\varphi(k)$ instances of $k$ for every $1 \\leq k \\leq n$. We claim that this sequence also satisfies\n$$\n\\frac{1}{a_{1} a_{2}}+\\frac{1}{a_{2} a_{3}}+\\cdots+\\frac{1}{a_{N} a_{1}}=1 .\n$$\n\nSince $a_{1}=a_{N+1}=1$, we have\n$$\n\\frac{1}{a_{1} a_{2}}+\\frac{1}{a_{2} a_{3}}+\\cdots+\\frac{1}{a_{N} a_{1}}=\\frac{1}{a_{1} a_{2}}+\\frac{1}{a_{2} a_{3}}+\\cdots+\\frac{1}{a_{N} a_{N+1}} .\n$$\n\nNow, it will suffice to show that $\\frac{1}{a_{i} a_{i+1}}=\\frac{b_{i+1}}{a_{i+1}}-\\frac{b_{i}}{a_{i}}$. Once we have shown this, the above sum will telescope to $\\frac{b_{N+1}}{a_{N+1}}-\\frac{b_{1}}{a_{1}}=1-0=1$.\nTo see why $\\frac{1}{a_{i} a_{i+1}}=\\frac{b_{i+1}}{a_{i+1}}-\\frac{b_{i}}{a_{i}}$ holds, we note that this is equivalent to $1=b_{i+1} a_{i}-b_{i} a_{i+1}$. We can prove this fact geometrically: consider the triangle in the plane with vertices $(0,0),\\left(a_{i}, b_{i}\\right)$, and\n$\\left(a_{i+1}, b_{i+1}\\right)$. This triangle contains these three boundary points, but it contains no other boundary or interior points since $a_{i}$ and $a_{i+1}$ are relatively prime to $b_{i}$ and $b_{i+1}$, respectively, and since no other fraction with denominator at most $n$ lies between $\\frac{b_{i}}{a_{i}}$ and $\\frac{b_{i+1}}{a_{i+1}}$. Thus, by Pick's theorem, this triangle has area $1 / 2$. But the area of the triangle can also be computed as the cross product $\\frac{1}{2}\\left(b_{i+1} a_{i}-b_{i} a_{i+1}\\right)$; hence $b_{i+1} a_{i}-b_{i} a_{i+1}=1$ and we are done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-2443",
+      "name": "HMMT November #0jej",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recurrence relations",
+        "Telescoping series"
+      ],
+      "statement": "Problem:\n\nGary plays the following game with a fair $n$-sided die whose faces are labeled with the positive integers between $1$ and $n$, inclusive: if $n=1$, he stops; otherwise he rolls the die, and starts over with a $k$-sided die, where $k$ is the number his $n$-sided die lands on. (In particular, if he gets $k=1$, he will stop rolling the die.) If he starts out with a $6$-sided die, what is the expected number of rolls he makes?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $a_n$ be the expected number of rolls starting with an $n$-sided die. We see immediately that $a_1 = 0$, and $a_n = 1 + \\frac{1}{n} \\sum_{i=1}^{n} a_i$ for $n > 1$. Thus $a_2 = 2$, and for $n \\geq 3$, $a_n = 1 + \\frac{1}{n} a_n + \\frac{n-1}{n}(a_{n-1} - 1)$, or $a_n = a_{n-1} + \\frac{1}{n-1}$. Thus $a_n = 1 + \\sum_{i=1}^{n-1} \\frac{1}{i}$ for $n \\geq 2$, so $a_6 = 1 + \\frac{60 + 30 + 20 + 15 + 12}{60} = \\frac{197}{60}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-2640",
+      "name": "HMMT November 2014 #0jk0",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2014",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Telescoping series",
+        "Logarithmic functions"
+      ],
+      "statement": "Problem:\nEvaluate the infinite sum\n$$\n\\sum_{n=2}^{\\infty} \\log_{2}\\left(\\frac{1-\\frac{1}{n}}{1-\\frac{1}{n+1}}\\right)\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $\\quad -1$\n\nUsing the identity $\\log_{2}\\left(\\frac{a}{b}\\right) = \\log_{2} a - \\log_{2} b$, the sum becomes\n$$\n\\sum_{n=2}^{\\infty} \\log_{2}\\left(\\frac{n-1}{n}\\right) - \\sum_{n=2}^{\\infty} \\log_{2}\\left(\\frac{n}{n+1}\\right)\n$$\nMost of the terms cancel out, except the $\\log_{2}\\left(\\frac{1}{2}\\right)$ term from the first sum. Therefore, the answer is $-1$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-2708",
+      "name": "USAMO #0jlw",
+      "url": "https://usamoguide.com/",
+      "source": "USAMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Greatest common divisors (gcd)",
+        "Counting two ways",
+        "Telescoping series"
+      ],
+      "statement": "Prove that there is a constant $c > 0$ with the following property: If $a, b, n$ are positive integers such that $\\gcd(a + i, b + j) > 1$ for all $i, j \\in \\{0, 1, \\dots, n\\}$, then\n$$\n\\min\\{a, b\\} > c^n \\cdot n^{\\frac{n}{2}}.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "(by Titu Andreescu and Gabriel Dospinescu). Let $a, b, n$ be positive integers as in the statement of the problem. Let $P_n$ be the set of prime numbers not exceeding $n$. We will need the following\n\n**Lemma 1.** There is a positive integer $n_0$ such that for all $n \\ge n_0$ we have\n$$\n\\sum_{p \\in P_n} \\left( \\frac{n}{p} + 1 \\right)^2 < \\frac{2}{3} n^2.\n$$\n\n*Proof*. Expanding and dividing by $n^2$, and observing that $|P_n| \\le n$, it suffices to prove the inequality\n$$\n\\sum_{p \\in P_n} \\frac{1}{p^2} + \\frac{2}{n} \\sum_{p \\in P_n} \\frac{1}{p} + \\frac{1}{n} < \\frac{2}{3}.\n$$\nSince\n$$\n\\frac{2}{n} \\sum_{p \\in P_n} \\frac{1}{p} < \\frac{2}{n} \\sum_{i=2}^n \\frac{1}{i} < \\frac{2}{n} \\log n,\n$$\nit suffices to prove the existence of a constant $r < \\frac{2}{3}$ such that $\\sum_{p \\in P_n} \\frac{1}{p^2} < r$. But\n$$\n\\begin{aligned}\n\\sum_{p \\in P_n} \\frac{1}{p^2} & \\le \\frac{1}{4} + \\frac{1}{9} + \\sum_{k=1}^n \\frac{1}{(2k+1)(2k+3)} \\\\\n&= \\frac{1}{4} + \\frac{1}{9} + \\sum_{k=1}^n \\frac{1}{2} \\left( \\frac{1}{2k+1} - \\frac{1}{2k+3} \\right) \\\\\n&= \\frac{1}{4} + \\frac{1}{9} + \\frac{1}{2} \\left( \\frac{1}{3} - \\frac{1}{2n+3} \\right) < \\frac{1}{4} + \\frac{1}{9} + \\frac{1}{6} < \\frac{1}{3}\n\\end{aligned}\n$$\n\nFrom now on we fix such $n_0$, and we prove the statement assuming $n \\ge n_0$. Note that for any $p \\in P_n$ there are at most $\\frac{n}{p} + 1$ numbers $i \\in \\{0, 1, \\dots, n-1\\}$ such that $p \\mid a + i$, and likewise for $j \\in \\{0, 1, \\dots, n-1\\}$ such that $p \\mid b + j$. Thus there are at most $\\left(\\frac{n}{p} + 1\\right)^2$ pairs $(i, j)$ such that $p \\mid \\gcd(a + i, b + j)$. Using the previous lemma, we deduce that there are less than $\\frac{2}{3}n^2$ pairs $(i, j)$ with $i, j \\in \\{0, 1, \\dots, n-1\\}$ such that $p \\mid \\gcd(a + i, b + j)$ for some $p \\in P_n$.\n\nLet $N$ be the least integer greater than or equal to $\\frac{n^2}{3}$. By the above, there are at least $N$ pairs $(i, j)$ with $i, j \\in \\{0, 1, \\dots, n-1\\}$ such that $\\gcd(a + i, b + j)$ is not divisible by any prime in $P_n$. Call these pairs $(i_s, j_s)$ for $s = 1, 2, \\dots, N$. For each pair, choose a prime $p_s$ that divides $\\gcd(a+i_s, b+j_s)$ (since, by hypothesis, $\\gcd(a+i_s, b+j_s) > 1$); thus $p_s > n$. The map $s \\mapsto p_s$ is injective, for if $p_s = p_{s'}$, then $p_s \\mid i_s - i_{s'}$, implying $i_s = i_{s'}$, and similarly $j_s = j_{s'}$, hence $s = s'$.\n\nWe conclude that $\\prod_{i=0}^{n-1} (a+i)$ is a multiple of $\\prod_{s=1}^N p_s$. Since the $p_s$ are distinct prime numbers greater than $n$, then,\n$$\n(a+n)^n > \\prod_{i=0}^{n-1} (a+i) \\ge \\prod_{s=1}^N p_s \\ge \\prod_{i=1}^N (n+2i-1).\n$$\nLet $X$ be this last product. Then\n$$\nX^2 = \\prod_{i=1}^N [(n+2i-1)(n+2(N+1-i)-1)] > \\prod_{i=1}^N (2Nn) = (2Nn)^N,\n$$\nwhere the inequality holds because\n$$\n(n + 2i - 1)(n + 2(N + 1 - i) - 1) > n(2(N + 1 - i) - 1) + (2i - 1)n = 2Nn.\n$$\nFinally\n$$\n(a+n)^n > (2Nn)^{\\frac{N}{2}} \\ge \\left(\\frac{2n^3}{3}\\right)^{\\frac{n^2}{6}}.\n$$\nThus,\n$$\na \\ge \\left(\\frac{2}{3}\\right)^{\\frac{1}{6} \\cdot n} \\cdot n^{\\frac{n}{2}} - n,\n$$\nwhich is larger than $c^n \\cdot n^{\\frac{n}{2}}$ when $n$ is large enough, for any constant $c < \\left(\\frac{2}{3}\\right)^{\\frac{1}{6}}$. Similarly, the same inequality holds for $b$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-2758",
+      "name": "HMMT February 2015 #0jna",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2015",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recurrence relations",
+        "Telescoping series"
+      ],
+      "statement": "Problem:\n\nThe sequences of real numbers $\\{a_{i}\\}_{i=1}^{\\infty}$ and $\\{b_{i}\\}_{i=1}^{\\infty}$ satisfy $a_{n+1} = (a_{n-1} - 1)(b_{n} + 1)$ and $b_{n+1} = a_{n} b_{n-1} - 1$ for $n \\geq 2$, with $a_{1} = a_{2} = 2015$ and $b_{1} = b_{2} = 2013$. Evaluate, with proof, the infinite sum\n$$\n\\sum_{n=1}^{\\infty} b_{n}\\left(\\frac{1}{a_{n+1}}-\\frac{1}{a_{n+3}}\\right)\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $\\quad 1+\\frac{1}{2014 \\cdot 2015}$ OR $\\frac{4058211}{4058210}$\n\nFirst note that $a_{n}$ and $b_{n}$ are weakly increasing and tend to infinity. In particular, $a_{n}, b_{n} \\notin\\{0,-1,1\\}$ for all $n$.\n\nFor $n \\geq 1$, we have $a_{n+3} = (a_{n+1} - 1)(b_{n+2} + 1) = (a_{n+1} - 1)(a_{n+1} b_{n})$, so\n$$\n\\frac{b_{n}}{a_{n+3}} = \\frac{1}{a_{n+1}(a_{n+1} - 1)} = \\frac{1}{a_{n+1} - 1} - \\frac{1}{a_{n+1}}\n$$\nTherefore,\n$$\n\\begin{aligned}\n\\sum_{n=1}^{\\infty} \\frac{b_{n}}{a_{n+1}} - \\frac{b_{n}}{a_{n+3}} & = \\sum_{n=1}^{\\infty} \\frac{b_{n}}{a_{n+1}} - \\left(\\frac{1}{a_{n+1} - 1} - \\frac{1}{a_{n+1}}\\right) \\\\\n& = \\sum_{n=1}^{\\infty} \\frac{b_{n} + 1}{a_{n+1}} - \\frac{1}{a_{n+1} - 1}\n\\end{aligned}\n$$\nFurthermore, $b_{n} + 1 = \\frac{a_{n+1}}{a_{n-1} - 1}$ for $n \\geq 2$. So the sum over $n \\geq 2$ is\n$$\n\\begin{aligned}\n\\sum_{n=2}^{\\infty}\\left(\\frac{1}{a_{n-1} - 1} - \\frac{1}{a_{n+1} - 1}\\right) & = \\lim_{N \\rightarrow \\infty} \\sum_{n=2}^{N}\\left(\\frac{1}{a_{n-1} - 1} - \\frac{1}{a_{n+1} - 1}\\right) \\\\\n& = \\frac{1}{a_{1} - 1} + \\frac{1}{a_{2} - 1} - \\lim_{N \\rightarrow \\infty}\\left(\\frac{1}{a_{N} - 1} + \\frac{1}{a_{N+1} - 1}\\right) \\\\\n& = \\frac{1}{a_{1} - 1} + \\frac{1}{a_{2} - 1}\n\\end{aligned}\n$$\nHence the final answer is\n$$\n\\left(\\frac{b_{1} + 1}{a_{2}} - \\frac{1}{a_{2} - 1}\\right) + \\left(\\frac{1}{a_{1} - 1} + \\frac{1}{a_{2} - 1}\\right) .\n$$\nCancelling the common terms and putting in our starting values, this equals\n$$\n\\frac{2014}{2015} + \\frac{1}{2014} = 1 - \\frac{1}{2015} + \\frac{1}{2014} = 1 + \\frac{1}{2014 \\cdot 2015}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-2799",
+      "name": "HMMT February #0jof",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers",
+        "Telescoping series"
+      ],
+      "statement": "Problem:\nWhat is the largest real number $\\theta$ less than $\\pi$ (i.e. $\\theta<\\pi$ ) such that\n$$\n\\prod_{k=0}^{10} \\cos \\left(2^{k} \\theta\\right) \\neq 0\n$$\nand\n$$\n\\prod_{k=0}^{10}\\left(1+\\frac{1}{\\cos \\left(2^{k} \\theta\\right)}\\right)=1 ?\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $\\frac{2046 \\pi}{2047}$\n\nFor equality to hold, note that $\\theta$ cannot be an integer multiple of $\\pi$ (or else $\\sin =0$ and $\\cos = \\pm 1$).\n\nLet $z=e^{i \\theta / 2} \\neq \\pm 1$. Then in terms of complex numbers, we want\n$$\n\\prod_{k=0}^{10}\\left(1+\\frac{2}{z^{2^{k+1}}+z^{-2^{k+1}}}\\right)=\\prod_{k=0}^{10} \\frac{\\left(z^{2^{k}}+z^{-2^{k}}\\right)^{2}}{z^{2^{k+1}}+z^{-2^{k+1}}}\n$$\nwhich partially telescopes to\n$$\n\\frac{z+z^{-1}}{z^{2^{11}}+z^{-2^{11}}} \\prod_{k=0}^{10}\\left(z^{2^{k}}+z^{-2^{k}}\\right)\n$$\nUsing a classical telescoping argument (or looking at binary representation; if you wish we may note that $z-z^{-1} \\neq 0$, so the ultimate telescoping identity holds $2^{2}$ ), this simplifies to\n$$\n\\frac{z+z^{-1}}{z^{2^{11}}+z^{-2^{11}}} \\frac{z^{2^{11}}-z^{-2^{11}}}{z-z^{-1}}=\\frac{\\tan \\left(2^{10} \\theta\\right)}{\\tan (\\theta / 2)}\n$$\nSince $\\tan x$ is injective modulo $\\pi$ (i.e. $\\pi$-periodic and injective on any given period), $\\theta$ works if and only if $\\frac{\\theta}{2}+\\ell \\pi=1024 \\theta$ for some integer $\\ell$, so $\\theta=\\frac{2 \\ell \\pi}{2047}$. The largest value for $\\ell$ such that $\\theta<\\pi$ is at $\\ell=1023$, which gives $\\theta=\\frac{2046 \\pi}{2047}$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-2910",
+      "name": "HMMT November 2015 #0jri",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2015",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Greatest common divisors (gcd)",
+        "Inverses mod n",
+        "Fractions",
+        "Sums and products",
+        "Telescoping series"
+      ],
+      "statement": "Problem:\n\nRosencrantz plays $n \\leq 2015$ games of question, and ends up with a win rate (i.e. $\\frac{\\# \\text{ of games won }}{\\# \\text{ of games played }}$) of $k$. Guildenstern has also played several games, and has a win rate less than $k$. He realizes that if, after playing some more games, his win rate becomes higher than $k$, then there must have been some point in time when Rosencrantz and Guildenstern had the exact same win-rate. Find the product of all possible values of $k$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $\\frac{1}{2015}$\n\nWrite $k=\\frac{m}{n}$, for relatively prime integers $m, n$. For the property not to hold, there must exist integers $a$ and $b$ for which\n$$\n\\frac{a}{b}<\\frac{m}{n}<\\frac{a+1}{b+1}\n$$\n(i.e. at some point, Guildenstern must \"jump over\" $k$ with a single win)\n$$\n\\Longleftrightarrow a n+n-m>b m>a n\n$$\nhence there must exist a multiple of $m$ strictly between $a n$ and $a n+n-m$.\n\nIf $n-m=1$, then the property holds as there is no integer between $a n$ and $a n+n-m=a n+1$. We now show that if $n-m \\neq 1$, then the property does not hold. By Bzout's Theorem, as $n$ and $m$ are relatively prime, there exist $a$ and $x$ such that $a n=m x-1$, where $0<a<m$. Then $a n+n-m \\geq a n+2=m x+1$, so $b=x$ satisfies the conditions. As a result, the only possible $k$ are those in the form $\\frac{n}{n+1}$.\n\nWe know that Rosencrantz played at most 2015 games, so the largest non-perfect winrate he could possibly have is $\\frac{2014}{2015}$. Therefore, $k \\in\\left\\{\\frac{1}{2}, \\frac{2}{3}, \\ldots, \\frac{2014}{2015}\\right\\}$, the product of which is $\\frac{1}{2015}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-2945",
+      "name": "HMMT November #0jsh",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Sums and products",
+        "Telescoping series"
+      ],
+      "statement": "Problem:\n\nThe very hungry caterpillar lives on the number line. For each non-zero integer $i$, a fruit sits on the point with coordinate $i$. The caterpillar moves back and forth; whenever he reaches a point with food, he eats the food, increasing his weight by one pound, and turns around. The caterpillar moves at a speed of $2^{-w}$ units per day, where $w$ is his weight. If the caterpillar starts off at the origin, weighing zero pounds, and initially moves in the positive $x$ direction, after how many days will he weigh 10 pounds?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nOn the $n$th straight path, the caterpillar travels $n$ units before hitting food and his weight is $n-1$. Then his speed is $2^{1-n}$. Then right before he turns around for the $n$th time, he has traveled a total time of $\\sum_{i=1}^{n} \\frac{i}{2^{1-i}}=\\frac{1}{2} \\sum_{i=1}^{n} i \\cdot 2^{i}$. We want to know how many days the caterpillar moves before his weight is 10, so we want to take $n=10$ so that his last straight path was taken at weight 9. Hence we want to evaluate $S=\\frac{1}{2} \\sum_{i=1}^{10} i \\cdot 2^{i}$. Note that $2S=\\frac{1}{2} \\sum_{i=2}^{11}(i-1) \\cdot 2^{i}$, so $S=2S-S=\\frac{1}{2}\\left(11 \\cdot 2^{11}-\\sum_{i=1}^{10} 2^{i}\\right)=\\frac{1}{2}\\left(10 \\cdot 2^{11}-2^{11}+2\\right)=9217$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-3029",
+      "name": "HMMT February 2016 #0jut",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2016",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recurrence relations",
+        "Telescoping series"
+      ],
+      "statement": "Problem:\n\nAn infinite sequence of real numbers $a_{1}, a_{2}, \\ldots$ satisfies the recurrence\n$$\na_{n+3}=a_{n+2}-2 a_{n+1}+a_{n}\n$$\nfor every positive integer $n$. Given that $a_{1}=a_{3}=1$ and $a_{98}=a_{99}$, compute $a_{1}+a_{2}+\\cdots+a_{100}$.\n\nProposed by: Evan Chen",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n$$\n\\begin{aligned}\n\\sum_{k=1}^{n} a_{k} & =a_{1}+a_{2}+a_{3}+\\sum_{k=1}^{n-3}\\left(a_{k}-2 a_{k+1}+a_{k+2}\\right) \\\\\n& =a_{1}+a_{2}+a_{3}+\\sum_{k=1}^{n-3} a_{k}-2 \\sum_{k=2}^{n-2} a_{k}+\\sum_{k=3}^{n-1} a_{k} \\\\\n& =2 a_{1}+a_{3}-a_{n-2}+a_{n-1}\n\\end{aligned}\n$$\n\nPutting $n=100$ gives the answer."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-3206",
+      "name": "HMMT November #0jzq",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Sums and products",
+        "Telescoping series",
+        "Polynomial operations"
+      ],
+      "statement": "Problem:\nCompute\n$$\n100^{2}+99^{2}-98^{2}-97^{2}+96^{2}+95^{2}-94^{2}-93^{2}+\\ldots+4^{2}+3^{2}-2^{2}-1^{2}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nNote that $(n+3)^{2}-(n+2)^{2}-(n+1)^{2}+n^{2}=4$ for every $n$. Therefore, adding $0^{2}$ to the end of the given sum and applying this identity for every four consecutive terms after $100^{2}$, we see that the given sum is equivalent to $100^{2}+25 \\cdot 4=10100$.\n\nAlternatively, we can apply the difference-of-squares factorization to rewrite $100^{2}-98^{2}=(100-98)(100+98)=2(100+98)$, $99^{2}-97^{2}=(99-97)(99+97)=2(99+97)$, etc. Thus, the given sum is equivalent to $2(100+99+\\cdots+2+1)=2 \\cdot \\frac{100 \\cdot 101}{2}=10100$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-3288",
+      "name": "HMMT November 2018 #0k20",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2018",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recurrence relations",
+        "Telescoping series"
+      ],
+      "statement": "Problem:\n\nPascal has a triangle. In the $n$th row, there are $n+1$ numbers $a_{n, 0}, a_{n, 1}, a_{n, 2}, \\ldots, a_{n, n}$ where $a_{n, 0}=a_{n, n}=1$. For all $1 \\leq k \\leq n-1$, $a_{n, k}=a_{n-1, k}-a_{n-1, k-1}$. What is the sum of all numbers in the 2018th row?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: 2\nIn general, the sum of the numbers on the $n$th row will be\n$$\n\\sum_{k=0}^{n} a_{n, k}=a_{n, 0}+\\sum_{k=1}^{n-1}\\left(a_{n-1, k}-a_{n-1, k-1}\\right)+a_{n, n}=a_{n, 0}+\\left(a_{n-1, n-1}-a_{n-1,0}\\right)+a_{n, n}=2\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-3290",
+      "name": "HMMT February #0k22",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Telescoping series"
+      ],
+      "statement": "Problem:\nIs the number\n$$\n\\left(1+\\frac{1}{2}\\right)\\left(1+\\frac{1}{4}\\right)\\left(1+\\frac{1}{6}\\right) \\ldots\\left(1+\\frac{1}{2018}\\right)\n$$\ngreater than, less than, or equal to $50$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nCall the expression $S$. Note that\n$$\n\\left(1+\\frac{1}{2}\\right)\\left(1+\\frac{1}{4}\\right)\\left(1+\\frac{1}{6}\\right) \\ldots\\left(1+\\frac{1}{2018}\\right)<\\left(1+\\frac{1}{1}\\right)\\left(1+\\frac{1}{3}\\right)\\left(1+\\frac{1}{5}\\right) \\ldots\\left(1+\\frac{1}{2017}\\right)\n$$\nMultiplying these two products together, we get\n$$\n\\begin{aligned}\n& \\left(1+\\frac{1}{1}\\right)\\left(1+\\frac{1}{2}\\right)\\left(1+\\frac{1}{3}\\right) \\ldots\\left(1+\\frac{1}{2018}\\right) \\\\\n& =\\frac{2}{1} \\cdot \\frac{3}{2} \\cdot \\frac{4}{3} \\cdots \\frac{2019}{2018} \\\\\n& =2019\n\\end{aligned}\n$$\nThis shows that\n$$\nS^{2}<2019 \\Longrightarrow S<\\sqrt{2019}<50\n$$\nas desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-3411",
+      "name": "USA TSTST #0k5f",
+      "url": "https://usamoguide.com/",
+      "source": "USA TSTST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Factorization techniques",
+        "Techniques: modulo, size analysis, order analysis, inequalities",
+        "Polynomials",
+        "Telescoping series",
+        "Quadratic forms"
+      ],
+      "statement": "For an integer $n > 0$, denote by $\\mathcal{F}(n)$ the set of integers $m > 0$ for which the polynomial $p(x) = x^2 + mx + n$ has an integer root.\n\na. Let $S$ denote the set of integers $n > 0$ for which $\\mathcal{F}(n)$ contains two consecutive integers. Show that $S$ is infinite but\n$$\n\\sum_{n \\in S} \\frac{1}{n} \\le 1.\n$$\n\nb. Prove that there are infinitely many positive integers $n$ such that $\\mathcal{F}(n)$ contains three consecutive integers.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "We prove the following.\n**Claim.** The set $S$ is given explicitly by $S = \\{x(x+1)y(y+1) \\mid x, y > 0\\}$.\n*Proof.* Note that $m, m+1 \\in \\mathcal{F}(n)$ if and only if there exist integers $q > p \\ge 0$ such that\n$$\nm^2 - 4n = p^2 \\\\\n(m+1)^2 - 4n = q^2.\n$$\nSubtraction gives $2m + 1 = q^2 - p^2$, so $p$ and $q$ are different parities. We can thus let $q - p = 2x + 1$, $q + p = 2y + 1$, where $y \\ge x \\ge 0$ are integers. It follows that\n$$\n\\begin{aligned}\n4n &= m^2 - p^2 \\\\\n   &= \\left( \\frac{q^2 - p^2 - 1}{2} \\right)^2 - p^2 \\\\\n   &= \\left( \\frac{q^2 - p^2 - 1}{2} - p \\right) \\left( \\frac{q^2 - p^2 - 1}{2} + p \\right) \\\\\n   &= \\frac{q^2 - (p^2 + 2p + 1)}{2} \\cdot \\frac{q^2 - (p^2 - 2p + 1)}{2} \\\\\n   &= \\frac{1}{4}(q - p - 1)(q - p + 1)(q + p - 1)(q + p + 1) \\\\\n   &= \\frac{1}{4}(2x)(2x + 2)(2y)(2y + 2) \\\\\n\\implies n &= x(x + 1)y(y + 1).\n\\end{aligned}\n$$\nSince $n > 0$ we require $x, y > 0$. Conversely, if $n = x(x+1)y(y+1)$ for positive $x$ and $y$ then $m = \\sqrt{p^2 + 4n} = \\sqrt{(y-x)^2 + 4n} = 2xy + x + y = x(y+1) + (x+1)y$ and $m + 1 = 2xy + x + y + 1 = xy + (x+1)(y+1)$. Thus we conclude the main claim. $\\square$\n\nFrom this, part (a) follows as\n$$\n\\sum_{n \\in S} n^{-1} \\le \\left( \\sum_{x \\ge 1} \\frac{1}{x(x+1)} \\right) \\left( \\sum_{y \\ge 1} \\frac{1}{y(y+1)} \\right) = 1 \\cdot 1 = 1.\n$$\n\nAs for (b), retain the notation in the proof of the claim. Now $m + 2 \\in S$ if and only if $(m+2)^2 - 4n$ is a square, say $r^2$. Writing in terms of $p$ and $q$ as parameters we find\n$$\n\\begin{aligned}\nr^2 &= (m+2)^2 - 4n = m^2 - 4n + 4m + 4 = p^2 + 2 + 2(2m+1) \\\\\n   &= p^2 + 2(q^2 - p^2) + 2 = 2q^2 - p^2 + 2 \\\\\n\\iff 2q^2 + 2 &= p^2 + r^2 \\quad (\\dagger)\n\\end{aligned}\n$$\n\nwith $q > p$ of different parity and $n = \\frac{1}{16}(q-p-1)(q-p+1)(q+p-1)(q+p+1)$.\nNote that (by taking modulo 8) we have $q \\not\\equiv p \\equiv r \\pmod 2$, and so there are no parity issues and we will always assume $p < q < r$ in $(\\dagger)$. Now, for every $q$, the equation $(\\dagger)$ has a canonical solution $(p, r) = (q-1, q+1)$, but this leaves $n = 0$. Thus we want to show for infinitely many $q$ there is a third way to write $2q^2 + 2$ as a sum of squares, which will give the desired $p$.\nTo do this, choose large integers $q$ such that $q^2 + 1$ is divisible by at least three distinct $1 \\bmod 4$ primes. Since each such prime can be written as a sum of two squares, using Lagrange identity, we can deduce that $2q^2 + 2$ can be written as a sum of two squares in at least three different ways, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-3436",
+      "name": "HMMT February 2019 #0k64",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2019",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vieta's formulas",
+        "Recurrence relations",
+        "Floors and ceilings",
+        "Telescoping series",
+        "Infinite descent / root flipping"
+      ],
+      "statement": "Problem:\n\nThe sequence of integers $\\{a_{i}\\}_{i=0}^{\\infty}$ satisfies $a_{0}=3$, $a_{1}=4$, and\n$$\na_{n+2}=a_{n+1} a_{n}+\\left\\lceil\\sqrt{a_{n+1}^{2}-1} \\sqrt{a_{n}^{2}-1}\\right\\rceil\n$$\nfor $n \\geq 0$. Evaluate the sum\n$$\n\\sum_{n=0}^{\\infty}\\left(\\frac{a_{n+3}}{a_{n+2}}-\\frac{a_{n+2}}{a_{n}}+\\frac{a_{n+1}}{a_{n+3}}-\\frac{a_{n}}{a_{n+1}}\\right) .\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe key idea is to note that $a_{n+1} a_{n}+\\sqrt{a_{n+1}^{2}-1} \\sqrt{a_{n}^{2}-1}$ is the larger zero of the quadratic\n$$\nf_{n}(x)=x^{2}-\\left(2 a_{n+1} a_{n}\\right) x+a_{n}^{2}+a_{n+1}^{2}-1 .\n$$\nSince $a_{n+2}$ is the smallest integer greater than or equal to this root, it follows that $a_{n}^{2}+a_{n+1}^{2}+a_{n+2}^{2}-2 a_{n} a_{n+1} a_{n+2}-1$ is some small nonnegative integer. For these particular initial conditions ($a_{0}=3$, $a_{1}=4$, $a_{2}=12+\\lceil\\sqrt{120}\\rceil=23$), this integer is $(3^{2}+4^{2})+(23^{2}-2 \\cdot 3 \\cdot 4 \\cdot 23)-1=25-23-1=1$.\n\nWe now use induction to prove both\n$$\na_{n+3}=2 a_{n+2} a_{n+1}-a_{n} \\text{ and } a_{n}^{2}+a_{n+1}^{2}+a_{n+2}^{2}-2 a_{n} a_{n+1} a_{n+2}-1=1\n$$\nfor $n \\geq 0$. The base case is not difficult to check: $a_{3}=4 \\cdot 23+\\lceil\\sqrt{7920}\\rceil=181=2 \\cdot 4 \\cdot 23-3$, and the other equation has been checked above. Since the quadratic equation $f_{n+1}(x)=1$ has a solution $a_{n}$ by induction hypothesis. Then, using Vieta's theorem, $2 a_{n+1} a_{n+2}-a_{n}$ is also a solution. Then, the two roots of $f_{n+1}(x)=0$ must be in strictly between $a_{n}$ and $2 a_{n+1} a_{n+2}-a_{n}$, so we have that $a_{n+3} \\leq 2 a_{n+1} a_{n+2}-a_{n}$ since $a_{n+3}$ is the ceiling of the larger root. In fact, since $a_{n+1} a_{n+2}$ is much larger than $a_{n}$ for $n \\geq 1$ (it is not difficult to see that $a_{n}$ grows faster than exponential), meaning that the two roots of $f_{n+1}$ are more than 1 away from the minimum, and $f\\left(2 a_{n+1} a_{n+2}-a_{n}\\right)=1$, we have $f\\left(2 a_{n+1} a_{n+2}-a_{n}-1\\right)<0$, which mean that we must have $a_{n+3}=2 a_{n+1} a_{n+2}-a_{n}$, which simultaneously proves both statements due to Vieta jumping.\n\nTo finish, note that the above recurrence gives\n$$\n\\frac{a_{n+3}}{a_{n+2}}-\\frac{a_{n+2}}{a_{n}}=2 a_{n+1}-\\frac{a_{n}}{a_{n+2}}-2 a_{n+1}+\\frac{a_{n-1}}{a_{n}}=-\\frac{a_{n}}{a_{n+2}}+\\frac{a_{n-1}}{a_{n}}\n$$\nwhich telescopes with the other two terms. (Convergence can be shown since the ratio of adjacent terms is bounded above by $1 / 3$. In fact it goes to zero rapidly.) The only leftover terms after telescoping are $\\frac{a_{3}}{a_{2}}-\\frac{a_{2}}{a_{0}}=-\\frac{a_{0}}{a_{2}}+\\frac{a_{-1}}{a_{0}}=-\\frac{3}{23}+\\frac{1}{3}=\\frac{14}{69}$, giving the answer. (Here, we use the backwards recurrence $a_{n-1}=2 a_{n} a_{n+1}-a_{n+2}$ to find $a_{-1}=2 \\cdot 3 \\cdot 4-23=1$.)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-3657",
+      "name": "HMMT February 2020 #0kc9",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2020",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Sums and products",
+        "Telescoping series",
+        "Recurrence relations",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\nThe Fibonacci numbers are defined by $F_{0}=0$, $F_{1}=1$, and $F_{n}=F_{n-1}+F_{n-2}$ for $n \\geq 2$. There exist unique positive integers $n_{1}$, $n_{2}$, $n_{3}$, $n_{4}$, $n_{5}$, $n_{6}$ such that\n$$\n\\sum_{i_{1}=0}^{100} \\sum_{i_{2}=0}^{100} \\sum_{i_{3}=0}^{100} \\sum_{i_{4}=0}^{100} \\sum_{i_{5}=0}^{100} F_{i_{1}+i_{2}+i_{3}+i_{4}+i_{5}}=F_{n_{1}}-5 F_{n_{2}}+10 F_{n_{3}}-10 F_{n_{4}}+5 F_{n_{5}}-F_{n_{6}}\n$$\nFind $n_{1}+n_{2}+n_{3}+n_{4}+n_{5}+n_{6}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe make use of the identity\n$$\n\\sum_{i=0}^{\\ell} F_{i}=F_{\\ell+2}-1\n$$\n(easily proven by induction) which implies\n$$\n\\sum_{i=k}^{\\ell} F_{i}=F_{\\ell+2}-F_{k+1}\n$$\nApplying this several times yields\n$$\n\\begin{aligned}\n& \\sum_{i_{1}=0}^{100} \\sum_{i_{2}=0}^{100} \\sum_{i_{3}=0}^{100} \\sum_{i_{4}=0}^{100} \\sum_{i_{5}=0}^{100} F_{i_{1}+i_{2}+i_{3}+i_{4}+i_{5}} \\\\\n= & \\sum_{i_{1}=0}^{100} \\sum_{i_{2}=0}^{100} \\sum_{i_{3}=0}^{100} \\sum_{i_{4}=0}^{100}\\left(F_{i_{1}+i_{2}+i_{3}+i_{4}+102}-F_{i_{1}+i_{2}+i_{3}+i_{4}+1}\\right) \\\\\n= & \\sum_{i_{1}=0}^{100} \\sum_{i_{2}=0}^{100} \\sum_{i_{3}=0}^{100}\\left(F_{i_{1}+i_{2}+i_{3}+204}-2 F_{i_{1}+i_{2}+i_{3}+103}+F_{i_{1}+i_{2}+i_{3}+2}\\right) \\\\\n= & \\sum_{i_{1}=0}^{100} \\sum_{i_{2}=0}^{100}\\left(F_{i_{1}+i_{2}+306}-3 F_{i_{1}+i_{2}+205}+3 F_{i_{1}+i_{2}+104}-F_{i_{1}+i_{2}+3}\\right) \\\\\n= & \\sum_{i_{1}=0}^{100}\\left(F_{i_{1}+408}-4 F_{i_{1}+307}+6 F_{i_{1}+206}-4 F_{i_{1}+105}+F_{i_{1}+4}\\right) \\\\\n= & F_{510}-5 F_{409}+10 F_{308}-10 F_{207}+5 F_{106}-F_{5} .\n\\end{aligned}\n$$\nThis representation is unique because the Fibonacci terms grow exponentially quickly, so e.g. the $F_{510}$ term dominates, forcing $n_{1}=510$ and similarly for the other terms. The final answer is\n$$\n510+409+308+207+106+5=1545\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-3777",
+      "name": "HMMT February 2020 #0kfl",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2020",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial operations",
+        "Sums and products",
+        "Telescoping series"
+      ],
+      "statement": "Problem:\nLet $P(x)$ be the monic polynomial with rational coefficients of minimal degree such that $\\frac{1}{\\sqrt{2}}$, $\\frac{1}{\\sqrt{3}}, \\frac{1}{\\sqrt{4}}, \\ldots, \\frac{1}{\\sqrt{1000}}$ are roots of $P$. What is the sum of the coefficients of $P$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFor irrational $\\frac{1}{\\sqrt{r}}, -\\frac{1}{\\sqrt{r}}$ must also be a root of $P$. Therefore\n$$\nP(x) = \\frac{\\left(x^{2} - \\frac{1}{2}\\right)\\left(x^{2} - \\frac{1}{3}\\right) \\cdots \\left(x^{2} - \\frac{1}{1000}\\right)}{\\left(x + \\frac{1}{2}\\right)\\left(x + \\frac{1}{3}\\right) \\cdots \\left(x + \\frac{1}{31}\\right)}\n$$\nWe get the sum of the coefficients of $P$ by setting $x=1$, so we use telescoping to get\n$$\nP(1) = \\frac{\\frac{1}{2} \\cdot \\frac{2}{3} \\cdots \\frac{999}{1000}}{\\frac{3}{2} \\cdot \\frac{4}{3} \\cdots \\frac{32}{31}} = \\frac{1}{16000}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-3782",
+      "name": "HMMO 2020 #0kfq",
+      "url": "https://usamoguide.com/",
+      "source": "HMMO 2020",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Sums and products",
+        "Telescoping series",
+        "τ (number of divisors)"
+      ],
+      "statement": "Problem:\n\nWhile waiting for their next class on Killian Court, Alesha and Belinda both write the same sequence $S$ on a piece of paper, where $S$ is a 2020-term strictly increasing geometric sequence with an integer common ratio $r$. Every second, Alesha erases the two smallest terms on her paper and replaces them with their geometric mean, while Belinda erases the two largest terms in her paper and replaces them with their geometric mean. They continue this process until Alesha is left with a single value $A$ and Belinda is left with a single value $B$. Let $r_{0}$ be the minimal value of $r$ such that $\\frac{A}{B}$ is an integer. If $d$ is the number of positive factors of $r_{0}$, what is the closest integer to $\\log _{2} d$ ?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nBecause we only care about when the ratio of $A$ to $B$ is an integer, the value of the first term in $S$ does not matter. Let the initial term in $S$ be $1$. Then, we can write $S$ as $1, r, r^{2}, \\ldots, r^{2019}$. Because all terms are in terms of $r$, we can write $A = r^{a}$ and $B = r^{b}$. We will now solve for $a$ and $b$.\n\nObserve that the geometric mean of two terms $r^{m}$ and $r^{n}$ is simply $r^{\\frac{m+n}{2}}$, or $r$ raised to the arithmetic mean of $m$ and $n$. Thus, to solve for $a$, we can simply consider the sequence $0, 1, 2, \\ldots, 2019$, which comes from the exponents of the terms in $S$, and repeatedly replace the smallest two terms with their arithmetic mean. Likewise, to solve for $b$, we can consider the same sequence $0, 1, 2, \\ldots, 2019$ and repeatedly replace the largest two terms with their arithmetic mean.\n\nWe begin by computing $a$. If we start with the sequence $0, 1, \\ldots, 2019$ and repeatedly take the arithmetic mean of the two smallest terms, the final value will be\n$$\na = \\frac{\\frac{\\frac{0+1}{2} + 2}{2} + 3}{2} + \\cdots + 2019 = \\sum_{k=1}^{2019} \\frac{k}{2} \\frac{2^{2020-k}}{2}\n$$\nThen, we can compute\n$$\n\\begin{aligned}\n2a &= \\sum_{k=1}^{2019} \\frac{k}{2^{2019-k}} \\\\\n\\Longrightarrow a &= 2a - a = \\sum_{k=1}^{2019} \\frac{k}{2^{2019-k}} - \\sum_{k=1}^{2019} \\frac{k}{2^{2020-k}} \\\\\n&= \\sum_{k=1}^{2019} \\frac{k}{2^{2019-k}} - \\sum_{k=0}^{2018} \\frac{k+1}{2^{2019-k}} \\\\\n&= 2019 - \\sum_{j=1}^{2019} \\frac{1}{2^{j}} \\\\\n&= 2019 - \\left(1 - \\frac{1}{2^{2019}}\\right) = 2018 + \\frac{1}{2^{2019}}\n\\end{aligned}\n$$\nLikewise, or by symmetry, we can find $b = 1 - \\frac{1}{2^{2019}}$.\n\nSince we want $\\frac{A}{B} = \\frac{r^{a}}{r^{b}} = r^{a-b}$ to be a positive integer, and $a-b = \\left(2018 + \\frac{1}{2^{2019}}\\right) - \\left(1 - \\frac{1}{2^{2019}}\\right) = 2017 + \\frac{1}{2^{2018}}$, $r$ must be a perfect $\\left(2^{2018}\\right)^{\\text{th}}$ power. Because $r > 1$, the minimal possible value is $r = 2^{2^{2018}}$. Thus, $d = 2^{2018} + 1$, and so $\\log_{2} d$ is clearly closest to $2018$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-3845",
+      "name": "HMMT Spring 2021 Guts Round #0khh",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT Spring 2021 Guts Round",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Sums and products",
+        "Telescoping series"
+      ],
+      "statement": "Problem:\nA tournament among $2021$ ranked teams is played over $2020$ rounds. In each round, two teams are selected uniformly at random among all remaining teams to play against each other. The better ranked team always wins, and the worse ranked team is eliminated. Let $p$ be the probability that the second best ranked team is eliminated in the last round. Compute $\\lfloor 2021 p \\rfloor$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nIn any given round, the second-best team is only eliminated if it plays against the best team. If there are $k$ teams left and the second-best team has not been eliminated, the second-best team plays the best team with probability $\\frac{1}{\\binom{k}{2}}$, so the second-best team survives the round with probability\n$$\n1 - \\frac{1}{\\binom{k}{2}} = 1 - \\frac{2}{k(k-1)} = \\frac{k^2 - k - 2}{k(k-1)} = \\frac{(k+1)(k-2)}{k(k-1)}.\n$$\nSo, the probability that the second-best team survives every round before the last round is\n$$\n\\prod_{k=3}^{2021} \\frac{(k+1)(k-2)}{k(k-1)}\n$$\nwhich telescopes to\n$$\n\\frac{\\frac{2022!}{3!} \\cdot \\frac{2019!}{0!}}{\\frac{2021!}{2!} \\cdot \\frac{2020!}{1!}} = \\frac{2022! \\cdot 2019!}{2021! \\cdot 2020!} \\cdot \\frac{2! \\cdot 1!}{3! \\cdot 0!} = \\frac{2022}{2020} \\cdot \\frac{1}{3} = \\frac{337}{1010} = p\n$$\nSo,\n$$\n\\lfloor 2021 p \\rfloor = \\left\\lfloor \\frac{2021 \\cdot 337}{1010} \\right\\rfloor = \\left\\lfloor 337 \\cdot 2 + 337 \\cdot \\frac{1}{1010} \\right\\rfloor = 337 \\cdot 2 = 674\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-3899",
+      "name": "HMMT November 2021 #0kiz",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2021",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Telescoping series"
+      ],
+      "statement": "Problem:\n\nThere are $8$ lily pads in a pond numbered $1, 2, \\ldots, 8$. A frog starts on lily pad $1$. During the $i$-th second, the frog jumps from lily pad $i$ to $i+1$, falling into the water with probability $\\frac{1}{i+1}$. The probability that the frog lands safely on lily pad $8$ without having fallen into the water at any point can be written as $\\frac{m}{n}$, where $m, n$ are positive integers and $\\operatorname{gcd}(m, n) = 1$. Find $100m + n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe probability the frog lands safely on lily pad $i+1$ given that the frog safely landed on lily pad $i$ is $\\frac{i}{i+1}$. The probability the frog makes it to lily pad $8$ safely is simply the product of the probabilities of the frog making it to each of the lily pads $2$ through $8$ given it had safely landed on the lily pad before it. Thus, the probability is\n$$\n\\frac{1}{2} \\cdot \\frac{2}{3} \\cdots \\frac{7}{8} = \\frac{1}{8}.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-4067",
+      "name": "USA Junior MO #0knn",
+      "url": "https://usamoguide.com/",
+      "source": "USA Junior MO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cauchy-Schwarz",
+        "Telescoping series"
+      ],
+      "statement": "Let $n \\ge 4$ be an integer. Find all positive real solutions to the following system of $2n$ equations:\n$$\n\\begin{aligned}\na_1 &= \\frac{1}{a_{2n}} + \\frac{1}{a_2}, & a_2 &= a_1 + a_3, \\\\\na_3 &= \\frac{1}{a_2} + \\frac{1}{a_4}, & a_4 &= a_3 + a_5, \\\\\na_5 &= \\frac{1}{a_4} + \\frac{1}{a_6}, & a_6 &= a_5 + a_7, \\\\\n\\vdots & & \\vdots & \\\\\na_{2n-1} &= \\frac{1}{a_{2n-2}} + \\frac{1}{a_{2n}}, & a_{2n} &= a_{2n-1} + a_1.\n\\end{aligned}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-4163",
+      "name": "HMMT February #0kqb",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Telescoping series"
+      ],
+      "statement": "Problem:\nCompute the nearest integer to\n$$\n100 \\sum_{n=1}^{\\infty} 3^{n} \\sin^{3}\\left(\\frac{\\pi}{3^{n}}\\right)\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nNote that we have\n$$\n\\sin 3x = 3 \\sin x - 4 \\sin^{3} x \\Longrightarrow \\sin^{3} x = \\frac{1}{4}(3 \\sin x - \\sin 3x)\n$$\nwhich implies that\n$$\n\\frac{\\sin^{3} x}{3x} = \\frac{1}{4}\\left(\\frac{\\sin x}{x} - \\frac{\\sin 3x}{3x}\\right)\n$$\nSubstituting $x = \\frac{\\pi}{3^{n}}$ and simplifying gives us\n$$\n3^{n} \\sin^{3} \\frac{\\pi}{3^{n}} = \\frac{3\\pi}{4}\\left(\\frac{\\sin \\frac{\\pi}{3^{n}}}{\\frac{\\pi}{3^{n}}} - \\frac{\\sin \\frac{\\pi}{3^{n-1}}}{\\frac{\\pi}{3^{n-1}}}\\right)\n$$\nSumming this from $n=1$ to $N$ and telescoping gives us\n$$\n\\sum_{n=1}^{N} 3^{n} \\sin^{3}\\left(\\frac{\\pi}{3^{n}}\\right) = \\frac{3\\pi}{4}\\left(\\frac{\\sin \\frac{\\pi}{3^{N}}}{\\frac{\\pi}{3^{N}}} - \\frac{\\sin \\pi}{\\pi}\\right)\n$$\nTaking $N \\rightarrow \\infty$ gives us an answer of\n$$\n100 \\cdot \\frac{3\\pi}{4} \\approx 236\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-4324",
+      "name": "USA TSTST #0kus",
+      "url": "https://usamoguide.com/",
+      "source": "USA TSTST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cauchy-Schwarz",
+        "Telescoping series",
+        "Sums and products",
+        "Induction / smoothing"
+      ],
+      "statement": "Let $n \\ge m \\ge 1$ be integers. Prove that\n$$\n\\sum_{k=m}^{n} \\left( \\frac{1}{k^2} + \\frac{1}{k^3} \\right) \\ge m \\cdot \\left( \\sum_{k=m}^{n} \\frac{1}{k^2} \\right)^2 .\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**First solution (authors)** By Cauchy-Schwarz, we have\n$$\n\\begin{align*}\n\\sum_{k=m}^{n} \\frac{k+1}{k^3} &= \\sum_{k=m}^{n} \\frac{\\left(\\frac{1}{k^2}\\right)^2}{\\frac{1}{k(k+1)}} \\\\\n&\\ge \\frac{\\left(\\frac{1}{m^2} + \\frac{1}{(m+1)^2} + \\dots + \\frac{1}{n^2}\\right)^2}{\\frac{1}{m(m+1)} + \\frac{1}{(m+1)(m+2)} + \\dots + \\frac{1}{n(n+1)}} \\\\\n&= \\frac{\\left(\\frac{1}{m^2} + \\frac{1}{(m+1)^2} + \\dots + \\frac{1}{n^2}\\right)^2}{\\frac{1}{m} - \\frac{1}{n+1}} \\\\\n&> \\frac{\\left(\\sum_{k=m}^{n} \\frac{1}{k^2}\\right)^2}{\\frac{1}{m}}\n\\end{align*}\n$$\nas desired.\n\n\n**Second approach by inducting down, Luke Robitaille and Carl Schildkraut** Fix $n$; we'll induct downwards on $m$. For the base case of $n = m$ the result is easy, since the left side is $\\frac{m+1}{m^3}$ and the right side is $\\frac{m}{m^4} = \\frac{1}{m^3}$.\nFor the inductive step, suppose we have shown the result for $m+1$. Let\n\n$$\nA = \\sum_{k=m+1}^{n} \\frac{1}{k^2} \\quad \\text{and} \\quad B = \\sum_{k=m+1}^{n} \\frac{1}{k^3}.\n$$\nWe know $A + B \\ge (m+1)A^2$, and we want to show\n$$\n\\left(A + \\frac{1}{m^2}\\right) + \\left(B + \\frac{1}{m^3}\\right) \\ge m \\left(A + \\frac{1}{m^2}\\right)^2.\n$$\n\n$$\n\\left(A + \\frac{1}{m^2}\\right) + \\left(B + \\frac{1}{m^3}\\right) - m \\left(A + \\frac{1}{m^2}\\right)^2 = A + B + \\frac{m+1}{m^3} - mA^2 - \\frac{2A}{m} - \\frac{1}{m^3} \\\\\n= \\left(A + B - (m+1)A^2\\right) + \\left(A - \\frac{1}{m}\\right)^2 \\ge 0,\n$$\nand we are done.\n\n\n**Third approach by reducing $n \\to \\infty$, Michael Ren and Carl Schildkraut** First, we give:\n\nSet $n = \\infty$ henceforth. Let\n$$\nA = \\sum_{k=m}^{\\infty} \\frac{1}{k^2} \\quad \\text{and} \\quad B = \\sum_{k=m}^{\\infty} \\frac{1}{k^3};\n$$\n\nWrite\n$$\nC = \\sum_{k=m}^{\\infty} \\frac{1}{k^2(2k-1)(2k+1)} \\quad \\text{and} \\quad D = \\sum_{k=m}^{\\infty} \\frac{8k^2 - 1}{k^3(2k-1)^2(2k+1)^2}.\n$$\n\n$$\n\\frac{2}{2k-1} - \\frac{2}{2k+1} = \\frac{1}{k^2} + \\frac{1}{k^2(2k-1)(2k+1)},\n$$\nand\n$$\n\\frac{2}{(2k-1)^2} - \\frac{2}{(2k+1)^2} = \\frac{1}{k^3} + \\frac{8k^2-1}{k^3(2k-1)^2(2k+1)^2},\n$$\n\n$$\nA = \\frac{2}{2m-1} - C \\quad \\text{and} \\quad B = \\frac{2}{(2m-1)^2} - D.\n$$\n\n$$\n\\frac{2m+1}{2m-1}C \\ge D + mC^2.\n$$\n\n**Claim** — We have\n$$\n\\frac{2m + 1/2}{2m - 1} C \\geq D.\n$$\n\n*Proof.* We compare termwise; we need\n$$\n\\frac{2m + 1/2}{2m - 1} \\cdot \\frac{1}{k^2(2k - 1)(2k + 1)} \\ge \\frac{8k^2 - 1}{k^3(2k - 1)^2(2k + 1)^2}\n$$\nfor $k \\ge m$. It suffices to show\n$$\n\\frac{2k + 1/2}{2k - 1} \\cdot \\frac{1}{k^2(2k - 1)(2k + 1)} \\ge \\frac{8k^2 - 1}{k^3(2k - 1)^2(2k + 1)^2},\n$$\nwhich is equivalent to $k(2k + 1/2)(2k + 1) \\ge 8k^2 - 1$. This holds for all $k \\ge 1$. $\\square$\n\n**Claim** — We have\n$$\n\\frac{1/2}{2m-1}C \\ge mC^2.\n$$\n\n*Proof.* We need $C \\le 1/(2m(2m-1))$; indeed,\n$$\n\\frac{1}{2m(2m-1)} = \\sum_{k=m}^{\\infty} \\left( \\frac{1}{2k(2k-1)} - \\frac{1}{2(k+1)(2k+1)} \\right) = \\sum_{k=m}^{\\infty} \\frac{4k+1}{2k(2k-1)(k+1)(2k+1)};\n$$\ncomparing term-wise with the definition of $C$ and using the inequality $k(4k+1) \\ge 2(k+1)$ for $k \\ge 1$ gives the desired result. $\\square$\n\n\n**Fourth approach by bashing, Carl Schildkraut** With a bit more work, the third approach can be adapted to avoid the $n \\to \\infty$ reduction. Similarly to before, define\n$$\nA = \\sum_{k=m}^{n} \\frac{1}{k^2} \\quad \\text{and} \\quad B = \\sum_{k=m}^{n} \\frac{1}{k^3};\n$$\nwe want to show $1 + 4mB \\ge (2mA - 1)^2$. Writing\n\n$$\nC = \\sum_{k=m}^{n} \\frac{1}{k^2(2k-1)(2k+1)} \\quad \\text{and} \\quad D = \\sum_{k=m}^{n} \\frac{8k^2 - 1}{k^3(2k-1)^2(2k+1)^2}.\n$$\nWe compute\n$$\nA = \\frac{2}{2m-1} - \\frac{2}{2n+1} - C \\quad \\text{and} \\quad B = \\frac{2}{(2m-1)^2} - \\frac{2}{(2n+1)^2} - D.\n$$\n\nThen, the inequality we wish to show reduces (as in the previous solution) to\n$$\n\\frac{2m+1}{2m-1}C + \\frac{2(2m+1)}{(2m-1)(2n+1)} \\ge D + mC^2 + \\frac{2(2m+1)}{(2n+1)^2} + \\frac{4m}{2n+1}C.\n$$\n\nWe deal first with the terms not containing the variable $n$, i.e. we show that\n$$\n\\frac{2m+1}{2m-1}C \\ge D + mC^2.\n$$\n\nFor this part, the two claims from the previous solution go through exactly as written above, and we have $C \\le 1/(2m(2m-1))$. We now need to show\n$$\n\\frac{2(2m+1)}{(2m-1)(2n+1)} \\ge \\frac{2(2m+1)}{(2n+1)^2} + \\frac{4m}{2n+1}C\n$$\n(this is just the inequality between the remaining terms); our bound on $C$ reduces this to proving\n$$\n\\frac{4(2m+1)(n-m+1)}{(2m-1)(2n+1)^2} \\ge \\frac{2}{(2m-1)(2n+1)}.\n$$\nExpanding and writing in terms of $n$, this is equivalent to\n$$\nn \\ge \\frac{1 + 2(m - 1)(2m + 1)}{4m} = m - \\frac{2m + 1}{4m},\n$$\nwhich holds for all $n \\ge m$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-4501",
+      "name": "HMMT November 2024 #0kzp",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2024",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Telescoping series",
+        "Sums and products"
+      ],
+      "statement": "Problem:\n\n$$\n\\frac{2+3+\\cdots+100}{1}+\\frac{3+4+\\cdots+100}{1+2}+\\cdots+\\frac{100}{1+2+\\cdots+99} .\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $A$ denote the sum. We have\n\n$$\n\\begin{aligned}\nA+99 & =(1+2+\\cdots+100)\\left(\\frac{1}{1}+\\frac{1}{1+2}+\\cdots+\\frac{1}{1+2+\\cdots+99}\\right) \\\\\n& =5050 \\sum_{k=1}^{99} \\frac{2}{k(k+1)} \\\\\n& =10100 \\cdot \\sum_{k=1}^{99}\\left(\\frac{1}{k}-\\frac{1}{k+1}\\right) \\\\\n& =10100\\left(1-\\frac{1}{2}+\\frac{1}{2}-\\frac{1}{3}-\\cdots+\\frac{1}{99}-\\frac{1}{100}\\right) \\\\\n& =10100\\left(1-\\frac{1}{100}\\right)=9999\n\\end{aligned}\n$$\n\nso the answer is $A=9900$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-4536",
+      "name": "AMC 12 A #0l0o",
+      "url": "https://usamoguide.com/",
+      "source": "AMC 12 A",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recurrence relations",
+        "Telescoping series",
+        "Sums and products"
+      ],
+      "statement": "Suppose that $a_1 = 2$ and the sequence $(a_n)$ satisfies the recurrence relation\n$$\n\\frac{a_n - 1}{n - 1} = \\frac{a_{n-1} + 1}{(n-1) + 1}\n$$\nfor all $n \\ge 2$. What is the greatest integer less than or equal to\n$$\n\\sum_{n=1}^{100} a_n^2?\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Computing the first few terms of this sequence gives $a_1 = 2$, $a_2 = \\frac{5}{2}$, $a_3 = \\frac{10}{3}$, and $a_4 = \\frac{17}{4}$, so it appears that $a_n = n + \\frac{1}{n}$. Indeed, this is correct, because the recurrence relation is satisfied:\n$$\n\\frac{a_{n-1} + 1}{(n-1) + 1} = \\frac{n - 1 + \\frac{1}{n-1} + 1}{n} = 1 + \\frac{1}{n(n-1)} = \\frac{n-1}{n-1} + \\frac{1}{n-1} = \\frac{a_n - 1}{n-1}\n$$\nThen\n$$\n\\begin{aligned}\n\\sum_{n=1}^{100} a_n^2 &= \\sum_{n=1}^{100} \\left( n^2 + 2 + \\frac{1}{n^2} \\right) \\\\\n&= \\frac{100 \\cdot 101 \\cdot 201}{6} + 200 + r \\\\\n&= \\frac{2030100 + 1200}{6} + r \\\\\n&= 338,550 + r,\n\\end{aligned}\n$$\nwhere $r = \\sum_{n=1}^{100} \\frac{1}{n^2}$. But by a telescoping sum argument,\n$$\n1 < r < 1 + \\sum_{n=2}^{100} \\frac{1}{n(n-1)} = 2 - \\frac{1}{100} < 2.\n$$\nThus $\\sum_{n=1}^{100} a_n^2$ is between 338,551 and 338,552, and the requested greatest integer is 338,551."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-4564",
+      "name": "HMMT February 2024 Guts Round #0l1g",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2024 Guts Round",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial operations",
+        "Sums and products",
+        "Telescoping series"
+      ],
+      "statement": "Problem:\nIt can be shown that there exists a unique polynomial $P$ in two variables such that for all positive integers $m$ and $n$,\n$$\nP(m, n)=\\sum_{i=1}^{m} \\sum_{j=1}^{n}(i+j)^{7} .\n$$\nCompute $P(3,-3)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nNote that for integers $m>0, n>1$,\n$$\nP(m, n)-P(m, n-1)=\\sum_{i=1}^{m}(i+n)^{7}\n$$\nFor any given positive integer $m$, both sides are a polynomial in $n$, so they must be equal as polynomials. In particular,\n$$\nP(3, x)-P(3, x-1)=\\sum_{i=1}^{3}(i+x)^{7}=(x+1)^{7}+(x+2)^{7}+(x+3)^{7}\n$$\nfor all real $x$. Moreover, $P(3,1)-P(3,0)=P(3,1) \\Longrightarrow P(3,0)=0$. Then\n$$\n\\begin{aligned}\nP(3,-3) & =P(3,0)-\\left(1^{7}+2^{7}+3^{7}\\right)-\\left(0^{7}+1^{7}+2^{7}\\right)-\\left((-1)^{7}+0^{7}+1^{7}\\right) \\\\\n& =-3^{7}-2 \\cdot 2^{7}-2=-2445 .\n\\end{aligned}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-4723",
+      "name": "HMMT February #0l5v",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recurrence relations",
+        "Telescoping series",
+        "Floors and ceilings",
+        "Divisibility / Factorization"
+      ],
+      "statement": "Problem:\nLet $f$ be a function from nonnegative integers to nonnegative integers such that $f(0) = 0$ and\n$$\n  f(m) = f\\left(\\left\\lfloor \\frac{m}{2} \\right\\rfloor\\right) + \\left\\lceil \\frac{m}{2} \\right\\rceil^2\n$$\nfor all positive integers $m$. Compute\n$$\n  \\frac{f(1)}{1 \\cdot 2} + \\frac{f(2)}{2 \\cdot 3} + \\frac{f(3)}{3 \\cdot 4} + \\dots + \\frac{f(31)}{31 \\cdot 32}.\n$$\n(Here, $\\lfloor z\\rfloor$ is the greatest integer less than or equal to $z$, and $\\lceil z\\rceil$ is the least positive integer greater than or equal to $z$.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFor all positive integers $n$, let $\\omega(n) = f(n) - f(n - 1)$. We claim that $\\omega(n)$ is the largest odd divisor of $n$ for all $n > 0$. Indeed, for all positive integers $k$, we have\n$$\n  \\omega(2k) = f(2k) - f(2k - 1) = f(k) + k^2 - (f(k - 1) + k^2) = f(k) - f(k - 1) = \\omega(k)\n$$\nand\n$$\n  \\omega(2k + 1) = f(2k + 1) - f(2k) = f(k) + (k + 1)^2 - (f(k) + k^2) = 2k + 1.\n$$\nInducting on the positive integers implies that $\\omega(n)$ is indeed the largest odd divisor of $n$.\n\nWe can now rewrite the sum as\n$$\n  \\sum_{n = 1}^{31} \\frac{f(n)}{n(n + 1)} = \\sum_{n = 1}^{31} \\left( \\frac{f(n)}{n} - \\frac{f(n)}{n + 1} \\right ) = \\left( \\sum_{n = 1}^{30} \\frac{f(n) - f(n - 1)}{n} \\right ) - \\frac{f(31)}{32}.\n$$\nNote that by using the original recursive definition, we can compute\n$$\n  f(31) = 16^2 + 8^2 + 4^2 + 2^2 + 1^2 = 341.\n$$\nMoreover, we also see that $\\frac{f(n) - f(n - 1)}{n} = \\frac{\\omega(n)}{n} = 2^{-\\nu_2(n)}$, where $2^{\\nu_2(n)}$ is the largest power of $2$ dividing $n$. Thus, our desired sum is\n$$\n  \\left( \\sum_{n = 1}^{31} 2^{-\\nu_2(n)} \\right ) - \\frac{341}{32} = 16 \\cdot 2^{-0} + 8 \\cdot 2^{-1} + 4 \\cdot 2^{-2} + 2 \\cdot 2^{-3} + 1 \\cdot 2^{-4} - \\frac{341}{32} = \\frac{341}{32}.\n$$\n\nSolution 2:\nFrom the original recursion, for all positive integers $n$, we have\n$$\n  \\frac{f(2n)}{2n(2n + 1)} = \\frac{f(n) + n^2}{2n(2n + 1)} = \\frac{f(n)}{2n(2n + 1)} + \\frac{n}{2(2n + 1)}\n$$\nand\n$$\n  \\frac{f(2n + 1)}{(2n + 1)(2n + 2)} = \\frac{f(n) + (n + 1)^2}{(2n + 1)(2n + 2)} = \\frac{f(n)}{(2n + 1)(2n + 2)} + \\frac{n + 1}{2(2n + 1)}.\n$$\nAdding these two equations gives\n$$\n  \\frac{f(2n)}{2n(2n + 1)} + \\frac{f(2n + 1)}{(2n + 1)(2n + 2)} = \\frac{f(n)}{2n(n + 1)} + \\frac{1}{2}.\n$$\nThus, if $T(n) = \\sum_{k = 1}^n \\frac{f(k)}{k(k + 1)}$, we have\n$$\n  T(2n + 1) = \\sum_{k = 1}^{2n + 1} \\frac{f(k)}{k(k + 1)} = \\frac{f(1)}{1 \\cdot 2} + \\sum_{m = 1}^n \\left( \\frac{f(2m)}{2m(2m + 1)} + \\frac{f(2m + 1)}{(2m + 1)(2m + 2)} \\right )\n$$\n$$\n  = \\frac{1}{2} + \\sum_{m = 1}^n \\left( \\frac{f(m)}{2m(m + 1)} + \\frac{1}{2} \\right )\n$$\n$$\n  = \\frac{n + 1}{2} + \\frac{1}{2} T(n).\n$$\nStarting from $T(1) = 1$, we can compute $T(3) = \\frac{5}{4}$, $T(7) = \\frac{21}{8}$, $T(15) = \\frac{85}{16}$, and finally, $T(31) = \\frac{341}{32}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-sequences-and-series-telescoping-series-auto-4742",
+      "name": "AIME II #0l6e",
+      "url": "https://usamoguide.com/",
+      "source": "AIME II",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Logarithmic functions",
+        "Sums and products",
+        "Telescoping series"
+      ],
+      "statement": "The product\n$$\n\\prod_{k=4}^{63} \\frac{\\log_k(5^{k^2-1})}{\\log_{k+1}(5^{k^2-4})} = \\frac{\\log_4(5^{15})}{\\log_5(5^{12})} \\cdot \\frac{\\log_5(5^{24})}{\\log_6(5^{21})} \\cdot \\frac{\\log_6(5^{35})}{\\log_7(5^{32})} \\cdots \\frac{\\log_{63}(5^{3968})}{\\log_{64}(5^{3965})}\n$$\nis equal to $\\frac{m}{n}$, where $m$ and $n$ are relatively prime positive integers. Find $m + n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

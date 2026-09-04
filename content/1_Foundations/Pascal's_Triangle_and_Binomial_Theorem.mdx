@@ -1,0 +1,185 @@
+---
+id: pascals-triangle-binomial-theorem
+title: Pascal's Triangle & Binomial Theorem 
+author: USAMO Guide Team
+description: Pascal's triangle structure and its symmetry, hockey stick identity, and basic binomial expansion.
+prerequisites: [counting-fundamentals]
+---
+ 
+## Overview
+ 
+Pascal's triangle and the binomial theorem both come from the same idea. Every entry in the triangle is a binomial coefficient $\binom{n}{k}$, and the binomial theorem tells how those coefficients appear when expanding 
+$(a+b)^n$. These are both fast ways to compute counting problems, identify patterns, and prove identities that would otherwise require long and bashy algebra.
+ 
+## Key Ideas
+ 
+- The $n$th row of Pascal's triangle lists $\binom{n}{0}, \binom{n}{1}, \ldots, \binom{n}{n}$, in symmetry.
+- Pascal's identity: $\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}$.
+- Symmetry from the Pascal Triangle forms $\binom{n}{k} = \binom{n}{n-k}$.
+- Sum of rows $\binom{n}{0} + \binom{n}{1} + \cdots + \binom{n}{n} = 2^n$.
+- The hockey stick identity: $\binom{r}{r} + \binom{r+1}{r} + \cdots + \binom{n}{r} = \binom{n+1}{r+1}$.
+- Binomial theorem: $(a+b)^n = \sum_{k=0}^{n} \binom{n}{k} a^{n-k} b^k$.
+- To find a specific coefficient in $(a+b)^n$, $\binom{n}{k} a^{n-k} b^k$ shows the general term.
+
+## Core Skills
+ 
+### Pascal's Triangle
+ 
+First, what is the Pascal's Triangle and why is it so important? Each entry is the sum of the two entries directly above it. Row 0 starts with
+just 1. Writing out a few rows, we get 
+ 
+$$
+\begin{array}{ccccccccc}
+& & & & 1 & & & & \\
+& & & 1 & & 1 & & & \\
+& & 1 & & 2 & & 1 & & \\
+& 1 & & 3 & & 3 & & 1 & \\
+1 & & 4 & & 6 & & 4 & & 1
+\end{array}
+$$
+ 
+Row $n$ has $n+1$ entries, and the $k$th entry (starting from $k=0$) is
+$\binom{n}{k}$. This comes from Pascal's identity, to choose $k$ items from $n$,
+either the last item is included (choose $k-1$ from the rest) or it isn't
+(choose $k$ from the rest).
+ 
+### Identity of Symmetry 
+ 
+$$
+\binom{n}{k} = \binom{n}{n-k}.
+$$
+ 
+Choosing $k$ items to include is the same as choosing $n-k$ items to exclude.
+On the triangle, row $n$ reads the same forwards and backwards, hence forming this equation. 
+ 
+### Row Sum
+ 
+$$
+\sum_{k=0}^{n} \binom{n}{k} = 2^n.
+$$
+ 
+Every subset of an $n$-element set either includes or excludes each element, and hence 
+giving $2^n$ subsets total. Another way is to substitute $a=b=1$ into the binomial
+theorem.
+ 
+### Hockey Stick Identity
+ 
+$$
+\sum_{i=r}^{n} \binom{i}{r} = \binom{n+1}{r+1}.
+$$
+ 
+On the triangle, if one starts at any $\binom{r}{r} = 1$ on the diagonal and sum
+diagonally downward, the result is the entry one step down and one step right.
+People call it the "hockey stick identity" because the shape traced looks like a hockey stick.
+ 
+### Binomial Theorem/Expansion 
+ 
+$$
+(a+b)^n = \sum_{k=0}^{n} \binom{n}{k} a^{n-k} b^k.
+$$
+ 
+Each term $\binom{n}{k} a^{n-k} b^k$ comes from choosing which $k$ of the $n$
+factors contribute a $b$ (and the rest contribute an $a$). The coefficient of
+$a^{n-k} b^k$ is exactly $\binom{n}{k}$. This can be shown on the Pascal Triangle directly. 
+ 
+To find a specific term, identify the $k$ that gives the powers that we want, and then 
+compute $\binom{n}{k} a^{n-k} b^k$ directly. Hence we see that there is no need to expand everything.
+ 
+### Substitution Tricks
+ 
+Plugging specific values into $(a+b)^n = \sum \binom{n}{k} a^{n-k} b^k$ creates useful identities that we use in Combinatorics. 
+ 
+- $a=b=1$: $\quad \sum_{k=0}^{n} \binom{n}{k} = 2^n$.
+- $a=1, b=-1$: $\quad \sum_{k=0}^{n} (-1)^k \binom{n}{k} = 0$.
+- $a=1, b=2$: $\quad \sum_{k=0}^{n} 2^k \binom{n}{k} = 3^n$.
+ 
+## Worked Example
+ 
+Find the coefficient of $x^3$ in the expansion of $(2x + 3)^5$.
+ 
+By the binomial theorem, the general term is $\binom{5}{k}(2x)^{5-k}(3)^k$.
+We need $5 - k = 3$, so $k = 2$.
+ 
+$$
+\binom{5}{2}(2x)^3(3)^2 = 10 \cdot 8x^3 \cdot 9 = 720x^3.
+$$
+ 
+Thus, coefficient of $x^3$ is $\boxed{720}$.
+ 
+When finding a single term, always isolate $k$ from the exponent condition
+first, and then substitute. It would not be ideal to expand the full expression.
+ 
+## More Examples
+ 
+### Example 1: Pascal's Identity
+ 
+Show that $\binom{8}{3} = \binom{7}{2} + \binom{7}{3}$.
+ 
+$$
+\binom{7}{2} + \binom{7}{3} = 21 + 35 = 56 = \binom{8}{3}. \checkmark
+$$
+ 
+This is Pascal's identity with $n=8$, $k=3$. We know that it works because every 3-element
+subset of $\{1,\ldots,8\}$ either contains 8 (choose 2 from the remaining 7)
+or does not (choose 3 from 7).
+ 
+### Example 2: Symmetry
+ 
+Evaluate $\binom{100}{97}$.
+ 
+$$
+\binom{100}{97} = \binom{100}{3} = \frac{100 \cdot 99 \cdot 98}{3!} = 161700.
+$$
+ 
+Always use symmetry to make the smaller number the bottom. This tip is very important for general problems in combinatorics. 
+### Example 3: Row Sum
+ 
+A pizza shop offers 10 toppings. How many different pizzas can you order
+(including the plain pizza with no toppings)?
+ 
+Each topping is either included or not: $2^{10} = 1024$ pizzas.
+ 
+This is the row sum $\sum_{k=0}^{10} \binom{10}{k} = 2^{10}$. In other words, every pizza
+corresponds to a subset.
+ 
+### Example 4: Hockey Stick
+ 
+Evaluate $\binom{2}{2} + \binom{3}{2} + \binom{4}{2} + \binom{5}{2} + \binom{6}{2}$.
+ 
+By the hockey stick identity with $r=2$ and $n=6$:
+ 
+$$
+\sum_{i=2}^{6} \binom{i}{2} = \binom{7}{3} = 35.
+$$
+ 
+### Example 5: Substitutions 
+ 
+Prove that the sum of binomial coefficients with alternating signs is zero:
+$\binom{n}{0} - \binom{n}{1} + \binom{n}{2} - \cdots = 0$ for $n \geq 1$.
+ 
+Substitute $a=1$, $b=-1$ into $(a+b)^n$:
+ 
+$$
+(1-1)^n = \sum_{k=0}^{n} \binom{n}{k} (-1)^k = 0. \checkmark
+$$
+
+ 
+## Strategy Checklist
+ 
+- Write out a few rows of Pascal's triangle when the problem involves small $n$, if not memorized. 
+- Use symmetry $\binom{n}{k} = \binom{n}{n-k}$ to put the smaller number on the bottom, and thus reduce heavy calculations. 
+- For a single term in $(a+b)^n$, find $k$ from the exponent condition first.
+- To sum all coefficients, substitute $a = b = 1$ (or $x = 1$).
+- Try to recognize hockey stick sums consecutive $\binom{i}{r}$ along a diagonal, as some problems will deliberately hide them from you. 
+- When a row sum looks like $2^n$ or $3^n$, try using substitution. 
+ 
+## Common Pitfalls
+ 
+- In Pascal Triangle, or for any combinatoric diagram or sequence, mislabeling rows can be a common mistake. For instance, Row 0 is the top row (just a 1), not row 1.
+- Forgetting to raise the full term: in $(2x+3)^5$, the $a$ is $2x$, so $a^{n-k} = (2x)^{n-k}$, not $2x^{n-k}$.
+- Cases of misapplying symmetry. $\binom{n}{k} = \binom{n}{n-k}$, not $\binom{k}{n-k}$.
+- Summing rows incorrectly can be another crucial mistake. Row $n$ has $n+1$ entries and sums to $2^n$, not $2^{n-1}$.
+ 
+## Practice Problems
+ 
+<Problems problems="practice" />

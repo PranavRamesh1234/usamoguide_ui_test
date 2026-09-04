@@ -1,0 +1,611 @@
+{
+  "MODULE_ID": "orders-number-theory",
+  "practice": [
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-multiplicative-order-auto-0050",
+      "name": "Berkeley Math Circle Monthly Contest 5 #0hk2",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 5",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Modular Arithmetic",
+        "Multiplicative order"
+      ],
+      "statement": "Problem:\nCalculate, with proof, the last digit of\n\n$$\n3^{3^{3^{3^{3}}}}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWhen $3$ is raised to the successive powers $1, 2, 3, 4, \\ldots$, the units digits are $3, 9, 7, 1, \\ldots$ From then on, since the digit $1$ has been reached, the units digits will repeat in this cycle of four elements. So it is necessary to find the remainder when\n$$\nn_{4} = 3^{3^{3^{3}}}\n$$\nis divided by $4$.\nWhen powers of $3$ are divided by $4$, the remainders are $3, 1, \\ldots$ Here the number $1$ appears after two steps, and the remainders therefore repeat in a two-element cycle. So it is necessary to find the remainder when\n$$\nn_{3} = 3^{3^{3}}\n$$\nis divided by $2$.\nBut $n_{3}$ is clearly odd, so $n_{4}$ has a remainder of $3$ when divided by $4$ and the original number $n_{5}$ has a last digit of $7$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-multiplicative-order-auto-0269",
+      "name": "MathNet #0hq5",
+      "url": "https://usamoguide.com/",
+      "source": "MathNet",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Multiplicative order"
+      ],
+      "statement": "Problem:\nWhat is the remainder when $2^{2001}$ is divided by $2^{7}-1$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n$2^{2001 \\bmod 7} = 2^{6} = 64$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-multiplicative-order-auto-0223",
+      "name": "Berkeley Math Circle Monthly Contest 3 #0hov",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 3",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Multiplicative order",
+        "Factorization techniques"
+      ],
+      "statement": "Problem:\n\n$p$ is a prime number such that the period of its decimal reciprocal is $200$. That is,\n\n$$\n\\frac{1}{p}=0 . X X X X \\ldots\n$$\n\nfor some block of $200$ digits $X$, but\n\n$$\n\\frac{1}{p} \\neq 0 . Y Y Y Y \\ldots\n$$\n\nfor all blocks $Y$ with less than $200$ digits. Find the $101$st digit, counting from the left, of $X$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $X$ be a block of $n$ digits and let $a=0 . X \\ldots$ Then $10^{n} a=X . X \\ldots$. Subtracting the previous two equalities gives us $\\left(10^{n}-1\\right) a=X$, i.e. $a=\\frac{X}{10^{n}-1}$.\n\nThen the condition that $a=\\frac{1}{p}$ reduces to $\\frac{1}{p}=\\frac{X}{10^{n}-1}$ or $p X=10^{n}-1$. For a given $p$ and $n$, such an $X$ exists if and only if $p$ divides $10^{n}-1$. Thus $p$ divides $10^{200}-1$ but not $10^{n}-1, 1 \\leq n \\leq 199$. Note that $10^{200}-1$ can be factored in this way:\n\n$$\n\\begin{aligned}\n10^{200}-1 & =\\left(10^{100}\\right)^{2}-1 \\\\\n& =\\left(10^{100}-1\\right)\\left(10^{100}+1\\right) .\n\\end{aligned}\n$$\n\nSince $p$ is prime and does not divide $10^{100}-1$, it must divide $10^{100}+1$, so that $10^{100}+1=k p$ for an integer $k$ and $X=\\frac{\\left(10^{100}-1\\right)\\left(10^{100}+1\\right)}{p}=\\left(10^{100}-1\\right) k$.\n\nIf $p=2,3,5$, or $7$, the fraction $\\frac{1}{p}$ either terminates or repeats less than $200$ digits. Therefore $p>10$ and $k<\\frac{10^{100}}{p}<10^{99}$. Now let us calculate the $101$st digit of $X=10^{100} k-k$, i.e. the digit representing multiples of $10^{99}$. Since $10^{100} k$ is divisible by $10^{100}$, its $10^{99}$s digit and all later digits are $0$. Since $k<10^{99}$, $k$ does not contribute a digit to the $10^{99}$s place, but it generates a borrow to this place, changing it into a $9$. Thus the $101$st digit of $X$ is a $9$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-multiplicative-order-auto-0331",
+      "name": "Berkeley Math Circle: Monthly Contest 6 #0hrv",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Chinese remainder theorem",
+        "Multiplicative order",
+        "Fermat / Euler / Wilson theorems"
+      ],
+      "statement": "Problem:\nFind the remainder when $10^{2^{0}} + 10^{2^{1}} + \\cdots + 10^{2^{2021}}$ is divided by $\\underbrace{44 \\cdots 44}_{44}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $N = 10^{2^{0}} + 10^{2^{1}} + \\cdots + 10^{2^{2021}}$. By the Chinese Remainder Theorem (CRT), it suffices to find $N \\bmod 4$ and $N \\bmod M = \\underbrace{11 \\cdots 11}_{44}$.\n\nModulo $4$, the remainder is $2$.\n\nModulo $M = \\frac{10^{44} - 1}{9}$, $10^{44} \\equiv 1$, so $10^{2^{i}} \\bmod M$ is determined by $2^{i} \\bmod 44$.\n\nMod $44$, $2^{0}$ is $1$ and $2^{1}$ is $2$. The remaining powers of two are all divisible by $4$. Furthermore, the period of $2 \\bmod 11$ is $10$, so the remaining $2020$ powers of $2$ are in fact divided equally among $10$ nonzero remainders that are multiples of $4$. Therefore,\n$$\nN \\bmod M = 10^{1} + 10^{2} + \\frac{2020}{10} \\cdot \\sum_{i=1}^{10} 10^{4i} = 2020202020202020202020202020202020202020110\n$$\nwhich is $2 \\bmod 4$, and is therefore the answer."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-multiplicative-order-auto-0396",
+      "name": "Berkeley Math Circle #0hto",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Prime numbers",
+        "Factorization techniques",
+        "Fermat / Euler / Wilson theorems",
+        "Multiplicative order",
+        "Recurrence relations"
+      ],
+      "statement": "Problem:\n\nThe tower function of twos, $T(n)$, is defined by $T(1)=2$ and $T(n+1)=2^{T(n)}$ for $n \\geq 1$. Prove that $T(n)-T(n-1)$ is divisible by $n!$ for $n \\geq 2$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $U(n) = T(n) - T(n-1)$. Note that\n$$\nU(n) = T(n) - T(n-1) = 2^{T(n-1)} - 2^{T(n-2)} = 2^{T(n-2)}\\left(2^{T(n-1)-T(n-2)} - 1\\right) = T(n-1)\\left(2^{U(n-1)} - 1\\right)\n$$\n\nWe first prove two lemmas, the second a refinement of the first.\n\nLemma 1. $U(n-1) \\mid U(n)$.\n\nProof. By induction on $n$. It is clear when $n=2$ and $n=3$. Suppose that $U(n-2) \\mid U(n-1)$, $n \\geq 3$. Then\n$$\n\\frac{U(n)}{U(n-1)} = \\frac{T(n-1)}{T(n-2)} \\cdot \\frac{2^{U(n-1)}-1}{2^{U(n-2)}-1}.\n$$\nThe first fraction is clearly an integer. Since $a \\mid b$ implies $2^a-1 \\mid 2^b-1$, the second fraction is an integer as well.\n\nLemma 2. If $p$ is a prime and $U(k)$ is divisible by $p^r$, $r \\geq 1$, then $U(k+1)$ is divisible by $p^{r+1}$.\n\nProof. If $p=2$, the $r$ factors of $2$ in $U(k)$ must be contained in $T(k-1)$. Since $T(k) > T(k-1)$, $T(k)$ has at least $r+1$ factors of $2$, and so does $U(k+1)$.\n\nIf $p>2$, we use induction on $n$. Let $n_0$ be the smallest value such that $p \\mid U(n_0)$. Let $r_0$ be the number of factors of $p$ in $U(n_0)$. Since $T(n_0-1)$ is a power of $2$, the $r_0$ factors are all contained in $2^{U(n_0-1)}-1$, i.e.\n$$\n2^{U(n_0-1)} \\equiv 1 \\pmod{p^{r_0}}.\n$$\nBy the preceding lemma, $U(n_0)$ is divisible by $U(n_0-1)$; however, by definition of $n_0$, $U(n_0)$ is divisible by $p$ while $U(n_0-1)$ is not. Consequently\n$$\nU(n_0) = U(n_0-1) \\cdot p \\cdot J\n$$\nwhere $J$ is an integer. We find that\n$$\n\\begin{aligned}\n2^{U(n_0-1)} &\\equiv 1 \\pmod{p^{r_0}} \\\\\n2^{U(n_0-1) \\cdot J} &\\equiv 1 \\pmod{p^{r_0}} \\\\\n2^{U(n_0)} = 2^{U(n_0-1) \\cdot J \\cdot p} &\\equiv 1 \\pmod{p^{r_0+1}}\n\\end{aligned}\n$$\nwhere we have used the fact that $a \\equiv b \\pmod{p^r}$ implies $a^p \\equiv b^p \\pmod{p^{r+1}}$. We conclude that $p^{r_0+1} \\mid 2^{U(n_0)}-1 \\mid U(n_0+1)$. This completes the base case. The induction step is similar, except that $n_0$ and $r_0$ are replaced by $n$ and $r$, and the analogous equation follows from the induction hypothesis rather than the definition of $n_0$.\n\nWe prove the following statement by strong induction for $n \\geq 2$:\n\nLemma 3. $U(n)$ is divisible by all prime powers less than $3 \\cdot 2^{n-2} - 1$.\n\nProof. We can verify the statement by hand for $n=2$ and $n=3$. Thus we suppose that $U(k) = T(k) - T(k-1)$ is divisible by $k!$ for $k < n$, where $n \\geq 4$. We prove the second assertion first. Let $p^r$ be a prime power less than $3 \\cdot 2^{n-2} - 1$. If $r > 1$, we note that\n$$\np^{r-1} \\leq \\frac{p^r}{2} \\leq \\frac{3 \\cdot 2^{n-2} - 2}{2} = 3 \\cdot 2^{n-3} - 1\n$$\nfurthermore, at least one of these inequalities is strict, since the first becomes equality only if $p=2$, and $2^n - 1 < 3 \\cdot 2^{n-2} < 2^n$ when $n \\geq 4$. Thus by the induction hypothesis, $p^{r-1}$ divides $U_{n-1}$, and we are done by Lemma 2. Now we assume that $r=1$. We may assume that $p \\geq 5$ since $U_3$ is already divisible by $2$ and $3$. Then $p-1$ is composite, and we can resolve it into prime powers\n$$\np-1 = q_1^{a_1} q_2^{a_2} \\cdots q_s^{a_s}\n$$\nwhere each factor $q_i^{a_i}$ is at most\n$$\n\\frac{p-1}{2} < \\frac{3 \\cdot 2^{n-2} - 2}{2} = 3 \\cdot 2^{n-3} - 1.\n$$\nWe infer that each $q_i^{a_i}$ divides $U_{n-1}$, and therefore $p-1$ divides $U_{n-1}$. We now have\n$$\np \\mid 2^{p-1} - 1 \\mid 2^{U_{n-1}} - 1 \\mid U_n\n$$\nas desired.\n\nWe are now ready to solve the problem. Assume that $n \\geq 4$; the cases $n=2$ and $n=3$ are easily checked by hand. Let $p$ be a prime dividing $n!$, that is, $p \\leq n$. The number of factors of $p$ in $n!$ is\n$$\nR = \\sum_{i=1}^{\\infty} \\left\\lfloor \\frac{n}{p^i} \\right\\rfloor < \\sum_{i=1}^{\\infty} \\frac{n}{p^i} = n \\sum_{i=1}^{\\infty} \\frac{1}{p^i} = n \\cdot \\frac{1/p}{1-1/p} = \\frac{n}{p-1}\n$$\nSo\n$$\nR \\leq \\frac{n-1}{p-1}\n$$\nWe observe that $p \\mid U(p)$: by hand calculation if $p=2$, and because $p < 3 \\cdot 2^{p-2} - 1$ if $p > 3$. By Lemma 2, applied $n-p$ times,\n$$\np^{n-p+1} \\mid U(n).\n$$\nSince $n-p+1 \\geq \\frac{n-1}{p-1}$ if $n \\geq p$, we have $p^R \\mid U(n)$, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-multiplicative-order-auto-0406",
+      "name": "Berkeley Math Circle: Monthly Contest 4 #0hty",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 4",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "φ (Euler's totient)",
+        "Fermat / Euler / Wilson theorems",
+        "Multiplicative order"
+      ],
+      "statement": "Problem:\nShow that $n$ divides $\\varphi\\left(a^{n}-1\\right)$ for any integers $a$ and $n$, where $\\varphi$ is Euler's totient function.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $N = a^{n} - 1$. Then $\\gcd(a, N) = 1$ and the order of $a \\pmod{N}$ is exactly equal to $n$. But $a^{\\varphi(N)} \\equiv 1 \\pmod{N}$ too. Thus $n$ divides $\\varphi(N)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-multiplicative-order-auto-0422",
+      "name": "Berkeley Math Circle: Monthly Contest 6 #0hue",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Multiplicative order",
+        "Fermat / Euler / Wilson theorems",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\nFind the smallest prime $p > 100$ for which there exists an integer $a > 1$ such that $p$ divides $\\frac{a^{89} - 1}{a - 1}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe answer is $p = 179$. To see this works, take $a = 4$; by Fermat's little theorem, $4^{89} - 1 = 2^{178} - 1$ is divisible by $179$.\n\nNow suppose $a^{89} \\equiv 1 \\pmod{p}$. We consider two cases:\n- If $a \\equiv 1 \\pmod{p}$, then\n$$\n0 \\equiv 1 + a + \\cdots + a^{88} \\equiv 89 \\pmod{p}\n$$\nwhich forces $p = 89$.\n- Otherwise, since $89$ is prime, it follows $a$ has order $89$ modulo $p$. So $89 \\mid p - 1$. The smallest prime which obeys this is $p = 179$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-multiplicative-order-auto-0501",
+      "name": "Berkeley Math Circle Monthly Contest 6 #0hwl",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Prime numbers",
+        "Greatest common divisors (gcd)",
+        "Inverses mod n",
+        "Polynomials mod p",
+        "Multiplicative order"
+      ],
+      "statement": "Problem:\n\nDecide whether there exist positive integers $a, b, c$ such that $3(a b + b c + c a)$ divides $a^{2} + b^{2} + c^{2}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe answer is no: such integers do not exist. In what follows, $\\nu_{p}(n)$ will denote the exponent of $p$ in the prime factorization of $n$.\n\nAssume without loss of generality that $a, b, c$ do not have some common divisor, and $a^{2} + b^{2} + c^{2} = 3k(a b + b c + c a)$. Write\n$$\n(3k + 2)\\left(a^{2} + b^{2} + c^{2}\\right) = 3k \\cdot (a + b + c)^{2}.\n$$\n\nSince $3k + 2 \\equiv 2 \\pmod{3}$, there is a prime $p \\equiv 2 \\pmod{3}$ with $\\nu_{p}(3k + 2)$ odd (in particular, $p \\mid 3k + 2$).\nWe first show that $p \\neq 2$. Let us assume on the contrary that $\\nu_{2}(3k + 2)$ is odd (in particular, $k$ is even). Remark that since $a, b, c$ are not all even, $\\nu_{2}\\left(a^{2} + b^{2} + c^{2}\\right) \\leq 1$. Furthermore,\n$$\n\\nu_{2}(a + b + c) = 0 \\Longleftrightarrow \\nu_{2}\\left(a^{2} + b^{2} + c^{2}\\right) = 0.\n$$\n\nNow we consider two cases.\n- Assume $\\nu_{2}(k) \\geq 2$. Then $\\nu_{2}(3k + 2) = 1$, $\\nu_{2}\\left(a^{2} + b^{2} + c^{2}\\right) \\leq 1$. Therefore\n$$\n\\nu_{2}(k) + 2\\nu_{2}(a + b + c) \\geq 2 \\geq \\nu_{2}(3k + 2) + \\nu_{2}\\left(a^{2} + b^{2} + c^{2}\\right)\n$$\nbut equality cannot occur since the relations\n$$\n\\nu_{2}(a + b + c) = 0 \\quad \\text{and} \\quad \\nu_{2}\\left(a^{2} + b^{2} + c^{2}\\right) = 1\n$$\ncannot hold simultaneously.\n\n- Assume $\\nu_{2}(k) = 1$. Then $\\nu_{2}(3k + 2) > 1$ and is odd. Now\n$$\n\\nu_{2}(3k + 2) + \\nu_{2}\\left(a^{2} + b^{2} + c^{2}\\right) = 1 + 2\\nu_{2}(a + b + c).\n$$\nThus $\\nu_{2}\\left(a^{2} + b^{2} + c^{2}\\right)$ must be even, so it is zero; consequently $\\nu_{2}(a + b + c) = 0$ as well and we obtain $1 < v_{2}(3k + 2) = 1$.\n\nNow for the interesting part. Remark $p \\mid a + b + c$ and $p \\mid a^{2} + b^{2} + c^{2}$. Without loss of generality $b \\not\\equiv 0 \\pmod{p}$, so that\n$$\na^{2} + b^{2} + (a + b)^{2} \\equiv 0 \\pmod{p} \\Longrightarrow a^{2} + a b + b^{2} \\equiv 0 \\pmod{p}\n$$\nThen if $x = a b^{-1}$, we get that $x^{2} + x + 1 \\equiv 0 \\pmod{p}$. But the left-hand side is the third cyclotomic polynomial, so either $p = 3$ or $3 \\mid p - 1$, but neither is the case.\n\nTherefore, such a triple $(a, b, c)$ does not exist."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-multiplicative-order-auto-0529",
+      "name": "Berkeley Math Circle #0hxd",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Techniques: modulo, size analysis, order analysis, inequalities",
+        "Modular Arithmetic",
+        "Greatest common divisors (gcd)",
+        "Factorization techniques",
+        "Quadratic residues",
+        "Multiplicative order"
+      ],
+      "statement": "Problem:\nFind all nonnegative integer solutions $(a, b, c, d)$ to the equation\n$$\n2^{a} 3^{b}-5^{c} 7^{d}=1.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe answer is $(1,0,0,0)$, $(3,0,0,1)$, $(1,1,1,0)$ and $(2,2,1,1)$. The solution involves several cases. It's clear that $a \\geq 1$, otherwise the left-hand side is even. The remainder of the solution involves several cases.\n\n- First, suppose $b=0$.\n- If $c \\geq 1$, then modulo 5 we discover $2^{a} \\equiv 1 \\pmod{5}$ and hence $4 \\mid a$. But then modulo 3 this gives $-5^{c} 7^{d} \\equiv 0$, which is a contradiction.\n- Hence assume $c=0$. Then this becomes $2^{a}-7^{d}=1$. This implies $1+7^{d} \\equiv 2^{a} \\pmod{16}$, and hence $a \\leq 3$. Exhausting the possible values of $a=0,1,2,3$ we discover that $(3,0,0,1)$ and $(1,0,0,0)$ are solutions.\n\n- Henceforth suppose $b>0$. Taking modulo 3, we discover that $5^{c} \\equiv -1 \\pmod{3}$, so $c$ must be odd and in particular not equal to zero. Then, taking modulo 5 we find that\n$$\n1 \\equiv 2^{a} 3^{b} \\equiv 2^{a-b} \\pmod{5}\n$$\nThus, $a \\equiv b \\pmod{4}$. Now we again have several cases.\n\n- First, suppose $d=0$. Then $2^{a} 3^{b}=5^{c}+1$. Taking modulo 4, we see that $a=1$ is necessary, so $b \\equiv 1 \\pmod{4}$. Clearly we have a solution $(1,1,1,0)$ here. If $b \\geq 2$, however, then taking modulo 9 we obtain $5^{c} \\equiv -1 \\pmod{9}$, which occurs only if $c \\equiv 0 \\pmod{3}$. But then $5^{3}+1=126$ divides $5^{c}+1=2^{a} 3^{b}$, which is impossible.\n\n- Now suppose $d \\neq 0$ and $a, b$ are odd. Then $6 M^{2} \\equiv 1 \\pmod{7}$, where $M=2^{\\frac{a-1}{2}} 3^{\\frac{b-1}{2}}$ is an integer. Hence $M^{2} \\equiv -1 \\pmod{7}$, but this is not true for any integer $M$.\n\n- Finally, suppose $b, c, d \\neq 0$, and $a=2x, b=2y$ are even integers with $x \\equiv y \\pmod{2}$, and that $c$ is odd. Let $M=2^{x} 3^{y}$. We obtain $(M-1)(M+1)=5^{c} 7^{d}$. As $\\gcd(M-1, M+1) \\leq 2$, this can only occur in two situations.\n\n* In one case, $M-1=5^{c}$ and $M+1=7^{d}$. Then $5^{c}+1=2^{x} 3^{y}$. We have already discussed this equation; it is valid only when $x=y=1$ and $c=1$, which gives $(a, b, c, d)=(2,2,1,1)$.\n* In the other case, $M+1=5^{c}$ and $M-1=7^{d}$. Taking the first relation modulo 3, we obtain that $M \\equiv 2^{c}-1 \\equiv 1 \\pmod{3}$. Hence $y=0$, and $x$ is even. Now $2^{x}+1=5^{c}$ and $2^{x}-1=7^{d}$. But if $x$ is even then $3=2^{2}-1\\mid 2^{x}-1\\mid 7^{d}$, which is impossible. Hence there are no solutions here.\n\nIn summary, the only solutions are $(1,0,0,0)$, $(3,0,0,1)$, $(1,1,1,0)$ and $(2,2,1,1)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-multiplicative-order-auto-0677",
+      "name": "Harvard-MIT Math Tournament #0i1h",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Modular Arithmetic",
+        "Multiplicative order"
+      ],
+      "statement": "Problem:\n\nWhat is the last digit of $17^{103} + 5$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $\\langle N \\rangle$ be the last digit of $N$. $\\left\\langle 17^{2} \\right\\rangle = 9$, $\\left\\langle 17^{3} \\right\\rangle = 3$, $\\left\\langle 17^{4} \\right\\rangle = 1$, and $\\left\\langle 17^{5} \\right\\rangle = 7$. Since this pattern keeps on repeating itself, $\\left\\langle 17^{4N} \\right\\rangle = 1$ for any integer $N$. Thus $\\left\\langle 17^{2 \\cdot 25} \\right\\rangle = \\left\\langle 17^{100} \\right\\rangle = 1$, so $\\left\\langle 17^{103} \\right\\rangle = 3$, and $\\left\\langle 17^{103} + 5 \\right\\rangle = \\langle 3 + 5 \\rangle = 8$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-multiplicative-order-auto-0937",
+      "name": "USA IMO 2003 #0i8p",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO 2003",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Multiplicative order",
+        "Fermat / Euler / Wilson theorems",
+        "Prime numbers"
+      ],
+      "statement": "Find all ordered triples of primes $(p, q, r)$ such that\n$$\np \\mid q^r + 1, \\quad q \\mid r^p + 1, \\quad r \\mid p^q + 1.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "We check that this is a solution:\n$$\n2 \\mid 126 = 5^3 + 1, \\quad 5 \\mid 10 = 3^2 + 1, \\quad 3 \\mid 33 = 2^5 + 1.\n$$\nNow let $p, q, r$ be three primes satisfying the given divisibility relations. Since $q$ does not divide $q^r + 1$, $p \\neq q$, and similarly $q \\neq r, r \\neq p$, so $p, q$ and $r$ are all distinct. We now prove a lemma.\n**Lemma.** Let $p, q, r$ be distinct primes with $p \\mid q^r + 1$, and $p > 2$. Then either $2r \\mid p-1$ or $p \\mid q^2 - 1$.\n*Proof.* Since $p \\mid q^r + 1$, we have\n$$\nq^r \\equiv -1 \\not\\equiv 1 \\pmod{p}, \\quad \\text{because } p > 2,\n$$\nbut\n$$\nq^{2r} \\equiv (-1)^2 \\equiv 1 \\pmod{p}.\n$$\nLet $d$ be the order of $q \\pmod{p}$; then from the above congruences, $d$ divides $2r$ but not $r$. Since $r$ is prime, the only possibilities are $d = 2$ or $d = 2r$. If $d = 2r$, then $2r \\mid p-1$ because $d \\mid p-1$. If $d = 2$, then $q^2 \\equiv 1 \\pmod{p}$ so $p \\mid q^2 - 1$. This proves the lemma. ■\nNow let's first consider the case where $p, q$ and $r$ are all odd. Since $p \\mid q^r + 1$, by the lemma either $2r \\mid p-1$ or $p \\mid q^2 - 1$. But $2r \\mid p-1$ is impossible because\n$$\n2r \\mid p-1 \\implies p \\equiv 1 \\pmod{r} \\implies 0 \\equiv p^q + 1 \\equiv 2 \\pmod{r}\n$$\nand $r > 2$. So we must have $p \\mid q^2 - 1 = (q - 1)(q + 1)$. Since $p$ is an odd prime and $q - 1, q + 1$ are both even, we must have\n$$\np \\mid \\frac{q-1}{2} \\quad \\text{or} \\quad p \\mid \\frac{q+1}{2};\n$$\neither way,\n$$\np \\le \\frac{q+1}{2} < q.\n$$\nBut then by a similar argument we may conclude $q < r, r < p$, a contradiction.\nThus, at least one of $p, q, r$ must equal 2. By a cyclic permutation we may assume that $p = 2$. Now $r \\mid 2^q + 1$, so by the lemma, either $2q \\mid r - 1$ or $r \\mid 2^2 - 1$. But $2q \\mid r - 1$ is impossible as before, because $q$ divides $r^2 + 1 = (r^2 - 1) + 2$ and $q > 2$. Hence, we must have $r \\mid 2^2 - 1$. We conclude that $r = 3$, and $q \\mid r^2 + 1 = 10$. Because $q \\ne p$, we must have $q = 5$. Hence (2, 5, 3) and its cyclic permutations are the only solutions."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-multiplicative-order-auto-1402",
+      "name": "Harvard-MIT Mathematics Tournament #0ilm",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Multiplicative order",
+        "Recurrence relations"
+      ],
+      "statement": "Problem:\n\nDefine the sequence of positive integers $a_{n}$ recursively by $a_{1}=7$ and $a_{n}=7^{a_{n-1}}$ for all $n \\geq 2$. Determine the last two digits of $a_{2007}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: 43. Note that the last two digits of $7^{4}$ are 01. Also, $a_{2006}=7^{a_{2005}}=(-1)^{a_{2005}}=-1=3$ $(\\bmod 4)$ since $a_{2005}$ is odd. Therefore, $a_{2007}=7^{a_{2006}}=7^{3}=43\\ (\\bmod\\ 100)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-multiplicative-order-auto-1457",
+      "name": "Team Selection Test #0in5",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Divisibility / Factorization",
+        "Fermat / Euler / Wilson theorems",
+        "Chinese remainder theorem",
+        "φ (Euler's totient)",
+        "Multiplicative order"
+      ],
+      "statement": "Determine whether or not there exist positive integers $a$ and $b$ such that $a$ does not divide $b^n - n$ for all positive integers $n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**Solution 1.** For all pairs of positive integers $a$ and $b$, we claim that there exist infinitely many $n$ such that $a$ divides $b^n - n$.\nWe establish our claim by strong induction on $a$. The base case of $a = 1$ holds trivially. Now, suppose that the claim holds for all $a < a_0$. Since $\\varphi(a) < a$, by the induction hypothesis and by Lemma 1, there are infinitely many $n$ such that\n$$\n\\varphi(a) \\mid (b^n - n) \\quad \\text{and} \\quad b^{n+\\varphi(a)} \\equiv b^n \\pmod{a}.\n$$\nFor each such $n$, set\n$$\nt = \\frac{b^n - n}{\\varphi(a)} \\quad \\text{and} \\quad n_1 = b^n = n + t\\varphi(a).\n$$\n\nIt follows that\n$$\nb^{n_1} - n_1 \\equiv b^{n+t\\varphi(a)} - (n+t\\varphi(a)) \\equiv b^n - n - t\\varphi(a) \\equiv 0 \\pmod{a}.\n$$\nThen, we see that $n_1$ satisfies the desired property. By the induction hypothesis, there are infinitely many $n_1 = b^n$ satisfying the conditions of the claim for $a$, completing the induction.\n\n\n**Solution 2.** We prove that no such $a, b$ exist by proving the following: for any $a, b$, there is an arithmetic progression $n \\equiv h \\pmod m$, with $m$ divisible only by primes less than or equal to the greatest prime factor of $a$, such that $b^n \\equiv n \\pmod a$ for all sufficiently large $n$ satisfying $n \\equiv h \\pmod m$.\nLet us induct on highest prime divisor of $a$. The result is trivial for $a = 1$. Let $p$ be a prime, and suppose that the result is true whenever all the prime divisors of $a$ are less than $p$. Now, suppose that $p$ is the greatest prime divisor of some $a$, and write $a = p^e a_1$, where $a_1$ has all prime factors less than $p$. By the induction hypothesis, there is an arithmetic progression $n \\equiv h_1 \\pmod{m_1}$, with $m_1$ divisible only by primes strictly less than $p$, such that for $n \\equiv h_1 \\pmod{m_1}$ sufficiently large, $b^n \\equiv n \\pmod{a_1}$. There is no harm in assuming that $p-1$ divides $m_1$. In this case, in this arithmetic progression, $b^n$ is eventually constant modulo $p$ due to the lemma. We can thus choose a congruence modulo $p$ so that for $n$ an appropriate residue class modulo $m_1p$, $b^n \\equiv n \\pmod{p}$. In this progression, $b^n$ is constant modulo $p^2$, so we can refine our choice of $n$ modulo $m_1p$ to a choice of $n$ modulo $m_1p^2$ to force $b^n \\equiv n \\pmod{p^2}$. We can then repeat the above process until we obtain $b^n \\equiv n \\pmod{p^e}$. Since we originally had $b^n \\equiv n \\pmod{a_1}$, combining the two congruences using the Chinese Remainder Theorem gives us $b^n \\equiv n \\pmod a$ for all sufficiently large $n$ in the congruence class generated at the last step. This completes the induction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-multiplicative-order-auto-2188",
+      "name": "USAMO #0j7g",
+      "url": "https://usamoguide.com/",
+      "source": "USAMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Multiplicative order"
+      ],
+      "statement": "Consider the assertion that for each positive integer $n \\ge 2$, the remainder upon dividing $2^{2n}$ by $2^n - 1$ is a power of 4. Either prove the assertion or find (with proof) a counterexample.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "The assertion is false, and the smallest $n$ for which it fails is $n = 25$. Given $n \\ge 2$, let $r$ be the remainder when $2^n$ is divided by $n$. Then $2^n = kn + r$ where $k$ is a positive integer and $0 \\le r < n$. It follows that\n$$\n2^{2n} = 2^{kn+r} \\equiv 2^r \\pmod{2^n - 1},\n$$\nwhere $2^r < 2^{2n} - 1$. Thus, the remainder when $2^{2n}$ is divided by $2^n - 1$ is $2^r$. Now, $2^r$ is a power of 4 if and only if $r$ is even, so to disprove the assertion it is enough to find an $n$ for which the corresponding $r$ is odd. We describe now a method to find such an $n$.\nIf $n$ is even then so is $r = 2^n - kn$. If $n$ is an odd prime then $2^n \\equiv 2 \\pmod n$ by Fermat's Little Theorem; hence $r \\equiv 2^n \\equiv 2 \\pmod n$ and $r = 2$. Therefore, we may rule out these values of $n$.\nIt remains to try cases in which $n$ is odd and composite. In the first three instances $n = 9, 15, 21$ there is no contradiction to the assertion:\n$$\nn = 9: \\quad 2^6 \\equiv 1 \\pmod 9 \\quad \\Rightarrow \\quad 2^9 \\equiv 2^6 \\cdot 2^3 \\equiv 8 \\pmod 9\n$$\n$$\nn = 15: \\quad 2^4 \\equiv 1 \\pmod{15} \\quad \\Rightarrow \\quad 2^{15} \\equiv (2^4)^3 \\cdot 2^3 \\equiv 8 \\pmod{15}\n$$\n$$\nn = 21: \\quad 2^6 \\equiv 1 \\pmod{21} \\quad \\Rightarrow \\quad 2^{21} \\equiv (2^6)^3 \\cdot 2^3 \\equiv 8 \\pmod{21}\n$$\nHowever, for $n = 25$, we see that\n$$\n2^{10} = 1024 \\equiv -1 \\Rightarrow 2^{20} \\equiv 1 \\Rightarrow 2^{25} \\equiv 2^5 \\equiv 7 \\pmod{25},\n$$\nso 7 is the remainder when $2^{25}$ is divided by 25 and $2^7$ is the remainder when $2^{2^{25}}$ is divided by $2^{25} - 1$. This gives the desired counterexample."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-multiplicative-order-auto-2194",
+      "name": "Harvard-MIT November Tournament #0j7m",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Multiplicative order"
+      ],
+      "statement": "Problem:\nDetermine the remainder when\n$$\n2^{\\frac{1 \\cdot 2}{2}} + 2^{\\frac{2 \\cdot 3}{2}} + \\cdots + 2^{\\frac{2011 \\cdot 2012}{2}}\n$$\nis divided by $7$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe have that $2^{3} \\equiv 1 \\pmod{7}$. Hence, it suffices to consider the exponents modulo $3$. We note that the exponents are the triangular numbers and upon division by $3$ give the pattern of remainders $1, 0, 0, 1, 0, 0, \\ldots$, so what we want is\n$$\n\\begin{aligned}\n2^{\\frac{1 \\cdot 2}{2}} + \\cdots + 2^{\\frac{2011 \\cdot 2012}{2}} &\\equiv 2^{1} + 2^{0} + 2^{0} + 2^{1} + \\ldots + 2^{0} + 2^{1} \\pmod{7} \\\\\n&\\equiv \\frac{2010}{3} (2^{1} + 2^{0} + 2^{0}) + 2^{1} \\\\\n&\\equiv (670)(4) + 2 \\\\\n&\\equiv 1.\n\\end{aligned}"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-multiplicative-order-auto-2371",
+      "name": "TST #0jcj",
+      "url": "https://usamoguide.com/",
+      "source": "TST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Multiplicative order",
+        "Roots of unity",
+        "φ (Euler's totient)",
+        "Factorization techniques"
+      ],
+      "statement": "Find all pairs $(a, n)$ of positive integers with $n > 1$ such that for every prime $p$ dividing $a^n - 1$, there exists $0 < k < n$ such that $p$ divides $a^k - 1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Define a *good pair* to be a pair $(a, n)$ of positive integers, with $n > 1$, such that any prime dividing $a^n - 1$ also divides $a^k - 1$ for some $0 < k < n$. We claim that the only good pairs are $(2, 6)$, $(1, n)$ for any $n$, and $(2^m - 1, 2)$ for any $m \\ge 2$.\n\nIt is straightforward to verify that all of these work, so it remains to show that these are the only good pairs. First, note that we have taken care of all cases where $a = 1$, so we may henceforth assume $a \\ge 2$. Also, note that if $n = 2$, then $(a, n)$ is a good pair if and only if any prime dividing $a^2 - 1 = (a+1)(a-1)$ also divides $a - 1$. Since the greatest common factor of $a+1$ and $a-1$ is at most $2$, it follows that $a+1$ must be a power of $2$. Thus, we have identified all the good pairs $(a, n)$ with $n = 2$.\n\nIt remains to show that the only good pair $(a, n)$ with $a \\ge 2$ and $n \\ge 3$ is $(2, 6)$. Let $\\Phi_n(x)$ be the $n^{\\text{th}}$ cyclotomic polynomial, and for a prime $p$, let $v_p(x)$ be the largest $k$ such that $p^k \\mid x$. Let $\\text{ord}_p(x)$ denote the order of $x$ modulo $p$, meaning the smallest $o$ such that $x^o \\equiv 1 \\pmod p$. We first prove a sequence of lemmas.\n\n**Lemma 4.** Let $n, k$, and $d$ be positive integers with $n = kd$. Then if $a$ is a positive integer and $p$ a prime such that either\n* $p$ is odd and $p \\mid a^k - 1$, or\n* $p = 2$ and $4 \\mid a^k - 1$,\nthen we have\n$$\nv_p(a^n - 1) = v_p(a^k - 1) + v_p(d).\n$$\n*Proof.* Consider the binomial expansion\n$$\na^n - 1 = ((a^k - 1) + 1)^d - 1 = \\sum_{i=1}^{d} \\binom{d}{i} (a^k - 1)^i.\n$$\nUnder either of the given assumptions, $v_p\\left(\\binom{d}{i}(a^k - 1)^i\\right)$ has a unique minimum at $i = 1$, hence\n$$\nv_p(a^n - 1) = v_p\\left(d(a^k - 1)\\right) = v_p(a^k - 1) + v_p(d). \\quad \\square\n$$\n\n**Lemma 5.** For any $n \\ge 3$ and any prime $p$ such that $\\text{ord}_p(a) \\ne n$, we have $v_p(\\Phi_n(a)) \\le v_p(n)$.\n*Proof.* The statement obviously holds if $v_p(\\Phi_n(a)) = 0$. Let $k = \\text{ord}_p(a)$. Since $\\Phi_n(x) \\mid x^n - 1$, it follows that $k \\mid n$.\nSuppose $p$ is odd, and note that $p \\mid a^k - 1$. Lemma 4 applies, giving $v_p(a^n - 1) = v_p(a^k - 1) + v_p(n/k)$. Since $\\Phi_n(x) \\mid \\frac{x^n-1}{x^k-1}$, it follows that\n$$\nv_p(\\Phi_n(a)) \\le v_p\\left(\\frac{a^n - 1}{a^k - 1}\\right) = v_p(n/k) \\le v_p(n).\n$$\nNext, we consider the special case when $p = 2$. Since $2 \\mid a^k - 1$, $a$ must be odd. Then, since $\\Phi_n(x) \\mid \\frac{x^n-1}{x^k-1}$, we have\n$$\nn \\equiv 1 + a + \\dots + a^{n-1} \\equiv \\frac{a^n - 1}{a - 1} \\equiv 0 \\pmod{2}.\n$$\nThus, $n$ is even, and we can write $n = 2m$.\nNow, note that $4 \\mid a^2 - 1$. Also, since $n > 2$, $2$ is a proper divisor of $n$, so $\\Phi_n(x) \\mid \\frac{x^n-1}{x^2-1}$. Thus, by Lemma 4 again, we have the remaining case\n$$\nv_2(\\Phi_n(a)) \\le v_2\\left(\\frac{a^{2m} - 1}{a^2 - 1}\\right) = v_2(m) \\le v_2(n). \\quad \\square\n$$\n\n**Lemma 6.** For any $a \\ge 2$ and $n > 1$, we have $\\Phi_n(a) \\ge \\frac{1}{4}a^{\\phi(n)}$.\n*Proof.* Let $p_n = \\prod_{i=1}^n (1 - 2^{-i})$. We first prove that $p_n \\ge \\frac{1}{4}$ for all $n \\ge 1$. It is clear that $p_n \\le \\frac{1}{2}$ for all $n \\ge 1$. Hence, for each $k$, $p_k - p_{k+1} = 2^{-k-1}p_k \\le 2^{-k-2}$. We therefore have\n$$\np_1 - p_n = \\sum_{i=1}^{n-1} (p_i - p_{i+1}) \\le \\sum_{i=1}^{n-1} 2^{-i-2} \\le \\frac{1}{4}.\n$$\nSince $p_1 = \\frac{1}{2}$, it follows that $p_n \\ge \\frac{1}{4}$. We can now bound $\\Phi_n(a)$. We have\n$$\n\\begin{align*}\n\\Phi_n(a) &= \\prod_{d|n} (a^{n/d} - 1)^{\\mu(d)} = a^{\\sum_{d|n} (n/d)\\mu(d)} \\prod_{d|n} (1 - a^{-n/d})^{\\mu(d)} \\\\\n&\\geq a^{\\phi(n)} \\prod_{i=1}^{n} (1 - a^{-i}) \\geq a^{\\phi(n)} \\prod_{i=1}^{n} (1 - 2^{-i}) \\geq \\frac{1}{4} a^{\\phi(n)}. \\quad \\Box\n\\end{align*}\n$$\n\n**Lemma 7.** The only solutions to $a^{\\phi(n)} \\le 4n$, where $a \\ge 2$ and $n \\ge 3$ are integers, are $(a, n) = (4, 4), (3, 3), (3, 4)$, and $(2, x)$ where $x \\in \\{3, 4, 5, 6, 8, 12, 24\\}$.\n*Proof.* Let $f(m) = \\frac{2^{\\phi(m)}}{m}$, and note that $f$ is multiplicative. For any prime $p$ and any $k \\ge 2$,\n$$\nf(p^k) = \\frac{2^{p^{k-1}(p-1)}}{p^k} = \\frac{2^{p^{k-2}(p-1)^2}}{p} f(p^{k-1}) \\ge \\frac{2^{(p-1)^2}}{p} f(p^{k-1}) \\ge f(p^{k-1}),\n$$\nwhere we have used the fact that $2^{(p-1)^2} \\ge p$ when $p \\ge 2$. It is easy to check that $f(p) > 4$ for any prime $p \\ge 7$. Furthermore, $f(n) > 4$ for $n = 2^4, 3^2, 5^2$. Thus, if $f(n) \\le 4$, then $n$ must be a divisor of $2^3 \\cdot 3 \\cdot 5$. Noting that $f(2) = 1, f(4) = 1, f(8) = 2, f(3) = \\frac{4}{3}$, and $f(5) = \\frac{16}{5}$. From this and the multiplicativity of $f$, it is easy to see that the only solutions of $f(n) \\le 4$ are $n = 2, 3, 4, 5, 6, 8, 12, 24$. This shows that $n \\in \\{3, 4, 5, 6, 8, 12, 24\\}$ are the only solutions for $a = 2$ with $n \\ge 3$. If $a \\ge 3$ and $\\phi(n) \\ge 4$, then $\\frac{a^{\\phi(n)}}{n} = f(n) \\cdot (a/2)^{\\phi(n)} > 4$. Thus, the only possible solutions for $a \\ge 3$ must satisfy $n \\in \\{3, 4\\}$. Checking, we see that the only other solutions are $(a, n) = (4, 4), (3, 3), (3, 4)$. $\\square$\n\nWe can now find all good pairs $(a, n)$ with $a \\ge 2$ and $n \\ge 3$. First, note that if $(a, n)$ is a good pair, then for any prime $p \\mid a^n - 1$, we must not have $\\text{ord}_p(a) = n$. Hence, by Lemma 5, we must have $v_p(\\Phi_n(a)) \\le v_p(n)$. This applies in particular to all primes dividing $\\Phi_n(a)$, so $\\Phi_n(a) \\le n$.\nBy Lemma 6, we must then have $n \\ge \\frac{a^{\\phi(n)}}{4}$. Thus, we see that the pairs in Lemma 7 are the only possible good pairs. Checking these finitely many cases, we find that $(2, 6)$ is the only good pair with $a \\ge 2$ and $n \\ge 3$, as needed."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-multiplicative-order-auto-2406",
+      "name": "HMMT #0jdi",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Greatest common divisors (gcd)",
+        "Fermat / Euler / Wilson theorems",
+        "Multiplicative order",
+        "Generating functions",
+        "Other"
+      ],
+      "statement": "Problem:\nLet $N$ be a positive integer whose decimal representation contains $11235$ as a contiguous substring, and let $k$ be a positive integer such that $10^{k} > N$. Find the minimum possible value of\n$$\n\\frac{10^{k}-1}{\\operatorname{gcd}\\left(N, 10^{k}-1\\right)}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $89$\n\nSet $m = \\frac{10^{k}-1}{\\operatorname{gcd}\\left(N, 10^{k}-1\\right)}$. Then, in lowest terms, $\\frac{N}{10^{k}-1} = \\frac{a}{m}$ for some integer $a$. On the other hand, the decimal expansion of $\\frac{N}{10^{k}-1}$ simply consists of the decimal expansion of $N$, possibly with some padded zeros, repeating. Since $N$ contains $11235$ as a contiguous substring, the decimal representation of $\\frac{a}{m}$ must as well.\n\nConversely, if $m$ is relatively prime to $10$ and if there exists an $a$ such that the decimal representation of $\\frac{a}{m}$ contains the substring $11235$, we claim that $m$ is an attainable value for $\\frac{10^{k}-1}{\\operatorname{gcd}\\left(N, 10^{k}-1\\right)}$. To see this, note that since $m$ is relatively prime to $10$, there exists a value of $k$ such that $m$ divides $10^{k}-1$ (for example, $k=\\phi(m)$). Letting $ms = 10^{k}-1$ and $N = as$, it follows that $\\frac{a}{m} = \\frac{as}{ms} = \\frac{N}{10^{k}-1}$. Since the decimal expansion of this fraction contains the substring $11235$, it follows that $N$ must also, and therefore $m$ is an attainable value.\n\nWe are therefore looking for a fraction $\\frac{a}{m}$ which contains the substring $11235$ in its decimal expansion. Since $1,1,2,3$, and $5$ are the first five Fibonacci numbers, it makes sense to look at the value of the infinite series\n$$\n\\sum_{i=1}^{\\infty} \\frac{F_{i}}{10^{i}}\n$$\nA simple generating function argument shows that $\\sum_{i=1}^{\\infty} F_{i} x^{i} = \\frac{x}{1-x-x^{2}}$, so substituting $x=1/10$ leads us to the fraction $10/89$ (which indeed begins $0.11235\\ldots$).\n\nHow do we know no smaller values of $m$ are possible? Well, if $a'/m'$ contains the substring $11235$ somewhere in its infinitely repeating decimal expansion, then note that there is an $i$ such that the decimal expansion of the fractional part of $10^{i}\\left(a'/m'\\right)$ begins with $0.11235\\ldots$ We can therefore, without loss of generality, assume that the decimal representation of $a'/m'$ begins $0.11235\\ldots$ But since the decimal representation of $10/89$ begins $0.11235\\ldots$, it follows that\n$$\n\\left|\\frac{10}{89} - \\frac{a'}{m'}\\right| \\leq 10^{-5}\n$$\nOn the other hand, this absolute difference, if non-zero, is at least $\\frac{1}{89 m'}$. If $m' < 89$, this is at least $\\frac{1}{89^{2}} > 10^{-5}$, and therefore no smaller values of $m'$ are possible."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-multiplicative-order-auto-2515",
+      "name": "USAMO #0jgj",
+      "url": "https://usamoguide.com/",
+      "source": "USAMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Multiplicative order",
+        "Greatest common divisors (gcd)",
+        "Factorization techniques"
+      ],
+      "statement": "Given positive integers $m$ and $n$, prove that there is a positive integer $c$ such that the numbers $cm$ and $cn$ have the same number of occurrences of each non-zero digit when written in base ten.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**Solution 1** (By Richard Stong). For a given positive integer $k$, write $10^k m - n = 2^r 5^s t$, where $\\text{gcd}(t, 10) = 1$. For large enough values of $k$, the number of times 2 and 5 divide the left-hand side is at most the number of times they divide $n$, hence by choosing $k$ large we can make $t$ arbitrarily large. Choose $k$ so that $t$ is larger than either $m$ or $n$.\nSince $t$ is relatively prime to 10 there is a smallest exponent $b$ for which $t \\mid (10^b - 1)$. Thus $b$ is the number of digits in the repeating portion of the decimal expansion for $\\frac{1}{t}$. More precisely, if we write $tc = (10^b - 1)$, then the repeating block is the $b$-digit decimal representation of $c$, obtained by prepending extra initial zeros to $c$ as necessary. Since $t$ is larger than $m$ or $n$, the decimal expansions of $\\frac{m}{t}$ and $\\frac{n}{t}$ will consist of repeated $b$-digit representations of $cm$ and $cn$, respectively. Rewriting the identity in the first line as\n$$\n10^k \\left( \\frac{m}{t} \\right) = 2^r 5^s + \\frac{n}{t},\n$$\nwe see that the decimal expansion of $\\frac{n}{t}$ is obtained from that of $\\frac{m}{t}$ by shifting the decimal to the right $k$ places and removing the integer part. Thus the $b$-digit representations of $cm$ and $cn$ are cyclic shifts of one another. In particular, they have the same number of occurrences of each nonzero digit.\n\n\n**Solution 2** (By Zhou Xiaodong). Suppose without loss of generality that $m \\ge n$. Note that if the desired holds for the pair $(km, kn)$ for some $k$, then it also holds for $(m, n)$. Write $n = 2^a 5^b l$ for some $l$ relatively prime to 10, and note that it suffices to show the desired statement for the pair $(2^b 5^a m, 2^b 5^a n) = (2^b 5^a m, 10^{a+b} l)$. Further, because $10^{a+b} l$ ends with a string of $a+b$ trailing 0's it suffices to show the desired for the pair $(2^b 5^a m, l)$, where $\\text{gcd}(l, 10) = 1$. Thus, it suffices to consider $(m, n)$ with $\\text{gcd}(n, 10) = 1$.\nFor such a pair $(m, n)$, we see that $\\text{gcd}(10m - n, 10) = 1$, so we may find some $k$ and some $c$ so that\n$c(10m - n) = 10^k - 1$, which after rearranging implies that\n$$\n10cm + 1 = 10^k + cn.\n$$\nIn addition, we see that $10^k = 10cm - cn + 1 > 10cn - cn = 9cn > cn$, hence *cm* has exactly *k* digits and *cn* has *l* digits for *l* \\le *k*. If $cm = \\overline{a_1 \\cdots a_k}$ and $cn = \\overline{b_2 \\cdots b_{k+1}}$ are the decimal expansions of *cm* and *cn* (where some of the leading digits of *cn* may be 0), then the above equality yields the equality of decimal expansions\n$$\n\\overline{a_1 \\cdots a_k 1} = \\overline{1 b_2 \\cdots b_{k+1}}.\n$$\nWe conclude that $a_1 = b_{k+1} = 1$ and $a_i = b_i$ for $2 \\le i \\le k$, so each non-zero digit appears among $\\{a_i\\}$ and $\\{b_i\\}$ the same number of times, hence appears in *cn* and *cm* the same number of times."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-multiplicative-order-auto-2532",
+      "name": "USAMO #0jh0",
+      "url": "https://usamoguide.com/",
+      "source": "USAMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Multiplicative order",
+        "Greatest common divisors (gcd)",
+        "Factorization techniques"
+      ],
+      "statement": "Given positive integers $m$ and $n$, prove that there is a positive integer $c$ such that the numbers $cm$ and $cn$ have the same number of occurrences of each non-zero digit when written in base ten.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Since $t$ is relatively prime to $10$ there is a smallest exponent $b$ for which $t \\mid (10^b - 1)$. Thus $b$ is the number of digits in the repeating portion of the decimal expansion for $\\frac{1}{t}$. More precisely, if we write $tc = (10^b - 1)$, then the repeating block is the $b$-digit decimal representation of $c$, obtained by prepending extra initial zeros to $c$ as necessary. Since $t$ is larger than $m$ or $n$, the decimal expansions of $\\frac{m}{t}$ and $\\frac{n}{t}$ will consist of repeated $b$-digit representations of $cm$ and $cn$, respectively. Rewriting the identity in the first line as\n$$\n10^k \\left(\\frac{m}{t}\\right) = 2^r 5^s + \\frac{n}{t},\n$$\nwe see that the decimal expansion of $\\frac{n}{t}$ is obtained from that of $\\frac{m}{t}$ by shifting the decimal to the right $k$ places and removing the integer part. Thus the $b$-digit representations of $cm$ and $cn$ are cyclic shifts of one another. In particular, they have the same number of occurrences of each nonzero digit.\n\nSuppose without loss of generality that $m \\ge n$. Note that if the desired holds for the pair $(km, kn)$ for some $k$, then it also holds for $(m, n)$. Write $n = 2^a 5^b l$ for some $l$ relatively prime to $10$, and note that it suffices to show the desired statement for the pair $(2^b 5^a m, 2^b 5^a n) = (2^b 5^a m, 10^{a+b} l)$. Further, because $10^{a+b} l$ ends with a string of $a+b$ trailing 0's it suffices to show the desired for the pair $(2^b 5^a m, l)$, where $\\text{gcd}(l, 10) = 1$. Thus, it suffices to consider $(m, n)$ with $\\text{gcd}(n, 10) = 1$.\nFor such a pair $(m, n)$, we see that $\\text{gcd}(10m - n, 10) = 1$, so we may find some $k$ and some $c$ so that\n$c(10m - n) = 10^k - 1$, which after rearranging implies that\n$$\n10cm + 1 = 10^k + cn.\n$$\nIn addition, we see that $10^k = 10cm - cn + 1 > 10cn - cn = 9cn > cn$, hence $cm$ has exactly $k$ digits and $cn$ has $l$ digits for $l \\le k$. If $cm = \\overline{a_1 \\cdots a_k}$ and $cn = \\overline{b_2 \\cdots b_{k+1}}$ are the decimal expansions of $cm$ and $cn$ (where some of the leading digits of $cn$ may be $0$), then the above equality yields the equality of decimal expansions\n$$\n\\overline{a_1 \\cdots a_k} \\overline{1} = \\overline{1} \\overline{b_2 \\cdots b_{k+1}}.\n$$\nWe conclude that $a_1 = b_{k+1} = 1$ and $a_i = b_i$ for $2 \\le i \\le k$, so each non-zero digit appears among $\\{a_i\\}$ and $\\{b_i\\}$ the same number of times, hence appears in $cn$ and $cm$ the same number of times."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-multiplicative-order-auto-2552",
+      "name": "Berkeley Math Circle Monthly Contest 6 #0jhk",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Multiplicative order",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\nFind all positive integers $n$ such that $n \\mid 2^{n}-1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe only such $n$ is $n=1$. Clearly $1 \\mid 2^{1}-1$.\n\nSuppose that $n>1$ is a solution. Let $p$ be the smallest prime divisor of $n$. Note that $p>2$ (an even value of $n$ cannot divide $2^{n}-1$). By Fermat's little theorem, $2^{p-1} \\equiv 1 \\pmod{p}$. But we are also given $2^{n} \\equiv 1 \\pmod{p}$. Thus the order $m$ of $2 \\bmod p$ (that is, the smallest $m$ such that $2^{m} \\equiv 1 \\pmod{p}$) divides both $p-1$ and $n$. But $p-1$ has only prime factors less than $p$, and $n$ has only prime factors greater than or equal to $p$, so these numbers are relatively prime. We get $m=1$, so $2^{1} \\equiv 1 \\pmod{p}$, a contradiction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-multiplicative-order-auto-2575",
+      "name": "HMMT November 2013 #0ji7",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2013",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Chinese remainder theorem",
+        "Multiplicative order",
+        "Sums and products"
+      ],
+      "statement": "Problem:\nLet $N$ be the largest positive integer that can be expressed as a 2013-digit base $-4$ number. What is the remainder when $N$ is divided by $210$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe largest is $$\\sum_{i=0}^{1006} 3 \\cdot 4^{2i} = 3 \\frac{16^{1007}-1}{16-1} = \\frac{16^{1007}-1}{5}.$$\n\nThis is $1 \\pmod{2}$, $0 \\pmod{3}$, $3 \\cdot 1007 \\equiv 21 \\equiv 1 \\pmod{5}$, and $3\\left(2^{1007}-1\\right) \\equiv 3\\left(2^{8}-1\\right) \\equiv 3\\left(2^{2}-1\\right) \\equiv 2$ $\\pmod{7}$, so we need $1 \\pmod{10}$ and $9 \\pmod{21}$, which is $9+2 \\cdot 21=51 \\pmod{210}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-multiplicative-order-auto-2622",
+      "name": "HMMT November 2014 #0jji",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2014",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recurrence relations",
+        "Chinese remainder theorem",
+        "Multiplicative order",
+        "Factorization techniques"
+      ],
+      "statement": "Problem:\n\nLet a sequence $\\{a_{n}\\}_{n=0}^{\\infty}$ be defined by $a_{0}=\\sqrt{2}$, $a_{1}=2$, and $a_{n+1}=a_{n} a_{n-1}^{2}$ for $n \\geq 1$. The sequence of remainders when $a_{0}, a_{1}, a_{2}, \\cdots$ are divided by $2014$ is eventually periodic with some minimal period $p$ (meaning that $a_{m}=a_{m+p}$ for all sufficiently large integers $m$, and $p$ is the smallest such positive integer). Find $p$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $12$\n\nLet $a_{n}=2^{b_{n}}$, so notice $b_{1}=1$, $b_{2}=2$, and $b_{n+1}=b_{n}+2 b_{n-1}$ for $n \\geq 1$, so by inspection $b_{n}=2^{n-1}$ for all $n$; thus $a_{n}=2^{2^{n-1}}$.\n\n$2014 = 2 \\cdot 19 \\cdot 53$ so we just want to find the lcm of the eventual periods of $2^{n} \\bmod \\operatorname{ord}_{19}(2)$ and $\\operatorname{ord}_{53}(2)$. These orders divide $18$ and $52$ respectively, and we can manually check $\\operatorname{ord}_{9}(2)=6$ and $\\operatorname{ord}_{13}(2)=12$. The lcm of these is $12$, so to show the answer is $12$, it suffices to show that $13 \\mid \\operatorname{ord}_{53}(2)$. This is true since $2^{4} \\not \\equiv 1 \\pmod{53}$. So, the answer is $12$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-multiplicative-order-auto-2638",
+      "name": "HMMT 2014 #0jjy",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2014",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Multiplicative order",
+        "Modular Arithmetic",
+        "Recursion, bijection"
+      ],
+      "statement": "Problem:\n\nCompute the number of ordered quintuples of nonnegative integers $\\left(a_{1}, a_{2}, a_{3}, a_{4}, a_{5}\\right)$ such that $0 \\leq a_{1}, a_{2}, a_{3}, a_{4}, a_{5} \\leq 7$ and $5$ divides $2^{a_{1}}+2^{a_{2}}+2^{a_{3}}+2^{a_{4}}+2^{a_{5}}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $f(n)$ denote the number of $n$-tuples $\\left(a_{1}, \\ldots, a_{n}\\right)$ such that $0 \\leq a_{1}, \\ldots, a_{n} \\leq 7$ and $5 \\mid 2^{a_{1}}+\\ldots+2^{a_{n}}$. To compute $f(n+1)$ from $f(n)$, we note that given any $n$-tuple $\\left(a_{1}, \\ldots, a_{n}\\right)$ such that $0 \\leq a_{1}, \\ldots, a_{n} \\leq 7$ and $5 \\nmid 2^{a_{1}}+\\ldots+2^{a_{n}}$, there are exactly two possible values for $a_{n+1}$ such that $0 \\leq a_{n+1} \\leq 7$ and $5 \\mid 2^{a_{1}}+\\ldots+2^{a_{n+1}}$, because $2^{n} \\equiv 1,2,4,3,1,2,4,3 \\pmod{5}$ for $n=0,1,2,3,4,5,6,7$ respectively.\n\nAlso, given any valid $(n+1)$-tuple $\\left(a_{1}, \\ldots, a_{n+1}\\right)$, we can remove $a_{n+1}$ to get an $n$-tuple $\\left(a_{1}, \\ldots, a_{n}\\right)$ such that $0 \\leq a_{1}, \\ldots, a_{n} \\leq 7$ and $5 \\nmid 2^{a_{1}}+\\ldots+2^{a_{n}}$, so these are in bijection. There are a total of $8^{n}$ $n$-tuples, $f(n)$ of which satisfy $5 \\mid 2^{a_{1}}+\\ldots+2^{a_{n}}$, so there are $8^{n}-f(n)$ for which $5 \\nmid 2^{a_{1}}+\\ldots+2^{a_{n}}$. Therefore, $f(n+1)=2\\left(8^{n}-f(n)\\right)$.\n\nWe now have $f(1)=0$, $f(2)=2(8-0)=16$, $f(3)=2(64-16)=96$, $f(4)=2(512-96)=832$, $f(5)=2(4096-832)=6528$.\n\n**Answer:** $6528$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-multiplicative-order-auto-2835",
+      "name": "HMMT February #0jpf",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Multiplicative order",
+        "Factorization techniques"
+      ],
+      "statement": "Problem:\n\nDefine a power cycle to be a set $S$ consisting of the nonnegative integer powers of an integer $a$, i.e. $S = \\{1, a, a^{2}, \\ldots\\}$ for some integer $a$. What is the minimum number of power cycles required such that given any odd integer $n$, there exists some integer $k$ in one of the power cycles such that $n \\equiv k \\pmod{1024}$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: 10\n\nPartition the odd residues mod 1024 into 10 classes:\n- Class 1: $1 \\pmod{4}$.\n- Class $n$ $(2 \\leq n \\leq 9)$: $2^{n}-1 \\pmod{2^{n+1}}$.\n- Class 10: $-1 \\pmod{1024}$.\n\nLet $S_{a}$ be the power cycle generated by $a$. If $a$ is in class 1, all of $S_{a}$ is in class 1. If $a$ is in class $n$ $(2 \\leq n \\leq 9)$, then $S_{a}$ is in the union of class $n$ and the residues $1 \\pmod{2^{n+1}}$. If $a$ is in class 10, then $S_{a}$ is in the union of class $n$ and the residues $1 \\pmod{1024}$. Therefore, $S_{a}$ cannot contain two of the following residues: $5, 2^{2}-1, 2^{3}-1, \\ldots, 2^{10}-1$, and that at least 10 cycles are needed.\n\nNote that $5^{128}-1 = (5-1)(5+1)(5^{2}+1) \\cdots (5^{64}+1)$ has exactly 9 factors of 2 in its prime factorization, while $5^{256}-1 = (5^{128}-1)(5^{128}+1)$ is divisible by 1024 so the order of 5 modulo 1024, the smallest positive power of 5 that is congruent to 1, is 256. Observe that among $5^{0}, 5^{1}, \\ldots, 5^{255}$, the ratio between any two is a positive power of 5 smaller than $5^{256}$, so the ratio is not congruent to 1 and any two terms are not congruent mod 1024. In addition, all terms are in class 1, and class 1 has 256 members, so $S_{5}$ contains members congruent to each element of class 1.\n\nSimilarly, let $2 \\leq n \\leq 9$. Then the order of $a$, where $a = 2^{n}-1$, is $2^{10-n}$. The $2^{9-n}$ terms $a^{1}, a^{3}, \\ldots, a^{2^{10-n}-1}$ are pairwise not congruent and all in class $n$. Class $n$ only has $2^{9-n}$ members, so $S_{a}$ contains members congruent to each element of class $n$.\n\nFinally, $S_{-1}$ contains members congruent to the element of class 10.\n\nThe cycles $S_{5}, S_{-1}$, and 8 cycles $S_{a}$ cover all the residues mod 1024, so the answer is 10.\n\nSolution:\n\nLemma. Given a positive integer $n \\geq 3$, there exists an odd integer $x$ such that the order of $x$ modulo $2^{n}$ is $2^{n-2}$.\n\nProof. We apply induction on $n$. The base cases of $n=3,4$ are clearly true with $x=3$, so suppose we have the statement holds for $n-1$ and we wish to show it for $n$ where $n \\geq 5$. Suppose no such integer $x$ exists, so we have $x^{2^{n-3}} \\equiv 1 \\pmod{2^{n}}$ for all odd $x$. But then remark that $(x^{2^{n-4}}-1)(x^{2^{n-4}}+1) \\equiv 0 \\pmod{2^{n}}$. As $n-4 \\geq 1$ we have $x^{2^{n-4}}+1 \\equiv 2 \\pmod{4}$ as all squares are $1 \\pmod{4}$, so it follows for the above relation to be true we require $2^{n-1}$ divides $x^{2^{n-4}}-1$ for all odd $x$. However, by taking $x$ to have order $2^{n-3}$ modulo $2^{n-1}$ (which exists by the inductive hypothesis) we get a contradiction so we are done.\n\nNow, let $x$ have order $2^{8}$ modulo $2^{10}$. Remark that if for some integer $k$ we had $x^{k} \\equiv -1 \\pmod{2^{10}}$, we would have $x^{2k} \\equiv 1 \\pmod{2^{10}}$ so $2^{7} \\mid k$. In that case $k$ is even so as $x$ is odd we have $x^{k} \\equiv 1 \\pmod{4}$ but $-1+1024m$ is never $1 \\pmod{4}$ for any integer $m$ so it follows $-1$ is not equal to $x^{k}$ modulo 1024 for any integer $k$. Thus it follows that when we let $S$ to be the set of powers of $x$, then no two elements in $S$ and $-S$ are congruent modulo 1024. As the order of $x$ is 256 and there are 512 possible odd remainders upon dividing by 1024, it immediately follows that every integer $x$ is congruent modulo 1024 to $\\pm x^{k}$ for some $1 \\leq k \\leq 256$ and some choice of sign.\n\nNow, it is easy to see that $x, -x, -x^{2}, -x^{4}, \\ldots, -x^{2^{7}}, -x^{2^{8}}$ generating 10 power cycles works ($x^{a}$ for any $a$ is in the first, and then $-x^{2^{k} a}$ for odd $a$ is in the power cycle generated by $-x^{2^{k}}$). To show that we cannot do any better suppose there exist 9 power cycles which include all odd integers modulo 1024. Then remark that $-x^{2^{k}}$ is congruent to a number in a power cycle modulo 1024 if and only if the power cycle is generated by an integer congruent to $x^{-2^{k} \\cdot a} \\pmod{1024}$ where $a$ is an odd integer. It follows that 9 integers must be congruent to $-x^{a_{1}}, -x^{2 a_{2}}, \\ldots, -x^{256 a_{9}} \\pmod{1024}$ for some odd integers $a_{1}, a_{2}, \\ldots, a_{9}$. But then 3 is clearly not in any of the power cycles, contradiction so it follows we must have at least 10 power cycles so we are done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-multiplicative-order-auto-2948",
+      "name": "HMMT February #0jsk",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Multiplicative order",
+        "Chinese remainder theorem",
+        "Greatest common divisors (gcd)"
+      ],
+      "statement": "Problem:\n\nDetermine the number of integers $2 \\leq n \\leq 2016$ such that $n^{n}-1$ is divisible by $2,3,5,7$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nOnly $n \\equiv 1 \\pmod{210}$ work. Proof: we require $\\gcd(n, 210) = 1$. Note that for all $p \\leq 7$ the order of $n$ $(\\bmod\\ p)$ divides $p-1$, hence is relatively prime to any $p \\leq 7$. So $n^{n} \\equiv 1 \\pmod{p} \\Longleftrightarrow n \\equiv 1 \\pmod{p}$ for each of these $p$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

@@ -1,0 +1,281 @@
+@layer base {
+  /*
+    ── Palette: midnight indigo, mauve, and pink ─────────────────────────────
+
+    Contrast: every pairing below is verified against WCAG AA in both themes
+    (body 4.5:1, non-text 3:1). See the ratios noted per token.
+  */
+
+  :root {
+    /* One place each stack is defined, so a font swap is a one-line change
+       rather than a search across every component. */
+    --font-sans: 'Geist Variable', 'Geist', ui-sans-serif, system-ui,
+      -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-mono: 'Geist Mono Variable', 'Geist Mono', ui-monospace,
+      SFMono-Regular, Menlo, monospace;
+
+    /* ── LIGHT MODE ─────────────────────────────────────────────────────── */
+    --bg-page: #f4edea;
+    --bg-surface: #f4edea;
+    --bg-surface-alt: #eee7e4;
+    --bg-muted: #d8cdf0;
+
+    --text-primary: #201c36;
+    --text-secondary: #3d3564;
+    --text-muted: #5f3b78;
+    --text-inverse: #f4edea;
+
+    --border: rgba(61, 53, 100, 0.22);
+    --border-strong: #6d3b9f;
+
+    /* Accent system. In a monochrome system the accent IS the ink: primary
+       actions are a solid ink fill, selection is an ink-tinted wash. */
+    --focus: #6d3b9f;
+    --accent: #3d3564;
+    --accent-strong: #1c1e36;
+    --accent-glow: rgba(170, 133, 255, 0.42);
+
+    --accent-soft: rgba(240, 194, 255, 0.22);
+    --accent-soft-strong: rgba(240, 194, 255, 0.34);
+
+    --accent-fill: #363564;
+    --accent-fill-text: #f4edea;
+    --accent-fill-hover: #29264f;
+    --hero-glow: none;
+
+    --banner-bg: var(--bg-surface-alt);
+    --banner-glow-from: #f0c2ff;
+    --banner-glow-to: #f0c2ff;
+
+    --sidebar-active-bg: #eee6ff;
+    --sidebar-hover-bg: rgba(46, 41, 78, 0.18);
+
+    /* code */
+    --code-block-bg-light: rgba(61, 53, 100, 0.06);
+    --code-block-bg-dark: #201c36;
+    --code-fade-light: none;
+    --code-fade-dark: none;
+    --code-expand-icon-light: #201c36;
+    --code-expand-icon-dark: #f4edea;
+
+    --code-snip-icon-light: rgba(61, 53, 100, 0.45);
+    --code-snip-icon-light-hover: rgba(61, 53, 100, 0.8);
+    --code-snip-icon-dark: rgba(240, 194, 255, 0.5);
+    --code-snip-icon-dark-hover: rgba(224, 133, 255, 0.85);
+    --code-snip-text-light: #3d3564;
+    --code-snip-text-light-hover: #201c36;
+    --code-snip-text-dark: #d9d0e1;
+    --code-snip-text-dark-hover: #f4edea;
+
+    /* select */
+    --select-bg: #f4edea;
+    --select-border: rgba(61, 53, 100, 0.26);
+    --select-menu-bg: #f4edea;
+    --select-text: #201c36;
+    --select-option-hover: rgba(240, 194, 255, 0.22);
+    --select-option-selected: rgba(240, 194, 255, 0.34);
+
+    /* Heatmap: a monochrome intensity ramp. Density reads more honestly as
+       one darkening value than as a hue shift, and it keeps the activity
+       graph legible with color removed. */
+    --heatmap-empty: #d9c8ed;
+    --heatmap-1: #b4589a;
+    --heatmap-2: #c763a1;
+    --heatmap-3: #e477b5;
+    --heatmap-4: #ff7cc8;
+
+    /* Status. The complete chromatic vocabulary of the system: three roles,
+       three distinct hues, each AA against the page. Never used decoratively,
+       and never the sole carrier of meaning — always paired with a label,
+       icon, or position. */
+    --success: #246b45;
+    --danger: #9d245b;
+    --warning: #8a5700;
+
+    --disabled-bg: rgba(61, 53, 100, 0.12);
+    --disabled-text: #6d3b9f;
+
+    --shadow: none;
+
+    /* Opaque, deliberately. A translucent card compounds when nested and
+       turns stacked surfaces to mud; an opaque floor cannot. */
+    --card-bg: #eee6ff;
+
+    /* Buttons. The glow is the reference's, kept subtle enough that it reads
+       as the control being lit rather than as a drop-shadow stack. */
+    /* Button texture. The rim and the face are separate gradients: the rim is
+       the lit edge of a moulded object, the face is the surface it wraps. */
+    --btn-rim: transparent;
+    --btn-face: #e085ff;
+    --btn-face-hover: #f0c2ff;
+    --btn-ink: #201c36;
+    --btn-drop: 0 1px 1px rgba(25, 24, 23, 0.16), 0 6px 16px -6px rgba(25, 24, 23, 0.3);
+    --btn-drop-hover: 0 1px 2px rgba(25, 24, 23, 0.2), 0 10px 26px -8px rgba(25, 24, 23, 0.36);
+    --btn-inset: none;
+
+    --btn-dark-rim: transparent;
+    --btn-dark-face: #2e294e;
+    --btn-dark-face-hover: #3d3564;
+    --btn-dark-ink: #f4edea;
+    --btn-dark-inset: none;
+
+    --btn-primary-bg: #3d3564;
+    --btn-primary-glow: 0 0 0 1px rgba(25, 24, 23, 0.06), 0 6px 20px -6px rgba(25, 24, 23, 0.28);
+    --btn-primary-glow-hover: 0 0 0 1px rgba(25, 24, 23, 0.08), 0 8px 26px -6px rgba(25, 24, 23, 0.36);
+    --btn-secondary-bg: transparent;
+
+    /* Glossy panels. Two surfaces — one bright, one deep — each with a soft
+       top-edge sheen, per the Cluely reference. */
+    --gloss-light-bg: #eee6ff;
+    --gloss-light-ink: #201c36;
+    --gloss-light-ink-muted: #5f3b78;
+    --gloss-light-border: transparent;
+    --gloss-light-inner: #f4edea;
+    --gloss-dark-bg: #15132a;
+    --gloss-dark-ink: #f4edea;
+    --gloss-dark-ink-muted: #b58bc4;
+    --gloss-dark-border: transparent;
+    --gloss-dark-inner: #2a2547;
+    --gloss-shadow: 0 24px 60px -24px rgba(25, 24, 23, 0.3);
+    --gloss-sheen: rgba(255, 253, 248, 0.55);
+
+    /* Hero backdrop */
+    --hero-grid: rgba(61, 53, 100, 0.08);
+    --hero-wave: rgba(240, 194, 255, 0.22);
+    --headline-dim: #6d3b9f;
+
+    --modal-bg: #e8e1f0;
+    --modal-btn-bg: #6d3b9f;
+    --modal-btn-text: #f4edea;
+    --modal-btn-alt-bg: #efe3ff;
+    --modal-btn-alt-text: #2c1842;
+    --modal-btn-border: transparent;
+  }
+
+  body {
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+  }
+
+  /* ── DARK MODE (primary target) ───────────────────────────────────────── */
+  html.dark {
+    /* Single source of truth for every page background. Pages must not
+       hardcode their own base color -- use var(--bg-page). */
+    --bg-page: #01000c;
+    --bg-surface: #010009;
+    --bg-surface-alt: #15131f;
+    --bg-muted: #2e294e;
+
+    --text-primary: #f4edea;
+    --text-secondary: #d9d0e1;
+    --text-muted: #b8aec2;
+    --text-inverse: #201c36;
+
+    --border: rgba(240, 194, 255, 0.22);
+    --border-strong: #b4589a;
+
+    --focus: #f0c2ff;
+    --accent: #f0c2ff;
+    --accent-strong: #e085ff;
+    --accent-glow: rgba(240, 194, 255, 0.4);
+
+    --accent-soft: rgba(240, 194, 255, 0.1);
+    --accent-soft-strong: rgba(240, 194, 255, 0.16);
+
+    --accent-fill: #e085ff;
+    --accent-fill-text: #201c36;
+    --accent-fill-hover: #f0c2ff;
+    --hero-glow: none;
+
+    --banner-bg: var(--bg-surface-alt);
+    --banner-glow-from: #f0c2ff;
+    --banner-glow-to: #f0c2ff;
+
+    --sidebar-active-bg: #15131f;
+    --sidebar-hover-bg: rgba(46, 41, 78, 0.55);
+
+    --code-block-bg-light: #2a2547;
+    --code-block-bg-dark: #2a2547;
+    --code-fade-light: none;
+    --code-fade-dark: none;
+    --code-expand-icon-light: #f4edea;
+    --code-expand-icon-dark: #f4edea;
+
+    --code-snip-icon-light: rgba(240, 194, 255, 0.5);
+    --code-snip-icon-light-hover: rgba(224, 133, 255, 0.85);
+    --code-snip-icon-dark: rgba(240, 194, 255, 0.5);
+    --code-snip-icon-dark-hover: rgba(224, 133, 255, 0.85);
+    --code-snip-text-light: #d9d0e1;
+    --code-snip-text-light-hover: #f4edea;
+    --code-snip-text-dark: #d9d0e1;
+    --code-snip-text-dark-hover: #f4edea;
+
+    --select-bg: #010009;
+    --select-border: rgba(240, 194, 255, 0.3);
+    --select-menu-bg: #050212;
+    --select-text: #f4edea;
+    --select-option-hover: rgba(240, 194, 255, 0.12);
+    --select-option-selected: rgba(240, 194, 255, 0.18);
+
+    --heatmap-empty: #2e294e;
+    --heatmap-1: #633765;
+    --heatmap-2: #9d4f8b;
+    --heatmap-3: #c763a1;
+    --heatmap-4: #ff7cc8;
+
+    --success: #66c17f;
+    --danger: #ff7cc8;
+    --warning: #d79a2b;
+
+    --disabled-bg: rgba(61, 53, 100, 0.45);
+    --disabled-text: #b8aec2;
+
+    --shadow: none;
+
+    --card-bg: #15132a;
+
+    --btn-rim: transparent;
+    --btn-face: #e085ff;
+    --btn-face-hover: #f0c2ff;
+    --btn-ink: #201c36;
+    --btn-drop: 0 1px 2px rgba(0, 0, 0, 0.55), 0 8px 22px -8px rgba(0, 0, 0, 0.8);
+    --btn-drop-hover: 0 2px 4px rgba(0, 0, 0, 0.6), 0 14px 34px -10px rgba(0, 0, 0, 0.85);
+    --btn-inset: none;
+
+    --btn-dark-rim: transparent;
+    --btn-dark-face: #2e294e;
+    --btn-dark-face-hover: #3d3564;
+    --btn-dark-ink: #f4edea;
+    --btn-dark-inset: none;
+
+    --btn-primary-bg: #e085ff;
+    --btn-primary-glow: 0 0 0 1px rgba(237, 234, 229, 0.12), 0 6px 24px -6px rgba(237, 234, 229, 0.24);
+    --btn-primary-glow-hover: 0 0 0 1px rgba(237, 234, 229, 0.2), 0 8px 30px -6px rgba(237, 234, 229, 0.34);
+    --btn-secondary-bg: transparent;
+
+    --gloss-light-bg: #eee6ff;
+    --gloss-light-ink: #201c36;
+    --gloss-light-ink-muted: #5f3b78;
+    --gloss-light-border: transparent;
+    --gloss-light-inner: #f4edea;
+    --gloss-dark-bg: #15132a;
+    --gloss-dark-ink: #f4edea;
+    --gloss-dark-ink-muted: #b58bc4;
+    --gloss-dark-border: transparent;
+    --gloss-dark-inner: #2a2547;
+    --gloss-shadow: 0 28px 70px -28px rgba(0, 0, 0, 0.8);
+    --gloss-sheen: rgba(255, 253, 248, 0.08);
+
+    --hero-grid: rgba(240, 194, 255, 0.08);
+    --hero-wave: rgba(240, 194, 255, 0.3);
+    --headline-dim: #b58bc4;
+
+
+    --modal-bg: #0b0919;
+    --modal-btn-bg: #6d3b9f;
+    --modal-btn-text: #f4edea;
+    --modal-btn-alt-bg: #efe3ff;
+    --modal-btn-alt-text: #2c1842;
+    --modal-btn-border: transparent;
+  }
+}

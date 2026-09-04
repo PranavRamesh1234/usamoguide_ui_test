@@ -1,0 +1,698 @@
+{
+  "MODULE_ID": "algebra-linear-algebra-vectors",
+  "practice": [
+    {
+      "uniqueId": "algebra-linear-algebra-vectors-auto-0039",
+      "name": "Berkeley Math Circle Take-Home Contest #0hjr",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Take-Home Contest",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Linear and quadratic inequalities",
+        "Vectors",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\n\nGiven are $n+1$ real linear equations in $n$ variables (of the form $a_{1} x_{1}+a_{2} x_{2}+\\cdots+a_{n} x_{n}=a$). Prove that each $=$ sign can be replaced with either $\\leq$ or $\\geq$ so that the resulting $n+1$ inequalities have the following property: for every choice of real numbers $x_{1}, x_{2}, \\ldots, x_{n}$, at least one inequality is true.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nHenceforth, we assume that every equation has some $a_{i} \\neq 0$, since otherwise it is of the form $0=a$, and then we can change it to either $0 \\leq a$ or $0 \\geq a$ to form an inequality which is always true. We use induction on $n$.\n\nIf $n=1$, we have the two equations $a x=b$, $c x=d$. We can divide out by $a$ and $c$ to obtain the two equations $x=b'$, $x=d'$ equivalent to our original equations. Without loss of generality we can assume $b' \\leq d'$; then if we form the inequalities equivalent to $x \\geq b'$, $x \\leq d'$, at least one of these always holds.\n\nSuppose $n>1$ and that the statement has been proven for $n$ equations in $n-1$ variables. Given $n+1$ equations in $n$ variables, look at the last equation. By assumption, some coefficient - say the coefficient of $x_{n}$ - is nonzero, so we can solve this equation for $x_{n}$ in terms of the other variables. Plugging this result into the first $n$ equations, we obtain $n$ linear equations in $x_{1}, \\ldots, x_{n-1}$. By the induction hypothesis, we can replace each of these equalities with a $\\leq$ or $\\geq$ sign so that, for any choice of $x_{1}, \\ldots, x_{n-1}$, some one of these $n$ inequalities is true.\n\nWe thus assign either the $\\leq$ or the $\\geq$ sign for the first $n$ original equations, and we claim we can choose the sign in our $n+1$th equation so that this result still holds. Suppose, otherwise, that, either way we choose the sign, some choice of the variables causes all of the inequalities to be violated. If the $n+1$th equation was $a_{1} x_{1}+\\cdots+a_{n} x_{n}=a$, then we can choose $x_{1}', \\ldots, x_{n}'$ to violate the first $n$ inequalities so that $a_{1} x_{1}'+\\cdots+a_{n} x_{n}'=a'<a$, and we can also choose $x_{1}'', \\ldots, x_{n}''$ to violate the first $n$ inequalities so that $a_{1} x_{1}''+\\cdots+a_{n} x_{n}''=a''>a$. Now, consider what happens when we set\n$$\nx_{i}=\\frac{\\left[a''-a\\right] x_{i}'+\\left[a-a'\\right] x_{i}''}{a''-a'}.\n$$\nThe $n+1$th equation now holds (as an equality), since\n$$\n\\sum_{i=1}^{n} a_{i}\\frac{\\left[a''-a\\right] x_{i}'+\\left[a-a'\\right] x_{i}''}{a''-a'}=\\frac{\\left[a''-a\\right] \\sum_{i=1}^{n} a_{i} x_{i}'+\\left[a-a'\\right] \\sum_{i=1}^{n} a_{i} x_{i}''}{a''-a'}=\\frac{\\left[a''-a\\right] a'+\\left[a-a'\\right] a''}{a''-a'}=a.\n$$\nWe claim that each of the first $n$ inequalities is still violated. Suppose, for example, that the inequality $c_{1} x_{1}+\\cdots+c_{n} x_{n} \\leq c$ is violated, so that $c_{1} x_{1}'+\\cdots+c_{n} x_{n}'>c$ and $c_{1} x_{1}''+\\cdots+c_{n} x_{n}''>c$. We can multiply the first of these inequalities by $a''-a$ and the second by $a-a'$ (preserving their signs, since these quantities are positive), add them, and divide by $a''-a'$ to obtain\n$$\n\\sum_{i=1}^{n} c_{i}\\frac{\\left[a''-a\\right] x_{i}'+\\left[a-a'\\right] x_{i}''}{a''-a'}>c,\n$$\nas claimed. The $\\geq$ case is, of course, analogous. Thus, we have found values of $x_{i}$ for which the $n+1$th equality holds but none of the first $n$ inequalities hold. But this contradicts the way the first $n$ signs were chosen. So our assumption was wrong, and it was indeed possible to choose the sign of the $n+1$th inequality so that there would always be at least one true inequality, completing the induction step and the proof."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-vectors-auto-0218",
+      "name": "Berkeley Math Circle Take-Home Contest #0hoq",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Take-Home Contest",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vectors",
+        "Matrices",
+        "Linear and quadratic inequalities"
+      ],
+      "statement": "Problem:\n\nThe set $S$ is a finite subset of $[0,1]$ with the following property: for all $x \\in S$, there exist $a, b \\in S \\cup \\{0,1\\}$ with $a, b \\neq x$ such that $x = (a + b)/2$. Prove that all the numbers in $S$ are rational.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $x_{1}, x_{2}, \\ldots, x_{n}$ be the elements of $S$. They satisfy a system of $n$ linear equations of the form $x_{i} = (x_{a} + x_{b}) / 2$, where some of the $x_{a}, x_{b}$ may be replaced by $0$ or $1$. If the system is not redundant (its solution is unique), then it can be solved by the usual elimination method of solving systems of linear equations. Since this method computes the values of $x_{i}$ using only the existing coefficients $(0,1)$ and addition, subtraction, multiplication, and division, it follows that each $x_{i}$ must be rational. So it suffices to prove that the system has a unique solution.\n\nSuppose that there are two solutions, $(x_{1}, \\ldots, x_{n})$ (the distinct elements of $S$) and $(y_{1}, \\ldots, y_{n})$, and assume that $x_{k} > y_{k}$ for some particular $k$ (the $x_{k} < y_{k}$ case is analogous). Note that any linear equation satisfied by $(x_{1}, \\ldots, x_{n})$ and $(y_{1}, \\ldots, y_{n})$ is also satisfied by $(t x_{1} + (1-t) y_{1}, \\ldots, t x_{n} + (1-t) y_{n})$ for any real number $t$ (as is seen by multiplying the equation with the $x$'s by $t$ and the equation with the $y$'s by $1-t$, and adding). Thus the numbers $t x_{i} + (1-t) y_{i}$ form another solution of our system, so that each such number is an average of two quantities—another of the numbers, $1$, or $0$. If we choose $t > (1 - y_{k}) / (x_{k} - y_{k})$, then $t x_{k} + (1-t) y_{k} > 1$. It follows that the largest value of $t x_{i} + (1-t) y_{i}$ over all $i$ is also greater than $1$. If we can choose $t$ so that the largest value is unique (no other $i$ yields the same value of $t x_{i} + (1-t) y_{i}$), then this value is the average of two numbers which are strictly smaller than it, an impossibility.\n\nThus, what remains is to show that we can choose $t > (1 - y_{k}) / (x_{k} - y_{k})$ so that all the values of $t x_{i} + (1-t) y_{i}$ are different. There clearly are infinitely many $t$ large enough for the first condition. For the second condition, if $t x_{i} + (1-t) y_{i} = t x_{j} + (1-t) y_{j}$ ($i \\neq j$) then $t(x_{i} - y_{i} - x_{j} + y_{j}) = y_{j} - y_{i}$. If the coefficient of $t$ on the left side is $0$ then $y_{j} - y_{i} = 0$ forcing $x_{i} - x_{j} = 0$, an impossibility; otherwise, we can divide by this coefficient to see that the value of $t$ is uniquely determined by $i$ and $j$. Since there are a finite number of choices for $i$ and $j$, there are only a finite number of values of $t$ for which some equality $t x_{i} + (1-t) y_{i} = t x_{j} + (1-t) y_{j}$ holds, and we simply choose some $t$ which is not any of these. This meets our requirements."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-vectors-auto-0426",
+      "name": "Berkeley Math Circle Monthly Contest 5 #0hui",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 5",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Linear and quadratic inequalities",
+        "Vectors"
+      ],
+      "statement": "Problem:\n\nThe numbers from the table\n\n| $a_{11}$ | $a_{12}$ | $\\cdots$ | $a_{1 n}$ |\n| :---: | :---: | :---: | :---: |\n| $a_{21}$ | $a_{22}$ | $\\cdots$ | $a_{2 n}$ |\n| $\\vdots$ | $\\vdots$ |  | $\\vdots$ |\n| $a_{n 1}$ | $a_{n 2}$ | $\\cdots$ | $a_{n n}$ |\n\nsatisfy the inequality\n\n$$\n\\sum_{i=1}^{n}\\left|a_{i 1} x_{1}+a_{i 2} x_{2}+\\cdots+a_{i n} x_{n}\\right| \\leq M\n$$\n\nfor every choice $x_{i}= \\pm 1$. Prove that $\\left|a_{11}\\right|+\\left|a_{22}\\right|+\\cdots+\\left|a_{n n}\\right| \\leq M$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe will sum the given inequality over all possible choices for $\\left(x_{1}, \\ldots, x_{n}\\right)$. Since the number of such choices is $2^{n}$ we obtain\n\n$$\n\\sum_{i=1}^{n} \\sum_{\\left(x_{1}, \\ldots, x_{n}\\right)}\\left|a_{i 1} x_{1}+a_{i 2} x_{2}+\\cdots+a_{i n} x_{n}\\right| \\leq 2^{n} M\n$$\n\nNow we will consider the expressions $\\sum_{\\left(x_{1}, \\ldots, x_{n}\\right)}\\left|a_{i 1} x_{1}+a_{i 2} x_{2}+\\cdots+a_{i n} x_{n}\\right|$. We will group summands in pairs - members of each pair will have all terms $x_{j}$ the same, except for the $i$-th. One member will have $x_{i}=1$ and the other $x_{i}=-1$. To each of those terms we will apply the inequality $\\left|a_{i i}+B\\right|+\\left|a_{i i}-B\\right| \\geq\\left|2 a_{i i}\\right|$. More precisely,\n\n$$\n\\begin{aligned}\n& \\sum_{\\left(x_{1}, \\ldots, x_{n}\\right)}\\left|a_{i 1} x_{1}+a_{i 2} x_{2}+\\cdots+a_{i n} x_{n}\\right| \\\\\n= & \\sum_{\\left(x_{1}, \\ldots, x_{i-1}, x_{i+1}, \\ldots, x_{n}\\right)}\\left(\\left|a_{i 1} x_{1}+a_{i 2} x_{2}+\\cdots+a_{i i}+\\cdots+a_{i n} x_{n}\\right|+\\left|a_{i 1} x_{1}+a_{i 2} x_{2}+\\cdots-a_{i i}+\\cdots+a_{i n} x_{n}\\right|\\right) \\\\\n\\geq & \\sum_{\\left(x_{1}, \\ldots, x_{i-1}, x_{i+1}, \\ldots, x_{n}\\right)}\\left|2 a_{i i}\\right|=2^{n-1}\\left|a_{i i}\\right| .\n\\end{aligned}\n$$\n\nSumming over $i$ from $1$ to $n$, we get:\n\n$$\n\\sum_{i=1}^{n} 2^{n-1}\\left|a_{i i}\\right| \\leq 2^{n} M\n$$\n\nwhich implies that $\\left|a_{11}\\right|+\\left|a_{22}\\right|+\\cdots+\\left|a_{n n}\\right| \\leq M$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-vectors-auto-0874",
+      "name": "Harvard-MIT Math Tournament #0i6y",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vectors",
+        "Matrices"
+      ],
+      "statement": "Problem:\n\nThe real numbers $x, y, z, w$ satisfy\n\n\\begin{aligned}\n2x + y + z + w &= 1 \\\\\nx + 3y + z + w &= 2 \\\\\nx + y + 4z + w &= 3 \\\\\nx + y + z + 5w &= 25.\n\\end{aligned}\n\nFind the value of $w$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n$11/2$. Multiplying the four equations by $12, 6, 4, 3$ respectively, we get\n\n\\begin{aligned}\n24x + 12y + 12z + 12w &= 12 \\\\\n6x + 18y + 6z + 6w &= 12 \\\\\n4x + 4y + 16z + 4w &= 12 \\\\\n3x + 3y + 3z + 15w &= 75\n\\end{aligned}\n\nAdding these yields $37x + 37y + 37z + 37w = 111$, or $x + y + z + w = 3$. Subtract this from the fourth given equation to obtain $4w = 22$, or $w = 11/2$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-vectors-auto-1013",
+      "name": "USA IMO #0iat",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cauchy-Schwarz",
+        "Linear and quadratic inequalities",
+        "Quadratic functions",
+        "Vectors",
+        "Triangle trigonometry"
+      ],
+      "statement": "Let $a_1, a_2, \\dots, a_n, b_1, b_2, \\dots, b_n$ be real numbers such that\n$$\n(a_1^2 + a_2^2 + \\cdots + a_n^2 - 1)(b_1^2 + b_2^2 + \\cdots + b_n^2 - 1) \n> (a_1b_1 + a_2b_2 + \\cdots + a_nb_n - 1)^2.\n$$\nShow that $a_1^2 + a_2^2 + \\cdots + a_n^2 > 1$ and $b_1^2 + b_2^2 + \\cdots + b_n^2 > 1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "If exactly one of $a_1^2 + a_2^2 + \\dots + a_n^2$ and $b_1^2 + b_2^2 + \\dots + b_n^2$ is no greater than $1$, then the left-hand side of the inequality is no greater than $0$, and inequality $(*)$ is trivial. Now we assume that both are no greater than $1$. Set $a = 1 - a_1^2 - a_2^2 - \\dots - a_n^2$ and $b = 1 - b_1^2 - b_2^2 - \\dots - b_n^2$. Then both $a$ and $b$ are nonnegative real numbers. Multiplying both sides of the inequality $(*)$ by $4$ gives\n$$\n(2 - 2a_1b_1 - 2a_2b_2 - \\dots - 2a_n b_n)^2 \\geq 4ab\n$$\nNote that\n$$\n\\begin{aligned}\n& 2 - 2a_1b_1 - 2a_2b_2 - \\cdots - 2a_n b_n \\\\\n&= (a_1 - b_1)^2 + (a_2 - b_2)^2 + \\cdots + (a_n - b_n)^2 + a + b \\\\\n&\\geq a + b \\geq 0.\n\\end{aligned}\n$$\nIt follows that\n$$\n(2 - 2a_1b_1 - 2a_2b_2 - \\cdots - 2a_n b_n)^2 \\geq (a+b)^2 \\geq 4ab,\n$$\nas desired.\n\nWe use the following inequality of Aczel: If $x_1, \\dots, x_m, y_1, \\dots, y_m \\in \\mathbb{R}$ such that $x_1^2 > x_2^2 + \\dots + x_m^2$, then\n$$\n(x_1y_1 - x_2y_2 - \\dots - x_m y_m)^2 \\geq (x_1^2 - x_2^2 - \\dots - x_m^2)(y_1^2 - y_2^2 - \\dots - y_m^2).\n$$\nTo prove Aczel's Inequality, we consider the quadratic function\n$$\nf(t) = (x_1 t + y_1)^2 - \\sum_{i=2}^{m} (x_i t + y_i)^2\n$$\nand note that $f(-y_1/x_1) \\leq 0$. It follows that the discriminant is nonnegative, hence proving the desired inequality. Now we proceed to solve the problem at hand. It is clear that $a_1^2 + \\dots + a_n^2 - 1$ and $b_1^2 + \\dots + b_n^2 - 1$ have the same sign. If both are negative, then Aczel's Inequality yields\n$$\n(1 - a_1 b_1 - \\dots - a_n b_n)^2 \\geq (1 - a_1^2 - \\dots - a_n^2)(1 - b_1^2 - \\dots - b_n^2),\n$$\ncontradicting the given inequality.\n\nDefine the vectors $\\mathbf{u} = [a_1, a_2, \\dots, a_n]$ and $\\mathbf{v} = [b_1, b_2, \\dots, b_n]$, and place $\\mathbf{u}$ and $\\mathbf{v}$ tail by tail at the origin $O$ to form two sides of a triangle in $\\mathbb{R}^n$ by letting $A$ and $B$ be the points with the coordinates of $\\mathbf{u}$ and $\\mathbf{v}$. The given inequality is equivalent to $(\\mathbf{u} \\cdot \\mathbf{u} - 1)(\\mathbf{v} \\cdot \\mathbf{v} - 1) > (\\mathbf{u} \\cdot \\mathbf{v} - 1)^2$, where “$\\cdot$” denotes the **dot product** of two vectors. Expanding both sides and rearranging terms yields\n$$\n(\\mathbf{u} \\cdot \\mathbf{u})(\\mathbf{v} \\cdot \\mathbf{v}) - \\mathbf{u} \\cdot \\mathbf{u} - \\mathbf{v} \\cdot \\mathbf{v} > (\\mathbf{u} \\cdot \\mathbf{v})^2 - 2(\\mathbf{u} \\cdot \\mathbf{v}),\n$$\nor\n$$\n(\\mathbf{u} \\cdot \\mathbf{u})(\\mathbf{v} \\cdot \\mathbf{v}) - (\\mathbf{u} \\cdot \\mathbf{v})^2 > \\mathbf{u} \\cdot \\mathbf{u} + \\mathbf{v} \\cdot \\mathbf{v} - 2(\\mathbf{u} \\cdot \\mathbf{v}).\n$$\nFactoring the right-hand side of the above inequality gives\n$$\n(\\mathbf{u} \\cdot \\mathbf{u})(\\mathbf{v} \\cdot \\mathbf{v}) - (\\mathbf{u} \\cdot \\mathbf{v})^2 > (\\mathbf{u} - \\mathbf{v}) \\cdot (\\mathbf{u} - \\mathbf{v}).\n$$\nBy the vector form of the **Law of Cosines**, we have $(\\mathbf{u} \\cdot \\mathbf{v})^2 = (\\mathbf{u} \\cdot \\mathbf{u})(\\mathbf{v} \\cdot \\mathbf{v}) \\cos^2 \\angle AOB$. Hence\n$$\n(\\mathbf{u} \\cdot \\mathbf{u})(\\mathbf{v} \\cdot \\mathbf{v})(1 - \\cos^2 \\angle AOB) > (\\mathbf{u} - \\mathbf{v}) \\cdot (\\mathbf{u} - \\mathbf{v}),\n$$\nor\n$$\n(\\mathbf{u} \\cdot \\mathbf{u})(\\mathbf{v} \\cdot \\mathbf{v}) \\sin^2 \\angle AOB > (\\mathbf{u} - \\mathbf{v}) \\cdot (\\mathbf{u} - \\mathbf{v});\n$$\nthat is, $OA^2 \\cdot OB^2 \\sin^2 \\angle AOB > AB^2$. Hence\n$$\n[AOB] = \\frac{1}{2} OA \\cdot OB^2 \\sin \\angle AOB > \\frac{1}{2} \\cdot AB.\n$$\nTherefore, the length of the altitude from $O$ to $AB$ must be greater than $1$. Yet the altitude is the shortest segment connecting $O$ to $AB$, and so $1 < OA^2 = \\mathbf{u} \\cdot \\mathbf{u} = \\sum_{i=1}^n a_i^2$ and $1 < OB^2 = \\mathbf{v} \\cdot \\mathbf{v} = \\sum_{i=1}^n b_i^2$, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-vectors-auto-1229",
+      "name": "Harvard-MIT Mathematics Tournament #0igt",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "3D Shapes",
+        "Volume",
+        "Vectors",
+        "Cartesian coordinates"
+      ],
+      "statement": "Problem:\n\nLet $ABCD$ be a tetrahedron such that edges $AB$, $AC$, and $AD$ are mutually perpendicular. Let the areas of triangles $ABC$, $ACD$, and $ADB$ be denoted by $x$, $y$, and $z$, respectively. In terms of $x$, $y$, and $z$, find the area of triangle $BCD$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n$\\sqrt{x^{2}+y^{2}+z^{2}}$\n\nPlace $A$, $B$, $C$, and $D$ at $(0,0,0)$, $(b, 0,0)$, $(0, c, 0)$, and $(0,0, d)$ in Cartesian coordinate space, with $b$, $c$, and $d$ positive. Then the plane through $B$, $C$, and $D$ is given by the equation $\\frac{x}{b}+\\frac{y}{c}+\\frac{z}{d}=1$. The distance from the origin to this plane is then\n\n$$\n\\frac{1}{\\sqrt{\\frac{1}{b^{2}}+\\frac{1}{c^{2}}+\\frac{1}{d^{2}}}}=\\frac{b c d}{\\sqrt{b^{2} c^{2}+c^{2} d^{2}+d^{2} b^{2}}}=\\frac{b c d}{2 \\sqrt{x^{2}+y^{2}+z^{2}}}\n$$\n\nThen if the area of $BCD$ is $K$, the volume of the tetrahedron is\n$$\n\\frac{b c d}{6}=\\frac{b c d K}{6 \\sqrt{x^{2}+y^{2}+z^{2}}}\n$$\nimplying $K=\\sqrt{x^{2}+y^{2}+z^{2}}$.\n\n\nAlternative Solution: The area of $BCD$ is also half the length of the cross product of the vectors $\\overrightarrow{BC}=(0,-c, d)$ and $\\overrightarrow{BD}=(-b, 0, d)$. This cross product is $(-c d,-d b,-b c)=-2(y, z, x)$, which has length $2 \\sqrt{x^{2}+y^{2}+z^{2}}$. Thus the area of $BCD$ is $\\sqrt{x^{2}+y^{2}+z^{2}}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-vectors-auto-1324",
+      "name": "Harvard-MIT Mathematics Tournament #0ijg",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other 3D problems",
+        "Vectors",
+        "Permutations / basic group theory"
+      ],
+      "statement": "Problem:\nFour points are independently chosen uniformly at random from the interior of a regular dodecahedron. What is the probability that they form a tetrahedron whose interior contains the dodecahedron's center?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nTo any tetrahedron $P_{1} P_{2} P_{3} P_{4}$ we can associate a quadruple $\\left(\\epsilon_{(i j k)}\\right)$, where $(i j k)$ ranges over all conjugates of the cycle $(123)$ in the alternating group $A_{4}$: $\\epsilon_{i j k}$ is the sign of the directed volume $\\left[O P_{i} P_{j} P_{k}\\right]$. Assume that, for a given tetrahedron $P_{1} P_{2} P_{3} P_{4}$, all members of its quadruple are nonzero (this happens with probability $1$). For $1 \\leq i \\leq 4$, if we replace $P_{i}$ with its reflection through the origin, the three members of the tetrahedron's quadruple that involve $P_{i}$ all flip sign, because each $\\left[O P_{i} P_{j} P_{k}\\right]$ is a linear function of the vector $\\overrightarrow{O P}$. Thus, if we consider the $16$ sister tetrahedra obtained by choosing independently whether to flip each $P_{i}$ through the origin, the quadruples range through all $16$ possibilities (namely, all the quadruples consisting of $\\pm 1$'s). Two of these $16$ tetrahedra, namely those with quadruples $(1,1,1,1)$ and $(-1,-1,-1,-1)$, will contain the origin.\nSo the answer is $2 / 16 = 1 / 8$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-vectors-auto-1631",
+      "name": "11th Annual Harvard-MIT Mathematics Tournament #0irz",
+      "url": "https://usamoguide.com/",
+      "source": "11th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cauchy-Schwarz",
+        "Complex numbers",
+        "Vectors"
+      ],
+      "statement": "Problem:\nSuppose that $a, b, c, d$ are real numbers satisfying $a \\geq b \\geq c \\geq d \\geq 0$, $a^{2} + d^{2} = 1$, $b^{2} + c^{2} = 1$, and $a c + b d = 1/3$. Find the value of $a b - c d$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $\\frac{2 \\sqrt{2}}{3}$\nWe have\n$$\n(a b - c d)^2 = (a^2 + d^2)(b^2 + c^2) - (a c + b d)^2 = (1)(1) - \\left(\\frac{1}{3}\\right)^2 = \\frac{8}{9}\n$$\nSince $a \\geq b \\geq c \\geq d \\geq 0$, $a b - c d \\geq 0$, so $a b - c d = \\frac{2 \\sqrt{2}}{3}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-vectors-auto-1663",
+      "name": "USAMO #0isv",
+      "url": "https://usamoguide.com/",
+      "source": "USAMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Invariants / monovariants",
+        "Induction / smoothing",
+        "Matrices",
+        "Vectors"
+      ],
+      "statement": "At a certain mathematical conference, every pair of mathematicians are either friends or strangers. At mealtime, every participant eats in one of two large dining rooms. Each mathematician insists upon eating in a room which contains an even number of his or her friends. Prove that the number of ways that the mathematicians may be split between the two rooms is a power of two (i.e., is of the form $2^k$ for some positive integer $k$).\n(This problem was suggested by Sam Vandervelde.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Let $n$ be the number of participants at the conference. We proceed by induction on $n$.\n\nIf $n = 1$, then we have one participant who can eat in either room; that gives us total of $2 = 2^1$ options.\nLet $n \\ge 2$. The case in which some participant, $P$, has no friends is trivial. In this case, $P$ can eat in either of the two rooms, so the total number of ways to split $n$ participants is twice as many as the number of ways to split $(n-1)$ participants besides the participant $P$. By induction, the latter number is a power of two, $2^k$, hence the number of ways to split $n$ participants is $2 \\times 2^k = 2^{k+1}$, also a power of two. So we assume from here on that every participant has at least one friend.\nWe consider two different cases separately: the case when some participant has an odd number of friends, and the case when each participant has an even number of friends.\n\nCase 1: Some participant, $Z$, has an *odd* number of friends.\nRemove $Z$ from consideration and for each pair $(X, Y)$ of $Z$'s friends, reverse the relationship between $X$ and $Y$ (from friends to strangers or vice versa).\n\nClaim. The number of possible seatings is unchanged after removing $Z$ and reversing the relationship between $X$ and $Y$ in each pair $(X, Y)$ of $Z$'s friends.\n\n*Proof.* Suppose we have an arrangement prior to $Z$'s departure. By assumption, $Z$ has an *even* number of friends in the room with him.\nIf this number is 0, the room composition is clearly still valid after $Z$ leaves the room.\nIf this number is positive, let $X$ be one of $Z$'s friends in the room with him. By assumption, person $X$ also has an even number of friends in the same room. Remove $Z$ from the room; then $X$ will have an odd number of friends left in the room, and there will be an odd number of $Z$'s friends in this room besides $X$. Reversing the relationship between $X$ and each of $Z$'s friends in this room will therefore restore the parity to even.\nThe same reasoning applies to any of $Z$'s friends in the other dining room. Indeed, there will be an odd number of them in that room, hence each of them will reverse relationships with an even number of individuals in that room, preserving the parity of the number of friends present.\nMoreover, a legitimate seating without $Z$ arises from *exactly one* arrangement including $Z$, because in the case under consideration, only one room contains an even number of $Z$'s friends. $\\square$\n\nThus, we have to double the number of seatings for $(n-1)$ participants which is, by the induction hypothesis, a power of 2. Consequently, for $n$ participants we will get again a power of 2 for the number of different arrangements.\n\nCase 2: Each participant has an *even* number of friends.\n\nIn this case, each valid split of participants in two rooms gives us an even number of friends in either room.\nLet $(A, B)$ be any pair of friends. Remove this pair from consideration and for each pair $(C, D)$, where $C$ is a friend of $A$ and $D$ is a friend of $B$, change the relationship between $C$ and $D$ to the opposite; do the same if $C$ is a friend of $B$ and $D$ is a friend of $A$. Note that if $C$ and $D$ are friends of both $A$ and $B$, their relationship will be reversed twice, leaving it unchanged.\nConsider now an arbitrary participant $X$ different from $A$ and $B$ and choose one of the two dining rooms. [Note that in the case under consideration, the total number of participants is at least 3, so such a triplet $(A, B; X)$ can be chosen.] Let $A$ have $m$ friends in this room and let $B$ have $n$ friends in this room; both $m$ and $n$ are even. When the pair $(A, B)$ is removed, $X$'s relationship will be reversed with either $n$, or $m$, or $m + n - 2k$ (for $k$ the number of mutual friends of $A$ and $B$ in the chosen room), or 0 people within the chosen room (depending on whether he/she is a friend of only $A$, only $B$, both, or neither). Since $m$ and $n$ are both even, the parity of the number of $X$'s friends in that room will be therefore unchanged in any case.\nAgain, a legitimate seating without $A$ and $B$ will arise from *exactly one* arrangement that includes the pair $(A, B)$: just add each of $A$ and $B$ to the room with an odd number of the other's friends, and then reverse all of the relationships between a friend of $A$ and a friend of $B$. In this way we create a one-to-one correspondence between all possible seatings before and after the $(A, B)$ removal.\nSince the number of arrangements for $n$ participants is twice as many as that for $(n - 2)$ participants, and that number for $(n - 2)$ participants is, by the induction hypothesis, a power of 2, we get in turn a power of 2 for the number of arrangements for $n$ participants. The problem is completely solved.\n\nLet $n$ be the number of mathematicians. Represent the problem as a graph $G$, with vertices and edges representing mathematicians and friendships, respectively. We seek partitions $V_0 \\cup V_1$ such that in each induced subgraph $G[V_i]$, every vertex has even degree.\nLabel the vertices $\\{v_1, \\dots, v_n\\}$, and let $d_i$ be the degree of $v_i$. Let the notation $v_i \\sim v_j$ indicate adjacency in the graph. We introduce $\\mathbf{A} = (a_{ij})$, an $n \\times n$ matrix over the finite field $\\mathbb{F}_2 = \\{0,1\\}$. For every $i \\neq j$, let the entry $a_{ij} = 1$ if $v_i \\sim v_j$, and 0 otherwise. On the diagonal, let each $a_{ii}$ equal $d_i$ modulo 2 (recall that our matrix has elements in $\\mathbb{F}_2$).\nLet $\\mathbf{d}$ be the $n \\times 1$ vector with entries equal to the degrees $d_i$. Consider an $n \\times 1$ vector of variables $\\mathbf{x}$. We claim that there is a bijective correspondence between the solutions of the matrix equation $\\mathbf{A}\\mathbf{x} = \\mathbf{d}$ and the valid partitions of the graph. Indeed, for any solution vector $\\mathbf{x} = (x_1, \\dots, x_n)^T$, partition the vertices by putting $v_i$ in $V_0$ if $x_i = 0$, and in $V_1$ otherwise. It is easy to check that $\\mathbf{A}\\mathbf{x} = \\mathbf{d}$ if and only if this is a valid partition.\nBasic linear algebra tells us that the number of solutions of $\\mathbf{A}\\mathbf{x} = \\mathbf{d}$ is either 0 or a power of $|\\mathbb{F}_2| = 2$. Therefore, it remains to show that there is at least one solution. In fact, this is precisely the statement of Gallai's Cycle-Cocycle Partition Theorem (c.f. Exercise 1.35 in *Graph Theory*, by Reinhard Diestel, Problem 5.17 in *Combinatorial Problems and Solutions*, by László Lovász, with solution on page 287 of the second book, or the paper \"Simple proofs to three parity theorems,\" by Yair Caro, published in 1996 in *Ars Combinatoria*, on pages 175–180 of volume 42).\nIn the remainder of this solution, we provide an alternate proof of this final existence result. We need to show that $\\mathbf{d}$ is in the column space of $\\mathbf{A}$. By linear algebra, the column space of $\\mathbf{A}$ is the orthogonal complement of the nullspace of $\\mathbf{A}^T$. Therefore, it suffices to show that for every vector $\\mathbf{y} = (y_1, ..., y_n)^T$ in the null space of $\\mathbf{A}^T$ (i.e., $\\mathbf{A}^T\\mathbf{y} = 0$), we always have $\\mathbf{y}^T\\mathbf{d} = 0$.\nConsider the submatrix $\\mathbf{B}$ of $\\mathbf{A}$ consisting of the rows and columns $i$ for which $y_i = 1$. Since the diagonal of $\\mathbf{A}$ is $\\mathbf{d}$, the product $\\mathbf{y}^T\\mathbf{d}$ is precisely the number of 1's on the diagonal of $\\mathbf{B}$. Now $\\mathbf{A}^T\\mathbf{y} = 0$, so the sum of every row in $\\mathbf{B}$ must be 0 over $\\mathbb{F}_2$, hence the total number of 1's in $\\mathbf{B}$ is even. But $\\mathbf{B}$ is symmetric, so it has an even number of off-diagonal 1's. Therefore, $\\mathbf{B}$ indeed has an even number of 1's on its diagonal, so our previous observation implies that $\\mathbf{y}^T\\mathbf{d} = 0$ over $\\mathbb{F}_2$, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-vectors-auto-1734",
+      "name": "12th Annual Harvard-MIT Mathematics Tournament #0iuu",
+      "url": "https://usamoguide.com/",
+      "source": "12th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Counting two ways",
+        "Greatest common divisors (gcd)",
+        "Vectors"
+      ],
+      "statement": "Problem:\n\nShelly writes down a vector $v=(a, b, c, d)$, where $0<a<b<c<d$ are integers. Let $\\sigma(v)$ denote the set of 24 vectors whose coordinates are $a, b, c$, and $d$ in some order. For instance, $\\sigma(v)$ contains $(b, c, d, a)$. Shelly notes that there are 3 vectors in $\\sigma(v)$ whose sum is of the form $(s, s, s, s)$ for some $s$. What is the smallest possible value of $d$ ?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nIf $k = a + b + c + d$, first you notice $4 \\mid 3k$, and $k \\geq 10$. So we try $k = 12$, which works with $a, b, c, d = 1, 2, 3, 6$ and not $1, 2, 4, 5$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-vectors-auto-2081",
+      "name": "Harvard-MIT Mathematics Tournament #0j4h",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recursion, bijection",
+        "Vectors"
+      ],
+      "statement": "Problem:\n\nIn how many ways can one fill a $4 \\times 4$ grid with a $0$ or $1$ in each square such that the sum of the entries in each row, column, and long diagonal is even?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $256$\n\nFirst we name the elements of the square as follows:\n\n| $a_{11}$ | $a_{12}$ | $a_{13}$ | $a_{14}$ |\n| :--- | :--- | :--- | :--- |\n| $a_{21}$ | $a_{22}$ | $a_{23}$ | $a_{24}$ |\n| $a_{31}$ | $a_{32}$ | $a_{33}$ | $a_{34}$ |\n| $a_{41}$ | $a_{42}$ | $a_{43}$ | $a_{44}$ |\n\nWe claim that for any given values of $a_{11}, a_{12}, a_{13}, a_{21}, a_{22}, a_{23}, a_{32}$, and $a_{33}$ (the + signs in the diagram below), there is a unique way to assign values to the rest of the entries such that all necessary sums are even.\n\n$$\n\\begin{array}{cccc}\n+ & + & + & a_{14} \\\\\n+ & + & + & a_{24} \\\\\na_{31} & + & + & a_{34} \\\\\na_{41} & a_{42} & a_{43} & a_{44}\n\\end{array}\n$$\n\nTaking additions mod $2$, we have\n\n$$\n\\begin{aligned}\na_{14} & = a_{11} + a_{12} + a_{13} \\\\\na_{24} & = a_{21} + a_{22} + a_{23} \\\\\na_{44} & = a_{11} + a_{22} + a_{33} \\\\\na_{42} & = a_{12} + a_{22} + a_{32} \\\\\na_{43} & = a_{13} + a_{23} + a_{33}\n\\end{aligned}\n$$\n\nSince the $4$th column, the $4$th row, and the $1$st column must have entries that sum to $0$, we have\n\n$$\n\\begin{aligned}\n& a_{34} = a_{14} + a_{24} + a_{44} = a_{12} + a_{13} + a_{21} + a_{23} + a_{33} \\\\\n& a_{41} = a_{42} + a_{43} + a_{44} = a_{11} + a_{12} + a_{13} + a_{23} + a_{32} \\\\\n& a_{31} = a_{11} + a_{21} + a_{41} = a_{12} + a_{13} + a_{21} + a_{23} + a_{32}\n\\end{aligned}\n$$\n\nIt is easy to check that the sum of entries in every row, column, and the main diagonal is even. Since there are $2^8 = 256$ ways to assign the values to the initial $8$ entries, there are exactly $256$ ways to fill the board."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-vectors-auto-2656",
+      "name": "HMMT 2014 HMIC #0jkg",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2014 HMIC",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vectors"
+      ],
+      "statement": "Problem:\n\nFix positive integers $m$ and $n$. Suppose that $a_{1}, a_{2}, \\ldots, a_{m}$ are reals, and that pairwise distinct vectors $v_{1}, \\ldots, v_{m} \\in \\mathbb{R}^{n}$ satisfy\n$$\n\\sum_{j \\neq i} a_{j} \\frac{v_{j}-v_{i}}{\\left\\|v_{j}-v_{i}\\right\\|^{3}}=0\n$$\nfor $i=1,2, \\ldots, m$.\nProve that\n$$\n\\sum_{1 \\leq i<j \\leq m} \\frac{a_{i} a_{j}}{\\left\\|v_{j}-v_{i}\\right\\|}=0\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: N/A Since $v_{i} \\cdot\\left(v_{j}-v_{i}\\right)+v_{j} \\cdot\\left(v_{i}-v_{j}\\right)=-\\left\\|v_{j}-v_{i}\\right\\|^{2}$ for any $1 \\leq i<j \\leq m$, we have\n$$\n0=\\sum_{i=1}^{m} a_{i} v_{i} \\cdot 0=\\sum_{i=1}^{m} a_{i} v_{i} \\sum_{j \\neq i} a_{j} \\frac{v_{j}-v_{i}}{\\left\\|v_{j}-v_{i}\\right\\|^{3}}=-\\sum_{1 \\leq i<j \\leq m} \\frac{a_{i} a_{j}}{\\left\\|v_{j}-v_{i}\\right\\|}\n$$\nas desired.\n\n\nAlternative Solution. Fix $a_{1}, \\ldots, a_{m}$, and define $f:\\left(\\mathbb{R}^{n}\\right)^{m} \\rightarrow \\mathbb{R}$ by\n$$\nf\\left(x_{1}, \\ldots, x_{m}\\right)=\\sum_{1 \\leq i<j \\leq m} \\frac{a_{i} a_{j}}{\\left\\|x_{j}-x_{i}\\right\\|}\n$$\nNow if we view $f\\left(x_{1}, \\ldots, x_{m}\\right)$ individually as a function in $x_{k}$ ( $k$ fixed), then the problem condition for $i=k$ says precisely that the gradient of $f$ with respect to $x_{k}$ (but of course, multiplied by $a_{k}$ ) evaluated at $\\left(v_{1}, \\ldots, v_{m}\\right)$ is 0 .\nFinally, the multivariate chain rule shows that $F(t):=f\\left(t v_{1}, \\ldots, t v_{m}\\right)=\\frac{1}{t} f\\left(v_{1}, \\ldots, v_{m}\\right)$ must satisfy $F^{\\prime}(1)=0$. Yet $F^{\\prime}(1)=-\\frac{1}{1^{2}} f\\left(v_{1}, \\ldots, v_{m}\\right)$, so we have $f\\left(v_{1}, \\ldots, v_{m}\\right)=0$, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-vectors-auto-2769",
+      "name": "HMMT February #0jnl",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vectors",
+        "Modular Arithmetic"
+      ],
+      "statement": "Problem:\n\nFor integers $a, b, c, d$, let $f(a, b, c, d)$ denote the number of ordered pairs of integers $(x, y) \\in \\{1,2,3,4,5\\}^{2}$ such that $a x + b y$ and $c x + d y$ are both divisible by $5$. Find the sum of all possible values of $f(a, b, c, d)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $31$\n\nStandard linear algebra over the field $\\mathbb{F}_{5}$ (the integers modulo $5$). The dimension of the solution set is at least $0$ and at most $2$, and any intermediate value can also be attained. So the answer is $1 + 5 + 5^{2} = 31$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-vectors-auto-2814",
+      "name": "HMMT November 2015 #0jou",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2015",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other 3D problems",
+        "Vectors"
+      ],
+      "statement": "Problem:\nFind the shortest distance between the lines $\\frac{x+2}{2}=\\frac{y-1}{3}=\\frac{z}{1}$ and $\\frac{x-3}{-1}=\\frac{y}{1}=\\frac{z+1}{2}$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFirst we find the direction of a line perpendicular to both of these lines. By taking the cross product $(2,3,1) \\times (-1,1,2) = (5,-5,5)$ we find that the plane $x-y+z+3=0$ contains the first line and is parallel to the second. Now we take a point on the second line, say the point $(3,0,-1)$ and find the distance between this point and the plane. This comes out to \n$$\n\\frac{|3-0+(-1)+3|}{\\sqrt{1^{2}+1^{2}+1^{2}}}=\\frac{5}{\\sqrt{3}}=\\frac{5 \\sqrt{3}}{3}.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-vectors-auto-2843",
+      "name": "HMMT February #0jpn",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vectors",
+        "Counting two ways"
+      ],
+      "statement": "Problem:\nLet $P$ denote the set of all subsets of $\\{1, \\ldots, 23\\}$. A subset $S \\subseteq P$ is called good if whenever $A, B$ are sets in $S$, the set $(A \\backslash B) \\cup (B \\backslash A)$ is also in $S$. (Here, $A \\backslash B$ denotes the set of all elements in $A$ that are not in $B$, and $B \\backslash A$ denotes the set of all elements in $B$ that are not in $A$.) What fraction of the good subsets of $P$ have between 2015 and 3015 elements, inclusive?\nIf your answer is a decimal number or a fraction (of the form $m / n$, where $m$ and $n$ are positive integers), then your score on this problem will be equal to $\\max \\{0,25-\\lfloor 1000|A-N|\\rfloor\\}$, where $N$ is your answer and $A$ is the actual answer. Otherwise, your score will be zero.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $\\quad \\frac{18839183877670041942218307147122500601235}{47691684840486192422095701784512492731212} \\approx 0.3950203047068107$\nLet $n=23$, and $\\ell=\\lfloor n / 2\\rfloor=11$.\n\nWe use the well-known rephrasing of the symmetric difference $((A \\backslash B) \\cup (B \\backslash A))$ in terms of addition modulo 2 of \"indicators/characteristic vectors\". So we simply want the number $\\binom{n}{\\ell}_{2}$ of dimension $\\ell$ subspaces of the $F:=\\mathbb{F}_{2}$-vector space $V:=\\mathbb{F}_{2}^{n}$. Indeed, good subsets of $2^{d}$ elements simply correspond to dimension $d$ subspaces (in particular, good subsets can only have sizes equal to powers of $|F|=2$, and $2^{\\ell}$ is the only power between 2015 and 3015, inclusive).\n\nTo do this, it's easier to first count the number of (ordered) tuples of $\\ell$ linearly independent elements of $V$, and divide (to get the subspace count) by the number of (ordered) tuples of $\\ell$ linearly independent elements of any $\\ell$-dimensional subspace of $V$ (a well-defined number independent of the choice of subspace).\n\nIn general, if we want to count tuples of $m$ linearly independent elements in an $n$-dimensional space (with $n \\geq m$), just note that we are building on top of (0) (the zero-dimensional subspace), and once we've chosen $r \\leq m$ elements (with $0 \\leq r \\leq m-1$), there are $2^{n}-2^{r}$ elements linearly independent to the previous $r$ elements (which span a subspace of dimension $r$, hence of $2^{r}$ \"bad\" elements). Thus the number of $m$-dimensional subspaces of an $n$-dimensional space is\n$$\n\\binom{n}{m}_{2}:=\\frac{\\left(2^{n}-2^{0}\\right)\\left(2^{n}-2^{1}\\right) \\cdots\\left(2^{n}-2^{m-1}\\right)}{\\left(2^{m}-2^{0}\\right)\\left(2^{m}-2^{1}\\right) \\cdots\\left(2^{m}-2^{m-1}\\right)}\n$$\na \"Gaussian binomial coefficient.\"\n\nWe want to estimate\n$$\n\\frac{\\binom{n}{\\ell}_{2}}{\\sum_{m=0}^{n}\\binom{n}{m}_{2}}=\\frac{1}{2} \\frac{\\binom{23}{11}_{2}}{\\sum_{m=0}^{11}\\binom{23}{m}_{2}}\n$$\nTo do this, note that $\\binom{n}{m}_{2}=\\binom{n}{n-m}_{2}$, so we may restrict our attention to the lower half. Intuitively, the Gaussian binomial coefficients should decay exponentially (or similarly quickly) away from the center; indeed, if $m \\leq n / 2$, then\n$$\n\\binom{n}{m-1}_{2} /\\binom{n}{m}_{2}=\\frac{\\left(2^{m}-2^{0}\\right) \\cdot 2^{m-1}}{\\left(2^{n}-2^{m-1}\\right)} \\approx 2^{2 m-1-n}\n$$\nSo in fact, the decay is super-exponential, starting (for $n=23$ odd and $m \\leq \\ell=11$) at an $\\approx \\frac{1}{4}$ rate. So most of the terms (past the first 2 to 4, say) are negligible in our estimation. If we use the first two terms, we get an approximation of $\\frac{1}{2} \\cdot \\frac{1}{1+\\frac{1}{4}}=\\frac{2}{5}=0.4$, which is enough for 20 points. (Including the next term gives an approximation of $\\frac{32}{81} \\approx 0.3950617$, which is good enough to get full credit.)\n\nTo compute the exact answer, we used the following python3 code:\n```\nfrom functools import lru_cache\nfrom fractions import Fraction\n@lru_cache(maxsize=None)\ndef gauss_binom(n, k, e):\n    if k < 0 or k > n:\n        return 0\n    if k == 0 or k == n:\n        return 1\n    return e ** k * gauss_binom(n - 1, k, e) + \\\n        gauss_binom(n - 1, k - 1, e)\nN = 23\nK = 11\ngood = gauss_binom(N, K, 2)\ntotal = sum(gauss_binom(N, i, 2) for i in range(N + 1))\nprint(Fraction(good, total))\nprint(float(good/total))\n```"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-vectors-auto-3082",
+      "name": "HMMT November 2017 #0jwa",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2017",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Determinants",
+        "Vectors",
+        "Combinatorics"
+      ],
+      "statement": "Problem:\n\nTwo ordered pairs $(a, b)$ and $(c, d)$, where $a, b, c, d$ are real numbers, form a basis of the coordinate plane if $a d \\neq b c$. Determine the number of ordered quadruples $(a, b, c, d)$ of integers between $1$ and $3$ inclusive for which $(a, b)$ and $(c, d)$ form a basis for the coordinate plane.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAny pair of distinct points will form a basis except when $(a, b)$ and $(c, d)$ are both from $\\{(1,1),(2,2),(3,3)\\}$, so the answer is $9 \\cdot 8 - 3 \\cdot 2 = 66$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-vectors-auto-3152",
+      "name": "HMIC #0jy8",
+      "url": "https://usamoguide.com/",
+      "source": "HMIC",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vectors",
+        "Cauchy-Schwarz",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\n\nLet $v_{1}, v_{2}, \\ldots, v_{m}$ be vectors in $\\mathbb{R}^{n}$, such that each has a strictly positive first coordinate. Consider the following process. Start with the zero vector $w=(0,0, \\ldots, 0) \\in \\mathbb{R}^{n}$. Every round, choose an $i$ such that $1 \\leq i \\leq m$ and $w \\cdot v_{i} \\leq 0$, and then replace $w$ with $w+v_{i}$.\nShow that there exists a constant $C$ such that regardless of your choice of $i$ at each step, the process is guaranteed to terminate in $C$ rounds. The constant $C$ may depend on the vectors $v_{1}, \\ldots, v_{m}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $w_{0}=0$, let $w_{r}$ be the vector $w$ after $r$ rounds. Also, let $e_{1}$ denote the vector $(1,0, \\ldots, 0)$. Note that\n$$\nw_{r+1}^{2}=\\left(w_{r}+v_{i}\\right)^{2}=w_{r}^{2}+v_{i}^{2}+2 w_{r} \\cdot v_{i} \\leq w_{r}^{2}+v_{i}^{2}\n$$\nas we have by the condition that $w_{r} \\cdot v_{i} \\leq 0$. Therefore, we have by induction that $\\left|w_{r}\\right| \\leq M \\sqrt{r}$, where $M=\\max _{i}\\left|v_{i}\\right|$. Also, we have that\n$$\nw_{r+1} \\cdot e_{1}=w_{r} \\cdot e_{1}+v_{i} \\cdot e_{1}\n$$\nso $w_{r} \\cdot e_{1} \\geq m r$, where $m=\\min _{i}\\left(v_{i} \\cdot e_{1}\\right)>0$.\nNow using the obvious inequality\n$$\nM \\sqrt{r} \\geq\\left|w_{r}\\right| \\geq w_{r} \\cdot e_{1} \\geq m r\n$$\nwe get that $r \\leq \\frac{M^{2}}{m^{2}}$, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-vectors-auto-3192",
+      "name": "HMIC #0jzc",
+      "url": "https://usamoguide.com/",
+      "source": "HMIC",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional equations",
+        "Vectors"
+      ],
+      "statement": "Problem:\n\nLet $S$ be the set $\\{-1,1\\}^n$, that is, $n$-tuples such that each coordinate is either $-1$ or $1$. For\n$$\ns = (s_1, s_2, \\ldots, s_n),\\ t = (t_1, t_2, \\ldots, t_n) \\in \\{-1,1\\}^n\n$$\ndefine $s \\odot t = (s_1 t_1, s_2 t_2, \\ldots, s_n t_n)$.\nLet $c$ be a positive constant, and let $f: S \\rightarrow \\{-1,1\\}$ be a function such that there are at least $(1-c) \\cdot 2^{2n}$ pairs $(s, t)$ with $s, t \\in S$ such that $f(s \\odot t) = f(s) f(t)$. Show that there exists a function $f'$ such that $f'(s \\odot t) = f'(s) f'(t)$ for all $s, t \\in S$ and $f(s) = f'(s)$ for at least $(1-10c) \\cdot 2^n$ values of $s \\in S$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe use finite Fourier analysis, which we explain the setup for below. For a subset $T \\subseteq S$, define the function $\\chi_T: S \\rightarrow \\{-1,1\\}$ to satisfy $\\chi_T(s) = \\prod_{t \\in T} s_t$. Note that $\\chi_T(s \\odot t) = \\chi_T(s) \\chi_T(t)$ for all $s, t \\in S$. Therefore, we should show that there exists a subset $T$ such that taking $f' = \\chi_T$ satisfies the constraint. This subset $T$ also has to exist, as the $\\chi_T$ are all the multiplicative functions from $S \\rightarrow \\{-1,1\\}$.\n\nAlso, for two functions $f, g: S \\rightarrow \\mathbb{R}$ define\n$$\n\\langle f, g \\rangle = \\frac{1}{2^n} \\sum_{s \\in S} f(s) g(s)\n$$\nNow we claim a few facts below that are easy to verify. One, for any subsets $T_1, T_2 \\subseteq S$ we have that\n$$\n\\left\\langle \\chi_{T_1}, \\chi_{T_2} \\right\\rangle = \\begin{cases}\n0 & \\text{if } T_1 \\neq T_2 \\\\\n1 & \\text{if } T_1 = T_2\n\\end{cases}\n$$\nWe will refer to this claim as orthogonality. Also, note that for any function $f: S \\rightarrow \\mathbb{R}$, we can write\n$$\nf = \\sum_{T \\subseteq S} \\langle f, \\chi_T \\rangle \\chi_T\n$$\nThis is called expressing $f$ by its Fourier basis. By the given condition, we have that\n$$\n\\sum_{s, t \\in S} f(s \\odot t) f(s) f(t) = 1 - 2c\n$$\nExpanding the left-hand side in terms of the Fourier basis, we get that\n$$\n\\begin{gathered}\n1 - 2c = \\frac{1}{2^{2n}} \\sum_{s, t \\in S} f(s \\odot t) f(s) f(t) = \\frac{1}{2^{2n}} \\sum_{T_1, T_2, T_3 \\subseteq S} \\sum_{s, t \\in S} \\langle f, \\chi_{T_1} \\rangle \\langle f, \\chi_{T_2} \\rangle \\langle f, \\chi_{T_3} \\rangle \\chi_{T_1}(s) \\chi_{T_1}(t) \\chi_{T_2}(s) \\chi_{T_3}(t) \\\\\n= \\sum_{T_1, T_2, T_3 \\subseteq S} \\langle f, \\chi_{T_1} \\rangle \\langle f, \\chi_{T_2} \\rangle \\langle f, \\chi_{T_3} \\rangle \\langle \\chi_{T_1}, \\chi_{T_2} \\rangle \\langle \\chi_{T_1}, \\chi_{T_3} \\rangle = \\sum_{T \\subseteq S} \\langle f, \\chi_T \\rangle^3\n\\end{gathered}\n$$\nby orthogonality. Also note by orthogonality that\n$$\n1 = \\langle f, f \\rangle = \\left\\langle \\sum_{T_1 \\subseteq S} \\langle f, T_1 \\rangle \\chi_{T_1}(s), \\sum_{T_2 \\subseteq S} \\langle f, T_2 \\rangle \\chi_{T_2}(s) \\right\\rangle = \\sum_{T \\subseteq S} \\langle f, \\chi_T \\rangle^2\n$$\nFinally, from above we have that\n$$\n1 - 2c = \\sum_{T \\subseteq S} \\langle f, \\chi_T \\rangle^3 \\leq \\left(\\max_{T \\subseteq S} \\langle f, \\chi_T \\rangle\\right) \\sum_{T \\subseteq S} \\langle f, \\chi_T \\rangle^2 = \\max_{T \\subseteq S} \\langle f, \\chi_T \\rangle\n$$\nThis last equation implies that some $\\chi_T$ and $f$ agree on $(1-c) \\cdot 2^n$ values, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-vectors-auto-3218",
+      "name": "HMMT November 2017 #0k02",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2017",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Volume",
+        "Cartesian coordinates",
+        "Vectors"
+      ],
+      "statement": "Problem:\n\nUndecillion years ago in a galaxy far, far away, there were four space stations in the three-dimensional space, each pair spaced $1$ light year away from each other. Admiral Ackbar wanted to establish a base somewhere in space such that the sum of squares of the distances from the base to each of the stations does not exceed $15$ square light years. (The sizes of the space stations and the base are negligible.) Determine the volume, in cubic light years, of the set of all possible locations for the Admiral's base.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSet up a coordinate system where the coordinates of the stations are $\\left(\\frac{1}{2 \\sqrt{2}}, \\frac{1}{2 \\sqrt{2}}, \\frac{1}{2 \\sqrt{2}}\\right)$, $\\left(-\\frac{1}{2 \\sqrt{2}},-\\frac{1}{2 \\sqrt{2}}, \\frac{1}{2 \\sqrt{2}}\\right)$, $\\left(\\frac{1}{2 \\sqrt{2}},-\\frac{1}{2 \\sqrt{2}},-\\frac{1}{2 \\sqrt{2}}\\right)$, and $\\left(-\\frac{1}{2 \\sqrt{2}}, \\frac{1}{2 \\sqrt{2}},-\\frac{1}{2 \\sqrt{2}}\\right)$. The sum of squares of the distances is then\n$$\n\\sum_{\\mathrm{sym}} 2\\left(x-\\frac{1}{2 \\sqrt{2}}\\right)^{2}+2\\left(x+\\frac{1}{2 \\sqrt{2}}\\right)^{2}=4\\left(x^{2}+y^{2}+z^{2}\\right)+\\frac{3}{2}=4 r^{2}+\\frac{3}{2}\n$$\nwhere $r$ is the distance from the center of the tetrahedron. It follows from $4 r^{2}+\\frac{3}{2} \\leq 15$ that $r \\leq \\frac{3 \\sqrt{6}}{4}$, so the set is a ball with radius $R=\\frac{3 \\sqrt{6}}{4}$, and the volume is $\\frac{4 \\pi}{3} R^{3}=\\frac{27 \\sqrt{6}}{8} \\pi$.\n\n\nSolution 2:\n\nLet $P$ be the location of the base; $S_{1}, S_{2}, S_{3}, S_{4}$ be the stations; and $G$ be the center of the tetrahedron. We have:\n$$\n\\begin{gathered}\n\\sum_{i=1}^{4} P S_{i}^{2}=\\sum_{i=1}^{4} \\overrightarrow{P S}_{i} \\cdot \\overrightarrow{P S_{i}} \\\\\n\\sum_{i=1}^{4} P S_{i}^{2}=\\sum_{i=1}^{4}\\left(\\overrightarrow{P G}+\\overrightarrow{G S_{i}}\\right) \\cdot\\left(\\overrightarrow{P G}+\\overrightarrow{G S_{i}}\\right) \\\\\n\\sum_{i=1}^{4} P S_{i}^{2}=\\sum_{i=1}^{4}\\left(\\overrightarrow{P G} \\cdot \\overrightarrow{P G}+2 \\overrightarrow{P G} \\cdot \\overrightarrow{G S_{i}}+\\overrightarrow{G S_{i}} \\cdot \\overrightarrow{G S}_{i}\\right)\n\\end{gathered}\n$$\nSince $G S_{1}=G S_{2}=G S_{3}=G S_{4}$, we have:\n$$\n\\begin{aligned}\n& \\sum_{i=1}^{4} P S_{i}^{2}=4 P G^{2}+4 G S_{1}^{2}+2 \\sum_{i=1}^{4}\\left(\\overrightarrow{P G} \\cdot \\overrightarrow{G S_{i}}\\right) \\\\\n& \\sum_{i=1}^{4} P S_{i}^{2}=4 P G^{2}+4 G S_{1}^{2}+2 \\overrightarrow{P G} \\cdot\\left(\\sum_{i=1}^{4} \\overrightarrow{G S_{i}}\\right)\n\\end{aligned}\n$$\nSince $G$ is the center of the tetrahedron, $\\overrightarrow{G S}_{1}+\\overrightarrow{G S}_{2}+\\overrightarrow{G S}_{3}+\\overrightarrow{G S}_{4}=\\overrightarrow{0}$. Thus:\n$$\n\\sum_{i=1}^{4} P S_{i}^{2}=4 P G^{2}+4 G S_{1}^{2}\n$$\nSince $G S_{1}^{2}=\\frac{3}{8}$, we have $P G^{2} \\leq \\frac{27}{8}$. Thus, the locus of all good points is a ball centered at $G$ with radius $r=\\sqrt{\\frac{27}{8}}$. Then, the volume is $V=\\frac{4}{3} \\pi r^{3}=\\frac{27 \\sqrt{6} \\pi}{8}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-vectors-auto-3231",
+      "name": "February 2017 #0k0f",
+      "url": "https://usamoguide.com/",
+      "source": "February 2017",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Counting two ways",
+        "Coloring schemes, extremal arguments",
+        "QM-AM-GM-HM / Power Mean",
+        "Vectors"
+      ],
+      "statement": "Problem:\nLet $m$ be a positive integer, and let $T$ denote the set of all subsets of $\\{1,2, \\ldots, m\\}$. Call a subset $S$ of $T$ $\\delta$-good if for all $s_{1}, s_{2} \\in S$, $s_{1} \\neq s_{2}$, $\\left|\\Delta\\left(s_{1}, s_{2}\\right)\\right| \\geq \\delta m$, where $\\Delta$ denotes symmetric difference (the symmetric difference of two sets is the set of elements that is in exactly one of the two sets). Find the largest possible integer $s$ such that there exists an integer $m$ and a $\\frac{1024}{2047}$-good set of size $s$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: 2048\nLet $n=|S|$. Let the sets in $S$ be $s_{1}, s_{2}, \\ldots, s_{n}$. We bound the sum $\\sum_{1 \\leq i<j \\leq n}\\left|\\Delta\\left(s_{i}, s_{j}\\right)\\right|$ in two ways. On one hand, by the condition we have the obvious bound\n$$\n\\sum_{1 \\leq i<j \\leq n}\\left|\\Delta\\left(s_{i}, s_{j}\\right)\\right| \\geq \\binom{ n}{2} \\delta m\n$$\nOn the other hand, for $1 \\leq i \\leq m$, let $t_{i}=\\left|\\left\\{1 \\leq j \\leq n: i \\in s_{j}\\right\\}\\right|$. Then it is clear that\n$$\n\\sum_{1 \\leq i<j \\leq n}\\left|\\Delta\\left(s_{i}, s_{j}\\right)\\right|=\\sum_{k=1}^{m} t_{k}\\left(n-t_{k}\\right) \\leq \\frac{n^{2}}{4} m\n$$\nby AM-GM. Therefore, we get the bound\n$$\n\\binom{n}{2} \\delta m \\leq \\frac{n^{2}}{4} m \\Rightarrow n \\leq \\frac{2 \\delta}{2 \\delta-1}=2048\n$$\nTo give a construction with $n=2048$, take $m=2047$. For the rest of this construction, we will be interpreting the integers $1,2, \\ldots, m$ as 11-digit integers in binary. Given this interpretation, define a dot product $x \\odot y$ of two positive integers $0 \\leq x, y \\leq m$ the following way. If $x=\\left(x_{1} x_{2} \\ldots x_{11}\\right)_{2}, y=\\left(y_{1} y_{2} \\ldots y_{11}\\right)_{2}$ in binary, then\n$$\nx \\odot y=\\sum x_{i} y_{i} \\quad(\\bmod 2)\n$$\nNow we can define the sets $s_{1}, s_{2}, \\ldots, s_{2048}$. Define\n$$\ns_{i}=\\{1 \\leq j \\leq m:(i-1) \\odot j=1 .\\}\n$$\nA computation shows that this construction works.\n\nSome notes: here is the motivation behind the construction. We are treating the integers $0,1, \\ldots, m$ as the vector space $V=\\mathbb{F}_{2}^{11}$, and the sets $s_{i}$ correspond to linear functionals $f_{i}: V \\rightarrow \\mathbb{F}_{2}$. In particular, the function $f_{i}: V \\rightarrow \\mathbb{F}_{2}$ is simply defined as $f_{i}(x)=(i-1) \\odot x$, which one can easily check to be linear. This construction corresponds to Hadamard matrices of size $2^{11}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-vectors-auto-3292",
+      "name": "HMIC 2018 #0k24",
+      "url": "https://usamoguide.com/",
+      "source": "HMIC 2018",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Expected values",
+        "Vectors"
+      ],
+      "statement": "Problem:\n\nConsider a finite set of points $T \\in \\mathbb{R}^n$ contained in the $n$-dimensional unit ball centered at the origin, and let $X$ be the convex hull of $T$. Prove that for all positive integers $k$ and all points $x \\in X$, there exist points $t_1, t_2, \\ldots, t_k \\in T$, not necessarily distinct, such that their centroid\n$$\n\\frac{t_1 + t_2 + \\cdots + t_k}{k}\n$$\nhas Euclidean distance at most $\\frac{1}{\\sqrt{k}}$ from $x$.\n\n(The $n$-dimensional unit ball centered at the origin is the set of points in $\\mathbb{R}^n$ with Euclidean distance at most 1 from the origin. The convex hull of a set of points $T \\in \\mathbb{R}^n$ is the smallest set of points $X$ containing $T$ such that each line segment between two points in $X$ lies completely inside $X$.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nBy the definition of convex hull, we can write $x=\\sum_{i=1}^{m} \\lambda_{i} z_{i}$, where each $z_{i} \\in T$, each $\\lambda_{i} \\geq 0$ and $\\sum_{i=1}^{m} \\lambda_{i}=1$. Consider then a random variable $Z$ that takes on value $z_{i}$ with probability $\\lambda_{i}$. We have $\\mathbb{E}[Z]=x$. Let $\\bar{Z}=\\frac{1}{k} \\sum_{i=1}^{k} Z_{i}$, where each $Z_{i}$ is an independent copy of $Z$. Then we wish to compute\n$$\n\\operatorname{Var}[\\bar{Z}]=\\frac{1}{k^{2}} \\sum_{i=1}^{k} \\operatorname{Var}\\left[Z_{i}\\right]\n$$\nFinally, we have\n$$\n\\operatorname{Var}\\left[Z_{i}\\right]=\\mathbb{E}\\left[\\left\\|Z_{i}-x\\right\\|^{2}\\right]=\\mathbb{E}\\left[\\left\\|Z_{i}\\right\\|^{2}\\right]-x^{2} \\leq \\mathbb{E}\\left[\\left\\|Z_{i}\\right\\|^{2}\\right] \\leq 1\n$$\nThe second equality follows from the identity $\\operatorname{Var}[X]=\\mathbb{E}\\left[X^{2}\\right]-\\mathbb{E}[X]^{2}$. Now, we know that\n$$\n\\mathbb{E}\\left[\\left\\|x-\\frac{1}{k} \\sum_{i=1}^{k} Z_{i}\\right\\|^{2}\\right]=\\operatorname{Var}[\\bar{Z}] \\leq \\frac{1}{k}\n$$\nThus, there must exist some realization of $x_{i}$ of the $Z_{i}$ such that\n$$\n\\left\\|x-\\frac{1}{k} \\sum_{i=1}^{k} x_{i}\\right\\|^{2} \\leq \\frac{1}{k}\n$$\nand we are done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-vectors-auto-3438",
+      "name": "HMMT February 2019 #0k66",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2019",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recursion, bijection",
+        "Linear transformations",
+        "Vectors"
+      ],
+      "statement": "Problem:\n\nFred the Four-Dimensional Fluffy Sheep is walking in 4-dimensional space. He starts at the origin. Each minute, he walks from his current position $(a_{1}, a_{2}, a_{3}, a_{4})$ to some position $(x_{1}, x_{2}, x_{3}, x_{4})$ with integer coordinates satisfying\n$$(x_{1}-a_{1})^{2}+(x_{2}-a_{2})^{2}+(x_{3}-a_{3})^{2}+(x_{4}-a_{4})^{2}=4$$\nand\n$$\\left| (x_{1}+x_{2}+x_{3}+x_{4})-(a_{1}+a_{2}+a_{3}+a_{4}) \\right|=2.$$\nIn how many ways can Fred reach $(10,10,10,10)$ after exactly 40 minutes, if he is allowed to pass through this point during his walk?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe possible moves correspond to the vectors $\\pm\\langle 2,0,0,0\\rangle$, $\\pm\\langle 1,1,1,-1\\rangle$, and their permutations. It's not hard to see that these vectors form the vertices of a 4-dimensional hypercube, which motivates the change of coordinates\n$$\n(x_{1}, x_{2}, x_{3}, x_{4}) \\Rightarrow \\left(\\frac{x_{1}+x_{2}+x_{3}+x_{4}}{2}, \\frac{x_{1}+x_{2}-x_{3}-x_{4}}{2}, \\frac{x_{1}-x_{2}+x_{3}-x_{4}}{2}, \\frac{x_{1}-x_{2}-x_{3}+x_{4}}{2}\\right)\n$$\nUnder this change of coordinates, Fred must travel from $(0,0,0,0)$ to $(20,0,0,0)$, and the possible moves correspond to the sixteen vectors $\\langle \\pm 1, \\pm 1, \\pm 1, \\pm 1\\rangle$. The new $x_{1}$-coordinate must increase 30 times and decrease 10 times during Fred's walk, while the other coordinates must increase 20 times and decrease 20 times. Therefore, there are $\\binom{40}{10}\\binom{40}{20}^{3}$ possible walks."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-vectors-auto-3579",
+      "name": "HMMT February 2019 #0ka3",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2019",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Counting two ways",
+        "Vectors",
+        "Other"
+      ],
+      "statement": "Problem:\n\nTessa the hyper-ant has a 2019-dimensional hypercube. For a real number $k$, she calls a placement of nonzero real numbers on the $2^{2019}$ vertices of the hypercube $k$-harmonic if for any vertex, the sum of all 2019 numbers that are edge-adjacent to this vertex is equal to $k$ times the number on this vertex. Let $S$ be the set of all possible values of $k$ such that there exists a $k$-harmonic placement. Find $\\sum_{k \\in S}|k|$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nBy adding up all the equations on each vertex, we get $2019 S = k S$ where $S$ is the sum of all entries, so $k = 2019$ unless $S = 0$. In the latter case, by adding up all the equations on a half of the cube, we get $2018 S - S = k S$ where $S$ is the sum of all entries on that half of the cube, so $k = 2017$ unless $S = 0$. In the latter case (the sum of all entries of any half is zero), by adding up all the equations on a half of the half-cube, we get $2017 S - 2 S = k S$, so $k = 2015$ unless $S = 0$. We continue this chain of casework until we get that the sum of every two vertices connected by unit segments is zero, in which case we have $k = -2019$. This means that $k$ can take any odd value between $-2019$ and $2019$ inclusive, so the sum of absolute values is $2 \\cdot 1010^{2} = 2040200$.\n\nTo achieve these values, suppose that the vertices of the hypercube are $\\{0,1\\}^{2019}$ and that the label of $\\left(x_{1}, x_{2}, \\ldots, x_{2019}\\right)$ is $a_{1}^{x_{1}} a_{2}^{x_{2}} \\ldots a_{2019}^{x_{2019}}$ for constants $a_{1}, a_{2}, \\ldots, a_{2019} \\in \\{-1,1\\}$, then it is not difficult to see that this labeling is $\\left(a_{1} + a_{2} + \\cdots + a_{2019}\\right)$-harmonic for any choice of $a_{i}$'s, so this can achieve all odd values between $-2019$ and $2019$ inclusive."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-vectors-auto-3583",
+      "name": "HMMT February 2019 February 16, 2019 #0ka7",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2019 February 16, 2019",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other 3D problems",
+        "Cartesian coordinates",
+        "Vectors"
+      ],
+      "statement": "Problem:\n\nIn a rectangular box $A B C D E F G H$ with edge lengths $A B = A D = 6$ and $A E = 49$, a plane slices through point $A$ and intersects edges $B F$, $F G$, $G H$, $H D$ at points $P$, $Q$, $R$, $S$ respectively. Given that $A P = A S$ and $P Q = Q R = R S$, find the area of pentagon $A P Q R S$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $A D$ be the positive $x$-axis, $A B$ be the positive $y$-axis, and $A E$ be the positive $z$-axis, with $A$ the origin. The plane, which passes through the origin, has equation $k_{1} x + k_{2} y = z$ for some undetermined parameters $k_{1}, k_{2}$. Because $A P = A S$ and $A B = A D$, we get $P B = S D$, so $P$ and $S$ have the same $z$-coordinate. But $P(0, 6, 6 k_{2})$ and $S(6, 0, 6 k_{1})$, so $k_{1} = k_{2} = k$ for some $k$. Then $Q$ and $R$ both have $z$-coordinate $49$, so $Q\\left(\\frac{49}{k} - 6, 6, 49\\right)$ and $R\\left(6, \\frac{49}{k} - 6, 49\\right)$. The equation $Q R^{2} = R S^{2}$ then gives\n$$\n\\left(\\frac{49}{k} - 6\\right)^{2} + (49 - 6k)^{2} = 2\\left(12 - \\frac{49}{k} - 12\\right)^{2}\n$$\nThis is equivalent to\n$$\n(49 - 6k)^{2}(k^{2} + 1) = 2(49 - 12k)^{2}\n$$\nwhich factors as\n$$\n(k - 7)(36k^{3} - 336k^{2} - 203k + 343) = 0.\n$$\nThis gives $k = 7$ as a root. Note that for $Q$ and $R$ to actually lie on $F G$ and $G H$ respectively, we must have $\\frac{49}{6} \\geq k \\geq \\frac{49}{12}$. Via some estimation, one can show that the cubic factor has no roots in this range (for example, it's easy to see that when $k = 1$ and $k = \\frac{336}{36} = \\frac{28}{3}$, the cubic is negative, and it also remains negative between the two values), so we must have $k = 7$.\n\nNow consider projecting $A P Q R S$ onto plane $A B C D$. The projection is $A B C D$ save for a triangle $Q' C R'$ with side length $12 - \\frac{49}{k} = 5$. Thus the projection has area $36 - \\frac{25}{2} = \\frac{47}{2}$. Since the area of the projection equals $[A P Q R S] \\cdot \\cos \\theta$, where $\\theta$ is the (smaller) angle between planes $A P Q R S$ and $A B C D$, and since the planes have normal vectors $(k, k, -1)$ and $(0, 0, 1)$ respectively, we get $\\cos \\theta = \\frac{(k, k, -1) \\cdot (0, 0, 1)}{\\sqrt{k^{2} + k^{2} + 1}} = \\frac{1}{\\sqrt{2k^{2} + 1}} = \\frac{1}{\\sqrt{99}}$ and so\n$$\n[A P Q R S] = \\frac{47 \\sqrt{99}}{2} = \\frac{141 \\sqrt{11}}{2}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-vectors-auto-3735",
+      "name": "HMMT February 2020 #0kef",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2020",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Greatest common divisors (gcd)",
+        "Chinese remainder theorem",
+        "Vectors"
+      ],
+      "statement": "Problem:\nLet $a_{0}, b_{0}, c_{0}, a, b, c$ be integers such that $\\operatorname{gcd}\\left(a_{0}, b_{0}, c_{0}\\right)=\\operatorname{gcd}(a, b, c)=1$. Prove that there exists a positive integer $n$ and integers $a_{1}, a_{2}, \\ldots, a_{n}=a, b_{1}, b_{2}, \\ldots, b_{n}=b, c_{1}, c_{2}, \\ldots, c_{n}=c$ such that for all $1 \\leq i \\leq n, a_{i-1} a_{i}+b_{i-1} b_{i}+c_{i-1} c_{i}=1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe problem statement is equivalent to showing that we can find a sequence of vectors, each with 3 integer components, such that the first vector is $\\left(a_{0}, b_{0}, c_{0}\\right)$, the last vector is $(a, b, c)$, and every pair of adjacent vectors has dot product equal to $1$.\n\nWe will show that any vector $(a, b, c)$ can be sent to $(1,0,0)$. This is sufficient, because given vectors $\\left(a_{0}, b_{0}, c_{0}\\right)$ and $(a, b, c)$, we take the sequence from $\\left(a_{0}, b_{0}, c_{0}\\right)$ to $(1,0,0)$ and then add the reverse of the sequence from $(a, b, c)$ to $(1,0,0)$.\n\nFirst, suppose that some two of $a, b, c$ are relatively prime. Here we will suppose that $a$ and $b$ are relatively prime; the other cases are similar. If neither of $a$ or $b$ is $0$, then by Bezout's identity, there exist $p, q$ such that $|p|+|q|<|a|+|b|$ and $a p+b q=1$, so we can send $(a, b, c)$ to $(p, q, 0)$. (Finding such numbers can be done using the extended Euclidean algorithm.) Clearly $p$ and $q$ must also be relatively prime, so we can apply Bezout's identity repeatedly until we eventually have $(1,0,0),(-1,0,0),(0,1,0)$, or $(0,-1,0)$. Now, starting from $(0,-1,0)$, we can do $(0,-1,0) \\rightarrow (1,-1,0) \\rightarrow (1,0,0)$, and we can do something similar to convert $(-1,0,0)$ to $(0,1,0)$.\n\nNow suppose that no two of $a, b, c$ are relatively prime. Let $f=\\operatorname{gcd}(a, b)$. We claim that we can find $x, y, z$ such that $a x y+b x+c z=1$. Notice that this is the same as $(a y+b) x+c z=1$. Since $\\operatorname{gcd}(a, b, c)=1$, there exists $y$ such that $\\operatorname{gcd}(a y+b, c)=1$. Then by Bezout's identity, there exist $x, z$ such that $(a y+b) x+c z=1$. Therefore, we can send $(a, b, c)$ to $(x y, x, z)$. Clearly $x$ and $z$ must be relatively prime, so we have reduced to the case above, and we can apply the process described above for that case.\n\nAt the end of this process, we will have $(1,0,0),(0,1,0)$, or $(0,0,1)$. The second of these can be converted into $(1,0,0)$ by doing $(0,1,0) \\rightarrow (1,1,0) \\rightarrow (1,0,0)$, and a similar sequence shows the same for the third. Therefore, $(a, b, c)$ can be sent to $(1,0,0)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-vectors-auto-4099",
+      "name": "HMMT February 2022 #0koj",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2022",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vectors",
+        "Cauchy-Schwarz",
+        "Invariants / monovariants"
+      ],
+      "statement": "Problem:\nOn a board the following six vectors are written:\n$$\n(1,0,0), \\quad(-1,0,0), \\quad(0,1,0), \\quad(0,-1,0), \\quad(0,0,1), \\quad(0,0,-1)\n$$\nGiven two vectors $v$ and $w$ on the board, a move consists of erasing $v$ and $w$ and replacing them with $\\frac{1}{\\sqrt{2}}(v+w)$ and $\\frac{1}{\\sqrt{2}}(v-w)$. After some number of moves, the sum of the six vectors on the board is $u$. Find, with proof, the maximum possible length of $u$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFor a construction, note that one can change\n$$\n(1,0,0),(-1,0,0) \\rightarrow (\\sqrt{2}, 0,0),(0,0,0) \\rightarrow (1,0,0),(1,0,0)\n$$\nand similarly for $(0,1,0),(0,-1,0)$ and $(0,0,1),(0,0,-1)$. Then $u=(2,2,2)$.\n\nFor the bound, argue as follows: let the vectors be $v_{1}, \\ldots, v_{6}$, $n=(x, y, z)$ be any unit vector, and $S=\\sum_{i}(n \\cdot v_{i})^{2}$, where the sum is over all vectors on the board. We claim that $S$ is invariant. Indeed, we have\n$$\n\\begin{aligned}\n\\left(n \\cdot \\frac{1}{\\sqrt{2}}(v+w)\\right)^{2}+\\left(n \\cdot \\frac{1}{\\sqrt{2}}(v-w)\\right)^{2} & =\\left(\\frac{n \\cdot v+n \\cdot w}{\\sqrt{2}}\\right)^{2}+\\left(\\frac{n \\cdot v-n \\cdot w}{\\sqrt{2}}\\right)^{2} \\\\\n& =\\frac{2(n \\cdot v)^{2}+2(n \\cdot w)^{2}}{2} \\\\\n& =(n \\cdot v)^{2}+(n \\cdot w)^{2}\n\\end{aligned}\n$$\nAlso, at the beginning we have $S=2 x^{2}+2 y^{2}+2 z^{2}=2$. Therefore we must always have $S=2$. Thus, by the Cauchy-Schwarz inequality we have\n$$\nn \\cdot u=\\sum n \\cdot v_{i} \\leq \\sqrt{\\sum_{i}(n \\cdot v_{i})^{2}} \\sqrt{6}=\\sqrt{12}=2 \\sqrt{3}\n$$\nBut since $n$ is arbitrary, this implies that $|u| \\leq 2 \\sqrt{3}$; otherwise we could pick $n=u /|u|$ and reach a contradiction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-vectors-auto-4448",
+      "name": "USA TST #0ky8",
+      "url": "https://usamoguide.com/",
+      "source": "USA TST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Generating functions",
+        "Roots of unity",
+        "Vectors",
+        "Induction / smoothing",
+        "Greatest common divisors (gcd)"
+      ],
+      "statement": "Let $m$ and $n$ be fixed positive integers. Tsvety and Freyja play a game on an infinite grid of unit square cells. Tsvety has secretly written a real number inside of each cell so that the sum of the numbers within every rectangle of size either $m \\times n$ or $n \\times m$ is zero. Freyja wants to learn all of these numbers.\n\nOne by one, Freyja asks Tsvety about some cell in the grid, and Tsvety truthfully reveals what number is written in it. Freyja wins if, at any point, Freyja can simultaneously deduce the number written in every cell of the entire infinite grid. (If this never occurs, Freyja has lost the game and Tsvety wins.)\n\nIn terms of $m$ and $n$, find the smallest number of questions that Freyja must ask to win, or show that no finite number of questions can suffice.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "The answer is the following:\n* If $\\gcd(m, n) > 1$, then Freyja cannot win.\n* If $\\gcd(m, n) = 1$, then Freyja can win in a minimum of $(m-1)^2 + (n-1)^2$ questions.\n\nFirst, we dispose of the case where $\\gcd(m, n) > 1$. Write $d = \\gcd(m, n)$. The idea is that any labeling where each $1 \\times d$ rectangle has sum zero is valid. Thus, to learn the labeling, Freyja must ask at least one question in every row, which is clearly not possible in a finite number of questions.\n\nNow suppose $\\gcd(m, n) = 1$. We split the proof into two halves.\n\n**¶ Lower bound**\nClearly, any labeling where each $m \\times 1$ and $1 \\times m$ rectangle has sum zero is valid. These labelings form a vector space with dimension $(m-1)^2$, by inspection. (Set the values in an $(m-1) \\times (m-1)$ square arbitrarily and every other value is uniquely determined.)\n\nSimilarly, labelings where each $n \\times 1$ and $1 \\times n$ rectangle have sum zero are also valid, and have dimension $(n-1)^2$.\n\nIt is also easy to see that no labeling other than the all-zero labeling belongs to both categories; labelings in the first space are periodic in both directions with period $m$, while labelings in the second space are periodic in both directions with period $n$; and hence any labeling in both categories must be constant, ergo all-zero.\n\nTaking sums of these labelings gives a space of valid labelings of dimension $(m-1)^2 + (n-1)^2$. Thus, Freyja needs at least $(m-1)^2 + (n-1)^2$ questions to win.\n\n**¶ Proof of upper bound using generating functions, by Ankan Bhattacharya**\nWe prove:\n\n**Claim (Periodicity) —** Any valid labeling is doubly periodic with period $mn$.\n\n*Proof.* By Chicken McNugget, there exists $N$ such that $N$ and $N+1$ are both nonnegative integer linear combinations of $m$ and $n$.\n\nThen both $mn \\times N$ and $mn \\times (N + 1)$ rectangles have zero sum, so $mn \\times 1$ rectangles have zero sum. This implies that any two cells with a vertical displacement of $mn$ are equal; similarly for horizontal displacements. $\\square$\n\nWith that in mind, consider a valid labeling. It naturally corresponds to a generating function\n$$\nf(x, y) = \\sum_{a=0}^{mn-1} \\sum_{b=0}^{mn-1} c_{a,b} x^a y^b\n$$\nwhere $c_{a,b}$ is the number in $(a, b)$.\n\nThe generating function corresponding to sums over $n \\times m$ rectangles is\n$$\nf(x, y)(1 + x + \\cdots + x^{m-1})(1 + y + \\cdots + y^{n-1}) = f(x, y) \\cdot \\frac{x^m - 1}{x - 1} \\cdot \\frac{y^n - 1}{y - 1}.\n$$\nSimilarly, the one for $m \\times n$ rectangles is\n$$\nf(x, y) \\cdot \\frac{x^n - 1}{x - 1} \\cdot \\frac{y^m - 1}{y - 1}.\n$$\nThus, the constraints for $f$ to be valid are equivalent to\n$$\nf(x, y) \\cdot \\frac{x^m - 1}{x - 1} \\cdot \\frac{y^n - 1}{y - 1} \\quad \\text{and} \\quad f(x, y) \\cdot \\frac{x^n - 1}{x - 1} \\cdot \\frac{y^m - 1}{y - 1}\n$$\nbeing zero when reduced modulo $x^{mn} - 1$ and $y^{mn} - 1$, or, letting $\\omega = \\exp(2\\pi i/m)$, both terms being zero when powers of $\\omega$ are plugged in.\n\nTo restate the constraints one final time, we need\n$$\nf(\\omega^a, \\omega^b) \\cdot \\frac{\\omega^{am} - 1}{\\omega^a - 1} \\cdot \\frac{\\omega^{bn} - 1}{\\omega^b - 1} = f(\\omega^a, \\omega^b) \\cdot \\frac{\\omega^{an} - 1}{\\omega^a - 1} \\cdot \\frac{\\omega^{bm} - 1}{\\omega^b - 1} = 0\n$$\nfor all $a, b \\in \\{0, \\dots, mn - 1\\}$.\n\nThis implies $f(\\omega^a, \\omega^b) = 0$ for most choices of $(a, b)$. If it does not, we need\n$$\n\\frac{\\omega^{am} - 1}{\\omega^a - 1} \\cdot \\frac{\\omega^{bn} - 1}{\\omega^b - 1} = \\frac{\\omega^{an} - 1}{\\omega^a - 1} \\cdot \\frac{\\omega^{bm} - 1}{\\omega^b - 1} = 0.\n$$\nThis happens when (at least) one fraction in either product is zero.\n* If the first fraction is zero, then either $n \\mid a$ and $a > 0$, or $m \\mid b$ and $b > 0$.\n* If the second fraction is zero, then either $m \\mid a$ and $a > 0$, or $n \\mid b$ and $b > 0$.\n\nIf the first condition holds in both cases, then $mn \\mid a$, but $0 < a < mn$, a contradiction. Thus if $n \\mid a$, then we must have $n \\mid b$, and similarly if $m \\mid a$ then $m \\mid b$.\n\nThe former case happens $(m - 1)^2$ times, and the latter case happens $(n - 1)^2$ times. Thus, at most $(m - 1)^2 + (n - 1)^2$ values of $f(\\omega^a, \\omega^b)$ are nonzero. It follows that the dimension of the space of valid labelings is at most $(m - 1)^2 + (n - 1)^2$, as desired.\n\nLet Freyja ask about all cells $(x, y)$ in the two squares\n$$\n\\begin{aligned}\nS_1 &= [1, m-1] \\times [1, m-1] \\\\\nS_2 &= [m, m+n-2] \\times [1, n-1].\n\\end{aligned}\n$$\n\nIn the beginning, one by one, Freyja determines all values inside of the rectangle $Q := [1, m-1] \\times [m, n-1]$. To that end, on each step she considers some rectangle with $m$ rows and $n$ columns such that its top left corner is in $Q$ and all of the other values in it have been determined already. In this way, Freyja uncovers all of $Q$, starting with its lower right corner and then proceeding upwards and to the left.\n\nThus Freyja can learn all numbers inside of the rectangle\n$$\nR := [1, m+n-2] \\times [1, n-1] = Q \\cup S_1 \\cup S_2.\n$$\n\nSee the figure below for an illustration for $(m, n) = (5, 8)$. The first cell of $Q$ is uncovered using the dotted green rectangle.\n![](attached_image_1.png)\n\nWe need one lemma:\n**Lemma**\nLet $m$ and $n$ be positive integers with $\\gcd(m, n) = 1$. Consider an unknown sequence of real numbers $z_1, z_2, \\dots, z_s$ with $s \\ge m+n-2$. Suppose that we know the sums of all contiguous blocks of size either $m$ or $n$ in this sequence. Then we can determine all individual entries in the sequence as well.\n\n*Proof.* By induction on $m+n$. Suppose, without loss of generality, that $m \\le n$. Our base case is $m=1$, which is clear. For the induction step, set $\\ell = n-m$. Each contiguous block of size $\\ell$ within $z_1, z_2, \\dots, z_{s-n}$ is the difference of two contiguous blocks of sizes $m$ and $n$ within the original sequence. By the induction hypothesis for $\\ell$ and $m$, it follows that we can determine all of $z_1, z_2, \\dots, z_{s-n}$. Then we determine the remaining $z_i$ as well, one by one, in order from left to right, by examining on each step an appropriate contiguous block of size $m$. $\\square$\n\nLet $T$ be the rectangle $[1, m+n-2] \\times \\{n\\}$. By looking at appropriate rectangles of sizes $m \\times n$ and $n \\times m$ such that their top row is contained within $T$ and all of their other rows are contained within $R$, Freyja can learn the sums of all contiguous blocks of values of sizes $m$ and $n$ within $T$. By the Lemma, it follows that Freyja can uncover all of $T$.\n\nIn this way, with the help of the Lemma, Freyja can extend her rectangular area of knowledge both upwards and downwards. Once its height reaches $m+n-2$, by the same method she will be able to extend it to the left and right as well. This allows Freyja to determine all values in the grid. Therefore, $(m-1)^2 + (n-1)^2$ questions are indeed sufficient."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-vectors-auto-4495",
+      "name": "2024 AMC 12 B #0kzj",
+      "url": "https://usamoguide.com/",
+      "source": "2024 AMC 12 B",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cartesian coordinates",
+        "Vectors",
+        "Determinants"
+      ],
+      "statement": "A triangle in the coordinate plane has vertices $A(\\log_2 1, \\log_2 2)$, $B(\\log_2 3, \\log_2 4)$, and $C(\\log_2 7, \\log_2 8)$. What is the area of $\\triangle ABC$?\n(A) $\\log_2 \\frac{\\sqrt{3}}{7}$ (B) $\\log_2 \\frac{3}{\\sqrt{7}}$ (C) $\\log_2 \\frac{7}{\\sqrt{3}}$ (D) $\\log_2 \\frac{11}{\\sqrt{7}}$ (E) $\\log_2 \\frac{11}{\\sqrt{3}}$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**Answer (B):** Circumscribe $\\triangle ABC$ by rectangle $AGCD$, with $D$ on the y-axis, and project point $B$ onto $\\overline{AG}$ and $\\overline{CG}$, producing points $E$ and $F$, respectively, as shown in the figure below.\n\n![](attached_image_1.png)\n\nThe area of rectangle $AGCD$ is $2\\log_2 7$, so the area of $\\triangle ACG$ is $\\log_2 7$. The requested area is\n$$\n\\text{Area}(\\triangle ABC) = \\text{Area}(\\triangle ACG) - \\text{Area}(\\triangle ABE) - \\text{Area}(\\triangle BCF) - \\text{Area}(\\triangle BEGF).\n$$\nNote that\n$$\n\\text{Area}(\\triangle ABE) = \\frac{1}{2} \\log_2 3 \\cdot 1 = \\log_2 \\sqrt{3},\n$$\n$$\n\\text{Area}(\\triangle BCF) = \\frac{1}{2} (\\log_2 7 - \\log_2 3) \\cdot 1 = \\log_2 \\sqrt{\\frac{7}{3}}, \\text{ and}\n$$\n$$\n\\text{Area}(\\triangle BEGF) = (\\log_2 7 - \\log_2 3) \\cdot 1 = \\log_2 \\frac{7}{3}.\n$$\nTherefore\n$$\n\\begin{aligned} \\text{Area}(\\triangle ABC) &= \\log_2 7 - \\log_2 \\sqrt{3} - \\log_2 \\sqrt{\\frac{7}{3}} - \\log_2 \\frac{7}{3} \\\\ &= \\log_2 \\left( \\frac{7}{\\sqrt{3} \\cdot \\sqrt{\\frac{7}{3} \\cdot \\frac{7}{3}}} \\right) \\\\ &= \\log_2 \\frac{3}{\\sqrt{7}}. \\end{aligned}\n$$\n\n\nThe area of triangle $\\triangle ABC$ is given by\n$$\n\\begin{aligned} \\frac{1}{2} \\det \\begin{bmatrix} 1 & 0 & 1 \\\\ 1 & \\log_2 3 & 2 \\\\ 1 & \\log_2 7 & 3 \\end{bmatrix} &= \\frac{1}{2} \\det \\begin{bmatrix} 1 & 0 & 1 \\\\ -1 & \\log_2 3 & 0 \\\\ -2 & \\log_2 7 & 0 \\end{bmatrix} \\\\ &= \\frac{1}{2} \\det \\begin{bmatrix} -1 & \\log_2 3 \\\\ -2 & \\log_2 7 \\end{bmatrix} \\\\ &= \\frac{1}{2} (-\\log_2 7 + \\log_2 9) \\\\ &= \\log_2 \\frac{3}{\\sqrt{7}}. \\end{aligned}\n$$\n\n\nThe cross product of two vectors in the x-y plane is a vector in the z direction whose magnitude is twice the area of the triangle determined by the two vectors. The area of the triangle with vertices $A(0, 1, 0)$, $B(\\log_2 3, 2, 0)$, and $C(\\log_2 7, 3, 0)$ is the z-component of\n$$\n\\begin{align*}\n\\frac{1}{2}(B - A) \\times (C - A) &= \\frac{1}{2}(\\log_2 3, 1, 0) \\times (\\log_2 7, 2, 0) \\\\\n&= \\frac{1}{2}(1 \\cdot 0 - 0 \\cdot 2, \\log_2 7 \\cdot 0 - \\log_2 3 \\cdot 0, \\log_2 3 \\cdot 2 - 1 \\cdot \\log_2 7) \\\\\n&= (0, 0, \\log_2 3 - \\log_2 \\sqrt{7}) = (0, 0, \\log_2 \\frac{3}{\\sqrt{7}}).\n\\end{align*}\n$$\nThus the area of the triangle is $\\log_2 \\frac{3}{\\sqrt{7}}$.\n\n\nDefine the points $H(0, 2)$, $I(0, 3)$, and $J(\\log_2 3, 3)$.\n![](attached_image_2.png)\nThen $HBCI$ is a trapezoid, which can be decomposed into right triangle $\\triangle CJB$ and rectangle $HBJI$. Because\n$$\n\\log_2 3 > \\log_2 \\sqrt{7} = \\frac{1}{2} \\log_2 7,\n$$\npoint $B$ is to the right of line $AC$. Therefore\n$$\n\\begin{align*}\n\\text{Area}(\\triangle ABC) &= \\text{Area}(\\triangle ABH) + \\text{Area}(HBCI) - \\text{Area}(\\triangle ACI) \\\\\n&= \\frac{1}{2} \\log_2 3 + \\frac{1}{2} (\\log_2 7 - \\log_2 3) + \\log_2 3 - \\log_2 7 \\\\\n&= \\log_2 3 - \\frac{1}{2} \\log_2 7 \\\\\n&= \\log_2 \\frac{3}{\\sqrt{7}}.\n\\end{align*}\n$$\n\n![](attached_image_2.png)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-vectors-auto-4548",
+      "name": "2024 AMC 12 B #0l10",
+      "url": "https://usamoguide.com/",
+      "source": "2024 AMC 12 B",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "3D Shapes",
+        "Triangle trigonometry",
+        "Vectors"
+      ],
+      "statement": "A right pyramid has regular octagon $ABCDEFGH$ with side length $1$ as its base and apex $V$. Segments $\\overline{AV}$ and $\\overline{DV}$ are perpendicular. What is the square of the height of the pyramid?\n\n(A) $1$ \\quad (B) $\\frac{1+\\sqrt{2}}{2}$ \\quad (C) $\\sqrt{2}$ \\quad (D) $\\frac{3}{2}$ \\quad (E) $\\frac{2+\\sqrt{2}}{3}$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**Answer (B):** Let $O$ be the center of the octagon, and let $r = AO$. As can be seen from the figure below, $AD = 1 + \\sqrt{2}$.\n\n![](attached_image_1.png)\n\nBecause $\\triangle AVD$ is an isosceles right triangle,\n$$\nAV = \\frac{\\sqrt{2}}{2} \\cdot AD = \\frac{2+\\sqrt{2}}{2}.\n$$\nApplying the Law of Cosines to $\\triangle AOH$ yields\n$$\nr^2 + r^2 = 1^2 + 2r^2 \\cos 45^\\circ = 1 + r^2 \\sqrt{2}.\n$$\nThus $r^2(2 - \\sqrt{2}) = 1$ and\n$$\nr^2 = \\frac{1}{2 - \\sqrt{2}} = \\frac{2 + \\sqrt{2}}{2}.\n$$\nThe Pythagorean Theorem applied to $\\triangle VOA$ gives the requested square of the height of the pyramid:\n$$\nVO^2 = AV^2 - r^2 = \\left(\\frac{2+\\sqrt{2}}{2}\\right)^2 - \\frac{2+\\sqrt{2}}{2} = \\frac{1+\\sqrt{2}}{2}.\n$$\n\n![](attached_image_1.png)\n\nPlace the figure in a three-dimensional coordinate system with the center $O$ of the base of the pyramid at the origin, the octagon in the $x$-$y$ plane with positive $x$ coordinates for $A$, $B$, $C$, and $D$, the $y$-axis parallel to $\\overline{AD}$, and apex $V(0, 0, h)$ on the positive $z$-axis. See the figure.\n\n![](attached_image_2.png)\n\nThen consider vectors\n$$\n\\overrightarrow{OV} = \\langle 0, 0, h \\rangle, \\quad \\overrightarrow{OA} = \\left\\langle \\frac{1}{2}, -\\frac{1+\\sqrt{2}}{2}, 0 \\right\\rangle, \\quad \\text{and} \\quad \\overrightarrow{OD} = \\left\\langle \\frac{1}{2}, \\frac{1+\\sqrt{2}}{2}, 0 \\right\\rangle.\n$$\nIt follows that\n$$\n\\overrightarrow{AV} = \\overrightarrow{OV} - \\overrightarrow{OA} = \\left\\langle -\\frac{1}{2}, \\frac{1+\\sqrt{2}}{2}, h \\right\\rangle\n$$\nand\n$$\n\\overrightarrow{DV} = \\overrightarrow{OV} - \\overrightarrow{OD} = \\left\\langle -\\frac{1}{2}, -\\frac{1+\\sqrt{2}}{2}, h \\right\\rangle.\n$$\nBecause $\\overrightarrow{AV}$ and $\\overrightarrow{DV}$ are perpendicular, their dot product is zero. Therefore\n$$\n0 = \\left\\langle -\\frac{1}{2}, \\frac{1+\\sqrt{2}}{2}, h \\right\\rangle \\cdot \\left\\langle -\\frac{1}{2}, -\\frac{1+\\sqrt{2}}{2}, h \\right\\rangle = \\frac{1}{4} - \\frac{3+2\\sqrt{2}}{4} + h^2,\n$$\nfrom which $h^2 = \\frac{1+\\sqrt{2}}{2}$.\n\n![](attached_image_2.png)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

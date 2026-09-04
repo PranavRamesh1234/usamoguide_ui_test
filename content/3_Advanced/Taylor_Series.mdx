@@ -1,0 +1,220 @@
+---
+id: taylor-series
+title: Taylor Series
+author: Pranav Ramesh
+description: Taylor Series and their applications in physics and mathematics
+prerequisites: [differentiation-rules, chain-rule]
+---
+ 
+# Introduction
+ 
+Taylor Series are a remarkable piece of mathematical machinery that every aspiring theoretical physicist should know about! The reason they are so powerful is because their purpose is to transform an awkward function into a nice, polynomial one.
+ 
+They are also useful in providing the rigor required to say that $\sin(x) \approx \tan(x) \approx x$, a common hand-wavy trick that makes physicists get on mathematicians' nerves.
+ 
+# Definition & Intuition
+ 
+Given an $n$-times differentiable function $f(x)$, the polynomial
+ 
+$$
+P_n(x) = \sum_{k=0}^{n} \frac{f^{(k)}(a)}{k!}(x - a)^k = f(a) + \frac{f'(a)}{1!}(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \cdots + \frac{f^{(n)}(a)}{n!}(x-a)^n
+$$
+ 
+is called a **Taylor Polynomial**, and its limit as you add infinitely many terms,
+ 
+$$
+S(x) = \lim_{n \to \infty} P_n(x) = \sum_{k=0}^{\infty} \frac{f^{(k)}(a)}{k!}(x - a)^k
+$$
+ 
+is called the **Taylor Series** of the function $f(x)$ centered around $x = a$.
+ 
+If $S(x)$ converges and equals $f(x)$ everywhere, it is said that the **Taylor Expansion** of $f(x)$ is $S(x)$.
+ 
+<Info title="Maclaurin Series">
+When $a = 0$ (i.e. the expansion is centered around the origin), the Taylor Expansion is called the **Maclaurin Expansion**.
+ 
+</Info>
+To get an intuition of how this works, consider $f(x) = \sin(x)$. Close to the origin, the graph of $\sin(x)$ looks very similar to the linear function $y = x$. The reason for their similarity is that their **first derivatives match** near the origin: differentiating $\sin(x)$ gives $\cos(x)$, and at $x = 0$, $\cos(0) = 1$ — the same as the slope of $y = x$.
+ 
+Can we improve on this? Since $\sin(x)$ is an **odd** function ($\sin(-x) = -\sin(x)$), our polynomial approximation must also be odd, ruling out all even powers of $x$. Our next best guess is to add a cubic term: $y = x - cx^3$. Differentiating:
+ 
+$$
+y' = 1 - 3cx^2, \quad y'' = -6cx, \quad y''' = -6c
+$$
+ 
+For $y = \sin(x)$ at $x = 0$:
+ 
+$$
+y' = \cos(0) = 1, \quad y'' = -\sin(0) = 0, \quad y''' = -\cos(0) = -1
+$$
+ 
+For the third derivatives to match, we need $c = \dfrac{1}{6}$, giving us $y = x - \dfrac{x^3}{6}$.
+ 
+And that's the core idea of Taylor Series! Each time we match a higher derivative, our polynomial approximates the original function better and better. To model the function around some point $x = a$ instead of $x = 0$, compute the derivatives at $a$ and replace each $x^k$ with $(x - a)^k$.
+ 
+# Common Taylor Series
+ 
+## Binomial Expansion
+ 
+You might have learned this in school and be thinking "this isn't a Taylor Series!" — and you're right, but since these two ideas share many similar principles, it's fitting to discuss them together.
+ 
+Given a binomial raised to a power, its expanded form is:
+ 
+$$
+(x + a)^n = \sum_{k=0}^{n} \binom{n}{k} a^{n-k} x^k
+$$
+ 
+where $\dbinom{n}{k} = \dfrac{n!}{k!(n-k)!}$ is the **binomial coefficient**.
+ 
+To see why this is true, consider $x = 0$. On the RHS, all terms vanish except the $k = 0$ term, leaving $\dbinom{n}{0}a^n = a^n$, which matches the LHS. Taking derivatives of both sides and evaluating at $x = 0$ likewise confirms that each successive term is correct — the binomial expansion can be understood as a Taylor polynomial.
+ 
+## Trigonometric Functions
+ 
+Here are the classic Taylor Expansions of trigonometric functions:
+ 
+$$
+\sin(x) = \sum_{k=0}^{\infty} \frac{(-1)^k}{(2k+1)!} x^{2k+1}
+$$
+ 
+$$
+\cos(x) = \sum_{k=0}^{\infty} \frac{(-1)^k}{(2k)!} x^{2k}
+$$
+ 
+<Info title="What about tan(x)?">
+The Taylor expansion for $\tan(x)$ involves Bernoulli numbers — a rabbit hole best left for mathematicians. To expand $\tan(x)$ in practice, just take the first few derivatives directly rather than trying to find a general expression.
+ 
+</Info>
+## Exponential & Logarithmic Functions
+ 
+$$
+e^x = \sum_{k=0}^{\infty} \frac{1}{k!} x^k
+$$
+ 
+$$
+\ln\!\left(\frac{1}{1-x}\right) = \sum_{k=1}^{\infty} \frac{1}{k} x^k
+$$
+ 
+Note that the logarithmic series starts at $k = 1$ to avoid division by zero.
+ 
+## Power Series
+ 
+A **power series** $P(x)$ has the form:
+ 
+$$
+P(x) = \sum_{k=0}^{\infty} a_k x^k = a_0 + a_1 x + a_2 x^2 + a_3 x^3 + \cdots
+$$
+ 
+where each coefficient $a_k$ is a constant. A familiar example is the power series of $\dfrac{1}{1-x}$, where all coefficients equal 1:
+ 
+$$
+\frac{1}{1-x} = \sum_{k=0}^{\infty} x^k = 1 + x + x^2 + x^3 + \cdots
+$$
+ 
+Power series appear throughout higher mathematics and physics, from generating functions in combinatorics to solving the Schrödinger equation for hydrogen-like atoms. One typically uses them to construct solutions to equations by plugging in the series and deducing what the coefficients must be.
+ 
+**Example — Simple Harmonic Motion:** Consider the SHM equation $y'' = -\omega^2 y$. Let $y = \sum_{k=0}^{\infty} a_k t^k$ be a solution. Substituting and reindexing:
+ 
+$$
+\sum_{k=0}^{\infty} a_{k+2}(k+2)(k+1)x^k = -\omega^2 \sum_{k=0}^{\infty} a_k t^k
+$$
+ 
+Matching coefficients of $x^k$ gives the recurrence:
+ 
+$$
+a_{k+2} = -\frac{\omega^2}{(k+2)(k+1)} a_k
+$$
+ 
+Since this connects coefficients two indices apart, we get two independent families — one for even $k$ and one for odd $k$:
+ 
+$$
+a_{2n} = \frac{(-\omega^2)^n}{(2n)!} a_0, \qquad a_{2n+1} = \frac{(-\omega^2)^n}{(2n+1)!} a_1
+$$
+ 
+Substituting back into the power series and recognizing the resulting sums as the Taylor series for cosine and sine:
+ 
+$$
+y(t) = a_0 \cos(\omega t) + \frac{a_1}{\omega} \sin(\omega t)
+$$
+ 
+# Applications
+ 
+## Approximations
+ 
+For the power series of $\dfrac{1}{1-x}$, successive terms differ by a factor of $x$. When $x$ is very small (e.g. $x = 0.01$), each additional term contributes less and less. In physics, measurements are only useful up to a certain precision, so we can approximate:
+ 
+$$
+\frac{1}{1-x} \approx 1 + x
+$$
+ 
+Other famous small-angle or small-$x$ approximations include:
+ 
+$$
+\sin(x) \approx x
+$$
+ 
+$$
+\cos(x) \approx 1 - \frac{x^2}{2}
+$$
+ 
+$$
+e^x \approx 1 + x
+$$
+ 
+$$
+(1 + x)^n \approx 1 + nx
+$$
+ 
+All of which only hold when $|x| \ll 1$.
+ 
+# Problems & Practice
+ 
+> **Problem 1:** Show that both of the following definitions of $e^x$ are equivalent:
+>
+> $$e^x = \lim_{n \to \infty}\left(1 + \frac{x}{n}\right)^n$$
+>
+> $$e^x = \sum_{n=0}^{\infty} \frac{x^n}{n!} = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots$$
+ 
+> **Problem 2:** Find the Taylor expansion of $\arctan x$.
+ 
+> **Problem 3:** Consider the Taylor expansion of $\ln\!\left(\dfrac{1}{1-x}\right)$.
+>
+> (a) Does the Taylor expansion match the function well everywhere? What happens as you add more and more terms near the boundaries?
+>
+> (b) Under what circumstances will the series converge? *(Hint: think about ratios of successive terms.)*
+>
+> (c) Find the range of values $x$ for which the infinite series converges. This is called the **radius of convergence**. *(Careful about the boundary inequalities!)*
+ 
+> **Problem 4:** Prove **Euler's Formula**:
+>
+> $$e^{ix} = \cos(x) + i\sin(x)$$
+>
+> where $i$ is the imaginary unit satisfying $i^2 = -1$.
+ 
+# Solutions
+ 
+> **Solution 1:** Apply the binomial theorem to $\left(1 + \dfrac{x}{n}\right)^n$ and simplify as $n \to \infty$ to recover the series definition.
+ 
+> **Solution 2:** Differentiating repeatedly and matching derivatives at $x = 0$:
+>
+> $$\arctan x = \sum_{k=0}^{\infty} \frac{(-1)^k}{2k+1} x^{2k+1}$$
+ 
+> **Solution 3:**
+>
+> (a) The expansion diverges at the sides; it only converges on some central interval.
+>
+> (b) The series converges when successive terms get smaller, i.e. $\left|\dfrac{T_{n+1}}{T_n}\right| < 1$:
+>
+> $$\left|\frac{\frac{1}{n+1}x^{n+1}}{\frac{1}{n}x^n}\right| = \left|\frac{n}{n+1}x\right| < 1$$
+>
+> (c) Taking $n \to \infty$ in the inequality above gives $|x| < 1$, i.e. $-1 < x < 1$. Checking the boundary $x = -1$: the series becomes $\sum \dfrac{(-1)^{k+1}}{k}$, which converges (to $\ln 2$). So the full radius of convergence is:
+>
+> $$\boxed{-1 \leq x < 1}$$
+ 
+> **Solution 4:** Use the Taylor expansion of $e^x$ and substitute $x \to ix$:
+>
+> $$e^{ix} = \sum_{k=0}^{\infty} \frac{(ix)^k}{k!}$$
+>
+> Separating real and imaginary parts recovers the Taylor series for $\cos x$ and $\sin x$ respectively.
+
+ 
+<Problems problems="practice" />

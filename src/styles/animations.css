@@ -1,0 +1,165 @@
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.animate-spin {
+  -webkit-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
+}
+
+/* Hero entrance: blur and drift into place. Keyframes rather than transitions,
+   so the global transition-duration override can't flatten them. */
+@keyframes hero-enter-up {
+  from {
+    opacity: 0;
+    filter: blur(14px);
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-enter-down {
+  from {
+    opacity: 0;
+    filter: blur(14px);
+    transform: translateY(-32px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+.hero-enter-up {
+  animation: hero-enter-up 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-enter-down {
+  animation: hero-enter-down 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Navbar: each item drops into place in turn. Delays are per position, so the
+   markup doesn't have to carry them. Set --nav-enter-base on a group to start
+   it after an earlier one. */
+@keyframes nav-item-enter {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(-14px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+.nav-enter {
+  --nav-enter-base: 0ms;
+}
+
+.nav-enter > * {
+  animation: nav-item-enter 650ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.nav-enter > *:nth-child(1) {
+  animation-delay: calc(var(--nav-enter-base));
+}
+.nav-enter > *:nth-child(2) {
+  animation-delay: calc(var(--nav-enter-base) + 110ms);
+}
+.nav-enter > *:nth-child(3) {
+  animation-delay: calc(var(--nav-enter-base) + 220ms);
+}
+.nav-enter > *:nth-child(4) {
+  animation-delay: calc(var(--nav-enter-base) + 330ms);
+}
+.nav-enter > *:nth-child(5) {
+  animation-delay: calc(var(--nav-enter-base) + 440ms);
+}
+.nav-enter > *:nth-child(6) {
+  animation-delay: calc(var(--nav-enter-base) + 550ms);
+}
+.nav-enter > *:nth-child(7) {
+  animation-delay: calc(var(--nav-enter-base) + 660ms);
+}
+.nav-enter > *:nth-child(n + 8) {
+  animation-delay: calc(var(--nav-enter-base) + 770ms);
+}
+
+.nav-item-enter {
+  animation: nav-item-enter 650ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* FAQ answer: settles in behind the height expansion. */
+@keyframes faq-answer-enter {
+  from {
+    opacity: 0;
+    filter: blur(6px);
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+.faq-answer-enter {
+  animation: faq-answer-enter 450ms 120ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Generic section reveal: blurs and rises as it scrolls into view. */
+@keyframes reveal-enter {
+  from {
+    opacity: 0;
+    filter: blur(12px);
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+.reveal-enter {
+  animation: reveal-enter 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Live preview: rises into place, starting oversized and settling to full size. */
+@keyframes preview-enter {
+  from {
+    opacity: 0;
+    transform: translateY(110px) scale(1.16);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Long duration with a steep ease-out: it covers most of the distance almost
+   immediately, then takes its time settling the last few pixels. */
+.preview-enter {
+  animation: preview-enter 1800ms cubic-bezier(0.05, 0.92, 0.12, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-enter-up,
+  .hero-enter-down,
+  .preview-enter,
+  .reveal-enter,
+  .faq-answer-enter,
+  .nav-item-enter,
+  .nav-enter > * {
+    animation: none;
+  }
+}

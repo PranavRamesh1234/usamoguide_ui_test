@@ -1,0 +1,146 @@
+---
+id: cauchy-schwarz
+title: Cauchy-Schwarz Inequality
+author: USAMO Guide Team
+description: A core inequality for bounds and maximization.
+prerequisites: []
+---
+
+## Overview
+
+Cauchy-Schwarz provides a clean upper or lower bound for sums of products. It
+is a staple in inequality and geometry problems.
+
+## Key Ideas
+
+- $(a_1^2+\cdots+a_n^2)(b_1^2+\cdots+b_n^2) \ge (a_1b_1+\cdots+a_nb_n)^2$.
+- Equality holds when the vectors are proportional.
+- Use it to bound dot products or sum-of-squares expressions.
+
+## Core Skills
+
+### Match Terms Carefully
+
+Decide which expressions should be the $a_i$ and $b_i$ lists so that the right
+side becomes what you want to bound.
+
+### Use the Engel Form
+
+For sums like $\sum \frac{x_i^2}{a_i}$, use $\left(\sum \frac{x_i^2}{a_i}\right)
+\left(\sum a_i\right) \ge (\sum x_i)^2$.
+
+### Check Equality
+
+Equality happens when $a_i/b_i$ is constant. Use it to identify where an
+extremum is achieved.
+
+## Worked Example
+
+Show that $a^2+b^2 \ge \frac{(a+b)^2}{2}$.
+
+Apply Cauchy-Schwarz to $(a,b)$ and $(1,1)$:
+$(a^2+b^2)(1^2+1^2) \ge (a+b)^2$.
+So $2(a^2+b^2) \ge (a+b)^2$, or $a^2+b^2 \ge \frac{(a+b)^2}{2}$.
+
+## More Examples (NOTE: As more practice, try to find equality cases as well!)
+
+### Example 1: Two-Term Bound
+
+Show that $(x+y)^2 \le 2(x^2+y^2)$.
+
+This is the same inequality with $a=x,b=y$.
+
+### Example 2: Engel Form
+
+Prove $\frac{1}{a} + \frac{1}{b} \ge \frac{4}{a+b}$ for $a,b>0$.
+
+Use $\left(\frac{1}{a}+\frac{1}{b}\right)(a+b) \ge (1+1)^2 = 4$.
+
+### Example 3: Dot Product Bound
+
+If $a_1^2+a_2^2=13$ and $b_1^2+b_2^2=5$, find the maximum of $a_1b_1+a_2b_2$.
+
+By Cauchy-Schwarz, it is at most $\sqrt{13\cdot 5} = \sqrt{65}$.
+
+### Example 4: Radical Sum!
+
+Let $a,b,c$ be real numbers $>0$ that satisfy $a+b+c=6$. Your job is to find the MAXIMUM value of the following expression: $\sqrt{a+ab}+\sqrt{b+bc}+\sqrt{c+ca}$.
+
+First, we can rewrite the expression as $\sqrt{a(1+b)}+\sqrt{b(1+c)}+\sqrt{c(1+a)}$, and this is the key step as it allows for the next crucial step. We can exploit this expression via Cauchy Schwarz as follows:
+$$
+(\sqrt{a(1+b)}+\sqrt{b(1+c)}+\sqrt{c(1+a)})^2 \le (a+b+c)((1+a)+(1+b)+(1+c)).
+$$
+This then becomes $6(9)=54$, and thus we get that the maximum is $3\sqrt6$.
+
+### Example 5: Integer Triples!
+
+You are given that positive integers $x,y,z$ satisfy the equation $x+y+z=12$. Your job is to find the MINIMUM value of the following expression: $\frac1x+\frac1y+\frac1z$.
+
+This problem is easier than the last one as we can directly apply Cauchy-Schwarz,
+$$
+(x+y+z)\left(\frac1x+\frac1y+\frac1z\right)\ge (1+1+1)^2=9.
+$$
+Thus, we get:
+$$
+\frac1x+\frac1y+\frac1z \ge \frac{9}{12}=\frac34.
+$$
+Notice that equality occurs at $x=y=z=4$. 
+
+### Example 6: Squares!
+
+Over all positive real numbers $a,b$ that satisfy $a^2+b^2=10$, your job is to find the MAXIMUM value of $a+2b$.
+
+Again, we can diredctly tackle this via Cauchy-Schwarz as follows,
+$$
+(a+2b)^2 \le (1^2+2^2)(a^2+b^2)=5\cdot10=50.
+$$
+Thus, we get that the maximum value is $5\sqrt2$.
+
+### Example 7: Symmetry
+
+You are given that there are positive reals $a,b,c$ that satisfy $ab+bc+ca=3$. Your job is to find the MINIMUM value of the following expression: $\frac{a+b+c}{ab+bc+ca}$.
+
+First off, notice that since the denominator is FIXED, all we need to do is minimize $a+b+c$. Then, by Cauchy-Schwarz, we have:
+$$
+(a+b+c)^2 \ge 3(ab+bc+ca)=9.
+$$
+And thus, $a+b+c\ge3$, so from here we get our answer quite easily:
+$$
+\frac{a+b+c}{ab+bc+ca}\ge\frac33=1.
+$$
+
+### Example 8: Fractions!
+
+For all positive reals $x,y$ that satisfy $x+y=1$, your job is to find the minimum value of the following expression: $\frac1x+\frac4y$.
+
+We can use Titu's lemma here to get:
+$$
+\frac1x+\frac4y=\frac{1^2}{x}+\frac{2^2}{y}\ge\frac{(1+2)^2}{x+y}=9.
+$$
+And so, the minimum value is $9$. 
+
+### Example 9: Square Root Sum
+
+For all positive reals $a,b,c$ that satisfy $a+b+c=1$. your job is to find the maximum value of the following expression $\sqrt{ab}+\sqrt{bc}+\sqrt{ca}$.
+
+First off, by Cauchy-Schwarz, we get that
+$$
+(\sqrt{ab}+\sqrt{bc}+\sqrt{ca})^2 \le (a+b+c)^2=1.
+$$
+Thus the maximum value is $1$.
+
+## Strategy Checklist
+
+- Decide which terms to pair as $a_i$ and $b_i$.
+- Consider the Engel form for sums of fractions.
+- Use equality conditions to confirm the extremum.
+
+## Common Pitfalls
+
+- Using Cauchy-Schwarz when AM-GM or Jensen is simpler.
+- Missing the equality condition in optimization problems.
+- Choosing a pairing that complicates the right-hand side.
+
+## Practice Problems
+
+<Problems problems="practice" />

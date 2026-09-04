@@ -1,0 +1,594 @@
+{
+  "MODULE_ID": "complex-polar-form",
+  "practice": [
+    {
+      "uniqueId": "algebra-intermediate-algebra-complex-numbers-auto-0092",
+      "name": "MathNet #0hl8",
+      "url": "https://usamoguide.com/",
+      "source": "MathNet",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers",
+        "Factorization techniques"
+      ],
+      "statement": "Problem:\nFind the largest prime factor of $-x^{10}-x^{8}-x^{6}-x^{4}-x^{2}-1$, where $x=2i$, $i=\\sqrt{-1}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n13."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-complex-numbers-auto-0286",
+      "name": "Berkeley Math Circle Take-Home Contest #1 #0hqm",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Take-Home Contest #1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vieta's formulas",
+        "Roots of unity",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\n\nLet $z = \\cos \\dfrac{2\\pi}{n} + i \\sin \\dfrac{2\\pi}{n}$ where $n$ is a positive odd integer. Prove that\n$$\n\\frac{1}{1+z} + \\frac{1}{1+z^{2}} + \\frac{1}{1+z^{3}} + \\cdots + \\frac{1}{1+z^{n}} = \\frac{n}{2}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nConsider the polynomial $P(x) = x^{n} + (x-1)^{n}$. We claim that for each integer $i$, $x = 1/(1+z^{i})$ is a root. Indeed, we have $(-z^{i})^{n} = (-1)^{n} z^{i n} = -1$ (since $z^{n} = 1$ and $n$ is odd) and so\n$$\nx^{n} = \\frac{1}{(1+z^{i})^{n}} ; \\quad (x-1)^{n} = \\left(\\frac{-z^{i}}{1+z^{i}}\\right)^{n} = \\frac{-1}{(1+z^{i})^{n}} \\Rightarrow x^{n} + (x-1)^{n} = 0 .\n$$\nMoreover, since the values of $z^{i}$ are distinct for $i = 1, 2, \\ldots, n$, we have found $n$ different roots of this polynomial which has degree $n$, so by the Fundamental Theorem of Algebra, they are all the roots and we can write\n$$\nP(x) = c\\left(x - \\frac{1}{1+z}\\right)\\left(x - \\frac{1}{1+z^{2}}\\right) \\cdots \\left(x - \\frac{1}{1+z^{n}}\\right) \\text{ for some constant } c \\text{. }\n$$\nIf we expand the expression on the right side, the coefficient of $x^{n}$ is $c$ and the coefficient of $x^{n-1}$ is $-c\\left[1/(1+z) + 1/(1+z^{2}) + \\cdots + 1/(1+z^{n})\\right]$. On the other hand, on the left side, the coefficient of $x^{n}$ is $2$ and the coefficient of $x^{n-1}$ is $-n$ (found by expanding $(x-1)^{n}$ using the binomial theorem). Equating coefficients, we get $c = 2$ and thus $-2\\left[1/(1+z) + 1/(1+z^{2}) + \\cdots + 1/(1+z^{n})\\right] = -n$ which yields what we need."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-complex-numbers-auto-0333",
+      "name": "Berkeley Math Circle Monthly Contest 2 #0hrx",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 2",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recurrence relations",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\n\nThe sequences $\\{x_{n}\\}$ and $\\{y_{n}\\}$ are defined by $x_{0}=2$, $y_{0}=1$ and, for $n \\geq 0$,\n$$\nx_{n+1}=x_{n}^{2}+y_{n}^{2} \\quad \\text{ and } \\quad y_{n+1}=2 x_{n} y_{n}\n$$\nFind and prove an explicit formula for $x_{n}$ in terms of $n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nIf we add the formulas for $x_{n+1}$ and $y_{n+1}$ together, we get\n$$\nx_{n+1}+y_{n+1}=x_{n}^{2}+y_{n}^{2}+2 x_{n} y_{n}=(x_{n}+y_{n})^{2}.\n$$\nThus, increasing $n$ by 1 raises $x_{n}+y_{n}$ to the power 2. Since $x_{0}+y_{0}=3$, we get\n$$\nx_{n}+y_{n}=(\\cdots(3^{2})^{2} \\cdots)^{2}[n \\text{ squarings}]=3^{2^{n}}.\n$$\nSimilarly, we can subtract the formulas for $x_{n+1}$ and $y_{n+1}$ to get\n$$\nx_{n+1}-y_{n+1}=x_{n}^{2}+y_{n}^{2}-2 x_{n} y_{n}=(x_{n}-y_{n})^{2}.\n$$\nHowever, $x_{0}-y_{0}=1$. Since $1^{2}=1$, we get\n$$\nx_{n}-y_{n}=1\n$$\nfor all $n$.\nFinally, we add together equations (1) and (2), getting\n$$\n2 x_{n}=3^{2^{n}}+1\n$$\nwhich yields an explicit formula\n$$\nx_{n}=\\frac{3^{2^{n}}+1}{2}.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-complex-numbers-auto-0382",
+      "name": "Berkeley Math Circle Take-Home Contest #2 #0hta",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Take-Home Contest #2",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Roots of unity",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\nProve that\n$$\ntan \\left(\\frac{3 \\pi}{11}\\right)+4 \\sin \\left(\\frac{2 \\pi}{11}\\right)=\\sqrt{11}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe work with complex roots of unity. Let $\\zeta=\\cos \\frac{\\pi}{11}+i \\sin \\frac{\\pi}{11}$; then we know that $\\zeta^{n}=\\cos \\frac{n \\pi}{11}+i \\sin \\frac{n \\pi}{11}$ and, in particular, $\\zeta^{11}=-1$. Now, the given expression is clearly positive (since each term is positive), so we need only check that its square is $11$. To do that, observe that $\\sin \\frac{2 \\pi}{11}=\\frac{\\zeta^{2}+\\zeta^{9}}{2i}$, $\\sin \\frac{3 \\pi}{11}=\\frac{\\zeta^{3}+\\zeta^{8}}{2i}$, and $\\cos \\frac{3 \\pi}{11}=\\frac{\\zeta^{3}-\\zeta^{8}}{2}$; hence our objective is to show that\n$$\n\\left(2 \\frac{\\zeta^{2}+\\zeta^{9}}{i}+\\frac{\\zeta^{3}+\\zeta^{8}}{(\\zeta^{3}-\\zeta^{8}) i}\\right)^{2}=11\n$$\nor, equivalently, that $\\left[2(\\zeta^{2}+\\zeta^{9})(\\zeta^{3}-\\zeta^{8})+(\\zeta^{3}+\\zeta^{8})\\right]^{2}=-11(\\zeta^{3}-\\zeta^{8})^{2}$. The expression inside brackets on the left multiplies out to $2 \\zeta^{5}+2 \\zeta^{12}-2 \\zeta^{10}-2 \\zeta^{17}+\\zeta^{3}+\\zeta^{8}=-2 \\zeta^{10}+\\zeta^{8}+2 \\zeta^{6}+2 \\zeta^{5}+\\zeta^{3}-2 \\zeta$; when we square this and collect terms (remembering again that $\\zeta^{11}=-1$), we obtain\n$$\n\\begin{gathered}\n4 \\zeta^{10}-4 \\zeta^{9}+4 \\zeta^{8}-4 \\zeta^{7}-7 \\zeta^{6}+7 \\zeta^{5}+4 \\zeta^{4}-4 \\zeta^{3}+4 \\zeta^{2}-4 \\zeta-18 \\\\\n=4\\left(\\zeta^{10}-\\zeta^{9}+\\zeta^{8}-\\cdots+1\\right)+11\\left(\\zeta^{5}-2-\\zeta^{6}\\right) .\n\\end{gathered}\n$$\nSince the first expression in parentheses is $\\frac{\\zeta^{11}+1}{\\zeta+1}=0$ and the second is $-\\left(\\zeta^{3}-\\zeta^{8}\\right)^{2}$, we have what we wanted."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-complex-numbers-auto-0399",
+      "name": "Berkeley Math Circle Monthly Contest 3 #0htr",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 3",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial operations",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\n\nLet $0 < a_{0} \\leq a_{1} \\leq \\cdots \\leq a_{n}$. If $z$ is a complex number such that $a_{0} z^{n} + a_{1} z^{n-1} + \\cdots + a_{n} = 0$ prove that $|z| \\geq 1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAssume that $|z| < 1$. If $a_{0} z^{n} + a_{1} z^{n-1} + \\cdots + a_{n} = 0$ then $a_{0} z^{n+1} + a_{1} z^{n} + \\cdots + a_{n} z = 0$ and subtracting these two equations leads to $a_{0} z^{n+1} + (a_{1} - a_{0}) z^{n} + \\cdots + (a_{n} - a_{n-1}) z - a_{n} = 0$, or equivalently $a_{n} = a_{0} z^{n+1} + (a_{1} - a_{0}) z^{n} + \\cdots + (a_{n} - a_{n-1}) z$ hence\n\n$$\n\\begin{aligned}\n|a_{n}| & = \\left| a_{0} z^{n+1} + (a_{1} - a_{0}) z^{n} + \\cdots + (a_{n} - a_{n-1}) z \\right| \\\\\n& \\leq a_{0} |z|^{n+1} + (a_{1} - a_{0}) |z|^{n} + \\cdots + (a_{n} - a_{n-1}) |z| \\\\\n& < a_{0} + (a_{1} - a_{0}) + \\cdots + (a_{n} - a_{n-1}) = a_{n},\n\\end{aligned}\n$$\n\nwhich is impossible. Thus $|z| \\geq 1$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-complex-numbers-auto-0462",
+      "name": "Berkeley Math Circle #0hvi",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Irreducibility: Rational Root Theorem, Gauss's Lemma, Eisenstein",
+        "Polynomials mod p",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\nShow that the polynomial $\\left(x^{2}+x\\right)^{2^{1000}}+1$ cannot be factored as the product of two nonconstant polynomials with integer coefficients.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAssume for contradiction this is not the case, and the polynomial can be written as\n$$\n\\left(x^{2}+x\\right)^{2^{1000}}+1=f(x) g(x)\n$$\nfor some nonconstant $f$ and $g$ with integer coefficients. Clearly we may assume $f$ and $g$ have leading coefficient one. Taking modulo 2 we obtain that\n$$\nf(x) g(x) \\equiv\\left(x^{2}+x\\right)^{2^{1000}}+1 \\equiv\\left(x^{2}+x+1\\right)^{2^{1000}} \\quad(\\bmod 2)\n$$\nwhere the last step follows by noticing that $(a+b)^{2} \\equiv a^{2}+b^{2}(\\bmod 2)$.\nAs $x^{2}+x+1$ is irreducible modulo 2, it follows that we must have\n$$\nf(x)=\\left(x^{2}+x+1\\right)^{\\alpha}+2 \\hat{f}(x)\n$$\nand\n$$\ng(x)=\\left(x^{2}+x+1\\right)^{\\beta}+2 \\hat{g}(x)\n$$\nfor some polynomials $\\hat{f}, \\hat{g}$ with integer coefficients, where $\\alpha+\\beta=1000$. By hypothesis, $\\alpha, \\beta \\geq 1$.\nLet $\\varepsilon$ be a root to $x^{2}+x+1$, namely $\\varepsilon=\\frac{1}{2}(-1+i \\sqrt{3})$. Substituting $\\varepsilon$ into the original relation, we derive\n$$\n2=(-1)^{2^{1000}}+1=4 \\hat{f}(\\varepsilon) \\hat{g}(\\varepsilon)\n$$\nand hence $\\frac{1}{2}=\\hat{f}(\\varepsilon) \\hat{g}(\\varepsilon)$. But we claim this is impossible. Indeed, the right-hand side is a polynomial in $\\varepsilon$ with integer coefficients. Repeatedly applying the identity $\\varepsilon^{2}=-(\\varepsilon+1)$, we find that the right-hand side must be of the form $a+b \\varepsilon$, where $a, b$ are integers. By equating real and imaginary parts this gives $a=\\frac{1}{2}$ and $b=0$, which is a contradiction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-complex-numbers-auto-0491",
+      "name": "Berkeley Math Circle Monthly Contest 2 #0hwb",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 2",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Infinite descent / root flipping",
+        "Techniques: modulo, size analysis, order analysis, inequalities",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\nLet $x$, $y$, and $z$ be positive integers satisfying $x y = z^{2} + 1$. Prove that there are integers $a$, $b$, $c$, and $d$ such that $x = a^{2} + b^{2}$, $y = c^{2} + d^{2}$, and $z = a c + b d$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe will use strong induction on $z$. Assume first that $z = 1$. Then $x y = 1^{2} + 1 = 2$, so $x$ and $y$ are $1$ and $2$ in some order. If $x = 2$ and $y = 1$, then there is a solution $a = b = c = 1$, $d = 0$; if $x = 1$ and $y = 2$, we may take $a = c = d = 1$, $b = 0$.\n\nNow assume that $z > 1$ and that, whenever $Z < z$, the equation $X Y = Z^{2} + 1$ implies that there are integers $A$, $B$, $C$, and $D$ such that $X = A^{2} + B^{2}$, $Y = C^{2} + D^{2}$, and $Z = A C + B D$. We note that neither $x$ nor $y$ can equal $z$, for then $x y$ and $z^{2}$ would be two multiples of $z$ although their difference is $1$. We note that $x$ and $y$ cannot be both greater or both less than $z$ since\n$$\n(z-1)^{2} < z^{2} + 1 < (z+1)^{2}.\n$$\nThus, because the symmetry of the problem allows us to switch $x$ and $y$, we can assume that $x > z > y$.\n\nLet $X = x + y - 2z$, $Y = y$, and $Z = z - y$. Multiplying out shows that the equation $X Y = Z^{2} + 1$ is satisfied. Also, $Z < z$, so we have integers $A$, $B$, $C$, and $D$ such that the following equations hold:\n$$\n\\begin{aligned}\n& X = A^{2} + B^{2} \\\\\n& Y = C^{2} + D^{2} \\\\\n& Z = A C + B D\n\\end{aligned}\n$$\nLet $a = A + C$, $b = B + D$, $c = C$, and $d = D$. Equation (4) already tells us that $y = c^{2} + d^{2}$. Since $Y + Z = y + z - y = z$, we can add equation (4) and (5) together to get\n$$\nz = Y + Z = A C + C^{2} + B D + D^{2} = (A + C) C + (B + D) D = a c + b d\n$$\nFinally, since $X + Y + 2Z = x + y - 2z + y + 2z - 2y = x$, we add (3), (4), and twice (5) to get\n$$\nx = X + 2Z + Y = A^{2} + 2 A C + C^{2} + B^{2} + 2 B D + D^{2} = (A + C)^{2} + (B + D)^{2} = a^{2} + b^{2}.\n$$\nThis completes the induction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-complex-numbers-auto-0522",
+      "name": "Berkeley Math Circle Monthly Contest 1 #0hx6",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Symmetric functions",
+        "Vieta's formulas",
+        "Recurrence relations",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\nLet $n > 1$ be an integer. Three complex numbers have the property that their sum is $0$ and the sum of their $n$th powers is also $0$. Prove that two of the three numbers have the same absolute value.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nGiven that\n$$\na + b + c = 0 \\quad \\text{and} \\quad a^{n} + b^{n} + c^{n} = 0,\n$$\nlet\n$$\nt = ab + bc + ca \\quad \\text{and} \\quad u = abc.\n$$\nThen $a$, $b$, and $c$ are the roots of the polynomial\n$$\nf(z) = (z - a)(z - b)(z - c) = z^{3} + t z - u.\n$$\nIf $t = 0$, then $a$, $b$, and $c$ are the three cube roots of $u$ and thus all have the same absolute value; otherwise we can normalize, dividing $a$, $b$, and $c$ by a square root of $t$, so that $t = 1$. Now we have\n$$\nf(z) = (z - a)(z - b)(z - c) = z^{3} + z - u.\n$$\nDefine $p_{k} = a^{k} + b^{k} + c^{k}$ for nonnegative integers $k$ (here we make the convention that $0^{0} = 1$). It is not hard to compute that $p_{0} = 3$, $p_{1} = 0$, $p_{2} = -2$, and, for $k \\geq 0$,\n$$\np_{k+3} = u p_{k} - p_{k+1}.\n$$\nThis recursion allows us to think of each $p_{k}$ as a polynomial (with integer coefficients) in $u$. Our plan will be to prove that, for $k > 1$, these polynomials have only real roots. Then, given that $p_{n} = 0$, we can deduce that $f(z)$ is a real polynomial and therefore either has all real roots (which is impossible, since the sum of the 2nd powers of the roots is $-2$) or has a pair of complex conjugate roots which have the same absolute value.\nThe leading term of $p_{k}$ follows a pattern which is not difficult to verify by induction. It is:\n$$\n\\begin{array}{ll}\n3 u^{i} & \\text{if } k = 3i,\\ i \\geq 0 \\\\\n\\frac{k i}{2} u^{i-1} & \\text{if } k = 3i + 1,\\ i \\geq 1 \\\\\n-k u^{i} & \\text{if } k = 3i + 2,\\ i \\geq 0\n\\end{array}\n$$\nIn particular, for $k \\neq 1$, the leading coefficients of $p_{k}$ and $p_{k+3}$ have the same sign, and the degree of $p_{k+3}$ is one more than the degree of $p_{k}$. We will prove that the roots of $p_{k}$ alternate with the roots of $p_{k+3}$ on the number line, with no two coinciding, beginning and ending with a root of $p_{k+3}$. When $p_{k}$ is constant (that is, for $k = 0, 2$, or $4$) this statement is trivial, and we will use it as the base of an induction. For all other $k$, the induction hypothesis tells us there is exactly one root of $p_{k-3}$ between each pair of roots of $p_{k}$, and it suffices to prove the following statement:\n$$\n\\text{If } p_{k} = 0, \\text{ then } p_{k+3} \\text{ and } p_{k-3} \\text{ have opposite signs.}\n$$\nFor brevity we will prove this only when $x = p_{k-3}$ is positive and $u$ is also positive; the proof readily generalizes when one or both are negative. (By the induction hypothesis $p_{k-3} \\neq 0$, and if $u = 0$ then (1) gives $p_{k+3} = -p_{k+1} = p_{k-1} = -p_{k-3}$ for $k \\geq 4$.) Assume for contradiction that $y = p_{k+3} \\geq 0$. Using (1) repeatedly, we get\n$$\n\\begin{gathered}\np_{k+1} = u p_{k} - p_{k+3} = -y \\\\\np_{k-2} = u p_{k-3} - p_{k} = u x \\\\\np_{k-1} = u p_{k-2} - p_{k+1} = u^{2} x + y\n\\end{gathered}\n$$\nNote that $p_{k-1}$, $p_{k-2}$, $p_{k-3}$ are all positive. Then, using the reverse recursion\n$$\np_{i} = \\frac{p_{i+1} + p_{i+3}}{u}\n$$\nwe get that $p_{i} > 0$ for all $i < k$. Since $p_{2} = -2$, this is a contradiction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-complex-numbers-auto-0598",
+      "name": "Harvard-MIT Math Tournament #0hza",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial operations",
+        "Complex numbers",
+        "Roots of unity"
+      ],
+      "statement": "Problem:\n\nFind an ordered pair $(a, b)$ of real numbers for which $x^{2}+a x+b$ has a non-real root whose cube is 343.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe cube roots of $343$ are the roots of $x^{3}-343$, which is $(x-7)(x^{2}+7x+49)$. Therefore the ordered pair we want is $(7, 49)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-complex-numbers-auto-0607",
+      "name": "Harvard-MIT Math Tournament #0hzj",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers"
+      ],
+      "statement": "Problem:\n\nEvaluate $\\frac{d}{d x}\\left(\\sin x-\\frac{4}{3} \\sin ^{3} x\\right)$ when $x=15$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nOf course this problem can be done by brute force, differentiating and then using the half angle formula to find $\\sin$ and $\\cos$ of $15$, but there is a quicker way. $e^{i x}=\\cos x+i \\sin x$, so $\\sin (3 x)$ is the imaginary part of $(\\cos x+i \\sin x)^{3}$, which is $3 \\cos ^{2} x \\sin x-\\sin ^{3} x=3 \\sin x-4 \\sin ^{3} x$, so the expression we are differentiating is just $\\frac{1}{3} \\sin (3 x)$. Hence the derivative is $\\cos (3 x)$, and $\\cos 45=\\frac{\\sqrt{2}}{2}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-complex-numbers-auto-0622",
+      "name": "Harvard-MIT Math Tournament #0hzy",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Sums and products",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\nEvaluate $\\sum_{n=0}^{\\infty} \\frac{\\cos n \\theta}{2^{n}}$, where $\\cos \\theta=\\frac{1}{5}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n$\\cos n \\theta$ is the real part of $e^{i n \\theta}$, so the sum is the real part of $\\sum_{n=0}^{\\infty} \\frac{e^{i n \\theta}}{2^{n}}$.\n\nThis is a geometric series with initial term $1$ and ratio $\\frac{e^{i \\theta}}{2}$, so its sum is $\\frac{1}{1- e^{i \\theta}/2}$.\n\nWe are given $\\cos \\theta = \\frac{1}{5}$, so $\\sin \\theta = \\pm \\frac{2 \\sqrt{6}}{5}$.\n\nThus the sum is $\\frac{10}{10-1 \\mp 2 i \\sqrt{6}} = \\frac{90 \\pm 20 i \\sqrt{6}}{105}$, and the real part is $\\frac{6}{7}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-complex-numbers-auto-0636",
+      "name": "Harvard-MIT Math Tournament #0i0c",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial operations",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\n\nReduce the number $\\sqrt[3]{2+\\sqrt{5}}+\\sqrt[3]{2-\\sqrt{5}}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nObserve that $\\left(\\sqrt[3]{2+\\sqrt{5}}+\\sqrt[3]{2-\\sqrt{5}}\\right)^{3} = (2+\\sqrt{5}) - 3\\sqrt[3]{2+\\sqrt{5}} - 3\\sqrt[3]{2-\\sqrt{5}} + (2-\\sqrt{5}) = 4 - 3\\left(\\sqrt[3]{2+\\sqrt{5}} + \\sqrt[3]{2-\\sqrt{5}}\\right)$.\n\nHence $\\sqrt[3]{2+\\sqrt{5}} + \\sqrt[3]{2-\\sqrt{5}}$ is a root of the cubic $x^{3} + 3x - 4 = (x-1)(x^{2} + x + 4)$.\n\nThe roots of $x^{2} + x + 4$ are imaginary, so $\\sqrt[3]{2+\\sqrt{5}} + \\sqrt[3]{2-\\sqrt{5}} = \\mathbf{1}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-complex-numbers-auto-0960",
+      "name": "Harvard-MIT Mathematics Tournament #0i9c",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Sums and products",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\nLet $z = 1 - 2i$. Find $\\frac{1}{z} + \\frac{2}{z^{2}} + \\frac{3}{z^{3}} + \\cdots$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $x = \\frac{1}{z} + \\frac{2}{z^{2}} + \\frac{3}{z^{3}} + \\cdots$, so $z \\cdot x = \\left(1 + \\frac{2}{z} + \\frac{3}{z^{2}} + \\frac{4}{z^{3}} + \\cdots\\right)$.\n\nThen $z \\cdot x - x = 1 + \\frac{1}{z} + \\frac{1}{z^{2}} + \\frac{1}{z^{3}} + \\cdots = \\frac{1}{1 - 1/z} = \\frac{z}{z - 1}$.\n\nSolving for $x$ in terms of $z$, we obtain $x = \\frac{z}{(z - 1)^{2}}$.\n\nPlugging in the original value of $z$ produces $x = \\frac{2i - 1}{4}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-complex-numbers-auto-1025",
+      "name": "Harvard-MIT Mathematics Tournament #0ib5",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial operations",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\nThere exists a polynomial $P$ of degree $5$ with the following property: if $z$ is a complex number such that $z^{5} + 2004 z = 1$, then $P\\left(z^{2}\\right) = 0$. Calculate the quotient $P(1) / P(-1)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $z_{1}, \\ldots, z_{5}$ be the roots of $Q(z) = z^{5} + 2004 z - 1$. We can check these are distinct (by using the fact that there's one in a small neighborhood of each root of $z^{5} + 2004 z$, or by noting that $Q(z)$ is relatively prime to its derivative). And certainly none of the roots of $Q$ is the negative of another, since $z^{5} + 2004 z = 1$ implies $(-z)^{5} + 2004(-z) = -1$, so their squares are distinct as well. Then, $z_{1}^{2}, \\ldots, z_{5}^{2}$ are the roots of $P$, so if we write $C$ for the leading coefficient of $P$, we have\n$$\n\\begin{aligned}\n\\frac{P(1)}{P(-1)} & = \\frac{C\\left(1-z_{1}^{2}\\right) \\cdots\\left(1-z_{5}^{2}\\right)}{C\\left(-1-z_{1}^{2}\\right) \\cdots\\left(-1-z_{5}^{2}\\right)} \\\\\n& = \\frac{\\left[\\left(1-z_{1}\\right) \\cdots\\left(1-z_{5}\\right)\\right] \\cdot \\left[\\left(1+z_{1}\\right) \\cdots\\left(1+z_{5}\\right)\\right]}{\\left[\\left(i-z_{1}\\right) \\cdots\\left(i-z_{5}\\right)\\right] \\cdot \\left[\\left(i+z_{1}\\right) \\cdots\\left(i+z_{5}\\right)\\right]} \\\\\n& = \\frac{\\left[\\left(1-z_{1}\\right) \\cdots\\left(1-z_{5}\\right)\\right] \\cdot \\left[\\left(-1-z_{1}\\right) \\cdots\\left(-1-z_{5}\\right)\\right]}{\\left[\\left(i-z_{1}\\right) \\cdots\\left(i-z_{5}\\right)\\right] \\cdot \\left[\\left(-i-z_{1}\\right) \\cdots\\left(-i-z_{5}\\right)\\right]} \\\\\n& = \\frac{\\left(1^{5} + 2004 \\cdot 1 - 1\\right)\\left(-1^{5} + 2004 \\cdot (-1) - 1\\right)}{\\left(i^{5} + 2004 \\cdot i - 1\\right)\\left(-i^{5} + 2004 \\cdot (-i) - 1\\right)} \\\\\n& = \\frac{(2004)(-2006)}{(-1 + 2005 i)(-1 - 2005 i)} \\\\\n& = -\\frac{2005^{2} - 1}{2005^{2} + 1} \\\\\n& = -4020024 / 4020026 = -2010012 / 2010013 .\n\\end{aligned}\n$$\n\n\nAlternative Solution: In fact, we can construct the polynomial $P$ explicitly (up to multiplication by a constant). We write $P\\left(z^{2}\\right)$ as a polynomial in $z$; it must use only even powers of $z$ and be divisible by $z^{5} + 2004 z - 1$, so we are inspired to try a difference of squares,\n$$\nP\\left(z^{2}\\right) = \\left(z^{5} + 2004 z - 1\\right)\\left(z^{5} + 2004 z + 1\\right) = \\left(z^{5} + 2004 z\\right)^{2} - 1^{2} = z^{2}\\left(z^{4} + 2004\\right)^{2} - 1,\n$$\ngiving\n$$\nP(z) = z\\left(z^{2} + 2004\\right)^{2} - 1 .\n$$\nNow plugging in $z = 1$ and $z = -1$ rapidly gives $\\left(2005^{2} - 1\\right) / \\left(-2005^{2} - 1\\right)$ as before."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-complex-numbers-auto-1040",
+      "name": "USA IMO #0ibk",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion",
+        "Generating functions",
+        "Enumeration with symmetry",
+        "Roots of unity",
+        "Complex numbers"
+      ],
+      "statement": "Let $n$ be a positive integer. Consider sequences $a_0, a_1, \\dots, a_n$ such that $a_i \\in \\{1, 2, \\dots, n\\}$ for each $i$ and $a_n = a_0$.\n\na. Call such a sequence *good* if for all $i = 1, 2, \\dots, n$, $a_i - a_{i-1} \\not\\equiv i \\pmod n$. Suppose that $n$ is odd. Find the number of good sequences.\n\nb. Call such a sequence *great* if for all $i = 1, 2, \\dots, n$, $a_i - a_{i-1} \\not\\equiv i, 2i \\pmod n$. Suppose that $n$ is an odd prime. Find the number of great sequences.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**First Solution:** The answer is $(n-1)^n - (n-1)$ for part (a) and $(n-1)((n-2)^{n-1} - 1)$ for part (b).\n\na. Observe that the number of good sequences is clearly the same for any choice of $a_0$. For fixed $a_0$, call the condition $a_i - a_{i-1} \\not\\equiv i \\pmod n$ *condition (i)*. Now let $S_i$ be the set of sequences $A = \\{a_i\\}_{i=1}^n, a_i \\in \\{1, 2, \\dots, n\\}$ such that $A$ satisfies conditions (1), (2), \\dots, $(n-i)$ and fails to satisfy conditions $(n-i+2)$, $(n-i+3)$, \\dots, $(n)$. Note that there is no constraint on whether or not $A$ satisfies condition $(n-i+1)$. Finally, let $F$ be the set of sequences that fails all conditions (1), (2), \\dots, $(n)$. Then we claim that the number of good sequences starting with $a_0$ is\n$$\nm = |S_1| - |S_2| + |S_3| - \\dots + |S_n| - |F|.\n$$\nConsider the following table, representing the conditions on sequences in $S_i$.\n$$\n\\begin{array}{c|ccccccc}\nS_1 & (1) & (2) & (3) & \\dots & (n-2) & (n-1) & \\\\\n\\hline\nS_2 & (1) & (2) & (3) & \\dots & (n-2) & \\overline{(n)} & \\\\\n\\hline\nS_3 & (1) & (2) & (3) & \\dots & \\overline{(n-1)} & \\overline{(n)} & \\\\\n\\hline\n\\vdots & \\vdots & \\vdots & \\vdots & \\dots & \\vdots & \\vdots & \\vdots \\\\\n\\hline\nS_n & \\overline{(2)} & \\overline{(3)} & \\dots & \\overline{(n-2)} & \\overline{(n-1)} & \\overline{(n)} & \\\\\n\\hline\nF & (1) & (2) & (3) & \\dots & \\overline{(n-2)} & \\overline{(n-1)} & \\overline{(n)}\n\\end{array}\n$$\nConditions that appear as $(j)$ in row $i$ are satisfied by sequences in $S_i$, and those that appear as $\\overline{(j)}$ are failed.\n\nNow take any sequence $A$. If $A$ is good, then $A$ is counted exactly once in $|S_1|$ and is not counted anywhere else. Otherwise, if $A$ is not good, let $(i)$ be the first condition that $A$ fails. If $i > 1$, then $A$ belongs to exactly the sets $S_{n-1}, S_{n-2}$. As one of $|S_{n-1}|, |S_{n-2}|$ is added and one is subtracted, $A$ has no net contribution to $m$. Finally, if $i = 1$, then $A$ belongs to $S_n$ and $F$, so again $A$ does not contribute to $m$. Therefore, $m$ is indeed the number of good sequences.\n\nWe are left with computing the sizes of the $S_i$'s and $F$. This is easy, as the failure of the final $i-1$ conditions determines the terms $a_{n-1}, a_{n-2}, \\dots, a_{n-i+1}$, whereas there are just $n-1$ ways to satisfy each of the conditions (1), (2), \\dots, $(n-i)$, producing $(n-1)^{n-i}$ subsequences $a_0, a_1, \\dots, a_{n-i}$. As there is no constraint on $a_{n-i+1} - a_{n-i}$, we have found all sequences in $S_i$. Hence, $|S_i| = (n-1)^{n-i}$. As for $F$, there is clearly exactly one way to fail every single condition, because $1+2+\\dots+(n-1) = \\frac{n(n-1)}{2}$ is divisible by $n$. Therefore, $|S_n| - F = 0$ and\n$$\n\\begin{align*}\nm &= |S_1| - |S_2| + \\dots - |S_{n-1}| \\\\\n&= (n-1)^{n-1} - (n-1)^{n-2} + \\dots - (n-1) \\\\\n&= \\frac{(n-1)^n - (n-1)}{n}.\n\\end{align*}\n$$\nAs there were originally $n$ choices for $a_0$, multiplying by $n$ gives the desired answer.\n\nb. We can use the same argument as in part (a), but we must recompute the values of $|S_i|$ and $|F|$. Note that for $1 \\le i \\le n-1$, there are exactly two ways to fail condition (i) (because $n$ is odd) while condition (n) is degenerate and reduces to the single restriction $a_n - a_{n-1} \\not\\equiv 0 \\pmod{n}$. Hence, we have\n$$\n|S_1| = (n-2)^{n-1} \\quad \\text{and} \\quad |S_i| = 2^{i-2}(n-2)^{n-i},\n$$\nfor $2 \\le i \\le n$. Finding $|F|$ is trickier in this case, however. Considering the differences $b_i = a_i - a_{i-1}$, $i = 1, 2, \\dots, n$, we wish to count the number of choices of $\\{b_i\\}_{i=1}^n$ such that\n$$\nb_1 + b_2 + \\dots + b_n \\equiv 0 \\pmod{n},\n$$\nwhere $b_i = i$ or $2i \\pmod{n}$ for each $i$. Note that because of the degenerate condition $(n)$, $b_n \\equiv 0 \\pmod{n}$ is forced; hence, we are actually looking at $2^{n-1}$ sums $b_1 + b_2 + \\dots + b_{n-1}$ rather than $2^n$. Now, as $n \\mid [1 + 2 + \\dots + (n-1)] = \\frac{n(n-1)}{2}$, we can equivalently consider sums of terms $c_i = b_i - i$. That is, we wish to find the number of choices of $c_1, c_2, \\dots, c_{n-1}$ such that\n$$\nc_1 + c_2 + \\dots + c_{n-1} \\equiv 0 \\pmod{n},\n$$\nwhere $c_i = 0$ or $i$ for each $i$. We now introduce an extra term $c_n$ that can be either 0 or $n$. The only effect of this extra term is to double the number of choices of $\\{c_i\\}_{i=1}^n$ compared to the number of choices of $\\{c_i\\}_{i=1}^{n-1}$. That is, letting\n$$\nF' = \\{(c_1, c_2, \\dots, c_n) \\mid \\begin{aligned}[t] & c_i = 0 \\text{ or } i, \\\\ & c_1 + c_2 + \\dots + c_n \\equiv 0 \\pmod{n} \\end{aligned}\\},\n$$\nwe have $|F| = \\frac{1}{2}|F'|$.\n\nObserve that we can identify choices $(c_1, c_2, \\dots, c_n)$ with subsets of $T = \\{1, 2, \\dots, n\\}$; the elements of $F'$ are then simply the subsets of $T$ that have sum divisible by $n$. The empty set and the set $T$ are two sets that clearly satisfy this property. All remaining subsets $U \\subset T$ have from 1 to $n-1$ elements. Write $U+k$ for the set $\\{x+k \\mid x \\in U\\}$ (taken mod $n$); this is the rotation of $U$ by $k$ shifts to the right. Then because $n$ is prime and $0 < |U| < n$, the subsets $U, U+1, U+2, \\dots, U+(n-1)$ form an equivalence class of exactly $n$ distinct subsets. Furthermore, the sums of the elements in $U$ and $U + k$ differ by $k|U|(\\text{mod } n)$, so exactly one element of each class has sum divisible by $n$. It follows that\n$$\n|F'| = 2 + \\frac{2^n - 2}{n}, \\quad |F| = \\frac{1}{2}|F'| = \\frac{2^{n-1} + n - 1}{n}.\n$$\nTherefore,\n$$\n\\begin{align*}\nm &= |S_1| - |S_2| + |S_3| - \\dots + |S_n| - |F| \\\\\n&= (n-2)^{n-1} - (n-2)^{n-2} + 2(n-2)^{n-3} \\\\\n&\\quad - 2^2(n-2)^{n-4} + \\dots + 2^{n-2} - \\frac{2^{n-1} + n-1}{n} \\\\\n&= (n-2)^{n-1} - \\frac{(n-2)^{n-1} - 2^{n-1}}{n} - \\frac{2^{n-1} + n-1}{n} \\\\\n&= \\frac{(n-1)(n-2)^{n-1} - (n-1)}{n}.\n\\end{align*}\n$$\nAs before, multiplying by $n$ gives the desired answer.\n\n\n**Second Solution:** The answer is $(n-1)^n - (n-1)$ for part (a) and $(n-1)((n-2)^{n-1} - 1)$ for part (b). Observe that the number of good sequences is clearly the same for any choice of $a_0$. Fixing $a_0$, we represent the choices for the differences $a_i - a_{i-1} \\pmod n$ with the generating function\n$$\ng_i(x) = 1 + x + x^2 + \\dots + x^{i-1} + x^{i+1} + \\dots + x^{n-1} = p(x) - x^i,\n$$\nwhere $p(x) = 1 + x + x^2 + \\cdots + x^{n-1}$. Then the generating function representing all the possibilities for $a_1 - a_0, a_2 - a_1, \\ldots, a_{n-1} - a_{n-2}$ is\n$$\ng(x) = \\prod_{i=1}^{n-1} g_i(x) = \\prod_{i=1}^{n-1} (p(x) - x^i).\n$$\nThe condition that $a_0 - a_{n-1} \\not\\equiv 0 \\pmod{n}$ means that we wish to sum the coefficients of the $x^k$ terms of $g(x)$ for $n \\not\\mid k$.\n\nNow the sum of all the coefficients is simply $g(1) = (n-1)^{n-1}$. The sum of the coefficients of the $x^k$ terms for $n \\mid k$ can be obtained by taking\n$$\n\\frac{1}{n} \\sum_{j=0}^{n-1} g(\\epsilon^j),\n$$\nwhere $\\epsilon = e^{2\\pi i/n}$ is a primitive $n^{\\text{th}}$ root of unity. As we noted above, $g(1) = (n-1)^{n-1}$. For $n > j > 0$, note that $p(\\epsilon^j) = 0$, so\n$$\ng(\\epsilon^j) = \\prod_{k=1}^{n-1} -\\epsilon^{kj} = (-1)^{n-1} \\epsilon^{n(n-1)/2} j = 1,\n$$\nas $n$ is odd. Therefore, the sum of the coefficients of the terms with powers not dividing $n$ is\n$$\n(n-1)^{n-1} - \\frac{1}{n}((n-1)^{n-1} + (n-1)) = \\frac{1}{n}((n-1)^n - (n-1)).\n$$\nRemembering that we had $n$ choices of $a_0$ to begin with, we obtain $(n-1)^n - (n-1)$ as the answer to part (a).\n\nFor part (b), we change our generating functions to\n$$\nh_i(x) = p(x) - (x^i + x^{2i}), \\quad h(x) = \\prod_{i=1}^{n-1} h_i(x).\n$$\nNote that for $1 \\le i \\le n-1$, the terms $x^i$ and $x^{2i}$ both appear because $i \\ne 2i \\pmod n$ as $n$ is odd. For the final condition, however, $n \\equiv 2n \\equiv 0 \\pmod n$, so we are still counting those terms—and only those terms—with powers not divisible by $n$. Hence, using the same method as before, we have $h(1) = (n-2)^{n-1}$,\n$$\nh(\\epsilon^j) = \\prod_{k=1}^{n-1} -\\epsilon^{kj}(1 + \\epsilon^{kj}) = \\prod_{k=1}^{n-1} (1 + \\epsilon^k),\n$$\nfor $1 \\le j \\le n-1$, as $n$ is prime. Now, $1+\\epsilon^i$, $i=0,1,\\dots,n-1$, are all of the roots of the polynomial $(x-1)^n-1$. Therefore, their product is $(-1)^n = -1$ times the constant coefficient of the polynomial, $-2$. Hence, the product of the roots not including $i=0$ (in which case $1+\\epsilon^0 = 2$) is 1. Therefore, $h(\\epsilon^j) = 1$.\n\nIt follows that the number of sequences for a fixed $a_0$ is\n$$\n(n-2)^{n-1} - \\frac{1}{n}((n-2)^{n-1} + (n-1)) = \\frac{1}{n}((n-1)((n-2)^{n-1} - 1)),\n$$\nso the answer to part (b) is $(n-1)((n-2)^{n-1} - 1)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-complex-numbers-auto-1074",
+      "name": "Harvard-MIT Mathematics Tournament #0ici",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Roots of unity",
+        "Vieta's formulas",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\nSimplify $\\prod_{k=1}^{2004} \\sin (2 \\pi k / 4009)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n$\\frac{\\sqrt{4009}}{2^{2004}}$\n\nLet $\\zeta = e^{2 \\pi i / 4009}$ so that $\\sin (2 \\pi k / 4009) = \\frac{\\zeta^{k} - \\zeta^{-k}}{2i}$ and $x^{4009} - 1 = \\prod_{k=0}^{4008} (x - \\zeta^{k})$. Hence $1 + x + \\cdots + x^{4008} = \\prod_{k=1}^{4008} (x - \\zeta^{k})$. Comparing constant coefficients gives $\\prod_{k=1}^{4008} \\zeta^{k} = 1$, setting $x = 1$ gives $\\prod_{k=1}^{4008} (1 - \\zeta^{k}) = 4009$, and setting $x = -1$ gives $\\prod_{k=1}^{4008} (1 + \\zeta^{k}) = 1$. Now, note that $\\sin (2 \\pi (4009 - k) / 4009) = -\\sin (2 \\pi k / 4009)$, so\n$$\n\\begin{aligned}\n\\left(\\prod_{k=1}^{2004} \\sin (2 \\pi k / 4009)\\right)^{2} &= (-1)^{2004} \\prod_{k=1}^{4008} \\sin (2 \\pi k / 4009) \\\\\n&= \\prod_{k=1}^{4008} \\frac{\\zeta^{k} - \\zeta^{-k}}{2i} \\\\\n&= \\frac{1}{(2i)^{4008}} \\prod_{k=1}^{4008} \\frac{\\zeta^{2k} - 1}{\\zeta^{k}} \\\\\n&= \\frac{1}{2^{4008}} \\prod_{k=1}^{4008} (\\zeta^{2k} - 1) \\\\\n&= \\frac{1}{2^{4008}} \\prod_{k=1}^{4008} (\\zeta^{k} - 1)(\\zeta^{k} + 1) \\\\\n&= \\frac{4009 \\cdot 1}{2^{4008}} .\n\\end{aligned}\n$$\nHowever, $\\sin(x)$ is nonnegative on the interval $[0, \\pi]$, so our product is positive. Hence it is $\\frac{\\sqrt{4009}}{2^{2004}}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-complex-numbers-auto-1089",
+      "name": "Harvard-MIT Mathematics Tournament #0icx",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers",
+        "Ring Theory",
+        "Roots of unity"
+      ],
+      "statement": "Problem:\n$S$ is a set of complex numbers such that if $u, v \\in S$, then $u v \\in S$ and $u^{2}+v^{2} \\in S$. Suppose that the number $N$ of elements of $S$ with absolute value at most $1$ is finite. What is the largest possible value of $N$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFirst, if $S$ contained some $u \\neq 0$ with absolute value $<1$, then (by the first condition) every power of $u$ would be in $S$, and $S$ would contain infinitely many different numbers of absolute value $<1$. This is a contradiction.\n\nNow suppose $S$ contains some number $u$ of absolute value $1$ and argument $\\theta$. If $\\theta$ is not an integer multiple of $\\pi / 6$, then $u$ has some power $v$ whose argument lies strictly between $\\theta+\\pi / 3$ and $\\theta+\\pi / 2$. Then $u^{2}+v^{2}=u^{2}\\left(1+(v / u)^{2}\\right)$ has absolute value between $0$ and $1$, since $(v / u)^{2}$ lies on the unit circle with angle strictly between $2 \\pi / 3$ and $\\pi$. But $u^{2}+v^{2} \\in S$, so this is a contradiction.\n\nThis shows that the only possible elements of $S$ with absolute value $\\leq 1$ are $0$ and the points on the unit circle whose arguments are multiples of $\\pi / 6$, giving $N \\leq 1+12=13$.\n\nTo show that $N=13$ is attainable, we need to show that there exists a possible set $S$ containing all these points. Let $T$ be the set of all numbers of the form $a+b \\omega$, where $a, b$ are integers and $\\omega$ is a complex cube root of $1$. Since $\\omega^{2}=-1-\\omega$, $T$ is closed under multiplication and addition. Then, if we let $S$ be the set of numbers $u$ such that $u^{2} \\in T$, $S$ has the required properties, and it contains the $13$ complex numbers specified, so we're in business."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-complex-numbers-auto-1137",
+      "name": "Harvard-MIT Mathematics Tournament #0ie9",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers in geometry",
+        "Vectors",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\n\nLet $x$, $y$, and $z$ be three roots of unity. Prove that $x + y + z$ is also a root of unity if and only if $x + y = 0$, $y + z = 0$, or $z + x = 0$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAgain, we consider the geometric picture. Arrange the vectors $x$, $y$, $z$, and $-x-y-z$ so as to form a quadrilateral. If they are all roots of unity, they form a quadrilateral all of whose side lengths are $1$. If the quadrilateral is degenerate, then two of the vectors sum to $0$, which implies the result. But even if it is not degenerate, the quadrilateral must be a rhombus, and since opposite sides of a rhombus are parallel, this again implies that two of the four roots of unity sum to $0$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-complex-numbers-auto-1145",
+      "name": "Harvard-MIT Mathematics Tournament #0ieh",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Roots of unity",
+        "Polynomial operations",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\n\nLet $P(x) = a_{n} x^{n} + a_{n-1} x^{n-1} + \\cdots + a_{0}$ be a polynomial with real coefficients, $a_{n} \\neq 0$. Suppose every root of $P$ is a root of unity, but $P(1) \\neq 0$. Show that the coefficients of $P$ are symmetric; that is, show that $a_{n} = a_{0}, a_{n-1} = a_{1}, \\ldots$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSince the coefficients of $P$ are real, the complex conjugates of the roots of $P$ are also roots of $P$. Now, if $x$ is a root of unity, then $x^{-1} = \\bar{x}$. But the roots of\n$$\nx^{n} P\\left(x^{-1}\\right) = a_{0} x^{n} + a_{1} x^{n-1} + \\cdots + a_{n}\n$$\nare then just the complex conjugates of the roots of $P$, so they are the roots of $P$. Therefore, $P(x)$ and $x^{n} P\\left(x^{-1}\\right)$ differ by a constant multiple $c$. Since $a_{n} = c a_{0}$ and $a_{0} = c a_{n}$, $c$ is either $1$ or $-1$. But if it were $-1$, then\n$$\nP(1) = a_{n} + a_{n-1} + \\cdots + a_{0} = \\frac{1}{2}\\left(\\left(a_{n} + a_{0}\\right) + \\left(a_{n-1} + a_{1}\\right) + \\cdots + \\left(a_{0} + a_{n}\\right)\\right) = 0,\n$$\na contradiction. Therefore $c = 1$, giving the result."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-complex-numbers-auto-1239",
+      "name": "Harvard-MIT Mathematics Tournament #0ih3",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Roots of unity",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\nSuppose $x$ is a fifth root of unity. Find, in radical form, all possible values of\n$$\n2x + \\frac{1}{1+x} + \\frac{x}{1+x^{2}} + \\frac{x^{2}}{1+x^{3}} + \\frac{x^{3}}{1+x^{4}}.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nNote that\n$$\n\\begin{gathered}\n\\frac{x}{1+x^{2}} + \\frac{x^{2}}{1+x^{3}} = \\frac{x^{6}}{1+x^{2}} + \\frac{x^{4}}{x^{2}+x^{5}} = \\frac{x^{4}+x^{6}}{1+x^{2}} = x^{4} = \\frac{1}{x}, \\text{ and } \\\\\n\\frac{1}{1+x} + \\frac{x^{3}}{1+x^{4}} = \\frac{x^{5}}{1+x} + \\frac{x^{4}}{x+x^{5}} = \\frac{x^{4}+x^{5}}{1+x} = x^{4} = \\frac{1}{x}\n\\end{gathered}\n$$\nTherefore, the sum is just $2x + \\frac{2}{x}$. If $x=1$, this is $4$. Otherwise, let $y = x + \\frac{1}{x}$. Then $x$ satisfies\n$$\n0 = 1 + x + x^{2} + x^{3} + x^{4} = \\left(x^{2} + \\frac{1}{x^{2}} + 2\\right) + \\left(x + \\frac{1}{x}\\right) - 1 = y^{2} + y - 1,\n$$\nso solving this quadratic yields $y = \\frac{-1 \\pm \\sqrt{5}}{2}$, or $2y = -1 \\pm \\sqrt{5}$. Since each value of $y$ can correspond to only 2 possible values of $x$, and there are 4 possible values of $x$ besides $1$, both of these values for $y$ are possible, which yields the answers, $4$ and $-1 \\pm \\sqrt{5}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-complex-numbers-auto-1243",
+      "name": "Harvard-MIT Mathematics Tournament #0ih7",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers",
+        "Roots of unity",
+        "Complex numbers in geometry"
+      ],
+      "statement": "Problem:\n\nA $k$th root of unity is any complex number $\\omega$ such that $\\omega^{k}=1$.\n\nLet $x$ and $y$ be two $k$th roots of unity. Prove that $(x+y)^{k}$ is real.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nNote that\n$$\n\\begin{aligned}\n(x+y)^{k} & = \\sum_{i=0}^{k} \\binom{k}{i} x^{i} y^{k-i} \\\\\n& = \\frac{1}{2} \\sum_{i=0}^{k} \\binom{k}{i} \\left(x^{i} y^{k-i} + x^{k-i} y^{i}\\right)\n\\end{aligned}\n$$\nby pairing the $i$th and $(k-i)$th terms. But $x^{k-i} y^{i} = \\left(x^{i} y^{k-i}\\right)^{-1}$ since $x$ and $y$ are $k$th roots of unity. Moreover, since $x$ and $y$ have absolute value $1$, so does $x^{i} y^{k-i}$, so $x^{k-i} y^{i}$ is in fact its complex conjugate. It follows that their sum is real, thus so is $(x+y)^{k}$.\n\nThis can also be shown geometrically. The argument of $x$ (the angle between the vector $x$ and the positive $x$-axis) is an integer multiple of $\\frac{2 \\pi}{k}$, as is the argument of $y$. Since $x+y$ bisects the angle between $x$ and $y$, its argument is an integer multiple of $\\frac{\\pi}{k}$. Multiplying this angle by $k$ gives a multiple of $\\pi$, so $(x+y)^{k}$ is real."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-complex-numbers-auto-1303",
+      "name": "Harvard-MIT Mathematics Tournament #0iiv",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Roots of unity",
+        "Polynomial operations",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\nFind the smallest positive integer $k$ such that $z^{10}+z^{9}+z^{6}+z^{5}+z^{4}+z+1$ divides $z^{k}-1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $Q(z)$ denote the polynomial divisor. We need that the roots of $Q$ are $k$-th roots of unity. With this in mind, we might observe that solutions to $z^{7}=1$ and $z \\neq 1$ are roots of $Q$, which leads to its factorization. Alternatively, we note that\n$$\n(z-1) Q(z)=z^{11}-z^{9}+z^{7}-z^{4}+z^{2}-1=\\left(z^{4}-z^{2}+1\\right)\\left(z^{7}-1\\right)\n$$\nSolving for the roots of the first factor, $z^{2}=\\frac{1+i \\sqrt{3}}{2}= \\pm \\operatorname{cis} \\pi / 3$ (we use the notation $\\operatorname{cis}(x)=\\cos (x)+i \\sin (x)$) so that $z= \\pm \\operatorname{cis}( \\pm \\pi / 6)$. These are primitive 12-th roots of unity. The other roots of $Q(z)$ are the primitive 7-th roots of unity (we introduced $z=1$ by multiplication.) It follows that the answer is $\\operatorname{lcm}[12,7]=84$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-complex-numbers-auto-1304",
+      "name": "Harvard-MIT Mathematics Tournament #0iiw",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomials",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\nLet $f(x)$ be a degree $2006$ polynomial with complex roots $c_{1}, c_{2}, \\ldots, c_{2006}$, such that the set\n$$\n\\left\\{\\left|c_{1}\\right|,\\left|c_{2}\\right|, \\ldots,\\left|c_{2006}\\right|\\right\\}\n$$\nconsists of exactly $1006$ distinct values. What is the minimum number of real roots of $f(x)$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe complex roots of the polynomial must come in pairs, $c_{i}$ and $\\overline{c_{i}}$, both of which have the same absolute value. If $n$ is the number of distinct absolute values $\\left|c_{i}\\right|$ corresponding to those of non-real roots, then there are at least $2n$ non-real roots of $f(x)$. Thus $f(x)$ can have at most $2006-2n$ real roots. However, it must have at least $1006-n$ real roots, as $\\left|c_{i}\\right|$ takes on $1006-n$ more values. By definition of $n$, these all correspond to real roots. Therefore $1006-n \\leq$ number of real roots $\\leq 2006-2n$, so $n \\leq 1000$, and number of real roots $\\geq 1006-n \\geq 6$. It is easy to see that equality is attainable."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-complex-numbers-auto-1373",
+      "name": "Harvard-MIT Mathematics Tournament #0ikt",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vieta's formulas",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\nLet\n$$\nf(x) = x^{4} - 6x^{3} + 26x^{2} - 46x + 65.\n$$\nLet the roots of $f(x)$ be $a_{k} + i b_{k}$ for $k = 1, 2, 3, 4$. Given that the $a_{k}, b_{k}$ are all integers, find $|b_{1}| + |b_{2}| + |b_{3}| + |b_{4}|$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe roots of $f(x)$ must come in complex-conjugate pairs. We can then say that $a_{1} = a_{2}$ and $b_{1} = -b_{2}$; $a_{3} = a_{4}$ and $b_{3} = -b_{4}$. The constant term of $f(x)$ is the product of these, so $5 \\cdot 13 = (a_{1}^{2} + b_{1}^{2})(a_{3}^{2} + b_{3}^{2})$. Since $a_{k}$ and $b_{k}$ are integers for all $k$, and it is simple to check that $1$ and $i$ are not roots of $f(x)$, we must have $a_{1}^{2} + b_{1}^{2} = 5$ and $a_{3}^{2} + b_{3}^{2} = 13$. The only possible ways to write these sums with positive integers is $1^{2} + 2^{2} = 5$ and $2^{2} + 3^{2} = 13$, so the values of $a_{1}$ and $b_{1}$ up to sign are $1$ and $2$; and $a_{3}$ and $b_{3}$ up to sign are $2$ and $3$. From the $x^{3}$ coefficient of $f(x)$, we get that $a_{1} + a_{2} + a_{3} + a_{4} = 6$, so $a_{1} + a_{3} = 3$. From the limits we already have, this tells us that $a_{1} = 1$ and $a_{3} = 2$. Therefore $b_{1}, b_{2} = \\pm 2$ and $b_{3}, b_{4} = \\pm 3$, so the required sum is $2 + 2 + 3 + 3 = 10$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-complex-numbers-auto-1382",
+      "name": "Harvard-MIT Mathematics Tournament #0il2",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial operations",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\n\nSolve for all complex numbers $z$ such that $z^{4} + 4z^{2} + 6 = z$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nRewrite the given equation as $\\left(z^{2} + 2\\right)^{2} + 2 = z$. Observe that a solution to $z^{2} + 2 = z$ is a solution of the quartic by substitution of the left hand side into itself. This gives $z = \\frac{1 \\pm i \\sqrt{7}}{2}$. But now, we know that $z^{2} - z + 2$ divides into $\\left(z^{2} + 2\\right)^{2} - z + 2 = z^{4} + 4z^{2} - z + 6$. Factoring it out, we obtain $\\left(z^{2} - z + 2\\right)\\left(z^{2} + z + 3\\right) = z^{4} + 4z^{2} - z + 6$. Finally, the second term leads to the solutions $z = \\frac{-1 \\pm i \\sqrt{11}}{2}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

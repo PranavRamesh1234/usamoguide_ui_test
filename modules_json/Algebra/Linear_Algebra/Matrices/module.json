@@ -1,0 +1,339 @@
+{
+  "MODULE_ID": "algebra-linear-algebra-matrices",
+  "practice": [
+    {
+      "uniqueId": "algebra-linear-algebra-matrices-auto-0218",
+      "name": "Berkeley Math Circle Take-Home Contest #0hoq",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Take-Home Contest",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vectors",
+        "Matrices",
+        "Linear and quadratic inequalities"
+      ],
+      "statement": "Problem:\n\nThe set $S$ is a finite subset of $[0,1]$ with the following property: for all $x \\in S$, there exist $a, b \\in S \\cup \\{0,1\\}$ with $a, b \\neq x$ such that $x = (a + b)/2$. Prove that all the numbers in $S$ are rational.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $x_{1}, x_{2}, \\ldots, x_{n}$ be the elements of $S$. They satisfy a system of $n$ linear equations of the form $x_{i} = (x_{a} + x_{b}) / 2$, where some of the $x_{a}, x_{b}$ may be replaced by $0$ or $1$. If the system is not redundant (its solution is unique), then it can be solved by the usual elimination method of solving systems of linear equations. Since this method computes the values of $x_{i}$ using only the existing coefficients $(0,1)$ and addition, subtraction, multiplication, and division, it follows that each $x_{i}$ must be rational. So it suffices to prove that the system has a unique solution.\n\nSuppose that there are two solutions, $(x_{1}, \\ldots, x_{n})$ (the distinct elements of $S$) and $(y_{1}, \\ldots, y_{n})$, and assume that $x_{k} > y_{k}$ for some particular $k$ (the $x_{k} < y_{k}$ case is analogous). Note that any linear equation satisfied by $(x_{1}, \\ldots, x_{n})$ and $(y_{1}, \\ldots, y_{n})$ is also satisfied by $(t x_{1} + (1-t) y_{1}, \\ldots, t x_{n} + (1-t) y_{n})$ for any real number $t$ (as is seen by multiplying the equation with the $x$'s by $t$ and the equation with the $y$'s by $1-t$, and adding). Thus the numbers $t x_{i} + (1-t) y_{i}$ form another solution of our system, so that each such number is an average of two quantities—another of the numbers, $1$, or $0$. If we choose $t > (1 - y_{k}) / (x_{k} - y_{k})$, then $t x_{k} + (1-t) y_{k} > 1$. It follows that the largest value of $t x_{i} + (1-t) y_{i}$ over all $i$ is also greater than $1$. If we can choose $t$ so that the largest value is unique (no other $i$ yields the same value of $t x_{i} + (1-t) y_{i}$), then this value is the average of two numbers which are strictly smaller than it, an impossibility.\n\nThus, what remains is to show that we can choose $t > (1 - y_{k}) / (x_{k} - y_{k})$ so that all the values of $t x_{i} + (1-t) y_{i}$ are different. There clearly are infinitely many $t$ large enough for the first condition. For the second condition, if $t x_{i} + (1-t) y_{i} = t x_{j} + (1-t) y_{j}$ ($i \\neq j$) then $t(x_{i} - y_{i} - x_{j} + y_{j}) = y_{j} - y_{i}$. If the coefficient of $t$ on the left side is $0$ then $y_{j} - y_{i} = 0$ forcing $x_{i} - x_{j} = 0$, an impossibility; otherwise, we can divide by this coefficient to see that the value of $t$ is uniquely determined by $i$ and $j$. Since there are a finite number of choices for $i$ and $j$, there are only a finite number of values of $t$ for which some equality $t x_{i} + (1-t) y_{i} = t x_{j} + (1-t) y_{j}$ holds, and we simply choose some $t$ which is not any of these. This meets our requirements."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-matrices-auto-0874",
+      "name": "Harvard-MIT Math Tournament #0i6y",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vectors",
+        "Matrices"
+      ],
+      "statement": "Problem:\n\nThe real numbers $x, y, z, w$ satisfy\n\n\\begin{aligned}\n2x + y + z + w &= 1 \\\\\nx + 3y + z + w &= 2 \\\\\nx + y + 4z + w &= 3 \\\\\nx + y + z + 5w &= 25.\n\\end{aligned}\n\nFind the value of $w$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n$11/2$. Multiplying the four equations by $12, 6, 4, 3$ respectively, we get\n\n\\begin{aligned}\n24x + 12y + 12z + 12w &= 12 \\\\\n6x + 18y + 6z + 6w &= 12 \\\\\n4x + 4y + 16z + 4w &= 12 \\\\\n3x + 3y + 3z + 15w &= 75\n\\end{aligned}\n\nAdding these yields $37x + 37y + 37z + 37w = 111$, or $x + y + z + w = 3$. Subtract this from the fourth given equation to obtain $4w = 22$, or $w = 11/2$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-matrices-auto-1421",
+      "name": "Team Selection Test #0im5",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cauchy-Schwarz",
+        "Abel summation",
+        "Counting two ways",
+        "Matrices"
+      ],
+      "statement": "Let $n$ be a positive integer and let $a_1 \\le a_2 \\le \\dots \\le a_n$ and $b_1 \\le b_2 \\le \\dots \\le b_n$ be two nondecreasing sequences of real numbers such that\n$$\na_1 + \\dots + a_i \\le b_1 + \\dots + b_i \\quad \\text{for every } i = 1, \\dots, n-1\n$$\nand\n$$\na_1 + \\dots + a_n = b_1 + \\dots + b_n.\n$$\n\nSuppose that for any real number $m$, the number of pairs $(i, j)$ with $a_i - a_j = m$ equals the number of pairs $(k, \\ell)$ with $b_k - b_\\ell = m$. Prove that $a_i = b_i$ for $i = 1, \\dots, n$.\n\n**Note:** It is important to interpret the condition that for any real number $m$, the number of pairs $(i, j)$ with $a_i - a_j = m$ equals the number of pairs $(k, \\ell)$ with $b_k - b_\\ell = m$. It means that we have two identical multi-sets (a multi-set is a set that allows repeated elements)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**First Solution:** Put $s_n = a_1 + \\cdots + a_n = b_1 + \\cdots + b_n$. Then\n$$\n\\begin{aligned}\n2 \\sum_{i=1}^{n-1} (a_1 + \\cdots + a_i) &= 2(n-1)a_1 + 2(n-2)a_2 + \\cdots + 2(1)a_{n-1} \\\\\n&= (n-1)a_1 + (n-3)a_2 + \\cdots + (1-n)a_n + (n-1)s_n \\\\\n&= (n-1)s_n + \\sum_{1 \\le i < j \\le n} (a_i - a_j)\n\\end{aligned}\n$$\nand similarly\n$$\n2 \\sum_{i=1}^{n-1} (b_1 + \\cdots + b_i) = (n-1)s_n + \\sum_{1 \\le k < \\ell \\le n} (b_k - b_\\ell).\n$$\nBy (*), these two quantities are equal, so\n$$\n2 \\sum_{i=1}^{n-1} (a_1 + \\cdots + a_i) = 2 \\sum_{i=1}^{n-1} (b_1 + \\cdots + b_i).\n$$\nConsequently, each of the inequalities $a_1 + \\cdots + a_i \\le b_1 + \\cdots + b_i$ for $i = 1, \\dots, n-1$ must be an equality. Since we also have equality for $i = n$ by assumption, we deduce that $a_i = b_i$ for $i = 1, \\dots, n$, as desired.\n\n\n**Second Solution:** Expanding both sides of (**) yields\n$$\n(n-1) \\sum_{i=1}^{n} a_i^2 + 2 \\sum_{1 \\le i < j \\le n} a_i a_j = (n-1) \\sum_{i=1}^{n} b_i^2 + 2 \\sum_{1 \\le k < \\ell \\le n} b_k b_\\ell.\n$$\nSquaring both sides of the given equation $a_1 + \\cdots + a_n = b_1 + \\cdots + b_n$ gives\n$$\n\\sum_{i=1}^{n} a_i^2 + 2 \\sum_{1 \\le i < j \\le n} a_i a_j = \\sum_{i=1}^{n} b_i^2 + 2 \\sum_{1 \\le k < \\ell \\le n} b_k b_\\ell.\n$$\nFrom the above relations we easily deduce that\n$$\n\\sum_{i=1}^{n} a_i^2 = \\sum_{i=1}^{n} b_i^2.\n$$\nBy the Cauchy-Schwarz inequality, we obtain that\n$$\n\\left(\\sum_{i=1}^{n} b_i^2\\right)^2 = \\left(\\sum_{i=1}^{n} a_i^2\\right) \\left(\\sum_{i=1}^{n} b_i^2\\right) \\ge \\left(\\sum_{i=1}^{n} a_i b_i\\right)^2\n$$\nor\n$$\n\\sum_{i=1}^{n} b_i^2 \\geq \\left| \\sum_{i=1}^{n} a_i b_i \\right| \\geq \\sum_{i=1}^{n} a_i b_i. \\qquad (\\dagger)\n$$\nWe set $s_i = a_1 + \\dots + a_i$ and $t_i = b_1 + \\dots + b_i$ for every $1 \\le i \\le n$. By Abel's summation formula, we have\n$$\n\\begin{aligned}\n\\sum_{i=1}^{n} a_i b_i &= s_1 b_1 + [s_2 - s_1] b_2 + [s_3 - s_2] b_3 + \\dots + [s_n - s_{n-1}] b_n \\\\\n&= s_1(b_1 - b_2) + s_2(b_2 - b_3) + \\dots + s_{n-1}(b_{n-1} - b_n) + s_n b_n.\n\\end{aligned}\n$$\nBy the given conditions, $s_i \\le t_i$ and $b_i - b_{i+1} \\le 0$ for every $1 \\le i \\le n-1$ and $s_n = t_n$. It follows that\n$$\n\\begin{aligned}\n\\sum_{i=1}^{n} a_i b_i &\\ge t_1(b_1 - b_2) + t_2(b_2 - b_3) + \\dots + t_{n-1}(b_{n-1} - b_n) + t_n b_n \\\\\n&= t_1 b_1 + [t_2 - t_1] b_2 + [t_3 - t_2] b_3 + \\dots + [t_n - t_{n-1}] b_n = \\sum_{i=1}^{n} b_i^2.\n\\end{aligned}\n$$\nCombining the last inequality and (\\dagger), we conclude that the equality case holds for every inequality we discussed above. In particular, $s_i = t_i$ for $i = 1, \\dots, n$. These inequalities immediately give us $a_n = b_n$, $a_{n-1} = b_{n-1}$, $\\dots$, $a_1 = b_1$ and the problem is solved.\n\n\n**Third Solution:** If $u = (u_1, u_2, \\dots, u_n)$ and $v = (v_1, v_2, \\dots, v_n)$ are two nonincreasing sequences, we say that $u$ majorizes $v$ if $u_1 + \\dots + u_n = v_1 + \\dots + v_n$ and $u_1 + \\dots + u_i \\ge v_1 + \\dots + v_i$ for $i = 1, 2, \\dots, n-1$. It is not difficult to see that $(a_n, \\dots, a_1)$ majorizes $(b_n, \\dots, b_1)$. By a theorem of Birkhoff, it follows that there are constants $c_\\sigma \\in (0, 1]$, where $\\sigma$ runs over some set $S$ of permutations of $\\{1, \\dots, n\\}$, with $\\sum_{\\sigma \\in S} c_\\sigma = 1$ and\n$$\n\\sum_{\\sigma \\in S} c_{\\sigma} a_{\\sigma(i)} = b_i \\quad \\text{for } i = 1, 2, \\dots, n.\n$$\nWe will prove the inequality\n$$\n\\sum_{i,j=1}^{n} |a_i - a_j| \\ge \\sum_{i,j=1}^{n} |b_i - b_j|,\n$$\nwith equality if and only if $a_i = b_i$ for $i = 1, \\dots, n$. With this result, we complete our proof by noting (***).\nWe have\n$$\n\\begin{aligned}\n\\sum_{i,j=1}^{n} |a_i - a_j| &= \\sum_{\\sigma \\in S} c_{\\sigma} \\sum_{i,j=1}^{n} |a_i - a_j| = \\sum_{\\sigma \\in S} c_{\\sigma} \\sum_{i,j=1}^{n} |a_{\\sigma(i)} - a_{\\sigma(j)}| \\\\\n&= \\sum_{i,j=1}^{n} \\sum_{\\sigma \\in S} c_{\\sigma} |a_{\\sigma(i)} - a_{\\sigma(j)}| \\ge \\sum_{i,j=1}^{n} \\left| \\sum_{\\sigma \\in S} c_{\\sigma} (a_{\\sigma(i)} - a_{\\sigma(j)}) \\right| = \\sum_{i,j=1}^{n} |b_i - b_j|,\n\\end{aligned}\n$$\nusing the fact that $|x_1| + \\dots + |x_m| \\ge |x_1| + \\dots + |x_m|$ for all real numbers $x_1, \\dots, x_m$.\nThis establishes the desired inequality; it remains to check the equality condition. For this, we must have\n$$\n\\sum_{\\sigma \\in S} c_{\\sigma} |a_{\\sigma(i)} - a_{\\sigma(j)}| = \\left| \\sum_{\\sigma \\in S} c_{\\sigma} (a_{\\sigma(i)} - a_{\\sigma(j)}) \\right|\n$$\nfor each pair $i$ and $j$; in particular, for each pair $i$ and $j$, the sign of $a_{\\sigma(i)} - a_{\\sigma(j)}$ must be the same for all $\\sigma \\in S$ for which $a_{\\sigma(i)} \\neq a_{\\sigma(j)}$. It follows by the lemma below that the sequence $a_{\\sigma(1)}, \\dots, a_{\\sigma(n)}$ itself must be the same for all $\\sigma \\in S$, yielding $a_i = b_i$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-matrices-auto-1663",
+      "name": "USAMO #0isv",
+      "url": "https://usamoguide.com/",
+      "source": "USAMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Invariants / monovariants",
+        "Induction / smoothing",
+        "Matrices",
+        "Vectors"
+      ],
+      "statement": "At a certain mathematical conference, every pair of mathematicians are either friends or strangers. At mealtime, every participant eats in one of two large dining rooms. Each mathematician insists upon eating in a room which contains an even number of his or her friends. Prove that the number of ways that the mathematicians may be split between the two rooms is a power of two (i.e., is of the form $2^k$ for some positive integer $k$).\n(This problem was suggested by Sam Vandervelde.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Let $n$ be the number of participants at the conference. We proceed by induction on $n$.\n\nIf $n = 1$, then we have one participant who can eat in either room; that gives us total of $2 = 2^1$ options.\nLet $n \\ge 2$. The case in which some participant, $P$, has no friends is trivial. In this case, $P$ can eat in either of the two rooms, so the total number of ways to split $n$ participants is twice as many as the number of ways to split $(n-1)$ participants besides the participant $P$. By induction, the latter number is a power of two, $2^k$, hence the number of ways to split $n$ participants is $2 \\times 2^k = 2^{k+1}$, also a power of two. So we assume from here on that every participant has at least one friend.\nWe consider two different cases separately: the case when some participant has an odd number of friends, and the case when each participant has an even number of friends.\n\nCase 1: Some participant, $Z$, has an *odd* number of friends.\nRemove $Z$ from consideration and for each pair $(X, Y)$ of $Z$'s friends, reverse the relationship between $X$ and $Y$ (from friends to strangers or vice versa).\n\nClaim. The number of possible seatings is unchanged after removing $Z$ and reversing the relationship between $X$ and $Y$ in each pair $(X, Y)$ of $Z$'s friends.\n\n*Proof.* Suppose we have an arrangement prior to $Z$'s departure. By assumption, $Z$ has an *even* number of friends in the room with him.\nIf this number is 0, the room composition is clearly still valid after $Z$ leaves the room.\nIf this number is positive, let $X$ be one of $Z$'s friends in the room with him. By assumption, person $X$ also has an even number of friends in the same room. Remove $Z$ from the room; then $X$ will have an odd number of friends left in the room, and there will be an odd number of $Z$'s friends in this room besides $X$. Reversing the relationship between $X$ and each of $Z$'s friends in this room will therefore restore the parity to even.\nThe same reasoning applies to any of $Z$'s friends in the other dining room. Indeed, there will be an odd number of them in that room, hence each of them will reverse relationships with an even number of individuals in that room, preserving the parity of the number of friends present.\nMoreover, a legitimate seating without $Z$ arises from *exactly one* arrangement including $Z$, because in the case under consideration, only one room contains an even number of $Z$'s friends. $\\square$\n\nThus, we have to double the number of seatings for $(n-1)$ participants which is, by the induction hypothesis, a power of 2. Consequently, for $n$ participants we will get again a power of 2 for the number of different arrangements.\n\nCase 2: Each participant has an *even* number of friends.\n\nIn this case, each valid split of participants in two rooms gives us an even number of friends in either room.\nLet $(A, B)$ be any pair of friends. Remove this pair from consideration and for each pair $(C, D)$, where $C$ is a friend of $A$ and $D$ is a friend of $B$, change the relationship between $C$ and $D$ to the opposite; do the same if $C$ is a friend of $B$ and $D$ is a friend of $A$. Note that if $C$ and $D$ are friends of both $A$ and $B$, their relationship will be reversed twice, leaving it unchanged.\nConsider now an arbitrary participant $X$ different from $A$ and $B$ and choose one of the two dining rooms. [Note that in the case under consideration, the total number of participants is at least 3, so such a triplet $(A, B; X)$ can be chosen.] Let $A$ have $m$ friends in this room and let $B$ have $n$ friends in this room; both $m$ and $n$ are even. When the pair $(A, B)$ is removed, $X$'s relationship will be reversed with either $n$, or $m$, or $m + n - 2k$ (for $k$ the number of mutual friends of $A$ and $B$ in the chosen room), or 0 people within the chosen room (depending on whether he/she is a friend of only $A$, only $B$, both, or neither). Since $m$ and $n$ are both even, the parity of the number of $X$'s friends in that room will be therefore unchanged in any case.\nAgain, a legitimate seating without $A$ and $B$ will arise from *exactly one* arrangement that includes the pair $(A, B)$: just add each of $A$ and $B$ to the room with an odd number of the other's friends, and then reverse all of the relationships between a friend of $A$ and a friend of $B$. In this way we create a one-to-one correspondence between all possible seatings before and after the $(A, B)$ removal.\nSince the number of arrangements for $n$ participants is twice as many as that for $(n - 2)$ participants, and that number for $(n - 2)$ participants is, by the induction hypothesis, a power of 2, we get in turn a power of 2 for the number of arrangements for $n$ participants. The problem is completely solved.\n\nLet $n$ be the number of mathematicians. Represent the problem as a graph $G$, with vertices and edges representing mathematicians and friendships, respectively. We seek partitions $V_0 \\cup V_1$ such that in each induced subgraph $G[V_i]$, every vertex has even degree.\nLabel the vertices $\\{v_1, \\dots, v_n\\}$, and let $d_i$ be the degree of $v_i$. Let the notation $v_i \\sim v_j$ indicate adjacency in the graph. We introduce $\\mathbf{A} = (a_{ij})$, an $n \\times n$ matrix over the finite field $\\mathbb{F}_2 = \\{0,1\\}$. For every $i \\neq j$, let the entry $a_{ij} = 1$ if $v_i \\sim v_j$, and 0 otherwise. On the diagonal, let each $a_{ii}$ equal $d_i$ modulo 2 (recall that our matrix has elements in $\\mathbb{F}_2$).\nLet $\\mathbf{d}$ be the $n \\times 1$ vector with entries equal to the degrees $d_i$. Consider an $n \\times 1$ vector of variables $\\mathbf{x}$. We claim that there is a bijective correspondence between the solutions of the matrix equation $\\mathbf{A}\\mathbf{x} = \\mathbf{d}$ and the valid partitions of the graph. Indeed, for any solution vector $\\mathbf{x} = (x_1, \\dots, x_n)^T$, partition the vertices by putting $v_i$ in $V_0$ if $x_i = 0$, and in $V_1$ otherwise. It is easy to check that $\\mathbf{A}\\mathbf{x} = \\mathbf{d}$ if and only if this is a valid partition.\nBasic linear algebra tells us that the number of solutions of $\\mathbf{A}\\mathbf{x} = \\mathbf{d}$ is either 0 or a power of $|\\mathbb{F}_2| = 2$. Therefore, it remains to show that there is at least one solution. In fact, this is precisely the statement of Gallai's Cycle-Cocycle Partition Theorem (c.f. Exercise 1.35 in *Graph Theory*, by Reinhard Diestel, Problem 5.17 in *Combinatorial Problems and Solutions*, by László Lovász, with solution on page 287 of the second book, or the paper \"Simple proofs to three parity theorems,\" by Yair Caro, published in 1996 in *Ars Combinatoria*, on pages 175–180 of volume 42).\nIn the remainder of this solution, we provide an alternate proof of this final existence result. We need to show that $\\mathbf{d}$ is in the column space of $\\mathbf{A}$. By linear algebra, the column space of $\\mathbf{A}$ is the orthogonal complement of the nullspace of $\\mathbf{A}^T$. Therefore, it suffices to show that for every vector $\\mathbf{y} = (y_1, ..., y_n)^T$ in the null space of $\\mathbf{A}^T$ (i.e., $\\mathbf{A}^T\\mathbf{y} = 0$), we always have $\\mathbf{y}^T\\mathbf{d} = 0$.\nConsider the submatrix $\\mathbf{B}$ of $\\mathbf{A}$ consisting of the rows and columns $i$ for which $y_i = 1$. Since the diagonal of $\\mathbf{A}$ is $\\mathbf{d}$, the product $\\mathbf{y}^T\\mathbf{d}$ is precisely the number of 1's on the diagonal of $\\mathbf{B}$. Now $\\mathbf{A}^T\\mathbf{y} = 0$, so the sum of every row in $\\mathbf{B}$ must be 0 over $\\mathbb{F}_2$, hence the total number of 1's in $\\mathbf{B}$ is even. But $\\mathbf{B}$ is symmetric, so it has an even number of off-diagonal 1's. Therefore, $\\mathbf{B}$ indeed has an even number of 1's on its diagonal, so our previous observation implies that $\\mathbf{y}^T\\mathbf{d} = 0$ over $\\mathbb{F}_2$, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-matrices-auto-1714",
+      "name": "12th Annual Harvard-MIT Mathematics Tournament #0iua",
+      "url": "https://usamoguide.com/",
+      "source": "12th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Matrices",
+        "Determinants"
+      ],
+      "statement": "Problem:\nLet $a$, $b$, and $c$ be real numbers. Consider the system of simultaneous equations in variables $x$ and $y$:\n$$\n\\begin{aligned}\na x + b y &= c - 1 \\\\\n(a + 5) x + (b + 3) y &= c + 1\n\\end{aligned}\n$$\nDetermine the value(s) of $c$ in terms of $a$ such that the system always has a solution for any $a$ and $b$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe have to only consider when the determinant of $\\begin{pmatrix} a & b \\\\ a+5 & b+3 \\end{pmatrix}$ is zero. That is, when $b = \\dfrac{3a}{5}$. Plugging in $b = \\dfrac{3a}{5}$, we find that $(a+5)(c-1) = a(c+1)$ or that $c = \\dfrac{2a}{5} + 1$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-matrices-auto-2569",
+      "name": "IMO Team Selection Team Selection Test #0ji1",
+      "url": "https://usamoguide.com/",
+      "source": "IMO Team Selection Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Induction / smoothing",
+        "Invariants / monovariants",
+        "Matrices"
+      ],
+      "statement": "Let $n$ be a positive integer. Consider a triangular array of nonnegative integers as follows:\n![](attached_image_1.png)\n\nCall such a triangular array *stable* if for every $0 \\le i < j < k \\le n$ we have\n$$\na_{i,j} + a_{j,k} \\le a_{i,k} \\le a_{i,j} + a_{j,k} + 1.\n$$\n\nFor $s_1, \\dots, s_n$ any nondecreasing sequence of nonnegative integers, prove there exists a unique stable triangular array such that the sum of all of the entries in row $k$ is equal to $s_k$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "We begin by proving a lemma on the stability of triangular arrays.\n\n**Lemma 3.** Let $T$ be a stable triangular array with row sums $s_1, s_2, \\dots, s_n$. Then there is a unique index $i$ such $a_{i,n}$ in $T$ can be increased by one to get a new stable triangular array $T^+$ with row sums $s_1, s_2, \\dots, s_n + 1$. Additionally, if $s_n > s_{n-1}$, there is also a unique index $j$ such that $a_{j,n}$ in $T$ can be decreased by one to get a new stable triangular array $T^-$ with row sums $s_1, s_2, \\dots, s_n - 1$.\n\n*Proof.* For $0 \\le i < j \\le n-1$ let $x_{i,j} = a_{i,n} - a_{i,j} - a_{j,n}$, and let $x_{j,i} = 1 - x_{i,j}$. Notice that all the $x_{i,j}$ are either 0 or 1 by the fact that $T$ is stable. Consider these as entries of an $n \\times n$ matrix $M$ with 0s down the diagonal, we get the adjacency matrix of a complete directed graph (also known as a tournament). Note that if we increase $a_{i,n}$ by 1 for some $i$, this is the same as increasing all $x_{i,k}$ by 1 for all $k \\ne i$. This preserves the condition of stable arrays if and only if all $x_{i,k}$ are equal to 0. Likewise, decreasing $a_{j,n}$ by 1 requires all $x_{j,k}$ to be 1. So we must find exactly one column of all 0s and exactly one column of all 1s in $M$, excluding the diagonal entries.\n\nWe now show the tournament $M$ is transitive. If for $i < j < k$ we have $x_{i,j} = x_{j,k} = 0$, then\n$$\n0 = x_{i,j} + x_{j,k} = a_{i,n} - a_{i,j} - a_{j,k} - a_{k,n} \\ge a_{i,n} - a_{i,k} - a_{k,n} = x_{i,k},\n$$\nso $x_{i,k} = 0$. Similarly, if $x_{i,j} = x_{j,k} = 1$, then\n$$\n2 = x_{i,j} + x_{j,k} = a_{i,n} - a_{i,j} - a_{j,k} - a_{k,n} \\le a_{i,n} + 1 - a_{i,k} - a_{k,n} = x_{i,k} + 1,\n$$\nso $x_{i,k} = 1$.\n\nSince this tournament is transitive, it is well-known there exists exactly one $i$ such that $x_{i,k} = 1$ for all $k \\neq i$, and likewise exactly one $j$ such that $x_{j,k} = 0$ for all $k \\neq j$. These are the desired columns.\n\nIt remains only to show that the condition that all the entries are nonnegative is preserved if $s_n > s_{n-1}$; this means we need to show $a_{j,n} > 0$. Suppose $a_{j,n} = 0$. All the other entries of row $n$ are nonnegative integers, this means $a_{j,n}$ will be less than all other elements after the decrement. We also know from above that decreasing $a_{j,n}$ by 1 will preserve the condition of being stable, implying that row $n$ is still non-increasing. Since $a_{j,n}$ will be the minimum after the decrement, $j = n - 1$. This in turn implies that $x_{n-1,k} = 1$ for all $k$, or rather $x_{k,n-1} = 0$ for all $k$. Therefore, $a_{k,n} = a_{k,n-1} + a_{n-1,n} = a_{k,n-1}$. Summing these up for $k$ from 0 to $n - 2$ and remembering that $a_{n-1,n} = 0$, we get $s_{n-1} = s_n$, a contradiction to the assumption that $s_n > s_{n-1}$. So $a_{j,n} > 0$, and the lemma is proven. □\n\nTo prove the problem, we induct on $n$. The base case $n = 1$ is clear, since $a_{0,1}$ must be equal to $s_1$. Suppose it is true for $n - 1$, and consider an arbitrary nondecreasing sequence $s_1, s_2, \\dots, s_n$. By the inductive hypothesis we can choose a unique $(n-1)$-row stable triangular array with entries $a_{i,j}$ for $0 \\le i < j \\le n - 1$ that satisfy the row sums $s_1, s_2, \\dots, s_{n-1}$. It remains to show there is a unique way to assign the elements of row $n$, namely $a_{i,n}$ for $0 \\le i \\le n - 1$, to satisfy the row sum $s_n$ while still keeping the array stable.\n\nWe now prove that we can uniquely assign row $n$ by another induction on $s_n$. The base case is $s_n = s_{n-1}$. Note that $a_{i,n-1} + a_{n-1,n} \\le a_{i,n}$. Summing this up for all $i$ from 0 to $n - 2$ gets that $s_{n-1} + (n-1)a_{n-1,n} \\le s_n - a_{n-1,n}$. Since $s_n = s_{n-1}$ and $a_{n-1,n} \\ge 0$, we must have equality, so the unique row $n$ that works is $a_{n-1,n} = 0$ and $a_{i,n} = a_{i,n-1}$.\n\nAssume the inductive hypothesis is true for $s_n$. Then we have a unique stable triangular array $T$ with row sums $s_1, s_2, \\dots, s_n$. By the Lemma 3, there is a unique way to increment an entry in row $n$ of $T$ to get a new stable triangular array $T^+$ with row sums $s_1, s_2, \\dots, s_n + 1$, showing existence. To show uniqueness, suppose we had a second array $T_1^+$. Apply the Lemma 3 to show there is a unique way to decrement an entry in row $n$ to get a new stable triangular array $T_1$ with row sums $s_1, s_2, \\dots, s_n$. By the inductive hypothesis, $T = T_1$. We can obtain $T_1^+$ by incrementing an entry of $T_1$, the same as doing the earlier decrement in reverse. We can also obtain $T^+$ by incrementing an entry of $T$. Finally, the statement of the Lemma 3 implies that there is a unique way to increment an entry of $T$ to get a new stable array, so the increments done to $T$ and $T_1$ must have been the same. This shows that $T_1^+ = T^+$, so uniqueness of the stable array with row sums $s_1, s_2, \\dots, s_n + 1$ has been shown. This completes both inductions and the proof."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-matrices-auto-2675",
+      "name": "HMMT 2014 #0jkz",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2014",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recurrence relations",
+        "Matrices",
+        "Determinants"
+      ],
+      "statement": "Problem:\n\nConsider a number line, with a lily pad placed at each integer point. A frog is standing at the lily pad at the point $0$ on the number line, and wants to reach the lily pad at the point $2014$ on the number line. If the frog stands at the point $n$ on the number line, it can jump directly to either point $n+2$ or point $n+3$ on the number line. Each of the lily pads at the points $1, \\cdots, 2013$ on the number line has, independently and with probability $1 / 2$, a snake. Let $p$ be the probability that the frog can make some sequence of jumps to reach the lily pad at the point $2014$ on the number line, without ever landing on a lily pad containing a snake. What is $p^{1 / 2014}$? Express your answer as a decimal number. If $C$ is the actual answer to this question and $A$ is your answer, then your score on this problem is $\\lceil\\max \\{25(1-20|C-A|), 0\\}\\rceil$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: 0.9102805441016536\n\nFirst, we establish a rough upper bound for the probability $p$. Let $q$ be the probability that the frog can reach the lily pad at the point $2014$ on the number line if it is allowed to jump from a point $n$ on the number line to the point $n+1$, in addition to the points $n+2$ and $n+3$. Clearly, $p \\leq q$. Furthermore, $p$ is approximated by $q$; it should be easy to convince one's self that jumps from a point $n$ to the point $n+1$ are only useful for reaching the lily pad at point $2014$ in very few situations.\n\nNow we compute $q$. We note that, if the frog can jump from points $n$ to points $n+1, n+2$, and $n+3$, then it can reach the lily pad at the point $2014$ on the number line if and only if each snake-free lily pad is at most $3$ units away from the closest snake-free lily pad on the left.\n\nDefine the sequence $\\left\\{a_{m}\\right\\}_{m=1}^{\\infty}$ by $a_{0}=1, a_{1}=1, a_{2}=2$, and $a_{m+3}=a_{m+2}+a_{m+1}+a_{m}$ for $m \\geq 0$. Then, it can be shown by induction that $a_{m}$ is the number of possible arrangements of snakes on lily pads at points $1, \\cdots, m-1$ so that the frog can make some sequence of jumps (of size $1,2$, or $3$) from the lily pad at point $0$ to the lily pad at point $m$ without landing on a lily pad containing a snake. It follows that $q=a_{2014} / 2^{2013}$. So\n\n$$\np^{1 / 2014} \\approx q^{1 / 2014}=\\left(a_{2014}\\right)^{1 / 2014} / 2^{2013 / 2014} \\approx\\left(a_{2014}\\right)^{1 / 2014} / 2\n$$\n\nAnalyzing the recurrence relation $a_{m+3}=a_{m+2}+a_{m+1}+a_{m}$ yields that $\\left(a_{2014}\\right)^{1 / 2014}$ is approximately equal to the largest real root $r$ of the characteristic polynomial equation $r^{3}-r^{2}-r-1=0$. So to roughly approximate $p$, it suffices to find the largest real root of this equation.\n\nFor this, we apply Newton's method, or one of many other methods for computing the roots of a polynomial. With an initial guess of $2$, one iteration of Newton's method yields $r \\approx 13 / 7$, so $p \\approx r / 2 \\approx 13 / 14 \\approx 0.928571$. A second iteration yields $r \\approx 1777 / 966$, so $p \\approx r / 2 \\approx 1777 / 1932 \\approx 0.919772$. (It turns out that the value of $r$ is $1.839286 \\ldots$, yielding $p \\approx r / 2=0.919643 \\ldots$.)\n\nUsing tools from probability theory, we can get an even better estimate for $p$. We model the problem using a discrete-time Markov chain. The state of the Markov chain at time $n$, for $n=0,1, \\ldots, 2013$, indicates which of the lily pads at positions $n-2, n-1, n$ are reachable by the frog. It is clear that the state of the Markov chain at time $n$ only depends (randomly) on its state at time $n-1$. There are $2^{3}=8$ possible states for this Markov chain, because each of the lily pads at positions $n-2, n-1, n$ can be either reachable or unreachable by the frog. Number each state using the number $1+d_{2}+2 d_{1}+4 d_{0}$, where $d_{i}$ is $1$ if the lily pad at point $n-i$ is reachable, and $0$ otherwise. So, for example, at time $n=0$, the lily pad at point $n$ is reachable $\\left(d_{0}=1\\right)$ whereas the lily pads at points $n-1$ and $n-2$ are unreachable $\\left(d_{1}=d_{2}=0\\right)$, so the Markov chain is in state number $1+d_{2}+2 d_{1}+4 d_{0}=5$.\n\nThe transition matrix $M$ for the Markov chain can now be computed directly from the conditions of the problem. It is equal to\n\n$$\nM:=\\left[\\begin{array}{cccccccc}\n1 & 0 & 0 & 0 & \\frac{1}{2} & 0 & 0 & 0 \\\\\n0 & 0 & 0 & 0 & \\frac{1}{2} & 0 & 0 & 0 \\\\\n0 & 1 & 0 & 0 & 0 & \\frac{1}{2} & 0 & 0 \\\\\n0 & 0 & 0 & 0 & 0 & \\frac{1}{2} & 0 & 0 \\\\\n0 & 0 & \\frac{1}{2} & 0 & 0 & 0 & \\frac{1}{2} & 0 \\\\\n0 & 0 & \\frac{1}{2} & 0 & 0 & 0 & \\frac{1}{2} & 0 \\\\\n0 & 0 & 0 & \\frac{1}{2} & 0 & 0 & 0 & \\frac{1}{2} \\\\\n0 & 0 & 0 & \\frac{1}{2} & 0 & 0 & 0 & \\frac{1}{2}\n\\end{array}\\right] .\n$$\n\n(The verification of this transition matrix is left as an exercise for the reader.) So the state vector $v$ for the Markov chain at time $2013$ is\n$$\nv:=M^{2014}[0,1,0,0,0,0,0,0]^{t}\n$$\n\nNow, the lily pad at point $2014$ is reachable by the frog if and only if the Markov chain is in state $3,4,5,6,7$, or $8$ at time $2013$. This happens with probability\n$$\np=[0,0,1,1,1,1,1,1] v\n$$\n\nBy expanding $[0,1,0,0,0,0,0,0]^{t}$ in an eigenbasis for $M$, we find that $p^{1 / 2014}$ is approximately equal to the second-largest real eigenvalue of the matrix $M$. The characteristic polynomial of $M$ is\n$$\n\\operatorname{det}(\\lambda I-M)=-\\frac{\\lambda^{3}}{8}+\\frac{3 \\lambda^{4}}{8}+\\frac{\\lambda^{6}}{4}-\\frac{3 \\lambda^{7}}{2}+\\lambda^{8}\n$$\nso its eigenvalues are the roots of this polynomial. The largest real root of this characteristic polynomial is $\\lambda=1$, and the second-largest real root is $0.9105247383471604 \\ldots$ (which can be found, again, using Newton's method, after factoring out $(\\lambda-1) \\lambda^{3}$ from the polynomial), which is a good approximation for $p$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-matrices-auto-2695",
+      "name": "HMMT 2014 HMIC #0jlj",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2014 HMIC",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Matrices",
+        "Linear transformations"
+      ],
+      "statement": "Problem:\nLet $n$ be a positive integer, and let $A$ and $B$ be $n \\times n$ matrices with complex entries such that $A^{2}=B^{2}$. Show that there exists an $n \\times n$ invertible matrix $S$ with complex entries that satisfies $S(A B-B A)=(B A-A B) S$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $X=A+B$ and $Y=A-B$, so $X Y=B A-A B$ and $Y X=A B-B A$. Note that $X Y=-Y X$.\n\nIt suffices (actually is equivalent) to show that $A B-B A$ and $B A-A B$ have the same Jordan forms. In other words, we need to show that for any complex number $\\lambda$, the Jordan $\\lambda$-block decompositions of $A B-B A$ and $B A-A B$ are the same.\n\nHowever, the $\\lambda$-decomposition of a matrix $M$ is uniquely determined by the infinite (eventually constant) sequence $\\left(\\operatorname{dim} \\operatorname{ker}(M-\\lambda I)^{1}, \\operatorname{dim} \\operatorname{ker}(M-\\lambda I)^{2}, \\ldots\\right)$, so we only have to show that $\\operatorname{dim} \\operatorname{ker}(X Y-\\lambda I)^{k}=\\operatorname{dim} \\operatorname{ker}(Y X-\\lambda I)^{k}$ for all positive integers $k$ and complex numbers $\\lambda$.\n\nFor $\\lambda=0$, this follows trivially from $X Y=-Y X$ : we have $(X Y)^{k} v=0$ if and only if $(Y X)^{k} v=0$.\n\nNow suppose $\\lambda \\neq 0$, and define the (matrix) polynomial $p(T)=(T-\\lambda I)^{k}$. Let $V_{1}=\\left\\{v \\in \\mathbb{C}^{n}: p(X Y) v=0\\right\\}$, and $V_{2}=\\left\\{v \\in \\mathbb{C}^{n}: p(Y X) v=0\\right\\}$. Note that if $v \\in V_{1}$, then $0=[Y p(X Y)] v=[p(Y X) Y] v=p(Y X)[Y v]$, so $Y v \\in V_{2}$.\n\nFurthermore, if $v \\neq 0$, then $Y v \\neq 0$, or else $p(X Y) v=p(0) v=(-\\lambda I)^{k} v \\neq 0$ (since $(X Y)^{j} v=0$ for all $j \\geq 1$ ), contradiction. Viewing $Y$ (more precisely, $v \\rightarrow Y v$) as a linear map from $V_{1}$ to $V_{2}$, we have $\\operatorname{dim} V_{1}=\\operatorname{dim} Y V_{1}+\\operatorname{dim} \\operatorname{ker} Y=\\operatorname{dim} Y V_{1} \\leq \\operatorname{dim} V_{2}$ (alternatively, if $v_{1}, \\ldots, v_{r}$ is a basis of $V_{1}$, then $Y v_{1}, \\ldots, Y v_{r}$ are linearly independent in $V_{2}$ ). By symmetry, $\\operatorname{dim} V_{1}=\\operatorname{dim} V_{2}$, and we're done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-matrices-auto-3008",
+      "name": "HMMT February #0ju8",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Determinants",
+        "Matrices"
+      ],
+      "statement": "Problem:\n\nIn a $17 \\times 17$ matrix $M$, all entries are $\\pm 1$. The maximum possible value of $|\\operatorname{det} M|$ is $N$. Estimate $N$.\n\nAn estimate of $E>0$ earns $\\left\\lfloor 20 \\min (N / E, E / N)^{2}\\right\\rfloor$ points.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThis is Hadamard's maximal determinant problem. There's an upper bound of $n^{\\frac{1}{2} n}$ which empirically seems to give reasonably good estimates, but in fact this is open for general $n$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-matrices-auto-3067",
+      "name": "HMMT February 2016 #0jvv",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2016",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Determinants",
+        "Matrices",
+        "Roots of unity"
+      ],
+      "statement": "Problem:\nFor any positive integer $n$, $S_{n}$ be the set of all permutations of $\\{1,2,3, \\ldots, n\\}$. For each permutation $\\pi \\in S_{n}$, let $f(\\pi)$ be the number of ordered pairs $(j, k)$ for which $\\pi(j)>\\pi(k)$ and $1 \\leq j<k \\leq n$. Further define $g(\\pi)$ to be the number of positive integers $k \\leq n$ such that $\\pi(k) \\equiv k \\pm 1(\\bmod n)$. Compute\n$$\n\\sum_{\\pi \\in S_{999}}(-1)^{f(\\pi)+g(\\pi)}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nDefine an $n \\times n$ matrix $A_{n}(x)$ with entries $a_{i, j}=x$ if $i \\equiv j \\pm 1(\\bmod n)$ and 1 otherwise. Let $F(x)=\\sum_{\\pi \\in S_{n}}(-1)^{f(\\pi)} x^{g(\\pi)}$ (here $(-1)^{f(\\pi)}$ gives the sign $\\prod \\frac{\\pi(u)-\\pi(v)}{u-v}$ of the permutation $\\pi$ ). Note by construction that $F(x)=\\operatorname{det}\\left(A_{n}(x)\\right)$.\nWe find that the eigenvalues of $A_{n}(x)$ are $2 x+n-2$ (eigenvector of all ones) and $(x-1)\\left(\\omega_{j}+\\omega_{j}^{-1}\\right)$, where $\\omega_{j}=e^{\\frac{2 \\pi j i}{n}}$, for $1 \\leq j \\leq n-1$. Since the determinant is the product of the eigenvalues,\n$$\nF(x)=(2 x+n-2) 2^{n-1}(x-1)^{n-1} \\prod_{k=1}^{n-1} \\cos \\left(\\frac{2 \\pi k}{n}\\right) .\n$$\nEvaluate the product and plug in $x=-1$ to finish. (As an aside, this approach also tells us that the sum is 0 whenever $n$ is a multiple of 4.)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-matrices-auto-3118",
+      "name": "HMIC #0jxa",
+      "url": "https://usamoguide.com/",
+      "source": "HMIC",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Graph Theory",
+        "Matrices"
+      ],
+      "statement": "Problem:\nLet $S=\\{1,2, \\ldots, n\\}$ for some positive integer $n$, and let $A$ be an $n$-by-$n$ matrix having as entries only ones and zeros. Define an infinite sequence $\\{x_{i}\\}_{i \\geq 0}$ to be strange if:\n- $x_{i} \\in S$ for all $i$,\n- $a_{x_{k} x_{k+1}}=1$ for all $k$, where $a_{ij}$ denotes the element in the $i^{\\text{th}}$ row and $j^{\\text{th}}$ column of $A$.\nProve that the set of strange sequences is empty if and only if $A$ is nilpotent, i.e. $A^{m}=0$ for some integer $m$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nConsider the directed graph $G$ on $n$ labeled vertices whose adjacency matrix is $A$. Then, observe that a strange sequence is simply an infinite path on $G$. Since powers of the adjacency matrix count paths, if $A$ is nilpotent, there exists no infinite path. If $A$ is not nilpotent, a cycle must exist, so we're done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-matrices-auto-3715",
+      "name": "HMMT February 2020 #0kdv",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2020",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Expected values",
+        "Matrices",
+        "Algorithms"
+      ],
+      "statement": "Problem:\nA snake of length $k$ is an animal which occupies an ordered $k$-tuple $(s_{1}, \\ldots, s_{k})$ of cells in a $n \\times n$ grid of square unit cells. These cells must be pairwise distinct, and $s_{i}$ and $s_{i+1}$ must share a side for $i=1, \\ldots, k-1$. If the snake is currently occupying $(s_{1}, \\ldots, s_{k})$ and $s$ is an unoccupied cell sharing a side with $s_{1}$, the snake can move to occupy $(s, s_{1}, \\ldots, s_{k-1})$ instead.\n\nInitially, a snake of length 4 is in the grid $\\{1,2, \\ldots, 30\\}^{2}$ occupying the positions $(1,1),(1,2),(1,3),(1,4)$ with $(1,1)$ as its head. The snake repeatedly makes a move uniformly at random among moves it can legally make. Estimate $N$, the expected number of moves the snake makes before it has no legal moves remaining.\n\nAn estimate of $E>0$ will earn $\\left\\lfloor 22 \\min (N / E, E / N)^{4}\\right\\rfloor$ points.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $n=30$. The snake can get stuck in only 8 positions, while the total number of positions is about $n^{2} \\times 4 \\times 3 \\times 3=36 n^{2}$. We can estimate the answer as $\\frac{36 n^{2}}{8}=4050$, which is good enough for 13 points.\n\nLet's try to compute the answer as precisely as possible. For each head position $(a, b)$ and tail orientation $c \\in[0,36)$, let $x=36(n a+b)+c$ be an integer denoting the current state of the snake. Let $E_{x}$ by the expected number of moves the snake makes if it starts at state $x$. If from state $x$ the snake can transition to any of states $y_{1}, y_{2}, \\ldots, y_{k}$, then add an equation of the form\n$$\nE_{x}-\\frac{1}{k} \\sum_{i=1}^{k} E_{y_{i}}=1\n$$\nOtherwise, if there are no transitions out of state $x$ then set $E_{x}=0$.\n\nIt suffices to solve a system of $36 n^{2}$ linear equations for $E_{0}, E_{1}, \\ldots, E_{36 n^{2}-1}$. Then the answer will equal $E_{i}$, where $i$ corresponds to the state described in the problem statement. Naively, using Gaussian elimination would require about $\\left(36 n^{2}\\right)^{3} \\approx 3.4 \\cdot 10^{13}$ operations, which is too slow. Also, it will require too much memory to store $\\left(36 n^{2}\\right)^{2}$ real numbers at once.\n\nWe can use the observation that initially, the maximum difference between any two indices within the same equation is at most $\\approx 72 n$, so Gaussian elimination only needs to perform approximately $\\left(36 n^{2}\\right) \\cdot(72 n)^{2} \\approx 1.5 \\cdot 10^{11}$ operations. Furthermore, we'll only need to store $\\approx\\left(36 n^{2}\\right) \\cdot(72 n)$ real numbers at a time. Benjamin Qi's solution ends up finishing in less than two minutes for $n=30$ (C++ code)."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-matrices-auto-3871",
+      "name": "AMC 10 A #0ki7",
+      "url": "https://usamoguide.com/",
+      "source": "AMC 10 A",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Coloring schemes, extremal arguments",
+        "Matrices"
+      ],
+      "statement": "A farmer's rectangular field is partitioned into a $2$ by $2$ grid of $4$ rectangular sections as shown in the figure. In each section the farmer will plant one crop: corn, wheat, soybeans, or potatoes. The farmer does not want to grow corn and wheat in any two sections that share a border, and the farmer does not want to grow soybeans and potatoes in any two sections that share a border. Given these restrictions, in how many ways can the farmer choose crops to plant in each of the four sections of the field?\n![](attached_image_1.png)\n(A) $12$ (B) $64$ (C) $84$ (D) $90$ (E) $144$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-matrices-auto-3975",
+      "name": "HMIC 2021 #0kl3",
+      "url": "https://usamoguide.com/",
+      "source": "HMIC 2021",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Volume",
+        "Other 3D problems",
+        "Matrices",
+        "Determinants",
+        "Linear transformations"
+      ],
+      "statement": "Problem:\n\nLet $A_{1} A_{2} A_{3} A_{4}$, $B_{1} B_{2} B_{3} B_{4}$, and $C_{1} C_{2} C_{3} C_{4}$ be three regular tetrahedra in 3-dimensional space, no two of which are congruent. Suppose that, for each $i \\in \\{1,2,3,4\\}$, $C_{i}$ is the midpoint of the line segment $A_{i} B_{i}$. Determine whether the four lines $A_{1} B_{1}$, $A_{2} B_{2}$, $A_{3} B_{3}$, and $A_{4} B_{4}$ must concur.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $P_{i}(t)$ be lines in space so that $P_{i}(0)=A_{i}$, $P_{i}(1)=C_{i}$, and $P_{i}(2)=B_{i}$. Then observe that $P_{i} P_{j}^{2}$ are quadratics in $t$. The difference between any of these two is zero at $t=0,1,2$, so it must be identically zero. Therefore, we find that $P_{1} P_{2} P_{3} P_{4}$ is a regular tetrahedron or a point for all $t$.\n\nNow consider the signed volume $[P_{1} P_{2} P_{3} P_{4}]$. It can be written as a determinant of a matrix whose entries are constant or linear polynomials in $t$, so it must be $V(t)$ for some polynomial $V$ that is at most cubic. We claim that it actually is cubic. One way to see this is that since $P_{i} P_{j}^{2}$ is nonconstant, it must be $\\Theta(t^{2})$ for large $t$, which implies that $|V(t)|=\\Theta(t^{3})$.\n\nHowever, every cubic polynomial has a real root. A nondegenerate regular tetrahedron cannot have zero volume, so we conclude that $P_{1}, P_{2}, P_{3}, P_{4}$ are equal for some $t$. This yields the desired concurrency.\n\nSolution:\n\nWe will prove that the three tetrahedra are homothetic, which will prove the desired concurrency. Now translate so that all the tetrahedra are centered at the origin. This preserves midpoints and homothetic-ness, so it suffices to solve the problem in this case.\n\nLet $M$ be the matrix that takes $A_{i}$ to $B_{i}$. Since the two tetrahedra are regular, we find that $M$ is conformal and thus must be $r T$ for some $T \\in \\mathrm{SO}(3)$ and $r \\in \\mathbb{R}$. Similarly, $\\frac{1}{2}(I+M)$ must be $s' U$ for some $U \\in \\mathrm{SO}(3)$. Making the substitution $s=2 s'$, we must solve $I+r T=s U$.\n\nThe remainder of the solution is a straightforward computation by eigenvalues. We know that the eigenvalues of $r T$ must have magnitude $|r|$. Also, the eigenvalues of $I+r T$, which are just one plus the eigenvalues of $r T$, must have magnitude $|s|$. Thus, the eigenvalues $z$ of $M$ must satisfy a system of the form $|z|=|r|$ and $|1+z|=|s|$.\n\nIf the tetrahedra are not homothetic, then $M$ cannot be a multiple of the identity, meaning that $M$ must have more than one distinct eigenvalue (everything in $\\mathrm{SO}(3)$ is normal and thus unitarily diagonalizable). However, by, say, geometry, that system can only have two solutions only if they are nonreal and conjugates of each other. But every $3 \\times 3$ matrix has a real eigenvalue, contradiction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

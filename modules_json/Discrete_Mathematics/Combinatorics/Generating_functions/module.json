@@ -1,0 +1,968 @@
+{
+  "MODULE_ID": "discrete-mathematics-combinatorics-generating-functions",
+  "practice": [
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-generating-functions-auto-0172",
+      "name": "MathNet #0hng",
+      "url": "https://usamoguide.com/",
+      "source": "MathNet",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Sums and products",
+        "Generating functions"
+      ],
+      "statement": "Problem:\nEvaluate $\\sum_{i=1}^{\\infty} \\frac{(i+1)(i+2)(i+3)}{(-2)^{i}}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThis is the power series of $\\frac{6}{(1+x)^{4}}$ expanded about $x=0$ and evaluated at $x=-\\frac{1}{2}$, so the solution is $96$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-generating-functions-auto-0637",
+      "name": "Harvard-MIT Math Tournament #0i0d",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recurrence relations",
+        "Generating functions"
+      ],
+      "statement": "Problem:\nLet $\\frac{1}{1-x-x^{2}-x^{3}}=\\sum_{i=0}^{\\infty} a_{n} x^{n}$, for what positive integers $n$ does $a_{n-1}=n^{2}$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nMultiplying both sides by $1-x-x^{2}-x^{3}$ the right hand side becomes $a_{0}+(a_{1}-a_{0}) x+(a_{2}-a_{1}-a_{0}) x^{2}+\\ldots$, and setting coefficients of $x^{n}$ equal to each other we find that $a_{0}=1$, $a_{1}=1$, $a_{2}=2$, and $a_{n}=a_{n-1}+a_{n-2}+a_{n-3}$ for $n \\geq 3$. Thus the sequence of $a_{n}$'s starts $1,1,2,4,7,13,24,44,81,149,\\ldots$. So we now see that $a_{0}=1^{2}$ and $a_{8}=9^{2}$. What makes it impossible for this to happen again is that the sequence is growing exponentially. It will suffice to show that $a_{n}>1.5^{n}$ for $n>2$, since $n^{2}/(n-1)^{2}<1.5$ for $n \\geq 6$, thus when $a_{n-1}$ exceeds $n^{2}$ at $n=10$ there can be no more solutions to $a_{n-1}=n^{2}$. Observe that $a_{n}>1.5 a_{n-1}$ for $n=3,4,5$. By way of induction, assume it for $n-2$, $n-1$, and $n$, then $a_{n+1}=a_{n}+a_{n-1}+a_{n-2}>1.5^{n}+1.5^{n-1}+1.5^{n-2}=1.5^{n-2}(1+1.5+1.5^{2})>1.5^{n+1}$. Thus, by induction, $a_{n}>1.5^{n}$ for $n>2$, so the only solutions are $\\mathbf{1, 9}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-generating-functions-auto-0690",
+      "name": "USA IMO #0i1u",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Telescoping series",
+        "Sums and products",
+        "Generating functions"
+      ],
+      "statement": "Express\n$$\n\\sum_{k=0}^{n} (-1)^k (n-k)!(n+k)!\n$$\nin closed form.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**First Solution.** (By Tiankai Liu) Let\n$$\nf(k) = (n+1-k)!(n+k)!\n$$\nfor integers $0 \\le k \\le n + 1$. Note that\n$$\n\\begin{aligned}\nf(k) + f(k + 1) &= (n+1-k)!(n+k)! + (n-k)!(n+k+1)! \\\\\n&= (n + 1 - k + n + k + 1)(n-k)!(n+k)! \\\\\n&= 2(n + 1)(n-k)!(n+k)!.\n\\end{aligned}\n$$\nTherefore,\n$$\n\\begin{aligned}\n\\sum_{k=0}^{n} (-1)^k (n-k)!(n+k)! &= \\frac{1}{2(n+1)} \\sum_{k=0}^{n} (-1)^k [f(k) + f(k+1)] \\\\\n&= \\frac{f(0) + (-1)^n f(n+1)}{2(n+1)} \\\\\n&= \\frac{(n+1)!n! + (-1)^n 0!(2n+1)!}{2(n+1)} \\\\\n&= \\frac{(n!)^2}{2} + \\frac{(-1)^n (2n+1)!}{2(n+1)}.\n\\end{aligned}\n$$\n\n\n**Second Solution.** (by Gabriel Carroll) Let\n$$\nf(x) = \\sum_{k=0}^{\\infty} k!x^k \\quad \\text{and} \\quad g(x) = f(x)f(-x).\n$$\nNote that\n$$\n\\begin{align*}\nf'(x) &= \\sum_{k=0}^{\\infty} (k+1)!(k+1)x^k \\\\\n&= \\sum_{k=0}^{\\infty} (k+2)!x^k - \\sum_{k=0}^{\\infty} (k+1)!x^k \\\\\n&= \\frac{f(x) - x - 1}{x^2} - \\frac{f(x) - 1}{x} \\\\\n&= \\frac{f(x)(1-x) - 1}{x^2}\n\\end{align*}\n$$\nand\n$$\n\\begin{align*}\ng'(x) &= f(-x)f'(x) - f(x)f'(-x) \\\\\n&= \\frac{f(-x)f(x)(1-x) - f(-x)}{x^2} - \\frac{f(x)f(-x)(1+x) - f(x)}{x^2} \\\\\n&= \\frac{f(x) - f(-x)}{x^2} - \\frac{2g(x)}{x}.\n\\end{align*}\n$$\nDenote by $[x^k]h(x)$ the coefficient of $x^k$ in a power series $h(x)$. We have\n$$\n\\begin{align*}\n[x^{2n}]g(x) &= \\frac{1}{2n}[x^{2n-1}]g'(x) \\\\\n&= \\frac{1}{2n}[x^{2n-1}]\\left(\\frac{f(x)-f(-x)}{x^2} - \\frac{2g(x)}{x}\\right) \\\\\n&= \\frac{[x^{2n+1}](f(x)-f(-x))}{2n} - \\frac{[x^{2n}]g(x)}{n}.\n\\end{align*}\n$$\nIt follows that\n$$\n[x^{2n}]g(x) \\left(1 + \\frac{1}{n}\\right) = \\frac{2(2n+1)!}{2n},\n$$\nor\n$$\n[x^{2n}]g(x) = \\frac{(2n+1)!}{n+1}. \\qquad (1)\n$$\n---\nOn the other hand,\n$$\n\\begin{aligned}\ng(x) &= f(x)f(-x) = \\sum_{k=0}^{\\infty} k!x^k \\sum_{k=0}^{\\infty} (-1)^k k!x^k \\\\\n&= \\sum_{n=0}^{\\infty} \\left( \\sum_{k=0}^{n} (-1)^{n-k} k!(n-k)! \\right) x^n.\n\\end{aligned}\n$$\nIt follows that\n$$\n\\begin{aligned}\n[x^{2n}]g(x) &= \\sum_{k=0}^{2n} (-1)^{2n-k} k!(2n-k)! = \\sum_{k=0}^{2n} (-1)^k k!(2n-k)! \\\\\n&= 2 \\sum_{k=0}^{n} (-1)^k k!(2n-k)! - (-1)^n n!^2 \\\\\n&= 2 \\sum_{m=0}^{n} (-1)^{n-m} (n-m)!(n+m)! - (-1)^n n!^2.\n\\end{aligned}\n$$\nThe last step can be seen easily by taking $m = n - k$. Thus,\n$$\n[x^{2n}]g(x) = 2 \\sum_{k=0}^{n} (-1)^{n-k} (n-k)!(n+k)! - (-1)^n n!^2,\n$$\nor\n$$\n(-1)^n [x^{2n}] g(x) + n!^2 = 2 \\sum_{k=0}^{n} (-1)^{-k} (n-k)!(n+k)! \\quad (2)\n$$\nCombining (1) and (2) yields\n$$\n\\begin{aligned}\n\\sum_{k=0}^{n} (-1)^k (n-k)!(n+k)! &= \\frac{(-1)^n [x^{2n}] g(x) + (n!)^2}{2} \\\\\n&= \\frac{(-1)^n (2n+1)!}{2(n+1)} + \\frac{(n!)^2}{2}.\n\\end{aligned}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-generating-functions-auto-0715",
+      "name": "USA IMO #0i2j",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Counting two ways",
+        "Pigeonhole principle",
+        "Generating functions",
+        "Modular Arithmetic"
+      ],
+      "statement": "Let $n$ be an odd integer greater than $1$ and let $c_1, c_2, \\dots, c_n$ be integers. For each permutation $a = (a_1, a_2, \\dots, a_n)$ of $\\{1, 2, \\dots, n\\}$, define $S(a) = \\sum_{i=1}^n c_i a_i$. Prove that there exist permutations $b$ and $c$, $b \\neq c$, such that $n!$ divides $S(b) - S(c)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**First Solution.** Let $\\sum_a$ denote the sum over all $n!$ permutations $a = (a_1, a_2, \\dots, a_n)$. We compute $\\sum_a S(a) \\mod n!$ in two ways, one of which assuming that the desired conclusion is false, and reach a contradiction.\n\nSuppose, for the sake of contradiction, that the claim is false. Then each $S(a)$ must have a different remainder $\\mod n!$. Since there are exactly $n!$ such permutations $a$, there exists exactly one permutation $a$ such that $S(a) \\equiv s \\pmod{n!}$ for each $s = 1, 2, \\dots, n!$. Since $n > 1$, $n!$ is even and $n! + 1$ is odd. Hence,\n$$\n\\sum_a S(a) \\equiv \\sum_{s=1}^{n!} s \\equiv \\frac{n!}{2} \\cdot (n! + 1) \\pmod{n!},\n$$\nor\n$$\n\\sum_a S(a) \\equiv \\frac{n!}{2} \\pmod{n!}. \\qquad (1)\n$$\nOn the other hand, for $i, k \\in \\{1, \\dots, n\\}$, we have $a_i = k$ in exactly $(n-1)!$ permutations $a$. Thus, for $1 \\le i \\le n$,\n$$\n\\sum_a a_i = (n-1)!(1+2+\\dots+n) = n! \\cdot \\frac{n+1}{2}.\n$$\nHence,\n$$\n\\sum_a S(a) = \\sum_a \\sum_{i=1}^n c_i a_i = \\sum_a \\sum_{i=1}^n c_i a_i = \\sum_{i=1}^n \\left( c_i \\sum_a a_i \\right).\n$$\nBecause $n+1$ is even, $n!$ divides $\\sum_a a_i = n! \\cdot \\frac{n+1}{2}$ for each $i$. It follows that $n!$ divides $\\sum_a S(a)$, contradicting (1). Therefore, the initial assumption was false, and there do exist distinct permutations $b$ and $c$ such that $n!$ is a divisor of $S(b) - S(c)$.\n\n\n**Second Solution.** (by Liang Xiao, China) Let $n = 2m + 1$, and let $r$ be the number of indices $i$ such that $c_i$ is odd. For a permutation $a = (a_1, a_2, \\dots, a_n)$ of $\\{1, 2, \\dots, n\\}$, let\n$$\nT(a) = \\sum_{i=1}^{n} i c_{a_i} = c_{a_1} + 2c_{a_2} + \\dots + nc_{a_n},\n$$\nand let $\\lambda_a$ be the number of indices $i$ such that both $i$ and $c_{a_i}$ are odd. Note that $T(a)$ is equal $S(a)$ in a different order.\nFor any given positive integer $\\lambda$, $0 \\le \\lambda \\le r$, we count the number of permutations $a$ of $\\{1, 2, \\dots, n\\}$ with $\\lambda_a = \\lambda$. There are $\\binom{m+1}{\\lambda}$ ways to choose $\\lambda$ numbers $i_1, i_2, \\dots, i_\\lambda$ from the set $\\{1, 3, \\dots, 2m+1\\}$ and $\\binom{m}{r-\\lambda}$ ways to choose $r-\\lambda$ numbers $j_1, j_2, \\dots, j_{r-\\lambda}$ from the set $\\{2, 4, \\dots, 2m\\}$. Once the numbers $i_1, \\dots, i_\\lambda, j_1, \\dots, j_{r-\\lambda}$ have been chosen, there are $r!(n-r)!$ permutations $a = (a_1, a_2, \\dots, a_n)$ of $\\{1, 2, \\dots, n\\}$ such that $c_{a_{i_1}}, \\dots, c_{a_{i_\\lambda}}$ and $c_{a_{j_1}}, \\dots, c_{a_{j_{r-\\lambda}}}$ are all odd. Thus, there are\n$$\nr!(n-r)! \\binom{m+1}{\\lambda} \\binom{m}{r-\\lambda}\n$$\npermutations $a$ of $\\{1, 2, \\dots, n\\}$ such that $\\lambda_a = \\lambda$.\n\nLet $E$ and $O$ be the number of permutations $a$ of $\\{1, 2, \\dots, n\\}$ such that $S(a)$ is even and odd, respectively. Then\n$$E = r!(n-r)! \\sum_{2|\\lambda} \\binom{m+1}{\\lambda} \\binom{m}{r-\\lambda},$$\n$$O = r!(n-r)! \\sum_{2|\\lambda} \\binom{m+1}{\\lambda} \\binom{m}{r-\\lambda},$$\nand\n$$\nE - O = r!(n-r)! \\sum_{\\lambda=0}^{r} (-1)^{\\lambda} \\binom{m+1}{\\lambda} \\binom{m}{r-\\lambda}.\n$$\nDenote by $[x^k]h(x)$ the coefficient of $x^k$ in a power series $h(x)$. Let $g_1(x) = (1-x)^{m+1}$, $g_2(x) = (1+x)^m$, and $f(x) = g_1(x)g_2(x)$. Then\n$$[x^r]f(x) = \\sum_{\\lambda=0}^{r} ([x^\\lambda]g_1(x)) ([x^{r-\\lambda}]g_2(x))$$\n$$= \\sum_{\\lambda=0}^{r} (-1)^\\lambda \\binom{m+1}{\\lambda} \\binom{m}{r-\\lambda}.$$\nOn the other hand,\n$$f(x) = (1 - x^2)^m (1 - x) = \\sum_{i=0}^{m} \\binom{m}{i} (-1)^i x^{2i} (1 - x)$$\n$$= \\sum_{i=0}^{m} \\binom{m}{i} ((-1)^i x^{2i} + (-1)^{i+1} x^{2i+1}).$$\nTherefore,\n$$\n[x^r]f(x) = \\left\\lfloor \\frac{m}{\\frac{r+1}{2}} \\right\\rfloor \\cdot (-1)^{\\left\\lfloor \\frac{r+1}{2} \\right\\rfloor} \\neq 0,\n$$\nimplying that $E - O \\neq 0$.\nIn order for the desired result to be false, for each number $i$ from $1$ to $n!$, there must be exactly one permutation $a$ of $1, 2, \\dots, n$ such that $S(a) \\equiv i \\pmod{n!}$. As $n!$ is even, this implies that $E = O$, contradicting that fact $E - O \\neq 0$. Thus, we have proven the desired conclusion."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-generating-functions-auto-0747",
+      "name": "Harvard-MIT Math Tournament #0i3f",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Generating functions",
+        "Sums and products"
+      ],
+      "statement": "Problem:\nFind the coefficient of $x^{12}$ in the Maclaurin series (i.e. Taylor series around $x=0$) for $\\frac{1}{1-3x+2x^{2}}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nIf you know formal power series, then this is not such a hard question, but since this is a calculus test... Use partial fractions to get\n$$\n\\frac{1}{1-3x+2x^{2}} = \\frac{1/2}{1-2x} - \\frac{1}{1-x}.\n$$\nNow each of these can be expanded as a geometric series (or take derivatives and get the same result) to get\n$$\n\\frac{1}{2}\\left(1 + 2x + 4x^{2} + 8x^{3} + \\cdots\\right) - \\left(1 + x + x^{2} + x^{3} + \\cdots\\right),\n$$\nso the coefficient of $x^{n}$ is $2^{n-1} - 1$. When $n=12$, that's $2047$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-generating-functions-auto-1024",
+      "name": "Harvard-MIT Mathematics Tournament #0ib4",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recurrence relations",
+        "Generating functions"
+      ],
+      "statement": "Problem:\n\nIn a game similar to three card monte, the dealer places three cards on the table: the queen of spades and two red cards. The cards are placed in a row, and the queen starts in the center; the card configuration is thus $RQR$. The dealer proceeds to move. With each move, the dealer randomly switches the center card with one of the two edge cards (so the configuration after the first move is either $RRQ$ or $QRR$). What is the probability that, after $2004$ moves, the center card is the queen?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nIf the probability that the queen is the center card after move $n$ is $p_{n}$, then the probability that the queen is an edge card is $1-p_{n}$, and the probability that the queen is the center card after move $n+1$ is $p_{n+1} = \\frac{1-p_{n}}{2}$. This recursion allows us to calculate the first few values of $p_{n}$. We might then notice in $1, 0, \\frac{1}{2}, \\frac{1}{4}, \\frac{3}{8}, \\frac{5}{16}, \\frac{11}{32}, \\cdots$, that the value of each fraction is close to $1/3$, and getting closer for larger $n$. In fact, subtracting $1/3$ from each fraction yields $\\frac{2}{3}, -\\frac{1}{3}, \\frac{1}{6}, -\\frac{1}{12}, \\frac{1}{24}, -\\frac{1}{48}, \\cdots$. This suggests the formula $p_{n} = \\frac{1}{3} + \\frac{2}{3}\\left(-\\frac{1}{2}\\right)^{n}$, and one can then prove that this formula is in fact correct by induction. Thus, $p(2004) = \\frac{1}{3} + \\frac{2}{3}\\left(-\\frac{1}{2}\\right)^{2004} = \\frac{1}{3} + \\frac{1}{3 \\cdot 2^{2003}}$.\n\nThe recurrence can also be solved without guessing—by generating functions, for example, or by using the fundamental theorem of linear recurrences, which ensures that the solution is of the form $p_{n} = a + b(-1/2)^{n}$ for some constants $a, b$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-generating-functions-auto-1040",
+      "name": "USA IMO #0ibk",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion",
+        "Generating functions",
+        "Enumeration with symmetry",
+        "Roots of unity",
+        "Complex numbers"
+      ],
+      "statement": "Let $n$ be a positive integer. Consider sequences $a_0, a_1, \\dots, a_n$ such that $a_i \\in \\{1, 2, \\dots, n\\}$ for each $i$ and $a_n = a_0$.\n\na. Call such a sequence *good* if for all $i = 1, 2, \\dots, n$, $a_i - a_{i-1} \\not\\equiv i \\pmod n$. Suppose that $n$ is odd. Find the number of good sequences.\n\nb. Call such a sequence *great* if for all $i = 1, 2, \\dots, n$, $a_i - a_{i-1} \\not\\equiv i, 2i \\pmod n$. Suppose that $n$ is an odd prime. Find the number of great sequences.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**First Solution:** The answer is $(n-1)^n - (n-1)$ for part (a) and $(n-1)((n-2)^{n-1} - 1)$ for part (b).\n\na. Observe that the number of good sequences is clearly the same for any choice of $a_0$. For fixed $a_0$, call the condition $a_i - a_{i-1} \\not\\equiv i \\pmod n$ *condition (i)*. Now let $S_i$ be the set of sequences $A = \\{a_i\\}_{i=1}^n, a_i \\in \\{1, 2, \\dots, n\\}$ such that $A$ satisfies conditions (1), (2), \\dots, $(n-i)$ and fails to satisfy conditions $(n-i+2)$, $(n-i+3)$, \\dots, $(n)$. Note that there is no constraint on whether or not $A$ satisfies condition $(n-i+1)$. Finally, let $F$ be the set of sequences that fails all conditions (1), (2), \\dots, $(n)$. Then we claim that the number of good sequences starting with $a_0$ is\n$$\nm = |S_1| - |S_2| + |S_3| - \\dots + |S_n| - |F|.\n$$\nConsider the following table, representing the conditions on sequences in $S_i$.\n$$\n\\begin{array}{c|ccccccc}\nS_1 & (1) & (2) & (3) & \\dots & (n-2) & (n-1) & \\\\\n\\hline\nS_2 & (1) & (2) & (3) & \\dots & (n-2) & \\overline{(n)} & \\\\\n\\hline\nS_3 & (1) & (2) & (3) & \\dots & \\overline{(n-1)} & \\overline{(n)} & \\\\\n\\hline\n\\vdots & \\vdots & \\vdots & \\vdots & \\dots & \\vdots & \\vdots & \\vdots \\\\\n\\hline\nS_n & \\overline{(2)} & \\overline{(3)} & \\dots & \\overline{(n-2)} & \\overline{(n-1)} & \\overline{(n)} & \\\\\n\\hline\nF & (1) & (2) & (3) & \\dots & \\overline{(n-2)} & \\overline{(n-1)} & \\overline{(n)}\n\\end{array}\n$$\nConditions that appear as $(j)$ in row $i$ are satisfied by sequences in $S_i$, and those that appear as $\\overline{(j)}$ are failed.\n\nNow take any sequence $A$. If $A$ is good, then $A$ is counted exactly once in $|S_1|$ and is not counted anywhere else. Otherwise, if $A$ is not good, let $(i)$ be the first condition that $A$ fails. If $i > 1$, then $A$ belongs to exactly the sets $S_{n-1}, S_{n-2}$. As one of $|S_{n-1}|, |S_{n-2}|$ is added and one is subtracted, $A$ has no net contribution to $m$. Finally, if $i = 1$, then $A$ belongs to $S_n$ and $F$, so again $A$ does not contribute to $m$. Therefore, $m$ is indeed the number of good sequences.\n\nWe are left with computing the sizes of the $S_i$'s and $F$. This is easy, as the failure of the final $i-1$ conditions determines the terms $a_{n-1}, a_{n-2}, \\dots, a_{n-i+1}$, whereas there are just $n-1$ ways to satisfy each of the conditions (1), (2), \\dots, $(n-i)$, producing $(n-1)^{n-i}$ subsequences $a_0, a_1, \\dots, a_{n-i}$. As there is no constraint on $a_{n-i+1} - a_{n-i}$, we have found all sequences in $S_i$. Hence, $|S_i| = (n-1)^{n-i}$. As for $F$, there is clearly exactly one way to fail every single condition, because $1+2+\\dots+(n-1) = \\frac{n(n-1)}{2}$ is divisible by $n$. Therefore, $|S_n| - F = 0$ and\n$$\n\\begin{align*}\nm &= |S_1| - |S_2| + \\dots - |S_{n-1}| \\\\\n&= (n-1)^{n-1} - (n-1)^{n-2} + \\dots - (n-1) \\\\\n&= \\frac{(n-1)^n - (n-1)}{n}.\n\\end{align*}\n$$\nAs there were originally $n$ choices for $a_0$, multiplying by $n$ gives the desired answer.\n\nb. We can use the same argument as in part (a), but we must recompute the values of $|S_i|$ and $|F|$. Note that for $1 \\le i \\le n-1$, there are exactly two ways to fail condition (i) (because $n$ is odd) while condition (n) is degenerate and reduces to the single restriction $a_n - a_{n-1} \\not\\equiv 0 \\pmod{n}$. Hence, we have\n$$\n|S_1| = (n-2)^{n-1} \\quad \\text{and} \\quad |S_i| = 2^{i-2}(n-2)^{n-i},\n$$\nfor $2 \\le i \\le n$. Finding $|F|$ is trickier in this case, however. Considering the differences $b_i = a_i - a_{i-1}$, $i = 1, 2, \\dots, n$, we wish to count the number of choices of $\\{b_i\\}_{i=1}^n$ such that\n$$\nb_1 + b_2 + \\dots + b_n \\equiv 0 \\pmod{n},\n$$\nwhere $b_i = i$ or $2i \\pmod{n}$ for each $i$. Note that because of the degenerate condition $(n)$, $b_n \\equiv 0 \\pmod{n}$ is forced; hence, we are actually looking at $2^{n-1}$ sums $b_1 + b_2 + \\dots + b_{n-1}$ rather than $2^n$. Now, as $n \\mid [1 + 2 + \\dots + (n-1)] = \\frac{n(n-1)}{2}$, we can equivalently consider sums of terms $c_i = b_i - i$. That is, we wish to find the number of choices of $c_1, c_2, \\dots, c_{n-1}$ such that\n$$\nc_1 + c_2 + \\dots + c_{n-1} \\equiv 0 \\pmod{n},\n$$\nwhere $c_i = 0$ or $i$ for each $i$. We now introduce an extra term $c_n$ that can be either 0 or $n$. The only effect of this extra term is to double the number of choices of $\\{c_i\\}_{i=1}^n$ compared to the number of choices of $\\{c_i\\}_{i=1}^{n-1}$. That is, letting\n$$\nF' = \\{(c_1, c_2, \\dots, c_n) \\mid \\begin{aligned}[t] & c_i = 0 \\text{ or } i, \\\\ & c_1 + c_2 + \\dots + c_n \\equiv 0 \\pmod{n} \\end{aligned}\\},\n$$\nwe have $|F| = \\frac{1}{2}|F'|$.\n\nObserve that we can identify choices $(c_1, c_2, \\dots, c_n)$ with subsets of $T = \\{1, 2, \\dots, n\\}$; the elements of $F'$ are then simply the subsets of $T$ that have sum divisible by $n$. The empty set and the set $T$ are two sets that clearly satisfy this property. All remaining subsets $U \\subset T$ have from 1 to $n-1$ elements. Write $U+k$ for the set $\\{x+k \\mid x \\in U\\}$ (taken mod $n$); this is the rotation of $U$ by $k$ shifts to the right. Then because $n$ is prime and $0 < |U| < n$, the subsets $U, U+1, U+2, \\dots, U+(n-1)$ form an equivalence class of exactly $n$ distinct subsets. Furthermore, the sums of the elements in $U$ and $U + k$ differ by $k|U|(\\text{mod } n)$, so exactly one element of each class has sum divisible by $n$. It follows that\n$$\n|F'| = 2 + \\frac{2^n - 2}{n}, \\quad |F| = \\frac{1}{2}|F'| = \\frac{2^{n-1} + n - 1}{n}.\n$$\nTherefore,\n$$\n\\begin{align*}\nm &= |S_1| - |S_2| + |S_3| - \\dots + |S_n| - |F| \\\\\n&= (n-2)^{n-1} - (n-2)^{n-2} + 2(n-2)^{n-3} \\\\\n&\\quad - 2^2(n-2)^{n-4} + \\dots + 2^{n-2} - \\frac{2^{n-1} + n-1}{n} \\\\\n&= (n-2)^{n-1} - \\frac{(n-2)^{n-1} - 2^{n-1}}{n} - \\frac{2^{n-1} + n-1}{n} \\\\\n&= \\frac{(n-1)(n-2)^{n-1} - (n-1)}{n}.\n\\end{align*}\n$$\nAs before, multiplying by $n$ gives the desired answer.\n\n\n**Second Solution:** The answer is $(n-1)^n - (n-1)$ for part (a) and $(n-1)((n-2)^{n-1} - 1)$ for part (b). Observe that the number of good sequences is clearly the same for any choice of $a_0$. Fixing $a_0$, we represent the choices for the differences $a_i - a_{i-1} \\pmod n$ with the generating function\n$$\ng_i(x) = 1 + x + x^2 + \\dots + x^{i-1} + x^{i+1} + \\dots + x^{n-1} = p(x) - x^i,\n$$\nwhere $p(x) = 1 + x + x^2 + \\cdots + x^{n-1}$. Then the generating function representing all the possibilities for $a_1 - a_0, a_2 - a_1, \\ldots, a_{n-1} - a_{n-2}$ is\n$$\ng(x) = \\prod_{i=1}^{n-1} g_i(x) = \\prod_{i=1}^{n-1} (p(x) - x^i).\n$$\nThe condition that $a_0 - a_{n-1} \\not\\equiv 0 \\pmod{n}$ means that we wish to sum the coefficients of the $x^k$ terms of $g(x)$ for $n \\not\\mid k$.\n\nNow the sum of all the coefficients is simply $g(1) = (n-1)^{n-1}$. The sum of the coefficients of the $x^k$ terms for $n \\mid k$ can be obtained by taking\n$$\n\\frac{1}{n} \\sum_{j=0}^{n-1} g(\\epsilon^j),\n$$\nwhere $\\epsilon = e^{2\\pi i/n}$ is a primitive $n^{\\text{th}}$ root of unity. As we noted above, $g(1) = (n-1)^{n-1}$. For $n > j > 0$, note that $p(\\epsilon^j) = 0$, so\n$$\ng(\\epsilon^j) = \\prod_{k=1}^{n-1} -\\epsilon^{kj} = (-1)^{n-1} \\epsilon^{n(n-1)/2} j = 1,\n$$\nas $n$ is odd. Therefore, the sum of the coefficients of the terms with powers not dividing $n$ is\n$$\n(n-1)^{n-1} - \\frac{1}{n}((n-1)^{n-1} + (n-1)) = \\frac{1}{n}((n-1)^n - (n-1)).\n$$\nRemembering that we had $n$ choices of $a_0$ to begin with, we obtain $(n-1)^n - (n-1)$ as the answer to part (a).\n\nFor part (b), we change our generating functions to\n$$\nh_i(x) = p(x) - (x^i + x^{2i}), \\quad h(x) = \\prod_{i=1}^{n-1} h_i(x).\n$$\nNote that for $1 \\le i \\le n-1$, the terms $x^i$ and $x^{2i}$ both appear because $i \\ne 2i \\pmod n$ as $n$ is odd. For the final condition, however, $n \\equiv 2n \\equiv 0 \\pmod n$, so we are still counting those terms—and only those terms—with powers not divisible by $n$. Hence, using the same method as before, we have $h(1) = (n-2)^{n-1}$,\n$$\nh(\\epsilon^j) = \\prod_{k=1}^{n-1} -\\epsilon^{kj}(1 + \\epsilon^{kj}) = \\prod_{k=1}^{n-1} (1 + \\epsilon^k),\n$$\nfor $1 \\le j \\le n-1$, as $n$ is prime. Now, $1+\\epsilon^i$, $i=0,1,\\dots,n-1$, are all of the roots of the polynomial $(x-1)^n-1$. Therefore, their product is $(-1)^n = -1$ times the constant coefficient of the polynomial, $-2$. Hence, the product of the roots not including $i=0$ (in which case $1+\\epsilon^0 = 2$) is 1. Therefore, $h(\\epsilon^j) = 1$.\n\nIt follows that the number of sequences for a fixed $a_0$ is\n$$\n(n-2)^{n-1} - \\frac{1}{n}((n-2)^{n-1} + (n-1)) = \\frac{1}{n}((n-1)((n-2)^{n-1} - 1)),\n$$\nso the answer to part (b) is $(n-1)((n-2)^{n-1} - 1)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-generating-functions-auto-1147",
+      "name": "Harvard-MIT Mathematics Tournament #0iej",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Generating functions",
+        "Polynomial operations"
+      ],
+      "statement": "Problem:\nLet $S=\\{s_{0}, \\ldots, s_{n}\\}$ be a finite set of integers, and define $S+k=\\{s_{0}+k, \\ldots, s_{n}+k\\}$. We say that $S$ and $T$ are equivalent, written $S \\sim T$, if $T=S+k$ for some $k$. Given a (possibly infinite) set of integers $A$, we say that $S$ tiles $A$ if $A$ can be partitioned into subsets equivalent to $S$. Such a partition is called a tiling of $A$ by $S$.\n\nFind all sets $S$ with minimum element $1$ that tile $A=\\{1, \\ldots, 12\\}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThis can be done by brute force. Alternatively, note that if $P(x)$ and $Q(x)$ are polynomials with coefficients either $0$ or $1$ with $P(x) Q(x)=x+x^{2}+\\cdots+x^{12}$, then the set consisting of the exponents of nonzero terms in $P$ tiles $A$. Either way, we find that $S$ is one of the following: $\\{1\\},\\{1,2\\},\\{1,3\\},\\{1,4\\},\\{1,7\\},\\{1,2,3\\}$, $\\{1,3,5\\},\\{1,5,9\\},\\{1,2,3,4\\},\\{1,2,7,8\\},\\{1,4,7,10\\},\\{1,2,3,4,5,6\\},\\{1,2,3,7,8,9\\}$, $\\{1,2,5,6,9,10\\},\\{1,3,5,7,9,11\\}$, or $A$ itself."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-generating-functions-auto-1156",
+      "name": "Harvard-MIT Mathematics Tournament #0ies",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Generating functions",
+        "Roots of unity"
+      ],
+      "statement": "Problem:\nSuppose $S$ tiles $\\mathbb{N}$. Show that $S$ is symmetric; that is, if $-S=\\{-s_{n}, \\ldots,-s_{0}\\}$, show that $S \\sim -S$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAssume without loss of generality that the minimum element of $S$ is $0$. By the previous problem, $S$ tiles the set $\\{1,2, \\ldots, k\\}$ for some positive integer $k$. Then let $P(x)$ be the polynomial $\\sum_{i=0}^{n} x^{s_{i}}$. To say that the set $\\{1,2, \\ldots, k\\}$, or equivalently the set $\\{0,1, \\ldots, k-1\\}$, is tiled by $S$ is to say that there is some polynomial $Q(x)$ with coefficients $0$ or $1$ such that $P(x) Q(x) = 1 + x + \\cdots + x^{k-1} = \\frac{x^{k}-1}{x-1}$. It follows that all the roots of $P(x)$ are roots of unity, but $P(1) \\neq 0$. By question 11 above, this implies that $P(x)$ is symmetric. Therefore, $s_{0} + s_{n} = s_{1} + s_{n-1} = \\cdots = s_{n} + s_{0}$, so $S$ is symmetric."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-generating-functions-auto-1338",
+      "name": "Harvard-MIT Mathematics Tournament #0iju",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recurrence relations",
+        "Sums and products",
+        "Generating functions"
+      ],
+      "statement": "Problem:\nLet $a_{1}, a_{2}, \\ldots$ be a sequence defined by $a_{1}=a_{2}=1$ and $a_{n+2}=a_{n+1}+a_{n}$ for $n \\geq 1$. Find\n$$\n\\sum_{n=1}^{\\infty} \\frac{a_{n}}{4^{n+1}}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $X$ denote the desired sum. Note that\n$$\n\\begin{array}{rl}\nX & =  \\frac{1}{4^{2}}+\\frac{1}{4^{3}}+\\frac{2}{4^{4}}+\\frac{3}{4^{5}}+\\frac{5}{4^{6}}+\\ldots \\\\\n4 X & =\\quad \\frac{1}{4^{1}}+\\frac{1}{4^{2}}+\\frac{2}{4^{3}}+\\frac{3}{4^{4}}+\\frac{5}{4^{5}}+\\frac{8}{4^{6}}+\\ldots \\\\\n16 X &=\\frac{1}{4^{0}}+\\frac{1}{4^{1}}+\\frac{2}{4^{2}}+\\frac{3}{4^{3}}+\\frac{5}{4^{4}}+\\frac{8}{4^{5}}+\\frac{13}{4^{6}}+\\ldots\n\\end{array}\n$$\nso that $X+4 X=16 X-1$, and $X=1 / 11$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-generating-functions-auto-1430",
+      "name": "Harvard-MIT Mathematics Tournament #0ime",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Generating functions"
+      ],
+      "statement": "Problem:\n\nBob the bomb-defuser has stumbled upon an active bomb. He opens it up, and finds the red and green wires conveniently located for him to cut. Being a seasoned member of the bomb-squad, Bob quickly determines that it is the green wire that he should cut, and puts his wirecutters on the green wire. But just before he starts to cut, the bomb starts to count down, ticking every second. Each time the bomb ticks, starting at time $t=15$ seconds, Bob panics and has a certain chance to move his wirecutters to the other wire. However, he is a rational man even when panicking, and has a $\\frac{1}{2 t^{2}}$ chance of switching wires at time $t$, regardless of which wire he is about to cut. When the bomb ticks at $t=1$, Bob cuts whatever wire his wirecutters are on, without switching wires. What is the probability that Bob cuts the green wire?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $\\frac{23}{30}$. Suppose Bob makes $n$ independent decisions, with probabilities of switching $p_{1}, p_{2}, \\ldots, p_{n}$. Then in the expansion of the product\n$$\nP(x)=\\left(p_{1}+\\left(1-p_{1}\\right) x\\right)\\left(p_{2}+\\left(1-p_{2}\\right) x\\right) \\cdots\\left(p_{n}+\\left(1-p_{n}\\right) x\\right)\n$$\nthe sum of the coefficients of even powers of $x$ gives the probability that Bob makes his original decision. This is just $(P(1)+P(-1)) / 2$, so the probability is just\n$$\n\\frac{1+\\left(1-\\frac{1}{15^{2}}\\right)\\left(1-\\frac{1}{14^{2}}\\right) \\cdots\\left(1-\\frac{1}{2^{2}}\\right)}{2}=\\frac{1+\\frac{14}{15}\\frac{13}{14}\\cdots\\frac{3}{4}}{2}=\\frac{1+\\frac{8}{15}}{2}=\\frac{23}{30}.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-generating-functions-auto-1513",
+      "name": "10th Annual Harvard-MIT Mathematics Tournament #0iop",
+      "url": "https://usamoguide.com/",
+      "source": "10th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Counting two ways",
+        "Generating functions"
+      ],
+      "statement": "Problem:\nLet $S$ denote the set of all triples $(i, j, k)$ of positive integers where $i + j + k = 17$. Compute\n$$\n\\sum_{(i, j, k) \\in S} i j k.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $11628 = \\binom{19}{5}$. We view choosing five objects from a row of $19$ objects in an unusual way. First, remove two of the chosen objects, the second and fourth, which are not adjacent nor at either end, forming three nonempty groups of consecutive objects. We then have $i, j$, and $k$ choices for the first, third, and fifth objects. Because this is a reversible process taking a triple $(i, j, k)$ to $i j k$ choices, the answer is $\\binom{19}{5} = 11628$.\n\nA simple generating functions argument is also possible. Let $s_n = \\sum_{i + j + k = n} i j k$. Then\n$$\n\\sum_{n \\geq 0} s_n x^n = \\left(\\sum_{n \\geq 0} n x^n\\right)^3 = \\left(\\frac{x}{(1-x)^2}\\right)^3 = \\frac{x^3}{(1-x)^6}\n$$\nand so $s_n = \\binom{n+2}{5}$, yielding $s_{17} = \\binom{19}{5}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-generating-functions-auto-1534",
+      "name": "11th Annual Harvard-MIT Mathematics Tournament #0ipa",
+      "url": "https://usamoguide.com/",
+      "source": "11th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Generating functions"
+      ],
+      "statement": "Problem:\n\nDetermine the number of 8-tuples of nonnegative integers $\\left(a_{1}, a_{2}, a_{3}, a_{4}, b_{1}, b_{2}, b_{3}, b_{4}\\right)$ satisfying $0 \\leq a_{k} \\leq k$, for each $k=1,2,3,4$, and\n$$\na_{1} + a_{2} + a_{3} + a_{4} + 2 b_{1} + 3 b_{2} + 4 b_{3} + 5 b_{4} = 19.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Answer: 1540 Same as Combinatorics Test problem 10."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-generating-functions-auto-1535",
+      "name": "11th Annual Harvard-MIT Mathematics Tournament #0ipb",
+      "url": "https://usamoguide.com/",
+      "source": "11th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Generating functions",
+        "Sums and products",
+        "Catalan numbers, partitions"
+      ],
+      "statement": "Problem:\nEvaluate the infinite sum\n$$\n\\sum_{n=0}^{\\infty} \\binom{2 n}{n} \\frac{1}{5^{n}}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $\\sqrt{5}$\n\nFirst Solution: Note that\n$$\n\\begin{aligned}\n\\binom{2 n}{n} & =\\frac{(2 n)!}{n!\\cdot n!}=\\frac{(2 n)(2 n-2)(2 n-4) \\cdots(2)}{n!} \\cdot \\frac{(2 n-1)(2 n-3)(2 n-5) \\cdots(1)}{n!} \\\\\n& =2^{n} \\cdot \\frac{(-2)^{n}}{n!}\\left(-\\frac{1}{2}\\right)\\left(-\\frac{1}{2}-1\\right)\\left(-\\frac{1}{2}-2\\right) \\cdots\\left(-\\frac{1}{2}-n+1\\right) \\\\\n& =(-4)^{n}\\binom{-\\frac{1}{2}}{n}\n\\end{aligned}\n$$\nThen, by the binomial theorem, for any real $x$ with $|x|<\\frac{1}{4}$, we have\n$$\n(1-4 x)^{-1 / 2}=\\sum_{n=0}^{\\infty}\\binom{-\\frac{1}{2}}{n}(-4 x)^{n}=\\sum_{n=0}^{\\infty}\\binom{2 n}{n} x^{n} .\n$$\nTherefore,\n$$\n\\sum_{n=0}^{\\infty}\\binom{2 n}{n}\\left(\\frac{1}{5}\\right)^{n}=\\frac{1}{\\sqrt{1-\\frac{4}{5}}}=\\sqrt{5}\n$$\n\n\nSecond Solution: Consider the generating function\n$$\nf(x)=\\sum_{n=0}^{\\infty}\\binom{2 n}{n} x^{n}\n$$\nIt has formal integral given by\n$$\ng(x)=I(f(x))=\\sum_{n=0}^{\\infty} \\frac{1}{n+1}\\binom{2 n}{n} x^{n+1}=\\sum_{n=0}^{\\infty} C_{n} x^{n+1}=x \\sum_{n=0}^{\\infty} C_{n} x^{n}\n$$\nwhere $C_{n}=\\frac{1}{n+1}\\binom{2 n}{n}$ is the $n$th Catalan number. Let $h(x)=\\sum_{n=0}^{\\infty} C_{n} x^{n}$; it suffices to compute this generating function. Note that\n$$\n1+x h(x)^{2}=1+x \\sum_{i, j \\geq 0} C_{i} C_{j} x^{i+j}=1+x \\sum_{k \\geq 0}\\left(\\sum_{i=0}^{k} C_{i} C_{k-i}\\right) x^{k}=1+\\sum_{k \\geq 0} C_{k+1} x^{k+1}=h(x)\n$$\nwhere we've used the recurrence relation for the Catalan numbers. We now solve for $h(x)$ with the quadratic equation to obtain\n$$\nh(x)=\\frac{1 / x \\pm \\sqrt{1 / x^{2}-4 / x}}{2}=\\frac{1 \\pm \\sqrt{1-4 x}}{2 x}\n$$\nNote that we must choose the - sign in the $\\pm$, since the + would lead to a leading term of $\\frac{1}{x}$ for $h$ (by expanding $\\sqrt{1-4 x}$ into a power series). Therefore, we see that\n$$\nf(x)=D(g(x))=D(x h(x))=D\\left(\\frac{1-\\sqrt{1-4 x}}{2}\\right)=\\frac{1}{\\sqrt{1-4 x}}\n$$\nand our answer is hence $f(1 / 5)=\\sqrt{5}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-generating-functions-auto-1691",
+      "name": "Harvard-MIT Mathematics Tournament #0itn",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Generating functions"
+      ],
+      "statement": "Problem:\n\nOn an infinite chessboard (whose squares are labeled by $(x, y)$, where $x$ and $y$ range over all integers), a king is placed at $(0,0)$. On each turn, it has probability of $0.1$ of moving to each of the four edge-neighboring squares, and a probability of $0.05$ of moving to each of the four diagonally-neighboring squares, and a probability of $0.4$ of not moving. After $2008$ turns, determine the probability that the king is on a square with both coordinates even. An exact answer is required.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSince only the parity of the coordinates are relevant, it is equivalent to consider a situation where the king moves $(1,0)$ with probability $0.2$, moves $(0,1)$ with probability $0.2$, moves $(1,1)$ with probability $0.2$, and stays put with probability $0.4$. This can be analyzed using the generating function\n$$\nf(x, y) = (0.4 + 2 \\times 0.1 x + 2 \\times 0.1 y + 4 \\times 0.05 x y)^{2008} = \\frac{(2 + x + y + x y)^{2008}}{5^{2008}}.\n$$\nWe wish to find the sum of the coefficients of the terms $x^{a} y^{b}$, where both $a$ and $b$ are even. This is simply equal to $\\frac{1}{4}(f(1,1) + f(1,-1) + f(-1,1) + f(-1,-1))$. We have $f(1,1) = 1$ and $f(1,-1) = f(-1,1) = f(-1,-1) = 1 / 5^{2008}$. Therefore, the answer is\n$$\n\\frac{1}{4}(f(1,1) + f(1,-1) + f(-1,1) + f(-1,-1)) = \\frac{1}{4}\\left(1 + \\frac{3}{5^{2008}}\\right) = \\frac{1}{4} + \\frac{3}{4 \\cdot 5^{2008}}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-generating-functions-auto-1854",
+      "name": "Harvard-MIT Mathematics Tournament #0iy6",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recurrence relations",
+        "Generating functions",
+        "Sums and products"
+      ],
+      "statement": "Problem:\n\nLet $F_{n}$ be the Fibonacci sequence, that is, $F_{0}=0$, $F_{1}=1$, and $F_{n+2}=F_{n+1}+F_{n}$. Compute $\\sum_{n=0}^{\\infty} F_{n} / 10^{n}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWrite $F(x)=\\sum_{n=0}^{\\infty} F_{n} x^{n}$. Then the Fibonacci recursion tells us that $F(x)-x F(x)-x^{2} F(x)=x$, so $F(x)=x /\\left(1-x-x^{2}\\right)$. Plugging in $x=1 / 10$ gives the answer."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-generating-functions-auto-2039",
+      "name": "Team Selection Test 2010 #0j3b",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test 2010",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Counting two ways",
+        "Inclusion-exclusion",
+        "Generating functions",
+        "Induction / smoothing"
+      ],
+      "statement": "Let $m$, $n$ be positive integers with $m \\ge n$, and let $S$ be the set of all ordered $n$-tuples $(a_1, a_2, \\dots, a_n)$ of positive integers such that $a_1 + a_2 + \\dots + a_n = m$. Show that\n$$\n\\sum_{S} 1^{a_1} 2^{a_2} \\cdots n^{a_n} = \\binom{n}{n} n^m - \\binom{n}{n-1} (n-1)^m + \\cdots + (-1)^{n-2} \\binom{n}{2} 2^m + \\cdots + (-1)^{n-1} \\binom{n}{1}.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Let $m = k + n$, and let $T$ be the set of all $n$-term sequences of nonnegative integers $(b_1, b_2, \\dots, b_n)$ such that $b_1 + b_2 + \\dots + b_n = k$. It suffices for us to show that\n$$\nn! \\sum_{T} 1^{b_1} 2^{b_2} \\cdots n^{b_n} = \\binom{n}{n} n^{k+n} - \\binom{n}{n-1} (n-1)^{k+n} + \\cdots + (-1)^{n-2} \\binom{n}{2} 2^{k+n} + \\cdots + (-1)^{n-1} \\binom{n}{1}.\n$$\nWe claim that both sides of the desired equation count the number of ways to color $k+n$ objects with $n$ colors such that each color is used at least once. For $1 \\le t \\le n$, the number of ways to color $k+n$ objects with $t$ colors is $t^{k+n}$, so the principle of inclusion-exclusion shows exactly that the right hand side counts these colorings.\nIt suffices to show that the left hand side also counts these colorings. Label the objects $1$, $2$, $\\dots$, $k+n$ in some order, and, for $1 \\le i \\le n$, let $c_i$ be the smallest object of color $i$. Take $b_i = c_{i+1} - c_i$, where we let $c_{n+1} = n+k+1$. Then, notice that any such coloring is specified uniquely by the following data: (a) the order in which the colors first appear, (b) the number of objects between $c_i$ and $c_{i+1}$ for each $i$, where we take $c_{n+1} = n+k+1$, and (c) the colors of the objects between $c_i$ and $c_{i+1}$. We now count how many ways these data can be chosen. There are $n!$ choices for datum (a), and it is independent of (b) and (c). Datum (b) is specified uniquely by a choice of $(b_1, b_2, \\dots, b_n)$ such that $b_1 + b_2 + \\dots + b_n = k$, that is, an element of $T$. Given such a choice of $(b_1, b_2, \\dots, b_n)$, there are $1^{b_1} 2^{b_2} \\dots n^{b_n}$ ways to color the intermediate objects, as each of the $b_i$ between $c_i$ and $c_{i+1}$ admits $i$ choices of color since only $i$ colors appear before $c_{i+1}$. Summing over all choices of (a), (b), and (c), we see that the number of colorings of this type is\n$$\nn! \\sum_{T} 1^{b_1} 2^{b_2} \\dots n^{b_n},\n$$\nwhich matches the left hand side of the desired equation, completing the proof.\n\nDenote by $S_m$ the set of all $n$-term sequences of positive integers $(a_1, a_2, \\dots, a_n)$ such that $a_1 + a_2 + \\dots + a_n = m$. Let $x_m = \\sum_{S_m} 1^{a_1} 2^{a_2} \\dots n^{a_n}$, with $x_m = 0$ if $m < n$, and consider the corresponding generating function\n$$\nF_n(t) = x_0 + x_1 t + x_2 t^2 + \\dots\n$$\nComputing, we find that\n$$\n\\begin{aligned}\nF_n(t) &= (t + t^2 + \\dots)(2t + 4t^2 + \\dots) \\dots (nt + n^2 t^2 + \\dots) \\\\\n&= \\frac{t}{1-t} \\cdot \\frac{2t}{1-2t} \\dots \\frac{nt}{1-nt} \\\\\n&= \\frac{n! \\cdot t^n}{(1-t)(1-2t)\\dots(1-nt)}.\n\\end{aligned}\n$$\nConsider now the two-variable generating function $G_n(t, y)$ defined recursively by\n$$\nG_0(t, y) = \\sum_{k=0}^{\\infty} y^k t^k = \\frac{1}{1 - yt}\n$$\nand\n$$\nG_n(t, y) = G_{n-1}(t, y+1) - G_{n-1}(t, y) \\text{ for } n > 0.\n$$\nWe may identify the coefficient of $t^m$ in $G_n(t, 0)$ as the $n^{\\text{th}}$ forward finite difference of the function $f(y) = y^m$. Therefore, it is given by\n$$\n\\binom{n}{n} n^m - \\binom{n}{n-1} (n-1)^m + \\dots + (-1)^{n-2} \\binom{n}{2} 2^m + (-1)^{n-1} \\binom{n}{1}.\n$$\n(If the reader is not familiar with the theory of finite differences, the claim also follows from a straightforward induction.)\nWe have just shown that the two sides of the desired equality are the coefficients of $t^m$ in the generating functions $F_n(t)$ and $G_n(t, 0)$. Hence, it now suffices to show that $F_n(t) = G_n(t, 0)$. For this, we will show that\n$$\nG_n(t, y) = \\frac{n! \\cdot t^n}{\\prod_{i=0}^{n} (1 - (i + y)t)}\n$$\nwhich would complete the proof, as this expression easily reduces to $F_n(t)$ upon taking $y = 0$.\n\nWe proceed by induction on $n$. The base case $n = 0$ is evident. Now, suppose the claim holds for some $n$; by the definition of $G_n(t, y)$, we may compute\n$$\n\\begin{align*}\nG_{n+1}(t, y) &= G_n(t, y+1) - G_n(t, y) \\\\\n&= \\frac{n! \\cdot t^n}{\\prod_{i=0}^{n} (1 - (i+y+1)t)} - \\frac{n! \\cdot t^n}{\\prod_{i=0}^{n} (1 - (i+y)t)} \\\\\n&= \\frac{n! \\cdot t^n}{\\prod_{i=1}^{n} (1 - (i+y)t)} \\left[ \\frac{1}{1 - (y+n+1)t} - \\frac{1}{1-yt} \\right] \\\\\n&= \\frac{n! \\cdot t^n (n+1)t}{\\prod_{i=0}^{n+1} (1 - (i+y)t)} \\\\\n&= \\frac{(n+1)! \\cdot t^{n+1}}{\\prod_{i=0}^{n+1} (1 - (i+y)t)},\n\\end{align*}\n$$\nwhich completes the induction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-generating-functions-auto-2127",
+      "name": "Harvard-MIT Mathematics Tournament #0j5r",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Generating functions",
+        "Algebraic properties of binomial coefficients",
+        "Sequences and Series"
+      ],
+      "statement": "Problem:\nLet\n$$\nF(x) = \\frac{1}{\\left(2 - x - x^{5}\\right)^{2011}},\n$$\nand note that $F$ may be expanded as a power series so that $F(x) = \\sum_{n=0}^{\\infty} a_n x^n$. Find an ordered pair of positive real numbers $(c, d)$ such that\n$$\n\\lim_{n \\rightarrow \\infty} \\frac{a_n}{n^d} = c.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $\\left(\\frac{1}{6^{2011} 2010!},\\ 2010\\right)$\n\nFirst notice that all the roots of $2 - x - x^{5}$ that are not $1$ lie strictly outside the unit circle. As such, we may write\n$$\n2 - x - x^{5} = 2(1 - x)(1 - r_1 x)(1 - r_2 x)(1 - r_3 x)(1 - r_4 x)\n$$\nwhere $|r_i| < 1$, and let\n$$\n\\frac{1}{2 - x - x^{5}} = \\frac{b_0}{1 - x} + \\frac{b_1}{1 - r_1 x} + \\ldots + \\frac{b_4}{1 - r_4 x}.\n$$\nWe calculate $b_0$ as\n$$\nb_0 = \\lim_{x \\rightarrow 1} \\frac{1 - x}{2 - x - x^{5}} = \\lim_{x \\rightarrow 1} \\frac{-1}{-1 - 5 x^{4}} = \\frac{1}{6}.\n$$\nNow raise the equation above to the $2011$th power:\n$$\n\\frac{1}{\\left(2 - x - x^{5}\\right)^{2011}} = \\left(\\frac{1/6}{1 - x} + \\frac{b_1}{1 - r_1 x} + \\ldots + \\frac{b_4}{1 - r_4 x}\\right)^{2011}\n$$\nExpand the right hand side using multinomial expansion and then apply partial fractions. The result will be a sum of the terms $(1 - x)^{-k}$ and $(1 - r_i x)^{-k}$, where $k \\leq 2011$.\n\nSince $|r_i| < 1$, the power series of $(1 - r_i x)^{-k}$ will have exponentially decaying coefficients, so we only need to consider the $(1 - x)^{-k}$ terms. The coefficient of $x^n$ in the power series of $(1 - x)^{-k}$ is $\\binom{n + k - 1}{k - 1}$, which is a $(k - 1)$th degree polynomial in $n$. So when we sum up all coefficients, only the power series of $(1 - x)^{-2011}$ will have impact on the leading term $n^{2010}$.\n\nThe coefficient of the $(1 - x)^{-2011}$ term in the multinomial expansion is $\\left(\\frac{1}{6}\\right)^{2011}$. The coefficient of the $x^n$ term in the power series of $(1 - x)^{-2011}$ is $\\binom{n + 2010}{2010} = \\frac{1}{2010!} n^{2010} + \\ldots$. Therefore,\n$$(c, d) = \\left(\\frac{1}{6^{2011} 2010!},\\ 2010\\right).$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-generating-functions-auto-2210",
+      "name": "Team Selection Test #0j82",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial operations",
+        "Generating functions",
+        "Modular Arithmetic"
+      ],
+      "statement": "A polynomial $P(x)$ is called *nice* if $P(0) = 1$ and the nonzero coefficients of $P(x)$ alternate between $1$ and $-1$ when written in order. Suppose $P(x)$ is nice, and let $m$ and $n$ be two relatively prime positive integers. Show that\n$$\nQ(x) = P(x^n) \\cdot \\frac{(x^{mn} - 1)(x - 1)}{(x^m - 1)(x^n - 1)}\n$$\nis nice as well.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "$Q(x)$ is a polynomial, so $Q(x)$ is as well.\n\nWe now establish a lemma giving an alternate characterization of nice polynomials.\n\n**Lemma 2.** If $P(x)$ is a polynomial with constant term 1, then $P(x)$ is nice if and only if each nonzero term in the power series expansion of $P(x)/(1-x)$ has coefficient 1.\n\n*Proof.* Suppose that $P(x) = a_0 + a_1x + \\cdots$. Notice that the power series of $P(x)$ has coefficients\n$$\n\\frac{P(x)}{1-x} = b_0 + b_1x + b_2x^2 + \\cdots = a_0 + (a_0 + a_1)x + (a_0 + a_1 + a_2)x^2 + \\cdots\n$$\ngiven by the partial sums of the coefficients of $P(x)$. (In particular, this means that the coefficients of the power series of $\\frac{P(x)}{1-x}$ are eventually constant.) Because $P(0) = 1$, we have $b_0 = a_0 = 1$.\n\nNow, if $P(x)$ is nice, then because the nonzero coefficients of $P(x)$ alternate between 1 and $-1$, the partial sums of the coefficients of $P(x)$ take value either 0 or 1. This means exactly that $b_i \\in \\{0, 1\\}$, hence all non-zero coefficients of the power series for $\\frac{P(x)}{1-x}$ are equal to 1, as desired.\n\nOn the other hand, if $b_i \\in \\{0, 1\\}$, we see that $a_i = b_i - b_{i-1} \\in \\{-1, 0, 1\\}$. Explicitly, this means that\n$$\na_i = \\begin{cases} 1 & b_i > b_{i-1} \\\\ 0 & b_i = b_{i-1} \\\\ -1 & b_i < b_{i-1} \\end{cases}.\n$$\nBecause $b_i$ takes at most two values, among $i$ for which $b_i \\neq b_{i-1}$, the first and last cases alternate, which implies exactly that $P(x)$ is nice. This completes the proof of the lemma. $\\square$\n\nWe now turn to the problem proper. Because $P(0) = 1$, it follows that $Q(0) = 1$. Thus, by Lemma 2, it suffices to show that all nonzero terms in the power series for\n$$\n\\frac{Q(x)}{1-x} = \\frac{P(x^n)}{1-x^n} \\cdot \\frac{1-x^{mn}}{1-x^m}\n$$\nhave coefficient 1. Again by Lemma 2, all nonzero terms in the power series of $P(x)/(1-x)$ have coefficient 1, so the same is true for $\\frac{P(x^n)}{1-x^n}$. Further, all the nonzero terms of the power series expansion of $\\frac{P(x^n)}{1-x^n}$ have exponents congruent to 0 modulo $n$. Now, because $m$ and $n$ are relatively prime, $\\frac{1-x^{mn}}{1-x^m}$ is a polynomial whose nonzero coefficients are equal to 1 and whose nonzero terms have exponents with distinct residues modulo $n$. Therefore, each nonzero term in the power series expansion of $\\frac{Q(x)}{1-x}$ may be expressed in a unique way as the product of a nonzero term in the power series of $\\frac{P(x^n)}{1-x^n}$ and a nonzero term in $\\frac{1-x^{mn}}{1-x^m}$, hence each such term has coefficient 1. So $Q(x)$ is nice by Lemma 2."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-generating-functions-auto-2406",
+      "name": "HMMT #0jdi",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Greatest common divisors (gcd)",
+        "Fermat / Euler / Wilson theorems",
+        "Multiplicative order",
+        "Generating functions",
+        "Other"
+      ],
+      "statement": "Problem:\nLet $N$ be a positive integer whose decimal representation contains $11235$ as a contiguous substring, and let $k$ be a positive integer such that $10^{k} > N$. Find the minimum possible value of\n$$\n\\frac{10^{k}-1}{\\operatorname{gcd}\\left(N, 10^{k}-1\\right)}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $89$\n\nSet $m = \\frac{10^{k}-1}{\\operatorname{gcd}\\left(N, 10^{k}-1\\right)}$. Then, in lowest terms, $\\frac{N}{10^{k}-1} = \\frac{a}{m}$ for some integer $a$. On the other hand, the decimal expansion of $\\frac{N}{10^{k}-1}$ simply consists of the decimal expansion of $N$, possibly with some padded zeros, repeating. Since $N$ contains $11235$ as a contiguous substring, the decimal representation of $\\frac{a}{m}$ must as well.\n\nConversely, if $m$ is relatively prime to $10$ and if there exists an $a$ such that the decimal representation of $\\frac{a}{m}$ contains the substring $11235$, we claim that $m$ is an attainable value for $\\frac{10^{k}-1}{\\operatorname{gcd}\\left(N, 10^{k}-1\\right)}$. To see this, note that since $m$ is relatively prime to $10$, there exists a value of $k$ such that $m$ divides $10^{k}-1$ (for example, $k=\\phi(m)$). Letting $ms = 10^{k}-1$ and $N = as$, it follows that $\\frac{a}{m} = \\frac{as}{ms} = \\frac{N}{10^{k}-1}$. Since the decimal expansion of this fraction contains the substring $11235$, it follows that $N$ must also, and therefore $m$ is an attainable value.\n\nWe are therefore looking for a fraction $\\frac{a}{m}$ which contains the substring $11235$ in its decimal expansion. Since $1,1,2,3$, and $5$ are the first five Fibonacci numbers, it makes sense to look at the value of the infinite series\n$$\n\\sum_{i=1}^{\\infty} \\frac{F_{i}}{10^{i}}\n$$\nA simple generating function argument shows that $\\sum_{i=1}^{\\infty} F_{i} x^{i} = \\frac{x}{1-x-x^{2}}$, so substituting $x=1/10$ leads us to the fraction $10/89$ (which indeed begins $0.11235\\ldots$).\n\nHow do we know no smaller values of $m$ are possible? Well, if $a'/m'$ contains the substring $11235$ somewhere in its infinitely repeating decimal expansion, then note that there is an $i$ such that the decimal expansion of the fractional part of $10^{i}\\left(a'/m'\\right)$ begins with $0.11235\\ldots$ We can therefore, without loss of generality, assume that the decimal representation of $a'/m'$ begins $0.11235\\ldots$ But since the decimal representation of $10/89$ begins $0.11235\\ldots$, it follows that\n$$\n\\left|\\frac{10}{89} - \\frac{a'}{m'}\\right| \\leq 10^{-5}\n$$\nOn the other hand, this absolute difference, if non-zero, is at least $\\frac{1}{89 m'}$. If $m' < 89$, this is at least $\\frac{1}{89^{2}} > 10^{-5}$, and therefore no smaller values of $m'$ are possible."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-generating-functions-auto-2434",
+      "name": "USAMO #0jea",
+      "url": "https://usamoguide.com/",
+      "source": "USAMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recursion, bijection",
+        "Generating functions",
+        "Induction / smoothing",
+        "Algebraic properties of binomial coefficients"
+      ],
+      "statement": "For a positive integer $n \\ge 3$ plot $n$ equally spaced points around a circle. Label one of them $A$, and place a marker at $A$. One may move the marker forward in a clockwise direction to either the next point or the point after that. Hence there are a total of $2n$ distinct moves available; two from each point. Let $a_n$ count the number of ways to advance around the circle exactly twice, beginning and ending at $A$, without repeating a move. Prove that $a_{n-1} + a_n = 2^n$ for all $n \\ge 4$.\n(This problem was suggested by Sam Vandervelde.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**Solution 1** (By Sam Vandervelde). We will show that $a_n = \\frac{1}{3}(2^{n+1} + (-1)^n)$. This would be sufficient, since then we would have\n$$\na_{n-1} + a_n = \\frac{1}{3}(2^n + (-1)^{n-1}) + \\frac{1}{3}(2^{n+1} + (-1)^n) = \\frac{1}{3}(2^n + 2 \\cdot 2^n) = 2^n.\n$$\n\n**Lemma 1.** For all positive integers $n$, we have\n$$\n\\sum_{k=0}^{\\lfloor n/2 \\rfloor} \\binom{n-k}{k} 2^k = \\frac{1}{3}(2^{n+1} + (-1)^n).\n$$\n*Proof.* We argue by strong induction. To begin, the cases $n = 1$ and $n = 2$ are quickly verified. Now suppose that $n \\ge 3$ is odd, say $n = 2m + 1$. We find that\n$$\n\\begin{aligned}\n\\sum_{k=0}^{m} \\binom{2m+1-k}{k} 2^k &= 1 + \\sum_{k=1}^{m} \\binom{2m-k}{k} 2^k + \\sum_{k=1}^{m} \\binom{2m-k}{k-1} 2^k \\\\\n&= \\sum_{k=0}^{m} \\binom{2m-k}{k} 2^k + 2 \\sum_{k=0}^{m-1} \\binom{2m-1-k}{k} 2^k \\\\\n&= \\frac{1}{3}(2^{2m+1} + 1) + \\frac{2}{3}(2^{2m} - 1) \\\\\n&= \\frac{1}{3}(2^{2m+2} - 1),\n\\end{aligned}\n$$\n\nWe now determine the number of ways to advance around the circle twice, organizing our count according to the points visited both times around the circle. It is straight-forward to check that no two such points may be adjacent, and that there are exactly two sequences of moves leading from any such point to the next. (These sequences involve only moves of length two except possibly at the endpoints.) Hence given $k \\ge 1$ points around the circle, no two adjacent and not including point $A$, there would appear to be $2^k$ ways to traverse the circle twice without repeating a move. However, half of these options lead to repeating the same route twice, giving $2^{k-1}$ ways in actuality. There are $\\binom{n-k}{k}$ ways to select $k$ nonadjacent points on the circle not including $A$ (add an extra point behind each of $k$ chosen points), for a total contribution of\n$$\n\\sum_{k=1}^{\\lfloor n/2 \\rfloor} \\binom{n-k}{k} 2^{k-1} = \\frac{1}{2} \\left[ -1 + \\sum_{k=0}^{\\lfloor n/2 \\rfloor} \\binom{n-k}{k} 2^k \\right] = \\frac{1}{6} (2^{n+1} + (-1)^n) - \\frac{1}{2},\n$$\nwhere we used Lemma 1 in the last step.\nOn the other hand, if the $k \\ge 1$ nonadjacent points do include point $A$ then there are $\\binom{n-k-1}{k-1}$ ways to choose them around the circle. (Select $A$ but not the next point, then add an extra point after each of $k-1$ selected points.) But now there are actually $2^k$ ways to circle twice, since we can choose either move at $A$ and the subsequent points, then select the other options the second time around. Hence the contribution in this case is\n$$\n\\sum_{k=1}^{\\lfloor n/2 \\rfloor} \\binom{n-k-1}{k-1} 2^k = 2^{\\lfloor (n-2)/2 \\rfloor} \\sum_{k=0}^{\\lfloor (n-2)/2 \\rfloor} \\binom{n-2-k}{k} 2^k = \\frac{2}{3}(2^{n-1} + (-1)^n),\n$$\nwhere we again used Lemma 1.\nFinally, if $n$ is odd then there is one additional way to circle in which no point is visited twice by using only steps of length two, giving a contribution of $\\frac{1}{2}(1 - (-1)^n)$. Therefore the total number of paths is\n$$\n\\frac{1}{6}(2^{n+1} + (-1)^n) - \\frac{1}{2} + \\frac{2}{3}(2^{n-1} + (-1)^n) + \\frac{1}{2}(1 - (-1)^n),\n$$\nwhich simplifies to $\\frac{1}{3}(2^{n+1} + (-1)^n)$, as desired.\n\n**Solution 2** (By Kiran Kedlaya). We give a bijective proof of the identity\n$$\na_n = a_{n-1} + 2a_{n-2},\n$$\nwhich immediately implies that $a_n + a_{n-1} = 2(a_{n-1} + a_{n-2})$. Since trivially $a_0 = a_1 = 1$ (or alternatively $a_1 = 1, a_2 = 3$), the desired identity will then follow by induction on $n$.\n\nTo construct the bijection, it is convenient to introduce some alternate representations for the sequences we are counting. Label the points $P_0, \\dots, P_{n-1}$ in order, and define $P_{i+n} = P_i$. One can then represent the sequences to be counted by listing the sequence of vertices $P_{i_0}, P_{i_1}, \\dots, P_{i_m}$ visited by the marker, with the conventions that $i_0 = 0, i_m = 2n$, and $i_{j+1} - i_j \\in \\{1, 2\\}$ for $j = 0, \\dots, m-1$. One can represent such sequences of vertices in turn by $2 \\times (n+1)$ matrices $A$ by setting\n$$\nA_{ij} = \\begin{cases} 1 & P_{ni+j} \\text{ is visited} \\\\ 0 & P_{ni+j} \\text{ is not visited} \\end{cases} \\quad \\text{for } i=0,1; j=0, \\dots, n.\n$$\nSuch a matrix $A$ corresponds to a valid sequence if and only if $A_{00} = A_{1n} = 1$ (so the sequence of steps starts and ends at $P_0$), $A_{0n} = A_{n0}$ (so the sequence of steps is well-defined at $P_n$), and there are no submatrices of any of the forms\n$$\n(0 \\ 0), \\quad \\begin{pmatrix} 0 \\\\ 0 \\end{pmatrix}, \\quad \\text{or} \\quad \\begin{pmatrix} 1 & 1 \\\\ 1 & 1 \\end{pmatrix}\n$$\nto exclude steps of length greater than 2, duplication of a length 2 step, and duplication of a length 1 step. For example, the valid sequences for $n = 3$ are represented by the matrices\n$$\n\\begin{pmatrix} 1 & 0 & 1 & 0 \\\\ 0 & 1 & 0 & 1 \\end{pmatrix}, \\begin{pmatrix} 1 & 0 & 1 & 0 \\\\ 0 & 1 & 1 & 1 \\end{pmatrix}, \\begin{pmatrix} 1 & 1 & 0 & 1 \\\\ 1 & 0 & 1 & 1 \\end{pmatrix}, \\begin{pmatrix} 1 & 1 & 1 & 0 \\\\ 0 & 1 & 0 & 1 \\end{pmatrix}, \\begin{pmatrix} 1 & 0 & 1 & 1 \\\\ 1 & 1 & 0 & 1 \\end{pmatrix}.\n$$\nLet $S_n$ be the set of valid $2 \\times (n+1)$ matrices. The correspondence $S_{n-2} \\sqcup S_{n-1} \\sqcup S_{n-2} \\sqcup S_{n-1} \\cong S_n$ can then be described by replacing the right end of the matrix in the following fashion, where $\\cdots$ represents any row of length $n-2$.\n$$\n\\begin{align*}\n\\begin{pmatrix} \\cdots & 1 \\\\ \\cdots & 1 \\end{pmatrix} &\\mapsto \\begin{pmatrix} \\cdots & 1 & 1 & 1 \\\\ \\cdots & 1 & 0 & 1 \\end{pmatrix}, \\begin{pmatrix} \\cdots & 1 & 0 & 1 \\\\ \\cdots & 1 & 1 & 1 \\end{pmatrix} \\\\\n\\begin{pmatrix} \\cdots & 0 \\\\ \\cdots & 1 \\end{pmatrix} &\\mapsto \\begin{pmatrix} \\cdots & 0 & 1 & 0 \\\\ \\cdots & 1 & 0 & 1 \\end{pmatrix}, \\begin{pmatrix} \\cdots & 0 & 1 & 0 \\\\ \\cdots & 1 & 1 & 1 \\end{pmatrix} \\\\\n\\begin{pmatrix} \\cdots & 0 & 1 \\\\ \\cdots & 1 & 1 \\end{pmatrix} &\\mapsto \\begin{pmatrix} \\cdots & 0 & 1 & 1 \\\\ \\cdots & 1 & 0 & 1 \\end{pmatrix} \\\\\n\\begin{pmatrix} \\cdots & 1 & 1 \\\\ \\cdots & 0 & 1 \\end{pmatrix} &\\mapsto \\begin{pmatrix} \\cdots & 1 & 0 & 1 \\\\ \\cdots & 0 & 1 & 1 \\end{pmatrix} \\\\\n\\begin{pmatrix} \\cdots & 1 & 0 \\\\ \\cdots & 1 & 1 \\end{pmatrix} &\\mapsto \\begin{pmatrix} \\cdots & 1 & 1 & 0 \\\\ \\cdots & 1 & 0 & 1 \\end{pmatrix} \\\\\n\\begin{pmatrix} \\cdots & 1 & 0 \\\\ \\cdots & 0 & 1 \\end{pmatrix} &\\mapsto \\begin{pmatrix} \\cdots & 1 & 1 & 0 \\\\ \\cdots & 0 & 1 & 1 \\end{pmatrix}\n\\end{align*}\n$$\nFrom this description, it is easy to see that passing from one side to the other preserves the boundary condition and the excluded submatrix conditions (because every submatrix whose entries are not all shown remains unchanged). We thus have the claimed bijection.\n\n**Solution 3** (By Kiran Kedlaya). We maintain the notation used in the second solution.\nWe first solve a related but simpler counting problem. Let $S_n$ be the set of sequences of steps of lengths 1 or 2 of total length $n$. For each sequence $s \\in S_n$, let $b(s)$ be the number of steps of length 2 in $s$ and define $f_n = \\sum_{s \\in S_n} 2^{b(s)}$. It is clear that $f_0 = f_1 = 1$. For $n \\ge 2$, we also have\n$$\nf_n = f_{n-1} + 2f_{n-2}\n$$\nby counting sequences of length $n$ according to whether they end in a step of length 1 or 2. Thus\n$$\nf_n + f_{n-1} = 2(f_{n-1} + f_{n-2}),\n$$\nfrom which it follows by induction on $n$ that $f_n + f_{n-1} = 2^n$ for $n \\ge 1$. Again by induction on $n$, we find that\n$$\nf_n = \\frac{2^n + (-1)^n}{3}.\n$$\nWe now write $a_n$ in terms of $f_n$. Label the points of the circle as in the previous solution. We may separate sequences of moves into three types.\n\n1. Sequences that visit $P_n$ but not $P_{n-1}$. Such a sequence starts with some $s \\in S_{n-2}$ followed by a step of length 2. The number of complements for $s$ (i.e., the number of ways to complete it to a full sequence) can be seen to be $2^{b(s)}$ as follows. If we decide in order whether to skip each of $P_{n+1}, \\dots, P_{2n}$, then the choice for $P_{n+i}$ is uniquely forced if $A_{0(i-1)} = 1$ and unrestricted if $A_{0(i-1)} = 0$. In the notation of the previous solution, we may see this by noting that\n$$\n\\begin{pmatrix} A_{0(i-1)} & A_{0i} \\\\ A_{1(i-1)} & A_{1i} \\end{pmatrix} \\in \\left\\{ \\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix}, \\begin{pmatrix} 1 & 1 \\\\ 1 & 0 \\end{pmatrix}, \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix}, \\begin{pmatrix} 1 & 0 \\\\ 1 & 1 \\end{pmatrix}, \\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix}, \\begin{pmatrix} 0 & 1 \\\\ 1 & 1 \\end{pmatrix} \\right\\}.\n$$\n(This logic does not apply to $P_{2n}$: we have $A_{0(n-1)} = 0$ but must take $A_{1(2n)} = 1$.) We thus get $f_{n-2}$ sequences of this type.\n2. Sequences that visit $P_{n-1}$ but not $P_n$. Such a sequence starts with some $s \\in S_{n-1}$ followed by a step of length 2. There are $f_{n-1}$ sequences of this type.\n3. Sequences that visit both $P_{n-1}$ and $P_n$. Such a sequence starts with some $s \\in S_{n-1}$ followed by a step of length 1. Here the count is complicated by the constraint that we must skip $P_{2n-1}$, so the final step of length 2 does not create an option. Therefore, $s$ contributes $2^{b(s)-1}$ complements if $b(s) > 0$. The only case where $b(s) = 0$ is when $s$ consists of only steps of length 1, in which case we get 1 complement if $n$ is even and 0 complements if $n$ is odd.\nPutting this together, we get\n$$\n\\begin{align*}\na_n &= f_{n-2} + f_{n-1} + \\frac{1}{2}(f_{n-1} + (-1)^n) \\\\\n&= \\frac{2^{n-2} + (-1)^{n-2}}{3} + \\frac{2^{n-1} + (-1)^{n-1}}{3} + \\frac{2^{n-1} + (-1)^{n-1}}{6} + \\frac{(-1)^n}{2} \\\\\n&= \\frac{2^n + (-1)^n}{3},\n\\end{align*}\n$$\nand so $a_{n-1} + a_n = 2^n$ as desired.\n\n**Solution 4 (By Ricky Liu).** We again show that $a_n = \\frac{1}{3}(2^{n+1} + (-1)^n)$. First, we claim that for two paths to travel between points $k$ apart ($k > 1$) such that no point in between the endpoints is in both paths and no move is used twice, one path must hit the odd intermediate points and the other must hit the even ones. Indeed, neither path can skip two consecutive points, hence neither can contain two consecutive points which are not endpoints, yielding the desired classification. Therefore, given an interval of length $k > 1$ with both endpoints hit both times around, but no point in between them hit both times around, there are exactly 2 ways to choose the sections of the path between the two endpoints (by choosing whether the odd or even points are hit first). We conclude that the generating function for choices of paths between points $k$ apart which are hit both times around is\n$$\nf(x) = 2x^2 + 2x^3 + \\dots = \\frac{2x^2}{1-x}\n$$\nAny pair of paths that start and end at the same point such that no move is used more than once are a concatenation of some number of the paths above, hence the generating function for choices of such paths is\n$$\ng(x) = f(x) + f(x)^2 + f(x)^3 + \\dots = \\frac{f(x)}{1-f(x)} = \\frac{2x^2}{1-x-2x^2}.\n$$\nNote that the coefficient of $x^n$ in $g(x)$ counts the number of solution paths that stop at $A$ the first time around.\n\nNow, any solution path that does not stop at A the first time around either (A) does not stop at any point twice or (B) has a first point $P$ and a last point $Q$ where it stops twice (where possibly $P = Q$). Case (A) is only possible if all moves have length 2 and $n$ is odd, so it has generating function $h(x) = \\frac{x}{1-x^2}$. For Case (B), a similar argument to the first shows that the part of the path outside of the interval $[P, Q]$ is uniquely determined. The generating function for the number of such paths is\n$$\nr(x) = \\left(\\frac{x}{1-x}\\right)^2 \\cdot (1 + f(x) + f(x)^2 + \\dots) = \\left(\\frac{x}{1-x}\\right)^2 \\frac{1-x}{1-x-2x^2} = \\frac{x^2}{(1-x)(1-x-2x^2)},\n$$\nwhere the first term comes from the part before $P$ and the part after $Q$ and the second term from the interval between $P$ and $Q$.\nAdding up our generating functions in each case, we find that the generating function for paths of the desired form is\n$$\ng(x) + h(x) + r(x) = \\frac{2x^2}{1-x-2x^2} + \\frac{x}{1-x^2} + \\frac{x^2}{(1-x)(1-x-2x^2)} = \\frac{4}{3}\\frac{x}{1-2x} - \\frac{1}{3}\\frac{x}{1+x}.\n$$\nThen $a_n$ is the coefficient of $x^n$ in this expression, which is given by\n$$\na_n = \\frac{4}{3}2^{n-1} - \\frac{1}{3}(-1)^{n-1} = \\frac{1}{3}(2^{n+1} + (-1)^n).\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-generating-functions-auto-2495",
+      "name": "HMMT 2013 #0jfz",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2013",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Generating functions",
+        "Enumeration with symmetry"
+      ],
+      "statement": "Problem:\n\nFor how many unordered sets $\\{a, b, c, d\\}$ of positive integers, none of which exceed $168$, do there exist integers $w, x, y, z$ such that $(-1)^{w} a + (-1)^{x} b + (-1)^{y} c + (-1)^{z} d = 168$? If your answer is $A$ and the correct answer is $C$, then your score on this problem will be $\\left\\lfloor 25 e^{-3 \\frac{|C-A|}{C}}\\right\\rfloor$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: 761474\n\nAs an approximation, we assume $a, b, c, d$ are ordered to begin with (so we have to divide by $24$ later) and add to $168$ with a unique choice of signs; then, it suffices to count $e + f + g + h = 168$ with each $e, f, g, h$ in $[-168, 168]$ and then divide by $24$ (we drop the condition that none of them can be zero because it shouldn't affect the answer that much).\n\nOne way to do this is generating functions. We want the coefficient of $t^{168}$ in the generating function $\\left(t^{-168} + t^{-167} + \\ldots + t^{167} + t^{168}\\right)^{4} = \\left(t^{169} - t^{-168}\\right)^{4} / (t-1)^{4}$.\n\nClearing the negative powers, it suffices to find the coefficient of $t^{840}$ in\n$$\n\\frac{\\left(t^{337} - 1\\right)^{4}}{(t-1)^{4}} = \\left(1 - 4 t^{337} + 6 t^{674} - \\ldots\\right) \\frac{1}{(t-1)^{4}}.\n$$\nTo do this we expand the bottom as a power series in $t$:\n$$\n\\frac{1}{(t-1)^{4}} = \\sum_{n \\geq 0} \\binom{n+3}{3} t^{n}\n$$\nIt remains to calculate $\\binom{840+3}{3} - 4 \\cdot \\binom{840-337+3}{3} + 6 \\cdot \\binom{840-674+3}{3}$. This is almost exactly equal to $\\frac{1}{6}\\left(843^{3} - 4 \\cdot 506^{3} + 6 \\cdot 169^{3}\\right) \\approx 1.83 \\times 10^{7}$.\n\nDividing by $24$, we arrive at an estimation $762500$. Even if we use a bad approximation $\\frac{1}{6 \\cdot 24}\\left(850^{3} - 4 \\cdot 500^{3} + 6 \\cdot 150^{3}\\right)$ we get approximately $933000$, which is fairly close to the answer."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-generating-functions-auto-2556",
+      "name": "HMMT #0jho",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Sums and products",
+        "Generating functions"
+      ],
+      "statement": "Problem:\nCompute\n$$\n\\sum_{a_{1}=0}^{\\infty} \\sum_{a_{2}=0}^{\\infty} \\cdots \\sum_{a_{7}=0}^{\\infty} \\frac{a_{1}+a_{2}+\\cdots+a_{7}}{3^{a_{1}+a_{2}+\\cdots+a_{7}}}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $\\frac{15309}{256}$\n\nNote that, since this is symmetric in $a_{1}$ through $a_{7}$,\n$$\n\\begin{aligned}\n\\sum_{a_{1}=0}^{\\infty} \\sum_{a_{2}=0}^{\\infty} \\cdots \\sum_{a_{7}=0}^{\\infty} \\frac{a_{1}+a_{2}+\\cdots+a_{7}}{3^{a_{1}+a_{2}+\\cdots+a_{7}}} & = 7 \\sum_{a_{1}=0}^{\\infty} \\sum_{a_{2}=0}^{\\infty} \\cdots \\sum_{a_{7}=0}^{\\infty} \\frac{a_{1}}{3^{a_{1}+a_{2}+\\cdots+a_{7}}} \\\\\n& = 7 \\left( \\sum_{a_{1}=0}^{\\infty} \\frac{a_{1}}{3^{a_{1}}} \\right) \\left( \\sum_{a=0}^{\\infty} \\frac{1}{3^{a}} \\right)^{6}\n\\end{aligned}\n$$\nIf $S = \\sum \\frac{a}{3^{a}}$, then $3S - S = \\sum \\frac{1}{3^{a}} = \\frac{3}{2}$, so $S = \\frac{3}{4}$. It follows that the answer equals $7 \\cdot \\frac{3}{4} \\cdot \\left(\\frac{3}{2}\\right)^{6} = \\frac{15309}{256}$.\n\nAlternatively, let $f(z) = \\sum_{a_{1}=0}^{\\infty} \\sum_{a_{2}=0}^{\\infty} \\cdots \\sum_{a_{7}=0}^{\\infty} z^{a_{1}+a_{2}+\\cdots+a_{7}}$. Note that we can rewrite $f(z) = \\left( \\sum_{a=0}^{\\infty} z^{a} \\right)^{7} = \\frac{1}{(1-z)^{7}}$. Furthermore, note that $z f'(z) = \\sum_{a_{1}=0}^{\\infty} \\sum_{a_{2}=0}^{\\infty} \\cdots \\sum_{a_{7}=0}^{\\infty} (a_{1}+a_{2}+\\cdots+a_{7}) z^{a_{1}+a_{2}+\\cdots+a_{7}}$, so the sum in question is simply $\\frac{f'(1/3)}{3}$. Since $f'(z) = \\frac{7}{(1-z)^{8}}$, it follows that the sum is equal to $\\frac{7 \\cdot 3^{7}}{2^{8}} = \\frac{15309}{256}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-generating-functions-auto-2601",
+      "name": "HMMT 2014 #0jix",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2014",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recurrence relations",
+        "Generating functions",
+        "Roots of unity",
+        "φ (Euler's totient)",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\n\nFor an integer $n$, let $f_{9}(n)$ denote the number of positive integers $d \\leq 9$ dividing $n$. Suppose that $m$ is a positive integer and $b_{1}, b_{2}, \\ldots, b_{m}$ are real numbers such that $f_{9}(n)=\\sum_{j=1}^{m} b_{j} f_{9}(n-j)$ for all $n>m$. Find the smallest possible value of $m$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $28$\n\nLet $M=9$. Consider the generating function\n$$\nF(x)=\\sum_{n \\geq 1} f_{M}(n) x^{n}=\\sum_{d=1}^{M} \\sum_{k \\geq 1} x^{d k}=\\sum_{d=1}^{M} \\frac{x^{d}}{1-x^{d}}\n$$\nObserve that $f_{M}(n)=f_{M}(n+M!)$ for all $n \\geq 1$ (in fact, all $n \\leq 0$ as well). Thus $f_{M}(n)$ satisfies a degree $m$ linear recurrence if and only if it eventually satisfies a degree $m$ linear recurrence. But the latter occurs if and only if $P(x) F(x)$ is a polynomial for some degree $m$ polynomial $P(x)$. (Why?)\n\nSuppose $P(x) F(x)=Q(x)$ is a polynomial for some polynomial $P$ of degree $m$. We show that $x^{s}-1 \\mid P(x)$ for $s=1,2, \\ldots, M$, or equivalently that $P(\\omega)=0$ for all primitive $s$th roots of unity $1 \\leq s \\leq M$. Fix a primitive $s$th root of unity $\\omega$, and define a function\n$$\nF_{\\omega}(z)=\\left(1-\\omega^{-1} z\\right) \\sum_{s \\nmid d \\leq M} \\frac{z^{d}}{1-z^{d}}+\\sum_{s \\mid d \\leq M} \\frac{z^{d}}{1+\\left(\\omega^{-1} z\\right)+\\cdots+\\left(\\omega^{-1} z\\right)^{d-1}}\n$$\nfor all $z$ where all denominators are nonzero (in particular, this includes $z=\\omega$).\n\nYet $F_{\\omega}(z)-F(z)\\left(1-\\omega^{-1} z\\right)=0$ for all complex $z$ such that $z^{1}, z^{2}, \\ldots, z^{M} \\neq 1$, so $P(z) F_{\\omega}(z)-Q(z)(1-\\omega^{-1} z)=0$ holds for all such $z$ as well. In particular, the rational function $P(x) F_{\\omega}(x)-Q(x)\\left(1-\\omega^{-1} x\\right)$ has infinitely many roots, so must be identically zero once we clear denominators. But no denominator vanishes at $x=\\omega$, so we may plug in $x=\\omega$ to the polynomial identity and then divide out by the original (nonzero) denominators to get $0=P(\\omega) F_{\\omega}(\\omega)-Q(\\omega)\\left(1-\\omega^{-1} \\omega\\right)=P(\\omega) F_{\\omega}(\\omega)$. However,\n$$\nF_{\\omega}(\\omega)=\\sum_{s \\mid d \\leq M} \\frac{\\omega^{d}}{1+\\left(\\omega^{-1} \\omega\\right)+\\cdots+\\left(\\omega^{-1} \\omega\\right)^{d-1}}=\\sum_{s \\mid d \\leq M} \\frac{1}{d}\n$$\nis a positive integer multiple of $1/d$, and therefore nonzero. Thus $P(\\omega)=0$, as desired.\n\nConversely, if $x^{s}-1 \\mid P(x)$ for $s=1,2, \\ldots, M$, then $P(x)$ will clearly suffice. So we just want the degree of the least common multiple of the $x^{s}-1$ for $s=1,2, \\ldots, M$, or just the number of roots of unity of order at most $M$, which is $\\sum_{s=1}^{M} \\phi(s)=1+1+2+2+4+2+6+4+6=28$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-generating-functions-auto-3047",
+      "name": "HMMT February 2016 #0jvb",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2016",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Generating functions",
+        "Polynomial operations",
+        "Ring Theory"
+      ],
+      "statement": "Problem:\n\nKelvin the Frog has a pair of standard fair 8-sided dice (each labelled from 1 to 8). Alex the sketchy Kat also has a pair of fair 8-sided dice, but whose faces are labelled differently (the integers on each of Alex's dice need not be distinct). To Alex's dismay, when both Kelvin and Alex roll their dice, the probability that they get any given sum is equal!\n\nSuppose that Alex's two dice have $a$ and $b$ total dots on them, respectively. Assuming that $a \\neq b$, find all possible values of $\\min \\{a, b\\}$.\n\nProposed by: Alexander Katz",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nDefine the generating function of an event $A$ as the polynomial\n$$\ng(A, x) = \\sum p_{i} x^{i}\n$$\nwhere $p_{i}$ denotes the probability that $i$ occurs during event $A$. We note that the generating function is multiplicative; i.e.\n$$\ng(A \\text{ AND } B, x) = g(A) g(B) = \\sum p_{i} q_{j} x^{i+j}\n$$\nwhere $q_{j}$ denotes the probability that $j$ occurs during event $B$.\n\nIn our case, events $A$ and $B$ are the rolling of the first and second dice, respectively, so the generating functions are the same:\n$$\ng(\\text{die}, x) = \\frac{1}{8} x^{1} + \\frac{1}{8} x^{2} + \\frac{1}{8} x^{3} + \\frac{1}{8} x^{4} + \\frac{1}{8} x^{5} + \\frac{1}{8} x^{6} + \\frac{1}{8} x^{7} + \\frac{1}{8} x^{8}\n$$\nand so\n$$\ng(\\text{both dice rolled}, x) = g(\\text{die}, x)^{2} = \\frac{1}{64}\\left(x^{1} + x^{2} + x^{3} + x^{4} + x^{5} + x^{6} + x^{7} + x^{8}\\right)^{2}\n$$\nwhere the coefficient of $x^{i}$ denotes the probability of rolling a sum of $i$.\n\nWe wish to find two alternate dice, $C$ and $D$, satisfying the following conditions:\n- $C$ and $D$ are both 8-sided dice; i.e. the sum of the coefficients of $g(C, x)$ and $g(D, x)$ are both 8 (or $g(C, 1) = g(D, 1) = 8$).\n- The faces of $C$ and $D$ are all labeled with a positive integer; i.e. the powers of each term of $g(C, x)$ and $g(D, x)$ are positive integers (or $g(C, 0) = g(D, 0) = 0$).\n- The probability of rolling any given sum upon rolling $C$ and $D$ is equal to the probability of rolling any given sum upon rolling $A$ and $B$; i.e. $g(C, x) g(D, x) = g(A, x) g(B, x)$.\n\nBecause the dice are \"fair\"—i.e. the probability of rolling any face is $\\frac{1}{8}$—we can multiply $g(A, x), g(B, x), g(C, x)$ and $g(D, x)$ by 8 to get integer polynomials; as this does not affect any of the conditions, we can assume $g(C, x)$ and $g(D, x)$ are integer polynomials multiplying to $\\left(x^{1} + x^{2} + \\ldots + x^{8}\\right)^{2}$ (and subject to the other two conditions as well). Since $\\mathbb{Z}$ is a UFD (i.e. integer polynomials can be expressed as the product of integer polynomials in exactly one way, up to order and scaling by a constant), all factors of $g(C, x)$ and $g(D, x)$ must also be factors of $x^{1} + x^{2} + \\ldots + x^{8}$. Hence it is useful to factor $x^{1} + x^{2} + \\ldots + x^{8} = x(x+1)(x^{2}+1)(x^{4}+1)$.\n\nWe thus have $g(C, x) g(D, x) = x^{2}(x+1)^{2}(x^{2}+1)^{2}(x^{4}+1)^{2}$. We know that $g(C, 0) = g(D, 0) = 0$, so $x \\mid g(C, x), g(D, x)$. It remains to distribute the remaining term $(x+1)^{2}(x^{2}+1)^{2}(x^{4}+1)^{2}$; we can view each of these 6 factors as being \"assigned\" to either $C$ or $D$. Note that since $g(C, 1) = g(D, 1) = 8$, and each of the factors $x+1, x^{2}+1, x^{4}+1$ evaluates to 2 when $x=1$, exactly three factors must be assigned to $C$ and exactly three to $D$. Finally, assigning $x+1, x^{2}+1$, and $x^{4}+1$ to $C$ results in the standard die, with $a = b = 28$. This gives us the three cases (and their permutations):\n\n- $g(C, x) = x(x+1)^{2}(x^{2}+1)$, $g(D, x) = x(x^{2}+1)(x^{4}+1)^{2}$. In this case we get $g(C, x) = x^{5} + 2 x^{4} + 2 x^{3} + 2 x^{2} + x$ and $g(D, x) = x^{11} + x^{9} + 2 x^{7} + 2 x^{5} + x^{3} + x$, so the \"smaller\" die has faces $5, 4, 4, 3, 3, 2, 2$, and $1$ which sum to $24$.\n\n- $g(C, x) = x(x+1)(x^{2}+1)^{2}$, $g(D, x) = x(x+1)(x^{4}+1)^{2}$. In this case we have $g(C, x) = x^{6} + x^{5} + 2 x^{4} + 2 x^{3} + x^{2} + x$ and $g(D, x) = x^{10} + x^{9} + 2 x^{6} + 2 x^{5} + x^{2} + x$, so the \"smaller\" die has faces $6, 5, 4, 4, 3, 3, 2$ and $1$ which sum to $28$.\n\n- $g(C, x) = x(x^{2}+1)^{2}(x^{4}+1)$, $g(D, x) = x(x+1)^{2}(x^{4}+1)$. In this case we have $g(C, x) = x^{9} + 2 x^{7} + 2 x^{5} + 2 x^{3} + x$ and $g(D, x) = x^{7} + 2 x^{6} + x^{5} + x^{3} + 2 x^{2} + x$, so the \"smaller die\" has faces $7, 6, 6, 5, 3, 2, 2$, $1$ which sum to $32$.\n\nTherefore, $\\min \\{a, b\\}$ is equal to $24$, $28$, or $32$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-generating-functions-auto-3137",
+      "name": "February 2017 #0jxt",
+      "url": "https://usamoguide.com/",
+      "source": "February 2017",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Expected values",
+        "Generating functions",
+        "Sums and products"
+      ],
+      "statement": "Problem:\n\nKelvin the Frog is hopping on a number line (extending to infinity in both directions). Kelvin starts at $0$. Every minute, he has a $\\frac{1}{3}$ chance of moving $1$ unit left, a $\\frac{1}{3}$ chance of moving $1$ unit right and $\\frac{1}{3}$ chance of getting eaten. Find the expected number of times Kelvin returns to $0$ (not including the start) before getting eaten.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFirst we compute probability that the mouse returns to $0$ before being eaten. Then probability that it is at $0$ in $2n$ minutes without being eaten is given by $\\frac{1}{3^{2n}} \\binom{2n}{n}$. Therefore, the overall expectation is given by\n$$\n\\begin{aligned}\n& \\sum_{n \\geq 1} \\binom{2n}{n} 9^{-n} = -1 + \\sum_{n \\geq 0} \\binom{2n}{n} 9^{-n} \\\\\n= & -1 + \\frac{1}{\\sqrt{1-4/9}} = -1 + \\frac{3}{\\sqrt{5}} = \\frac{3\\sqrt{5}-5}{5}\n\\end{aligned}\n$$\nwhere we use the well known fact that\n$$\n\\sum_{n \\geq 0} \\binom{2n}{n} x^n = \\frac{1}{\\sqrt{1-4x}}\n$$\nfor $x=\\frac{1}{9}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-generating-functions-auto-3220",
+      "name": "February 2017 #0k04",
+      "url": "https://usamoguide.com/",
+      "source": "February 2017",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Generating functions",
+        "Roots of unity"
+      ],
+      "statement": "Problem:\n\nKelvin and 15 other frogs are in a meeting, for a total of 16 frogs. During the meeting, each pair of distinct frogs becomes friends with probability $\\frac{1}{2}$. Kelvin thinks the situation after the meeting is cool if for each of the 16 frogs, the number of friends they made during the meeting is a multiple of 4. Say that the probability of the situation being cool can be expressed in the form $\\frac{a}{b}$, where $a$ and $b$ are relatively prime. Find $a$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nConsider the multivariate polynomial\n$$\n\\prod_{1 \\leq i<j \\leq 16}\\left(1+x_{i} x_{j}\\right)\n$$\nWe're going to filter this by summing over all $4^{16}$ 16-tuples $\\left(x_{1}, x_{2}, \\ldots, x_{16}\\right)$ such that $x_{j}= \\pm 1, \\pm i$. Most of these evaluate to 0 because $i^{2}=(-i)^{2}=-1$, and $1 \\cdot-1=-1$. If you do this filtering, you get the following 4 cases:\n\nCase 1: Neither of $i$ or $-i$ appears. Then the only cases we get are when all the $x_{j}$ are 1, or they're all -1. Total is $2^{120}$. $\\left(120=\\binom{16}{2}.\\right)$\n\nCase 2: $i$ appears, but $-i$ does not. Then all the remaining $x_{j}$ must be all 1 or all -1. This contributes a sum of $(1+i)^{15} \\cdot 2^{105}+(1-i)^{15} \\cdot 2^{105}=2^{113}$. $i$ can be at any position, so we get $16 \\cdot 2^{113}$.\n\nCase 3: $-i$ appears, but $i$ does not. Same contribution as above. $16 \\cdot 2^{113}$.\n\nCase 4: Both $i$ and $-i$ appear. Then all the rest of the $x_{j}$ must be all 1 or all -1. This contributes a sum of $2 \\cdot(1+i(-i)) \\cdot(1+i)^{14} \\cdot(1-i)^{14} \\cdot 2^{91}=2^{107} \\cdot i$ and $-i$ can appear in $16 \\cdot 15$ places, so we get $240 \\cdot 2^{107}$.\n\nSo the final answer is this divided a factor for our filter. $\\left(4^{16}=2^{32}\\right.$.) So our final answer is $\\frac{2^{89}+16 \\cdot 2^{82}+240 \\cdot 2^{75}}{2^{120}}=\\frac{1167}{2^{41}}$.\n\nTherefore, the answer is 1167 ."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-generating-functions-auto-3413",
+      "name": "USA TSTST #0k5h",
+      "url": "https://usamoguide.com/",
+      "source": "USA TSTST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Generating functions",
+        "Coloring schemes, extremal arguments",
+        "Induction / smoothing",
+        "Expected values",
+        "Invariants / monovariants",
+        "Algebraic properties of binomial coefficients",
+        "Roots of unity"
+      ],
+      "statement": "Let $S = \\{1, \\dots, 100\\}$, and for every positive integer $n$ define\n$$\nT_n = \\{(a_1, \\dots, a_n) \\in S^n \\mid a_1 + \\dots + a_n \\equiv 0 \\pmod{100}\\}.\n$$\nDetermine which $n$ have the following property: if we color any 75 elements of $S$ red, then at least half of the $n$-tuples in $T_n$ have an even number of coordinates with red elements.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "We claim this holds exactly for $n$ even.\n**First solution by generating functions** Define\n$$\nR(x) = \\sum_{s \\text{ red}} x^s, \\quad B(x) = \\sum_{s \\text{ blue}} x^s.\n$$\n(Here “blue” means “not-red”, as always.) Then, the number of tuples in $T_n$ with exactly $k$ red coordinates is exactly equal to\n$$\n\\binom{n}{k} \\cdot \\frac{1}{100} \\sum_{\\omega} R(\\omega)^k B(\\omega)^{n-k}\n$$\nwhere the sum is over all primitive 100th roots of unity. So, we conclude the number of tuples in $T_n$ with an even (resp odd) number of red elements is exactly\n$$\n\\begin{align*}\nX &= \\frac{1}{100} \\sum_{\\omega} \\sum_{k \\text{ even}} \\binom{n}{k} R(\\omega)^k B(\\omega)^{n-k} \\\\\nY &= \\frac{1}{100} \\sum_{\\omega} \\sum_{k \\text{ odd}} \\binom{n}{k} R(\\omega)^k B(\\omega)^{n-k} \\\\\n\\implies X - Y &= \\frac{1}{100} \\sum_{\\omega} (B(\\omega) - R(\\omega))^n \\\\\n&= \\frac{1}{100} \\left[ (B(1) - R(1))^n + \\sum_{\\omega \\neq 1} (2B(\\omega))^n \\right] \\\\\n&= \\frac{1}{100} \\left[ (B(1) - R(1))^n - (2B(1))^n + 2^n \\sum_{\\omega} B(\\omega)^n \\right] \\\\\n&= \\frac{1}{100} \\left[ (B(1) - R(1))^n - (2B(1))^n \\right] + 2^n Z \\\\\n&= \\frac{1}{100} [(-50)^n - 50^n] + 2^n Z.\n\\end{align*}\n$$\nwhere\n$$\nZ \\stackrel{\\text{def}}{=} \\frac{1}{100} \\sum_{\\omega} B(\\omega)^n \\geq 0\n$$\ncounts the number of tuples in $T_n$ which are all blue. Here we have used the fact that $B(\\omega) + R(\\omega) = 0$ for $\\omega \\neq 1$.\n\nWe wish to show $X - Y \\geq 0$ holds for $n$ even, but may fail when $n$ is odd. This follows from two remarks:\n* If $n$ is even, then $X - Y = 2^n Z \\geq 0$.\n* If $n$ is odd, then if we choose the coloring for which $s$ is red if and only if $s \\neq 2 \\pmod 4$; we thus get $Z = 0$. Then $X - Y = -\\frac{2}{100} \\cdot 50^n < 0$.\n\n**Second solution by strengthened induction and random coloring** We again prove that $n$ even work. Let us define\n$$\nT_n(a) = \\{(a_1, \\dots, a_n) \\in S^n \\mid a_1 + \\dots + a_n \\equiv a \\pmod{100}\\}.\n$$\nAlso, call an $n$-tuple good if it has an even number of red elements. We claim that $T_n(a)$ also has at least 50% good tuples, by induction.\nThis follows by induction on $n \\geq 2$. Indeed, the base case $n = 2$ can be checked by hand, since $T_2(a) = \\{(x, a-x) \\mid x \\in S\\}$. With the stronger claim, one can check the case $n = 2$ manually and proceed by induction to go from $n-2$ to $n$, noting that\n$$\nT_n(a) = \\bigsqcup_{b+c=a} T_{n-2}(b) \\oplus T_2(c)\n$$\nwhere $\\oplus$ denotes concatenation of tuples, applied set-wise. The concatenation of an $(n-2)$-tuple and 2-tuple is good if and only if the both or neither are good. Thus for each $b$ and $c$, if the proportion of $T_{n-2}(b)$ which is good is $p \\geq \\frac{1}{2}$ and the proportion of $T_2(c)$ which is good is $q \\geq \\frac{1}{2}$, then the proportion of $T_{n-2}(b) \\oplus T_2(c)$ which is good is\n\n$pq + (1-p)(1-q) \\ge \\frac{1}{2}$, as desired. Since each term in the union has at least half the tuples good, all of $T_n(a)$ has at least half the tuples good, as desired.\nIt remains to fail all odd $n$. We proceed by a suggestion of Yang Liu and Ankan Bhattacharya by showing that if we pick the 75 elements *randomly*, then any particular tuple in $S^n$ has strictly less than 50% chance of being good. This will imply (by linearity of expectation) that $T_n$ (or indeed any subset of $S^n$) will, for some coloring, have less than half good tuples.\nLet $(a_1, \\dots, a_n)$ be such an $n$-tuple. If any element appears in the tuple more than once, keep *discarding pairs* of that element until there are zero or one; this has no effect on the good-ness of the tuple. If we do this, we obtain an $m$-tuple $(b_1, \\dots, b_m)$ with no duplicated elements where $m \\equiv n \\equiv 1 \\pmod 2$. Now, the probability that any element is red is $\\frac{3}{4}$, so the probability of being good is\n$$\n\\sum_{k \\text{ even}}^{m} \\binom{m}{k} \\left(\\frac{3}{4}\\right)^k \\left(-\\frac{1}{4}\\right)^{m-k} = \\frac{1}{2} \\left[ \\left(\\frac{3}{4} + \\frac{1}{4}\\right)^m - \\left(\\frac{3}{4} - \\frac{1}{4}\\right)^m \\right] \\\\ = \\frac{1}{2} \\left[ 1 - \\left(\\frac{1}{2}\\right)^m \\right] < \\frac{1}{2}.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-generating-functions-auto-3514",
+      "name": "HMMT November 2019 #0k8a",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2019",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion",
+        "Expected values",
+        "Generating functions"
+      ],
+      "statement": "Problem:\n\nYou are trying to cross a 400 foot wide river. You can jump at most 4 feet, but you have many stones you can throw into the river. You will stop throwing stones and cross the river once you have placed enough stones to be able to do so. You can throw straight, but you can't judge distance very well, so each stone ends up being placed uniformly at random along the width of the river. Estimate the expected number $N$ of stones you must throw before you can get across the river.\n\nAn estimate of $E$ will earn $\\left\\lfloor 20 \\min \\left(\\frac{N}{E}, \\frac{E}{N}\\right)^{3}\\right\\rfloor$ points.\n\nProposed by: Carl Schildkraut and Milan Haiman",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "$$\n\\frac{100}{100}+\\frac{100}{99}+\\cdots+\\frac{100}{1} \\approx 100 \\ln 100\n$$\nstone throws (it takes $\\frac{100}{100-k}$ moves on average to get a stone into a new section if $k$ sections already have a stone). So the answer is at least $100 \\ln 100 \\approx 450$.\n\nOn the other hand, if we divide the river into 200 2-foot sections, then once we have a stone in each section we are guaranteed to be able to cross. By a similar argument, we obtain that the answer is at most $200 \\ln 200 \\approx 1050$.\n\nEstimates near these bounds earn about 5 to 7 points. An estimate in between can earn close to 20 points.\n\nTo compute the answer (almost) exactly, we use the following argument.\n\nScale the problem so the river is of size 1, and the jumps are of size 0.01. Suppose that after $n$ throws, the stones thrown are located at positions $0 < x_{1} < x_{2} < \\cdots < x_{n} < 1$. Let $x_{0} = 0$, $x_{n+1} = 1$, $r = 0.01$. Define $P(n)$ to be the probability that you still cannot cross the river after $n$ throws. In other words, there exists $i$ such that $x_{i+1} - x_{i} > r$. Then our answer is $\\sum_{n=0}^{\\infty} P(n)$.\n\nBy PIE we can write\n$$\nP(n) = \\sum_{i=1}^{\\infty} (-1)^{i-1} \\binom{n+1}{i} \\max (1 - i r, 0)^{n}\n$$\nbased on which intervals $x_{i+1} - x_{i}$ have length greater than $r$. Now we switch the order of summation:\n$$\n\\sum_{n=0}^{\\infty} P(n) = \\sum_{n=0}^{\\infty} \\sum_{i=1}^{\\infty} (-1)^{i-1} \\binom{n+1}{i} \\max (1 - i r, 0)^{n} = \\sum_{i=1}^{\\infty} (-1)^{i-1} \\sum_{n=0}^{\\infty} \\binom{n+1}{i} \\max (1 - i r, 0)^{n}\n$$\nLet $x = \\max (1 - i r, 0)$. Then\n$$\n\\sum_{n=0}^{\\infty} \\binom{n+1}{i} x^{n} = x^{i-1} \\sum_{j=0}^{\\infty} \\binom{i+j}{i} x^{j} = \\frac{x^{i-1}}{(1-x)^{i+1}}\n$$\nThus, our answer is\n$$\n\\sum_{i=1}^{\\lfloor 1 / r \\rfloor} (-1)^{i-1} \\frac{(1 - i r)^{i-1}}{(i r)^{i+1}} \\approx 712.811\n$$\nwhere the last approximation uses the C++ code below.\n\n```\n#include <bits/stdc++.h>\nusing namespace std;\ntypedef long double ld;\nint main() {\nld sum = 0, r = 0.01;\nfor (int i = 1; ; ++i) {\nld x = 1-r*i; if (x <= 0) break;\nld ex = pow(x/(1-x),i-1)/(1-x)/(1-x);\nif (i&1) sum += ex;\nelse sum -= ex;\n}\ncout << fixed << setprecision(8) << sum;\n}\n```"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-generating-functions-auto-3573",
+      "name": "HMMT February 2019 #0k9x",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2019",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Generating functions",
+        "Recurrence relations",
+        "Prime numbers",
+        "Other"
+      ],
+      "statement": "Problem:\n\nThere is a unique function $f: \\mathbb{N} \\rightarrow \\mathbb{R}$ such that $f(1)>0$ and such that\n$$\n\\sum_{d \\mid n} f(d) f\\left(\\frac{n}{d}\\right)=1\n$$\nfor all $n \\geq 1$. What is $f\\left(2018^{2019}\\right)$ ?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFix any prime $p$, and let $a_n=f\\left(p^n\\right)$ for $n \\geq 0$. Notice that using the relation for $p^n$, we obtain\n$$\n\\sum_{i=0}^{n} a_i a_{n-i}=1\n$$\nwhich means that if we let $g(x)=\\sum_{n \\geq 0} a_n x^n$, then $g(x)^2=1+x+x^2+\\cdots=\\frac{1}{1-x}$ as a generating function. Thus $g(x)=(1-x)^{-\\frac{1}{2}}$, and this is well-known to have generating function with coefficients $a_n=\\frac{\\binom{2 n}{n}}{4^{n}}$. One way to see this is using the Taylor series and then reorganizing terms; it is also intimately related to the generating function for the Catalan numbers. In particular, $a_n$ is independent of our choice of $p$.\n\nNow if we define $f_0(n)=\\prod_{p \\mid n} a_{v_p(n)}$, then we see that $f=f_0$ on the prime powers.\n\nIf we define the Dirichlet convolution of two functions $\\chi_1, \\chi_2: \\mathbb{N} \\rightarrow \\mathbb{R}$ as $\\chi_3$ such that\n$$\n\\chi_3(n)=\\sum_{d \\mid n} \\chi_1(d) \\chi_2\\left(\\frac{n}{d}\\right)\n$$\nthen it is well-known that multiplicative functions ($\\chi(m) \\chi(n)=\\chi(m n)$ if $\\operatorname{gcd}(m, n)$, so e.g. $\\phi(n)$, the Euler totient function) convolve to a multiplicative function.\n\nIn particular, $f_0$ is a multiplicative function by definition (it is equivalent to only define it at prime powers then multiply), so the convolution of $f_0$ with itself is multiplicative. By definition of $a_n$, the convolution of $f_0$ with itself equals 1 at all prime powers. Thus by multiplicativity, it equals the constant function 1 everywhere.\n\nTwo final things to note: $f_0(1)=a_0=1>0$, and $f$ satisfying the conditions in the problem statement is indeed unique (proceed by induction on $n$ that $f(n)$ is determined uniquely and that the resulting algorithm for computing $f$ gives a well-defined function). Therefore $f_0$, satisfying those same conditions, must equal $f$.\n\nAt last, we have\n$$\nf\\left(p^{2019}\\right)=f_0\\left(p^{2019}\\right)=\\frac{\\binom{4038}{2019}}{4^{2019}}\n$$\nso\n$$\nf\\left(2018^{2019}\\right)=f\\left(2^{2019}\\right) f\\left(1009^{2019}\\right)=\\frac{\\binom{4038}{2019}^{2}}{4^{4038}}=\\frac{\\binom{4038}{2019}^{2}}{2^{8076}}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-generating-functions-auto-3633",
+      "name": "HMMT February 2020 #0kbl",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2020",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Expected values",
+        "Generating functions",
+        "Algebraic properties of binomial coefficients"
+      ],
+      "statement": "Problem:\n\nMax repeatedly throws a fair coin in a hurricane. For each throw, there is a $4\\%$ chance that the coin gets blown away. He records the number of heads $H$ and the number of tails $T$ before the coin is lost. (If the coin is blown away on a toss, no result is recorded for that toss.) What is the expected value of $|H-T|$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nIn all solutions, $p=\\frac{1}{25}$ will denote the probability that the coin is blown away. Let $D=|H-T|$. Note that if $D \\neq 0$, the expected value of $D$ is not changed by a coin flip, whereas if $D=0$, the expected value of $D$ increases by $1$. Therefore $\\mathbf{E}(D)$ can be computed as the sum over all $n$ of the probability that the $n$th coin flip occurs when $D=0$. This only occurs when $n=2k+1$ is odd, where the probability that the first $n$ coin flips occur is $(1-p)^{2k+1}$ and the probability that $D=0$ after the first $n-1$ flips is $\\frac{\\binom{2k}{k}}{4^k}$. Therefore\n$$\n\\begin{aligned}\n\\mathbf{E}(D) & =(1-p) \\sum_{k=0}^{\\infty}\\left(\\frac{1-p}{2}\\right)^{2k}\\binom{2k}{k} \\\\\n& =\\frac{1-p}{\\sqrt{1-(1-p)^{2}}}\n\\end{aligned}\n$$\nusing the generating function\n$$\n\\sum_{k=0}^{\\infty}\\binom{2k}{k} x^{k}=\\frac{1}{\\sqrt{1-4x}}\n$$\nPlugging in $p=\\frac{1}{25}$ yields $\\mathbf{E}(D)=\\frac{24}{7}$.\n\nSolution:\n\nFor each $n \\geqslant 0$, the probability that Max made $n$ successful throws (not counting the last throw) is $p(1-p)^{n}$.\n\nClaim: Assuming Max made $n \\geqslant 1$ throws, the expected value of $|H-T|$ is given by\n$$\n\\prod_{k=1}^{\\lfloor(n-1)/2\\rfloor} \\frac{2k+1}{2k}.\n$$\n\nProof. If $n$ is odd then the expected value for $n+1$ will be equal to that for $n$; since $|H-T|$ will be nonzero, it will be equally likely to increase or decrease after the coin is flipped. Therefore, it suffices to compute the expected value for the $n$ odd case. This is\n$$\n\\begin{aligned}\n\\frac{\\sum_{i=0}^{(n-1)/2}\\binom{n}{i} \\cdot (n-2i)}{2^{n-1}} & = n - \\frac{\\sum_{i=0}^{(n-1)/2}\\binom{n}{i} \\cdot 2i}{2^{n-1}} \\\\\n& = n \\cdot \\left(1 - \\frac{2 \\cdot \\sum_{i=0}^{(n-3)/2}\\binom{n-1}{i}}{2^{n-1}}\\right) \\\\\n& = n \\cdot \\frac{\\binom{n-1}{(n-1)/2}}{2^{n-1}}\n\\end{aligned}\n$$\n$$\n\\begin{aligned}\n& = \\frac{n!}{(n-1)!!^{2}} \\\\\n& = \\frac{n!!}{(n-1)!!} \\\\\n& = \\prod_{k=1}^{(n-1)/2} \\frac{2k+1}{2k}\n\\end{aligned}\n$$\nas desired.\n\nUsing the claim, we have\n$$\n\\begin{aligned}\n\\mathbf{E}(|H-T|) & = p\\left(\\sum_{n=1}^{\\infty}(1-p)^{n} \\prod_{k=1}^{\\lfloor(n-1)/2\\rfloor} \\frac{2k+1}{2k}\\right) \\\\\n& = p(1-p)(2-p) \\sum_{m=0}^{\\infty}\\left((1-p)^{2m} \\prod_{k=1}^{m} \\frac{2k+1}{2k}\\right) \\\\\n& = p(1-p)(2-p)\\left(1-(1-p)^{2}\\right)^{-3/2} \\\\\n& = \\frac{1-p}{\\sqrt{p(2-p)}}.\n\\end{aligned}\n$$\nPlugging in $p=\\frac{1}{25}$ gives\n$$\n\\mathbf{E}(|H-T|) = \\frac{24}{25} \\cdot 5 \\cdot \\frac{5}{7} = \\frac{24}{7}.\n$$\n\nSolution:\n\nLet $E_{n}$ be the expected value of $|H-T+n|$. By symmetry, $E_{-n}=E_{n}$ for all $n$. Considering what happens in the next throw gives\n$$\n2E_{n} = (1-p)E_{n-1} + (1-p)E_{n+1} + 2pn\n$$\nfor all $n \\geqslant 0$. Now let $\\alpha = \\frac{1-\\sqrt{p(2-p)}}{1-p} < 1$ be the smaller root of $(1-p)x^{2} - 2x + (1-p) = 0$. From\n$$\n\\begin{aligned}\n\\sum_{n=1}^{\\infty} 2\\alpha^{n} E_{n} & = \\sum_{n=1}^{\\infty} \\alpha^{n}\\left((1-p)E_{n-1} + (1-p)E_{n+1} + 2pn\\right) \\\\\n& = \\alpha(1-p)E_{0} + (2\\alpha - (1-p))E_{1} + \\sum_{n=1}^{\\infty} 2pn\\alpha^{n} + \\sum_{n=2}^{\\infty} 2\\alpha^{n}E_{n}\n\\end{aligned}\n$$\nwe have\n$$\n(1-p)E_{1} - \\alpha(1-p)E_{0} = \\sum_{n=1}^{\\infty} 2pn\\alpha^{n} = \\frac{2p\\alpha}{(1-\\alpha)^{2}}\n$$\nAs $E_{0} = (1-p)E_{1}$, this gives\n$$\nE_{0}(1-\\alpha(1-p)) = \\frac{2p\\alpha}{(1-\\alpha)^{2}}\n$$\nPlugging in $p=\\frac{1}{25}$ and $\\alpha=\\frac{3}{4}$ gives $E_{0}=\\frac{24}{7}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-generating-functions-auto-3705",
+      "name": "HMMT February 2020 #0kdl",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2020",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Generating functions",
+        "Catalan numbers, partitions",
+        "Algebraic properties of binomial coefficients"
+      ],
+      "statement": "Problem:\nAnastasia is taking a walk in the plane, starting from $(1,0)$. Each second, if she is at $(x, y)$, she moves to one of the points $(x-1, y)$, $(x+1, y)$, $(x, y-1)$, and $(x, y+1)$, each with $\\frac{1}{4}$ probability. She stops as soon as she hits a point of the form $(k, k)$. What is the probability that $k$ is divisible by $3$ when she stops?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe key idea is to consider $(a+b, a-b)$, where $(a, b)$ is where Anastasia walks on. Then, the first and second coordinates are independent random walks starting at $1$, and we want to find the probability that the first is divisible by $3$ when the second reaches $0$ for the first time. Let $C_{n}$ be the $n$th Catalan number. The probability that the second random walk first reaches $0$ after $2n-1$ steps is\n$$\n\\frac{C_{n-1}}{2^{2n-1}},\n$$\nand the probability that the first is divisible by $3$ after $2n-1$ steps is\n$$\n\\frac{1}{2^{2n-1}} \\sum_{i \\equiv n \\bmod 3} \\binom{2n-1}{i}\n$$\n(by letting $i$ be the number of $-1$ steps). We then need to compute\n$$\n\\sum_{n=1}^{\\infty} \\left( \\frac{C_{n-1}}{4^{2n-1}} \\sum_{i \\equiv n \\bmod 3} \\binom{2n-1}{i} \\right).\n$$\nBy a standard root of unity filter,\n$$\n\\sum_{i \\equiv n \\bmod 3} \\binom{2n-1}{i} = \\frac{4^{n} + 2}{6}.\n$$\nLetting\n$$\nP(x) = \\frac{2}{1 + \\sqrt{1-4x}} = \\sum_{n=0}^{\\infty} C_{n} x^{n}\n$$\nbe the generating function for the Catalan numbers, we find that the answer is\n$$\n\\frac{1}{6} P\\left(\\frac{1}{4}\\right) + \\frac{1}{12} P\\left(\\frac{1}{16}\\right) = \\frac{1}{3} + \\frac{1}{12} \\cdot \\frac{2}{1 + \\sqrt{\\frac{3}{4}}} = \\frac{3-\\sqrt{3}}{3}.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-generating-functions-auto-3720",
+      "name": "HMIC #0ke0",
+      "url": "https://usamoguide.com/",
+      "source": "HMIC",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomials mod p",
+        "Fermat / Euler / Wilson theorems",
+        "Quadratic residues",
+        "Generating functions",
+        "Algebraic properties of binomial coefficients"
+      ],
+      "statement": "Problem:\nLet $C_{k} = \\frac{1}{k+1} \\binom{2k}{k}$ denote the $k^{\\text{th}}$ Catalan number and $p$ be an odd prime. Prove that exactly half of the numbers in the set\n$$\n\\left\\{\\sum_{k=1}^{p-1} C_{k} n^{k} \\mid n \\in \\{1,2, \\ldots, p-1\\}\\right\\}\n$$\nare divisible by $p$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe work in $\\mathbb{F}_{p}[X]$.\nWe claim that\n$$\n(1-4 X)^{\\frac{p+1}{2}}-1+2 X^{p}+2 X \\sum_{k=0}^{p-1} C_{k} X^{k}=0\n$$\nThe solution follows from this claim, as\n$$\n\\sum_{k=1}^{p-1} C_{k} n^{k} \\equiv 0 \\quad(\\bmod p) \\Longleftrightarrow (1-4 n)^{\\frac{p+1}{2}}-1+2 n^{p}+2 n \\equiv 0 \\quad(\\bmod p)\n$$\nSince $n^{p} \\equiv n \\pmod{p}$, this is equivalent to $n \\equiv \\frac{1}{4} \\pmod{p}$ or $1-4 n$ being a non-zero quadratic residue in $\\mathbb{F}_{p}$. But we must omit the solution of $n=0$, so we get $1+\\left(\\frac{p-1}{2}-1\\right)=\\frac{p-1}{2}$ values of $n$ that work. Now we prove the claim. Observe the following facts:\n- $C_{p-1}=\\frac{1}{2p-1}\\binom{2p-1}{p}=-1$ by Lucas' theorem.\n- For $\\frac{p-1}{2}<k<p-1$,\n$$\n\\nu_{p}\\left(C_{k}\\right)=\\nu_{p}((2k)!)-\\nu_{p}((k+1)!)-\\nu_{p}(k!)=1\n$$\nsince $k+1<p \\leq 2k$, so $C_{k}=0$.\nWe show that the coefficient of $X^{k}$ in the LHS is 0 for $k=0, \\ldots, p$. This is obvious for $k>\\frac{p+1}{2}$ and $k=0$ by the above facts, as the coefficient is $2+2 C_{p-1}$ for $k=p$, $2 C_{k}$ for $\\frac{p+1}{2}<k<p$, and 0 for $k=0$.\nNow for $1 \\leq k \\leq \\frac{p+1}{2}$, the coefficient is $\\binom{\\frac{p+1}{2}}{k}(-4)^{k}+2 C_{k-1}=0$. Write\n$$\n\\begin{aligned}\n\\binom{\\frac{p+1}{2}}{k} & =\\frac{\\frac{p+1}{2} \\cdot \\frac{p-1}{2} \\cdot \\frac{p-3}{2} \\cdots \\frac{p-2k+3}{2}}{k!} \\\\\n& =\\frac{\\frac{1}{2} \\cdot\\left(-\\frac{1}{2}\\right) \\cdot\\left(-\\frac{3}{2}\\right) \\cdots\\left(-\\frac{2k-3}{2}\\right)}{k!} \\\\\n& =\\frac{(-1)^{k-1}}{2^{k}} \\cdot \\frac{1 \\cdot 3 \\cdots (2k-3)}{k!} \\\\\n& =\\frac{(-1)^{k-1}}{2^{k}} \\cdot \\frac{(2k-2)!}{2^{k-1}(k-1)!k!} \\\\\n& =-\\frac{2 C_{k-1}}{(-4)^{k}}\n\\end{aligned}\n$$\nso the coefficient is 0 .\n\nSolution:\nWe present an alternate proof of the key claim. Use the same starting facts as before.\nLet $Q(X) = -2 + \\sum_{k=0}^{\\frac{p-1}{2}} C_{k} X^{k} = -2 + X^{p-1} + \\sum_{k=0}^{p-1} C_{k} X^{k}$.\nSquare $Q$ and multiply by $X$ to get\n$$\n\\begin{aligned}\nX Q^{2} & = 4X - 4X \\sum_{k=0}^{\\frac{p-1}{2}} C_{k} X^{k} + X\\left(\\sum_{k=0}^{\\frac{p-1}{2}} C_{k} X^{k}\\right)^{2} \\\\\n& = -4X - 4X Q + X \\sum_{k=0}^{p-2} \\sum_{j=0}^{k} C_{j} C_{k-j} X^{k} + C_{\\frac{p-1}{2}}^{2} X^{p} \\\\\n& = -4X - 4X Q + \\sum_{k=0}^{p-2} C_{k+1} X^{k+1} + 4 X^{p} \\\\\n& = -4X - 4X Q + Q + 1 - X^{p-1} + 4 X^{p} \\\\\n& = (1-4X) Q - (1-4X)(X^{p-1} - 1)\n\\end{aligned}\n$$\nIt follows that\n$$\n\\begin{aligned}\n0 & = 4X \\cdot \\left(X Q^{2} - (1-4X) Q + (1-4X)(X^{p-1} - 1)\\right) \\\\\n& = 4X^{2} Q^{2} - 4X(1-4X) Q + 4(1-4X)(X^{p} - X) \\\\\n& = 4X^{2} Q^{2} - 4X(1-4X) Q + (1-4X)^{2} - (1-4X)^{p+1} \\\\\n& = \\left(2X Q + (1-4X)^{\\frac{p+1}{2}} - (1-4X)\\right) \\cdot \\left(2X Q - (1-4X)^{\\frac{p+1}{2}} - (1-4X)\\right) .\n\\end{aligned}\n$$\nEvaluating the second factor at 0 gives $-2$, so it is not the zero polynomial. Thus the first factor is the zero polynomial, from which the claim follows.\n\nSolution:\nWe prove the following generalization: Let $q$ be a power of $p$. Then the polynomial $\\sum_{k=1}^{q-1} C_{k} X^{k}$ has $\\frac{q+1}{2}$ roots in $\\mathbb{F}_{q}$ and $\\frac{p+1}{2}$ roots in $\\mathbb{F}_{p}$. It once again suffices to prove the key claim, just with $p$ replaced by $q$.\nWork in $\\mathbb{F}_{q}[[X]]$, the ring of formal power series over $\\mathbb{F}_{q}$. Then\n$$\n\\begin{aligned}\n\\sum_{k=0}^{\\infty} \\binom{2k}{k} X^{k} & = (1-4X)^{-\\frac{1}{2}} \\\\\n& = (1-4X)^{\\frac{q-1}{2}} \\left((1-4X)^{q}\\right)^{-\\frac{1}{2}} \\\\\n& = (1-4X)^{\\frac{q-1}{2}} \\left(1-4X^{q}\\right)^{-\\frac{1}{2}} \\\\\n& = (1-4X)^{\\frac{q-1}{2}} \\sum_{k=0}^{\\infty} \\binom{2k}{k} X^{qk}\n\\end{aligned}\n$$\nTaking both sides mod $X^{q}$,\n$$\n\\sum_{k=0}^{q-1} \\binom{2k}{k} X^{k} = (1-4X)^{\\frac{q-1}{2}}\n$$\nThen using $\\binom{2q}{q} = 2$, we have\n$$\n\\sqrt{1-4X} = (1-4X) \\cdot (1-4X)^{-\\frac{1}{2}} \\equiv (1-4X) \\cdot \\left((1-4X)^{\\frac{q-1}{2}} + 2 X^{q}\\right) \\quad \\left(\\bmod X^{q+1}\\right)\n$$\nso\n$$\nX \\sum_{k=0}^{\\infty} C_{k} X^{k} = \\frac{1-\\sqrt{1-4X}}{2} \\equiv \\frac{1-(1-4X)^{\\frac{q+1}{2}} - 2 X^{q}}{2} \\quad \\left(\\bmod X^{q+1}\\right)\n$$\nfrom which the claim follows.\nAlternatively, one can also finish by integrating $(1-4X)^{\\frac{p-1}{2}}$, noting that the \"constant of integration\" is no longer a constant but rather a polynomial of the form $a + b X^{p}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-generating-functions-auto-3979",
+      "name": "HMMT Spring 2021 Team Round #0kl7",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT Spring 2021 Team Round",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Counting two ways",
+        "Recursion, bijection",
+        "Generating functions",
+        "Algebraic properties of binomial coefficients",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\nLet $k$ and $n$ be positive integers and let\n$$\nS=\\left\\{\\left(a_{1}, \\ldots, a_{k}\\right) \\in \\mathbb{Z}^{k} \\mid 0 \\leq a_{k} \\leq \\cdots \\leq a_{1} \\leq n, a_{1}+\\cdots+a_{k}=k\\right\\}\n$$\nDetermine, with proof, the value of\n$$\n\\sum_{\\left(a_{1}, \\ldots, a_{k}\\right) \\in S}\\binom{n}{a_{1}}\\binom{a_{1}}{a_{2}} \\cdots\\binom{a_{k-1}}{a_{k}}\n$$\nin terms of $k$ and $n$, where the sum is over all $k$-tuples $\\left(a_{1}, \\ldots, a_{k}\\right)$ in $S$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet\n$$\nT=\\left\\{\\left(b_{1}, \\ldots, b_{n}\\right) \\mid 0 \\leq b_{1}, \\ldots, b_{n} \\leq k, b_{1}+\\cdots+b_{n}=k\\right\\}\n$$\nThe sum in question counts $|T|$, by letting $a_{i}$ be the number of $b_{j}$ that are at least $i$. By stars and bars, $|T|=\\binom{k+n-1}{k}$.\n\nOne way to think about $T$ is as follows. Suppose we wish to choose $k$ squares in a grid of squares with $k$ rows and $n$ columns, such that each square not in the bottom row has a square below it. If we divide the grid into columns and let $b_{j}$ be the number of chosen squares in the $j$th column then we get that $T$ is in bijection with valid ways to choose our $k$ squares.\n\nOn the other hand, if we divide the grid into rows, and let $a_{i}$ be the number of chosen squares in the $i$th row (counting up from the bottom), then we obtain the sum in the problem. This is because we have $\\binom{n}{a_{1}}$ choices for the squares in the first row, and $\\binom{a_{i-1}}{a_{i}}$ choices for the squares in the $i$th row, given the squares in the row below, for each $i=2, \\ldots, k$.\n\nSolution:\nDefine\n$$\nF_{k}(x, y)=\\sum_{n, a_{1}, \\ldots, a_{k}}\\binom{n}{a_{1}} \\cdots\\binom{a_{k-1}}{a_{k}} x^{n} y^{a_{1}+\\cdots+a_{k}}\n$$\nwhere the sum is over all nonegative integers $n, a_{1}, \\ldots, a_{k}$ (the nonzero terms have $n \\geq a_{1} \\geq \\cdots \\geq a_{k}$). Note that we are looking for the coefficient of $x^{n} y^{k}$ in $F_{k}(x, y)$. By first summing over $a_{k}$ on the inside and using the Binomial theorem, we obtain\n$$\nF_{k}(x, y)=\\sum_{n, a_{1}, \\ldots, a_{k-1}}\\binom{n}{a_{1}} \\cdots\\binom{a_{k-2}}{a_{k-1}} x^{n} y^{a_{1}+\\cdots+a_{k-1}}(1+y)^{a_{k-1}}\n$$\nNow, we repeat this by summing over $a_{k-1}$, then $a_{k-2}$, and so on. We obtain\n$$\nF_{k}(x, y)=\\sum_{n} x^{n}\\left(1+y+\\cdots+y^{k}\\right)^{n}\n$$\nSo the answer is just the coefficient $y^{k}$ in $\\left(1+y+\\cdots+y^{k}\\right)^{n}$. By stars and bars, this is $\\binom{k+n-1}{k}$.\n\nSolution:\nLet\n$$\nS\\left(n, k, k'\\right)=\\left\\{\\left(a_{1}, \\ldots, a_{k}\\right) \\mid 0 \\leq a_{k} \\leq \\cdots \\leq a_{1} \\leq n, a_{1}+\\cdots+a_{k}=k'\\right\\}\n$$\nand note that $S(n, k, k)$ is the set $S$ in the problem.\n\nDefine\n$$\nf\\left(n, k, k'\\right)=\\sum_{\\left(a_{1}, \\ldots, a_{k}\\right) \\in S\\left(n, k, k'\\right)}\\binom{n}{a_{1}}\\binom{a_{1}}{a_{2}} \\cdots\\binom{a_{k-1}}{a_{k}}\n$$\nNow, consider $\\left(a_{1}, \\ldots, a_{k}\\right) \\in S\\left(n, k, k'\\right)$. We have\n$$\ni a_{i} \\leq a_{1}+\\cdots+a_{k}=k'$$\nSo $a_{i} \\leq \\frac{k'}{i}$. In particular, if $k>k'$, then we have $a_{i}=0$ for each $k'<i \\leq k$. This means that $f\\left(n, k, k'\\right)=f\\left(n, k', k'\\right)$ if $k>k'$.\n\nNow, let $f(n, k)=f(n, k, k)$ be the answer. Splitting the sum based on the possible values of $a_{1}$ gives\n$$\nf(n, k)=\\sum_{a_{1}}\\binom{n}{a_{1}} f\\left(a_{1}, k-1, k-a_{1}\\right)\n$$\nFor $k>0$, we must have $a_{1} \\geq 1$, which means\n$$\nf\\left(a_{1}, k-1, k-a_{1}\\right)=f\\left(a_{1}, k-a_{1}, k-a_{1}\\right)=f\\left(a_{1}, k-a_{1}\\right)\n$$\nSo, we obtain the recurrence\n$$\nf(n, k)=\\sum_{a_{1}}\\binom{n}{a_{1}} f\\left(a_{1}, k-a_{1}\\right)\n$$\nNow we claim $f(n, k)=\\binom{k+n-1}{k}$. We proceed by induction, with our base case being $k=1$. The claim is easy to verify for $k=1$.\n\nIn the inductive step, we obtain\n$$\nf(n, k)=\\sum_{a_{1}}\\binom{n}{a_{1}}\\binom{k-1}{k-a_{1}}=\\binom{k+n-1}{k}\n$$\nwhere we applied Vandermonde's identity in the last equality."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-generating-functions-auto-4082",
+      "name": "HMIC #0ko2",
+      "url": "https://usamoguide.com/",
+      "source": "HMIC",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Sums and products",
+        "Generating functions",
+        "Decimals"
+      ],
+      "statement": "Problem:\nIs\n$$\n\\prod_{k=0}^{\\infty}\\left(1-\\frac{1}{2022^{k!}}\\right)\n$$\nrational?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nIt suffices to prove that the product $A=\\prod_{k=1}^{\\infty}\\left(1-\\frac{1}{2022^{k!}}\\right)$ is irrational. Suppose for the sake of contradiction that $A$ is rational. Note that for each non-negative integer $n$, there exists at most one subset $S$ of $\\{1!, 2!, 3!, \\ldots\\}$ such that the sum of entries of $S$ equals $n$. Thus, we have\n$$\nA=\\prod_{k=1}^{\\infty}\\left(1-\\frac{1}{2022^{k!}}\\right)=\\sum_{n=0}^{\\infty} \\frac{\\epsilon_{n}}{2022^{n}}\n$$\nwhere $\\epsilon_{n} \\in\\{-1,0,1\\}$ for each non-negative integer $n$. Adding $\\frac{2022}{2021}=\\sum_{n=0}^{\\infty} \\frac{1}{2022^{n}}$ to both sides gives us\n$$\nA+\\frac{2022}{2021}=\\sum_{n=0}^{\\infty} \\frac{\\epsilon_{n}'}{2022^{n}},\n$$\nwhere $\\epsilon_{n}' \\in\\{0,1,2\\}$. Since we assumed $A$ is rational, we have that the sequence $\\epsilon_{0}', \\epsilon_{1}', \\epsilon_{2}', \\ldots$ must be eventually periodic with period length $P$, which means that the sequence $\\epsilon_{0}, \\epsilon_{1}, \\epsilon_{2}, \\ldots$ must also be eventually periodic with period length $P$. Note that this sequence has infinitely nonzero terms. That means that there exists some positive integer $M$ such that if $n \\geq M$, then at least one of $\\epsilon_{n+1}, \\epsilon_{n+2}, \\ldots, \\epsilon_{n+P}$ is nonzero. Now, select a positive integer\n$$\nN=T!+(T-1)!+(T-2)!+\\cdots+1!,\n$$\nwhere $T=\\max (2 P, M)$. Note that $T+1, T+2, \\ldots, T+P$ all cannot be expressed as the sum of elements of a subset of $\\{1!, 2!, 3!, \\ldots\\}$, which means that $\\epsilon_{T+1}=\\epsilon_{T+2}=\\cdots=\\epsilon_{T+P}=0$. Therefore, we have a contradiction, so $A$ is not rational."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-generating-functions-auto-4110",
+      "name": "AIME II #0kou",
+      "url": "https://usamoguide.com/",
+      "source": "AIME II",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Generating functions",
+        "Techniques: modulo, size analysis, order analysis, inequalities",
+        "Polynomials"
+      ],
+      "statement": "There is a polynomial $P(x)$ with integer coefficients such that\n$$\nP(x) = \\frac{(x^{2310} - 1)^6}{(x^{105} - 1)(x^{70} - 1)(x^{42} - 1)(x^{30} - 1)}\n$$\nholds for every $0 < x < 1$. Find the coefficient of $x^{2022}$ in $P(x)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-generating-functions-auto-4181",
+      "name": "HMIC #0kqt",
+      "url": "https://usamoguide.com/",
+      "source": "HMIC",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Generating functions",
+        "Induction / smoothing",
+        "Sums and products"
+      ],
+      "statement": "Problem:\n\nFor a nonnegative integer $n$, let $s(n)$ be the sum of digits of the binary representation of $n$. Prove that\n$$\n\\sum_{n=0}^{2^{2022}-1} \\frac{(-1)^{s(n)}}{2022+n}>0\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nDefine\n$$\nf_k(x)=\\sum_{n=0}^{2^k-1} \\frac{(-1)^{s(n)}}{x+n}\n$$\nWe want to show that $f_{2022}(2022)>0$. We will in fact show something stronger.\n\nI claim that for all $x>0$, for all $k \\geq 0$, we have $f_k^{(i)}(x)>0$ for even $i$ and $f_k^{(i)}(x)<0$ for odd $i$, where $f^{(i)}$ denotes the $i$th derivative of $f$. We will prove this claim with induction on $k$.\n\nThe base case of $k=0$ is easy to see because $f_0(x)=\\frac{1}{x}$, so $f_0^{(2j)}(x)=\\frac{(2j)!}{x^{2j+1}}>0$ and $f_0^{(2j-1)}(x)=-\\frac{(2j-1)!}{x^{2j}}<0$ for all $x>0$.\n\nNow, assume the claim is true for $k=N$. Then, note that\n$$\n\\begin{gathered}\nf_{N+1}(x)=\\sum_{n=0}^{2^{N+1}-1} \\frac{(-1)^{s(n)}}{x+n}=\\sum_{n=0}^{2^N-1} \\frac{(-1)^{s(n)}}{x+n}+\\sum_{n=0}^{2^N-1} \\frac{(-1)^{s\\left(n+2^N\\right)}}{x+n+2^N}= \\\\\n\\sum_{n=0}^{2^N-1} \\frac{(-1)^{s(n)}}{x+n}-\\sum_{n=0}^{2^N-1} \\frac{(-1)^{s(n)}}{x+n+2^N}=f_N(x)-f_N\\left(x+2^N\\right)\n\\end{gathered}\n$$\nThus,\n$$\nf_{N+1}^{(2j)}(x)=f_N^{(2j)}(x)-f_N^{(2j)}\\left(x+2^N\\right)>0\n$$\nsince $\\left(f_N^{(2j)}(x)\\right)'=f_N^{(2j+1)}(x)<0$. Similarly, we can show that $f_{N+1}^{2j+1}(x)<0$, which completes the induction, so we are done.\n\nSolution:\n\nDefine the function\n$$\nf(t)=t^{2021}(1-t)\\left(1-t^{2}\\right)\\left(1-t^{4}\\right)\\left(1-t^{8}\\right) \\cdots\\left(1-t^{2^{2021}}\\right)=\\sum_{n=0}^{2^{2022}-1}(-1)^{s(n)} t^{2021+n}\n$$\nNote that we have $f(t)>0$ for all $t \\in(0,1)$, so we have\n$$\n0<\\int_{0}^{1} f(t) d t=\\sum_{n=0}^{2^{2022}-1}(-1)^{s(n)} \\frac{1}{2022+n}\n$$\nso we are done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-generating-functions-auto-4356",
+      "name": "USA TSTST #0kvo",
+      "url": "https://usamoguide.com/",
+      "source": "USA TSTST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Coloring schemes, extremal arguments",
+        "Generating functions"
+      ],
+      "statement": "Find all positive integers $n$ for which it is possible to color some cells of an infinite grid of unit squares red, such that each rectangle consisting of exactly $n$ cells (and whose edges lie along the lines of the grid) contains an odd number of red cells.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "*Proof.* This can be achieved as follows: assuming the cells are labeled with $(x, y) \\in \\mathbb{Z}^2$, color a cell red if $x \\equiv 0 \\pmod{2^m}$ and $y \\equiv 0 \\pmod{2^{k-m}}$. For example, a $4 \\times 2$ rectangle gets the following coloring:\n\n![](attached_image_1.png)\n\nA $2^m \\times 2^{k-m}$ rectangle contains every possible pair $(x \\pmod{2^m}, y \\pmod{2^{k-m}})$ exactly once, so such a rectangle will contain one red cell (an odd number).\n\nOn the other hand, consider a $2^\\ell \\times 2^{k-\\ell}$ rectangle with $\\ell > m$. The set of cells this covers is $(x, y)$ where $x$ covers a range of size $2^\\ell$ and $y$ covers a range of size $2^{k-\\ell}$. The number of red cells is the count of $x$ with $x \\equiv 0 \\pmod{2^m}$ multiplied by the count of $y$ with $y \\equiv 0 \\pmod{2^{k-m}}$. The former number is exactly $2^{\\ell-k}$ because $2^k$ divides $2^\\ell$ (while the latter is 0 or 1) so the number of red cells is even. The $\\ell < m$ case is similar. $\\square$\n\nFinally, given these $k+1$ colorings, we can add them up modulo 2, i.e. a cell will be colored red if it is red in an odd number of these $k+1$ colorings. We illustrate $n=4$ as an example; the coloring is 4-periodic in both axes so we only show one $4 \\times 4$ cell.\n\n![](attached_image_2.png)\n\nThis solves the problem.\n\n\nAlternate proof of (ii) using generating functions\n\nWe will commit to constructing a coloring which is $n$-periodic in both directions. (This is actually forced, so it's natural to do so.) With that in mind, let\n$$\nf(x, y) = \\sum_{i=0}^{2^k-1} \\sum_{j=0}^{2^k-1} \\lambda_{i,j} x^i y^j\n$$\ndenote its generating function, where $f \\in \\mathbb{F}_2[x, y]$.\n\nFor this to be valid, we need that for any $2^p \\times 2^q$ rectangle with area $n$, the sum of the coefficients of $f$ over it should be one, modulo $x^{2^k} = y^{2^k} = 1$. In other words, whenever $p+q=k$, we must have\n$$\nf(x, y)(1 + \\cdots + x^{2^p-1})(1 + \\cdots + y^{2^q-1}) = (1 + \\cdots + x^{2^k-1})(1 + \\cdots + y^{2^k-1}),\n$$\ntaken modulo $x^{2^k} = y^{2^k} = 1$. The idea is to rewrite these expressions: because we're in characteristic 2, the given assertion is $(x+1)^{2^k} = (y+1)^{2^k} = 0$, and the requested property is\n$$\nf(x, y)(x + 1)^{2^p - 1}(y + 1)^{2^q - 1} = (x + 1)^{2^k - 1}(y + 1)^{2^k - 1}.\n$$\nWhenever $p+q=k$, we must have\n$$\ng(x, y)x^{2^p-1}y^{2^q-1} = x^{2^k-1}y^{2^k-1},\n$$\n$$\ng(x, y) = \\sum_{p+q=k} x^{2^k-2^p} y^{2^k-2^q}\n$$\nworks. The end."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-generating-functions-auto-4370",
+      "name": "HMMT November 2023 #0kw2",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2023",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Counting two ways",
+        "Generating functions",
+        "Sums and products"
+      ],
+      "statement": "Problem:\nLet $s(n)$ denote the sum of the digits (in base ten) of a positive integer $n$. Compute the number of positive integers $n$ at most $10^{4}$ that satisfy\n$$\ns(11 n)=2 s(n)\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nNote $2 s(n)=s(10 n)+s(n)=s(11 n)$, so there cannot be any carries when adding $n$ and $10 n$. This is equivalent to saying no two consecutive digits of $n$ sum to greater than $9$.\n\nWe change the problem to nonnegative integers less than $10^{4}$ (as both $0$ and $10^{4}$ satisfy the condition) so that we simply consider $4$-digit numbers, possibly with leading $0$s. Letting our number be $a b c d$, we need $a+b \\leq 9$, $b+c \\leq 9$, and $c+d \\leq 9$. Letting $b' = 9-b$ and $d' = 9-d$, this means $a \\leq b'$, $b' \\geq c$, $c \\leq d'$.\n\nSumming over all possible values of $b'$ and $d'$, we want\n$$\n\\sum_{x, y=1}^{10} x \\cdot \\min (x, y)\n$$\nThe sum over pairs $(x, y)$ with $x>y$ is\n$$\n\\frac{(1+2+\\cdots+10)^{2}-\\left(1^{2}+2^{2}+\\cdots+10^{2}\\right)}{2}=\\frac{55^{2}-55 \\cdot 7}{2}=55 \\cdot 24 .\n$$\nThe sum over pairs $x \\leq y$ is\n$$\n\\sum_{k=1}^{10} k^{2}(11-k)=11 \\cdot 55 \\cdot 7-55^{2}=55 \\cdot 22\n$$\nThe final answer is $55 \\cdot(24+22)=55 \\cdot 46=2530$.\n\n\nSolution 2:\nHere is another way to calculate the sum. By doing casework on $(b, c)$, the sum is\n$$\n\\sum_{b+c \\leq 9}(10-b)(10-c)\n$$\nThis is the coefficient of $x^{9}$ of\n$$\n\\begin{aligned}\n\\left(\\sum_{n \\geq 0}(10-n) x^{n}\\right)^{2}\\left(\\sum_{n \\geq 0} x^{n}\\right) & =\\frac{(10-11 x)^{2}}{(1-x)^{5}} \\\\\n& =(10-11 x)^{2} \\sum_{n \\geq 0}\\binom{n+4}{4} x^{n}\n\\end{aligned}\n$$\nThus, the answer is\n$$\n100\\binom{13}{4}-220\\binom{12}{4}+121\\binom{11}{4}=2530\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-generating-functions-auto-4448",
+      "name": "USA TST #0ky8",
+      "url": "https://usamoguide.com/",
+      "source": "USA TST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Generating functions",
+        "Roots of unity",
+        "Vectors",
+        "Induction / smoothing",
+        "Greatest common divisors (gcd)"
+      ],
+      "statement": "Let $m$ and $n$ be fixed positive integers. Tsvety and Freyja play a game on an infinite grid of unit square cells. Tsvety has secretly written a real number inside of each cell so that the sum of the numbers within every rectangle of size either $m \\times n$ or $n \\times m$ is zero. Freyja wants to learn all of these numbers.\n\nOne by one, Freyja asks Tsvety about some cell in the grid, and Tsvety truthfully reveals what number is written in it. Freyja wins if, at any point, Freyja can simultaneously deduce the number written in every cell of the entire infinite grid. (If this never occurs, Freyja has lost the game and Tsvety wins.)\n\nIn terms of $m$ and $n$, find the smallest number of questions that Freyja must ask to win, or show that no finite number of questions can suffice.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "The answer is the following:\n* If $\\gcd(m, n) > 1$, then Freyja cannot win.\n* If $\\gcd(m, n) = 1$, then Freyja can win in a minimum of $(m-1)^2 + (n-1)^2$ questions.\n\nFirst, we dispose of the case where $\\gcd(m, n) > 1$. Write $d = \\gcd(m, n)$. The idea is that any labeling where each $1 \\times d$ rectangle has sum zero is valid. Thus, to learn the labeling, Freyja must ask at least one question in every row, which is clearly not possible in a finite number of questions.\n\nNow suppose $\\gcd(m, n) = 1$. We split the proof into two halves.\n\n**¶ Lower bound**\nClearly, any labeling where each $m \\times 1$ and $1 \\times m$ rectangle has sum zero is valid. These labelings form a vector space with dimension $(m-1)^2$, by inspection. (Set the values in an $(m-1) \\times (m-1)$ square arbitrarily and every other value is uniquely determined.)\n\nSimilarly, labelings where each $n \\times 1$ and $1 \\times n$ rectangle have sum zero are also valid, and have dimension $(n-1)^2$.\n\nIt is also easy to see that no labeling other than the all-zero labeling belongs to both categories; labelings in the first space are periodic in both directions with period $m$, while labelings in the second space are periodic in both directions with period $n$; and hence any labeling in both categories must be constant, ergo all-zero.\n\nTaking sums of these labelings gives a space of valid labelings of dimension $(m-1)^2 + (n-1)^2$. Thus, Freyja needs at least $(m-1)^2 + (n-1)^2$ questions to win.\n\n**¶ Proof of upper bound using generating functions, by Ankan Bhattacharya**\nWe prove:\n\n**Claim (Periodicity) —** Any valid labeling is doubly periodic with period $mn$.\n\n*Proof.* By Chicken McNugget, there exists $N$ such that $N$ and $N+1$ are both nonnegative integer linear combinations of $m$ and $n$.\n\nThen both $mn \\times N$ and $mn \\times (N + 1)$ rectangles have zero sum, so $mn \\times 1$ rectangles have zero sum. This implies that any two cells with a vertical displacement of $mn$ are equal; similarly for horizontal displacements. $\\square$\n\nWith that in mind, consider a valid labeling. It naturally corresponds to a generating function\n$$\nf(x, y) = \\sum_{a=0}^{mn-1} \\sum_{b=0}^{mn-1} c_{a,b} x^a y^b\n$$\nwhere $c_{a,b}$ is the number in $(a, b)$.\n\nThe generating function corresponding to sums over $n \\times m$ rectangles is\n$$\nf(x, y)(1 + x + \\cdots + x^{m-1})(1 + y + \\cdots + y^{n-1}) = f(x, y) \\cdot \\frac{x^m - 1}{x - 1} \\cdot \\frac{y^n - 1}{y - 1}.\n$$\nSimilarly, the one for $m \\times n$ rectangles is\n$$\nf(x, y) \\cdot \\frac{x^n - 1}{x - 1} \\cdot \\frac{y^m - 1}{y - 1}.\n$$\nThus, the constraints for $f$ to be valid are equivalent to\n$$\nf(x, y) \\cdot \\frac{x^m - 1}{x - 1} \\cdot \\frac{y^n - 1}{y - 1} \\quad \\text{and} \\quad f(x, y) \\cdot \\frac{x^n - 1}{x - 1} \\cdot \\frac{y^m - 1}{y - 1}\n$$\nbeing zero when reduced modulo $x^{mn} - 1$ and $y^{mn} - 1$, or, letting $\\omega = \\exp(2\\pi i/m)$, both terms being zero when powers of $\\omega$ are plugged in.\n\nTo restate the constraints one final time, we need\n$$\nf(\\omega^a, \\omega^b) \\cdot \\frac{\\omega^{am} - 1}{\\omega^a - 1} \\cdot \\frac{\\omega^{bn} - 1}{\\omega^b - 1} = f(\\omega^a, \\omega^b) \\cdot \\frac{\\omega^{an} - 1}{\\omega^a - 1} \\cdot \\frac{\\omega^{bm} - 1}{\\omega^b - 1} = 0\n$$\nfor all $a, b \\in \\{0, \\dots, mn - 1\\}$.\n\nThis implies $f(\\omega^a, \\omega^b) = 0$ for most choices of $(a, b)$. If it does not, we need\n$$\n\\frac{\\omega^{am} - 1}{\\omega^a - 1} \\cdot \\frac{\\omega^{bn} - 1}{\\omega^b - 1} = \\frac{\\omega^{an} - 1}{\\omega^a - 1} \\cdot \\frac{\\omega^{bm} - 1}{\\omega^b - 1} = 0.\n$$\nThis happens when (at least) one fraction in either product is zero.\n* If the first fraction is zero, then either $n \\mid a$ and $a > 0$, or $m \\mid b$ and $b > 0$.\n* If the second fraction is zero, then either $m \\mid a$ and $a > 0$, or $n \\mid b$ and $b > 0$.\n\nIf the first condition holds in both cases, then $mn \\mid a$, but $0 < a < mn$, a contradiction. Thus if $n \\mid a$, then we must have $n \\mid b$, and similarly if $m \\mid a$ then $m \\mid b$.\n\nThe former case happens $(m - 1)^2$ times, and the latter case happens $(n - 1)^2$ times. Thus, at most $(m - 1)^2 + (n - 1)^2$ values of $f(\\omega^a, \\omega^b)$ are nonzero. It follows that the dimension of the space of valid labelings is at most $(m - 1)^2 + (n - 1)^2$, as desired.\n\nLet Freyja ask about all cells $(x, y)$ in the two squares\n$$\n\\begin{aligned}\nS_1 &= [1, m-1] \\times [1, m-1] \\\\\nS_2 &= [m, m+n-2] \\times [1, n-1].\n\\end{aligned}\n$$\n\nIn the beginning, one by one, Freyja determines all values inside of the rectangle $Q := [1, m-1] \\times [m, n-1]$. To that end, on each step she considers some rectangle with $m$ rows and $n$ columns such that its top left corner is in $Q$ and all of the other values in it have been determined already. In this way, Freyja uncovers all of $Q$, starting with its lower right corner and then proceeding upwards and to the left.\n\nThus Freyja can learn all numbers inside of the rectangle\n$$\nR := [1, m+n-2] \\times [1, n-1] = Q \\cup S_1 \\cup S_2.\n$$\n\nSee the figure below for an illustration for $(m, n) = (5, 8)$. The first cell of $Q$ is uncovered using the dotted green rectangle.\n![](attached_image_1.png)\n\nWe need one lemma:\n**Lemma**\nLet $m$ and $n$ be positive integers with $\\gcd(m, n) = 1$. Consider an unknown sequence of real numbers $z_1, z_2, \\dots, z_s$ with $s \\ge m+n-2$. Suppose that we know the sums of all contiguous blocks of size either $m$ or $n$ in this sequence. Then we can determine all individual entries in the sequence as well.\n\n*Proof.* By induction on $m+n$. Suppose, without loss of generality, that $m \\le n$. Our base case is $m=1$, which is clear. For the induction step, set $\\ell = n-m$. Each contiguous block of size $\\ell$ within $z_1, z_2, \\dots, z_{s-n}$ is the difference of two contiguous blocks of sizes $m$ and $n$ within the original sequence. By the induction hypothesis for $\\ell$ and $m$, it follows that we can determine all of $z_1, z_2, \\dots, z_{s-n}$. Then we determine the remaining $z_i$ as well, one by one, in order from left to right, by examining on each step an appropriate contiguous block of size $m$. $\\square$\n\nLet $T$ be the rectangle $[1, m+n-2] \\times \\{n\\}$. By looking at appropriate rectangles of sizes $m \\times n$ and $n \\times m$ such that their top row is contained within $T$ and all of their other rows are contained within $R$, Freyja can learn the sums of all contiguous blocks of values of sizes $m$ and $n$ within $T$. By the Lemma, it follows that Freyja can uncover all of $T$.\n\nIn this way, with the help of the Lemma, Freyja can extend her rectangular area of knowledge both upwards and downwards. Once its height reaches $m+n-2$, by the same method she will be able to extend it to the left and right as well. This allows Freyja to determine all values in the grid. Therefore, $(m-1)^2 + (n-1)^2$ questions are indeed sufficient."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

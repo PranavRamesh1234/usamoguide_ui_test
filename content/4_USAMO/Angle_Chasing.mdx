@@ -1,0 +1,113 @@
+---
+id: olympiad-angle-chasing
+title: Angle Chasing
+author: Nico Young
+description: The core of olympiad geometry
+prerequisites: ["geometry-advanced", "proof-writing-basics"]
+---
+
+## Overview
+
+In this section we'll be talking about angle chasing; 
+the basic of olympiad geometry. 
+
+**Angle chasing**, as the name suggests, 
+is about calculating angles. 
+Angle chasing is the core of synthetic geometry, 
+as it is related to some facts about lines and circles. 
+More precisely, 
+- Three points $A$, $B$, $C$ are collinear in this order, iff $\angle ABC=0^\circ$. 
+- Four points $A$, $B$, $C$, $D$ are concyclic in this order, iff $\angle ABD=\angle ACD$. (But $\angle ABC=180^\circ -\angle ADC$ nontheless; we'll talk about this later).
+- Similar triangles! You should know SS, SAS, and ASA. 
+
+In most of the geometry problems, in order to prove the result, 
+you will need to find the ``hidden'' line or circles, 
+four points are concyclic, three points are collinear, etc. 
+where angle chasing is one of the used way to prove those. 
+
+## Directed angles 
+
+The most annoying issue about olympiad geometry is the **configuration issue**; 
+let us introduce the example of that. 
+
+**Example 1**: Let $A$, $B$, $X$, $Y$ be four points on the plane. 
+- If $X$, $Y$ is on the *same* side with respect to the line $AB$, those four are concyclic iff $\angle AXB=\angle AYB$. 
+- If $X$, $Y$ is on the *different* side with respect to the line $AB$, those four are concyclic iff $\angle AXB=180^\circ -\angle AYB$. 
+
+Doesn't this look annoying? This means that if we use angles are usual, we sometimes need a casework about configuration issues. So, here's the trick. What if we make angles directed, mod $180^\circ$? 
+
+**Definition 2**: We define directed angles of $\angle XYZ$, denoted as $\measuredangle XYZ$, as follows: 
+- The angle is taken modulo $180^\circ$, that is, $\measuredangle XYZ=\measuredangle XYZ +180^\circ=\measuredangle XYZ +180^\circ \cdot 2=\dots$ and so on. (Be careful that we use the "$=$" instead of "$\equiv $". We somehow write $0^\circ =180^\circ$ in terms of directed angles, but not $0^\circ \equiv 180^\circ \pmod {180^\circ}$). 
+- We have $\measuredangle XYZ=\angle XYZ$ iff $X$, $Y$, and $Z$ are in clockwise order, and $\measuredangle XYZ=-\angle XYZ$ otherwise. 
+
+What is this so cool about? Indeed, we have that: 
+
+**Rephrased Example 1**: Let $A$, $B$, $X$, $Y$ be four points on the plane. The four points are concyclic if and only if $\measuredangle AXB=\measuredangle AYB$. 
+
+So clean, right? Try to confirm that this is true by caseworking on configurations. this feels like considering complex roots in the polynomial. 
+
+Now you know how powerful the directed angle is, let me introduce some properties about directed angles. When you read this, try to confirm this by your sel (and also that it *fails* when we change $\measuredangle$ with $\angle$). 
+- We have $\measuredangle AOP+\measuredangle POB=\measuredangle AOB$. 
+- We have $\measuredangle ABC+\measuredangle BCA+\measuredangle CAB=0^\circ$. 
+- Let $Q$ be any point. Then $A$, $P$, $B$ are collinear if and only if $\measuredangle APQ=\measuredangle BPQ$. 
+
+If you think these are too much, don't worry, you'll get used to it. (Also note that directed angles are the "rewrite" technique, rather than a brand new theorem.) Read https://web.evanchen.cc/faq-contest.html#C-11 for more details. 
+
+When during contests, I recommend you to define directed angles before using it, they're somehow still not common (but getting popular these days). 
+
+## Configurations 
+
+Using angle chasing, we'll be dealing with example problems, as well as introducing famous configuration that you should know. 
+
+### Example 1: Orthocenter configuration 
+
+Let $ABC$ be a triangle. Recall, the orthocenter is the intersection of the altitudes, say, $AD$, $BE$, and $CF$. Standardly, we denote the orthocenter as $H$.
+
+This still begs the question: why do the three altitudes concur at the aforementioned point. To show this holds, we use Ceva's theorem. Note the following observations:
+- $BD = AB \cdot \sin(B)$ and $CD = AC \cdot \sin(C)$ from right triangles $ABD$ and $ACD$.
+- $CE = BC \cdot \sin(C)$ and $AE = BA \cdot \sin(A)$ from right triangles $BCE$ and $BAE$.
+- $AF = CA \cdot \sin(A)$ and $BF = CB \cdot \sin(B)$ from right triangles $CAF$ and $CBF$.
+
+Therefore, as
+
+$$
+\dfrac{BD}{CD} \cdot \dfrac{CE}{AE} \cdot \dfrac{AF}{BF} = \dfrac{AB\cdot \sin(B)}{AC\cdot \sin(C)}\cdot \dfrac{BC\cdot \sin(C)}{BA\cdot \sin(A)}\cdot \dfrac{CA\cdot \sin(A)}{CB\cdot \sin(B)} = 1,
+$$
+
+then $AD$, $BE$, and $CF$ concur at a single point, due to Ceva's Theorem. As remarked previously, this point is the orthocenter, usually denoted by $H$.
+
+With the knowledge of the existence of the orthocenter, we can now show you all the magic properties of the orthocenter! As the title suggests, we will use angle chasing to discover a bunch of slick properties!
+
+Here is an outline of a sample angle chase with the goal of determining $\angle BHC$, in terms of $\angle BAC$.
+- Note that $\angle BHC = \angle DHB + \angle DHC$.
+- However, $\angle DHB = \angle ACB$ as $\triangle BHD \sim \triangle BCE$ and $\angle DHC = \angle ABC$ as $\triangle CHD \sim \triangle CBF$.
+- Hence, $\angle DHB + \angle DHC = \angle ACB + \angle ABC = 180^{\circ} - \angle BAC$.
+- Putting all this together, then $\angle BHC + \angle BAC = 180^{\circ}$.
+
+We have sure seen this property before where two angles sum to $180^{\circ}$! That being, when two angles sum to $180^{\circ}$, it usually means two angles are cyclic! I say usually because in this case $ABHC$ is concave. In particular, $\angle BHC$ in the above proof actually corresponds to the angle outside of the quadrilateral $ABHC$. And so, this actually means the reflection of $H$ over $BC$, which we will denote by $H'$, lies on the circumcircle of $ABC$. In addition, the reflection of $H$ over the midpoint of $BC$, which we will denote by $H''$, lies on the circumcircle of $ABC$, as well. Both are due to the fact that 
+
+$$
+\angle BHC = \angle BH'C = \angle BH''C.
+$$
+
+Nealty enough, this yields us to some further conclusions! First, introduce the circumcenter of the circumcircle of $ABC$ which we will denote as $O$. Consider the following outline of observations:
+- As $H'$ and $H''$ are both reflections of some sort of $H$ over some point on line $BC$, then the distances of $H'$ and $H''$ from $BC$ are equal. Hence, $H'H'' \parallel BC$. 
+- In addition, as $AH \perp BC$ and $A$, $H$, and $H'$ are collinear, then $AH' \perp BC$. 
+- So, $AH' \perp H'H''$, and finally $\angle AH'H'' = 90^{\circ}$. 
+- Remarkably, this implies $O$ lies on $AH''$ as $AH''$ would be the diameter of the circumcircle of $ABC$.
+
+With that being said, this wraps our mini exploration into the orthocenter all thanks to our first angle chase!
+
+### Example 2: Incenter configuration 
+
+TODO 
+
+## Examples 
+
+TODO 
+
+## Practice Problems
+
+<Problems problems="practice" />
+
+

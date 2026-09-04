@@ -1,0 +1,195 @@
+{
+  "MODULE_ID": "algebra-algebraic-expressions-polynomials-chebyshev-polynomials",
+  "practice": [
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-chebyshev-polynomials-auto-0520",
+      "name": "Berkeley Math Circle #0hx4",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recurrence relations",
+        "Telescoping series",
+        "Chebyshev polynomials"
+      ],
+      "statement": "Problem:\nLet $a > 2$ be given, and define a sequence $a_{0}, a_{1}, a_{2}, \\ldots$ by\n$$\na_{0} = 1, \\quad a_{1} = a, \\quad a_{n+1} = \\left(\\frac{a_{n}^{2}}{a_{n-1}^{2}} - 2\\right) \\cdot a_{n} .\n$$\nShow that for all integers $k \\geq 0$, we have\n$$\n\\sum_{i=0}^{k} \\frac{1}{a_{i}} < \\frac{a+2-\\sqrt{a^{2}-4}}{2} .\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWrite the recursion as\n$$\n\\frac{a_{n+1}}{a_{n}} = \\left(\\frac{a_{n}}{a_{n-1}}\\right)^{2} - 2\n$$\nLet $b_{n} = a_{n+1} / a_{n}$; then $b_{n} = b_{n-1}^{2} - 2$ and $b_{0} = a$. Let\n$$\nt = \\frac{a + \\sqrt{a^{2} - 4}}{2}\n$$\nThen $a = t + 1 / t$ and it is a simple induction to show that $b_{n} = t^{2^{n}} + t^{-2^{n}}$ for $n \\geq 0$. Then\n$$\na_{n} = a_{0} b_{0} b_{1} \\cdots b_{n-1} = \\prod_{i=0}^{n-1} \\left(t^{2^{i}} + t^{-2^{i}}\\right) = \\prod_{i=0}^{n-1} \\frac{t^{2^{i+1}} - t^{-2^{i+1}}}{t^{2^{i}} - t^{-2^{i}}} = \\frac{t^{2^{n}} - t^{-2^{n}}}{t - t^{-1}}\n$$\nSo\n$$\n\\begin{aligned}\n\\sum_{i=0}^{k} \\frac{1}{a_{i}} & = \\left(t - t^{-1}\\right) \\sum_{i=0}^{k} \\frac{1}{t^{2^{i}} - t^{-2^{i}}} \\\\\n& = \\left(t - t^{-1}\\right) \\sum_{i=0}^{k} \\frac{t^{2^{i}} + 1 - 1}{t^{2^{i+1}} - 1} \\\\\n& = \\left(t - t^{-1}\\right) \\sum_{i=0}^{k} \\left(\\frac{1}{t^{i} - 1} - \\frac{1}{t^{2^{i+1}} - 1}\\right) \\\\\n& = \\left(t - t^{-1}\\right)\\left(\\frac{1}{t - 1} - \\frac{1}{t^{2^{k+1}} - 1}\\right) \\\\\n& < \\left(t - t^{-1}\\right)\\left(\\frac{1}{t - 1}\\right) \\\\\n& = 1 + \\frac{1}{t} \\\\\n& = \\frac{a + 2 - \\sqrt{a^{2} - 4}}{2} .\n\\end{aligned}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-chebyshev-polynomials-auto-1439",
+      "name": "Team Selection Test #0imn",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Trigonometry",
+        "Chebyshev polynomials"
+      ],
+      "statement": "Let $\\theta$ be an angle in the interval $(0, \\pi/2)$. Given that $\\cos \\theta$ is irrational, and that $\\cos k\\theta$ and $\\cos[(k+1)\\theta]$ are both rational for some positive integer $k$, show that $\\theta = \\pi/6$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Thus both $\\cos(k^2\\theta) = \\cos[k(k\\theta)]$ and $\\cos[(k^2-1)\\theta] = \\cos[(k-1)(k+1)\\theta]$ are rational. By the Addition and subtraction formulas, we have\n$$\n\\cos[(k+1)\\theta] = \\cos k\\theta \\cos \\theta - \\sin k\\theta \\sin \\theta \\quad \\text{and} \\quad \\cos(k^2\\theta) = \\cos[(k^2-1)\\theta] \\cos \\theta - \\sin[(k^2-1)\\theta] \\sin \\theta.\n$$\nSetting $r_1 = \\cos k\\theta$, $r_2 = \\cos[(k+1)\\theta]$, $r_3 = \\cos[(k^2-1)\\theta]$, $r_4 = \\cos(k^2\\theta)$, and $x = \\cos \\theta$ in the above equations yields\n$$\nr_2 = r_1 x \\pm \\sqrt{(1 - r_1^2)(1 - x^2)} \\quad \\text{and} \\quad r_4 = r_3 x \\pm \\sqrt{(1 - r_3^2)(1 - x^2)},\n$$\nor\n$$\n\\pm\\sqrt{(1 - r_1^2)(1 - x^2)} = r_2 - r_1 x \\quad \\text{and} \\quad \\pm\\sqrt{(1 - r_3^2)(1 - x^2)} = r_4 - r_3 x.\n$$\nSquaring these two equations and subtracting the resulting equations gives\n$$\n2(r_1 r_2 - r_3 r_4)x = r_1^2 + r_2^2 - (r_3^2 + r_4^2).\n$$\nSince $r_1, r_2, r_3, r_4$ are rational and $x$ is irrational, we must have $r_1r_2 - r_3r_4 = 0$ or\n$$\n\\cos k\\theta \\cos[(k+1)\\theta] = \\cos(k^2\\theta) \\cos[(k^2-1)\\theta].\n$$\nBy the product-to-sum formulas, we derive\n$$\n\\frac{\\cos[(2k + 1)\\theta] - \\cos \\theta}{2} = \\frac{\\cos[(2k^2 - 1)\\theta] - \\cos \\theta}{2}\n$$\nor $\\cos[(2k + 1)\\theta] - \\cos[(2k^2 - 1)\\theta] = 0$. By the sum-to-product formulas, we obtain\n$$\n2 \\sin[(k - k^2 + 1)\\theta] \\sin[(k^2 + k)\\theta] = 0,\n$$\nimplying that either $(k - k^2 + 1)\\theta$ or $(k^2 + k)\\theta$ is a integral multiple of $\\pi$. Since $k$ is an integer, we conclude that $\\theta = r\\pi$ for some rational number $r$.\nConsidering Lemma 2 for $\\alpha = k\\theta$ and $\\alpha = (k+1)\\theta$, the possible values of $\\cos k\\theta$ and $\\cos[(k+1)\\theta]$ are $0, \\pm 1, \\pm \\frac{1}{2}$. Consequently, both $k\\theta$ and $(k+1)\\theta$ is a integral multiple of $\\frac{\\pi}{6}$. Since $0 < \\theta = k\\theta - (k-1)\\theta < \\frac{\\pi}{2}$, the only possible values of $\\theta$ are $\\frac{\\pi}{3}$ and $\\frac{\\pi}{6}$. Since $\\cos \\theta$ is irrational, $\\theta = \\frac{\\pi}{6}$.\n\n(Based on the work by Kiran Kedlaya) We maintain the notations used in the first proof. Then $s = 2 \\cos \\theta$ is a root of $S_k(x) - 2r_1$ and $S_{k+1}(x) - 2r_2$ by the definition of $S_n$. Define\n$$\nQ(x) = \\gcd(S_k(x) - 2r_1, S_{k+1}(x) - 2r_2)\n$$\nwhere the gcd is taken over the field of rational numbers. Then $Q(x)$ is a polynomial with rational coefficients, so the sum of its roots (with multiplicities) is rational. Since $s$ is assumed not to be rational, there must be at least one other distinct root $t$ of $Q(x)$.\nNote that the $k$ distinct reals $2\\cos(\\theta + 2\\pi a/k)$ for $a = 0, 1, \\dots, k-1$ form $k$ roots of the degree $k$ polynomial $S_k(x) - 2r_1$, so they compose all of its roots. Similarly, all of the roots of $S_{k+1}(x) - 2r_2$ have the form $2\\cos(\\theta + 2\\pi b/(k+1))$ for $b = 0, 1, \\dots, k$. Note that $s$ and $t$ are roots of $Q(x)$. Therefore roots of both $S_k(x) - 2r_1$ and $S_{k+1}(x) - 2r_2$, and so they must have at least two distinct common roots. Each root $r$ of $Q(x)$ must thus satisfy\n$$\nr = 2 \\cos(\\theta + 2\\pi a/k) = 2 \\cos(\\theta + 2\\pi b/(k+1))\n$$\nfor some $a$ and $b$. We either have $\\theta + 2\\pi a/k = \\theta + 2\\pi b/(k+1)$ and thus $r = 2 \\cos \\theta$ or $\\theta + 2\\pi a/k = -\\theta - 2\\pi b/(k+1)$ and thus\n$$\n\\theta = - \\frac{\\pi[(a+b)k+a]}{k(k+1)}.\n$$\nIn the first case, we obtain $s$, so $t$ must lead to the second value of $\\theta$, as $s \\neq t$.\nTherefore, we can write $\\theta = \\frac{\\pi c}{k(k+1)}$ for some integer $c$. By Lemma 2, $c/k$ and $c/(k+1)$ must both be multiples of $1/6$, since $\\cos k\\theta = \\cos \\frac{c\\pi}{k+1}$ and $\\cos(k+1)\\theta = \\cos \\frac{c\\pi}{k}$ are rational. Therefore, $\\theta = \\frac{c\\pi}{k} - \\frac{c\\pi}{k+1}$ is a multiple of $\\pi/6$. Since $t$ is not rational, $\\theta$ can only be $\\pi/6$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-chebyshev-polynomials-auto-1451",
+      "name": "Harvard-MIT Mathematics Tournament #0imz",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recurrence relations",
+        "Complex numbers",
+        "Chebyshev polynomials"
+      ],
+      "statement": "Problem:\nA sequence $\\{a_{n}\\}_{n \\geq 0}$ of real numbers satisfies the recursion $a_{n+1} = a_{n}^{3} - 3 a_{n}^{2} + 3$ for all positive integers $n$. For how many values of $a_{0}$ does $a_{2007} = a_{0}$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $\\mathbf{3}^{\\mathbf{2007}}$. If $x$ appears in the sequence, the next term $x^{3} - 3x^{2} + 3$ is the same if and only if $0 = x^{3} - 3x^{2} - x + 3 = (x-3)(x-1)(x+1)$. Moreover, that next term is strictly larger if $x > 3$ and strictly smaller if $x < -1$. It follows that no values of $a_{0}$ with $|a_{0} - 1| > 2$ yield $a_{0} = a_{2007}$.\n\nNow suppose $a_{0} = a_{2007}$ and write $a_{0} = 1 + e^{\\alpha i} + e^{-\\alpha i}$; the values $a_{0}$ we seek will be in bijective correspondence with solutions $\\alpha$ where $0 \\leq \\alpha \\leq \\pi$. Then\n$$\na_{1} = (a_{0} - 1)^{3} - 3a_{0} + 4 = e^{3\\alpha i} + 3e^{\\alpha i} + 3e^{-\\alpha i} + e^{-3\\alpha i} - 3e^{\\alpha i} - 3e^{-\\alpha i} - 3 + 4 = e^{3\\alpha i} + e^{-3\\alpha i} + 1\n$$\nand an easy inductive argument gives $a_{2007} = e^{3^{2007} \\alpha i} + e^{-3^{2007} \\alpha i} + 1$. It follows that $a_{0} = a_{2007}$ is equivalent to $\\cos(\\alpha) = \\cos(3^{2007} \\alpha)$. Now,\n$$\n\\cos(3^{2007} \\alpha) - \\cos(\\alpha) = 2 \\sin\\left(\\frac{3^{2007} + 1}{2} \\alpha\\right) \\sin\\left(\\frac{3^{2007} - 1}{2} \\alpha\\right)\n$$\nso since $\\sin(kx) = 0$ for a positive integer $k$ if and only if $x$ is a multiple of $\\frac{\\pi}{k}$, the solutions $\\alpha$ are $\\{0, \\frac{2\\pi}{3^{2007} - 1}, \\frac{4\\pi}{3^{2007} - 1}, \\ldots, \\pi\\} \\cup \\{0, \\frac{2\\pi}{3^{2007} + 1}, \\ldots, \\pi\\}$. Because our values $k$ are consecutive, these sets overlap only at $0$ and $\\pi$, so there are $3^{2007}$ distinct $\\alpha$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-chebyshev-polynomials-auto-1769",
+      "name": "12th Annual Harvard-MIT Mathematics Tournament #0ivt",
+      "url": "https://usamoguide.com/",
+      "source": "12th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Chebyshev polynomials",
+        "Coloring schemes, extremal arguments",
+        "Counting two ways"
+      ],
+      "statement": "Problem:\n\nThe vertices of a regular hexagon are labeled $\\cos (\\theta)$, $\\cos (2 \\theta)$, $\\cos (3 \\theta)$, $\\cos (4 \\theta)$, $\\cos (5 \\theta)$, $\\cos (6 \\theta)$. For every pair of vertices, Bob draws a blue line through the vertices if one of these functions can be expressed as a polynomial function of the other (that holds for all real $\\theta$), and otherwise Roberta draws a red line through the vertices. In the resulting graph, how many triangles whose vertices lie on the hexagon have at least one red and at least one blue edge?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: 14\n\nThe existence of the Chebyshev polynomials, which express $\\cos (n \\theta)$ as a polynomial in $\\cos (\\theta)$, imply that Bob draws a blue line between $\\cos (\\theta)$ and each other vertex, and also between $\\cos (2 \\theta)$ and $\\cos (4 \\theta)$, between $\\cos (2 \\theta)$ and $\\cos (6 \\theta)$, and between $\\cos (3 \\theta)$ and $\\cos (6 \\theta)$ (by substituting $\\theta' = 2 \\theta$ or $3 \\theta$ as necessary). We now show that Roberta draws a red line through each other pair of vertices.\n\nLet $m$ and $n$ be positive integers. Notice that $\\cos (n \\theta)$ is a periodic function with period $\\frac{2 \\pi}{n}$, and $\\cos (m \\theta)$ is periodic with period $\\frac{2 \\pi}{m}$. Thus, any polynomial in $\\cos (m \\theta)$ is also periodic of period $\\frac{2 \\pi}{m}$. This may not be the minimum period of the polynomial, however, so the minimum period is $\\frac{2 \\pi}{m k}$ for some $k$. Therefore, if $\\cos (n \\theta)$ can be expressed as a polynomial in $\\cos (m \\theta)$ then $\\frac{2 \\pi}{n} = \\frac{2 \\pi}{m k}$ for some $k$, so $m \\mid n$. This shows that there is a blue line between two vertices $\\cos (a \\theta)$ and $\\cos (b \\theta)$ if and only if one of $a$ or $b$ divides the other.\n\nDrawing the graph, one can easily count that there are 3 triangles with all blue edges, 3 triangles with all red edges, and $\\binom{6}{3} = 20$ triangles total. Thus there are $20 - 3 - 3 = 14$ triangles having at least one red and at least one blue edge."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-chebyshev-polynomials-auto-2946",
+      "name": "HMMT February #0jsi",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Roots of unity",
+        "Vieta's formulas",
+        "Chebyshev polynomials",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\n\nCompute $\\tan \\left(\\frac{\\pi}{7}\\right) \\tan \\left(\\frac{2 \\pi}{7}\\right) \\tan \\left(\\frac{3 \\pi}{7}\\right)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nConsider the polynomial $P(z)=z^{7}-1$. Let $z=e^{i x}=\\cos x+i \\sin x$. Then\n$$\n\\begin{aligned}\nz^{7}-1= & \\left(\\cos ^{7} x-\\binom{7}{2} \\cos ^{5} x \\sin ^{2} x+\\binom{7}{4} \\cos ^{3} x \\sin ^{4} x-\\binom{7}{6} \\cos x \\sin ^{6} x-1\\right) \\\\\n& +i\\left(-\\sin ^{7} x+\\binom{7}{2} \\sin ^{5} x \\cos ^{2} x-\\binom{7}{4} \\sin ^{3} x \\cos ^{4} x+\\binom{7}{6} \\sin x \\cos 6 x\\right)\n\\end{aligned}\n$$\nConsider the real part of this equation. We may simplify it to $64 \\cos ^{7} x-\\ldots-1$, where the middle terms are irrelevant. The roots of $P$ are $x=\\frac{2 \\pi}{7}, \\frac{4 \\pi}{7}, \\ldots$, so $\\prod_{k=1}^{7} \\cos \\left(\\frac{2 \\pi k}{7}\\right)=\\frac{1}{64}$. But\n$$\n\\prod_{k=1}^{7} \\cos \\left(\\frac{2 \\pi k}{7}\\right)=\\left(\\prod_{k=1}^{3} \\cos \\left(\\frac{k \\pi}{7}\\right)\\right)^{2}\n$$\nso $\\prod_{k=1}^{3} \\cos \\left(\\frac{k \\pi}{7}\\right)=\\frac{1}{8}$.\nNow consider the imaginary part of this equation. We may simplify it to $-64 \\sin ^{11} x+\\ldots+7 \\sin x$, where again the middle terms are irrelevant. We can factor out $\\sin x$ to get $-64 \\sin ^{10} x+\\ldots+7$, and this polynomial has roots $x=\\frac{2 \\pi k}{7}$ for $k=1,2,\\ldots,6$ (but not 0). Hence $\\prod_{k=1}^{6} \\sin \\left(\\frac{2 \\pi k}{7}\\right)=-\\frac{7}{64}$. But, like before, we have\n$$\n\\prod_{k=1}^{6} \\sin \\left(\\frac{2 \\pi k}{7}\\right)=-\\left(\\prod_{k=1}^{3} \\sin \\left(\\frac{2 \\pi k}{7}\\right)\\right)^{2}\n$$\nhence $\\prod_{k=1}^{3} \\sin \\left(\\frac{k \\pi}{7}\\right)=\\frac{\\sqrt{7}}{8}$. As a result, our final answer is $\\frac{\\frac{\\sqrt{7}}{8}}{\\frac{1}{8}}=\\sqrt{7}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-chebyshev-polynomials-auto-3055",
+      "name": "HMMT February 2016 #0jvj",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2016",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Chebyshev polynomials"
+      ],
+      "statement": "Problem:\nLet $q(x) = q^{1}(x) = 2x^{2} + 2x - 1$, and let $q^{n}(x) = q(q^{n-1}(x))$ for $n > 1$. How many negative real roots does $q^{2016}(x)$ have?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nDefine $g(x) = 2x^{2} - 1$, so that $q(x) = -\\frac{1}{2} + g\\left(x + \\frac{1}{2}\\right)$. Thus\n$$\nq^{N}(x) = 0 \\Longleftrightarrow \\frac{1}{2} = g^{N}\\left(x + \\frac{1}{2}\\right)\n$$\nwhere $N = 2016$.\nBut, viewed as function $g : [-1, 1] \\to [-1, 1]$ we have that $g(x) = \\cos(2 \\arccos(x))$. Thus, the equation $q^{N}(x) = 0$ is equivalent to\n$$\n\\cos\\left(2^{2016} \\arccos\\left(x + \\frac{1}{2}\\right)\\right) = \\frac{1}{2}\n$$\nThus, the solutions for $x$ are\n$$\nx = -\\frac{1}{2} + \\cos\\left(\\frac{\\pi/3 + 2\\pi n}{2^{2016}}\\right) \\quad n = 0, 1, \\ldots, 2^{2016} - 1\n$$\nSo, the roots are negative for the values of $n$ such that\n$$\n\\frac{1}{3}\\pi < \\frac{\\pi/3 + 2\\pi n}{2^{2016}} < \\frac{5}{3}\\pi\n$$\nwhich is to say\n$$\n\\frac{1}{6}\\left(2^{2016} - 1\\right) < n < \\frac{1}{6}\\left(5 \\cdot 2^{2016} - 1\\right)\n$$\nThe number of values of $n$ that fall in this range is $\\frac{1}{6}\\left(5 \\cdot 2^{2016} - 2\\right) - \\frac{1}{6}\\left(2^{2016} + 2\\right) + 1 = \\frac{1}{6}\\left(4 \\cdot 2^{2016} + 2\\right) = \\frac{1}{3}\\left(2^{2017} + 1\\right)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-chebyshev-polynomials-auto-3791",
+      "name": "USA TSTST #0kfz",
+      "url": "https://usamoguide.com/",
+      "source": "USA TSTST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle trigonometry",
+        "Trigonometry",
+        "Chebyshev polynomials",
+        "Irreducibility: Rational Root Theorem, Gauss's Lemma, Eisenstein",
+        "Greatest common divisors (gcd)"
+      ],
+      "statement": "We say a nondegenerate triangle whose angles have measures $\\theta_1, \\theta_2, \\theta_3$ is *quirky* if there exists integers $r_1, r_2, r_3$, not all zero, such that\n$$\nr_1\\theta_1 + r_2\\theta_2 + r_3\\theta_3 = 0.\n$$\nFind all integers $n \\ge 3$ for which a triangle with side lengths $n-1, n, n+1$ is quirky.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "The answer is $n = 3, 4, 5, 7$.\nWe first introduce a variant of the $k$th Chebyshev polynomials in the following lemma (which is standard, and easily shown by induction).\n\n**Lemma**\nFor each $k \\ge 0$ there exists $P_k(X) \\in \\mathbb{Z}[X]$, monic for $k \\ge 1$ and with degree $k$, such that\n$$\nP_k(X + X^{-1}) \\equiv X^k + X^{-k}.\n$$\nThe first few are $P_0(X) \\equiv 2$, $P_1(X) \\equiv X$, $P_2(X) \\equiv X^2 - 2$, $P_3(X) \\equiv X^3 - 3X$.\n\nSuppose the angles of the triangle are $\\alpha < \\beta < \\gamma$, so the law of cosines implies that\n$$\n2 \\cos \\alpha = \\frac{n+4}{n+1} \\quad \\text{and} \\quad 2 \\cos \\gamma = \\frac{n-4}{n-1}.\n$$\n\n**Claim** — The triangle is quirky iff there exists $r, s \\in \\mathbb{Z}_{\\ge 0}$ not both zero such that\n$$\n\\cos(r\\alpha) = \\pm \\cos(s\\gamma) \\quad \\text{or equivalently} \\quad P_r\\left(\\frac{n+4}{n+1}\\right) = \\pm P_s\\left(\\frac{n-4}{n-1}\\right).\n$$\n*Proof.* If there are integers $x, y, z$ for which $x\\alpha + y\\beta + z\\gamma = 0$, then we have that $(x - y)\\alpha = (y - z)\\gamma - \\pi y$, whence it follows that we may take $r = |x - y|$ and $s = |y - z|$ (noting $r = s = 0$ implies the absurd $x = y = z$). Conversely, given such $r$ and $s$ with $\\cos(r\\alpha) = \\pm \\cos(s\\gamma)$, then it follows that $r\\alpha \\pm s\\gamma = k\\pi = k(\\alpha + \\beta + \\gamma)$ for some $k$, so the triangle is quirky. $\\square$\n\nIf $r = 0$, then by rational root theorem on $P_s(X) \\pm 2$ it follows $\\frac{n-4}{n-1}$ must be an integer which occurs only when $n = 4$ (recall $n \\ge 3$). Similarly we may discard the case $s = 0$.\n\nThus in what follows assume $n \\ne 4$ and $r, s > 0$. Then, from the fact that $P_r$ and $P_s$ are nonconstant monic polynomials, we find\n\n**Corollary**\nIf $n \\ne 4$ works, then when $\\frac{n+4}{n+1}$ and $\\frac{n-4}{n-1}$ are written as fractions in lowest terms, the denominators have the same set of prime factors.\n\nBut $\\gcd(n+1, n-1)$ divides 2, and $\\gcd(n+4, n+1)$, $\\gcd(n-4, n-1)$ divide 3. So we only have three possibilities:\n\n* $n + 1 = 2^u$ and $n - 1 = 2^v$ for some $u, v \\ge 0$. This is only possible if $n = 3$. Here $2 \\cos \\alpha = \\frac{7}{4}$ and $2 \\cos \\gamma = -\\frac{1}{2}$, and indeed $P_2(-1/2) = -7/4$.\n\n* $n + 1 = 3 \\cdot 2^u$ and $n - 1 = 2^v$ for some $u, v \\ge 0$, which implies $n = 5$. Here $2 \\cos \\alpha = \\frac{3}{2}$ and $2 \\cos \\gamma = \\frac{1}{4}$, and indeed $P_2(3/2) = 1/4$.\n\n* $n + 1 = 2^u$ and $n - 1 = 3 \\cdot 2^v$ for some $u, v \\ge 0$, which implies $n = 7$. Here $2 \\cos \\alpha = \\frac{11}{8}$ and $2 \\cos \\gamma = \\frac{1}{2}$, and indeed $P_3(1/2) = -11/8$.\n\nFinally, $n = 4$ works because the triangle is right, completing the solution."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-chebyshev-polynomials-auto-4712",
+      "name": "HMIC #0l5k",
+      "url": "https://usamoguide.com/",
+      "source": "HMIC",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Chebyshev polynomials"
+      ],
+      "statement": "Problem:\nFind all polynomials $P$ with real coefficients for which there exists a polynomial $Q$ with real coefficients such that for all real $t$,\n$$\\cos (P(t)) = Q(\\cos t).$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nIt is well-known that these polynomials work by taking $Q$ to be a Chebyshev polynomial (if $P$ is linear) or a constant (if $P$ is constant).\n\nSuppose that $\\deg P \\geq 2$. Now consider the density of the roots of $\\cos (P(t))$, i.e.\n$$\n\\lim_{n \\to \\infty} \\frac{\\text{number of roots in the interval } [-n, n]}{n}.\n$$\nSince $\\cos (P(t)) = Q(\\cos t)$, the density is finite, because for each interval of length $2\\pi$, there can only be a finite number of roots (i.e. twice the degree of $Q$). However, we claim that $\\cos (P(t))$ has an infinite density of roots. In particular, consider the solutions to $P(x) = \\pm (2k - 1)\\pi /2$ over positive integers $k$. Asymptotically, for large $k$, such $x$ will always exist and be $\\Theta (k^{1 / \\deg P})$. As $k \\to \\infty$, such $x$ become infinitely dense, contradicting the finite density of roots of $Q(\\cos t)$. Therefore, $\\deg P \\leq 1$.\n\nIf $\\deg P = 1$, let $P(t) = at + b$. Observe that $Q(\\cos t)$ is periodic with period $2\\pi$, so $\\cos (P(t))$ must be as well. This is only the case when $a$ is an integer. Furthermore,\n$$\nQ(\\cos t) = \\cos (at + b) = \\cos (at)\\cos (b) - \\sin (at)\\sin (b)\n$$\nmust be an even function. Note that $\\cos (at)\\cos (b)$ is even and $\\sin (at)\\sin (b)$ is odd, so $\\sin (at)\\sin (b) = 0$ for all $t$, and hence $b$ is an integer multiple of $\\pi$.\n\nThus, the only polynomials that work are the ones claimed above.\n\nSolution:\nTaking the derivative of both sides,\n$$\n\\sin (P(t))P'(t) = (- \\sin t)Q'(\\cos t).\n$$\nThe right-hand side is bounded in $t$, so the left-hand side must also be bounded. If $\\deg P \\geq 2$, then as $t$ approaches $\\infty$, $P'(t)$ approaches $\\pm \\infty$ and $\\sin (P(t))$ does not approach $0$, contradiction. Thus, $\\deg P \\leq 1$, and we finish as before."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

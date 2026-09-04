@@ -1,0 +1,740 @@
+{
+  "MODULE_ID": "number-theory-residues-and-primitive-roots-quadratic-residues",
+  "practice": [
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-quadratic-residues-auto-0220",
+      "name": "Berkeley Math Circle Monthly Contest 2 #0hos",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 2",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Modular Arithmetic",
+        "Quadratic residues"
+      ],
+      "statement": "Problem:\n\nIf the sum of digits in a decimal representation of a natural number $n$ is equal to 2006, prove that $n$ can't be a perfect square of an integer.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe remainder of $n$ upon division by $3$ is equal to the sum of its digits, i.e. $2006$. Hence number $n$ has a remainder $2$ upon division by $3$ and no square can have that remainder."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-quadratic-residues-auto-0512",
+      "name": "Berkeley Math Circle: Monthly Contest 6 #0hww",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Quadratic residues",
+        "Inclusion-exclusion"
+      ],
+      "statement": "Problem:\n\nProve that there are infinitely many positive integers $n$ for which $n^{2}+1$ has no repeated prime factors (that is, $n^{2}+1$ is squarefree).",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nBy Fermat's Christmas theorem, the only primes which may divide $n^{2}+1$ other than $2$ are those which are $1 \\pmod{4}$, and moreover $2^{2} \\nmid n^{2}+1$ for any $n$.\n\nConsider primes $p \\equiv 1 \\pmod{4}$. Observe that for any $x$, we have\n$$\n\\#\\{n \\leq x \\mid n^{2}+1 \\equiv 0 \\pmod{p^{2}}\\} \\leq \\frac{2}{p^{2}} x + 2\n$$\nsince there are at most two solutions $\\bmod\\ p^{2}$ to $n^{2} \\equiv -1 \\pmod{p^{2}}$.\n\nSumming over all primes $p \\equiv 1 \\pmod{4}$ now implies the result, since\n$$\n\\sum_{p \\equiv 1} \\frac{2}{p^{2}} < 2\\left(\\frac{1}{4^{2}} + \\frac{1}{8^{2}} + \\ldots\\right) = \\frac{\\pi^{2}}{6} \\cdot \\frac{1}{8} < 1\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-quadratic-residues-auto-0529",
+      "name": "Berkeley Math Circle #0hxd",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Techniques: modulo, size analysis, order analysis, inequalities",
+        "Modular Arithmetic",
+        "Greatest common divisors (gcd)",
+        "Factorization techniques",
+        "Quadratic residues",
+        "Multiplicative order"
+      ],
+      "statement": "Problem:\nFind all nonnegative integer solutions $(a, b, c, d)$ to the equation\n$$\n2^{a} 3^{b}-5^{c} 7^{d}=1.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe answer is $(1,0,0,0)$, $(3,0,0,1)$, $(1,1,1,0)$ and $(2,2,1,1)$. The solution involves several cases. It's clear that $a \\geq 1$, otherwise the left-hand side is even. The remainder of the solution involves several cases.\n\n- First, suppose $b=0$.\n- If $c \\geq 1$, then modulo 5 we discover $2^{a} \\equiv 1 \\pmod{5}$ and hence $4 \\mid a$. But then modulo 3 this gives $-5^{c} 7^{d} \\equiv 0$, which is a contradiction.\n- Hence assume $c=0$. Then this becomes $2^{a}-7^{d}=1$. This implies $1+7^{d} \\equiv 2^{a} \\pmod{16}$, and hence $a \\leq 3$. Exhausting the possible values of $a=0,1,2,3$ we discover that $(3,0,0,1)$ and $(1,0,0,0)$ are solutions.\n\n- Henceforth suppose $b>0$. Taking modulo 3, we discover that $5^{c} \\equiv -1 \\pmod{3}$, so $c$ must be odd and in particular not equal to zero. Then, taking modulo 5 we find that\n$$\n1 \\equiv 2^{a} 3^{b} \\equiv 2^{a-b} \\pmod{5}\n$$\nThus, $a \\equiv b \\pmod{4}$. Now we again have several cases.\n\n- First, suppose $d=0$. Then $2^{a} 3^{b}=5^{c}+1$. Taking modulo 4, we see that $a=1$ is necessary, so $b \\equiv 1 \\pmod{4}$. Clearly we have a solution $(1,1,1,0)$ here. If $b \\geq 2$, however, then taking modulo 9 we obtain $5^{c} \\equiv -1 \\pmod{9}$, which occurs only if $c \\equiv 0 \\pmod{3}$. But then $5^{3}+1=126$ divides $5^{c}+1=2^{a} 3^{b}$, which is impossible.\n\n- Now suppose $d \\neq 0$ and $a, b$ are odd. Then $6 M^{2} \\equiv 1 \\pmod{7}$, where $M=2^{\\frac{a-1}{2}} 3^{\\frac{b-1}{2}}$ is an integer. Hence $M^{2} \\equiv -1 \\pmod{7}$, but this is not true for any integer $M$.\n\n- Finally, suppose $b, c, d \\neq 0$, and $a=2x, b=2y$ are even integers with $x \\equiv y \\pmod{2}$, and that $c$ is odd. Let $M=2^{x} 3^{y}$. We obtain $(M-1)(M+1)=5^{c} 7^{d}$. As $\\gcd(M-1, M+1) \\leq 2$, this can only occur in two situations.\n\n* In one case, $M-1=5^{c}$ and $M+1=7^{d}$. Then $5^{c}+1=2^{x} 3^{y}$. We have already discussed this equation; it is valid only when $x=y=1$ and $c=1$, which gives $(a, b, c, d)=(2,2,1,1)$.\n* In the other case, $M+1=5^{c}$ and $M-1=7^{d}$. Taking the first relation modulo 3, we obtain that $M \\equiv 2^{c}-1 \\equiv 1 \\pmod{3}$. Hence $y=0$, and $x$ is even. Now $2^{x}+1=5^{c}$ and $2^{x}-1=7^{d}$. But if $x$ is even then $3=2^{2}-1\\mid 2^{x}-1\\mid 7^{d}$, which is impossible. Hence there are no solutions here.\n\nIn summary, the only solutions are $(1,0,0,0)$, $(3,0,0,1)$, $(1,1,1,0)$ and $(2,2,1,1)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-quadratic-residues-auto-0653",
+      "name": "Berkeley Math Circle #0i0t",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Quadratic residues",
+        "Modular Arithmetic",
+        "Pigeonhole principle"
+      ],
+      "statement": "Problem:\n\nDo there exist three different prime numbers such that the sum of any two of them is a square?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe answer is no. We work modulo $4$ (i.e., we look at remainders on division by $4$). Note that any square is $\\equiv 0$ or $1 \\bmod 4$. Indeed, if $n=2k$ is even, $n^{2}=4k^{2} \\equiv 0$, while if $n=2k+1$ is odd, $n^{2}=4k^{2}+4k+1 \\equiv 1$.\n\nNow suppose some three such primes exist. If they are all odd, then each of them is $\\equiv 1$ or $3 \\pmod{4}$; some two must then have the same value modulo $4$ (both $1$ or both $3$), and then their sum is $\\equiv 2 \\pmod{4}$, so it cannot be a square.\n\nThus, the primes are not all odd, so one of them is $2$. Since they are all different, the other two are odd. If these two are both $\\equiv 3$, then again their sum is $\\equiv 2$ and cannot be a square. So one of them is $\\equiv 1$, but then this prime plus $2$ is congruent to $3$, so that sum cannot be a square. So, once again, we can find two of the three primes whose sum is not a square."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-quadratic-residues-auto-1274",
+      "name": "Harvard-MIT Mathematics Tournament, Team Round B #0ii2",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament, Team Round B",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Quadratic residues",
+        "Factorization techniques"
+      ],
+      "statement": "Problem:\n\nFind the largest positive integer $n$ such that $1! + 2! + 3! + \\cdots + n!$ is a perfect square. Prove that your answer is correct.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nClearly $1! + 2! + 3! = 9$ works. For $n \\geq 4$, we have\n$$\n1! + 2! + 3! + \\cdots + n! \\equiv 1! + 2! + 3! + 4! \\equiv 3 \\pmod{5}\n$$\nbut there are no squares congruent to $3$ modulo $5$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-quadratic-residues-auto-1517",
+      "name": "USAMO #0iot",
+      "url": "https://usamoguide.com/",
+      "source": "USAMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Greatest common divisors (gcd)",
+        "Prime numbers",
+        "Factorization techniques",
+        "Chinese remainder theorem",
+        "Quadratic residues",
+        "Polynomials"
+      ],
+      "statement": "Prove that for each positive integer $n$, there are pairwise relatively prime integers $k_0, k_1, \\dots, k_n$, all strictly greater than 1, such that $k_0 k_1 \\cdots k_n - 1$ is the product of two consecutive integers.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "We proceed by induction. The case $n=1$ is clear, since we may pick $k_0 = 3$ and $k_1 = 7$. Let us assume now that for a certain $n$ there are pairwise relatively prime integers $1 < k_0 < k_1 < \\cdots < k_n$ such that $k_0 k_1 \\cdots k_n - 1 = a_n(a_n - 1)$, for some positive integer $a_n$. Then choosing $k_{n+1} = a_n^2 + a_n + 1$ yields\n$$\nk_0 k_1 \\cdots k_{n+1} = (a_n^2 - a_n + 1)(a_n^2 + a_n + 1) = a_n^4 + a_n^2 + 1,\n$$\nso $k_0 k_1 \\cdots k_{n+1} - 1$ is the product of the two consecutive integers $a_n^2$ and $a_n^2 + 1$. Moreover,\n$$\n\\gcd(k_0 k_1 \\cdots k_n, k_{n+1}) = \\gcd(a_n^2 - a_n + 1, a_n^2 + a_n + 1) = 1,\n$$\nhence $k_0, k_1, \\dots, k_{n+1}$ are pairwise relatively prime. This completes the proof.\n\nWrite the relation to be proved as\n$$\n4k_0 k_1 \\cdots k_n = 4a(a+1) + 4 = (2a+1)^2 + 3.\n$$\nThere are infinitely many primes for which $-3$ is a quadratic residue. Let $2 < p_0 < p_1 < \\dots < p_n$ be such primes. Using the Chinese Remainder Theorem to specify $a$ modulo $p_n$, we can find an integer $a$ such that $(2a+1)^2 + 3 = 4p_0 p_1 \\cdots p_n m$ for some positive integer $m$. Grouping the factors of $m$ appropriately with the $p_i$'s, we obtain $(2a+1)^2 + 3 = 4k_0 k_1 \\cdots k_n$ with $k_i$ pairwise relatively prime. We then have $k_0 k_1 \\cdots k_n - 1 = a(a+1)$, as desired.\n\nWe are supposed to show that for every positive integer $n$, there is a positive integer $x$ such that $x(x+1)+1 = x^2+x+1$ has at least $n$ distinct prime divisors. We can actually prove a more general statement.\n\n**Claim.** Let $P(x) = a_d x^d + \\cdots + a_1 x + 1$ be a polynomial of degree $d \\ge 1$ with integer coefficients. Then for every positive integer $n$, there is a positive integer $x$ such that $P(x)$ has at least $n$ distinct prime divisors.\n\nThe proof follows from the following two lemmas.\n\n**Lemma 1.** The following set is infinite:\n$$\nQ = \\{p \\mid p \\text{ a prime for which there is an integer } x \\text{ such that } p \\text{ divides } P(x)\\}.\n$$\n*Proof.* The proof is analogous to Euclid's proof that there are infinitely many primes. Namely, if we assume that there are only finitely many primes $p_1, p_2, \\dots, p_k$ in $Q$, then for each integer $m$, $P(m p_1 p_2 \\cdots p_k)$ is an integer with no prime factors, which must equal 1 or $-1$. However, since $P$ has degree $d \\ge 1$, it takes each of the values 1 and $-1$ at most $d$ times, a contradiction. $\\square$\n\n**Lemma 2.** Let $p_1, p_2, \\dots, p_n$, $n \\ge 1$ be primes in $Q$. Then there is a positive integer $x$ such that $P(x)$ is divisible by $p_1 p_2 \\cdots p_n$.\n*Proof.* For $i = 1, 2, \\dots, n$, since $p_i \\in Q$ we can find an integer $c_i$ such that $P(x)$ is divisible by $p_i$ whenever $x \\equiv c_i(\\text{mod } p_i)$. By the Chinese Remainder Theorem, the system of $n$ congruences $x \\equiv c_i(\\text{mod } p_i)$, $i = 1, 2, \\dots, n$ has positive integer solutions. For every positive integer $x$ that solves this system, $P(x)$ is divisible by $p_1 p_2 \\cdots p_n$. $\\square$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-quadratic-residues-auto-2405",
+      "name": "RMM #0jdh",
+      "url": "https://usamoguide.com/",
+      "source": "RMM",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Quadratic residues",
+        "Fermat / Euler / Wilson theorems",
+        "Prime numbers"
+      ],
+      "statement": "For a positive integer $a$, define a sequence of integers $x_1, x_2, \\dots$ by letting $x_1 = a$ and $x_{n+1} = 2x_n + 1$ for $n \\ge 1$. Let $y_n = 2^{x_n} - 1$. Determine the largest possible $k$ such that, for some positive integer $a$, the numbers $y_1, \\dots, y_k$ are all prime.\n\n(This problem was suggested by Valery Senderov from Russia.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "The answer is $k=2$. If $a=1$, then $y_1=1$ is not prime. If $a=2$, then $y_1=3$ and $y_2=31$ are prime, while $y_3 = 2^{11}-1 = 23 \\cdot 89$ is composite. It now remains only to check that $y_1, y_2$, and $y_3$ cannot all be prime for $a \\ge 3$.\n\nSuppose otherwise for the sake of contradiction that $y_1, y_2$, and $y_3$ are all prime. Because $y_i = 2^{x_i} - 1$, this implies that $x_1, x_2$, and $x_3$ are all prime; in particular, $a$ is prime. Observe that $x_2 \\equiv 3 \\pmod 4$, which implies that $x_3 \\equiv 7 \\pmod 8$. Therefore, we see that $2$ is a quadratic residue modulo $x_3$, so we may find some $s$ for which $2 \\equiv s^2 \\pmod{x_3}$. For this $s$, we have\n$$\n2^{x_2} \\equiv 2^{\\frac{x_3-1}{2}} \\equiv s^{x_3-1} \\equiv 1 \\pmod{x_3},\n$$\nwhich implies that $x_3 \\mid 2^{x_2} - 1$. But $y_2 = 2^{x_2} - 1$ is prime, so this implies that $2x_2 + 1 = x_3 = 2^{x_2} - 1$. We have also that $x_2 > 3$, which implies that $2^{x_2} - 1 > 2x_2 + 1$, yielding a contradiction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-quadratic-residues-auto-2431",
+      "name": "HMMT November 2013 #0je7",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2013",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Modular Arithmetic",
+        "Prime numbers",
+        "Quadratic residues"
+      ],
+      "statement": "Problem:\nLet $p$, $q$, $r$, $s$ be distinct primes such that $p q - r s$ is divisible by $30$. Find the minimum possible value of $p + q + r + s$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $54$\n\nThe key is to realize none of the primes can be $2$, $3$, or $5$, or else we would have to use one of them twice. Hence $p$, $q$, $r$, $s$ must lie among $7$, $11$, $13$, $17$, $19$, $23$, $29$, \\ldots. These options give remainders of $1$ $(\\bmod 2)$ (obviously), $1$, $-1$, $1$, $-1$, $1$, $-1$, $-1$, \\ldots modulo $3$, and $2$, $1$, $3$, $2$, $4$, $3$, $4$, \\ldots modulo $5$.\n\nWe automatically have $2 \\mid p q - r s$, and we have $3 \\mid p q - r s$ if and only if $p q r s \\equiv (p q)^2 \\equiv 1$ $(\\bmod 3)$, i.e. there are an even number of $-1$ $(\\bmod 3)$'s among $p$, $q$, $r$, $s$.\n\nIf $\\{p, q, r, s\\} = \\{7, 11, 13, 17\\}$, then we cannot have $5 \\mid p q - r s$, or else $12 \\equiv p q r s \\equiv (p q)^2 (\\bmod 5)$ is a quadratic residue. Our next smallest choice (in terms of $p + q + r + s$) is $\\{7, 11, 17, 19\\}$, which works: $7 \\cdot 17 - 11 \\cdot 19 \\equiv 2^2 - 4 \\equiv 0 (\\bmod 5)$. This gives an answer of $7 + 17 + 11 + 19 = 54$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-quadratic-residues-auto-2604",
+      "name": "HMMT November 2014 #0jj0",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2014",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Chinese remainder theorem",
+        "Quadratic residues",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\n\nSuppose that $m$ and $n$ are integers with $1 \\leq m \\leq 49$ and $n \\geq 0$ such that $m$ divides $n^{n+1}+1$. What is the number of possible values of $m$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $\\quad 29$\n\nIf $n$ is even, $n+1 \\mid n^{n+1}+1$, so we can cover all odd $m$.\n\nIf $m$ is even and $m \\mid n^{n+1}+1$, then $n$ must be odd, so $n+1$ is even, and $m$ cannot be divisible by $4$ or any prime congruent to $3 \\pmod{4}$. Conversely, if $m / 2$ has all factors $1 \\pmod{4}$, then by CRT there exists $N \\equiv 1 \\pmod{4}$ such that $m \\mid N^{2}+1 \\mid N^{N+1}+1$ (note $(N+1)/2$ is odd).\n\nSo the only bad numbers take the form $2k$, where $1 \\leq k \\leq 24$ is divisible by at least one of $2,3,7,11,19,23,31, \\ldots$ We count $k=2,4, \\ldots, 24$ (there are $12$ numbers here), $k=3,9,15,21$ (another four), $k=7,11,19,23$ (another four), giving a final answer of $49-12-4-4=29$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-quadratic-residues-auto-2634",
+      "name": "IMO Team Selection Test #0jju",
+      "url": "https://usamoguide.com/",
+      "source": "IMO Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Quadratic residues",
+        "Inverses mod n",
+        "Prime numbers"
+      ],
+      "statement": "Let $a_1, a_2, a_3, \\dots$ be a sequence of integers, with the property that every consecutive group of $a_i$'s averages to a perfect square. More precisely, for every positive integers $n$ and $k$, the quantity\n$$\n\\frac{a_n + a_{n+1} + \\dots + a_{n+k-1}}{k}\n$$\nis always the square of an integer. Prove that the sequence must be constant (all $a_i$ are equal to the same perfect square).",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "We prove the following equivalent statement: we show that if $f : \\mathbb{N} \\to \\mathbb{Z}$ is a function such that $(f(m) - f(n))(m - n)$ is always the square of an integer, then $f$ must be of the form $A^2x + B$ for integers $A, B$. First, since $p(f(n + p) - f(n))$ is a square for any prime $p$ and positive integer $n$, $p$ must divide $f(n + p) - f(n)$. (Similarly, we may prove $p^k \\mid f(n + p^k) - f(n)$ by induction, but we will not need to do so.)\n\n**Lemma.** If $p \\mid f(a) - f(b)$ but $p \\nmid a - b$ for some $a, b$, then $p \\mid f(m) - f(n)$ for all $m, n$. (In other words, $f$ is either injective or constant modulo $p$.)\n*Proof.* For each integer $r$, define $S_r = \\{x : f(x) \\equiv r \\pmod{p}\\}$, which must be a union of residue classes modulo $p$ (restricted to the positive integers). Then we need to show that either (1) for every $r$, $S_r$ covers at most one residue class (and thus exactly one), or (2) for some $r$, $S_r$ covers all residue classes.\n\nSuppose otherwise; then there exists $r$ such that $S = S_r$ covers between 2 and $p-1$ residues (so $p \\ge 3$). If $n \\notin S$ (i.e. $f(n) \\not\\equiv r \\pmod p$), then for any $s \\in S$,\n$$\n(n-s)(f(n)-f(s)) \\equiv (n-s)(f(n)-r) \\not\\equiv 0 \\pmod{p}\n$$\nis a nonzero quadratic residue. Hence $\\left(\\frac{n-s}{p}\\right) = \\left(\\frac{f(n)-r}{p}\\right) \\neq 0$.\nNow let $T = \\{t : \\left(\\frac{f(t)-r}{p}\\right) = 1\\}$ and $U = \\{u : \\left(\\frac{f(u)-r}{p}\\right) = -1\\}$, so $T, U$ partition $\\mathbb{N} \\setminus S$. By the previous paragraph, $\\left(\\frac{a}{p}\\right) = 1$ for any $a = t-s$ in the difference set $T-S$; similarly, $\\left(\\frac{b}{p}\\right) = -1$ for any $b \\in U-S$. This immediately upper bounds $|T-S|$ and $|U-S|$ by $\\frac{p-1}{2}$, the number of (nonzero) quadratic residues and nonresidues.\nBut $|T| + |U| = p - |S| \\ge 1$, so if $|T| \\ge |U|$ (so $T$ is nonempty), then Cauchy-Davenport yields\n$$\n\\frac{p-1}{2} \\ge |T-S| \\ge \\min(p, |T| + |S| - 1) \\ge \\min\\left(p, \\frac{p-|S|}{2} + |S| - 1\\right) = \\min\\left(p, \\frac{p + (|S| - 2)}{2}\\right),\n$$\ncontradicting $|S| \\ge 2$. The case $|U| \\ge |T|$ is analogous. $\\square$\n\nNote that $f(n+1) - f(n)$ is always a square. If $f$ is nonconstant, $\\gcd_{n \\ge 1}(f(n+1) - f(n)) \\ne 0$ must be a square itself (say $g^2$, with $g > 0$). If $g=1$, then $f$ is nonconstant (and thus injective, by the lemma) modulo every prime $p$. In particular, $p \\nmid f(n+1) - f(n)$ for all $n$ and $p$, which forces $f(x+1) - f(x) \\equiv 1 \\implies f(x) \\equiv x+d$ for some constant $d$. Otherwise, if $g > 1$, $f'(x) \\equiv \\frac{f(x)-f(1)}{g^2}$ has $(f'(m) - f'(n))(m-n)$ always a square and $\\gcd_{n \\ge 1}(f'(n+1) - f'(n)) = 1$, so $f(x) \\equiv g^2(x+d) + c$ for some constants $d, c$.\n\nIt follows that $f(x) \\equiv A^2x + B$ ($A, B \\in \\mathbb{Z}$) are the only possible solutions, which indeed all work (note that we get $f$ constant when $A=0$).\n\nWe give an alternate proof of the lemma. Define $r$ and $S = S_r$ as in the previous proof.\nSince $p \\ge 3$, there exists a smallest quadratic nonresidue $\\alpha \\in [2, p-1]$ modulo $p$. In particular, $\\alpha-1 \\in [1, p-2]$ is a quadratic residue. Now fix two distinct residues $x, y$ (mod $p$) in $S$. We claim that for $N = x+\\alpha(y-x)$, we have $f(N) \\equiv r \\pmod p$. Suppose otherwise; then $f(N) \\not\\equiv r \\equiv f(x) \\equiv f(y)$. But then $[f(N)-f(x)][N-x] \\equiv [f(N)-r]\\alpha(y-x)$ and $[f(N)-f(y)][N-y] \\equiv [f(N)-r](\\alpha-1)(y-x)$ must both be nonzero squares, forcing $\\left(\\frac{\\alpha}{p}\\right) = \\left(\\frac{\\alpha-1}{p}\\right)$, which is absurd.\nHence $x+\\alpha(y-x) = (1-\\alpha)x + \\alpha y$ lies in $S$ (interpret relations modulo $p$ where clearly appropriate) for any distinct residues $x, y \\in S$; of course, it also does when $x \\equiv y \\in S$. This condition is affine, so for convenience, fix distinct residues $a, b \\in S$ and define $A = (S-a)(b-a)^{-1}$. Then $0, 1 \\in A$ and we still have $(1-\\alpha)x + \\alpha y \\in A$ whenever $x, y \\in A$.\nBy plugging in $x \\equiv 0$, we get $\\alpha A \\subseteq A$, and from $y \\equiv 0$, we get $(1-\\alpha)A \\subseteq A$. Therefore (noting that $p \\nmid \\alpha, 1-\\alpha$)\n$$\nA + A \\equiv (1-\\alpha)(1-\\alpha)^{p-2}A + \\alpha\\alpha^{p-2}A \\subseteq (1-\\alpha)A + \\alpha A \\subseteq A,\n$$\nso $A+1 \\subseteq A \\implies A = \\mathbb{Z}/p\\mathbb{Z} \\implies S = \\mathbb{Z}/p\\mathbb{Z}$, as desired.\n\nWe present yet another proof of the lemma. The previous proof shows that if $x, y \\in S$, then $x + \\alpha(y-x) \\in S$. We claim that $N = x + (\\alpha+1)(y-x)$ lies in $S$ as well. Indeed, the only way $[f(N)-f(y)][N-y] \\equiv [f(N)-r]\\alpha(y-x)$ and $[f(N)-f(x+\\alpha(y-x))][N-(x+\\alpha(y-x))] \\equiv [f(N)-r](y-x)$ can both be quadratic residues is if $p \\mid f(N)-r$, so $N \\in S$.\nBut $[x+(\\alpha+1)(y-x)] - [x+\\alpha(y-x)] = y-x$, so we conclude that $x+k\\alpha(y-x)$ and $x+k(\\alpha+1)(y-x)$ lie in $S$ for all $k \\ge 0$. Since $p \\nmid \\alpha$, $x+k\\alpha(y-x)$ covers all residues modulo $p$, so $S = \\mathbb{Z}/p\\mathbb{Z}$, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-quadratic-residues-auto-2672",
+      "name": "HMMT November 2014 #0jkw",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2014",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Chinese remainder theorem",
+        "Quadratic residues",
+        "Recurrence relations"
+      ],
+      "statement": "Problem:\nLet $f(x) = x^{2} - 2$, and let $f^{n}$ denote the function $f$ applied $n$ times. Compute the remainder when $f^{24}(18)$ is divided by $89$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $L_{n}$ denote the Lucas numbers given by $L_{0} = 2$, $L_{1} = 1$, and $L_{n+2} = L_{n+1} + L_{n}$. Note that $L_{n}^{2} - 2 = L_{2n}$ when $n$ is even (one can show this by induction, or explicitly using $L_{n} = \\left(\\frac{1+\\sqrt{5}}{2}\\right)^{n} + \\left(\\frac{1-\\sqrt{5}}{2}\\right)^{n}$). So, $f^{24}(L_{6}) = L_{3 \\cdot 2^{25}}$.\n\nNow note that since $89 \\equiv 4 \\pmod{5}$, we have $5^{\\frac{p-1}{2}} \\equiv 1 \\pmod{89}$ so $L_{89} = \\left(\\frac{1+\\sqrt{5}}{2}\\right)^{p} + \\left(\\frac{1-\\sqrt{5}}{2}\\right)^{p} \\equiv L_{1} \\pmod{89}$ and similarly $L_{90} \\equiv L_{2}$, so the sequence $L_{n} \\pmod{89}$ is periodic with period $88$. (Alternatively, reason by analog of Fermat's little theorem, since we can substitute an integer residue for $\\sqrt{5}$.)\n\nWe have $3 \\cdot 2^{25} \\equiv 3 \\cdot 2^{5} \\equiv 8 \\pmod{11}$ and $\\equiv 0 \\pmod{8}$, so $L_{3 \\cdot 2^{25}} \\equiv L_{8} \\pmod{89}$. Computing $L_{8} = 47$ gives the answer."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-quadratic-residues-auto-2806",
+      "name": "HMMT February #0jom",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recursion, bijection",
+        "Quadratic residues"
+      ],
+      "statement": "Problem:\nLet $S=\\{1,2,4,8,16,32,64,128,256\\}$. A subset $P$ of $S$ is called squarely if it is nonempty and the sum of its elements is a perfect square. A squarely set $Q$ is called super squarely if it is not a proper subset of any squarely set. Find the number of super squarely sets.\n(A set $A$ is said to be a proper subset of a set $B$ if $A$ is a subset of $B$ and $A \\neq B$.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: 5 Clearly we may biject squarely sets with binary representations of perfect squares between 1 and $2^{0}+\\cdots+2^{8}=2^{9}-1=511$, so there are 22 squarely sets, corresponding to $n^{2}$ for $n=1,2, \\ldots, 22$. For convenience, we say $N$ is (super) squarely if and only if the set corresponding to $N$ is (super) squarely.\nThe general strategy is to rule out lots of squares at a time, by searching for squares with few missing digits (and ideally most 1's consecutive, for simplicity). We can restrict ourselves (for now) to odds; $(2k)^{2}$ is just $k^{2}$ with two additional zeros at the end. $1,9,25,49,81$ are ineffective, but $121=2^{7}-7=2^{6}+2^{5}+2^{4}+2^{3}+2^{0}$ immediately rules out all odd squares up to $9^{2}$, as they must be $1\\pmod{8}$.\nFortunately, $22^{2}=4 \\cdot 11^{2}$ is in our range (i.e. less than 512), ruling out all even squares up to $20^{2}$ as well.\nThis leaves us with $11^{2}, 13^{2}, 15^{2}, 17^{2}, 19^{2}, 21^{2}, 22^{2}$, with binary representations 001111001, 010101001, $011100001, 100100001, 101101001$ (kills $17^{2}$), 110111001 (kills $13^{2}$), 111100100 (kills nothing by parity). Thus $11^{2}, 15^{2}, 19^{2}, 21^{2}, 22^{2}$ are the only super squarely numbers, for a total of 5."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-quadratic-residues-auto-2854",
+      "name": "Berkeley Math Circle #0jpy",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Prime numbers",
+        "Quadratic residues"
+      ],
+      "statement": "Problem:\n\nFor which prime numbers $p$ is $p^{2}+2$ also prime? Prove your answer.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe answer is $p=3$. This indeed works, since $3^{2}+2=11$.\n\nConsider any other prime number $p \\neq 3$. Then it follows that $p^{2} \\equiv 1 \\pmod{3}$; i.e. that $p$ leaves remainder $1$ or $2$ when divided by $3$. Consequently, $p^{2}+2$ is divisible by $3$. Since $p \\geq 2$, we have $p^{2}+2 \\geq 7$ as well, thus $p^{2}+2$ cannot be prime in this case."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-quadratic-residues-auto-2897",
+      "name": "HMMT February 2015 #0jr5",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2015",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Chinese remainder theorem",
+        "Polynomials mod p",
+        "Quadratic residues",
+        "Field Theory"
+      ],
+      "statement": "Problem:\nFind the number of ordered pairs of integers $(a, b) \\in \\{1,2, \\ldots, 35\\}^2$ (not necessarily distinct) such that $a x+b$ is a \"quadratic residue modulo $x^2+1$ and 35\", i.e. there exists a polynomial $f(x)$ with integer coefficients such that either of the following equivalent conditions holds:\n- there exist polynomials $P, Q$ with integer coefficients such that $f(x)^2-(a x+b)=\\left(x^2+1\\right) P(x)+35 Q(x)$;\n- or more conceptually, the remainder when (the polynomial) $f(x)^2-(a x+b)$ is divided by (the polynomial) $x^2+1$ is a polynomial with (integer) coefficients all divisible by 35.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $225$\n\nBy the Chinese remainder theorem, we want the product of the answers modulo $5$ and modulo $7$ (i.e. when $35$ is replaced by $5$ and $7$, respectively).\n\nFirst we do the modulo $7$ case. Since $x^2+1$ is irreducible modulo $7$ (or more conceptually, in $\\mathbb{F}_7[x]$), exactly half of the nonzero residues modulo $x^2+1$ and $7$ (or just modulo $x^2+\\overline{1}$ if we're working in $\\mathbb{F}_7[x]$) are quadratic residues, i.e. our answer is $1+\\frac{7^2-1}{2}=25$ (where we add back one for the zero polynomial).\n\nNow we do the modulo $5$ case. Since $x^2+1$ factors as $(x+2)(x-2)$ modulo $5$ (or more conceptually, in $\\mathbb{F}_5[x]$), by the polynomial Chinese remainder theorem modulo $x^2+\\overline{1}$ (working in $\\mathbb{F}_5[x]$), we want the product of the number of polynomial quadratic residues modulo $x \\pm \\overline{2}$. By centering/evaluating polynomials at $\\mp \\overline{2}$ accordingly, the polynomial squares modulo these linear polynomials are just those reducing to integer squares modulo $5$. So we have an answer of $\\left(1+\\frac{5-1}{2}\\right)^2=9$ in this case.\n\nOur final answer is thus $25 \\cdot 9=225$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-quadratic-residues-auto-3027",
+      "name": "HMMT February 2016 #0jur",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2016",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Quadratic residues",
+        "Polynomials mod p"
+      ],
+      "statement": "Problem:\nFind all prime numbers $p$ such that $y^{2}=x^{3}+4 x$ has exactly $p$ solutions in integers modulo $p$.\n\nIn other words, determine all prime numbers $p$ with the following property: there exist exactly $p$ ordered pairs of integers $(x, y)$ such that $x, y \\in \\{0,1, \\ldots, p-1\\}$ and\n$$\np \\text{ divides } y^{2}-x^{3}-4 x\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nClearly $p=2$ works with solutions $(0,0)$ and $(1,1)$ and not $(0,1)$ or $(1,0)$.\n\nIf $p \\equiv 3 \\pmod{4}$ then $-1$ is not a quadratic residue, so for $x^{3}+4 x \\neq 0$, exactly one of $x^{3}+4 x$ and $-x^{3}-4 x$ is a square and gives two solutions (for positive and negative $y$), so there's exactly two solutions for each such pair $\\{x,-x\\}$. If $x$ is such that $x^{3}+4 x=0$, there's exactly one solution.\n\nIf $p \\equiv 1 \\pmod{4}$, let $i$ be a square root of $-1 \\pmod{p}$. The right hand side factors as $x(x+2i)(x-2i)$. For $x=0,2i,-2i$ this is zero, there is one choice of $y$, namely zero. Otherwise, the right hand side is nonzero. For any fixed $x$, there are either $0$ or $2$ choices for $y$. Replacing $x$ by $-x$ negates the right hand side, again producing two choices for $y$ since $-1$ is a quadratic residue. So the total number of solutions $(x, y)$ is $3 \\pmod{4}$, and thus there cannot be exactly $p$ solutions."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-quadratic-residues-auto-3094",
+      "name": "February 2017 #0jwm",
+      "url": "https://usamoguide.com/",
+      "source": "February 2017",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomials mod p",
+        "Quadratic residues",
+        "Fermat / Euler / Wilson theorems",
+        "Recursion, bijection"
+      ],
+      "statement": "Problem:\nLet $\\mathbb{N}$ denote the natural numbers. Compute the number of functions $f: \\mathbb{N} \\rightarrow \\{0,1, \\ldots, 16\\}$ such that\n$$\nf(x+17)=f(x) \\quad \\text{and} \\quad f\\left(x^{2}\\right) \\equiv f(x)^{2}+15 \\pmod{17}\n$$\nfor all integers $x \\geq 1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nBy plugging in $x=0$, we get that $f(0)$ can be either $-1,2$. As $f(0)$ is unrelated to all other values, we need to remember to multiply our answer by $2$ at the end. Similarly, $f(1)=-1$ or $2$.\n\nConsider the graph $x \\rightarrow x^{2}$. It is a binary tree rooted at $-1$, and there is an edge $-1 \\rightarrow 1$, and a loop $1 \\rightarrow 1$. Our first case is $f(1)=-1$. Note that if $x, y$ satisfy $x^{2}=y$, then $f(y) \\neq 1$. Otherwise, we would have $f(x)^{2}=3 \\pmod{17}$, a contradiction as $3$ is a nonresidue. So only the $8$ leaves can take the value $1$. This contributes $2^{8}$.\n\nFor $f(1)=2$, we can once again propagate down the tree. While it looks like we have $2$ choices at each node (for the square roots), this is wrong, as if $f(x)=-2$ and $y^{2}=x$, then $f(y)=0$ is forced.\n\nGiven this intuition, let $a_{n}$ denote the answer for a binary tree of height $n$ where the top is either $-2$ or $2$. Therefore, $a_{1}=2$, $a_{2}=5$. You can show the recurrence $a_{n}=a_{n-1}^{2}+2^{2^{n}-4}$. This is because if the top is $2$, then we get a contribution of $a_{n-1}^{2}$. If the top is $-2$, then both entries below it must be $0$. After that, you can show that each of the remaining $2^{n}-4$ vertices can be either of $2$ possible square roots. Therefore, we get the recurrence as claimed. One can compute that $a_{4}=5777$, so we get the final answer $2(256+5777)=12066$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-quadratic-residues-auto-3134",
+      "name": "February 2017 #0jxq",
+      "url": "https://usamoguide.com/",
+      "source": "February 2017",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Quadratic residues",
+        "Factorization techniques",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\nAt a recent math contest, Evan was asked to find $2^{2016} \\pmod{p}$ for a given prime number $p$ with $100 < p < 500$. Evan has forgotten what the prime $p$ was, but still remembers how he solved it:\n- Evan first tried taking $2016$ modulo $p-1$, but got a value $e$ larger than $100$.\n- However, Evan noted that $e - \\frac{1}{2}(p-1) = 21$, and then realized the answer was $-2^{21} \\pmod{p}$.\nWhat was the prime $p$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer is $p=211$. Let $p=2d+1$, $50 < d < 250$. The information in the problem boils down to\n$$\n2016 = d + 21 \\pmod{2d}\n$$\nFrom this we can at least read off $d \\mid 1995$.\nNow factor $1995 = 3 \\cdot 5 \\cdot 7 \\cdot 19$. The values of $d$ in this interval are $57, 95, 105, 133$. The prime values of $2d+1$ are then $191$ and $211$. Of these, we take $211$ since $(2 / 191) = +1$ while $(2 / 211) = -1$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-quadratic-residues-auto-3228",
+      "name": "February 2017 #0k0c",
+      "url": "https://usamoguide.com/",
+      "source": "February 2017",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomials mod p",
+        "Quadratic residues",
+        "Recurrence relations",
+        "Field Theory"
+      ],
+      "statement": "Problem:\n\nThe Fibonacci sequence is defined as follows: $F_{0}=0$, $F_{1}=1$, and $F_{n}=F_{n-1}+F_{n-2}$ for all integers $n \\geq 2$. Find the smallest positive integer $m$ such that $F_{m} \\equiv 0 \\pmod{127}$ and $F_{m+1} \\equiv 1 \\pmod{127}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFirst, note that $5$ is not a quadratic residue modulo $127$. We are looking for the period of the Fibonacci numbers $\\bmod\\ 127$. Let $p=127$. We work in $\\mathbb{F}_{p^{2}}$ for the remainder of this proof. Let $\\alpha$ and $\\beta$ be the roots of $x^{2}-x-1$. Then we know that $F_{n}=\\frac{\\alpha^{n}-\\beta^{n}}{\\alpha-\\beta}$. Note that since $x \\rightarrow x^{p}$ is an automorphism and since automorphisms cycle the roots of a polynomial we have that $\\alpha^{p}=\\beta$ and $\\beta^{p}=\\alpha$. Then $F_{p}=\\frac{\\alpha^{p}-\\beta^{p}}{\\alpha-\\beta}=-1$ and $F_{p+1}=\\frac{\\alpha \\beta-\\beta \\alpha}{\\alpha-\\beta}=0$ and similarly we obtain $F_{2p+1}=1$ and $F_{2p+2}=0$. Thus since $2p+2$ is a power of $2$ and since the period does not divide $p+1$, we must have the answer is $2p+2=256$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-quadratic-residues-auto-3711",
+      "name": "HMMT February 2020 #0kdr",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2020",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Quadratic residues",
+        "Quadratic reciprocity"
+      ],
+      "statement": "Problem:\n\nFor odd primes $p$, let $f(p)$ denote the smallest positive integer $a$ for which there does not exist an integer $n$ satisfying $p \\mid n^{2}-a$. Estimate $N$, the sum of $f(p)^{2}$ over the first $10^{5}$ odd primes $p$.\n\nAn estimate of $E>0$ will receive $\\left\\lfloor 22 \\min (N / E, E / N)^{3}\\right\\rfloor$ points.\n\nProposed by: Michael Ren",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nOf course, there is no such thing as a uniform random prime. More rigorously, for any $n$, the joint distributions of $\\left(\\frac{p_{1}}{q}\\right), \\ldots, \\left(\\frac{p_{n}}{q}\\right)$ where $q$ is a uniform random prime less than $N$ converges in distribution to $n$ independent coin flips between 1 and -1 as $N \\rightarrow \\infty$. For ease of explanation, we won't adopt this more formal view, but it is possible to make the following argument rigorous by looking at primes $q<N$ and sending $N \\rightarrow \\infty$. Given any $n$, the residue of $q \\bmod n$ is uniform over the $\\varphi(n)$ residues $\\bmod n$ that are relatively prime to $n$. By quadratic reciprocity, conditioned on either $q \\equiv 1(\\bmod 4)$ or $q \\equiv 3(\\bmod 4)$, exactly half of the nonzero residues $\\bmod p_{n}$ satisfy $\\left(\\frac{p_{n}}{q}\\right)=1$ and exactly half satisfy $\\left(\\frac{p_{n}}{q}\\right)=-1$ for odd $p_{n}$ (the case of $p_{n}=2$ is slightly different and one must look mod 8, but the result is the same). The residue of $q \\bmod 8, p_{2}, p_{3}, \\ldots, p_{n}$ are independent as these are pairwise relatively prime, yielding our heuristic.\n\nThus, we may model our problem of finding the smallest quadratic nonresidue with the following process: independent fair coins are flipped for each prime, and we take the smallest prime that flipped heads. We can estimate the expected value of $f(p)^{2}$ as $\\sum_{n=1}^{\\infty} \\frac{p_{n}^{2}}{2^{n}}$. Looking at the first few terms gives us\n$$\n\\frac{2^{2}}{2}+\\frac{3^{2}}{4}+\\frac{5^{2}}{8}+\\frac{7^{2}}{16}+\\frac{11^{2}}{32}+\\frac{13^{2}}{64}+\\frac{17^{2}}{128}+\\frac{19^{2}}{256}+\\frac{23^{2}}{512}+\\frac{29^{2}}{1024} \\approx 22\n$$\nThe terms after this decay rapidly, so a good approximation is $E=22 \\cdot 10^{5}$, good enough for 20 points. The more inaccurate $E=20 \\cdot 10^{5}$ earns 15 points.\n\nThis Python code computes the exact answer:\n\n```\ndef smallest_nqr(p):\n    for a in range(1, p):\n        if pow(a, (p-1)//2, p) == p-1:\n            return a\nimport sympy\nprint(sum([smallest_nqr(p) ** 2 for p in sympy.ntheory.primerange(3, sympy.prime(10**5+2))]))\n```"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-quadratic-residues-auto-3720",
+      "name": "HMIC #0ke0",
+      "url": "https://usamoguide.com/",
+      "source": "HMIC",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomials mod p",
+        "Fermat / Euler / Wilson theorems",
+        "Quadratic residues",
+        "Generating functions",
+        "Algebraic properties of binomial coefficients"
+      ],
+      "statement": "Problem:\nLet $C_{k} = \\frac{1}{k+1} \\binom{2k}{k}$ denote the $k^{\\text{th}}$ Catalan number and $p$ be an odd prime. Prove that exactly half of the numbers in the set\n$$\n\\left\\{\\sum_{k=1}^{p-1} C_{k} n^{k} \\mid n \\in \\{1,2, \\ldots, p-1\\}\\right\\}\n$$\nare divisible by $p$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe work in $\\mathbb{F}_{p}[X]$.\nWe claim that\n$$\n(1-4 X)^{\\frac{p+1}{2}}-1+2 X^{p}+2 X \\sum_{k=0}^{p-1} C_{k} X^{k}=0\n$$\nThe solution follows from this claim, as\n$$\n\\sum_{k=1}^{p-1} C_{k} n^{k} \\equiv 0 \\quad(\\bmod p) \\Longleftrightarrow (1-4 n)^{\\frac{p+1}{2}}-1+2 n^{p}+2 n \\equiv 0 \\quad(\\bmod p)\n$$\nSince $n^{p} \\equiv n \\pmod{p}$, this is equivalent to $n \\equiv \\frac{1}{4} \\pmod{p}$ or $1-4 n$ being a non-zero quadratic residue in $\\mathbb{F}_{p}$. But we must omit the solution of $n=0$, so we get $1+\\left(\\frac{p-1}{2}-1\\right)=\\frac{p-1}{2}$ values of $n$ that work. Now we prove the claim. Observe the following facts:\n- $C_{p-1}=\\frac{1}{2p-1}\\binom{2p-1}{p}=-1$ by Lucas' theorem.\n- For $\\frac{p-1}{2}<k<p-1$,\n$$\n\\nu_{p}\\left(C_{k}\\right)=\\nu_{p}((2k)!)-\\nu_{p}((k+1)!)-\\nu_{p}(k!)=1\n$$\nsince $k+1<p \\leq 2k$, so $C_{k}=0$.\nWe show that the coefficient of $X^{k}$ in the LHS is 0 for $k=0, \\ldots, p$. This is obvious for $k>\\frac{p+1}{2}$ and $k=0$ by the above facts, as the coefficient is $2+2 C_{p-1}$ for $k=p$, $2 C_{k}$ for $\\frac{p+1}{2}<k<p$, and 0 for $k=0$.\nNow for $1 \\leq k \\leq \\frac{p+1}{2}$, the coefficient is $\\binom{\\frac{p+1}{2}}{k}(-4)^{k}+2 C_{k-1}=0$. Write\n$$\n\\begin{aligned}\n\\binom{\\frac{p+1}{2}}{k} & =\\frac{\\frac{p+1}{2} \\cdot \\frac{p-1}{2} \\cdot \\frac{p-3}{2} \\cdots \\frac{p-2k+3}{2}}{k!} \\\\\n& =\\frac{\\frac{1}{2} \\cdot\\left(-\\frac{1}{2}\\right) \\cdot\\left(-\\frac{3}{2}\\right) \\cdots\\left(-\\frac{2k-3}{2}\\right)}{k!} \\\\\n& =\\frac{(-1)^{k-1}}{2^{k}} \\cdot \\frac{1 \\cdot 3 \\cdots (2k-3)}{k!} \\\\\n& =\\frac{(-1)^{k-1}}{2^{k}} \\cdot \\frac{(2k-2)!}{2^{k-1}(k-1)!k!} \\\\\n& =-\\frac{2 C_{k-1}}{(-4)^{k}}\n\\end{aligned}\n$$\nso the coefficient is 0 .\n\nSolution:\nWe present an alternate proof of the key claim. Use the same starting facts as before.\nLet $Q(X) = -2 + \\sum_{k=0}^{\\frac{p-1}{2}} C_{k} X^{k} = -2 + X^{p-1} + \\sum_{k=0}^{p-1} C_{k} X^{k}$.\nSquare $Q$ and multiply by $X$ to get\n$$\n\\begin{aligned}\nX Q^{2} & = 4X - 4X \\sum_{k=0}^{\\frac{p-1}{2}} C_{k} X^{k} + X\\left(\\sum_{k=0}^{\\frac{p-1}{2}} C_{k} X^{k}\\right)^{2} \\\\\n& = -4X - 4X Q + X \\sum_{k=0}^{p-2} \\sum_{j=0}^{k} C_{j} C_{k-j} X^{k} + C_{\\frac{p-1}{2}}^{2} X^{p} \\\\\n& = -4X - 4X Q + \\sum_{k=0}^{p-2} C_{k+1} X^{k+1} + 4 X^{p} \\\\\n& = -4X - 4X Q + Q + 1 - X^{p-1} + 4 X^{p} \\\\\n& = (1-4X) Q - (1-4X)(X^{p-1} - 1)\n\\end{aligned}\n$$\nIt follows that\n$$\n\\begin{aligned}\n0 & = 4X \\cdot \\left(X Q^{2} - (1-4X) Q + (1-4X)(X^{p-1} - 1)\\right) \\\\\n& = 4X^{2} Q^{2} - 4X(1-4X) Q + 4(1-4X)(X^{p} - X) \\\\\n& = 4X^{2} Q^{2} - 4X(1-4X) Q + (1-4X)^{2} - (1-4X)^{p+1} \\\\\n& = \\left(2X Q + (1-4X)^{\\frac{p+1}{2}} - (1-4X)\\right) \\cdot \\left(2X Q - (1-4X)^{\\frac{p+1}{2}} - (1-4X)\\right) .\n\\end{aligned}\n$$\nEvaluating the second factor at 0 gives $-2$, so it is not the zero polynomial. Thus the first factor is the zero polynomial, from which the claim follows.\n\nSolution:\nWe prove the following generalization: Let $q$ be a power of $p$. Then the polynomial $\\sum_{k=1}^{q-1} C_{k} X^{k}$ has $\\frac{q+1}{2}$ roots in $\\mathbb{F}_{q}$ and $\\frac{p+1}{2}$ roots in $\\mathbb{F}_{p}$. It once again suffices to prove the key claim, just with $p$ replaced by $q$.\nWork in $\\mathbb{F}_{q}[[X]]$, the ring of formal power series over $\\mathbb{F}_{q}$. Then\n$$\n\\begin{aligned}\n\\sum_{k=0}^{\\infty} \\binom{2k}{k} X^{k} & = (1-4X)^{-\\frac{1}{2}} \\\\\n& = (1-4X)^{\\frac{q-1}{2}} \\left((1-4X)^{q}\\right)^{-\\frac{1}{2}} \\\\\n& = (1-4X)^{\\frac{q-1}{2}} \\left(1-4X^{q}\\right)^{-\\frac{1}{2}} \\\\\n& = (1-4X)^{\\frac{q-1}{2}} \\sum_{k=0}^{\\infty} \\binom{2k}{k} X^{qk}\n\\end{aligned}\n$$\nTaking both sides mod $X^{q}$,\n$$\n\\sum_{k=0}^{q-1} \\binom{2k}{k} X^{k} = (1-4X)^{\\frac{q-1}{2}}\n$$\nThen using $\\binom{2q}{q} = 2$, we have\n$$\n\\sqrt{1-4X} = (1-4X) \\cdot (1-4X)^{-\\frac{1}{2}} \\equiv (1-4X) \\cdot \\left((1-4X)^{\\frac{q-1}{2}} + 2 X^{q}\\right) \\quad \\left(\\bmod X^{q+1}\\right)\n$$\nso\n$$\nX \\sum_{k=0}^{\\infty} C_{k} X^{k} = \\frac{1-\\sqrt{1-4X}}{2} \\equiv \\frac{1-(1-4X)^{\\frac{q+1}{2}} - 2 X^{q}}{2} \\quad \\left(\\bmod X^{q+1}\\right)\n$$\nfrom which the claim follows.\nAlternatively, one can also finish by integrating $(1-4X)^{\\frac{p-1}{2}}$, noting that the \"constant of integration\" is no longer a constant but rather a polynomial of the form $a + b X^{p}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-quadratic-residues-auto-3780",
+      "name": "HMMT February 2020 #0kfo",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2020",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Quadratic residues",
+        "Quadratic reciprocity",
+        "Quadratic forms",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\n\nLet $p > 5$ be a prime number. Show that there exists a prime number $q < p$ and a positive integer $n$ such that $p$ divides $n^{2} - q$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nNote that the condition $p \\mid n^{2} - q$ just means that $q$ is a quadratic residue modulo $p$, or that the Legendre symbol $\\left(\\frac{q}{p}\\right)$ is $1$. We use these standard facts about the Legendre symbol:\n- If $p \\equiv \\pm 1 \\pmod{8}$, then $\\left(\\frac{2}{p}\\right) = 1$.\n- For an odd prime $p$,\n  $$\n  \\left(\\frac{-1}{p}\\right) = \\begin{cases}\n  -1 & \\text{ if } p \\equiv 3 \\pmod{4} \\\\\n  +1 & \\text{ if } p \\equiv 1 \\pmod{4}\n  \\end{cases}\n  $$\n- Quadratic reciprocity: for distinct odd primes $p$ and $q$,\n  $$\n  \\left(\\frac{p}{q}\\right)\\left(\\frac{q}{p}\\right) = \\begin{cases}\n  -1 & \\text{ if } p \\equiv q \\equiv 3 \\pmod{4} \\\\\n  +1 & \\text{ otherwise }\n  \\end{cases}\n  $$\n\nIf $p$ is a Fermat prime or Mersenne prime, then $p$ is congruent to $1$ or $7$ modulo $8$ respectively, since $p > 5$. In that case $q = 2$ works. Otherwise assume $p$ is not a Fermat prime or Mersenne prime, so that $p-1$ and $p+1$ are not powers of $2$.\n\nIf $p \\equiv 1 \\pmod{4}$, then let $q$ be an odd prime divisor of $p-1$, so that $p \\equiv 1 \\pmod{q}$. Then by quadratic reciprocity $\\left(\\frac{q}{p}\\right) = \\left(\\frac{p}{q}\\right) = 1$.\n\nIf $p \\equiv 3 \\pmod{4}$, then let $q$ be an odd prime divisor of $p+1$, so that $p \\equiv -1 \\pmod{q}$. Either $q \\equiv 1 \\pmod{4}$ so that $\\left(\\frac{q}{p}\\right) = \\left(\\frac{p}{q}\\right) = 1$ or $q \\equiv 3 \\pmod{4}$ so that $\\left(\\frac{q}{p}\\right) = -\\left(\\frac{p}{q}\\right) = -\\left(\\frac{-1}{q}\\right) = 1$.\n\nSolution:\n\n(Ankan Bhattacharya) We assume the same standard facts about quadratic residues as the previous solution.\n\nIf $p \\equiv 1 \\pmod{4}$, then since $p > 5$, there exists an odd prime divisor $q$ of $p-4$, which gives\n$$\n\\left(\\frac{q}{p}\\right) = \\left(\\frac{p}{q}\\right) = \\left(\\frac{4}{q}\\right) = 1\n$$\n\nIf $p \\equiv 7 \\pmod{8}$, then we can take $q = 2$.\n\nIf $p \\equiv 3 \\pmod{8}$, then by Legendre's three square theorem there exist odd $a, b, c$ satisfying $p = a^{2} + b^{2} + c^{2}$. Since $p > 3$, these are not all equal and we may assume without loss of generality that $b \\neq c$. Then $p - a^{2} = b^{2} + c^{2}$ has a prime divisor $q \\equiv 1 \\pmod{4}$, which gives\n$$\n\\left(\\frac{q}{p}\\right) = \\left(\\frac{p}{q}\\right) = \\left(\\frac{a^{2}}{q}\\right) = 1\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-quadratic-residues-auto-3996",
+      "name": "Berkeley Math Circle: Monthly Contest 4 #0klo",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 4",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Quadratic residues"
+      ],
+      "statement": "Problem:\n\nAre there integers $a$ and $b$ for which $a^{2} = b^{15} + 1004$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe answer is no. Work modulo $31$: the equation reads $a^{2} \\equiv b^{15} + 12$. (The choice of $31$ is motivated by $2 \\cdot 15 + 1 = 31$.) We must have $b^{15} \\in \\{-1, 0, 1\\}$ $(\\bmod\\ 31)$ since the square of $b^{15} (\\bmod\\ 31)$ is $b^{30} (\\bmod\\ 31)$ which is always $0$ or $1$.\n\nHowever, one can exhaustively check that none of $11, 12, 13$ are quadratic residues modulo $31$. So this concludes the proof."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-quadratic-residues-auto-4208",
+      "name": "HMMT February 2022 #0krk",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2022",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Modular Arithmetic",
+        "Quadratic residues"
+      ],
+      "statement": "Problem:\n\nCompute the sum of all 2-digit prime numbers $p$ such that there exists a prime number $q$ for which $100q + p$ is a perfect square.\n\nProposed by: Sheldon Kieren Tan",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAll squares must end with $0, 1, 4, 5, 6$, or $9$, meaning that $p$ must end with $1$ and $9$. Moreover, since all odd squares are $1 \\bmod 4$, we know that $p$ must be $1 \\bmod 4$. This rules all primes except for $41, 61, 29, 89$. Since $17^2 = 289$, $19^2 = 361$, $23^2 = 529$, $89, 61$, and $29$ all work. To finish, we claim that $41$ does not work. If $100q + 41$ were a square, then since all odd squares are $1 \\bmod 8$ we find that $4q + 1 \\equiv 1 \\pmod{8}$, implying that $q$ is even. But $241$ is not a square, contradiction.\n\nThe final answer is $29 + 61 + 89 = 179$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-quadratic-residues-auto-4329",
+      "name": "HMIC 2023 #0kux",
+      "url": "https://usamoguide.com/",
+      "source": "HMIC 2023",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inverses mod n",
+        "Quadratic residues",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\nA prime number $p$ is mundane if there exist positive integers $a$ and $b$ less than $\\frac{p}{2}$ such that $\\frac{a b-1}{p}$ is a positive integer. Find, with proof, all prime numbers that are not mundane.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe cases $p=11$, $p=17$, $p=19$ fail by $3 \\cdot 4$, $3 \\cdot 6$, and $4 \\cdot 5$, respectively, so assume that $p \\geq 21$. The key idea is the following identity:\n$$\n\\frac{1}{10}-\\left(-\\frac{2}{5}\\right)=\\frac{1}{2}\n$$\nTo see how to utilize this, notice that $10<\\frac{p}{2}$ and $-\\frac{5}{2}(\\bmod p)=\\frac{p-5}{2}<\\frac{p}{2}$. Thus, by plugging in $a=10$ and $a=\\frac{p-5}{2}$, we see that both $\\frac{1}{10}(\\bmod p)$ and $-\\frac{2}{5}(\\bmod p)$ must be greater than $\\frac{p}{2}$, so it must lie in the interval $\\left[\\frac{p+1}{2}, p-1\\right]$.\nHowever, their difference is $\\equiv \\frac{1}{2} \\equiv \\frac{p+1}{2}(\\bmod p)$, giving a contradiction.\n\n\nSolution 2:\nThe case $p=11$ fails by $3 \\cdot 4$, so assume $p=2^{k} n+1 \\geq 17$ for some odd $n$.\n- If $n=1$, then $p=2^{k}+1$. Since $p+1$ cannot have a divisor greater than $2$, $\\frac{p+1}{2}$ must be prime, so both $2^{k-1}+1$ and $2^{k}+1$ are consecutive Fermat primes. Since $k-1$ and $k$ must be powers of $2$, this forces $k=2$, which gives $p=5$.\n- If $n=3$, then $p=3 \\cdot 2^{k}+1$. Since $2p+1$ cannot have a divisor greater than $4$, we have $\\frac{2p+1}{3}=2^{k+1}+1$ must be prime, $k=2^{c}-1$. $c \\in\\{1,2\\}$ gives $p \\in\\{7,25\\}$; the latter is not even a prime. If $c \\geq 3$, then\n$$\n5 \\mid 3 \\cdot 2^{2^{c}-1}+1=p\n$$\ncontradiction.\n- If $n \\geq 5$, then\n$$\n2^{k+1} \\cdot \\frac{p-n}{2} \\equiv 1 \\quad(\\bmod p)\n$$\nshows that this case yields no solutions.\n\n\nSolution 3:\nAssume $p \\geq 3$. Let $q>2$ be the smallest prime not dividing $p-1$.\nLemma: $q^{2}<\\frac{p}{2}$ unless $p \\in S=\\{5,7,13,19,31,37,43,61,211\\}$.\nProof. Casework on $q$.\n- $q=3$ gives $p=5$.\n- $q=5$ gives $p \\in\\{13,19,37,43\\}$.\n- $q=7$ gives $p \\in\\{31,61\\}$.\n- $q=11$ gives $p=211$.\nNo larger $q$ work because\n$$\n13^{2}<\\frac{2 \\cdot 3 \\cdot 5 \\cdot 7 \\cdot 11}{2}\n$$\nand $p_{n+1}^{2}<\\frac{p_{1} p_{2} \\ldots p_{n}}{2}$ for $n \\geq 5$ by induction using $p_{i+1}<2 p_{i}$, where $p_{i}$ are the primes in increasing order.\nNow, $q' \\mid\\left(q'-1\\right) p+1$ for all primes $q'<q$ by minimality of $q$, but $q \\mid k p+1$ for some $0<k<q-1$, since $q \\nmid p-1$. Therefore, $q \\operatorname{rad}(k+1) \\mid k p+1$, so\n$$\n(q \\operatorname{rad}(k+1)) \\cdot \\frac{k p+1}{q \\operatorname{rad}(k+1)} \\equiv 1 \\quad(\\bmod p)\n$$\nIf $p \\notin S$, the first factor can be bounded as\n$$\nq \\operatorname{rad}(k+1)<q^{2}<\\frac{p}{2}\n$$\nand the second factor as\n$$\n\\frac{k p+1}{q \\operatorname{rad}(k+1)}<\\frac{(k+1) p}{(k+1) 2}=\\frac{p}{2}\n$$\nTherefore, no $p \\notin S$ satisfy the problem condition.\nTo finish the problem, it suffices to show no $p \\in S \\setminus\\{5,7,13\\}$ work. Indeed,\n$$\n\\begin{aligned}\n& 4 \\cdot 5 \\equiv 1 \\\\\n& 4 \\cdot 8(\\bmod 19) \\\\\n& 5 \\cdot 15 \\equiv 1 \\\\\n& 4 \\cdot(\\bmod 31)(\\bmod 37) \\\\\n& 4 \\cdot 14 \\equiv 1 \\\\\n& 8 \\cdot 23 \\equiv 1 \\quad(\\bmod 43) \\\\\n& 4 \\cdot 53 \\equiv 1 \\quad(\\bmod 61) \\\\\n&\\hline \\bmod 211),\n\\end{aligned}\n$$\nas desired.\n\n\nSolution 4:\nAssume $p \\geq 3$. We look for $a, b$ where $|a-b|$ is small. Consider the equation $x(x+k) \\equiv 1$ $(\\bmod p)$, which is equivalent to $(2 x+k)^{2} \\equiv 4+k^{2}(\\bmod p)$. Taking $k=1,2,6$, at least one of the values $5,8,40$ is a quadratic residue modulo $p$, so this equation has a solution with $k \\in\\{1,2,6\\}$. Now take an $x$ satisfying this equation and consider replacing $x$ with $p-k-x$ if this is $\\geq 2$ and smaller. This gives the desired $a, b$ unless $x<p / 2<x+k$. We now casework based on $k$.\n- If $k=1$, then $x<p / 2<x+1$, which force $x=\\frac{p-1}{2}$. Hence,\n$$\n1 \\equiv x(x+1) \\equiv\\left(-\\frac{1}{2}\\right)\\left(\\frac{1}{2}\\right) \\equiv-\\frac{1}{4} \\quad(\\bmod p)\n$$\nforcing $p=5$.\n- If $k=2$, then $x<p / 2<x+2$, which force $x \\in\\left\\{\\frac{p-1}{2}, \\frac{p-3}{2}\\right\\} \\equiv\\left\\{-\\frac{1}{2},-\\frac{3}{2}\\right\\}$. Now we have,\n$$\n\\begin{aligned}\n& x \\equiv-\\frac{1}{2} \\Longrightarrow 1 \\equiv x(x+2) \\equiv\\left(-\\frac{1}{2}\\right)\\left(\\frac{3}{2}\\right) \\equiv-\\frac{3}{4} \\quad(\\bmod p) \\Longrightarrow p=7 \\\\\n& x \\equiv-\\frac{3}{2} \\Longrightarrow 1 \\equiv x(x+2) \\equiv\\left(-\\frac{3}{2}\\right)\\left(\\frac{1}{2}\\right) \\equiv-\\frac{3}{4} \\quad(\\bmod p) \\Longrightarrow p=7\n\\end{aligned}\n$$\nforcing $p=7$.\n- If $k=6$, then we have $x<p / 2<x+6$, then $x \\in\\left\\{\\frac{p-1}{2}, \\frac{p-3}{2}, \\ldots, \\frac{p-11}{2}\\right\\} \\equiv\\left\\{-\\frac{1}{2},-\\frac{3}{2}, \\ldots,-\\frac{11}{2}\\right\\}$. We have\n\n| $x$ | $x(x+6)$ | $p$ |\n| :---: | :---: | :---: |\n| $-\\frac{1}{2}$ | $-\\frac{11}{4}$ | 3,5 |\n| $-\\frac{3}{2}$ | $-\\frac{27}{4}$ | 31 |\n| $-\\frac{5}{2}$ | $-\\frac{35}{4}$ | 3,13 |\n| $-\\frac{7}{2}$ | $-\\frac{35}{4}$ | 3,13 |\n| $-\\frac{9}{2}$ | $-\\frac{27}{4}$ | 31 |\n| $-\\frac{11}{2}$ | $-\\frac{11}{4}$ | 3,5 |\n\nThus, all that remains is to eliminate $p=31$. This is by $4 \\cdot 8 \\equiv 1(\\bmod 31)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-quadratic-residues-auto-4469",
+      "name": "HMMT February 2024 #0kyt",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2024",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial interpolation: Newton, Lagrange",
+        "Complex numbers",
+        "Quadratic residues",
+        "Greatest common divisors (gcd)",
+        "Quadratic fields",
+        "Unique factorization"
+      ],
+      "statement": "Problem:\n\nAcross all polynomials $P$ such that $P(n)$ is an integer for all integers $n$, determine, with proof, all possible values of $P(i)$, where $i^{2} = -1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe claim the answer is every complex number $a+b i$ where $a$ and $b$ are rationals whose simplified denominators are not multiples of any prime congruent to $1$ modulo $4$. The proof consists of two main steps: proving that powers of $p \\equiv 1 \\bmod 4$ can't appear in the denominator, and showing all possible values are attainable. We show three different methods of the former part.\n\n## Impossibility via elementary number theory\n\nWe first show that no other values are possible. Indeed, it is well known that any polynomial that maps $\\mathbb{Z}$ into itself must be of the form $P(n)=\\sum_{k=0}^{m} a_{k}\\binom{n}{k}$ for integers $a_{k}$ and where we treat the binomials as formal polynomials. This may be proved via finite differences.\n\nIt is therefore sufficient to show that for any $k,\\binom{i}{k}$ can be simplified to a fraction of the form $\\frac{a+b i}{c}$, where $a, b, c$ are integers and $c$ is not divisible by any prime that is $1$ modulo $4$. We have that\n$$\n\\binom{i}{k}=\\frac{i \\cdot(i-1) \\cdot \\ldots \\cdot(i-(k-1))}{k \\cdot(k-1) \\cdot \\ldots \\cdot 1}\n$$\nPick any prime $p$ that is $1$ modulo $4$. Since $p$ is $1$ modulo $4$, there exist distinct residue classes $x, y$ modulo $p$ so that $x^{2} \\equiv y^{2} \\equiv -1 \\bmod p$. We will show that for every integer, $r \\leq k$ divisible by $p$ in the denominator, we can pair it with a disjoint set, $\\{r_{x}, r_{y}\\}$, of two positive integers less than $k$ in these two residue classes so that $(i-r_{x})(i-r_{y})$ has real and complex parts divisible by the highest power of $p$ dividing $r$. Thus any factor of $p$ that is $1$ modulo $4$ in the denominator, exists in the numerator as well, which suffices. Start with $u=1$ and repeat the following process for increasing $u$ until there is nothing left to do.\n\nFor every positive integer $j \\leq k$ such that $p^{u} \\mid j$, there exist unique $j_{x}^{\\prime}, j_{y}^{\\prime} \\in [j-p^{u}, j)$ satisfying $j_{x}^{\\prime} \\equiv x \\bmod p, j_{y}^{\\prime} \\equiv y \\bmod p$ and $p^{u} \\mid j_{x}^{\\prime 2}+1, j_{y}^{\\prime 2}+1$. So pair $j$ with the set $\\{j_{x}^{\\prime}, j_{y}^{\\prime}\\}$, and pair its old partners if any to the old partners of $j_{x}^{\\prime}$ and $j_{y}^{\\prime}$.\n\nThe important feature of this assignment process is that we always have at step $u, p^{\\min (u, v_{p}(r))} \\mid r_{x} + r_{y}, r_{x}^{2}+1, r_{y}^{2}+1$. Thus at the end of the process, $(i-r_{x})(i-r_{y})=\\frac{1}{2}\\left((r_{x}+r_{y})^{2}-(r_{x}^{2}+1)-(r_{y}^{2}+1)\\right)-(r_{x}+r_{y}) i$ has real and complex parts divisible by $p^{v_{p}(r)}$ as claimed.\n\n## Impossibility via Gaussian Integers\n\nWe work in the ring of Gaussian Integers $\\mathbb{Z}[i]=\\{a+b i: a, b \\in \\mathbb{Z}\\}$, which is sitting inside number field $\\mathbb{Q}[i]=\\{a+b i: a, b \\in \\mathbb{Q}\\}$. It's well-known that $\\mathbb{Z}[i]$ is a unique factorization domain. For any Gaussian prime $\\pi$, let $\\nu_{\\pi}(z)$ denote the exponent of $\\pi$ in the factorization of $z$.\n\nLet $p \\equiv 1(\\bmod 4)$ be a prime. It's well known that $p$ splits into two Gaussian primes, $p=\\pi \\bar{\\pi}$. Note that it suffices to show\n$$\n\\nu_{\\pi}(i(i-1)(i-2) \\ldots(i-k+1)) \\geq \\nu_{\\pi}(k!)=\\left\\lfloor\\frac{k}{p}\\right\\rfloor+\\left\\lfloor\\frac{k}{p^{2}}\\right\\rfloor+\\ldots\n$$\nbecause the similar statement for $\\bar{\\pi}$ will follow. The key claim is the following:\n\nClaim. For any integer $t \\geq 1$ and $n$, at least one of numbers $i-n-1, i-n-2, \\ldots, i-n-p^{t}$ is divisible by $\\pi^{t}$.\n\nProof. First, we show that there exists integer $r$ such that $\\pi^{t} \\mid i-r$. To that end, by Hensel's lemma, there exists an integer $s$ for which $p^{t} \\mid s^{2}+1$. Thus,\n$$\n\\pi^{t} \\bar{\\pi}^{t} \\mid (s-i)(s+i)\n$$\nHowever, $\\operatorname{gcd}(s-i, s+i) \\mid 2$, so $\\pi^{t}$ must divide either $s-i$ or $s+i$. In particular, $r=s$ or $r=-s$ work.\n\nTo complete the problem, pick the unique $x \\in \\{1,2, \\ldots, p^{t}\\}$ such that $n+x \\equiv r(\\bmod p)^{t}$, so $i-(n+x) \\equiv i-r\\left(\\bmod p^{t}\\right)$ and hence divisible by $\\pi^{t}$.\n\nUsing the claim repeatedly, we find that among numbers $i, i-1, i-2, \\ldots, i-k+1$,\n- at least $\\left\\lfloor\\frac{k}{p}\\right\\rfloor$ are divisible by $\\pi$ (this is by selecting $\\left\\lfloor\\frac{k}{p}\\right\\rfloor$ disjoint contiguous block of size $p$ ),\n- at least $\\left\\lfloor\\frac{k}{p^{2}}\\right\\rfloor$ are divisible by $\\pi^{2}$,\n- at least $\\left\\lfloor\\frac{k}{p^{3}}\\right\\rfloor$ are divisible by $\\pi^{3}$,\n- $\\quad \\vdots$\n\nUsing these altogether suffices to prove (*).\n\n## Impossibility via $\\boldsymbol{p}$-adics\n\nLet $P(i)=a+b i$, and note that $P(-i)=a-b i$. Fix some $p \\equiv 1 \\bmod 4$, and consider the $p$-adic integers $\\mathbb{Z}_{p}$ lying in $\\mathbb{Q}_{p}$. Note that $x^{2}+1=0$ has a solution in $\\mathbb{Z}_{p}$, and hence $\\pm i \\in \\mathbb{Z}_{p}$. Now take a sequence of integers $m_{k}$ converging to $i$ in $\\mathbb{Z}_{p}$, so $-m_{k}$ converges to $-i$. Then since polynomials are continuous, $P\\left(m_{k}\\right)$ converges to $P(i)$ and $P\\left(-m_{k}\\right)$ converges to $P(-i)$, so $P\\left(m_{k}\\right)+P\\left(-m_{k}\\right)$ and $P\\left(m_{k}\\right)-P\\left(-m_{k}\\right)$ converge to $2 x$ and $2 y i$ respectively. Finally, since $P\\left(m_{k}\\right)$ and $P\\left(-m_{k}\\right)$ are integers, they have nonnegative $p$-adic valuation, and so by continuity, $2 x$ and $2 y$ have nonegative $p$-adic valuation. Thus, when written as simplified fractions, $a$ and $b$ cannot have any powers of $p$ in their denominator, as desired.\n\n## Construction\n\nWe now show that all of the claimed values are possible. The set of polynomials, $P$, taking $\\mathbb{Z}$ to itself is closed under addition and multiplication, and therefore so is the set of possible values of $P(i)$. It clearly contains $\\mathbb{Z}[i]$ by taking linear polynomials. Thus it suffices to show that $p^{-1}$ is attainable for every prime $p$ that is not $1$ modulo $4$. $2^{-1}$ is achieved by taking $P(x)=\\frac{1}{4} x(x-1)(x-2)(x-3)+3$, so we may focus our attention only on the case where $p$ is $3$ modulo $4$. It is then further sufficient to show that some $(a+b i) p^{-1}$ is attainable for $a, b \\in \\mathbb{Z}$ not both divisible by $p$ because then $(a-b i) \\cdot(a+b i) p^{-1}=\\left(a^{2}+b^{2}\\right) p^{-1}$ is also obtainable and cannot be an integer since $-1$ is not a quadratic residue modulo $p$, so Bézout's Theorem shows that $p^{-1}$ is attainable. Now with this goal in mind, observe that\n$$\n\\left|\\binom{i}{p}\\right|=\\frac{1^{2} \\cdot\\left(1^{2}+1^{2}\\right) \\cdot \\ldots \\cdot\\left(1^{2}+(p-1)^{2}\\right)}{p \\cdot(2 p-1) \\cdot \\ldots \\cdot 1}\n$$\nhas denominator divisible by $p$, but numerator not divisible by $p$ since again, $-1$ is not a quadratic residue modulo $p$. Hence we can find some integer $m$ so that $m\\binom{i}{p}=(a+b i) p^{-1}$ where $a$ and $b$ that aren't both divisible by $p$ as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-quadratic-residues-auto-4473",
+      "name": "HMMT February 2024 #0kyx",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2024",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomials",
+        "Vieta's formulas",
+        "Polynomials mod p",
+        "Chinese remainder theorem",
+        "Quadratic residues",
+        "Quadratic reciprocity"
+      ],
+      "statement": "Problem:\n\nA polynomial $f \\in \\mathbb{Z}[x]$ is called splitty if and only if for every prime $p$, there exist polynomials $g_p, h_p \\in \\mathbb{Z}[x]$ with $\\operatorname{deg} g_p, \\operatorname{deg} h_p < \\operatorname{deg} f$ and all coefficients of $f - g_p h_p$ are divisible by $p$. Compute the sum of all positive integers $n \\leq 100$ such that the polynomial $x^4 + 16 x^2 + n$ is splitty.\n\nProposed by: Pitchayut Saengrungkongka",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe claim that $x^4 + a x^2 + b$ is splitty if and only if either $b$ or $a^2 - 4b$ is a perfect square. (The latter means that the polynomial splits into $(x^2 - r)(x^2 - s)$.)\n\nAssuming the characterization, one can easily extract the answer. For $a = 16$ and $b = n$, one of $n$ and $64 - n$ has to be a perfect square. The solutions to this that are at most $64$ form $8$ pairs that sum to $64$ (if we include $0$), and then we additionally have $81$ and $100$. This means the sum is $64 \\cdot 8 + 81 + 100 = 693$.\n\nNow, we move on to prove the characterization.\n\n## Necessity.\n\nTake a prime $p$ such that neither $a^2 - 4b$ nor $b$ is a quadratic residue modulo $p$ (exists by Dirichlet + CRT + QR). Work in $\\mathbb{F}_p$. Now, suppose that\n\n$$\nx^4 + a x^2 + b = (x^2 + m x + n)(x^2 + s x + t)\n$$\n\nThen, looking at the $x^3$-coefficient gives $m + s = 0$ or $s = -m$. Looking at the $x$-coefficient gives $m(n - t) = 0$.\n\n- If $m = 0$, then $s = 0$, so $x^4 + a x^2 + b = (x^2 + n)(x^2 + t)$, which means $a^2 - 4b = (n + t)^2 - 4 n t = (n - t)^2$, a quadratic residue modulo $p$, contradiction.\n- If $n = t$, then $b = n t$ is a square modulo $p$, a contradiction. (The major surprise of this problem is that this suffices, which will be shown below.)\n\n## Sufficiency.\n\nClearly, the polynomial splits in $p = 2$ because in $\\mathbb{F}_2[x]$, we have $x^4 + a x^2 + b = (x^2 + a x + b)^2$. Now, assume $p$ is odd.\n\nIf $a^2 - 4b$ is a perfect square, then $x^4 + a x^2 + b$ splits into $(x^2 - r)(x^2 - s)$ even in $\\mathbb{Z}[x]$.\n\nIf $b$ is a perfect square, then let $b = k^2$. We then note that\n\n- $x^4 + a x^2 + b$ splits in form $(x^2 - r)(x^2 - s)$ if $\\left(\\frac{a^2 - 4k^2}{p}\\right) = 1$.\n- $x^4 + a x^2 + b$ splits in form $(x^2 + r x + k)(x^2 - r x + k)$ if $a = 2k - r^2$, or $\\left(\\frac{2k - a}{p}\\right) = 1$.\n- $x^4 + a x^2 + b$ splits in form $(x^2 + r x - k)(x^2 - r x - k)$ if $a = -2k - r^2$, or $\\left(\\frac{-2k - a}{p}\\right) = 1$.\n\nSince $(2k - a)(-2k - a) = a^2 - 4k^2$, it follows that at least one of these must happen."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-quadratic-residues-auto-4593",
+      "name": "HMMT February 2024 Guts Round #0l29",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2024 Guts Round",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Quadratic residues",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\n\nEstimate the number of positive integers $n \\leq 10^{6}$ such that $n^{2}+1$ has a prime factor greater than $n$.\n\nSubmit a positive integer $E$. If the correct answer is $A$, you will receive max $\\left(0,\\left\\lfloor 20 \\cdot \\min \\left(\\frac{E}{A}, \\frac{10^{6}-E}{10^{6}-A}\\right)^{5}+0.5\\right\\rfloor\\right)$ points.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $N$ denote $10^{6}$. We count by summing over potential prime factors $p$.\n\nFor any prime $p>2$, we have that $p \\mid n^{2}+1$ for two values of $n$ if $p \\equiv 1(\\bmod 4)$, and zero values otherwise. Pretending these values are equally likely to be any of $1, \\ldots, p$, we expect the number of $n$ corresponding to a $1(\\bmod 4)$ prime to be $\\min \\left(2, \\frac{2 N}{p}\\right)$.\n\nThe number of primes up to $x$ is, by the Prime Number Theorem $\\frac{x}{\\log x}$. Assuming around half of the prime numbers are $1(\\bmod 4)$, we on average expect some $x$ to be a $1(\\bmod 4)$ prime $\\frac{1}{2 \\log x}$ of the time. Approximating by an integral over potential primes $x$ from 1 to $N^{2}$, using our approximations, gives\n$$\n\\int_{1}^{N^{2}} \\min \\left(2, \\frac{2 N}{x}\\right) \\cdot \\frac{d x}{2 \\log x}\n$$\nWe now approximately calculate this integral as follows:\n$$\n\\begin{aligned}\n\\int_{1}^{N^{2}} \\min \\left(2, \\frac{2 N}{x}\\right) \\cdot \\frac{d x}{2 \\log x} & =\\int_{1}^{N} \\frac{d x}{\\log x}+\\int_{N}^{N^{2}} \\frac{N}{x \\log x} d x \\\\\n& \\approx \\frac{N}{\\log N}+N\\left(\\log \\log \\left(N^{2}\\right)-\\log \\log N\\right) \\\\\n& =\\frac{N}{\\log N}+N \\log 2\n\\end{aligned}\n$$\nHere, for the first integral, we estimate $\\log x$ on $[1, N]$ by $\\log N$, and for the second integral, we use that the antiderivative of $\\frac{1}{x \\log x}$ is $\\log \\log x$.\n\nUsing $\\log 2 \\approx 0.7$, one can estimate\n$$\n\\log N=2 \\log 1000 \\approx 20 \\log 2 \\approx 14\n$$\ngiving a final estimate of\n$$\n10^{6} / 14+10^{6} \\cdot 0.7=771428\n$$\nThis estimate yields a score of 15. If one uses the closer estimate $\\log 2 \\approx 0.69$, one gets the final estimate of 761428, yielding a score of 18.\n\nHere is a code using sympy to calculate the final answer:\n```\nfrom sympy.ntheory import factorint\ncnt = 0\nfor n in range(1, 10**6+1):\n    if max(factorint(n**2+1, multiple=True)) > n:\n        cnt += 1\nprint(cnt)\n```"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-quadratic-residues-auto-4690",
+      "name": "HMMT February 2025 #0l4y",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2025",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Greatest common divisors (gcd)",
+        "Chinese remainder theorem",
+        "Quadratic residues"
+      ],
+      "statement": "Problem:\nDetermine, with proof, all possible values of $\\gcd (a^{2} + b^{2} + c^{2}, abc)$ across all triples of positive integers $(a, b, c)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFirst, we show that no other $n$ work. If there does exist prime $p \\equiv 3$ (mod $4$) such that $\\nu_{p}(n) = 1$, then $p \\mid abc$; without loss of generality, assume $p$ divides $a$. Then, $p^{2} \\mid a^{2}$ and $p \\mid a^{2} + b^{2} + c^{2}$, so $p \\mid b^{2} + c^{2}$. Since $p$ is $3$ modulo $4$, $-1$ is not a quadratic residue modulo $p$, so $b^{2} \\equiv -c^{2}$ (mod $p$) only has the trivial solution $(b, c) = 0$. Therefore $p \\mid b$ and $p \\mid c$, so $p^{2} \\mid n$. This contradicts $\\nu_{p}(n) = 1$, so no solutions outside of the claimed solution set exist.\n\nNow, we give the construction. Let $n$ be in the claimed solution set. We proceed in two steps.\n\nStep 1 (Local step). For each prime $p$ dividing $n$, we will construct $a, b$, and $c$ modulo $p^{\\nu_{p}(n) + 1}$ such that $\\nu_{p}(\\gcd (a^{2} + b^{2} + c^{2}, abc)) = \\nu_{p}(n)$.\n\nWe have a couple cases.\n- If $\\nu_{p}(n) = 2k$ for some positive integer $k$, pick $a = p^{k}$, $b = p^{k}$, and $c = p^{k + 1}$ for $p \\neq 2$ and pick $a = b = c = p^{k}$ for $p = 2$.\n- If $p \\not\\equiv 3$ (mod $4$) and $\\nu_{p}(n) = 2k + 1$ for some nonnegative integer $k$, then by Fermat's Christmas theorem, there are positive integers $x$ and $y$ for which $x^{2} + y^{2} = p$. Then pick $a = x p^{k}$, $b = y p^{k}$, and $c = p^{k + 1}$.\n- If $p \\equiv 3$ (mod $4$) and $\\nu_{p}(n) = 2k + 1$ for some nonnegative integer $k$, then $k \\geq 1$ by assumption. We let $x$ and $y$ be positive integers for which $\\nu_{p}(x^{2} + y^{2} + 1) = 1$. (This is fairly standard. To briefly recall the proof, note that $x$ and $y$ satisfying $x^{2} + 1 \\equiv -y^{2}$ (mod $p$) exist because some quadratic residue must be adjacent to a nonquadratic residue, and forcing $x^{2} + 1 \\not\\equiv -y^{2}$ (mod $p^{2}$) can be done by adding appropriate multiples of $p$ to $x$ or $y$.) Then, pick $a = x p^{k}$, $b = y p^{k}$, and $c = p^{k}$.\n\nStep 2 (Global step). Given solutions $(a_{p}, b_{p}, c_{p})$ modulo $p^{\\nu_{p}(n) + 1}$ for each prime $p \\mid n$, we construct a working solution $(a, b, c)$ over positive integers.\n\nBy Chinese Remainder Theorem, we can pick positive integers $a, b$, and $c$ such that for all prime $p \\mid n$, $(a, b, c) \\equiv (a_{p}, b_{p}, c_{p}) \\pmod {p^{\\nu_{p}(n) + 1}}$. Now, we need to modify this construction to ensure that no other primes divide $\\gcd (a^{2} + b^{2} + c^{2}, abc)$.\n\nFor every prime $p \\mid c$ with $p \\nmid n$, we modify $a$ and $b$ (by adding additional congruence relations) so that $p$ does not divide $a^{2} + b^{2}$. Then, $p$ does not divide $\\gcd (a^{2} + b^{2} + c^{2}, abc)$ for any prime $p$ such that $p \\mid c$ and $p \\nmid n$. Let\n$$N = \\prod_{p \\mid c n} p^{\\nu_{p}(n) + 1},$$\n$$S = \\{\\text{primes } p \\text{ such that } p \\mid ab \\text{ but } p \\nmid c n\\},$$\n$$P = \\prod_{p \\in S} p^{\\varphi (N)} \\equiv 1 \\pmod {N}.$$ \nIn particular, we have only fixed residues of $a, b, c$ modulo $N$ at this point. Now, let $a_{1} = a P$ and $b_{1} = b P$. This keeps all of our mod $N$ conditions. We now claim that $(a_{1}, b_{1}, c)$ works. To prove this, fix a prime $p$, and note that\n\nif $p$ divides $c n$, then since $a' \\equiv a$ (mod $N$) and $b' \\equiv b$ (mod $N$), we have $\\nu_{p}(\\gcd (a_{1}^{2} + b_{1}^{2} + c^{2}, a_{1} b_{1} c)) = \\nu_{p}(n)$ from our construction of $(a, b, c)$.\n\nif $p \\in S$, then we note that $p$ divides $a_{1}^{2} + b_{1}^{2}$, but not $c^{2}$, so $p$ does not divide $a_{1}^{2} + b_{1}^{2} + c^{2}$.\n\nif $p \\notin S$ and $p \\nmid c n$, then $p$ does not divide $a_{1} b_{1} c$.\n\nThis concludes the proof."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-quadratic-residues-auto-4759",
+      "name": "TST2025 #0l6v",
+      "url": "https://usamoguide.com/",
+      "source": "TST2025",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Techniques: modulo, size analysis, order analysis, inequalities",
+        "Quadratic residues",
+        "Determinants",
+        "Complex numbers in geometry",
+        "Quadratic fields"
+      ],
+      "statement": "Problem:\nProve that there exists a real number $\\varepsilon > 0$ such that there are infinitely many sequences of integers $0 < a_1 < a_2 < \\dots < a_{2025}$ satisfying\n$$\n\\text{gcd}(a_1^2 + 1, a_2^2 + 1, \\dots, a_{2025}^2 + 1) > a_{2025}^{1+\\varepsilon}.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-quadratic-residues-auto-4783",
+      "name": "HMMT February 2025 #0l7j",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2025",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Quadratic residues",
+        "Quadratic reciprocity",
+        "Fermat / Euler / Wilson theorems",
+        "Polynomials mod p",
+        "Injectivity / surjectivity",
+        "Recurrence relations"
+      ],
+      "statement": "Problem:\nLet $\\mathbb{Z}$ be the set of integers. Determine, with proof, all primes $p$ for which there exists a function $f\\colon \\mathbb{Z}\\to \\mathbb{Z}$ such that for any integer $x$,\n\n$f(x + p) = f(x)$ and $p$ divides $f(x + f(x)) - x$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe work in $\\mathbb{F}_p$, treating $f$ as a map from $\\mathbb{F}_p$ to itself. Clearly, $p = 2$ doesn't work. For $p > 2$ such that $5$ is a quadratic residue mod $p$, as well as $p = 5$ itself, there exists some $\\alpha$ such that $(2\\alpha + 1)^2\\equiv 5$ (mod $p$). Taking $f(x) = \\alpha x$ then works because\n\n$$\nf(x + f(x)) - x = (\\alpha^2 + \\alpha -1)x = \\frac{1}{4}\\left((2\\alpha +1)^2 - 5\\right)x\\equiv 0\\pmod {p}.\n$$\n\nTo prove no other primes satisfy the conditions in the problem statement, note that $f$ is surjective, as for any $x$, $f(x + f(x)) = x$. As $\\mathbb{F}_p$ is finite, $f$ is bijective. Plugging in $x = f(y)$ yields\n\n$$\nf(f(y) + f(f(y))) = f(y)\\implies f(y) + f(f(y)) = y.\n$$\n\nSince $f$ is bijective, there exists $z\\in \\mathbb{F}_p$ such that $f(z) = 0$, then $z = f(z + f(z)) = f(z) = 0$. Therefore, $f(0) = 0$. This is the only fixed point, as any fixed point $d$ would satisfy $d = f(d) + f(f(d)) = 2d$, which is impossible if $d \\neq 0$. Hence the remaining residues form nontrivial cycles $y$, $f(y)$, $f(f(y))$, etc. If the cycle containing $y$ is of length $n$, then\n\n$$\n\\begin{array}{rl}\n& f^{-1}(y) = y + f(y),\\\\\n& f^{-2}(y) = f^{-1}(y) + y = 2y + f(y),\\\\\n& \\qquad \\vdots\\\\\n& f^{-(n - 1)}(y) = f(y) = F_ny + F_{n - 1}f(y),\\\\\n& \\qquad y = F_{n + 1}y + F_n f(y),\n\\end{array} \\quad (\\text{by induction})\n$$\n\nwhere $F_k$ is the $k$-th Fibonacci number. As $y \\neq 0$ and $f(y) \\neq 0$, the last two equations tell us\n\n$$\nF_n^2 \\equiv \\left(\\frac{(1 - F_{n - 1})f(y)}{y}\\right) \\left(\\frac{(1 - F_{n + 1})y}{f(y)}\\right) \\equiv (F_{n + 1} - 1)(F_{n - 1} - 1) \\pmod {p}.\n$$\n\nLet $A = F_{n + 1} - 1$ and $B = F_{n - 1} - 1$ for brevity. The last equation becomes\n\n$$\n(A - B)^2 \\equiv AB \\equiv \\frac{1}{4} ((A + B)^2 - (A - B)^2) \\pmod {p} \\Longrightarrow (A + B)^2 \\equiv 5(A - B)^2 \\pmod {p}.\n$$\n\nAs $5$ is not a quadratic residue, this implies $F_{n + 1} \\equiv F_{n - 1} \\equiv 1 \\pmod {p}$. Hence, if $d$ is the smallest positive integer such that $F_d \\equiv 0 \\pmod {p}$ and $F_{d + 1} \\equiv 1 \\pmod {p}$, then the Fibonacci sequence is periodic modulo $p$ with period $d$, so $d \\mid n$. The sum of all cycle lengths (excluding the fixed point $0$) is $p - 1$, so $d \\mid p - 1$. The following well-known lemma will give us a contradiction.\n\n**Lemma 1.** If $5$ is not a quadratic residue modulo a prime $p$, then $p \\nmid F_{p - 1}$.\n\n**Proof 1.** Recall Binet's formula,\n\n$$\nF_{p - 1} = \\frac{1}{\\sqrt{5}} \\left(\\left(\\frac{1 + \\sqrt{5}}{2}\\right)^{p - 1} - \\left(\\frac{1 - \\sqrt{5}}{2}\\right)^{p - 1}\\right).\n$$\n\nMultiplying both sides by $2^{p - 1}$ and expanding via the binomial theorem, we have\n\n$$\n2^{p - 1}F_{p - 1} = 2\\sum_{k = 0}^{\\frac{p - 3}{2}}5^{k}\\binom{p - 1}{2k + 1}.\n$$\n\nHowever, $\\binom{p- 1}{2k+1} \\equiv(- 1)^{2k+1} \\equiv- 1 \\pmod{p}$ for all $k$, so\n\n$$\np \\mid F_{p - 1} \\quad \\text{if and only if} \\quad p \\left| \\sum_{k = 0}^{\\frac{p - 3}{2}} 5^{k} = \\frac{5^{\\frac{p - 1}{2}} - 1}{5 - 1} \\right.\n$$\n\nTherefore $p \\mid F_{p - 1}$ if and only if $5^{\\frac{p - 1}{2}} \\equiv 1 \\pmod {p}$, which doesn't hold if $5$ is not a quadratic residue modulo $p$, as desired. $\\square$\n\n**Proof 2.** Work in $\\mathbb{F}_{p^{2}} = \\mathbb{F}_{p}[\\sqrt{5}]$. Since $5$ is not a quadratic residue, we get that $(\\sqrt{5})^{p} = - \\sqrt{5}$. Using the fact that $(a + b)^{p} = a^{p} + b^{p}$ (because all other terms have coefficient divisible by $p$), we get that\n\n$$\n\\left(\\frac{1 + \\sqrt{5}}{2}\\right)^{p} = \\frac{1 - \\sqrt{5}}{2} \\implies \\left(\\frac{1 + \\sqrt{5}}{2}\\right)^{p - 1} = \\left(\\frac{1 - \\sqrt{5}}{2}\\right)^{2} = \\frac{3 - \\sqrt{5}}{2}.\n$$\n\nSimilarly, $\\left(\\frac{1 - \\sqrt{5}}{2}\\right)^{p - 1} = \\frac{3 + \\sqrt{5}}{2}$. Hence, by Binet's formula,\n\n$$\nF_{p - 1} = \\frac{1}{\\sqrt{5}}\\left(\\left(\\frac{1 + \\sqrt{5}}{2}\\right)^{p - 1} - \\left(\\frac{1 - \\sqrt{5}}{2}\\right)^{p - 1}\\right)\n= \\frac{1}{\\sqrt{5}}\\left(\\frac{3 - \\sqrt{5}}{2} -\\frac{3 + \\sqrt{5}}{2}\\right) = -1,\n$$\n\nso it is not divisible by $p$.\n\nHence, $F_{p - 1} \\neq 0$ (mod $p$) if $5$ is not a quadratic residue modulo $p$, which contradicts $d \\mid p - 1$ above. This completes the solution."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

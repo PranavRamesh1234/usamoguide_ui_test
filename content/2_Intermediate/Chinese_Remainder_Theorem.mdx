@@ -1,0 +1,122 @@
+---
+id: chinese-remainder-theorem
+title: Chinese Remainder Theorem
+author: Mehul Biala
+description: Solving basic systems of linear congruences with pairwise coprime moduli and computing modular inverses.
+prerequisites: ["modular-arithmetic"]
+---
+
+## Overview
+
+The Chinese Remainder Theorem (CRT) states that if you know the remainders of a number $x$ when divided by several pairwise coprime integers, you can uniquely determine the remainder of $x$ when divided by the product of those integers. 
+
+Structurally, CRT establishes a bijection (a perfect one-to-one correspondence) between a number modulo $M = m_1m_2\cdots m_k$ and a tuple of its remainders modulo each $m_i$. This means that any operation you do on the large modulus $M$ can be broken down, computed on the smaller moduli $m_i$ independently, and then stitched back together.
+
+### Visualizing the Theorem: The Number Line Alignment
+
+To see why this works, imagine overlapping number lines. Suppose we want to find a number $x$ that satisfies:
+- $x \equiv 2 \pmod{3}$
+- $x \equiv 3 \pmod{5}$
+
+If we list the valid non-negative numbers for each condition, we are looking for the points where the two sequences "align" or intersect:
+
+| Condition | Valid Solutions for $x$ |
+| :--- | :--- |
+| **$x \equiv 2 \pmod{3}$** | 2, 5, **8**, 11, 14, 17, 20, **23**, 26, 29 |
+| **$x \equiv 3 \pmod{5}$** | 3, **8**, 13, 18, **23**, 28, 33 |
+
+The sequences overlap at **8** and **23**. Notice that the distance between these overlapping solutions is exactly $15$, which is $3 \times 5$. The Chinese Remainder Theorem formalizes this exact phenomenon: the intersection of these periodic sequences will always form a new, perfectly regular sequence modulo the product of their coprime bases!
+
+## Key Ideas
+
+- **The Core Theorem:** If $m_1, m_2, \ldots, m_k$ are pairwise coprime positive integers ($\gcd(m_i, m_j) = 1$ for $i \neq j$), the system $x \equiv a_i \pmod{m_i}$ has a unique solution modulo $M = m_1 m_2 \cdots m_k$.
+- **Constructive Substitution:** To solve manually, write the congruence with the largest modulus as an algebraic equation (e.g., $x = m_1 \cdot k + a_1$), substitute it into the next congruence, and solve for $k$. 
+- **The Formulaic Approach (Using Inverses):** For a system of two congruences $x \equiv a \pmod{m}$ and $x \equiv b \pmod{n}$, you can use the Extended Euclidean Algorithm to find $u, v$ such that $mu + nv = 1$. The solution is then $x \equiv a(nv) + b(mu) \pmod{mn}$.
+
+## Worked Examples
+
+### Example 1: Standard System Reconstruction
+
+> Find the smallest positive integer $x$ that satisfies:
+>
+> $$
+> x \equiv 2 \pmod{3} \\
+> x \equiv 3 \pmod{5} \\
+> x \equiv 2 \pmod{7}
+> $$
+
+**Solution:**
+First, look for shortcuts. Notice that $x \equiv 2 \pmod{3}$ and $x \equiv 2 \pmod{7}$. Because 3 and 7 are coprime, we can directly combine these into a single congruence: $x \equiv 2 \pmod{21}$. 
+
+Now we have a two-congruence system:
+$$
+x \equiv 2 \pmod{21} \\
+x \equiv 3 \pmod{5}
+$$
+
+Convert the first congruence into an equation: $x = 21k + 2$ for some integer $k$. Substitute this into the second congruence:
+$$
+21k + 2 \equiv 3 \pmod{5}
+$$
+
+Reduce $21 \pmod{5}$ to $1$:
+$$
+k + 2 \equiv 3 \pmod{5} \implies k \equiv 1 \pmod{5}
+$$
+
+Write $k$ as an equation: $k = 5j + 1$. Substitute back into $x$:
+$$
+x = 21(5j + 1) + 2 = 105j + 23
+$$
+Thus, $x \equiv 23 \pmod{105}$. The smallest positive integer is $23$.
+
+### Example 2: Finding Last Digits of Massive Powers
+
+> What are the last two digits of $17^{2026}$?
+
+**Solution:**
+Finding the last two digits is equivalent to finding $x \equiv 17^{2026} \pmod{100}$. Computing modulo 100 directly is tedious, but $100 = 4 \times 25$, and $\gcd(4, 25) = 1$. We can compute the remainders modulo 4 and modulo 25 separately.
+
+**Modulo 4:**
+$$
+17 \equiv 1 \pmod{4} \implies 17^{2026} \equiv 1^{2026} \equiv 1 \pmod{4}
+$$
+
+**Modulo 25:**
+> We can use Euler's Totient Theorem. $\phi(25) = 25 \times (1 - 1/5) = 20$. 
+> Therefore, $17^{20} \equiv 1 \pmod{25}$.
+> We divide the exponent: $2026 = 20 \times 101 + 6$.
+> $$
+> 17^{2026} \equiv (17^{20})^{101} \cdot 17^6 \equiv 1 \cdot 17^6 \pmod{25}
+> $$
+> 17^{2026} \equiv (17^{20})^{101} \cdot 17^6 \equiv 1 \cdot 17^6 \pmod{25}
+> $$
+> Calculate $17^6 \pmod{25}$ step-by-step:
+> $17 \equiv -8 \pmod{25}$
+> $17^2 \equiv 64 \equiv 14 \pmod{25}$
+> $17^4 \equiv 14^2 = 196 \equiv 21 \equiv -4 \pmod{25}$
+> $17^6 = 17^4 \cdot 17^2 \equiv (-4) \cdot 14 = -56 \equiv 19 \pmod{25}$
+>
+> Now we have the system:
+> $$
+> x \equiv 1 \pmod{4} \\
+> x \equiv 19 \pmod{25}
+> $$
+> From the second equation, $x = 25k + 19$. Substitute into the first:
+> $$
+> 25k + 19 \equiv 1 \pmod{4} \\
+> (1)k + 3 \equiv 1 \pmod{4} \\
+> k \equiv -2 \equiv 2 \pmod{4}
+> $$
+> So, $k = 4j + 2$. Substitute back: $x = 25(4j + 2) + 19 = 100j + 69$.
+> The last two digits are $69$.
+
+## Common Pitfalls
+
+- **Forgetting the coprimality requirement:** CRT only works cleanly if the moduli share no common factors.
+- **Arithmetic errors in substitution:** Reducing negative numbers incorrectly during the substitution steps (e.g., $-3 \pmod{5}$ is $2$, not $3$).
+- **Losing the final modulus:** The solution is unique modulo the *product* of all the coprime moduli, not just the largest one.
+
+## Practice Problems
+
+<Problems problems="practice" />

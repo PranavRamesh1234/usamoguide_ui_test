@@ -1,0 +1,213 @@
+---
+id: function-basics-p2
+title: Function Basics II
+author: Pranav Ramesh
+description: All about Polynomials and Ideas used in solving them.
+prerequisites: ["algebra-basics", "function-basics-p1"]
+---
+
+## Graphical Representation and Transformations
+
+When we graph $y = f(x)$, we plot all points $(x, f(x))$ on the Cartesian plane as $x$ ranges over the domain. The *x*-intercepts are where $f(x) = 0$ (the roots), and the *y*-intercept is $f(0)$ (provided $0$ is in the domain).
+
+### Transformations
+
+Every transformation of $f(x)$ has a precise graphical effect. The following are ~~confusing~~ surprisingly systematic once you see the pattern.
+
+**Vertical shifts**: For $k > 0$,
+- $y = f(x) + k$: shift *up* by $k$
+- $y = f(x) - k$: shift *down* by $k$
+
+**Horizontal shifts**: For $k > 0$,
+- $y = f(x - k)$: shift *right* by $k$
+- $y = f(x + k)$: shift *left* by $k$
+
+> **Warning**: The direction of horizontal shifts is counterintuitive. $f(x + 2)$ shifts *left* by $2$, not right. To see why: the output that used to occur at $x = 5$ now occurs when $x + 2 = 5$, i.e., at $x = 3$ which is two units to the left.
+
+**Reflections**:
+- $y = -f(x)$: reflect over the *x*-axis (flip vertically)
+- $y = f(-x)$: reflect over the *y*-axis (flip horizontally)
+
+**Scalings**: For $k > 0$,
+- $y = kf(x)$: vertical stretch by $k$ (if $k > 1$) or compression (if $0 < k < 1$)
+- $y = f(kx)$: horizontal compression by factor $k$ (if $k > 1$) or stretch (if $0 < k < 1$)
+
+> **Warning**: $y = f(3x)$ compresses the graph *toward* the $y$-axis by a factor of $3$, shrinking widths by $\tfrac{1}{3}$. This might be the exact opposite of what many would expect. So understand why this happens.
+
+**Example:** Describe the transformation from $y = \sqrt{x}$ to $y = -2\sqrt{x + 3} + 1$.
+
+1. $\sqrt{x} \to \sqrt{x+3}$: shift left by $3$.
+2. $\to 2\sqrt{x+3}$: vertical stretch by factor $2$.
+3. $\to -2\sqrt{x+3}$: reflect over $x$-axis.
+4. $\to -2\sqrt{x+3} + 1$: shift up by $1$.
+
+Vertex moves from $(0, 0)$ to $(-3, 1)$; graph opens downward. Range: $(-\infty, 1]$.
+
+## Composition of Functions
+
+The **composition** $(f \circ g)(x) = f(g(x))$ means: first apply $g$, then feed the output into $f$. The notation $f(g(x))$ and $(f \circ g)(x)$ are interchangeable.
+
+Order matters enormously. In general, $f \circ g \neq g \circ f$.
+
+**Example:** Let $f(x) = x^2 + 1$ and $g(x) = \sqrt{x - 2}$.
+
+$(f \circ g)(x) = f(g(x)) = (\sqrt{x-2})^2 + 1 = x - 2 + 1 = x - 1$.
+
+$(g \circ f)(x) = g(f(x)) = \sqrt{(x^2+1) - 2} = \sqrt{x^2 - 1}$.
+
+These are completely different functions.
+
+### Iterated Composition
+
+We write $f^n(x)$ to mean $f$ applied $n$ times:
+
+$$
+f^2(x) = f(f(x)), \quad f^3(x) = f(f(f(x))), \quad \ldots
+$$
+
+> **AIME trap**: $f^n(x)$ in a function context means iterated composition, **not** $[f(x)]^n$. Read by context.
+
+Many AIME problems ask for $f^{2025}(x)$ for some cleverly chosen $f$ that becomes periodic under iteration. The strategy: compute $f^1, f^2, f^3, \ldots$ until you spot a cycle of length $k$, then reduce $2025 \pmod{k}$.
+
+> **2001 AIME I Problem 11 (flavor)**
+>
+> Let $f(x) = \dfrac{x}{x+1}$. Compute $f^{2001}(1)$.
+>
+> $f(1) = \tfrac{1}{2}$, $f^2(1) = f\!\left(\tfrac{1}{2}\right) = \tfrac{1/2}{3/2} = \tfrac{1}{3}$, $f^3(1) = f\!\left(\tfrac{1}{3}\right) = \tfrac{1/3}{4/3} = \tfrac{1}{4}$.
+>
+> Pattern: $f^n(1) = \dfrac{1}{n+1}$. So $f^{2001}(1) = \dfrac{1}{2002}$.
+
+### Domain of a Composite Function
+
+The domain of $f \circ g$ is the set of all $x$ in the domain of $g$ such that $g(x)$ is in the domain of $f$. Concretely:
+
+1. Find the domain of $g$. Call it $D_g$.
+2. Compute $f(g(x))$ and find additional restrictions from $f$'s requirements.
+3. The domain of $f \circ g$ is the intersection: $\{x \in D_g \mid g(x) \in D_f\}$.
+
+**Example:** Let $f(x) = \sqrt{x}$ and $g(x) = 1 - x^2$. Find the domain of $f \circ g$.
+
+$D_g = (-\infty, \infty)$. For $f$, we need $g(x) \geq 0$: $1 - x^2 \geq 0 \Rightarrow x^2 \leq 1 \Rightarrow -1 \leq x \leq 1$.
+
+Domain of $f \circ g$: $[-1, 1]$.
+
+## Inverse Functions
+
+### Definition
+
+Functions $f$ and $g$ are **inverses** of each other if
+
+$$
+g(f(x)) = x \quad \text{for all } x \in \text{Domain}(f)
+$$
+$$
+f(g(x)) = x \quad \text{for all } x \in \text{Domain}(g)
+$$
+
+We write $g = f^{-1}$. Note that $f^{-1}(x)$ is *not* $\dfrac{1}{f(x)}$; it is a completely different object, the inverse function.
+
+Intuitively, $f^{-1}$ *undoes* whatever $f$ does: if $f$ takes $a$ to $b$, then $f^{-1}$ takes $b$ back to $a$.
+
+$$
+f(a) = b \iff f^{-1}(b) = a
+$$
+
+### When Does an Inverse Exist?
+
+A function has an inverse if and only if it is **one-to-one** (injective): no two different inputs produce the same output.
+
+If $f(a) = f(b)$ for some $a \neq b$, then $f^{-1}$ would need to send that common output to *both* $a$ and $b$ simultaneously... impossible.
+
+**Graphical test (Horizontal Line Test)**: $f$ has an inverse if and only if no horizontal line $y = c$ intersects the graph of $f$ more than once.
+
+Compare with the vertical line test: the VLT checks if $y = f(x)$ is a valid function; the HLT checks if that function has an inverse.
+
+**Example:** $f(x) = x^2$ fails the HLT ($y = 4$ hits at $x = 2$ and $x = -2$), so it has no inverse on $\mathbb{R}$. However, restricting to $x \geq 0$ makes it one-to-one, and then $f^{-1}(x) = \sqrt{x}$.
+
+### Finding the Inverse
+
+**Method**: To find $f^{-1}(x)$, solve the equation $f(y) = x$ for $y$ in terms of $x$.
+
+The result is $y = f^{-1}(x)$.
+
+**Example:** Find the inverse of $f(x) = 3x - 5$.
+
+Set $f(y) = x$: $3y - 5 = x \Rightarrow y = \dfrac{x + 5}{3}$.
+
+So $f^{-1}(x) = \dfrac{x+5}{3}$. Verify: $f(f^{-1}(x)) = 3 \cdot \dfrac{x+5}{3} - 5 = x$. ✓
+
+**Example:** Find the inverse of $f(x) = \dfrac{-5 - x}{3 - 2x}$.
+
+Set $f(y) = x$: $\dfrac{-5 - y}{3 - 2y} = x \Rightarrow -5 - y = x(3 - 2y) \Rightarrow -5 - y = 3x - 2xy$.
+
+Collect $y$ terms: $2xy - y = 3x + 5 \Rightarrow y(2x - 1) = 3x + 5 \Rightarrow y = \dfrac{3x + 5}{2x - 1}$.
+
+So $f^{-1}(x) = \dfrac{3x+5}{2x-1}$, defined for $x \neq \tfrac{1}{2}$.
+
+**Competition shortcut**: If you only need $f^{-1}(b)$ for a specific value, use the fact that $f^{-1}(b) = a \iff f(a) = b$. Instead of finding the full inverse, just solve $f(a) = b$ for $a$.
+
+> **Example:** If $f(x) = \dfrac{-5-x}{3-2x}$, find $f^{-1}(7)$.
+>
+> Solve $f(y) = 7$: $\dfrac{-5-y}{3-2y} = 7 \Rightarrow -5 - y = 21 - 14y \Rightarrow 13y = 26 \Rightarrow y = 2$.
+>
+> So $f^{-1}(7) = 2$.
+
+### Domains and Ranges of Inverses
+
+The domain of $f^{-1}$ is the range of $f$, and the range of $f^{-1}$ is the domain of $f$. This is immediate from the definition: $f^{-1}$ accepts as inputs exactly the outputs of $f$.
+
+Sometimes an inverse only exists after restricting the domain of $f$. For example, $f(x) = x^2$ on $[0, \infty)$ has inverse $f^{-1}(x) = \sqrt{x}$ on $[0, \infty)$. Trying to extend either to negative territory breaks the inverse relationship:
+
+$f(-3) = 9$, but $f^{-1}(f(-3)) = \sqrt{9} = 3 \neq -3$.
+
+The warning: $\sqrt{x^2} = |x|$, not $x$. When you square and then take a square root, you *must* account for the sign.
+
+### Graphical Relationship
+
+If $(a, b)$ is on the graph of $f$, then $(b, a)$ is on the graph of $f^{-1}$. Swapping coordinates $(a,b) \to (b,a)$ is geometrically the same as **reflecting over the line $y = x$**.
+
+Therefore: the graph of $y = f^{-1}(x)$ is the mirror image of the graph of $y = f(x)$ over the line $y = x$.
+
+*Why?* Let $P = (a, b)$ and $Q = (b, a)$. The slope of $PQ$ is $\dfrac{a - b}{b - a} = -1$, so $PQ \perp$ the line $y = x$. The midpoint of $PQ$ is $\left(\dfrac{a+b}{2}, \dfrac{a+b}{2}\right)$, which lies on $y = x$. So $y = x$ is the perpendicular bisector of $PQ$, confirming $P$ and $Q$ are reflections of each other.
+
+### Inverse of a Composition
+
+If both $f$ and $g$ have inverses, then
+
+$$
+(f \circ g)^{-1} = g^{-1} \circ f^{-1}
+$$
+
+The order reverses. Think of it like putting on socks then shoes: to undo it, you remove shoes first, then socks.
+
+*Proof*: Let $h = f \circ g$ and $t = g^{-1} \circ f^{-1}$. Then
+
+$$
+h(t(x)) = f(g(g^{-1}(f^{-1}(x)))) = f(f^{-1}(x)) = x
+$$
+
+and similarly $t(h(x)) = x$. So $t = h^{-1}$. 
+
+## Toolkit: When to Reach for Which Technique
+
+| Situation | What to do |
+|---|---|
+| Find domain of $f(x) = \frac{P}{Q}$ | Solve $Q = 0$, exclude those $x$ |
+| Find domain of $f(x) = \sqrt{g(x)}$ | Solve $g(x) \geq 0$ |
+| Find domain of $f \circ g$ | Domain of $g$, intersected with $\{x : g(x) \in \text{Dom}(f)\}$ |
+| Find range of any function | Set $y = f(x)$, solve for $x$, find excluded $y$ |
+| Check if inverse exists | Horizontal line test, or check if $f$ is strictly monotone |
+| Find $f^{-1}(b)$ for a specific $b$ | Solve $f(a) = b$ for $a$ directly |
+| Find $f^{-1}(x)$ in general | Solve $f(y) = x$ for $y$ |
+| Identify transformations | Compare to parent form; shifts, flips, stretches |
+| $f^n(x)$ for large $n$ | Compute first few, find period $k$, reduce $n \bmod k$ |
+
+## Remarks
+
+Functions in olympiad questions come up in two methods: *explicit* (a formula is given and you extract information) and *implicit* (a functional equation like $f(x+y) = f(x) + f(y)$ is given and you must determine $f$ entirely from its properties). This module has focused on the explicit side. Functional equations deserve their own treatment, but the foundation built here of knowing what domains and ranges are, how compositions interact, and how inverses work are what makes functional equation problems solveable.
+
+You should develop a habit of making sure that whenever you see a composed or transformed function, you trace *one point* through every step. Pick a convenient input, watch where it goes, and let that anchor your intuition before you do any algebra.
+
+## Practice Problems
+
+<Problems problems="practice" />

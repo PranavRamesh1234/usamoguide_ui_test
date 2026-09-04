@@ -1,0 +1,220 @@
+@layer base {
+  /*
+    Palette anchors (from your image):
+    - #201C36  Midnight Violet (light ink)
+    - #3D3564  Twilight Indigo (light surface/accent)
+    - #F0C2FF  Mauve (accent)
+    - #E085FF  Bright accent (accent strong)
+    - #F4EDEA  Parchment / cream (light surface/text; NO pure white)
+    Added "pinkish" tones (people generally like these with purple):
+    - #FFB3D9  soft pink
+    - #FF7CC8  bright pink
+  */
+
+  :root {
+    /* Single source of truth for the app-wide font family */
+    --font-family: 'Inter', system-ui, sans-serif;
+
+    /* LIGHT MODE (cream-based, not white) */
+    --bg-page: #f4edea;
+    --bg-surface: #f4edea;
+    --bg-surface-alt: #eee7e4;
+    --bg-muted: #d8cdf0;
+
+    --text-primary: #201c36;
+    --text-secondary: #3d3564;
+    --text-muted: #5f3b78;
+    --text-inverse: #f4edea; /* cream, not white */
+
+    --border: rgba(61, 53, 100, 0.22);
+    --border-strong: #6d3b9f;
+
+    /* accent system */
+    --focus: #6d3b9f;
+    --accent: #3d3564; /* readable on cream */
+    --accent-strong: #1c1e36;
+    --accent-glow: rgba(170, 133, 255, 0.42);
+
+    /* pinkish accent helpers */
+    --pink: #ff7cc8;
+    --pink-soft: rgba(255, 124, 200, 0.18);
+    --pink-glow: rgba(255, 124, 200, 0.3);
+
+    --accent-soft: rgba(240, 194, 255, 0.22);
+    --accent-soft-strong: rgba(240, 194, 255, 0.34);
+
+    --accent-fill: #363564;
+    --accent-fill-text: #f4edea;
+    --accent-fill-hover: #29264f;
+    --hero-glow: none;
+
+    --banner-bg: var(--bg-surface-alt);
+    --banner-glow-from: #f0c2ff;
+    --banner-glow-to: #f0c2ff;
+
+    --sidebar-active-bg: rgba(61, 53, 100, 0.08);
+    --sidebar-hover-bg: rgba(61, 53, 100, 0.06);
+
+    /* code */
+    --code-block-bg-light: rgba(61, 53, 100, 0.06);
+    --code-block-bg-dark: #201c36;
+    --code-fade-light: none;
+    --code-fade-dark: none;
+    --code-expand-icon-light: #201c36;
+    --code-expand-icon-dark: #f4edea;
+
+    --code-snip-icon-light: rgba(61, 53, 100, 0.4);
+    --code-snip-icon-light-hover: rgba(61, 53, 100, 0.65);
+    --code-snip-icon-dark: rgba(240, 194, 255, 0.4);
+    --code-snip-icon-dark-hover: rgba(224, 133, 255, 0.75);
+    --code-snip-text-light: #3d3564;
+    --code-snip-text-light-hover: rgba(61, 53, 100, 0.75);
+    --code-snip-text-dark: #f0c2ff;
+    --code-snip-text-dark-hover: #ffb3d9;
+
+    /* select */
+    --select-bg: #f4edea;
+    --select-border: rgba(61, 53, 100, 0.26);
+    --select-menu-bg: #f4edea;
+    --select-text: #201c36;
+    --select-option-hover: rgba(240, 194, 255, 0.22);
+    --select-option-selected: rgba(240, 194, 255, 0.34);
+
+    /* heatmap */
+    --heatmap-empty: #d9c8ed;
+    --heatmap-1: #b4589a;
+    --heatmap-2: #c763a1;
+    --heatmap-3: #e477b5;
+    --heatmap-4: #ff7cc8;
+
+    /* Statuses: distinct semantic hues that still sit comfortably beside purple. */
+    --danger: #9d245b;
+    --success: #246b45;
+    --warning: #8a5700;
+
+    --disabled-bg: rgba(61, 53, 100, 0.12);
+    --disabled-text: #6d3b9f;
+
+    --shadow: none;
+
+    --card-bg: #eee6ff;
+    --card-border: rgba(61, 53, 100, 0.22);
+    /* Solid background for modals/dropdowns — never translucent */
+    --modal-bg: #e8e1f0;
+    --modal-btn-bg: #6d3b9f;
+    --modal-btn-text: #f4edea;
+    --modal-btn-alt-bg: #efe3ff;
+    --modal-btn-alt-text: #2c1842;
+    --modal-btn-border: rgba(240, 194, 255, 0.34);
+
+    /* Buttons: solid indigo/mauve states, without decorative gradients. */
+    --btn-rim: #cfa6e3;
+    --btn-face: #f0c2ff;
+    --btn-face-hover: #e085ff;
+    --btn-ink: #201c36;
+    --btn-primary-bg: #3d3564;
+    --btn-secondary-bg: transparent;
+  }
+
+  body {
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+  }
+
+  /* DARK MODE (main target) */
+  html.dark {
+    /* Single source of truth for every page background. Pages must not
+       hardcode their own base color -- use var(--bg-page). */
+    --bg-page: #01000c;
+    --bg-surface: #010009;
+    --bg-surface-alt: #15131f;
+    --bg-muted: #2e294e;
+
+    --text-primary: #f4edea; /* cream (NOT white) */
+    --text-secondary: #d9a8e8;
+    --text-muted: #b58bc4;
+    --text-inverse: #201c36; /* for light chips */
+
+    --border: rgba(240, 194, 255, 0.22);
+    --border-strong: #b4589a;
+
+    --focus: #f0c2ff;
+
+    --accent: #f0c2ff;
+    --accent-strong: #e085ff;
+    --accent-glow: rgba(240, 194, 255, 0.4);
+
+    /* pinkish tones in dark mode */
+    --pink: #ff7cc8;
+    --pink-soft: rgba(255, 124, 200, 0.18);
+    --pink-glow: rgba(255, 124, 200, 0.32);
+
+    --accent-soft: rgba(240, 194, 255, 0.1);
+    --accent-soft-strong: rgba(240, 194, 255, 0.16);
+
+    --accent-fill: #e085ff;
+    --hero-glow: none;
+
+    --banner-bg: var(--bg-surface-alt);
+    --banner-glow-from: #f0c2ff;
+    --banner-glow-to: #f0c2ff;
+
+    --sidebar-active-bg: rgba(240, 194, 255, 0.1);
+    --sidebar-hover-bg: oklch(0.51 0.1 295.72 / 0.22);
+
+    --code-block-bg-light: #2a2547;
+    --code-block-bg-dark: #2a2547;
+    --code-fade-light: none;
+    --code-fade-dark: none;
+    --code-expand-icon-light: #f4edea;
+    --code-expand-icon-dark: #f4edea;
+
+    --code-snip-icon-light: rgba(240, 194, 255, 0.4);
+    --code-snip-icon-light-hover: rgba(224, 133, 255, 0.75);
+    --code-snip-icon-dark: rgba(240, 194, 255, 0.4);
+    --code-snip-icon-dark-hover: rgba(224, 133, 255, 0.75);
+    --code-snip-text-light: #f0c2ff;
+    --code-snip-text-light-hover: #ffb3d9;
+    --code-snip-text-dark: #f0c2ff;
+    --code-snip-text-dark-hover: #ffb3d9;
+
+    --select-bg: #010009;
+    --select-border: rgba(240, 194, 255, 0.3);
+    --select-menu-bg: #050212;
+    --select-text: #f4edea;
+    --select-option-hover: rgba(240, 194, 255, 0.12);
+    --select-option-selected: rgba(240, 194, 255, 0.18);
+
+    --heatmap-empty: #2e294e;
+    --heatmap-1: #633765;
+    --heatmap-2: #9d4f8b;
+    --heatmap-3: #c763a1;
+    --heatmap-4: #ff7cc8;
+
+    --danger: #ff7cc8;
+    --success: #66c17f;
+    --warning: #d79a2b;
+
+    --disabled-bg: rgba(61, 53, 100, 0.45);
+    --disabled-text: rgba(244, 237, 234, 0.45);
+
+    --shadow: none;
+
+    --card-bg: #15132a;
+    /* Solid background for modals/dropdowns — never translucent */
+    --modal-bg: #0b0919;
+    --modal-btn-bg: #6d3b9f;
+    --modal-btn-text: #f4edea;
+    --modal-btn-alt-bg: #efe3ff;
+    --modal-btn-alt-text: #2c1842;
+    --modal-btn-border: rgba(240, 194, 255, 0.34);
+    --card-border: rgba(240, 194, 255, 0.22);
+    --btn-rim: #7c3d76;
+    --btn-face: #f0c2ff;
+    --btn-face-hover: #e085ff;
+    --btn-ink: #201c36;
+    --btn-primary-bg: #e085ff;
+    --btn-secondary-bg: transparent;
+
+  }
+}

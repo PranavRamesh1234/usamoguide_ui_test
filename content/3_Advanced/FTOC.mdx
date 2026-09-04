@@ -1,0 +1,217 @@
+---
+id: fundamental-theorem-of-calculus
+title: Fundamental Theorem of Calculus
+author: Pranav Ramesh
+description: A complete guide to the Fundamental Theorem of Calculus — formal definition, intuition, computing integrals as reverse derivatives, and practice problems with solutions.
+prerequisites: ["intuition-behind-integrals"]
+---
+
+## Overview
+
+In the other handouts, you may have learned how to compute derivatives and interpret integrals. In this handout, we go through how one would actually compute these integrals mathematically, by treating the mathematical operation as reverse-differentiation.
+
+## 1. Definition & Intuition
+
+### Formal Definition
+
+In mathematics, many operations have inverses: addition has subtraction, multiplication has division, and the dual for calculus is that derivatives and integrals both undo each other. This is the basis for the **Fundamental Theorem of Calculus**.
+
+There are two parts to the Fundamental Theorem of Calculus (FToC).
+
+**Part 1:** The derivative of an integral with an upper bound $x$ is the integrand evaluated at that point $x$:
+
+$$
+\frac{d}{dx} \int_a^x f(x)\,dx = f(x)
+$$
+
+**Part 2:** The integral from endpoints $a$ to $b$ is the same as the indefinite integral evaluated at $b$ minus the same thing evaluated at $a$:
+
+$$
+\int_a^b f(x)\,dx = F(b) - F(a)
+$$
+
+where $F(x) = \int f(x)\,dx + C$
+
+### Gaining Intuition
+
+**Why does Part 2 work?**
+
+$$
+\int_a^b f(x)\,dx = F(b) - F(a)
+$$
+
+In the "Intuition Behind Integrals" handout, we said that we could interpret integrals as areas under curves. The area between a region can be computed by the difference of two areas, represented by $F(b)$ and $F(a)$ respectively. Notice that we're only talking about the right endpoints here — the left endpoint plays no role, so it is free to be whatever number it wants to be.
+
+**Why does Part 1 work?**
+
+$$
+\frac{d}{dx} \int_a^x f(x)\,dx = f(x)
+$$
+
+A derivative is just a fraction of infinitesimals. The denominator of the LHS is the familiar infinitesimal change $dx$, while the numerator is the infinitesimal change in the integral caused by the infinitesimal change in $x$. Here, $x$ plays the right endpoint of the integral, and hence it's the infinitesimal change in area.
+
+The red region represents the existing area, while the blue region represents the infinitesimal change in the area. If we take the blue area and divide it by $dx$, i.e. computing $\frac{d}{dx}\int_a^x f(x)\,dx$, then we would get $f(x)$ because the area of the blue region is just $f(x) \times dx$.
+
+Another way to look at this: integrals are just fancy sums of infinitesimally small stuff. When we change $x$ by $dx$, we're changing the integral by adding one more infinitesimal thing — and the thing we add is the integrand, $f(x)\,dx$. Hence
+
+$$
+\frac{d\int_a^x f(x)\,dx}{dx} = \frac{f(x)\,dx}{dx} = f(x)
+$$
+
+### Why the +C?
+
+You might have noticed that we defined $F(x)$, the indefinite integral of $f(x)$, as
+
+$$
+F(x) = \int f(x)\,dx + C
+$$
+
+But it doesn't crop up in definite integrals — why do we even need that $+C$ term?
+
+Integrals are adding *changes*, and they only add changes — they cannot tell you what they are adding *to*, which you have to supply yourself.
+
+An analogy: a child plays with a tap filling a bucket with water below. The child keeps varying the flow rate over time, say $\frac{dV}{dt} = f(t)$. To find the volume of water collected, we integrate $f(t)$ over $t$. However, this does not tell us anything about the absolute amount of water in the bucket — the integral only tells us how much the volume *changed* after some time. The initial volume of water is the integration constant $+C$.
+
+## 2. Examples & Applications
+
+### Integrals as Reverse Derivatives
+
+From Part 2 of FToC, we know
+
+$$
+\int_a^b f(x)\,dx = F(b) - F(a)
+$$
+
+Putting this into Part 1 of FToC:
+
+$$
+\frac{d}{dx} \int_a^x f(x)\,dx = f(x)
+$$
+
+$$
+\frac{d}{dx}(F(x) - F(a)) = f(x)
+$$
+
+$$
+\frac{d}{dx} F(x) = f(x)
+$$
+
+since $F(a)$ is just a constant, whose derivative is zero. Note that by definition $F(x) = \int f(x)\,dx + C$.
+
+Now that we've proven that derivatives and integrals undo each other, we can compute integrals with this in mind.
+
+### Computing Integrals
+
+To differentiate, it is straightforward: one simply follows the rules. However, not all integrals can be easily computed. Some are so hard that mathematicians even name them "non-elementary" and call it a day! However, there exist many tools to help us compute integrals, as you shall see in the other handouts.
+
+In this handout, we shall use FToC to compute simple integrals.
+
+**Example:** Compute $\displaystyle\int_0^2 2x\,dx$
+
+Even if you have never taken an integral before, you probably did take a derivative — and hopefully notice that the derivative of $x^2$ is precisely $2x$. Then, by the FToC:
+
+$$
+\int_0^2 2x\,dx = F(2) - F(0) = 4 \quad \text{where } F(x) = x^2
+$$
+
+**Example:** Compute $\displaystyle\int \sec^2(x)\,dx$
+
+If you didn't know about the FToC, you'd need some non-straightforward approach — but if you just realize that the derivative of $\tan(x)$ is precisely $\sec^2(x)$, then you can directly say
+
+$$
+\int \sec^2(x)\,dx = \tan(x) + C
+$$
+
+## 3. Problems & Practices
+
+**Problem 1:** Use FToC to find the derivative of the functions
+
+(a)
+$$
+g(x) = \int_6^{x} \frac{1}{1 + t^3}\,dt
+$$
+
+(b)
+$$
+h(t) = \int_9^{\sin(t)} \sqrt{x^2 + 4}\,dx
+$$
+
+**Problem 2:**
+
+(a) Take the derivative of the function $\ln(\tan x)$
+
+(b) Hence, evaluate the indefinite integral $\displaystyle\int \frac{1}{\sin x}\,dx$
+
+**Problem 3:**
+
+(a) Take the derivative of the function $f(x) = \ln\dfrac{x-a}{x+a}$
+
+(b) Hence, evaluate the indefinite integral $\displaystyle\int \frac{1}{x^2 - a^2}\,dx$
+
+**Problem 4:** Evaluate the indefinite integral
+
+$$
+\int \frac{\sin x \sec^2 x - \cos x \tan x}{\sin^2 x}
+$$
+
+**Problem 5:** Evaluate the indefinite integral
+
+$$
+\int \left(\frac{\sin^{-1} x}{x} + \frac{\ln x}{\sqrt{1-x^2}}\right)dx
+$$
+
+## 4. Solutions
+
+**Problem 1**
+
+(a)
+$$
+g'(x) = \frac{1}{1 + x^3}
+$$
+
+(b)
+$$
+h'(t) = \sqrt{t^2 + 4} \cdot \cos(t)
+$$
+
+**Problem 2**
+
+(a)
+$$
+\frac{d}{dx} \ln \tan x = \frac{1}{\tan x} \sec^2 x = \frac{1}{\sin x \cos x} = \frac{2}{\sin 2x}
+$$
+
+(b)
+$$
+\int \frac{1}{\sin x}\,dx = \ln \tan \frac{x}{2}
+$$
+
+**Problem 3**
+
+(a)
+$$
+\frac{df}{dx} = \frac{x+a}{x-a} \cdot \frac{(x+a) - (x-a)}{(x+a)^2} = \frac{2a}{x^2 - a^2}
+$$
+
+(b)
+$$
+\int \frac{1}{x^2 - a^2}\,dx = \frac{1}{2a} \ln \frac{x-a}{x+a}
+$$
+
+**Problem 4**
+
+$$
+\int \frac{\sin x \sec^2 x - \cos x \tan x}{\sin^2 x} = \frac{\tan x}{\sin x} = \frac{1}{\cos x}
+$$
+
+**Problem 5**
+
+$$
+\int \left(\frac{\sin^{-1} x}{x} + \frac{\ln x}{\sqrt{1-x^2}}\right)dx = \ln x \sin^{-1} x
+$$
+
+## Conclusion
+
+Having the Fundamental Theorem of Calculus in the back of your head can help you evaluate some integrals instantly — congratulations on making it through this handout!
+
+<Problems problems="practice" />

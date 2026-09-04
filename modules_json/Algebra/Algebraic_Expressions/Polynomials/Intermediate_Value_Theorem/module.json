@@ -1,0 +1,360 @@
+{
+  "MODULE_ID": "algebra-algebraic-expressions-polynomials-intermediate-value-theorem",
+  "practice": [
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-intermediate-value-theorem-auto-0087",
+      "name": "MathNet #0hl3",
+      "url": "https://usamoguide.com/",
+      "source": "MathNet",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Intermediate Value Theorem"
+      ],
+      "statement": "Problem:\n\nFind the number of real zeros of $x^{3}-x^{2}-x+2$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $f(x) = x^{3} - x^{2} - x + 2$, so $f'(x) = 3x^{2} - 2x - 1$.\n\nThe slope is zero when $3x^{2} - 2x - 1 = 0$, where $x = -\\frac{1}{3}$ and $x = 1$.\n\nNow $f\\left(\\frac{1}{3}\\right) > 0$ and $f(1) > 0$, so there are no zeros between $x = -\\frac{1}{3}$ and $x = 1$.\n\nSince $\\lim_{x \\rightarrow +\\infty} f(x) > 0$, there are no zeros for $x > 1$.\n\nSince $\\lim_{x \\rightarrow -\\infty} f(x) < 0$, there is one zero for $x < -\\frac{1}{3}$, for a total of 1 zero."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-intermediate-value-theorem-auto-1093",
+      "name": "Bay Area Mathematical Olympiad #0id1",
+      "url": "https://usamoguide.com/",
+      "source": "Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Irreducibility: Rational Root Theorem, Gauss's Lemma, Eisenstein",
+        "Intermediate Value Theorem",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\nFind (with proof) all monic polynomials $f(x)$ with integer coefficients that satisfy the following two conditions.\n1. $f(0)=2004$.\n2. If $x$ is irrational, then $f(x)$ is also irrational.\n\n(Notes: A polynomial is monic if its highest degree term has coefficient 1. Thus, $f(x)=x^{4}-5 x^{3}-4 x+7$ is an example of a monic polynomial with integer coefficients.\nA number $x$ is rational if it can be written as a fraction of two integers. A number $x$ is irrational if it is a real number which cannot be written as a fraction of two integers. For example, $2 / 5$ and $-9$ are rational, while $\\sqrt{2}$ and $\\pi$ are well known to be irrational.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe polynomial $x+2004$ certainly meets the two conditions. In fact, this is the only one. We will prove this using three ingredients: the infinitude of primes, the Rational Roots Theorem for polynomials, and the approximation principle that $x^{n}$ dominates any polynomial of lower degree, for large enough $x$.\n\nNote that the only monic constant polynomial is $f(x)=1$, which fails Condition 1; and that the only monic degree 1 polynomial satisfying Condition 1 is $f(x)=x+2004$. Thus, we need to eliminate all polynomials of degree 2 or more. To this end, it is sufficient to show that, given any monic polynomial $f(x)$ with integer coefficients of degree 2 or more, there exists an integer $a$ such that $f(x)+a=0$ has an irrational solution $x$ (for then $f(x)=-a$ is rational for an irrational number $x$).\n\nLet $f(x)=x^{n}+c_{n-1} x^{n-1}+\\cdots+c_{1} x+c_{0}$ be a polynomial with integer coefficients, with $n \\geq 2$. It may be the case that $f(x)$ has no real roots, for example, if $n$ is even and the graph of $y=f(x)$ lies above the $x$-axis. But certainly, if $a$ is a sufficiently large negative integer, we can guarantee that $f(x)+a=0$ will have at least one real solution. In fact, by further making $a$ a larger negative number, we can ensure that, say, the largest of the solutions of $f(x)+a=0$ has absolute value bigger than 1: $|x|>1$.\n\nMoreover, regardless of how large a negative number $a$ needs to be, we can choose $a$ so that $c_{0}+a=-p$ where $p$ is prime. This is because there are infinitely many prime numbers. Now we can apply the Rational Roots Theorem, according to which all rational solutions $\\frac{r}{s}$ of the monic integer coefficient polynomial $f(x)+a$ must satisfy: $s$ divides the leading coefficient of $f(x)$ and $r$ divides the last (free term) of $f(x)$; in other words, $s$ divides 1 and $r$ divides $p$. Since $p$ is prime, this gives only four possible rational solutions: $x= \\pm 1, \\pm p$. Since we have ensured that $|x|>1$, we are left with $x= \\pm p$.\n\nLet $g(x)=f(x)+a$. From the well known inequalities of absolute values $|y+z| \\geq |y|-|z|$ and $|y+z| \\leq |y|+|z|$, we obtain:\n$$\n|g(x)|=\\left|x^{n}+c_{n-1} x^{n-1}+\\ldots+c_{1} x-p\\right| \\geq \\left|x^{n}\\right|-\\left|c_{n-1} x^{n-1}+\\ldots+c_{1} x-p\\right|\n$$\nand as long as $|x|>1$ and $n \\geq 2$:\n$$\n\\begin{aligned}\n\\left|c_{n-1} x^{n-1}+\\cdots+c_{1} x-p\\right| & \\leq \\left|c_{n-1}\\right||x|^{n-1}+\\cdots+\\left|c_{1}\\right||x|+p \\\\\n& \\leq \\left(\\left|c_{n-1}\\right|+\\cdots+\\left|c_{1}\\right|\\right)|x|^{n-1}+p^{n-1}\n\\end{aligned}\n$$\nIf we let $S=\\left|c_{n-1}\\right|+\\cdots+\\left|c_{1}\\right|$, we can put everything together:\n$$\n|g( \\pm p)| \\geq p^{n}-(S+1) p^{n-1}=p^{n-1}(p-(S+1))\n$$\nSince $S$ is fixed, we can choose the prime $p$ large enough so that $p>S+1$, and hence the quantity $p-(S+1)$ is positive. Therefore, $g( \\pm p) \\neq 0$.\n\nThus $g(x)$ has a real zero $x$, which cannot be rational since the only possibilities for rational zeros $\\pm p$ fail to be zeros by the above. We conclude that $x$ is an irrational root of $g(x)$, whereas $f(x)=-a$ is an integer, hence rational. This contradicts Condition 2, and eliminates all polynomials of degree 2 or more.\n\nFinally, we are left with only one possible solution: $f(x)=x+2004$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-intermediate-value-theorem-auto-1308",
+      "name": "Harvard-MIT Mathematics Tournament #0ij0",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vieta's formulas",
+        "Symmetric functions",
+        "Intermediate Value Theorem",
+        "Recurrence relations"
+      ],
+      "statement": "Problem:\nLet $a \\geq b \\geq c$ be real numbers such that\n$$\n\\begin{aligned}\na^{2} b c + a b^{2} c + a b c^{2} + 8 &= a + b + c \\\\\na^{2} b + a^{2} c + b^{2} c + b^{2} a + c^{2} a + c^{2} b + 3 a b c &= -4 \\\\\na^{2} b^{2} c + a b^{2} c^{2} + a^{2} b c^{2} &= 2 + a b + b c + c a\n\\end{aligned}\n$$\nIf $a + b + c > 0$, then compute the integer nearest to $a^{5}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe factor the first and third givens, obtaining the system\n$$\n\\begin{aligned}\na^{2} b c + a b^{2} c + a b c^{2} - a - b - c = (a b c - 1)(a + b + c) &= -8 \\\\\na^{2} b + a^{2} c + b^{2} c + b^{2} a + c^{2} a + c^{2} b + 3 a b c = (a b + b c + c a)(a + b + c) &= -4 \\\\\na^{2} b^{2} c + a b^{2} c^{2} + a^{2} b c^{2} - a b - b c - c a = (a b c - 1)(a b + b c + c a) &= 2\n\\end{aligned}\n$$\nWriting $X = a + b + c$, $Y = a b + b c + c a$, $Z = a b c - 1$, we have $X Z = -8$, $X Y = -4$, $Y Z = 2$. Multiplying the three yields $(X Y Z)^{2} = 64$ from which $X Y Z = \\pm 8$. Since we are given $X > 0$, multiplying the last equation by $X$ we have $2 X = X Y Z = \\pm 8$. Evidently $X Y Z = 8$ from which $X = 4$, $Y = -1$, $Z = -2$. We conclude that $a, b, c$ are the roots of the polynomial $P(t) = t^{3} - 4 t^{2} - t + 1$. Thus, $P(a) = a^{3} - 4 a^{2} - a + 1 = 0$, and also $P(b) = P(c) = 0$. Now since $P(1/2) = -\\frac{3}{8}$, $P(0) = 1$ and $P(-2/3) = -\\frac{11}{27}$, we conclude that $-2/3 < c < 0 < b < 1/2 < a$. It follows that $|b^{5} + c^{5}| < \\frac{1}{2}$. Thus, we compute $a^{5} + b^{5} + c^{5}$.\n\nDefining $S_{n} = a^{n} + b^{n} + c^{n}$, we have $S_{n+3} = 4 S_{n+2} + S_{n+1} - S_{n}$ for $n \\geq 0$. Evidently $S_{0} = 3$, $S_{1} = 4$, $S_{2} = (a + b + c)^{2} - 2(a b + b c + c a) = 18$. Then $S_{3} = 4 \\cdot 18 + 4 - 3 = 73$, $S_{4} = 4 \\cdot 73 + 18 - 4 = 306$, and $S_{5} = 4 \\cdot 306 + 73 - 18 = 1279$. Since $|b^{5} + c^{5}| < \\frac{1}{2}$, we conclude that $|S_{5} - a^{5}| < \\frac{1}{2}$, or that 1279 is the integer nearest to $a^{5}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-intermediate-value-theorem-auto-1363",
+      "name": "Harvard-MIT Mathematics Tournament #0ikj",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vieta's formulas",
+        "Symmetric functions",
+        "Intermediate Value Theorem"
+      ],
+      "statement": "Problem:\n\nLet $a$, $b$, $c$ be the roots of $x^{3}-9 x^{2}+11 x-1=0$, and let $s=\\sqrt{a}+\\sqrt{b}+\\sqrt{c}$. Find $s^{4}-18 s^{2}-8 s$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFirst of all, as the left side of the first given equation takes values $-1, 2, -7$, and $32$ when $x=0, 1, 2$, and $3$, respectively, we know that $a$, $b$, and $c$ are distinct positive reals. Let $t=\\sqrt{a b}+\\sqrt{b c}+\\sqrt{c a}$, and note that\n$$\n\\begin{aligned}\ns^{2} & = a+b+c+2 t = 9+2 t \\\\\nt^{2} & = a b+b c+c a+2 \\sqrt{a b c} s = 11+2 s \\\\\ns^{4} & = (9+2 t)^{2} = 81+36 t+4 t^{2} = 81+36 t+44+8 s = 125+36 t+8 s, \\\\\n18 s^{2} & = 162+36 t\n\\end{aligned}\n$$\nso that $s^{4}-18 s^{2}-8 s = -37$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-intermediate-value-theorem-auto-1874",
+      "name": "Harvard-MIT Mathematics Tournament #0iyq",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial operations",
+        "Symmetric functions",
+        "Vieta's formulas",
+        "Intermediate Value Theorem",
+        "Muirhead / majorization"
+      ],
+      "statement": "Problem:\nLet $f(x) = x^{4} + 14 x^{3} + 52 x^{2} + 56 x + 16$. Let $z_{1}, z_{2}, z_{3}, z_{4}$ be the four roots of $f$. Find the smallest possible value of $\\left|z_{a} z_{b} + z_{c} z_{d}\\right|$ where $\\{a, b, c, d\\} = \\{1,2,3,4\\}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nNote that $\\frac{1}{16} f(2x) = x^{4} + 7x^{3} + 13x^{2} + 7x + 1$. Because the coefficients of this polynomial are symmetric, if $r$ is a root of $f(x)$ then $\\frac{4}{r}$ is as well. Further, $f(-1) = -1$ and $f(-2) = 16$ so $f(x)$ has two distinct roots on $(-2,0)$ and two more roots on $(-\\infty,-2)$. Now, if $\\sigma$ is a permutation of $\\{1,2,3,4\\}$:\n$$\n\\left|z_{\\sigma(1)} z_{\\sigma(2)} + z_{\\sigma(3)} z_{\\sigma(4)}\\right| \\leq \\frac{1}{2}\\left(z_{\\sigma(1)} z_{\\sigma(2)} + z_{\\sigma(3)} z_{\\sigma(4)} + z_{\\sigma(4)} z_{\\sigma(3)} + z_{\\sigma(2)} z_{\\sigma(1)}\\right)\n$$\nLet the roots be ordered $z_{1} \\leq z_{2} \\leq z_{3} \\leq z_{4}$, then by rearrangement the last expression is at least:\n$$\n\\frac{1}{2}\\left(z_{1} z_{4} + z_{2} z_{3} + z_{3} z_{2} + z_{4} z_{1}\\right)\n$$\nSince the roots come in pairs $z_{1} z_{4} = z_{2} z_{3} = 4$, our expression is minimized when $\\sigma(1) = 1, \\sigma(2) = 4, \\sigma(3) = 3, \\sigma(4) = 2$ and its minimum value is $8$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-intermediate-value-theorem-auto-1960",
+      "name": "Harvard-MIT Mathematics Tournament #0j14",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Intermediate Value Theorem",
+        "Sums and products"
+      ],
+      "statement": "Problem:\n\nLet $p(x) = a_n x^n + a_{n-1} x^{n-1} + \\ldots + a_0$, where each $a_i$ is either $1$ or $-1$. Let $r$ be a root of $p$. If $|r| > \\frac{15}{8}$, what is the minimum possible value of $n$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $4$ We claim that $n = 4$ is the answer. First, we show that $n > 3$. Suppose that $n \\leq 3$. Let $r$ be the root of the polynomial with $|r| \\geq \\frac{15}{8}$. Then, by the Triangle Inequality, we have:\n$$\n\\begin{gathered}\n\\left|a_n r^n\\right| = \\left|a_{n-1} r^{n-1} + a_{n-2} r^{n-2} + \\ldots + a_0\\right| \\leq \\left|a_{n-1} r^{n-1}\\right| + \\left|a_{n-2} r^{n-2}\\right| + \\ldots + \\left|a_0\\right| \\\\\n|r|^n \\leq |r|^{n-1} + |r|^{n-2} + \\ldots + 1 = \\frac{|r|^n - 1}{|r| - 1} \\\\\n|r|^{n+1} - 2|r|^n + 1 \\leq 0 \\Rightarrow 1 \\leq |r|^n (2 - |r|)\n\\end{gathered}\n$$\nThe right-hand side is increasing in $n$, for $|r| > 1$, so it is bounded by $|r|^3 (2 - |r|)$. This expression is decreasing in $r$ for $r \\geq \\frac{3}{2}$. When $|r| = \\frac{15}{8}$, then the right-hand side is less than $1$, which violates the inequalities. Therefore $n > 3$. Now, we claim that there is a $4$th degree polynomial with a root $r$ with $|r| \\geq \\frac{15}{8}$. Let $p(x) = x^4 - x^3 - x^2 - x - 1$. Then $p\\left(\\frac{15}{8}\\right) < 0$ and $p(2) > 2$. By the Intermediate Value Theorem, $p(x)$ has such a root $r$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-intermediate-value-theorem-auto-2017",
+      "name": "13th Annual Harvard-MIT Mathematics Tournament #0j2p",
+      "url": "https://usamoguide.com/",
+      "source": "13th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Intermediate Value Theorem"
+      ],
+      "statement": "Problem:\nSuppose that a polynomial of the form $p(x) = x^{2010} \\pm x^{2009} \\pm \\cdots \\pm x \\pm 1$ has no real roots. What is the maximum possible number of coefficients of $-1$ in $p$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $1005$\n\nLet $p(x)$ be a polynomial with the maximum number of minus signs. $p(x)$ cannot have more than $1005$ minus signs, otherwise $p(1) < 0$ and $p(2) \\geq 2^{2010} - 2^{2009} - \\ldots - 2 - 1 = 1$, which implies, by the Intermediate Value Theorem, that $p$ must have a root greater than $1$.\n\nLet $p(x) = \\frac{x^{2011} + 1}{x + 1} = x^{2010} - x^{2009} + x^{2008} - \\ldots - x + 1$. $-1$ is the only real root of $x^{2011} + 1 = 0$ but $p(-1) = 2011$; therefore $p$ has no real roots. Since $p$ has $1005$ minus signs, it is the desired polynomial."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-intermediate-value-theorem-auto-2027",
+      "name": "Harvard-MIT Mathematics Tournament #0j2z",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Intermediate Value Theorem",
+        "Polynomial operations"
+      ],
+      "statement": "Problem:\nSuppose that a polynomial of the form $p(x) = x^{2010} \\pm x^{2009} \\pm \\cdots \\pm x \\pm 1$ has no real roots. What is the maximum possible number of coefficients of $-1$ in $p$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $p(x)$ be a polynomial with the maximum number of minus signs.\n\n$p(x)$ cannot have more than $1005$ minus signs, otherwise $p(1) < 0$ and $p(2) \\geq 2^{2010} - 2^{2009} - \\ldots - 2 - 1 = 1$, which implies, by the Intermediate Value Theorem, that $p$ must have a root greater than $1$.\n\nLet $p(x) = \\frac{x^{2011} + 1}{x + 1} = x^{2010} - x^{2009} + x^{2008} - \\ldots - x + 1$. $-1$ is the only real root of $x^{2011} + 1 = 0$ but $p(-1) = 2011$; therefore $p$ has no real roots. Since $p$ has $1005$ minus signs, it is the desired polynomial."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-intermediate-value-theorem-auto-2114",
+      "name": "Harvard-MIT Mathematics Tournament #0j5e",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Intermediate Value Theorem",
+        "Recurrence relations",
+        "Quadratic functions"
+      ],
+      "statement": "Problem:\n\nLet $f(x) = x^{2} - r_{2} x + r_{3}$ for all real numbers $x$, where $r_{2}$ and $r_{3}$ are some real numbers. Define a sequence $\\{g_{n}\\}$ for all nonnegative integers $n$ by $g_{0} = 0$ and $g_{n+1} = f(g_{n})$. Assume that $\\{g_{n}\\}$ satisfies the following three conditions:\n\n(i) $g_{2i} < g_{2i+1}$ and $g_{2i+1} > g_{2i+2}$ for all $0 \\leq i \\leq 2011$;\n\n(ii) there exists a positive integer $j$ such that $g_{i+1} > g_{i}$ for all $i > j$;\n\n(iii) $\\{g_{n}\\}$ is unbounded.\n\nIf $A$ is the greatest number such that $A \\leq |r_{2}|$ for any function $f$ satisfying these properties, find $A$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $2$\n\nConsider the function $f(x) - x$. By the constraints of the problem, $f(x) - x$ must be negative for some $x$, namely, for $x = g_{2i+1}$, $0 \\leq i \\leq 2011$. Since $f(x) - x$ is positive for $x$ of large absolute value, the graph of $f(x) - x$ crosses the $x$-axis twice and $f(x) - x$ has two real roots, say $a < b$. Factoring gives $f(x) - x = (x - a)(x - b)$, or $f(x) = (x - a)(x - b) + x$.\n\nNow, for $x < a$, $f(x) > x > a$, while for $x > b$, $f(x) > x > b$. Let $c \\neq b$ be the number such that $f(c) = f(b) = b$. Note that $b$ is not the vertex as $f(a) = a < b$, so by the symmetry of quadratics, $c$ exists and $\\frac{b + c}{2} = \\frac{r_{2}}{2}$ as the vertex of the parabola. By the same token, $\\frac{b + a}{2} = \\frac{r_{2} + 1}{2}$ is the vertex of $f(x) - x$. Hence $c = a - 1$. If $f(x) > b$ then $x < c$ or $x > b$. Consider the smallest $j$ such that $g_{j} > b$. Then by the above observation, $g_{j-1} < c$. (If $g_{i} \\geq b$ then $f(g_{i}) \\geq g_{i} \\geq b$ so by induction, $g_{i+1} \\geq g_{i}$ for all $i \\geq j$. Hence $j > 1$; in fact $j \\geq 4025$.) Since $g_{j-1} = f(g_{j-2})$, the minimum value of $f$ is less than $c$. The minimum value is the value of $f$ evaluated at its vertex, $\\frac{b + a - 1}{2}$, so\n$$\n\\begin{aligned}\nf\\left(\\frac{b + a - 1}{2}\\right) &< c \\\\\n\\left(\\frac{b + a - 1}{2} - a\\right)\\left(\\frac{b + a - 1}{2} - b\\right) + \\frac{b + a - 1}{2} &< a - 1 \\\\\n\\frac{1 - (b - a)^{2}}{4} + \\frac{b - a + 1}{2} &< 0 \\\\\n\\frac{3}{4} &< \\frac{(b - a)^{2}}{4} - \\frac{b - a}{2} \\\\\n4 &< (b - a - 1)^{2}\n\\end{aligned}\n$$\nThen either $b - a - 1 < -2$ or $b - a - 1 > 2$, but $b > a$, so the latter must hold and $(b - a)^{2} > 9$. Now, the discriminant of $f(x) - x$ equals $(b - a)^{2}$ (the square of the difference of the two roots) and $(r_{2} + 1)^{2} - 4 r_{3}$ (from the coefficients), so $(r_{2} + 1)^{2} > 9 + 4 r_{3}$. But $r_{3} = g_{1} > g_{0} = 0$ so $|r_{2}| > 2$.\n\nWe claim that we can make $|r_{2}|$ arbitrarily close to $2$, so that the answer is $2$. First define $G_{i}$, $i \\geq 0$ as follows. Let $N \\geq 2012$ be an integer. For $\\varepsilon > 0$ let $h(x) = x^{2} - 2 - \\varepsilon$, $g_{\\varepsilon}(x) = -\\sqrt{x + 2 + \\varepsilon}$ and $G_{2N+1} = 2 + \\varepsilon$, and define $G_{i}$ recursively by $G_{i} = g_{\\varepsilon}(G_{i+1})$, $G_{i+1} = h(G_{i})$. (These two equations are consistent.) Note the following.\n\n(i) $G_{2i} < G_{2i+1}$ and $G_{2i+1} > G_{2i+2}$ for $0 \\leq i \\leq N-1$. First note $G_{2N} = -\\sqrt{4 + 2\\varepsilon} > -\\sqrt{4 + 2\\varepsilon + \\varepsilon^{2}} = -2 - \\varepsilon$. Let $l$ be the negative solution to $h(x) = x$. Note that $-2 - \\varepsilon < G_{2N} < l < 0$ since $h(G_{2N}) > 0 > G_{2N}$. Now $g_{\\varepsilon}(x)$ is defined as long as $x \\geq -2 - \\varepsilon$, and it sends $(-2 - \\varepsilon, l)$ into $(l, 0)$ and $(l, 0)$ into $(-2 - \\varepsilon, l)$. It follows that the $G_{i}$, $0 \\leq i \\leq 2N$ are well-defined; moreover, $G_{2i} < l$ and $G_{2i+1} > l$ for $0 \\leq i \\leq N-1$ by backwards induction on $i$, so the desired inequalities follow.\n\n(ii) $G_{i}$ is increasing for $i \\geq 2N+1$. Indeed, if $x \\geq 2 + \\varepsilon$, then $x^{2} - x = x(x - 1) > 2 + \\varepsilon$ so $h(x) > x$. Hence $2 + \\varepsilon = G_{2N+1} < G_{2N+2} < \\cdots$.\n\n(iii) $G_{i}$ is unbounded. This follows since $h(x) - x = x(x - 2) - 2 - \\varepsilon$ is increasing for $x > 2 + \\varepsilon$, so $G_{i}$ increases faster and faster for $i \\geq 2N+1$.\n\nNow define $f(x) = h(x + G_{0}) - G_{0} = x^{2} + 2G_{0}x + G_{0}^{2} - G_{0} - 2 - \\varepsilon$. Note $G_{i+1} = h(G_{i})$ while $g_{i+1} = f(g_{i}) = h(g_{i} + G_{0}) - G_{0}$, so by induction $g_{i} = G_{i} - G_{0}$. Since $\\{G_{i}\\}_{i=0}^{\\infty}$ satisfies (i), (ii), and (iii), so does $g_{i}$.\n\nWe claim that we can make $G_{0}$ arbitrarily close to $-1$ by choosing $N$ large enough and $\\varepsilon$ small enough; this will make $r_{2} = -2G_{0}$ arbitrarily close to $2$. Choosing $N$ large corresponds to taking $G_{0}$ to be a larger iterate of $2 + \\varepsilon$ under $g_{\\varepsilon}(x)$. By continuity of this function with respect to $x$ and $\\varepsilon$, it suffices to take $\\varepsilon = 0$ and show that (letting $g = g_{0}$)\n$$\ng^{(n)}(2) = \\underbrace{g(\\cdots g}_{n}(2) \\cdots) \\rightarrow -1 \\text{ as } n \\rightarrow \\infty\n$$\nBut note that for $0 \\leq \\theta \\leq \\frac{\\pi}{2}$,\n$$\ng(-2 \\cos \\theta) = -\\sqrt{2 - 2 \\cos \\theta} = -2 \\sin\\left(\\frac{\\theta}{2}\\right) = 2 \\cos\\left(\\frac{\\pi}{2} - \\frac{\\theta}{2}\\right)\n$$\nHence by induction, $g^{(n)}(-2 \\cos \\theta) = -2 \\cos\\left(\\frac{\\pi}{2} - \\frac{\\pi}{4} + \\cdots + (-1)^{n}(\\theta - \\frac{\\pi}{2^{n}})\\right)$. Hence $g^{(n)}(2) = g^{(n-1)}(-2 \\cos 0)$ converges to $-2 \\cos\\left(\\frac{\\pi}{2} - \\frac{\\pi}{4} + \\cdots\\right) = -2 \\cos\\left(\\frac{\\pi}{3}\\right) = -1$, as needed."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-intermediate-value-theorem-auto-2224",
+      "name": "Harvard-MIT November Tournament #0j8g",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Intermediate Value Theorem"
+      ],
+      "statement": "Problem:\nDetermine the number of angles $\\theta$ between $0$ and $2\\pi$, other than integer multiples of $\\pi/2$, such that the quantities $\\sin \\theta$, $\\cos \\theta$, and $\\tan \\theta$ form a geometric sequence in some order.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nIf $\\sin \\theta$, $\\cos \\theta$, and $\\tan \\theta$ are in a geometric progression, then the product of two must equal the square of the third. Using this criterion, we have 3 cases.\n\n- Case 1: $\\sin \\theta \\cdot \\tan \\theta = \\cos^{2} \\theta$. This implies that $\\left(\\sin^{2} \\theta\\right) = \\left(\\cos^{3} \\theta\\right)$. Writing $\\sin^{2} \\theta$ as $1-\\cos^{2} \\theta$ and letting $\\cos \\theta = x$, we have that $x^{3} + x^{2} - 1 = 0$. We wish to find the number of solutions of this where $|x| \\leq 1$. Clearly $-1$ is not a root. If $-1 < x \\leq 0$, we have that $x^{2} + x^{3} \\leq x^{2} < 1$ so $x^{3} + x^{2} - 1 < 0$ and there are no roots. If $0 < x \\leq 1$, then $x^{3} + x^{2} - 1$ is a strictly increasing function. Since it has value $-1$ at $x=0$ and value $1$ at $x=1$, there is exactly one root between $0$ and $1$, non-inclusive. There are 2 values of $\\theta$ such that $\\cos \\theta$ equals this root, and thus, two solutions in this case.\n\n- Case 2: $\\sin \\theta \\cdot \\cos \\theta = \\tan^{2} \\theta$. This implies that $\\cos^{3} \\theta = \\sin \\theta$. To find the number of solutions in this case, we can analyze the graphs of the functions in different ranges. Note that from $\\theta = 0$ to $\\theta = \\frac{\\pi}{2}$, $\\cos^{3} \\theta$ decreases strictly from $1$ to $0$ while $\\sin \\theta$ increases strictly from $0$ to $1$. Hence, there is one solution in this range. By a similar argument, a solution exists between $\\theta = \\pi$ and $\\theta = \\frac{3\\pi}{2}$. In the intervals $\\left[\\frac{\\pi}{2}, \\pi\\right]$ and $\\left[\\frac{3\\pi}{2}, 2\\pi\\right]$, we have that one function is negative and the other is positive, so there are no solutions. Thus, there are two solutions in this case.\n\n- Case 3: $\\cos \\theta \\cdot \\tan \\theta = \\sin^{2} \\theta$. This implies that $\\sin \\theta = \\sin^{2} \\theta$, so $\\sin \\theta = 0, 1$. Clearly the only solutions of these have $\\theta$ as an integer multiple of $\\frac{\\pi}{2}$. Thus, there are no pertinent solutions in this case.\n\nWe can see that the solutions for the first two cases are mutually exclusive. Hence, there are $4$ solutions in total."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-intermediate-value-theorem-auto-2809",
+      "name": "HMMT February #0jop",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vieta's formulas",
+        "Polynomial operations",
+        "Intermediate Value Theorem"
+      ],
+      "statement": "Problem:\nLet $r_{1}, \\ldots, r_{n}$ be the distinct real zeroes of the equation\n$$\nx^{8}-14 x^{4}-8 x^{3}-x^{2}+1=0\n$$\nEvaluate $r_{1}^{2}+\\cdots+r_{n}^{2}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: 8\nObserve that\n$$\n\\begin{aligned}\nx^{8}-14 x^{4}-8 x^{3}-x^{2}+1 & =\\left(x^{8}+2 x^{4}+1\\right)-\\left(16 x^{4}+8 x^{3}+x^{2}\\right) \\\\\n& =\\left(x^{4}+4 x^{2}+x+1\\right)\\left(x^{4}-4 x^{2}-x+1\\right) .\n\\end{aligned}\n$$\nThe polynomial $x^{4}+4 x^{2}+x+1$ has no real roots. On the other hand, let $P(x)=x^{4}-4 x^{2}-x+1$. Observe that $P(-\\infty)=+\\infty>0, P(-1)=-1<0, P(0)=1>0$, $P(1)=-3<0, P(+\\infty)=+\\infty>0$, so by the intermediate value theorem, $P(x)=0$ has four distinct real roots, which are precisely the real roots of the original degree 8 equation. By Vieta's formula on $P(x)$,\n$$\n\\begin{aligned}\nr_{1}^{2}+r_{2}^{2}+r_{3}^{2}+r_{4}^{2} & =\\left(r_{1}+r_{2}+r_{3}+r_{4}\\right)^{2}-2 \\cdot\\left(\\sum_{i<j} r_{i} r_{j}\\right) \\\\\n& =0^{2}-2(-4)=8 .\n\\end{aligned}"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-intermediate-value-theorem-auto-3088",
+      "name": "February 2017 #0jwg",
+      "url": "https://usamoguide.com/",
+      "source": "February 2017",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Intermediate Value Theorem",
+        "Floors and ceilings"
+      ],
+      "statement": "Problem:\n\nLet $P(x), Q(x)$ be nonconstant polynomials with real number coefficients. Prove that if\n$$\n\\lfloor P(y)\\rfloor=\\lfloor Q(y)\\rfloor\n$$\nfor all real numbers $y$, then $P(x)=Q(x)$ for all real numbers $x$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nBy the condition, we know that $|P(x)-Q(x)| \\leq 1$ for all $x$. This can only hold if $P(x)-Q(x)$ is a constant polynomial. Now take a constant $c$ such that $P(x)=Q(x)+c$. Without loss of generality, we can assume that $c \\geq 0$. Assume that $c>0$. By continuity, if $\\operatorname{deg} P=\\operatorname{deg} Q>0$, we can select an integer $r$ and a real number $x_{0}$ such that $Q\\left(x_{0}\\right)+c=r$. Then $\\left\\lfloor P\\left(x_{0}\\right)\\right\\rfloor=\\left\\lfloor Q\\left(x_{0}\\right)+c\\right\\rfloor=r$. On the other hand, $\\left\\lfloor Q\\left(x_{0}\\right)\\right\\rfloor=\\lfloor r-c\\rfloor<r$ as $r$ was an integer. This is a contradiction. Therefore, $c=0$ as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-intermediate-value-theorem-auto-3125",
+      "name": "February 2017 #0jxh",
+      "url": "https://usamoguide.com/",
+      "source": "February 2017",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Intermediate Value Theorem",
+        "Polynomial operations"
+      ],
+      "statement": "Problem:\n\nDoes there exist a two-variable polynomial $P(x, y)$ with real number coefficients such that $P(x, y)$ is positive exactly when $x$ and $y$ are both positive?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: No\nFor any $\\epsilon$ and positive $x$, $P(x, \\epsilon)>0$ and $P(x,-\\epsilon) \\leq 0$. Thus by continuity/IVT, $P(x, 0)=0$ for all positive $x$. Similarly $P(0, y)=0$ for all positive $y$. This implies $x y \\mid P(x, y)$, and so we can write $P(x, y)=x y Q(x, y)$. But then this same logic holds for $Q$, and this cannot continue infinitely unless $P$ is identically $0$ -- in which case the conditions do not hold. So no such polynomial exists."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-intermediate-value-theorem-auto-3433",
+      "name": "HMMT February 2019 Team Round #0k61",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2019 Team Round",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Roots of unity",
+        "Intermediate Value Theorem",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\nProve that for all positive integers $n$, all complex roots $r$ of the polynomial\n$$\nP(x) = (2 n) x^{2 n} + (2 n-1) x^{2 n-1} + \\cdots + (n+1) x^{n+1} + n x^{n} + (n+1) x^{n-1} + \\cdots + (2 n-1) x + 2 n\n$$\nlie on the unit circle (i.e. $|r|=1$).",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nNote that neither $0$ nor $1$ are roots of the polynomial. Consider the function\n$$\nQ(x) = \\frac{P(x)}{x^{n}} = (2 n) x^{n} + (2 n) x^{-n} + (2 n-1) x^{n-1} + (2 n-1) x^{-n+1} + \\cdots + (n+1) x^{1} + (n+1) x^{-1} + n.\n$$\nAll $2 n$ of the complex roots of $P(x)$ will be roots of $Q(x)$.\nIf $|x|=1$, then $x = e^{i \\theta}$, and\n$$\n\\begin{aligned}\nQ(x) &= (2 n)\\left(x^{n} + x^{-n}\\right) + (2 n-1)\\left(x^{n-1} + x^{-n+1}\\right) + \\cdots + (n+1)\\left(x + x^{-1}\\right) + n \\\\\n&= (2 n)\\left(e^{i n \\theta} + e^{-i n \\theta}\\right) + (2 n-1)\\left(e^{i(n-1) \\theta} + e^{-i(n-1) \\theta}\\right) + \\cdots + (n+1)\\left(e^{i \\theta} + e^{-i \\theta}\\right) + n \\\\\n&= (2 n)(2 \\cos (n \\theta)) + (2 n-1)(2 \\cos ((n-1) \\theta)) + \\cdots + (n+1)(2 \\cos (\\theta)) + n\n\\end{aligned}\n$$\nwhich is real. Thus on the unit circle, we have $Q(x)$ is real, and we want to show it has $2 n$ roots there. Rewrite\n$$\n\\begin{aligned}\nP(x) &= (2 n) x^{2 n} + (2 n-1) x^{2 n-1} + \\cdots + (n+1) x^{n+1} + n x^{n} + (n+1) x^{n-1} + \\cdots + 2 n \\\\\n&= (2 n)\\left(x^{2 n} + x^{2 n-1} + \\cdots + 1\\right) \\\\\n&\\quad - \\left(x^{2 n-1} + 2 x^{2 n-2} + \\cdots + (n-1) x^{n} + n x^{n-1} + (n-1) x^{n-2} + \\cdots + 2 x^{2} + x\\right) \\\\\n&= 2 n \\frac{x^{2 n+1} - 1}{x-1} - x\\left(x^{2 n-2} + 2 x^{2 n-3} + \\cdots + (n-1) x^{n} + n x^{n-1} + (n-1) x^{n-2} + \\cdots + 2 x + 1\\right) \\\\\n&= 2 n \\frac{x^{2 n+1} - 1}{x-1} - x\\left(x^{n-1} + x^{n-2} + \\cdots + x + 1\\right)^{2} \\\\\n&= 2 n \\frac{x^{2 n+1} - 1}{x-1} - x\\left(\\frac{x^{n} - 1}{x-1}\\right)^{2}\n\\end{aligned}\n$$\nand thus\n$$\nQ(x) = \\frac{2 n}{x^{n}} \\frac{x^{2 n+1} - 1}{x-1} - \\frac{x}{x^{n}}\\left(\\frac{x^{n} - 1}{x-1}\\right)^{2}\n$$\nConsider the roots of unity $r_{j} = e^{i \\frac{2 \\pi}{2 n} j}$, for $j = 0$ to $2 n - 1$. There are $2 n$ such roots of unity: they all have $r_{j}^{2 n} = 1$, and they alternate between those which satisfy $r_{j}^{n} = 1$ or $r_{j}^{n} = -1$. At those $x = r_{j}$, if $r_{j}^{n} = 1$ but $x \\neq 1$, then\n$$\n\\begin{aligned}\nQ(x) &= \\frac{2 n}{x^{n}} \\frac{x^{2 n+1} - 1}{x-1} - \\frac{x}{x^{n}}\\left(\\frac{x^{n} - 1}{x-1}\\right)^{2} \\\\\n&= 2 n \\frac{x^{1} - 1}{x-1} - x\\left(\\frac{1-1}{x-1}\\right)^{2} = 2 n > 0\n\\end{aligned}\n$$\nAt $x = 1$, we can easily see $Q(1) > 0$.\nIf $r_{j}^{n} = -1$, then\n$$\n\\begin{aligned}\nQ(x) &= \\frac{2 n}{x^{n}} \\frac{x^{2 n+1} - 1}{x-1} - \\frac{x}{x^{n}}\\left(\\frac{x^{n} - 1}{x-1}\\right)^{2} \\\\\n&= -2 n \\frac{x^{1} - 1}{x-1} + x\\left(\\frac{-1-1}{x-1}\\right)^{2} \\\\\n&= -2 n + \\frac{4 x}{(x-1)^{2}} \\\\\n&= -2 n + \\frac{4}{x - 2 + 1/x} \\\\\n&= -2 n + \\frac{4}{2 \\cos \\left(\\frac{2 \\pi}{2 n} j\\right) - 2} < -2 n - 4 < 0\n\\end{aligned}\n$$\nsince the denominator of this second term is strictly negative $(j \\neq 0)$.\nThus at each of the $2 n$-roots of unity, $Q(x)$ alternates in sign, and because $Q(x)$ is real and continuous on the unit circle, it has at least one root between every pair of consecutive roots of unity. Since there are $2 n$ of these pairs, and we know that $Q(x)$ has exactly $2 n$ roots (by the Fundamental Theorem of Algebra), we have found all of $Q$'s roots, and therefore those of $P$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-intermediate-value-theorem-auto-4761",
+      "name": "HMMT February 2025 #0l6x",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2025",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers in geometry",
+        "Angle chasing",
+        "Complex numbers",
+        "Polynomial operations",
+        "Intermediate Value Theorem"
+      ],
+      "statement": "Problem:\n\nComplex numbers $\\omega_{1}$, $\\ldots$, $\\omega_{n}$ each have magnitude $1$. Let $z$ be a complex number distinct from $\\omega_{1}$, $\\ldots$, $\\omega_{n}$ such that\n$$\n\\frac{z + \\omega_{1}}{z - \\omega_{1}} + \\dots + \\frac{z + \\omega_{n}}{z - \\omega_{n}} = 0.\n$$\nProve that $|z| = 1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe show that no solutions $z$ not on the unit circle can exist. First, we eliminate $|z| > 1$.\n\nClaim 1. For all $j$ and $|z| > 1$, the real part of $\\frac{z + \\omega_{j}}{z - \\omega_{j}}$ is positive.\n\nProof. We use geometry. Note that $\\omega_{j}$ and $-\\omega_{j}$ are antipodes on the unit circle. Since $z$ lies outside the unit circle, it follows that $\\angle \\omega_{j}z(-\\omega_{j})$ is acute. But this means the complex number $\\frac{z + \\omega_{j}}{z - \\omega_{j}}$ lies strictly in the first or fourth quadrant of the complex plane and thus has positive real part, as desired. $\\square$\n\nIt is then clear that whenever $|z| > 1$, the sum $\\sum_{j = 1}^{n} \\frac{z + \\omega_{j}}{z - \\omega_{j}}$ has positive real part and thus cannot be $0$. The case where $|z| < 1$ is analogous, except $\\angle \\omega_{j}z(-\\omega_{j})$ is obtuse instead, so $\\frac{z + \\omega_{j}}{z - \\omega_{j}}$ has negative real part for all $j$. Therefore, all solutions $z$ to the original equation must satisfy $|z| = 1$.\n\nSolution:\n\nWe show more generally that for any positive integers $k$, $a_{1}$, $\\ldots$, $a_{k}$, and distinct $\\omega_{j}$ on the unit circle, the equation\n$$\n\\sum_{j = 1}^{k} a_{j} \\left(\\frac{z + \\omega_{j}}{z - \\omega_{j}}\\right) = 0\n$$\nhas $k$ distinct solutions on the unit circle. The original problem then follows upon consolidating duplicate $\\omega_{j}$'s. Without loss of generality, assume that $\\omega_{1}$, $\\ldots$, $\\omega_{k}$ are in this order going clockwise around the unit circle.\n\nClaim 2. There is a solution on the (clockwise) arc from $\\omega_{j}$ to $\\omega_{j + 1}$ for all $j$ (where $\\omega_{k + 1} = \\omega_{1}$).\n\nProof. First, $\\omega_{j}$ and $-\\omega_{j}$ are antipodes on the unit circle, so if $z$ is on the unit circle, $\\angle \\omega_{j}z(-\\omega_{j}) = 90^{\\circ}$. This means $\\frac{z + \\omega_{j}}{z - \\omega_{j}}$ is purely imaginary. Now consider the imaginary part of the left hand side of the equation, which is a real and continuous function on the arc strictly between $\\omega_{j}$ and $\\omega_{j + 1}$ for each $j$. In particular, as $z$ approaches $\\omega_{j + 1}$ from the clockwise direction, this function approaches $\\infty$. On the other hand, as $z$ approaches $\\omega_{j}$ from the counterclockwise direction, this function approaches $-\\infty$. By the Intermediate Value Theorem, there must be a solution on this arc, as desired. $\\square$\n\nIt follows that there are at least $k$ solutions on the unit circle. But the equation is equivalent to a polynomial of degree $k$. Hence, there are exactly $k$ solutions, all of which lie on the unit circle."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

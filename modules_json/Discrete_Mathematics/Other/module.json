@@ -1,0 +1,1000 @@
+{
+  "MODULE_ID": "discrete-mathematics-other",
+  "practice": [
+    {
+      "uniqueId": "discrete-mathematics-other-auto-0023",
+      "name": "Berkeley Math Circle Monthly Contest 2 #0hjb",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 2",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other"
+      ],
+      "statement": "Problem:\n\nFind the number of multiples of $3$ which have six digits, none of which is greater than $5$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe first digit can be any number from $1$ to $5$, making $5$ possibilities. Each of the succeeding digits, from the ten-thousands digit to the tens digit, can be any of the six digits from $0$ to $5$.\n\nFinally, we claim that there are exactly two possibilities for the last digit. Given the first five digits, if we append the digits $0$, $1$, and $2$ in turn, we get three consecutive integers, exactly one of which is a multiple of $3$. The same happens when we add the digits $3$, $4$, and $5$.\n\nThus the total number of multiples of $3$ is\n$$\n5 \\cdot 6 \\cdot 6 \\cdot 6 \\cdot 6 \\cdot 2 = 12960.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-0040",
+      "name": "Berkeley Math Circle #0hjs",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recurrence relations",
+        "Recursion, bijection",
+        "Other"
+      ],
+      "statement": "Problem:\nIn the sequence\n$$\n77492836181624186886128 \\ldots,\n$$\nall of the digits except the first two are obtained by writing down the products of pairs of consecutive digits. Prove that infinitely many 6 s appear in the sequence.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nSince $868$ appears in the sequence and $8 \\cdot 6 = 6 \\cdot 8 = 48$, $4848$ appears later in the sequence. Then $4 \\cdot 8 = 32$, so $3232$ appears somewhere later. And so on:\n$$\n868 \\rightarrow 4848 \\rightarrow 3232 \\rightarrow 666 \\rightarrow 3636 \\rightarrow 1818 \\rightarrow 888 \\rightarrow 6464 \\rightarrow 2424 \\rightarrow 888 \\ldots\n$$\nIt is clear that the three last sequences repeat indefinitely. Therefore $6464$ appears infinitely many times, and in particular $6$ appears infinitely many times."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-0504",
+      "name": "Berkeley Math Circle: Monthly Contest 2 #0hwo",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 2",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other",
+        "Inverses mod n",
+        "Primitive roots mod p / p^n"
+      ],
+      "statement": "Problem:\nShow that for sufficiently large primes $p$, there is an Eulerian circuit on the complete graph with $p$ vertices that does not contain any cycles of length at most $2023$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nTake a generator $g \\pmod{p}$ so that $g$ is not equivalent to anything of the form $-a / b$ for integers $a, b \\leq 2023$. For big enough primes, such a $g$ must exist as there are at most a constant number of such fractions.\n\nNow number the vertices with the residues $\\bmod\\ p$. For any residue $r \\pmod{p}$, consider the sequence of vertices $P_{r}$ formed by the multiples of $r$, starting from $r$ and ending at $p r \\equiv 0 \\pmod{p}$. We claim that the concatenation of $P_{1}, P_{g}, P_{g^{2}}, \\ldots$ works.\n\nClearly no $P_{r}$ contains a cycle. Thus, if a cycle were to exist, it would have to be formed by the end of one $P$ and the start of another. In other words, we would have $c g^{i+1} \\equiv (p-d) g^{i} \\pmod{p}$ for $c+d \\leq 2023$. However, this is impossible by choice of $g$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-0564",
+      "name": "Harvard-MIT Mathematics Tournament #0hyc",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other"
+      ],
+      "statement": "Problem:\n\nBob's Rice ID number has six digits, each a number from $1$ to $9$, and any digit can be used any number of times. The ID number satisfies the following property: the first two digits is a number divisible by $2$, the first three digits is a number divisible by $3$, etc., so that the ID number itself is divisible by $6$. One ID number that satisfies this condition is $123252$. How many different possibilities are there for Bob's ID number?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $324$.\n\nWe will count the number of possibilities for each digit in Bob's ID number, then multiply them to find the total number of possibilities for Bob's ID number.\n\nThere are $3$ possibilities for the first digit given any last $5$ digits, because the entire number must be divisible by $3$, so the sum of the digits must be divisible by $3$.\n\nBecause the first two digits are a number divisible by $2$, the second digit must be $2, 4, 6$, or $8$, which is $4$ possibilities.\n\nBecause the first five digits are a number divisible by $5$, the fifth digit must be a $5$.\n\nNow, if the fourth digit is a $2$, then the last digit has two choices, $2, 8$, and the third digit has $5$ choices, $1, 3, 5, 7, 9$.\n\nIf the fourth digit is a $4$, then the last digit must be a $6$, and the third digit has $4$ choices, $2, 4, 6, 8$.\n\nIf the fourth digit is a $6$, then the last digit must be a $4$, and the third digit has $5$ choices, $1, 3, 5, 7, 9$.\n\nIf the fourth digit is an $8$, then the last digit has two choices, $2, 8$, and the third digit has $4$ choices, $2, 4, 6, 8$.\n\nSo there are a total of $3 \\cdot 4 (2 \\cdot 5 + 4 + 5 + 2 \\cdot 4) = 3 \\cdot 4 \\cdot 27 = 324$ possibilities for Bob's ID number."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-0724",
+      "name": "Berkeley Math Circle Monthly Contest #7 #0i2s",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest #7",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other",
+        "Induction / smoothing",
+        "Coloring schemes, extremal arguments"
+      ],
+      "statement": "Problem:\n\nThere are $3,999,999$ cities in Antarctica, and some pairs of them are connected by roads. It is known that, given any two cities, there is a sequence of roads leading from one to the other. Prove that the cities can be divided into $1999$ groups (of $2001$ cities each) such that, given any two cities in the same group, it is possible to get from one to the other using at most $4000$ roads.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFirst, we provide some relevant graph-theoretic background. Any finite, connected graph can be turned into a tree (a connected graph without cycles) by removing some edges. Proof: If our graph has a cycle, any edge of that cycle can be removed without disconnecting the graph. So remove this edge, leaving a new graph. If it has a cycle, we can again remove an edge; continuing in this manner, we must eventually stop, since there are only finitely many edges to remove. We then have a graph with no cycles; since no edge removal ever disconnected the graph, it must still be connected.\n\nAlso, given a tree, we can choose a root vertex $r$. Then, for any vertex $v$, there is a unique path from $v$ to $r$, never repeating a vertex (uniqueness follows from the absence of cycles). We call $v$ a descendant of $w$ if this path goes through $w$. Every vertex is considered to be a descendant of itself and of $r$. Suppose $v$ is a descendant of $w$; then the path from $v$ to $r$ consists of the path from $v$ to $w$ followed by the path from $w$ to $r$. It follows that descent is transitive: if $w$ in turn is a descendant of $u$, then $v$ is a descendant of $u$. It also follows that $d(v, r)=d(v, w)+d(w, r)$, where $d(x, y)$ denotes the distance (i.e. number of edges in the path) from $x$ to $y$. Finally, a vertex $v$ with no descendants can be removed and the graph will remain connected. Proof: every other vertex is connected to $r$ by a path that does not pass through $v$, so these vertices will remain connected to $r$ - and hence to each other - when $v$ is removed.\n\nNow we can solve our original problem. We state the graph-theoretic translation: given a connected graph $G$ on $k n$ vertices $(k \\geq 0, n \\geq 1)$, these vertices can be partitioned into $k$ sets of size $n$ such that $d(v, w) \\leq 2 n-2$ whenever $v, w$ are in the same set. (In our case, $k=1999, n=2001$.) We prove this by induction on $k$. If $k=0$, we form no vertex sets, and the statement is vacuously true. Now suppose the statement holds for $k-1$, where $k \\geq 1$, and we have a graph $G$ on $k n$ vertices. It suffices to prove the result when $G$ is a tree, since otherwise we can make it a tree by removing some edges and partition the vertices of this tree appropriately. The same partition will then work for the original graph $G$, since the distance between two vertices cannot increase when we put the deleted edges back.\n\nSo suppose $G$ is a tree, and arbitrarily choose a root $r$. Now let $a$ be a vertex for which $d(a, r)$ is maximal. Let $a=v_{1}, v_{2}, \\ldots, v_{q}=r$ be the path from $a$ to $r$, and choose the smallest $i$ such that $v_{i}$ has at least $n$ descendants. (Some such $i$ surely exists, since $r$ has $k n$ descendants.) Let $S$ be the set of descendants of $v_{i}$; note that if $v \\in S$, then every descendant of $v$ is in $S$, by transitivity. Notice that $v_{1}, v_{2}, \\ldots, v_{i-1}$ are all descendants of $v_{i-1}$, so the minimality of $i$ implies $i-1<n$. Thus, $d\\left(a, v_{i}\\right)=i-1 \\leq n-1$. Now we claim the distance between any two elements of $S$ is at most $2 n-2$. Indeed, suppose $b, c \\in S$. We have $d\\left(b, v_{i}\\right)=d(b, r)-d\\left(v_{i}, r\\right) \\leq d(a, r)-d\\left(v_{i}, r\\right)$ (by choice of $a$ ) $=d\\left(a, v_{i}\\right) \\leq n-1$. Similarly, $d\\left(c, v_{i}\\right) \\leq n-1$, and so $d(b, c) \\leq d\\left(b, v_{i}\\right)+d\\left(v_{i}, c\\right) \\leq 2(n-1)$, as claimed.\n\nNow let $a_{1}$ be an element of $S$ at maximal distance from $r$. (For example, take $a_{1}=a$.) Then $a_{1}$ can have no descendants (except itself) in $G$, since if $b$ were a descendant of $a_{1}$, we would have $d(b, r)=d\\left(a_{1}, b\\right)+d\\left(a_{1}, r\\right)$, contradicting maximality. Thus, we can remove $a_{1}$ from $G$ to leave a graph $G_{1}$, which is still connected - in fact, still a tree with root $r$. Now a similar argument shows that, if $a_{2} \\in S \\cap G_{1}$ is chosen to have maximal distance from $r$, then $a_{2}$ can have no descendants in $G_{1}$ : any descendant would lie in $S$, by transitivity, and it would also be farther from $r$ than $a_{2}$, violating maximality. So, deleting $a_{2}$ from $G_{1}$ gives another rooted tree, $G_{2}$. Then, we can choose $a_{3} \\in S \\cap G_{2}$ to be maximally distant from $r$, and so forth. We continue removing vertices in this manner; since $S$ has at least $n$ elements, we can remove $n$ vertices. Thus, we choose distinct vertices $a_{1}, a_{2}, \\ldots, a_{n}$, all of which lie in $S$; this means that any two of these vertices are at distance $\\leq 2 n-2$ from each other, and the remaining graph, $G-\\left\\{a_{1}, \\ldots, a_{n}\\right\\}$, is still a tree. Now using the induction hypothesis, this remaining graph can be partitioned to form the remaining $k-1$ sets of vertices, and the desired partition of $G$ is accomplished."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-1067",
+      "name": "Harvard-MIT Mathematics Tournament #0icb",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Counting two ways",
+        "Recursion, bijection",
+        "Other"
+      ],
+      "statement": "Problem:\n\nWe have an $n$-gon, and each of its vertices is labeled with a number from the set $\\{1, \\ldots, 10\\}$. We know that for any pair of distinct numbers from this set there is at least one side of the polygon whose endpoints have these two numbers. Find the smallest possible value of $n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nEach number be paired with each of the 9 other numbers, but each vertex can be used in at most 2 different pairs, so each number must occur on at least $\\lceil 9 / 2\\rceil=5$ different vertices. Thus, we need at least $10 \\cdot 5=50$ vertices, so $n \\geq 50$.\n\nTo see that $n=50$ is feasible, let the numbers $1, \\ldots, 10$ be the vertices of a complete graph. Then each vertex has degree $9$, and there are $\\binom{10}{2}=45$ edges. If we attach extra copies of the edges $1-2, 3-4, 5-6, 7-8$, and $9-10$, then every vertex will have degree $10$. In particular, the graph has an Eulerian tour, so we can follow this tour, successively numbering vertices of the $50$-gon according to the vertices of the graph we visit. Then, for each edge of the graph, there will be a corresponding edge of the polygon with the same two vertex labels on its endpoints. It follows that every pair of distinct numbers occurs at the endpoints of some edge of the polygon, and so $n=50$ is the answer."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-1130",
+      "name": "Harvard-MIT Mathematics Tournament #0ie2",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other"
+      ],
+      "statement": "Problem:\nProve that for any two types of dominoes, there exists a rectangle that can be tiled by dominoes of either type.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nNote that a type $(a, b)$ domino tiles a $\\max\\{1, 2a\\} \\times 2b$ rectangle (see diagram for $a > 0$). Then both type $(a, b)$ and type $(a', b')$ dominoes tile a $\\left(\\max\\{1, 2a\\}, \\max\\{1, 2a'\\}\\right) \\times (2b \\cdot 2b')$ rectangle.\n\n![](attached_image_1.png)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-1150",
+      "name": "Harvard-MIT Mathematics Tournament #0iem",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other"
+      ],
+      "statement": "Problem:\n\nLet $S=\\{s_{0}, \\ldots, s_{n}\\}$ be a finite set of integers, and define $S+k=\\{s_{0}+k, \\ldots, s_{n}+k\\}$. We say that $S$ and $T$ are equivalent, written $S \\sim T$, if $T=S+k$ for some $k$. Given a (possibly infinite) set of integers $A$, we say that $S$ tiles $A$ if $A$ can be partitioned into subsets equivalent to $S$. Such a partition is called a tiling of $A$ by $S$.\n\nExhibit a set $S$ which tiles the integers $\\mathbf{Z}$ but not the natural numbers $\\mathbf{N}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nOne example is $\\{1,3,4,6\\}$. Since its elements are all distinct modulo $4$, it tiles $\\mathbf{Z}$ by translation by multiples of $4$. On the other hand, it is easy to see that it cannot tile $\\mathbf{N}$: $1$ is contained in $\\{1,3,4,6\\}$, but then there is no possible set for $2$ to be contained in that does not overlap. Another example is $\\{1,2,6\\}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-1157",
+      "name": "Harvard-MIT Mathematics Tournament #0iet",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Prime numbers",
+        "Other"
+      ],
+      "statement": "Problem:\n\nLet $S=\\{s_{0}, \\ldots, s_{n}\\}$ be a finite set of integers, and define $S+k=\\{s_{0}+k, \\ldots, s_{n}+k\\}$. We say that $S$ and $T$ are equivalent, written $S \\sim T$, if $T=S+k$ for some $k$. Given a (possibly infinite) set of integers $A$, we say that $S$ tiles $A$ if $A$ can be partitioned into subsets equivalent to $S$. Such a partition is called a tiling of $A$ by $S$.\n\nSuppose that $S$ tiles the set of odd prime numbers. Prove that $S$ has only one element.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nConsider the set $S_{0}$ equivalent to $S$ that contains $3$. If it contains $5$ but not $7$, then the set $S_{1}$ equivalent to $S$ containing $7$ must contain $9$, which is not prime. Likewise, $S_{0}$ cannot contain $7$ but not $5$, because then the set $S_{1}$ containing $5$ must contain $9$. Suppose $S_{0}$ contains $3, 5$, and $7$. Then any other set $S_{1}$ of the tiling contains elements $p, p+2$, and $p+4$. But not all of these can be prime, because one of them is divisible by $3$. Finally, suppose $S_{0}$ contains $3$ and has second-smallest element $p>7$. Then the set $S_{1}$ containing $5$ does not contain $7$ but does contain $p+2$, and the set $S_{2}$ containing $7$ contains $p+4$. But as before, not all of $p, p+2$, and $p+4$ can be prime. Therefore $S$ has no second-smallest element, so it has only one element."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-1212",
+      "name": "Harvard-MIT Mathematics Tournament #0igc",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Coloring schemes, extremal arguments",
+        "Games / greedy algorithms",
+        "Other"
+      ],
+      "statement": "Problem:\nFind a long binary word containing a small number of square subwords. Specifically, write down a binary word of any length $n \\leq 50$. Your score will be $\\max \\{0, n-s\\}$, where $s$ is the number of occurrences of square subwords. (That is, each different square subword will be counted according to the number of times it appears.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-1217",
+      "name": "Harvard-MIT Mathematics Tournament #0igh",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other",
+        "Techniques: modulo, size analysis, order analysis, inequalities"
+      ],
+      "statement": "Problem:\n\nShow that for $b$ even, there exists some $M$ such that for every $n > M$, a $2b \\times n$ rectangle is $(1, b)$-tileable.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nRecall from above that we can tile a $2 \\times 2b$ rectangle. Four columns of a $(b+1) \\times 2b$ rectangle can be tiled as shown below, and repeating this $\\frac{b}{2}$ times tiles the entire rectangle. Since any integer at least $b$ can be written as a positive linear combination of $2$ and $b+1$, we can tile any $2b \\times n$ rectangle for $n \\geq b$.\n\n![](attached_image_1.png)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-1523",
+      "name": "1st Annual Harvard-MIT November Tournament #0ioz",
+      "url": "https://usamoguide.com/",
+      "source": "1st Annual Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other"
+      ],
+      "statement": "Problem:\n\nJoe B. first places the black king in one corner of the board. In how many of the 35 remaining squares can he place a white bishop so that it does not check the black king?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAny square not on the diagonal containing the corner is a possible location, and there are $36 - 6 = 30$ such squares."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-1561",
+      "name": "Bay Area Mathematical Olympiad #0iq1",
+      "url": "https://usamoguide.com/",
+      "source": "Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Coloring schemes, extremal arguments",
+        "Other"
+      ],
+      "statement": "Problem:\n\nConsider a $7 \\times 7$ chessboard that starts out with all the squares white. We start painting squares black, one at a time, according to the rule that after painting the first square, each newly painted square must be adjacent along a side to only the square just previously painted. The final figure painted will be a connected \"snake\" of squares.\n\na. Show that it is possible to paint 31 squares.\n\nb. Show that it is possible to paint 32 squares.\n\nc. Show that it is possible to paint 33 squares.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\na.\n![](attached_image_1.png)\n\nb.\n![](attached_image_2.png)\nFigure 1: Solutions to (a), (b) and (c)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-1654",
+      "name": "11th Annual Harvard-MIT Mathematics Tournament - Team Round: B Division #0ism",
+      "url": "https://usamoguide.com/",
+      "source": "11th Annual Harvard-MIT Mathematics Tournament - Team Round: B Division",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Permutations / basic group theory",
+        "Other"
+      ],
+      "statement": "Problem:\n\nProve that 572 is not a juggling sequence.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe are given $j(0) = 5$, $j(1) = 7$ and $j(2) = 2$. So $f(3) = 3 + j(0) = 8$ and $f(1) = 1 + j(1) = 8$. Thus $f(3) = f(1)$ and so $f$ is not a permutation of $\\mathbb{Z}$, and hence 572 is not a juggling pattern. (In other words, there is a \"collision\" at times $t \\equiv 2 \\pmod{3}$.)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-1833",
+      "name": "Team Selection Test 2009 #0ixl",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test 2009",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other",
+        "Induction / smoothing",
+        "Coloring schemes, extremal arguments"
+      ],
+      "statement": "Let $N > M > 1$ be fixed integers. There are $N$ people playing in a chess tournament; each pair of players plays each other once, with no draws. It turns out that for each sequence of $M + 1$ distinct players $P_0, P_1, \\dots, P_M$ such that $P_{i-1}$ beat $P_i$ for each $i = 1, \\dots, M$, player $P_0$ also beat $P_M$. Prove that the players can be numbered $1, 2, \\dots, N$ in such a way that, whenever $a \\ge b + M - 1$, player $a$ beat player $b$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Write $P \\succ Q$ if player $P$ beat player $Q$.\n\n**Lemma 1.** Any set of $K > 1$ players can be arranged in a sequence $P_1, \\dots, P_K$ such that $P_1 \\succ P_2 \\succ \\dots \\succ P_K$.\n\n*Proof.* Let $P_1 \\succ \\dots \\succ P_J$ be the longest such sequence that can be formed from any subset of the given players, and suppose for contradiction that some player $Q$ among the $K$ players does not appear in the sequence. If all of $P_1, \\dots, P_J$ beat $Q$, we append $Q$ to the end of the sequence. Otherwise, there exists a smallest $i$ such that $Q \\succ P_i$, and then we can insert $Q$ into the sequence just before $P_i$. Either way, we have created a sequence of length $J+1$, contradicting the maximality of $J$. $\\square$\n\nNow, we will prove the problem statement for all $N \\ge 0$ by induction. For the base case, if $N < M$, just assign numbers arbitrarily, and the conclusion holds vacuously.\n\nNow suppose the result holds for any number of players less than $N$; we will show it for $N$ players. Let $P$ be the player who beat the most opponents. If $P$ beat all other players, we can assign $P$ the number $N$ and use the induction hypothesis for the remaining players. So we may assume $P$ was beaten by $K \\ge 1$ other players.\n\nDefine a *top-cycle of order* $L$ to be a sequence $C_L = (P_0, \\dots, P_L)$ of players such that\n\n* $P_0 \\succ P_1 \\succ P_2 \\succ \\dots \\succ P_L \\succ P_0$;\n* $P_L = P$;\n* all players not in the sequence were beaten by $P$.\n\nWe will construct a top-cycle $C_{K+1}$ of order $K+1$. By the lemma, the players who beat $P$ can be arranged into a sequence $P_1, \\dots, P_K$ such that $P_{i-1} \\succ P_i$ for each $i$. Let $P_{K+1} = P$. Notice that there exists a player $P_0$ such that $P \\succ P_0 \\succ P_1$: otherwise, $P_1$ beat every player beaten by $P$ and also beat $P_2$, so $P_1$ beat more players than $P$, contradicting the choice of $P$. This choice of $P_0$ completes the construction of $C_{K+1}$.\n\nWe also claim that $K+1 < M$. We approach indirectly by assuming $K+1 \\ge M$. Then for each $Q$ that was beaten by $P$, either $Q = P_0$ or $Q$ is not in $C_{K+1}$. Either way, we have $P_{K-M+2} \\succ P_{K-M+3} \\succ \\dots \\succ P_{K+1} \\succ Q$, and then $P_{K-M+2} \\succ Q$ by the given. But we also have $P_{K-M+2} \\succ P_{K-M+3}$. Therefore, $P_{K-M+2}$ beat every player who was beaten by $P$ and at least one more player, again contradicting the choice of $P$.\n\nNow, given a top-cycle $C_L$ of any order $L$, we claim that either all players in the cycle beat all players not in the cycle, or else we can insert another player to form a top-cycle $C_{L+1}$ of order $L+1$. Indeed, suppose some player $Q$ not in the cycle was not beaten by all players in the cycle. Take the smallest $i$ such that $Q$ beat $P_i$, and then inserting $Q$ just before $P_i$ gives us a top-cycle of order $L+1$. (If $i=0$ then we need to check that $P$ beat $Q$, but this follows from the fact that $C_L$ was a top-cycle.)\n\nStart with $C_{K+1}$ and repeatedly expand the cycle as just described. Eventually we must reach a top-cycle $C_L$ such that all players in $C_L$ beat all players not in $C_L$, and then the expanding must stop. We claim that when this happens, $L < M$. To prove this, it suffices to show that if we ever reach a top-cycle of order $M-1$, then all players in the cycle beat all players not in the cycle (so that we can expand no further). So let $P_0 \\succ P_1 \\succ \\dots \\succ P_{M-1} = P$ be the top-cycle, and let $Q$ be any player outside the top-cycle. Then $P \\succ Q$ and the given imply $P_0 \\succ Q$. But then we also have $P_1 \\succ P_2 \\succ \\dots \\succ P_{M-1} \\succ P_0 \\succ Q$, implying $P_1 \\succ Q$. Repeating this process, we get $P_i \\succ Q$ for each $i$. This shows that all players in the cycle beat all players outside the cycle, as claimed.\n\nThis proves that there exists a top-cycle $C_L = (P_0, \\dots, P_L)$ with $L < M$, such that all players in $C_L$ beat all players not in $C_L$.\n\nNow use the induction hypothesis to assign the numbers $1, \\dots, N-L-1$ to all players not in $C_L$. Assign the number $N-L$ to $P_1$ and assign the number $N$ to $P_0$. Finally, assign the remaining numbers $N-L+1, \\dots, N-1$ arbitrarily to the rest of the players in $C_L$.\n\nTo check that this assignment meets the requirements, consider any $a, b$ with $a \\ge b + M - 1$. If $a < N - L$, then we know that the player numbered $a$ beat the player numbered $b$ by the induction hypothesis. If $a \\ge N - L$ and $b < N - L$, then player $a$ beat player $b$ because player $a$ is in $C_L$ and $b$ is not. And if $b \\ge N - L$, then the only possibility is $L = M - 1, a = N, b = N - L$. In this case, player $a$ is $P_0$, player $b$ is $P_1$, and we know that $P_0 \\succ P_1$.\n\n(By Ricky Liu). Note that we may remove the condition $N > M$, since if $N \\le M$, the claim is trivial. We will again write $P \\succ Q$ if player $P$ beats player $Q$. We will prove the result by strong induction on $M$, and then on $N$ for fixed $M$.\n\nWe first prove the case $M = 2$. Note that $P \\succ Q$ if and only if $P$ beat strictly more players than $Q$, for $P \\succ Q$ implies $P$ beats $Q$ and everyone $Q$ beats. We therefore number the players in reverse order of the number of players they beat.\n\nFor $M > 2$, we may assume that there exists a set of players $B = \\{P_0, \\dots, P_{M-1}\\}$ such that $P_0 \\succ P_1 \\succ \\dots \\succ P_{M-1} \\succ P_0$, because otherwise the problem reduces to a smaller value of $M$. Let $A$ be the set of players that everyone in $B$ beats, and let $C$ be the set of players that beat everyone in $B$.\n\nWe claim that all players lie in $A$, $B$, or $C$. Indeed, if for $Q \\notin B$, $P_{M-1} \\succ Q$, then $P_0 \\succ Q$, for we cannot have $P_0 \\succ P_1 \\succ \\dots \\succ P_{M-1} \\succ Q \\succ P_0$. Similarly, $P_0 \\succ Q$ implies $P_1 \\succ Q$ and so forth. Therefore, if $P_i \\succ Q$ for any $i$, then $P_i \\succ Q$ for all $i$. The claim follows easily. Also note that if $Q \\in C$ and $R \\in A$, then $Q \\succ R$. Indeed, otherwise $Q \\succ P_0 \\succ P_1 \\succ \\dots \\succ P_{M-2} \\succ R \\succ Q$.\n\nIf $A$ and $C$ are both empty, so that $N = M$, the result is easy. Otherwise, using the induction hypothesis on $N$, we can construct suitable numberings for each of $A$, $B$, and $C$. But then adding $|A|$ to all assigned numbers in $B$ and adding $|B|$ to all assigned numbers in $C$ gives a suitable numbering for all players."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-1852",
+      "name": "Harvard-MIT November Tournament #0iy4",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other"
+      ],
+      "statement": "Problem:\nA computer program is a function that takes in 4 bits, where each bit is either a $0$ or a $1$, and outputs TRUE or FALSE. How many computer programs are there?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe function has $2^{4}$ inputs and $2$ outputs for each possible input, so the answer is $2^{2^{4}} = 2^{16} = 65536$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-1921",
+      "name": "13th Annual Harvard-MIT Mathematics Tournament #0j01",
+      "url": "https://usamoguide.com/",
+      "source": "13th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Invariants / monovariants",
+        "Other"
+      ],
+      "statement": "Problem:\n\nA 5-dimensional ant starts at one vertex of a 5-dimensional hypercube of side length $1$. A move is when the ant travels from one vertex to another vertex at a distance of $\\sqrt{2}$ away. How many ways can the ant make $5$ moves and end up on the same vertex it started at?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $6240$\n\nWe let the cube lie in $\\mathbb{R}^5$ with each corner with coordinates $1$ or $0$. Assume the ant starts at $(0,0,0,0,0)$. Every move the ant adds or subtracts $1$ to two of the places. Note that this means the ant can only land on a vertex with the sum of its coordinates an even number. Every move the ant has $\\binom{5}{2}=10$ choices.\n\nFrom any vertex there are $10$ two-move sequences that put the ant at the same vertex it started at.\n\nThere are $6$ two-move sequences to move from one vertex to a different, chosen vertex. If your chosen vertex differs from your current vertex by $2$ of the $5$ coordinates, your first move corrects for one of these two. There are $2$ ways to choose which coordinate to correct for on the first move, and there are $3$ ways to choose the second coordinate you change, yielding $6$ sequences. If your chosen vertex differs from your current vertex by $4$ of the $5$ coordinates, each move corrects for two of these four. This yields $\\binom{4}{2}=6$ sequences.\n\nFinally, there are $60$ three-move sequences that put the ant at the same vertex it started at. There are $10$ ways to choose the first move, and there are $6$ ways to make two moves to return to your original position.\n\nThe motion of the ant can be split into two cases.\n\nCase 1: After the $3$rd move the ant is on the vertex it started at. There are $(60)(10)=600$ different possible paths.\n\nCase 2: After the third move the ant is on a vertex different from the one it started on. There are $\\left(10^3-60\\right)(6)=(940)(6)=5640$ different possible paths.\n\nSo there are $6240$ total possible paths."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-1967",
+      "name": "Harvard-MIT Mathematics Tournament #0j1b",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other",
+        "Integers"
+      ],
+      "statement": "Problem:\n\nHow many positive integers less than or equal to $240$ can be expressed as a sum of distinct factorials? Consider $0!$ and $1!$ to be distinct.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $39$\n\nNote that $1 = 0!$, $2 = 0! + 1!$, $3 = 0! + 2!$, and $4 = 0! + 1! + 2!$. These are the only numbers less than $6$ that can be written as the sum of factorials. The only other factorials less than $240$ are $3! = 6$, $4! = 24$, and $5! = 120$. So a positive integer less than or equal to $240$ can only contain $3!$, $4!$, $5!$, and/or one of $1, 2, 3$, or $4$ in its sum. If it contains any factorial larger than $5!$, it will be larger than $240$. So a sum less than or equal to $240$ will either include $3!$ or not ($2$ ways), $4!$ or not ($2$ ways), $5!$ or not ($2$ ways), and add an additional $0, 1, 2, 3$ or $4$ ($5$ ways). This gives $2 \\cdot 2 \\cdot 2 \\cdot 5 = 40$ integers less than $240$. However, we want only positive integers, so we must not count $0$. So there are $39$ such positive integers."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-1981",
+      "name": "Harvard-MIT November Tournament #0j1p",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other"
+      ],
+      "statement": "Problem:\n\nPaul Erdős was one of the most prolific mathematicians of all time and was renowned for his many collaborations. The Erdős number of a mathematician is defined as follows. Erdős has an Erdős number of $0$, a mathematician who has coauthored a paper with Erdős has an Erdős number of $1$, a mathematician who has not coauthored a paper with Erdős, but has coauthored a paper with a mathematician with Erdős number $1$ has an Erdős number of $2$, etc. If no such chain exists between Erdős and another mathematician, that mathematician has an Erdős number of infinity. Of the mathematicians with a finite Erdős number (including those who are no longer alive), what is their average Erdős number according to the Erdős Number Project? If the correct answer is $X$ and you write down $A$, your team will receive $\\max (25-\\lfloor 100|X-A|\\rfloor, 0)$ points where $\\lfloor x\\rfloor$ is the largest integer less than or equal to $x$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $4.65$ We'll suppose that each mathematician collaborates with approximately $20$ people (except for Erdős himself, of course). Furthermore, if a mathematician has Erdős number $k$, then we'd expect him to be the cause of approximately $\\frac{1}{2^{k}}$ of his collaborators' Erdős numbers. This is because as we get to higher Erdős numbers, it is more likely that a collaborator has a lower Erdős number already. Therefore, we'd expect about $10$ times as many people to have an Erdős number of $2$ than with an Erdős number of $1$, then a ratio of $5, 2.5, 1.25$, and so on. This tells us that more mathematicians have an Erdős number of $5$ than any other number, then $4$, then $6$, and so on. If we use this approximation, we have a ratio of mathematicians with Erdős number $1, 2$, and so on of about $1: 10: 50: 125: 156: 97: 30: 4: 0.3$, which gives an average Erdős number of $4.8$. This is close to the actual value of $4.65$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-2002",
+      "name": "Harvard-MIT Mathematics Tournament #0j2a",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Invariants / monovariants",
+        "Other"
+      ],
+      "statement": "Problem:\n\nManya has a stack of $85 = 1 + 4 + 16 + 64$ blocks comprised of 4 layers (the $k$th layer from the top has $4^{k-1}$ blocks; see the diagram below). Each block rests on 4 smaller blocks, each with dimensions half those of the larger block. Laura removes blocks one at a time from this stack, removing only blocks that currently have no blocks on top of them. Find the number of ways Laura can remove precisely 5 blocks from Manya's stack (the order in which they are removed matters).\n\n![](attached_image_1.png)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nEach time Laura removes a block, 4 additional blocks are exposed, increasing the total number of exposed blocks by 3. She removes 5 blocks, for a total of $1 \\cdot 4 \\cdot 7 \\cdot 10 \\cdot 13$ ways. However, the stack originally only has 4 layers, so we must subtract the cases where removing a block on the bottom layer does not expose any new blocks. There are $1 \\cdot 4 \\cdot 4 \\cdot 4 \\cdot 4 = 256$ of these (the last factor of 4 is from the 4 blocks that we counted as being exposed, but were not actually). So our final answer is $1 \\cdot 4 \\cdot 7 \\cdot 10 \\cdot 13 - 1 \\cdot 4 \\cdot 4 \\cdot 4 \\cdot 4 = 3384$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-2062",
+      "name": "Harvard-MIT Mathematics Tournament #0j3y",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other",
+        "Polynomial interpolation: Newton, Lagrange",
+        "Integers"
+      ],
+      "statement": "Problem:\n\nLet $S$ be the set of ordered pairs of integers $(x, y)$ with $1 \\leq x \\leq 5$ and $1 \\leq y \\leq 3$. How many subsets $R$ of $S$ have the property that all the points of $R$ lie on the graph of a single cubic? A cubic is a polynomial of the form $y=a x^{3}+b x^{2}+c x+d$, where $a, b, c$, and $d$ are real numbers (meaning that $a$ is allowed to be 0 ).",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: 796\n\nWe observe that $R$ must contain at most 1 point from each column of $S$, because no function can contain more than 1 point with the same $x$-coordinate. Therefore, $|R| \\leq 5$ ($|R|$ denotes the number of elements of $R$). Note that 4 points determine a cubic, so if $R$ is any subset of points in distinct columns and $|R| \\leq 4$, then $R$ has the desired property. There are $4^{5}$ ways to choose at most 1 point from each column and $3^{5}$ ways to choose exactly 1 point from each column. There are therefore $4^{5}-3^{5}=781$ subsets $R$ of $S$ such that $|R| \\leq 4$ and all points of $R$ lie in distinct columns. As noted, these sets all automatically have the desired property.\n\nNow we consider all sets $R$ of size 5. As before, each point in $R$ must come from a different column. Let us shift our origin to $(3,2)$, and let $p$ be the polynomial containing all 5 points of $R$. Then $R=\\{(-2, p(-2)),(-1, p(-1)),(0, p(0)),(1, p(1)),(2, p(2))\\}$.\n\nBy the method of finite differences $3^{3}$ or alternately by Lagrange Interpolation there is a unique polynomial $p$ of degree less than 5 going through 5 specified points, and this polynomial is of degree less than 4 if and only if $p(-2)-4 p(-1)+6 p(0)-4 p(1)+p(2)=0$.\n\nThen $p(-2)+p(2)+6 p(0)=4(p(-1)+p(1))$, where $p(-2)+p(2) \\in\\{-2,-1,0,1,2\\}$, $p(-1)+p(1) \\in \\{-2,-1,0,1,2\\}$, and $p(0) \\in\\{-1,0,1\\}$. We know that $6 p(0)$ and $4(p(-1)+p(1))$ are necessarily even, thus we must have $p(-2)+p(2) \\in\\{-2,0,2\\}$ in order for the equation to be satisfied.\n\nLet $(a, b, c)=(p(-2)+p(2), 6 p(0), 4(p(-1)+p(1)))$. The possible values of $(a, b, c)$ that are solutions to $a+b=c$ are then $\\{(-2,-6,-8),(-2,6,4),(0,0,0),(2,-6,-4),(2,6,8)\\}$.\n\nIf $(a, b, c)=(-2,-6,-8)$, then we need $p(-2)+p(2)=-2$, $p(0)=-1$, $p(-1)+p(1)=-2$. There is only 1 possible solution to each of these equations: $(p(-2), p(2))=(-1,-1)$ for the first one, $p(0)=-1$ for the second, and $(p(-1), p(1))=(-1,-1)$ for the third. Hence there is 1 possible subset $R$ for the case $(a, b, c)=(-2,-6,-8)$.\n\nIf $(a, b, c)=(-2,6,4)$, then there is again 1 possible solution to $p(-2)+p(2)=-2$. There are two solutions to $p(-1)+p(1)=1$: $(p(-1), p(1))=(0,1),(1,0)$. Also, $p(0)$ can only be 1, so there are 2 possible subsets for this case.\n\nIf $(a, b, c)=(0,0,0)$, then there are 3 possible solutions to $p(-2)+p(2)=0$: $(p(-2), p(2))=(-1,1),(0,0),(1,-1)$. Similarly, there are 3 possible solutions to $p(-1)+p(1)=0$. Also, $p(0)$ can only be 0, so there are 9 possible subsets for this case.\n\nIf $(a, b, c)=(2,-6,-4)$, then there is 1 possible solution to $p(-2)+p(2)=2$: $(p(-2), p(2))=(1,1)$. There are 2 possible solutions to $p(-1)+p(1)=-1$: $(p(-1), p(1))=(0,-1),(-1,0)$. Also, $p(0)$ can only be -1, so there are 2 possible subsets for this case.\n\nIf $(a, b, c)=(2,6,8)$, then there is 1 possible solution to $p(-2)+p(2)=2$, as shown above. There is 1 solution to $p(-1)+p(1)=2$: $(p(-1), p(1))=(1,1)$. Also, $p(0)$ can only be 1, so there is 1 possible subset for this case.\n\nThen there are $1+2+9+2+1=15$ total possible subsets of size 5 that can be fit to a polynomial of degree less than 4. Hence there are $781+15=796$ possible subsets total."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-2581",
+      "name": "IMO Team Selection Team Selection Test #0jid",
+      "url": "https://usamoguide.com/",
+      "source": "IMO Team Selection Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Permutations / basic group theory",
+        "Other",
+        "Recursion, bijection"
+      ],
+      "statement": "Given a set $S$ of $n$ variables, a binary operation $\\times$ on $S$ is called *simple* if it satisfies $(x \\times y) \\times z = x \\times (y \\times z)$ for all $x, y, z \\in S$ and $x \\times y \\in \\{x, y\\}$ for all $x, y \\in S$. Given a simple operation $\\times$ on $S$, any string of elements in $S$ can be reduced to a single element, such as $xyz \\rightarrow x \\times (y \\times z)$. A string of variables in $S$ is called *full* if it contains each variable in $S$ at least once, and two strings are *equivalent* if they evaluate to the same variable regardless of which simple $\\times$ is chosen. For example, $xxx$, $xx$, and $x$ are equivalent, but these are only full if $n = 1$. Suppose $T$ is a set of strings such that any full string is equivalent to exactly one element of $T$. Determine the number of elements of $T$.\n(This problem was suggested by John Berman.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**Solution 1.** The answer is $n!^2$.\nWe use $s_1 \\sim s_2$ to denote that strings $s_1$ and $s_2$ are equivalent. If $x_1x_2 \\cdots x_k$ is any string in $S$, we can see that\n$$\nx_1x_2\\cdots x_kx_1x_2\\cdots x_k = (x_1\\cdots x_k)(x_1\\cdots x_k) \\sim x_1\\cdots x_k\n$$\nbecause $xx \\in \\{x\\}$. But also, if $a_1a_2 \\cdots a_i, b_1b_2 \\cdots b_j$ are strings in $S$ and $x \\in S$, then\n$$\nxa_1a_2 \\cdots a_ixb_1b_2 \\cdots b_jx \\sim xa_1a_2 \\cdots a_ib_1b_2 \\cdots b_jx\n$$\nTo prove this, it suffices to show that $xaxbx \\sim xabx$. Suppose that for some $\\times$, these did not evaluate to the same element of $S$. Then $a \\times x = x$, since otherwise $x(a \\times x)bx = xabx$. Similarly, $x \\times b = x$. This means that\n$$\nxaxbx = x(a \\times x)bx = xxbx = x(x \\times b)x = xxx = x\n$$\nso by assumption $xabx \\neq x$. But if $xabx = a$, then in particular $xa = a$, $ab = a$, and $ax = a$ all must hold, the latter of which is a contradiction. Similarly if $xabx = b$ we reach a contradiction. Thus this equivalence holds.\nGiven any full string $w = x_1x_2 \\cdots x_k$, we claim that it is equivalent to some string consisting of two concatenated permutations of $S$, i.e. $\\sigma_1\\sigma_2$ where $\\sigma_1$ is a permutation of the $n$ variables of $S$ and $\\sigma_2$ is also. Note that $w \\sim ww = x_1x_2 \\cdots x_kx_1x_2 \\cdots x_k$. This string may be reduced by our second observation above so that in any case where an element $y$ appears more than two times, all but the outermost instances of $y$ are removed. Because $w$ was full, the new string $\\tilde{w} \\sim w$ will have each element of $S$ occurring exactly twice. But the first occurrences of each variable all occur in the first instance of $w$, and the last occurrences all occur in the second instance of $w$ (in $ww$), so $\\tilde{w}$ consists of two concatenated permutations of $S$, of which there are $n!^2$ possibilities.\nIt remains to show that two double-permutations $\\sigma_1\\sigma_2$ and $\\sigma'_1\\sigma'_2$ are not equivalent. Suppose otherwise. Without loss of generality we may assume that $\\sigma_1 \\neq \\sigma'_1$; otherwise we reverse the order of the operation $\\times$ found below. Choose two elements $a, b$ such that $a$ occurs before $b$ in $\\sigma_1$ but their order is reversed in $\\sigma'_1$. Then choose some operation $\\times$ such that for any $x, y \\in S$,\n$$\nx \\times y = \\begin{cases} y & \\text{if } x \\notin \\{a, b\\}, y \\in \\{a, b\\}, \\\\ x & \\text{otherwise.} \\end{cases}\n$$\nThis operation clearly satisfies $x \\times y \\in \\{x, y\\}$, and some easy casework on which of $x, y, z$ are in $\\{a, b\\}$ shows that $(x \\times y) \\times z = x \\times (y \\times z)$ for all $x, y, z \\in S$. Hence, the operation is simple. Furthermore $\\sigma_1\\sigma_2$ evaluates to $a$ under this operation, while $\\sigma'_1\\sigma'_2$ evaluates to $b$. We conclude that the two strings are not equivalent, finishing the solution.\n\n\n**Solution 2** (Based on an idea of Alex Zhai). Given an operation $\\times$, construct a complete directed graph $G(\\times)$ with $n$ vertices, each vertex corresponding to a variable of $S$. Construct an edge marked $L$ going from $u$ to $v$ if $u \\times v = u$, and an edge marked $R$ from $v$ to $u$ if $u \\times v = v$. In this way each pair of vertices will have two edges between them, either both going in the same direction or both having the same marking.\nSuppose we have an edge from $x$ to $y$ marked $a$ and an edge from $y$ to $z$ marked $b$. Through some simple casework on $a, b$ and use of the associative condition on $\\times$, we can verify this implies there is an edge from $x$ to $z$ marked $a$. Call this the *associativity condition* on $G(\\times)$.\nNow suppose two vertices $u, v$ are such that there are two edges from $u$ to $v$, one $L$ and one $R$. We claim this means there is no path from $v$ to $u$. Suppose that $v, w_1, w_2, \\dots, w_k, u$ were such a path. Then the associativity condition on $u, v, w_1$ means that $u$ has two edges marked $L$ and $R$ from $u$ to $w_1$. Through the same methods we can inductively show that the two edges between $u$ to $w_i$ are directed away from $u$ for all $i$. But we need an edge from $w_k$ to $u$, so this is a contradiction.\nConsider the strongly connected components of $G(\\times)$, meaning components such that a pair of vertices $u, v$ has a path from $u$ to $v$ and a path from $v$ to $u$ if and only if $u, v$ are in the same component. The above paragraph implies that for any $u, v$ in the same component, the two edges between $u, v$ go in opposite directions and have the same marking. The associativity condition implies the markings between all pairs of vertices in the same component are equal, so we can consider each component to be either $L$ as a whole or $R$ as a whole.\nLet $C_1$ be the component such that no other component has an edge going into $C_1$, and call this the top component of $G(\\times)$. Then by the way we have constructed the graph, any full expression evaluates to a variable corresponding to a vertex in $C_1$ under $\\times$. Since all the edges in $C_1$ are either $L$ or $R$, the value of the full expression is either the leftmost variable out of those appearing in $C_1$, or the rightmost variable. In this way, we have completely characterized how a full expression can be evaluated under a simple operation $\\times$: take a nonempty subset $T$ of the variables, then $\\times$ evaluates the expression to either the leftmost occurrence of a variable in $T$, or the rightmost occurrence of a variable in $T$.\nFrom here the problem is straightforward to finish. Given a full expression $w$, consider only the leftmost occurrence of each variable in $w$. This gives a permutation $\\sigma_L$ of the variables of $S$. Similarly construct $\\sigma_R$ from the rightmost occurrence of each variable in $w$. By our above characterization $w$ is equivalent to $\\sigma_L\\sigma_R$, and there are $n!^2$ ways to make a word from appending two permutations. Finally, suppose we have a different appending $\\sigma'_L\\sigma'_R$ (without loss of generality we may assume that $\\sigma_L \\neq \\sigma'_L$). We have some pair $a, b$ such that $a$ appears to the left of $b$ in $\\sigma_L$ but their order is reversed in $\\sigma'_L$. Then we can construct $\\times$ such that $a, b$ are the only two elements of the top component marked $L$ of $G(\\times)$. This operation gives $\\sigma_L\\sigma_R = a$ and $\\sigma'_L\\sigma'_R = b$, so the two are not equivalent."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-2746",
+      "name": "HMMT November 2015 #0jmy",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2015",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other"
+      ],
+      "statement": "Problem:\n\nFarmer Yang has a $2015 \\times 2015$ square grid of corn plants. One day, the plant in the very center of the grid becomes diseased. Every day, every plant adjacent to a diseased plant becomes diseased. After how many days will all of Yang's corn plants be diseased?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $2014$\n\nAfter $k$ minutes, the diseased plants are the ones with taxicab distance at most $k$ from the center. The plants on the corner are the farthest from the center and have taxicab distance $2014$ from the center, so all the plants will be diseased after $2014$ minutes."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-2754",
+      "name": "HMMT February #0jn6",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Enumeration with symmetry",
+        "Other"
+      ],
+      "statement": "Problem:\nLet $R$ be the rectangle in the Cartesian plane with vertices at $(0,0)$, $(2,0)$, $(2,1)$, and $(0,1)$. $R$ can be divided into two unit squares, as shown.\n![](attached_image_1.png)\nThe resulting figure has 7 segments of unit length, connecting neighboring lattice points (those lying on or inside $R$). Compute the number of paths from $(0,1)$ (the upper left corner) to $(2,0)$ (the lower right corner) along these 7 segments, where each segment can be used at most once.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: 4\n\nJust count them directly. If the first step is to the right, there are 2 paths. If the first step is downwards (so the next step must be to the right), there are again 2 paths. This gives a total of 4 paths."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-2777",
+      "name": "HMMT November 2015 #0jnt",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2015",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Integers",
+        "Simple Equations",
+        "Other"
+      ],
+      "statement": "Problem:\nFor how many triples $(x, y, z)$ of integers between $-10$ and $10$ inclusive do there exist reals $a, b, c$ that satisfy\n$$\n\\begin{gathered}\na b = x \\\\\na c = y \\\\\nb c = z ?\n\\end{gathered}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $4061$\nIf none of $x, y, z$ are zero, then there are $4 \\cdot 10^{3} = 4000$ ways, since $x y z$ must be positive. Indeed, $(a b c)^{2} = x y z$. So an even number of them are negative, and the ways to choose an even number of $3$ variables to be negative is $4$ ways. If one of $x, y, z$ is $0$, then one of $a, b, c$ is zero at least. So at least two of $x, y, z$ must be $0$. If all $3$ are zero, this gives $1$ more solution. If exactly $2$ are zero, then this gives $3 \\cdot 20$ more solutions. This comes from choosing one of $x, y, z$ to be nonzero, and choosing its value in $20$ ways.\nOur final answer is $4000 + 60 + 1 = 4061$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-2828",
+      "name": "HMMT February #0jp8",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other"
+      ],
+      "statement": "Problem:\nFind the number of pairs of union/intersection operations $\\left(\\square_{1}, \\square_{2}\\right) \\in \\{\\cup, \\cap\\}^{2}$ satisfying the following condition: for any sets $S, T$, function $f: S \\rightarrow T$, and subsets $X, Y, Z$ of $S$, we have equality of sets\n$$\nf(X) \\square_{1}\\left(f(Y) \\square_{2} f(Z)\\right)=f\\left(X \\square_{1}\\left(Y \\square_{2} Z\\right)\\right),\n$$\nwhere $f(X)$ denotes the image of $X$ : the set $\\{f(x): x \\in X\\}$, which is a subset of $T$. The images $f(Y)$ (of $Y$ ) and $f(Z)$ (of $Z$ ) are similarly defined.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: 1 If and only if $\\square_{1}=\\square_{2}=\\cup$. See http://math.stackexchange.com/questions/359693/overview-of-1"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-2891",
+      "name": "HMMT November #0jqz",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Enumeration with symmetry",
+        "Permutations / basic group theory",
+        "Other"
+      ],
+      "statement": "Problem:\n\nConsider a $7 \\times 7$ grid of squares. Let $f:\\{1,2,3,4,5,6,7\\} \\rightarrow \\{1,2,3,4,5,6,7\\}$ be a function; in other words, $f(1), f(2), \\ldots, f(7)$ are each (not necessarily distinct) integers from $1$ to $7$. In the top row of the grid, the numbers from $1$ to $7$ are written in order; in every other square, $f(x)$ is written where $x$ is the number above the square. How many functions have the property that the bottom row is identical to the top row, and no other row is identical to the top row?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nConsider the directed graph with $1,2,3,4,5,6,7$ as vertices, and there is an edge from $i$ to $j$ if and only if $f(i)=j$. Since the bottom row is equivalent to the top one, we have $f^{6}(x)=x$. Therefore, the graph must decompose into cycles of length $6,3,2$, or $1$. Furthermore, since no other row is equivalent to the top one, the least common multiple of the cycle lengths must be $6$. The only partitions of $7$ satisfying these constraints are $7=6+1$, $7=3+2+2$, and $7=3+2+1+1$.\n\nIf we have a cycle of length $6$ and a cycle of length $1$, there are $7$ ways to choose which six vertices will be in the cycle of length $6$, and there are $5! = 120$ ways to determine the values of $f$ within this cycle (to see this, pick an arbitrary vertex in the cycle: the edge from it can connect to any of the remaining $5$ vertices, which can connect to any of the remaining $4$ vertices, etc.). Hence, there are $7 \\cdot 120 = 840$ possible functions $f$ in this case.\n\nIf we have a cycle of length $3$ and two cycles of length $2$, there are $\\frac{\\binom{7}{2}\\binom{5}{2}}{2} = 105$ possible ways to assign which vertices will belong to which cycle (we divide by two to avoid double-counting the cycles of length $2$). As before, there are $2! \\cdot 1! \\cdot 1! = 2$ assignments of $f$ within the cycles, so there are a total of $210$ possible functions $f$ in this case.\n\nFinally, if we have a cycle of length $3$, a cycle of length $2$, and two cycles of length $1$, there are $\\binom{7}{3}\\binom{4}{2} = 210$ possible ways to assign the cycles, and $2! \\cdot 1! \\cdot 0! \\cdot 0! = 2$ ways to arrange the edges within the cycles, so there are a total of $420$ possible functions $f$ in this case.\n\nHence, there are a total of $840+210+420=1470$ possible $f$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-2914",
+      "name": "BAMO #0jrm",
+      "url": "https://usamoguide.com/",
+      "source": "BAMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other"
+      ],
+      "statement": "Problem:\nThere are 7 boxes arranged in a row and numbered 1 through 7. You have a stack of 2015 cards, which you place one by one in the boxes. The first card is placed in box #1, the second in box #2, and so forth up to the seventh card which is placed in box #7. You then start working back in the other direction, placing the eighth card in box #6, the ninth in box #5, up to the thirteenth card being placed in box #1. The fourteenth card is then placed in box #2, and this continues until every card is distributed. What box will the last card be placed in?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe answer is box #3. Card #1 is placed into box #1, and this gets visited again by card #13. Hence, box #1 is visited every 12 times. Since $2004 = 167 \\cdot 12$, we see that card #2005 will be placed into box #1. Now, counting \"by hand,\" we see that card #2015 will go into box #3."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-3052",
+      "name": "HMMT February #0jvg",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other"
+      ],
+      "statement": "Problem:\nA contest has six problems worth seven points each. On any given problem, a contestant can score either $0$, $1$, or $7$ points. How many possible total scores can a contestant achieve over all six problems?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFor $0 \\leq k \\leq 6$, to obtain a score that is $k \\pmod{6}$, exactly $k$ problems must get a score of $1$. The remaining $6-k$ problems can generate any multiple of $7$ from $0$ to $7(6-k)$, of which there are $7-k$. So the total number of possible scores is $\\sum_{k=0}^{6}(7-k)=28$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-3117",
+      "name": "HMMT November 2017 #0jx9",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2017",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other",
+        "Integers"
+      ],
+      "statement": "Problem:\n\nHow many sequences of integers $(a_{1}, \\ldots, a_{7})$ are there for which $-1 \\leq a_{i} \\leq 1$ for every $i$, and\n$$\na_{1} a_{2}+a_{2} a_{3}+a_{3} a_{4}+a_{4} a_{5}+a_{5} a_{6}+a_{6} a_{7}=4 ?\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFor $i=1,2, \\ldots, 6$, let $b_{i}=a_{i} a_{i+1}$. From the problem condition each of $b_{1}, b_{2}, \\ldots, b_{6}$ can only be $-1,0$, or $1$. Since the sum of these six numbers is $4$, either there are five $1$s and a $-1$ or there are four $1$s and two $0$s.\n\nIn the first case, there are $6$ ways to choose $i$ such that $b_{i}=-1$. Once that is fixed, determining the value of $a_{1}$ (one of $1$ and $-1$) will determine the value of all the remaining $a_{i}$'s, so there are $6 \\cdot 2=12$ possible ways in this case.\n\nIn the second case, since if one of $b_{2}, b_{3}, b_{4}, b_{5}$ is zero, then one of the adjacent terms to this zero term must also be zero. Therefore the two zeroes must be next to each other or be $b_{1}$ and $b_{6}$.\n\nIf $b_{1}=b_{2}=0$, then $a_{2}$ must be zero. $a_{1}$'s value doesn't matter, and $a_{3}, a_{4}, \\ldots, a_{7}$ must have the same sign. The same goes for $b_{5}=b_{6}=0$, giving $3 \\cdot 2 \\cdot 2=12$ possibilities in these two cases.\n\nIf $b_{i}=b_{i+1}=0$ for $i=2,3,4$, then $a_{i+1}$ must be zero. Moreover, $a_{1}, a_{2}, \\ldots, a_{i}$ must have the same sign, and so do $a_{i+2}, \\ldots, a_{7}$. This gives $2 \\cdot 2 \\cdot 3=12$ possibilities in these three cases.\n\nIf $b_{1}=b_{6}=0$, then $a_{1}=a_{7}=0$. Also, $a_{2}, a_{3}, \\ldots, a_{6}$ must have the same sign so there are $2$ possibilities. Combining these cases gives $12+12+12+2=38$ possible sequences in total."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-3151",
+      "name": "February 2017 #0jy7",
+      "url": "https://usamoguide.com/",
+      "source": "February 2017",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Linear and quadratic inequalities",
+        "Integers",
+        "Other"
+      ],
+      "statement": "Problem:\nFind the number of pairs of integers $(x, y)$ such that $x^{2}+2 y^{2}<25$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe do casework on $y$.\nIf $y=0$, we have $x^{2}<25$, so we get 9 values of $x$.\nIf $y= \\pm 1$, then $x^{2}<23$, so we still have 9 values of $x$.\nIf $y= \\pm 2$, we have $x^{2}<17$, so we have 9 values of $x$.\nIf $y= \\pm 3$, we have $x^{2}<7$, we get 5 values of $x$.\nTherefore, the final answer is $9+2(9+9+5)=55$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-3169",
+      "name": "February 2017 #0jyp",
+      "url": "https://usamoguide.com/",
+      "source": "February 2017",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inverses mod n",
+        "Factorization techniques",
+        "Pythagorean triples",
+        "Sums and products",
+        "Other"
+      ],
+      "statement": "Problem:\n\na. Does $\\sum_{i=1}^{p-1} \\frac{1}{i} \\equiv 0 \\pmod{p^2}$ for all odd prime numbers $p$? (Note that $\\frac{1}{i}$ denotes the number such that $i \\cdot \\frac{1}{i} \\equiv 1 \\pmod{p^2}$)\n\nb. Do there exist 2017 positive perfect cubes that sum to a perfect cube?\n\nc. Does there exist a right triangle with rational side lengths and area 5?\n\nd. A magic square is a $3 \\times 3$ grid of numbers, all of whose rows, columns, and major diagonals sum to the same value. Does there exist a magic square whose entries are all prime numbers?\n\ne. Is $\\prod_{p} \\frac{p^2+1}{p^2-1} = \\frac{2^2+1}{2^2-1} \\cdot \\frac{3^2+1}{3^2-1} \\cdot \\frac{5^2+1}{5^2-1} \\cdot \\frac{7^2+1}{7^2-1} \\cdot \\ldots$ a rational number?\n\nf. Do there exist an infinite number of pairs of distinct integers $(a, b)$ such that $a$ and $b$ have the same set of prime divisors, and $a+1$ and $b+1$ also have the same set of prime divisors?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-3185",
+      "name": "HMMT November 2017 #0jz5",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2017",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other",
+        "Integers"
+      ],
+      "statement": "Problem:\n\nEach of the integers $1,2, \\ldots, 729$ is written in its base-3 representation without leading zeroes. The numbers are then joined together in that order to form a continuous string of digits: $12101112202122 \\ldots$. How many times in this string does the substring 012 appear?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nIgnore $729=3^{6}=1000000_{3}$ since it will not contribute to a 012 substring. Break into cases on how 012 appears: (i) when an individual integer contains the string 012; (ii) when 01 are the last two digits of an integer and 2 is the first digit of the next integer; and (iii) when 0 is the last digit of an integer and 12 are the first two digits of the next integer.\n\nFor case (i), we want to find the total number of appearances of the string 012 in $1,2,3, \\ldots, N$. Since each number has at most six digits, 012 appears at most once per number. If such a number has $d$ digits, $4 \\leq d \\leq 6$, then there are $d-3$ possible positions for the substring 012 and $2 \\cdot 3^{d-4}$ possible choices for the remaining digits (since the leftmost digit must be nonzero). Thus there are\n$$\n\\sum_{d=4}^{6}(d-3) \\cdot\\left(2 \\cdot 3^{d-4}\\right)=1 \\cdot 2+2 \\cdot 6+3 \\cdot 18=68\n$$\nappearances of 012 in case (i).\n\nFor case (ii), we have an integer $n$ for which $n$ ends in 01 and $n+1$ starts with 2. Then $n$ must also start with 2. Hence it suffices to count the number of integers $1 \\leq n<N$ which start with 2 and end with 01 in base three. If $n$ has $d$ digits, $3 \\leq d \\leq 6$, then there are $3^{d-3}$ possibilities for the middle digits, so we have\n$$\n\\sum_{d=3}^{6} 3^{d-3}=1+3+9+27=40\n$$\nappearances of 012 in case (ii).\n\nFor case (iii), we have an integer $n$ for which $n$ ends in 0 and $n+1$ starts with 12. Then $n$ must also start with 12, so we want to count the number of $1 \\leq n<N$ starting with 12 and ending in 0. Like case (ii), there are also 40 appearances of 012 in case (iii).\n\nIn total, the substring 012 appears $68+40+40=148$ times."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-3366",
+      "name": "HMIC 2018 #0k46",
+      "url": "https://usamoguide.com/",
+      "source": "HMIC 2018",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Coloring schemes, extremal arguments",
+        "Induction / smoothing",
+        "Polynomial operations",
+        "Polynomials mod p",
+        "Other"
+      ],
+      "statement": "Problem:\n\nLet $G$ be an undirected simple graph. Let $f(G)$ be the number of ways to orient all of the edges of $G$ in one of the two possible directions so that the resulting directed graph has no directed cycles. Show that $f(G)$ is a multiple of $3$ if and only if $G$ has a cycle of odd length.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $f_{G}(q)$ be the number of ways to color $G$ with $q$ colors. This is the chromatic polynomial of $G$, and turns out to be polynomial in $q$. Indeed, choose an edge $e$ and let $G \\backslash e$ be the graph $G$ with $e$ removed and let $G / e$ be graph $G$ with the vertices on either side of $e$ merged together (multiple edges are removed). It is not hard to see that\n$$\nf_{G}(q) = f_{G \\backslash e}(q) - f_{G / e}(q)\n$$\nand that for an empty graph $E_{n}$ with $n$ vertices, we have $f_{E_{n}}(q) = q^{n}$. Induction finishes.\n\nNow we can also show that the desired number of ways to direct $G$ to avoid directed cycles is $c_{G} = (-1)^{n} f_{G}(-1)$ where $n$ is the number of vertices of $G$. The way to do it is to show that\n$$\nc_{G} = c_{G \\backslash e} + c_{G / e}\n$$\nand $c_{E_{n}} = 1$. Thus $(-1)^{n} c_{G}$ will satisfy the desired recurrence, after multiplying the above by $(-1)^{n}$, and satisfies the correct initial conditions.\n\nNow all we need to know is that $f_{G}(q)$ has integer coefficients, so that $(-1)^{n} c_{G} \\equiv f_{G}(-1) \\equiv f_{G}(2) \\pmod{3}$, and $f_{G}(2) = 0$ when $G$ is not bipartite and is $2^{c(G)}$ where $c(G)$ is the number of connected components of $G$ otherwise. The result follows."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-3507",
+      "name": "HMMT November 2019 #0k83",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2019",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other",
+        "Integers"
+      ],
+      "statement": "Problem:\nA function $f: \\mathbb{Z} \\rightarrow \\mathbb{Z}$ satisfies: $f(0)=0$ and\n$$\n\\left|f\\left((n+1) 2^{k}\\right)-f\\left(n 2^{k}\\right)\\right| \\leq 1\n$$\nfor all integers $k \\geq 0$ and $n$. What is the maximum possible value of $f(2019)$ ?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nConsider a graph on $\\mathbb{Z}$ with an edge between $(n+1) 2^{k}$ and $n 2^{k}$ for all integers $k \\geq 0$ and $n$. Each vertex $m$ is given the value $f(m)$. The inequality $\\left|f\\left((n+1) 2^{k}\\right)-f\\left(n 2^{k}\\right)\\right| \\leq 1$ means that any two adjacent vertices of this graph must have values which differ by at most 1. Then it follows that for all $m$,\n$$\nf(m) \\leq \\text{ number of edges in shortest path from } 0 \\text{ to } m\n$$\nbecause if we follow a path from $0$ to $m$, along each edge the value increases by at most 1. Conversely, if we define $f(m)$ to be the number of edges in the shortest path between $0$ and $m$, then this is a valid function because for any two adjacent vertices, the lengths of their respective shortest paths to $0$ differ by at most 1. Hence it suffices to compute the distance from $0$ to $2019$ in the graph.\nThere exists a path with 4 edges, given by\n$$\n0 \\rightarrow 2048 \\rightarrow 2016 \\rightarrow 2018 \\rightarrow 2019\n$$\nSuppose there existed a path with three edges. In each step, the number changes by a power of 2, so we have $2019= \\pm 2^{k_{1}} \\pm 2^{k_{2}} \\pm 2^{k_{3}}$ for some nonnegative integers $k_{1}, k_{2}, k_{3}$ and choice of signs. Since $2019$ is odd, we must have $2^{0}$ somewhere. Then we have $\\pm 2^{k_{1}} \\pm 2^{k_{2}} \\in\\{2018,2020\\}$. Without loss of\ngenerality assume that $k_{1} \\geq k_{2}$. Then we can write this as $\\pm 2^{k_{2}}\\left(2^{k_{1}-k_{2}} \\pm 1\\right) \\in\\{2018,2020\\}$. It is easy to check that $k_{1}=k_{2}$ is impossible, so the factorization $2^{k_{2}}\\left(2^{k_{1}-k_{2}} \\pm 1\\right)$ is a product of a power of two and an odd number. Now compute $2018=2 \\times 1009$ and $2020=4 \\times 505$. Neither of the odd parts are of the form $2^{k_{1}-k_{2}} \\pm 1$, so there is no path of three steps.\nWe conclude that the maximum value of $f(2019)$ is $4$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-3579",
+      "name": "HMMT February 2019 #0ka3",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2019",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Counting two ways",
+        "Vectors",
+        "Other"
+      ],
+      "statement": "Problem:\n\nTessa the hyper-ant has a 2019-dimensional hypercube. For a real number $k$, she calls a placement of nonzero real numbers on the $2^{2019}$ vertices of the hypercube $k$-harmonic if for any vertex, the sum of all 2019 numbers that are edge-adjacent to this vertex is equal to $k$ times the number on this vertex. Let $S$ be the set of all possible values of $k$ such that there exists a $k$-harmonic placement. Find $\\sum_{k \\in S}|k|$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nBy adding up all the equations on each vertex, we get $2019 S = k S$ where $S$ is the sum of all entries, so $k = 2019$ unless $S = 0$. In the latter case, by adding up all the equations on a half of the cube, we get $2018 S - S = k S$ where $S$ is the sum of all entries on that half of the cube, so $k = 2017$ unless $S = 0$. In the latter case (the sum of all entries of any half is zero), by adding up all the equations on a half of the half-cube, we get $2017 S - 2 S = k S$, so $k = 2015$ unless $S = 0$. We continue this chain of casework until we get that the sum of every two vertices connected by unit segments is zero, in which case we have $k = -2019$. This means that $k$ can take any odd value between $-2019$ and $2019$ inclusive, so the sum of absolute values is $2 \\cdot 1010^{2} = 2040200$.\n\nTo achieve these values, suppose that the vertices of the hypercube are $\\{0,1\\}^{2019}$ and that the label of $\\left(x_{1}, x_{2}, \\ldots, x_{2019}\\right)$ is $a_{1}^{x_{1}} a_{2}^{x_{2}} \\ldots a_{2019}^{x_{2019}}$ for constants $a_{1}, a_{2}, \\ldots, a_{2019} \\in \\{-1,1\\}$, then it is not difficult to see that this labeling is $\\left(a_{1} + a_{2} + \\cdots + a_{2019}\\right)$-harmonic for any choice of $a_{i}$'s, so this can achieve all odd values between $-2019$ and $2019$ inclusive."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-3581",
+      "name": "HMMT February 2019 #0ka5",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2019",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other",
+        "Logic"
+      ],
+      "statement": "Problem:\n\nDefine $P=\\{\\mathrm{S}, \\mathrm{T}\\}$ and let $\\mathcal{P}$ be the set of all proper subsets of $P$. (A proper subset is a subset that is not the set itself.) How many ordered pairs $(\\mathcal{S}, \\mathcal{T})$ of proper subsets of $\\mathcal{P}$ are there such that\n\na) $\\mathcal{S}$ is not a proper subset of $\\mathcal{T}$ and $\\mathcal{T}$ is not a proper subset of $\\mathcal{S}$; and\n\nb) for any sets $S \\in \\mathcal{S}$ and $T \\in \\mathcal{T}$, $S$ is not a proper subset of $T$ and $T$ is not a proper subset of $S$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFor ease of notation, we let $0=\\varnothing, 1=\\{\\mathrm{S}\\}, 2=\\{\\mathrm{T}\\}$. Then both $\\mathcal{S}$ and $\\mathcal{T}$ are proper subsets of $\\{0,1,2\\}$. We consider the following cases:\n\nCase 1. If $\\mathcal{S}=\\varnothing$, then $\\mathcal{S}$ is a proper subset of any set except the empty set, so we must have $\\mathcal{T}=\\varnothing$.\n\nCase 2. If $\\mathcal{S}=\\{0\\}$, then $\\mathcal{T}$ cannot be empty, nor can it contain either 1 or 2, so we must have $\\mathcal{T}=\\{0\\}$. This also implies that if $\\mathcal{S}$ contains another element, then there would be no choice of $\\mathcal{T}$ because $\\{0\\}$ would be a proper subset.\n\nCase 3. If $\\mathcal{S}=\\{1\\}$, then $\\mathcal{T}$ cannot contain 0, and cannot contain both 1 and 2 (or it becomes a proper superset of $\\mathcal{S}$), so it can only be $\\{1\\}$ or $\\{2\\}$, and both work. The similar apply when $\\mathcal{S}=\\{2\\}$.\n\nCase 4. If $\\mathcal{S}=\\{1,2\\}$, then since $\\mathcal{T}$ cannot contain 0, it must contain both 1 and 2 (or it becomes a proper subset of $\\mathcal{S}$), so $\\mathcal{T}=\\{1,2\\}$.\n\nHence, all the possibilities are\n$$\n(\\mathcal{S}, \\mathcal{T})=(\\varnothing, \\varnothing), (\\{0\\}, \\{0\\}), (\\{1\\}, \\{1\\}), (\\{1\\}, \\{2\\}), (\\{2\\}, \\{1\\}), (\\{2\\}, \\{2\\}), (\\{1,2\\}, \\{1,2\\})\n$$\nfor 7 possible pairs in total."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-3713",
+      "name": "HMMO 2020 #0kdt",
+      "url": "https://usamoguide.com/",
+      "source": "HMMO 2020",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Counting two ways",
+        "Other"
+      ],
+      "statement": "Problem:\n\nEstimate $A$, the number of times an 8-digit number appears in Pascal's triangle. An estimate of $E$ earns $\\max (0,\\lfloor 20-|A-E| / 200\\rfloor)$ points.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe can obtain a good estimate by only counting terms of the form $\\binom{a}{1}$, $\\binom{a}{2}$, $\\binom{a}{a-1}$, and $\\binom{a}{a-2}$. The last two cases are symmetric to the first two, so we will only consider the first two and multiply by 2 at the end.\n\nSince $\\binom{a}{1}=a$, there are 90,000,000 values of $a$ for which $\\binom{a}{1}$ has eight digits. Moreover, since $\\binom{a}{2} \\approx a^{2} / 2$, the values of $a$ for which $\\binom{a}{2}$ has eight digits vary from about $\\sqrt{2 \\cdot 10^{7}}$ to $\\sqrt{2 \\cdot 10^{8}}$, leading to about $10^{4} \\sqrt{2}\\left(1-10^{-1 / 2}\\right) \\approx 14000 \\cdot 0.69=9660$ values for $a$.\n\nTherefore, these terms yield an estimate of 180019320, good enough for 13 points. Of course, one would expect this to be an underestimate, and even rounding up to 180020000 would give 16 points."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-4161",
+      "name": "HMMT November 2022 #0kq9",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2022",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorial Geometry",
+        "Other"
+      ],
+      "statement": "Problem:\n\nHow many ways are there to cut a $1$ by $1$ square into $8$ congruent polygonal pieces such that all of the interior angles for each piece are either $45$ or $90$ degrees? Two ways are considered distinct if they require cutting the square in different locations. In particular, rotations and reflections are considered distinct.\n\nProposed by: Freddie Zhao",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFirst note that only triangles and quadrilaterals are possible.\nThere are $3$ possibilities:\n- $1/2$ by $1/2$ right isosceles triangles\n- $1$ by $1/8$ rectangles\n- $1/2$ by $1/4$ rectangles\n\nThe first case has $16$ possibilities (there are $2$ choices for the orientation of each quadrant).\nThe second case has $2$ possibilities (either all horizontal or all vertical).\n\nThe third case is the trickiest. Label the quadrants $A, B, C, D$ where $A, B$ are at the top and $B, C$ are on the left. If each rectangle lies completely within a quadrant, there are $16$ ways. If rectangles span quadrants $A, B$ but not $C$ or $D$, there are $4$ ways. Similarly, there are $4$ ways each for [rectangles spanning $B, C$ but not $D, A$], [rectangles spanning $C, D$ but not $A, B$], and [rectangles spanning $D, A$ but not $B, C$]. Next, if rectangles span both $A, B$ and $C, D$, there is $1$ way, and if rectangles span both $B, C$ and $D, A$ there is $1$ way. Finally there are $2$ ways for each adjacent pair of quadrants to have a rectangle spanning them. This brings us to $16+4+4+4+4+1+1+2=36$ ways.\n\nThe final answer is $16+2+36=54$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-4365",
+      "name": "Bay Area Mathematical Olympiad #0kvx",
+      "url": "https://usamoguide.com/",
+      "source": "Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other"
+      ],
+      "statement": "Problem:\n\nMr. Murgatroyd decides to throw his class a pizza party, but he's going to make them hunt for it first. He chooses eleven locations in the school, which we'll call $1,2, \\ldots, 11$. His plan is to tell students to start at location $1$, and at each location $n$ from $1$ to $10$, they will find a message directing them to go to location $n+1$; at location $11$, there's pizza!\n\nMr. Murgatroyd sends his teaching assistant to post the ten messages in locations $1$ to $10$. Unfortunately, the assistant jumbles up the message cards at random before posting them. If the students begin at location $1$ as planned and follow the directions at each location, show that they will still get to the pizza.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nIf the students never visit the same room twice, then their hunt lasts a finite number of steps. In that case, they must reach the pizza (since the hunt always continues if they have not yet reached the pizza).\n\nTherefore, the only way for the students to not reach the pizza is for them to visit the same room twice, which gets them stuck in a loop. Such a loop must consist of $n$ rooms containing $n$ messages that collectively point to that set of $n$ rooms. But this means that all the messages pointing into the loop are in rooms that are part of the loop, so there's no way to enter the loop from outside.\n\nRoom $1$ can't be part of a loop, since no message points to room $1$. Thus, the students do not begin in a loop. Since they cannot enter a loop, they eventually get to the pizza. (In fact, they get to the pizza at least as quickly as Mr. Murgatroyd intended, since the worst case is that they have to visit every room once!)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-4405",
+      "name": "HMMT February #0kx1",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other",
+        "Integers"
+      ],
+      "statement": "Problem:\n\nFor any odd positive integer $n$, let $r(n)$ be the odd positive integer such that the binary representation of $r(n)$ is the binary representation of $n$ written backwards. For example, $r(2023) = r\\left(11111100111_{2}\\right) = 11100111111_{2} = 1855$. Determine, with proof, whether there exists a strictly increasing eight-term arithmetic progression $a_{1}, \\ldots, a_{8}$ of odd positive integers such that $r\\left(a_{1}\\right), \\ldots, r\\left(a_{8}\\right)$ is an arithmetic progression in that order.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe main idea is the following claim.\n\nClaim: If $a, b, c$ are in arithmetic progression and have the same number of digits in their binary representations, then $r(a), r(b), r(c)$ cannot be in arithmetic progression in that order.\n\nProof. Consider the least significant digit that differs in $a$ and $b$. Then $c$ will have the same value of that digit as $a$, which will be different from $b$. Since this becomes the most significant digit in $r(a), r(b), r(c)$, then of course $b$ cannot be between $a$ and $c$.\n\nTo finish, we just need to show that if there are 8 numbers in arithmetic progression, which we'll write as $a_{1}, a_{1}+d, a_{1}+2d, \\ldots, a_{1}+7d$, three of them have the same number of digits. We have a few cases.\n\n- If $a_{1}+3d < 2^{k} \\leq a_{1}+4d$, then $a_{1}+4d, a_{1}+5d, a_{1}+6d$ will have the same number of digits.\n\n- If $a_{1}+4d < 2^{k} \\leq a_{1}+5d$, then $a_{1}+5d, a_{1}+6d, a_{1}+7d$ will have the same number of digits.\n\n- If neither of these assumptions are true, $a_{1}+3d, a_{1}+4d, a_{1}+5d$ will have the same number of digits.\n\nHaving exhausted all cases, we are done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-4579",
+      "name": "HMMT February 2024 #0l1v",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2024",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "3D Shapes",
+        "Other"
+      ],
+      "statement": "Problem:\n\nCompute the number of ways there are to assemble 2 red unit cubes and 25 white unit cubes into a $3 \\times 3 \\times 3$ cube such that red is visible on exactly 4 faces of the larger cube. (Rotations and reflections are considered distinct.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe do casework on the two red unit cubes; they can either be in a corner, an edge, or the center of the face.\n\n- If they are both in a corner, they must be adjacent - for each configuration, this corresponds to an edge, of which there are 12.\n\n![](attached_image_1.png)\n\n- If one is in the corner and the other is at an edge, we have 8 choices to place the corner. For the edge, the red edge square has to go on the boundary of the faces touching the red corner square, and there are six places here. Thus, we get $8 \\cdot 6=48$ configurations.\n\n![](attached_image_2.png)\n\n- If one is a corner and the other is in the center of a face, we again have 8 choices for the corner and 3 choices for the center face (the faces not touching the red corner). This gives $8 \\cdot 3=8+8+8=24$ options.\n\n![](attached_image_3.png)\n\n- We have now completed the cases with a red corner square! Now suppose we have two edges: If we chose in order, we have 12 choices for the first cube. For the second cube, we must place the edge so it covers two new faces, and thus we have five choices. Since we could have picked these edges in either order, we divide by two to avoid overcounting, and we have $12 \\cdot 5 / 2=30$ in this case.\n\n![](attached_image_4.png)\n\nNow, since edges and faces only cover at most 2 and 1 face respectively, no other configuration works. Thus we have all the cases, and we add: $12+48+24+30=114$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-other-auto-4622",
+      "name": "HMMT February 2024 #0l32",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2024",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Enumeration with symmetry",
+        "Other"
+      ],
+      "statement": "Problem:\n\nThe country of HMMTLand has 8 cities. Its government decides to construct several two-way roads between pairs of distinct cities. After they finish construction, it turns out that each city can reach exactly 3 other cities via a single road, and from any pair of distinct cities, either exactly 0 or 2 other cities can be reached from both cities by a single road. Compute the number of ways HMMTLand could have constructed the roads.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet the cities be numbered $1,2,3,4,5,6,7,8$. WLOG, $1$ is connected to $2,3$, and $4$. First suppose $2$ and $3$ are connected; then $3$ and $1$ share a second common neighbor, which must be $4$ (as $1$ is not connected to anything else). Likewise $2$ and $4$ are connected, and so $5,6,7,8$ are pairwise connected as well, so the graph consists of two disjoint copies of $K_{4}$:\n\n![](attached_image_1.png)\n\nThere are $\\frac{1}{2}\\binom{8}{4}=35$ ways to partition the $8$ vertices into two groups of $4$, so there are $35$ such graphs.\n\nOtherwise, none of $2,3,4$ are connected to each other. Then $2$ and $3$ must share a common neighbor, as must $3$ and $4$, and $2$ and $4$. If these are the same neighbor, this vertex would share all three neighbors with $1$, so they must be pairwise distinct. The last vertex must then be connected to these three, creating a cube graph.\n\n![](attached_image_2.png)\n\nA cube has $48$ symmetries, so the number of such graphs is $\\frac{8!}{48}=840$.\n\nThe total is $35+840=875$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

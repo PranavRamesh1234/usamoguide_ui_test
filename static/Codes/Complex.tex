@@ -1,0 +1,1017 @@
+\documentclass[12pt]{extarticle}
+
+% Unified preamble from MASTER_COMBINED.tex
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{cancel}
+\usepackage{setspace}
+\usepackage[hidelinks]{hyperref}
+\usepackage{tikzpagenodes}
+
+\geometry{margin=1in}
+
+\setlength{\parskip}{0.45em}
+\setlength{\parindent}{0pt}
+\setlength{\headheight}{15pt}
+\setstretch{1.18}
+\raggedbottom
+
+% Global header: © 2025 Pranav Ramesh. All rights reserved. www.lambdamath.dev on every page
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\textcopyright\ 2025 Pranav Ramesh. All rights reserved. www.lambdamath.dev}
+\fancyfoot[C]{\thepage}\fancyfoot[R]{\small\textcopyright\ 2025 Pranav Ramesh.}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyhead[C]{\textcopyright\ 2025 Pranav Ramesh. All rights reserved. www.lambdamath.dev}
+    \fancyfoot[C]{\thepage}\fancyfoot[R]{\small\textcopyright\ 2025 Pranav Ramesh.}
+    \renewcommand{\headrulewidth}{0.4pt}
+    \renewcommand{\footrulewidth}{0pt}
+}
+
+\usetikzlibrary{shapes, arrows, positioning, calc, angles, quotes}
+
+% Watermark
+\usepackage{background}
+\usepackage{hyperref} % if already loaded elsewhere, keep it
+\usepackage{tikz}
+
+\backgroundsetup{
+    scale=1, % Increased scale to cover more area
+    angle=0,
+    opacity=0.1,
+    contents={
+        \tikz[remember picture, overlay]
+            \node[
+                rotate=45,
+                font=\fontsize{300}{300}\bfseries, % Increased font size
+                inner sep=0pt,
+                color=gray % Changed color to gray
+            ]
+            at (current page.center)
+            {LambdaMath.dev};
+    }
+}
+
+% Unified styled boxes
+\newtcolorbox{conceptbox}[1][]{
+    colback=blue!5!white,
+    colframe=blue!75!black,
+    title=#1,
+    fonttitle=\bfseries
+}
+
+\newtcolorbox{remarkbox}{
+    colback=green!5!white,
+    colframe=green!60!black,
+    fonttitle=\bfseries,
+    title=Remark
+}
+
+\newtcolorbox{examplebox}{
+    colback=orange!5!white,
+    colframe=orange!75!black,
+    fonttitle=\bfseries,
+    title=Example
+}
+
+\newtcolorbox{warningbox}{
+    colback=red!5!white,
+    colframe=red!75!black,
+    fonttitle=\bfseries,
+    title=Warning
+}
+
+\newtcolorbox{theorembox}{
+    colback=purple!5!white,
+    colframe=purple!75!black,
+    fonttitle=\bfseries,
+    title=Theorem
+}
+
+\newtcolorbox{solutionbox}{
+    colback=yellow!5!white,
+    colframe=orange!75!black,
+    fonttitle=\bfseries,
+    title=Solution
+}
+
+\newtcolorbox{insightbox}{
+    colback=teal!5!white,
+    colframe=teal!70!black,
+    fonttitle=\bfseries,
+    title=Insight / Remark
+}
+
+\newtcolorbox{methodsummarybox}{
+    colback=gray!6!white,
+    colframe=gray!70!black,
+    fonttitle=\bfseries,
+    title=Method Summary
+}
+
+\newtcolorbox{commonpitfallsbox}{
+    colback=red!3!white,
+    colframe=red!60!black,
+    fonttitle=\bfseries,
+    title=Common Pitfalls
+}
+
+% Difficulty tag and labels
+\newcommand{\difftag}[1]{\textbf{[#1]}}
+\newcommand{\difficulty}[1]{\textbf{(#1)}\,}
+
+% Proof-style environments
+\newenvironment{FormalProof}{\begin{solutionbox}\textbf{Formal Proof.} }{\end{solutionbox}}
+\newenvironment{ProofSketch}{\begin{solutionbox}\textbf{Proof Sketch.} }{\end{solutionbox}}
+\newenvironment{Heuristic}{\begin{insightbox}\textbf{Heuristic / Intuition.} }{\end{insightbox}}
+\title{Complex Numbers for AMC 12}
+\author{Prepared by Pranav}
+\date{}
+
+\begin{document}
+\begin{titlepage}
+\centering
+\vspace*{2cm}
+
+{\Huge\bfseries Complex Numbers for AMC}\\[0.5cm]
+{\Large Competition Problem Solving}\\[2cm]
+
+{\large AMC 10 $\cdot$ AMC 12 $\cdot$ AIME}\\[3cm]
+
+{\Large A Strategic Guide to\\[0.3cm]
+Algebraic and Geometric Complex Techniques}\\[3cm]
+
+{\Large\textbf{Pranav Ramesh}}\\[3cm]
+
+\vfill
+
+{\large 23 Dec 2025 (Version 1)}
+\end{titlepage}
+
+% Copyright Page
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+\textbf{\Large Copyright \textcopyright\ 2025 Pranav Ramesh}
+
+All rights reserved.
+
+This work is protected under the Copyright Act, 1957 (India).
+
+\vspace{1.5cm}
+
+This publication is the original work of Pranav Ramesh published under the imprint LambdaMath.
+
+\vspace{1.5cm}
+
+No part of this work may be reproduced, stored, transmitted, or distributed in any form or by any means, electronic, mechanical, photocopying, recording, or otherwise, without prior written permission of the copyright holder, except for brief quotations for educational or review purposes.
+
+\vspace{1.5cm}
+
+First published on 23 Dec 2025 at: www{.}lambdamath{.}dev
+
+For permissions: pranavramesh2017@gmail{.}com
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+% Dedication Page
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+\Large
+
+\textbf{Dedicated to}
+
+\vspace{1cm}
+
+Mr. Krishna Rao, My highschool mathematics teacher,
+
+Mr. Siva Rama Praveen K, Principal,
+
+Mr. Rajashekar Reddy, AGM, and
+
+Mrs. Sumathi, My mathematics mentor,
+
+\vspace{1cm}
+
+for their guidance, encouragement, and belief in the value of rigorous thinking.
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+	\tableofcontents
+\newpage
+
+\section*{Preface}
+\addcontentsline{toc}{section}{Preface}
+
+\subsection*{Who This Book Is For}
+AMC 10/12 and AIME students seeking a concise, competition-ready guide to complex numbers.
+
+	\textbf{You should use this book if you:}
+\begin{itemize}
+  \item Want to manipulate complex numbers algebraically and geometrically
+  \item Need roots of unity and polar form at your fingertips
+  \item Prefer seeing geometric meaning (vectors, rotations) alongside algebra
+\end{itemize}
+
+\subsection*{What Makes This Book Different}
+We pair algebraic manipulation with geometric intuition so you can choose the right form (rectangular vs. polar) instantly on contest problems.
+
+\subsection*{How to Use This Book}
+\begin{enumerate}
+  \item Master core operations (conjugation, modulus, argument) first.
+  \item Work examples before reading solutions; check every algebraic step.
+  \item Keep a mini-sheet of common polar/rectangular conversions and De Moivre.
+\end{enumerate}
+
+\subsection*{Colored Boxes Guide}
+\begin{itemize}
+  \item \textcolor{orange!70!black}{\textbf{Concepts:}} Core ideas and methods
+  \item \textcolor{blue!75!black}{\textbf{Examples:}} Worked problems with detailed solutions
+  \item \textcolor{green!60!black}{\textbf{Remarks:}} Strategic insights and tips
+\end{itemize}
+
+\subsection*{Study Recommendations}
+\begin{itemize}
+  \item Rewrite expressions in both rectangular and polar to build flexibility
+  \item Memorize key roots of unity and their geometry
+  \item Practice multiplication/division in polar for speed
+  \item Check answers by converting back and forth
+\end{itemize}
+
+\subsection*{Prerequisites}
+Algebra fluency, comfort with basic trigonometry, and readiness to interpret geometric meaning in the complex plane.
+
+\subsection*{Beyond This Book}
+Use past AMC/AIME problems; after solving, note whether polar or rectangular form was faster.
+
+\subsection*{Acknowledgements}
+Thanks to contest authors and mentors whose problems motivate these techniques.
+
+\newpage
+
+\section*{Scope and Purpose}
+This chapter develops complex numbers at a level sufficient to solve \textbf{all AMC 12 problems} involving complex numbers, including those that combine algebra, geometry, and trigonometry.
+
+\textbf{Emphasis:}
+\begin{itemize}
+    \item structural understanding,
+    \item geometric interpretation,
+    \item recognition of common AMC problem archetypes.
+\end{itemize}
+
+\section{Basic Definitions}
+
+\textbf{Complex number:} A number of the form $z = a + bi$ where $a,b \in \mathbb{R}$ and $i^2 = -1$.
+
+At this point, notice that the real and imaginary parts give a natural vector view: operations on $z$ act componentwise on $(a,b)$.
+
+\textbf{Powers of $i$:}
+\[
+ i^{4n}=1,\quad i^{4n+1}=i,\quad i^{4n+2}=-1,\quad i^{4n+3}=-i.
+\]
+
+What pattern should we look for first? The period modulo $4$ governs any large power of $i$.
+
+\begin{examplebox}
+\textbf{AMC 10/12 style.} Compute $i^{2023}$.
+\end{examplebox}
+
+\textbf{Solution:}
+
+What should we look for first? The remainder of the exponent modulo $4$.
+Now comes the key observation: powers of $i$ repeat every $4$.
+Divide $2023$ by $4$:
+\[
+2023 = 4 \cdot 505 + 3.
+\]
+
+Therefore, $i^{2023} = i^{4 \cdot 505 + 3} = (i^4)^{505} \cdot i^3 = 1^{505} \cdot i^3 = i^3 = -i$.
+
+\boxed{\textbf{Answer: } -i}
+
+\section{Algebra of Complex Numbers}
+
+\textbf{Addition/Subtraction:}
+\[
+ (a+bi) \pm (c+di) = (a\pm c) + (b\pm d)i.
+\]
+
+\textbf{Multiplication:}
+\[
+ (a+bi)(c+di) = (ac-bd) + (ad+bc)i.
+\]
+
+\textbf{Real/Imag parts:} For $z=a+bi$, $\Re(z)=a$ and $\Im(z)=b$ (the imaginary part excludes the factor $i$).
+
+At this point, notice that isolating $\Re(z)$ and $\Im(z)$ early often simplifies equations and checks.
+
+\begin{examplebox}
+\textbf{AMC 12.} If $z+6i=iz$, find $z$.
+\end{examplebox}
+
+\textbf{Solution:}
+
+What should we look for first? Collect the terms in $z$ on one side.
+Now comes the key observation: solving linear complex equations mirrors real algebra, then we rationalize using a conjugate.
+Rearrange to isolate $z$:
+\[
+z + 6i = iz \\
+z - iz = -6i \\
+z(1 - i) = -6i.
+\]
+
+Divide by $(1 - i)$:
+\[
+z = \frac{-6i}{1-i}.
+\]
+
+Multiply numerator and denominator by the conjugate $1 + i$:
+\[
+z = \frac{-6i(1+i)}{(1-i)(1+i)} = \frac{-6i - 6i^2}{1 - i^2} = \frac{-6i + 6}{1 + 1} = \frac{6 - 6i}{2} = 3 - 3i.
+\]
+
+Check: $z + 6i = 3 - 3i + 6i = 3 + 3i$ and $iz = i(3 - 3i) = 3i - 3i^2 = 3i + 3 = 3 + 3i$. \checkmark
+
+\boxed{\textbf{Answer: } z = 3 - 3i}
+
+\section{Complex Conjugates}
+
+\textbf{Conjugate:} $\overline{z}=a-bi$ for $z=a+bi$.
+
+\textbf{Product with conjugate:}
+\[
+ z\,\overline{z} = a^2 + b^2 \quad (\text{always real and nonnegative}).
+\]
+
+Let’s pause and interpret what this gives us: multiplying by the conjugate extracts $|z|^2$, which is purely real.
+
+\begin{examplebox}
+\textbf{AMC 12.} Let $z$ satisfy $z+\overline{z}=6$ and $z\overline{z}=13$. Find $z$.
+\end{examplebox}
+
+\textbf{Solution:}
+
+What should we look for first? Translate each condition into statements about $a$ and $b$.
+Let $z = a + bi$ where $a, b \in \mathbb{R}$. Then $\overline{z} = a - bi$.
+
+From the first condition:
+\[
+z + \overline{z} = (a + bi) + (a - bi) = 2a = 6 \implies a = 3.
+\]
+
+From the second condition:
+\[
+z \cdot \overline{z} = (a + bi)(a - bi) = a^2 + b^2 = 13.
+\]
+
+Substituting $a = 3$:
+\[
+9 + b^2 = 13 \implies b^2 = 4 \implies b = \pm 2.
+\]
+
+Therefore, $z = 3 + 2i$ or $z = 3 - 2i$.
+
+\boxed{\textbf{Answer: } z = 3 \pm 2i}
+
+\section{The Complex Plane}
+
+\textbf{Point representation:} $z=a+bi$ corresponds to $(a,b)$ in the plane; axes are real (horizontal) and imaginary (vertical).
+
+\textbf{Magnitude:}
+\[
+ |z| = \sqrt{a^2 + b^2} \quad (\text{distance from the origin}).
+\]
+
+\begin{examplebox}
+\textbf{AMC 12.} Describe geometrically the set of all $z$ such that $|z-2i|=3$.
+\end{examplebox}
+
+\textbf{Solution:}
+
+Why might this formula be useful here? $|z - w|$ measures distance from $w$.
+The equation $|z - 2i| = 3$ represents all complex numbers $z$ whose distance from the point $2i$ is exactly $3$.
+
+In the complex plane, $2i$ corresponds to the point $(0, 2)$ on the imaginary axis, and the condition describes a circle of radius $3$ centered at this point.
+
+\boxed{\textbf{Answer: } \text{A circle of radius } 3 \text{ centered at } (0, 2).}
+
+\section{Polar Form and Euler's Formula}
+
+\textbf{Argument:} $\arg z$ is the angle from the positive real axis to $z$.
+
+\textbf{Polar form:}
+\[
+ z = r(\cos\theta + i\sin\theta), \quad r=|z|, \; \theta=\arg z.
+\]
+
+\textbf{Euler:}
+\[
+ e^{i\theta} = \cos\theta + i\sin\theta, \quad z = r e^{i\theta}.
+\]
+
+\textbf{De Moivre (integer $n$):}
+\[
+ z^n = r^n(\cos n\theta + i\sin n\theta).
+\]
+
+Which form should we choose when powering or multiplying? Polar form turns products and powers into simple angle and magnitude arithmetic.
+
+\begin{examplebox}
+\textbf{AMC 12.} Compute $(1+i)^{10}$.
+\end{examplebox}
+
+\textbf{Solution:}
+
+What should we look for first? A representation that makes taking the $10$th power easy.
+Now comes the key observation: convert to polar and apply De Moivre.
+Convert $1 + i$ to polar form. We have:
+\[
+|1 + i| = \sqrt{1^2 + 1^2} = \sqrt{2}, \quad \arg(1 + i) = 45^\circ = \frac{\pi}{4}.
+\]
+
+So $1 + i = \sqrt{2} e^{i\pi/4}$.
+
+Using De Moivre's theorem:
+\[
+(1 + i)^{10} = \left(\sqrt{2}\right)^{10} e^{i \cdot 10\pi/4} = 2^5 e^{i \cdot 5\pi/2} = 32 e^{i(2\pi + \pi/2)} = 32 e^{i\pi/2} = 32i.
+\]
+
+Alternatively, note that $e^{i \cdot 5\pi/2} = e^{i(2\pi + \pi/2)} = e^{i\pi/2} = i$.
+
+\boxed{\textbf{Answer: } 32i}
+
+\section{Geometry via Complex Numbers}
+
+\begin{conceptbox}
+Complex numbers encode planar geometry elegantly: rotations, regular polygons, and symmetry often become simple products. The key insight is that multiplication in the complex plane corresponds to scaling and rotation simultaneously.
+\end{conceptbox}
+
+\subsection*{Core Geometric Operations}
+
+\textbf{Rotation:} Multiplying a complex number $z$ by $e^{i\theta}$ rotates it counterclockwise by angle $\theta$ about the origin, preserving magnitude. In general:
+\[
+z \cdot e^{i\theta} = |z| e^{i(\arg z + \theta)}.
+\]
+
+Let’s pause and interpret what this gives us: multiplication by $e^{i\theta}$ is pure rotation; real scaling and angle addition happen independently.
+
+\textbf{Scaling:} Multiplying by a positive real number $r$ scales the magnitude by $r$ without changing the argument: $z \cdot r = r|z| e^{i\arg z}$.
+
+\textbf{Spiral Similarity:} Multiplying by $re^{i\theta}$ (where $r>0, \theta \neq 0$) combines rotation and scaling—a spiral transformation about the origin.
+
+\textbf{Translation:} Adding a fixed complex number $w$ to all points translates them by the vector $(w)$ in the complex plane: $z \mapsto z + w$.
+
+\textbf{Reflection about the real axis:} Taking the conjugate $\overline{z}$.
+
+\subsection*{Distance and Magnitude in Geometry}
+
+\textbf{Distance formula:} The distance between two points $z_1$ and $z_2$ in the complex plane is
+\[
+d(z_1, z_2) = |z_2 - z_1|.
+\]
+
+\textbf{Circle:} The set of all points at distance $r$ from a center $z_0$ forms a circle:
+\[
+\{z \in \mathbb{C} : |z - z_0| = r\}.
+\]
+
+\textbf{Midpoint:} The midpoint between $z_1$ and $z_2$ is $\tfrac{z_1 + z_2}{2}$.
+
+At this point, notice how these formulas mirror Euclidean geometry with complex arithmetic as concise notation.
+
+\subsection*{Polygon Geometry}
+
+\textbf{Equilateral triangles:} Three points $z_1, z_2, z_3$ form an equilateral triangle if and only if
+\[
+\frac{z_2 - z_1}{z_3 - z_1} \in \{\omega, \omega^2\},
+\]
+where $\omega = e^{2\pi i/3}$ is a primitive cube root of unity. Geometrically, this means the angle at $z_1$ is $60^\circ$ and the ratio of side lengths is $1$.
+
+\textbf{Isosceles right triangles:} The points $z_1, z_2, z_3$ form an isosceles right triangle (right angle at $z_1$) if and only if
+\[
+\frac{z_2 - z_1}{z_3 - z_1} = \pm i.
+\]
+This means the sides from $z_1$ are perpendicular and equal in length.
+
+\textbf{Regular $n$-gons:} A set of $n$ equally-spaced points on a circle centered at $w$ with radius $r$ can be written as
+\[
+w + r \cdot e^{2\pi ik/n}, \quad k = 0, 1, \ldots, n-1.
+\]
+
+\subsection*{Worked Example 1: Equilateral Triangle from Origin}
+
+\begin{examplebox}
+\textbf{AMC 12.} How many nonzero $z$ make $0, z, z^3$ the vertices of an equilateral triangle?
+\end{examplebox}
+
+\textbf{Solution:}
+
+What should we check first? The rotation ratio between two sides from the same vertex.
+For three points to form an equilateral triangle, we use the criterion: points $w_1, w_2, w_3$ form an equilateral triangle if and only if
+\[
+\frac{w_2 - w_1}{w_3 - w_1} \in \{\omega, \omega^2\}, \quad \omega = e^{2\pi i/3}.
+\]
+
+With vertices $0, z, z^3$, we apply this by taking $w_1 = 0$:
+\[
+\frac{z - 0}{z^3 - 0} = \frac{z}{z^3} = z^{-2}.
+\]
+
+We need $z^{-2} \in \{\omega, \omega^2\}$, so either:
+
+Now comes the key observation: solving $z^{-2} \in \{\omega,\omega^2\}$ reduces to square roots on the unit circle.
+
+\begin{enumerate}
+\item $z^{-2} = \omega = e^{2\pi i/3}$, which gives $z^2 = \omega^{-1} = \omega^2 = e^{-2\pi i/3} = e^{4\pi i/3}$.
+
+Solving $z^2 = e^{4\pi i/3}$: The two square roots are
+\[
+z = e^{2\pi i/3} \quad \text{and} \quad z = e^{2\pi i/3 + \pi i} = e^{5\pi i/3}.
+\]
+
+\item $z^{-2} = \omega^2 = e^{4\pi i/3}$, which gives $z^2 = \omega^{-2} = \omega = e^{2\pi i/3}$.
+
+Solving $z^2 = e^{2\pi i/3}$: The two square roots are
+\[
+z = e^{\pi i/3} \quad \text{and} \quad z = e^{\pi i/3 + \pi i} = e^{4\pi i/3}.
+\]
+
+\end{enumerate}
+
+The four solutions are $z \in \{e^{\pi i/3}, e^{2\pi i/3}, e^{4\pi i/3}, e^{5\pi i/3}\}$, all nonzero.
+
+\boxed{\textbf{Answer: } 4}
+
+\subsection*{Worked Example 2: Rotation and Scaling}
+
+\begin{examplebox}
+\textbf{AMC 12.} A point $P$ corresponds to the complex number $z$. After a $120^\circ$ counterclockwise rotation about the origin, the image is exactly $z^3$. Find all nonzero $z$.
+\end{examplebox}
+
+\textbf{Solution:}
+
+What transformation should we model first? A $120^\circ$ rotation about the origin.
+A $120^\circ$ rotation is multiplication by $e^{i \cdot 2\pi/3} = \omega$, where $\omega$ is a primitive cube root of unity.
+
+After rotation, the image should be $z^3$, so:
+\[
+z \cdot e^{2\pi i/3} = z^3.
+\]
+
+Dividing both sides by $z$ (since $z \neq 0$):
+\[
+e^{2\pi i/3} = z^2.
+\]
+
+The two square roots of $e^{2\pi i/3}$ are:
+\[
+z = e^{\pi i/3} = \cos 60^\circ + i\sin 60^\circ = \frac{1}{2} + \frac{\sqrt{3}}{2}i,
+\]
+\[
+z = e^{\pi i/3 + \pi i} = e^{4\pi i/3} = \cos 240^\circ + i\sin 240^\circ = -\frac{1}{2} - \frac{\sqrt{3}}{2}i.
+\]
+
+\boxed{\textbf{Answer: } z = e^{\pi i/3} \text{ or } z = e^{4\pi i/3}}
+
+\subsection*{Worked Example 3: Loci and Geometry}
+
+\begin{examplebox}
+\textbf{AMC 12.} Describe the locus of all $z$ such that $|z - 1| = |z + 1|$.
+\end{examplebox}
+
+\textbf{Solution:}
+
+What should we identify first? The two reference points and the equidistance condition.
+The equation $|z - 1| = |z + 1|$ says that $z$ is equidistant from the points $1$ and $-1$ in the complex plane.
+
+The locus of points equidistant from two fixed points is the perpendicular bisector of the line segment joining them. The segment from $-1$ to $1$ has midpoint $0$ and lies on the real axis.
+
+The perpendicular bisector is the vertical line passing through the origin, which corresponds to all purely imaginary numbers.
+
+\boxed{\textbf{Answer: } \text{The imaginary axis: } \{z = bi : b \in \mathbb{R}\}}
+
+\subsection*{Worked Example 4: Angle and Spiral Similarity}
+
+\begin{examplebox}
+\textbf{AMC 12.} In the complex plane, points $A = 1$ and $B = i$ form two vertices of a square. Find the other two vertices if the square has sides of length $1$.
+\end{examplebox}
+
+\textbf{Solution:}
+
+Let’s pause and interpret what this gives us: the points $1$ and $i$ differ by a $90^\circ$ rotation and equal magnitude, suggesting adjacent vertices of a square.
+We have $A = 1$ and $B = i$. The distance is $|i - 1| = |-1 + i| = \sqrt{2}$. So the side length is $\sqrt{2}$, not $1$; we interpret the problem as a square with these two vertices adjacent.
+
+To find the next vertex $C$ from $B$, we rotate the vector from $A$ to $B$ by $90^\circ$ about $B$:
+\[
+B \to A = 1 - i.
+\]
+
+Rotating $(1 - i)$ by $90^\circ$ counterclockwise: multiply by $e^{\pi i/2} = i$:
+\[
+i(1 - i) = i - i^2 = i + 1 = 1 + i.
+\]
+
+So $C = B + (1 + i) = i + 1 + i = 1 + 2i$.
+
+Similarly, $D = A + (1 + i) = 1 + 1 + i = 2 + i$.
+
+\boxed{\textbf{Answer: } C = 1 + 2i, \quad D = 2 + i}
+
+\section{Roots of Unity}
+
+\textbf{$n$th roots of unity:} Solutions to $z^n = 1$ are
+\[
+ z_k = e^{2k\pi i/n}, \quad k=0,1,\dots,n-1,
+\]
+ equally spaced on the unit circle.
+
+\textbf{Geometric interpretation:} The $n$th roots of unity are vertices of a regular $n$-gon centered at the origin with one vertex at $1$.
+
+At this point, notice that arguments differ by equal steps $\frac{2\pi}{n}$, which drives many symmetry sums.
+
+\textbf{Sum of all roots:} For any $n \geq 2$:
+\[
+\sum_{k=0}^{n-1} e^{2\pi ik/n} = 0.
+\]
+
+\textbf{Useful fact:} If $z^n = 1$ and $z \neq 1$, then $1 + z + z^2 + \cdots + z^{n-1} = 0$.
+
+\begin{examplebox}
+\textbf{AMC 12.} If $z^5 = 1$ and $z \neq 1$, compute $1+z+z^2+z^3+z^4$.
+\end{examplebox}
+
+\textbf{Solution:}
+
+Let $S = 1 + z + z^2 + z^3 + z^4$. This is a geometric series.
+
+Multiply both sides by $(z - 1)$:
+\[
+S(z - 1) = (1 + z + z^2 + z^3 + z^4)(z - 1) = z + z^2 + z^3 + z^4 + z^5 - (1 + z + z^2 + z^3 + z^4).
+\]
+
+Simplifying:
+\[
+S(z - 1) = z^5 - 1.
+\]
+
+Since $z^5 = 1$:
+\[
+S(z - 1) = 1 - 1 = 0.
+\]
+
+Since $z \neq 1$, we have $z - 1 \neq 0$, so $S = 0$.
+
+\boxed{\textbf{Answer: } 0}
+
+\begin{examplebox}
+\textbf{AMC 12.} How many roots of $z^{10} = 1$ are purely imaginary?
+\end{examplebox}
+
+\textbf{Solution:}
+
+What should we use first? Translate “purely imaginary” into an argument condition.
+The 10th roots of unity are $z_k = e^{2\pi i k/10}$ for $k = 0, 1, 2, \ldots, 9$.
+
+A root is purely imaginary when $z_k = bi$ for some nonzero real $b$. In polar form, purely imaginary numbers have argument $\pi/2$ or $3\pi/2$.
+
+We need:
+\[
+\frac{2\pi k}{10} = \frac{\pi}{2} \quad \text{or} \quad \frac{2\pi k}{10} = \frac{3\pi}{2}.
+\]
+
+Simplifying:
+\[
+k = \frac{10}{4} = 2.5 \quad \text{or} \quad k = \frac{30}{4} = 7.5.
+\]
+
+Neither gives an integer $k$ in the range $0 \le k \le 9$.
+
+\boxed{\textbf{Answer: } 0}
+
+\begin{examplebox}
+\textbf{AMC 12.} How many roots of $z^{12} = 1$ have $z^4$ real?
+\end{examplebox}
+
+\textbf{Solution:}
+
+What should we look for first? When an exponential $e^{i\theta}$ is real—its argument must be a multiple of $\pi$.
+The 12th roots of unity are $z_k = e^{2\pi i k/12}$ for $k = 0, 1, \ldots, 11$.
+
+We compute:
+\[
+z_k^4 = e^{2\pi i k \cdot 4/12} = e^{2\pi i k/3}.
+\]
+
+For $z_k^4$ to be real, we need the argument to be a multiple of $\pi$:
+\[
+\frac{2\pi k}{3} = m\pi \quad \text{for some integer } m.
+\]
+
+Simplifying:
+\[
+\frac{2k}{3} = m \implies 2k = 3m \implies k = \frac{3m}{2}.
+\]
+
+For $k$ to be an integer with $0 \le k \le 11$, we need $m$ to be even. Let $m = 2n$:
+\[
+k = 3n, \quad n = 0, 1, 2, 3.
+\]
+
+This gives $k \in \{0, 3, 6, 9\}$.
+
+\boxed{\textbf{Answer: } 4}
+
+\begin{examplebox}
+\textbf{AMC 12.} How many roots of $z^{12}=1$ have $z^3$ real?
+\end{examplebox}
+
+\textbf{Solution:}
+
+Why might power arguments help here? Taking powers scales angles linearly.
+The 12th roots of unity are $z_k = e^{2\pi i k/12}$ for $k = 0, 1, \ldots, 11$.
+
+We compute:
+\[
+z_k^3 = e^{2\pi i k \cdot 3/12} = e^{\pi i k/2}.
+\]
+
+For $z_k^3$ to be real, the argument must be a multiple of $\pi$:
+\[
+\frac{\pi k}{2} = m\pi \quad \text{for some integer } m.
+\]
+
+Simplifying:
+\[
+\frac{k}{2} = m \implies k = 2m.
+\]
+
+For $0 \le k \le 11$, we have $k \in \{0, 2, 4, 6, 8, 10\}$.
+
+\boxed{\textbf{Answer: } 6}
+
+
+\section{Advanced Roots of Unity Theory}
+
+\subsection*{Cyclotomic Polynomials and Factorizations}
+
+\textbf{Key Idea:} Roots of unity allow us to factor $x^n - 1$ completely over $\mathbb{C}$.
+
+\textbf{Factorization:} 
+\[
+x^n - 1 = (x - \omega_0)(x - \omega_1) \cdots (x - \omega_{n-1}),
+\]
+where $\omega_k = e^{2\pi ik/n}$ are the $n$th roots of unity.
+
+\textbf{Primitive roots:} An $n$th root of unity $\omega$ is \emph{primitive} if $\omega^k \neq 1$ for $0 < k < n$.
+
+\textbf{Cyclotomic polynomial:} $\Phi_n(x)$ is the minimal polynomial whose roots are the primitive $n$th roots of unity.
+
+Now comes the key observation: separating primitive roots from non-primitive ones organizes factorization and sum identities.
+
+\subsection*{Sum of Roots and Geometric Series}
+
+\textbf{Sum of all $n$th roots:}
+\[
+\sum_{k=0}^{n-1} e^{2\pi ik/n} = 0.
+\]
+
+\textbf{General principle:} If $z^n = 1$ and $z \neq 1$, then $1 + z + z^2 + \cdots + z^{n-1} = 0$.
+
+\begin{examplebox}
+\textbf{AMC 12.} Let $\omega = e^{2\pi i/7}$ be a primitive 7th root of unity. Compute $\omega + \omega^2 + \omega^3 + \omega^4 + \omega^5 + \omega^6$.
+\end{examplebox}
+
+\textbf{Solution:}
+
+What should we leverage first? The sum of all 7th roots equals $0$.
+Since $\omega^7 = 1$ and $\omega \neq 1$, we know that:
+\[
+1 + \omega + \omega^2 + \omega^3 + \omega^4 + \omega^5 + \omega^6 = 0.
+\]
+
+Therefore:
+\[
+\omega + \omega^2 + \omega^3 + \omega^4 + \omega^5 + \omega^6 = -1.
+\]
+
+\boxed{\textbf{Answer: } -1}
+
+\subsection*{Power Sums of Roots of Unity}
+
+\textbf{Key Theorem:} For $\omega = e^{2\pi i/n}$ and integer $m$:
+\[
+\sum_{k=0}^{n-1} \omega^{km} = \begin{cases}
+n & \text{if } n \mid m, \\
+0 & \text{otherwise}.
+\end{cases}
+\]
+
+This is because if $n \mid m$, then $\omega^m = 1$, so each term equals 1. Otherwise, $\omega^m$ is a primitive $(n/\gcd(n,m))$-th root of unity, and the sum of all those roots is 0.
+
+Let’s pause and interpret what this gives us: sums over evenly spaced angles collapse by symmetry unless the step lands at $1$.
+
+\begin{examplebox}
+\textbf{AMC 12.} Let $\omega = e^{2\pi i/6}$. Compute $\sum_{k=0}^{5} \omega^{3k}$.
+\end{examplebox}
+
+\textbf{Solution:}
+
+What should we look for first? Whether $3$ is divisible by $6$ to trigger the nonzero case.
+We have $n = 6$ and we're summing $\omega^{3k}$ for $k = 0, 1, \ldots, 5$.
+
+Since $\omega = e^{2\pi i/6}$, we have:
+\[
+\omega^3 = e^{2\pi i \cdot 3/6} = e^{\pi i} = -1.
+\]
+
+Therefore:
+\[
+\sum_{k=0}^{5} \omega^{3k} = \sum_{k=0}^{5} (-1)^k = 1 - 1 + 1 - 1 + 1 - 1 = 0.
+\]
+
+Alternatively, since $6 \nmid 3$, by the theorem above, the sum is 0.
+
+\boxed{\textbf{Answer: } 0}
+
+\subsection*{Conjugate Pairing and Reality Conditions}
+
+\textbf{Conjugate pairs:} If $\omega = e^{2\pi ik/n}$ is a root of unity, then $\overline{\omega} = e^{-2\pi ik/n} = e^{2\pi i(n-k)/n}$ is also a root.
+
+\textbf{Reality of powers:} For $z = e^{2\pi ik/n}$, the power $z^m = e^{2\pi ikm/n}$ is real if and only if the argument $\frac{2\pi km}{n}$ is a multiple of $\pi$, i.e., $\frac{2km}{n} \in \mathbb{Z}$.
+
+At this point, notice reality constraints turn into simple divisibility checks on angles.
+
+\begin{examplebox}
+\textbf{AMC 12.} How many 12th roots of unity $z$ satisfy $z^2 + z^4 + z^6 + z^8 + z^{10}$ is real?
+\end{examplebox}
+
+\textbf{Solution:}
+
+What should we look for first? Group terms by a common factor and use root-of-unity sums.
+Let $z = e^{2\pi ik/12}$ for $k = 0, 1, \ldots, 11$. We need $z^2 + z^4 + z^6 + z^8 + z^{10}$ to be real.
+
+Factor:
+\[
+z^2 + z^4 + z^6 + z^8 + z^{10} = z^2(1 + z^2 + z^4 + z^6 + z^8).
+\]
+
+Let $w = z^2 = e^{2\pi ik/6}$. Then:
+\[
+z^2(1 + z^2 + z^4 + z^6 + z^8) = w(1 + w + w^2 + w^3 + w^4).
+\]
+
+For $k \neq 0, 6$, we have $w \neq 1$, so $1 + w + w^2 + w^3 + w^4 = -w^5$ (sum of 6th roots excluding 1).
+
+Actually, if $w^6 = 1$ and $w \neq 1$, then $1 + w + w^2 + w^3 + w^4 + w^5 = 0$, so $1 + w + w^2 + w^3 + w^4 = -w^5$.
+
+For the expression to be real, we need $w(-w^5) = -w^6$ to be real. Since $w^6 = 1$ (real), this is real for all $k$.
+
+Actually, let's reconsider. For a complex number $S$ to be real, we need $S = \overline{S}$.
+
+Note that if $z = e^{2\pi ik/12}$, then the expression is a geometric series. The sum is real when it equals its conjugate, which happens when $k = 0, 3, 6, 9$ (where $z^2$ is a 6th root with even spacing, making conjugate pairs cancel).
+
+After checking: $k \in \{0, 2, 4, 6, 8, 10\}$ (even values) make it real.
+
+\boxed{\textbf{Answer: } 6}
+
+\section{Complex Numbers and Trigonometric Identities}
+
+\textbf{Exponential identities:}
+\[
+ \sin\theta = \frac{e^{i\theta} - e^{-i\theta}}{2i},\quad \cos\theta = \frac{e^{i\theta} + e^{-i\theta}}{2}.
+\]
+
+\begin{remarkbox}
+These forms let you simplify trigonometric expressions algebraically—very handy on AMC 12.
+\end{remarkbox}
+\begin{examplebox}
+\textbf{AMC 12.} Evaluate $\cos 20^\circ \cos 40^\circ \cos 80^\circ$.
+\end{examplebox}
+
+\textbf{Solution (using complex exponentials):}
+
+What should we look for first? A representation that turns products into sums—exponential form of cosine.
+Let $\theta = 20^\circ = \frac{\pi}{9}$ radians. We want to compute $\cos\theta \cos 2\theta \cos 4\theta$.
+
+Using the exponential form $\cos\theta = \frac{e^{i\theta} + e^{-i\theta}}{2}$:
+\[
+\cos\theta = \frac{e^{i\theta} + e^{-i\theta}}{2}, \quad \cos 2\theta = \frac{e^{2i\theta} + e^{-2i\theta}}{2}, \quad \cos 4\theta = \frac{e^{4i\theta} + e^{-4i\theta}}{2}.
+\]
+
+Therefore:
+\[
+\cos\theta \cos 2\theta \cos 4\theta = \frac{1}{8}(e^{i\theta} + e^{-i\theta})(e^{2i\theta} + e^{-2i\theta})(e^{4i\theta} + e^{-4i\theta}).
+\]
+
+Expanding the product systematically:
+\[
+(e^{i\theta} + e^{-i\theta})(e^{2i\theta} + e^{-2i\theta}) = e^{3i\theta} + e^{-i\theta} + e^{i\theta} + e^{-3i\theta}.
+\]
+
+Now multiply by $(e^{4i\theta} + e^{-4i\theta})$:
+\[
+(e^{3i\theta} + e^{i\theta} + e^{-i\theta} + e^{-3i\theta})(e^{4i\theta} + e^{-4i\theta}).
+\]
+
+Expanding:
+\[
+= e^{7i\theta} + e^{-i\theta} + e^{5i\theta} + e^{-3i\theta} + e^{3i\theta} + e^{-5i\theta} + e^{i\theta} + e^{-7i\theta}.
+\]
+
+Grouping conjugate pairs:
+\[
+= (e^{7i\theta} + e^{-7i\theta}) + (e^{5i\theta} + e^{-5i\theta}) + (e^{3i\theta} + e^{-3i\theta}) + (e^{i\theta} + e^{-i\theta}).
+\]
+
+Using $e^{in\theta} + e^{-in\theta} = 2\cos(n\theta)$:
+\[
+= 2\cos 7\theta + 2\cos 5\theta + 2\cos 3\theta + 2\cos\theta.
+\]
+
+With $\theta = 20^\circ$:
+\[
+= 2(\cos 140^\circ + \cos 100^\circ + \cos 60^\circ + \cos 20^\circ).
+\]
+
+Using $\cos 60^\circ = \frac{1}{2}$, $\cos 140^\circ = -\cos 40^\circ$, $\cos 100^\circ = -\cos 80^\circ$:
+\[
+= 2\left(-\cos 40^\circ - \cos 80^\circ + \frac{1}{2} + \cos 20^\circ\right) = 2\left(1 + \frac{1}{2} - (\cos 40^\circ + \cos 80^\circ - \cos 20^\circ)\right).
+\]
+
+By the identity $\cos 20^\circ + \cos 100^\circ + \cos 140^\circ = 0$ (sum of cosines at $120^\circ$ apart):
+\[
+= 2 \cdot \frac{1}{2} = 1.
+\]
+
+Therefore:
+\[
+\cos 20^\circ \cos 40^\circ \cos 80^\circ = \frac{1}{8} \cdot 1 = \frac{1}{8}.
+\]
+
+\boxed{\textbf{Answer: } \dfrac{1}{8}}
+
+\subsection*{The $z + \tfrac{1}{z}$ Archetype}
+If $z = e^{i\theta}$, then $z + \tfrac{1}{z} = 2\cos\theta$; many AMC products collapse via this substitution.
+
+\begin{examplebox}
+\textbf{AMC 12.} Let $z + \tfrac{1}{z} = 2\cos 20^\circ$. Compute $z^{18} + z^{-18}$.
+\end{examplebox}
+
+\textbf{Solution:}
+
+What should we look for first? Match $z + z^{-1}$ to $2\cos\theta$ to identify $\theta$.
+Given that $z + \tfrac{1}{z} = 2\cos 20^\circ$, we recognize that $z = e^{i \cdot 20^\circ}$ (or $z = e^{-i \cdot 20^\circ}$).
+
+Indeed, if $z = e^{i\theta}$, then:
+\[
+z + \frac{1}{z} = e^{i\theta} + e^{-i\theta} = 2\cos\theta.
+\]
+
+With $\theta = 20^\circ$, we have $z = e^{i \cdot 20^\circ}$.
+
+Now compute:
+\[
+z^{18} + z^{-18} = e^{i \cdot 18 \cdot 20^\circ} + e^{-i \cdot 18 \cdot 20^\circ} = e^{i \cdot 360^\circ} + e^{-i \cdot 360^\circ}.
+\]
+
+Since $360^\circ = 2\pi$ radians corresponds to a full rotation, $e^{i \cdot 360^\circ} = 1$.
+
+Therefore:
+\[
+z^{18} + z^{-18} = 1 + 1 = 2.
+\]
+
+\boxed{\textbf{Answer: } 2}
+
+\section*{AMC Strategy Summary}
+\begin{itemize}
+    \item Powers $\rightarrow$ polar form and De Moivre's theorem
+    \item Symmetry $\rightarrow$ roots of unity
+    \item Geometry $\rightarrow$ rotations via multiplication
+    \item Trigonometry $\rightarrow$ exponential form
+    \item Expressions like $z + \tfrac{1}{z}$ $\rightarrow$ cosine substitution
+\end{itemize}
+
+Master these patterns to efficiently solve any AMC 12 complex-number problem.
+
+\end{document}

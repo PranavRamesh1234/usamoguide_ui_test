@@ -1,0 +1,311 @@
+---
+id: lifting-the-exponent-lemma-p1
+title: Lifting the Exponent Lemma
+author: USAMO Guide Team
+description: Learn how the Lifting the Exponent Lemma helps compute prime powers dividing expressions such as a^n-b^n and a^n+b^n.
+prerequisites: []
+---
+
+## Overview
+
+The Lifting the Exponent Lemma, often abbreviated as LTE, is a powerful tool in
+olympiad number theory.
+
+It helps determine how many times a prime divides expressions such as
+
+$$
+a^n-b^n
+$$
+
+or
+
+$$
+a^n+b^n.
+$$
+
+In other words, LTE is useful when we want to compute the exponent of a prime
+inside a number.
+
+For example, instead of just asking whether $3$ divides $10^6-1$, we can ask:
+
+> What is the largest power of $3$ that divides $10^6-1$?
+
+LTE gives a fast and systematic way to answer questions like this.
+
+## Motivation
+
+Consider
+
+$$
+10^6-1.
+$$
+
+We can factor it as
+
+$$
+10^6-1=(10^3-1)(10^3+1),
+$$
+
+or even further using difference of powers. However if we only care about
+powers of $3$, expanding or fully factoring the expression is inefficient.
+
+Instead notice that
+
+$$
+10 \equiv 1 \pmod{3},
+$$
+
+so $3$ divides $10-1$.
+
+LTE tells us that under suitable conditions,
+
+$$
+v_3(10^6-1)=v_3(10-1)+v_3(6).
+$$
+
+Since
+
+$$
+v_3(9)=2
+$$
+
+and
+
+$$
+v_3(6)=1,
+$$
+
+we get
+
+$$
+v_3(10^6-1)=3.
+$$
+
+So $3^3$ divides $10^6-1$, but $3^4$ does not.
+
+This kind of computation appears frequently in olympiad divisibility problems.
+
+## Prime Valuation
+
+Before stating LTE, we need one piece of notation.
+
+For a prime $p$ and a positive integer $N$, define
+
+$$
+v_p(N)
+$$
+
+to be the exponent of $p$ in the prime factorisation of $N$.
+
+In other words, $v_p(N)$ is the largest integer $k$ such that
+
+$$
+p^k \mid N.
+$$
+
+### Examples
+
+Since
+
+$$
+72=2^3 \times 3^2,
+$$
+
+we have
+
+$$
+v_2(72)=3
+$$
+
+and
+
+$$
+v_3(72)=2.
+$$
+
+Also,
+
+$$
+v_5(72)=0,
+$$
+
+because $5$ does not divide $72$.
+
+This notation allows us to discuss divisibility by prime powers far more simply.
+
+## Main Statement: Difference Form
+
+The most common version of LTE is the difference form.
+
+### Lifting the Exponent Lemma
+
+Let $p$ be an odd prime. Suppose that $p\mid a-b$ and $p\nmid ab$. Then for
+every positive integer $n$,
+
+$$
+v_p(a^n-b^n)
+=
+v_p(a-b)+v_p(n).
+$$
+
+This is the version used most often in olympiad problems.
+
+## Why the Conditions Matter
+
+The assumptions are important.
+
+- We require $p$ to be an odd prime.
+- We require $p\mid a-b$.
+- We require $p\nmid ab$.
+
+The condition $p\mid a-b$ means that
+
+$$
+a\equiv b \pmod p.
+$$
+
+The condition $p\nmid ab$ means that neither $a$ nor $b$ is divisible by $p$.
+This prevents degenerate cases where both powers contain extra factors of $p$
+for unrelated reasons.
+
+## Intuition Behind LTE
+
+The expression
+
+$$
+a^n-b^n
+$$
+
+always factors as
+
+$$
+(a-b)(a^{n-1}+a^{n-2}b+\cdots+ab^{n-2}+b^{n-1}).
+$$
+
+So $a-b$ is always a factor.
+
+LTE says something more significant. If an odd prime $p$ divides $a-b$, then the
+additional powers of $p$ that appear in $a^n-b^n$ come from the exponent
+$n$.
+
+That is why the formula is
+
+$$
+v_p(a^n-b^n)
+=
+v_p(a-b)+v_p(n).
+$$
+
+The first term comes from the base difference $a-b$, and the second term comes
+from the exponent $n$.
+
+## Proof Sketch
+
+We can outline the idea behind the proof for odd primes.
+
+Write
+
+$$
+a=b+h,
+$$
+
+where $p\mid h$.
+
+Then
+
+$$
+a^n-b^n=(b+h)^n-b^n.
+$$
+
+Using the binomial theorem,
+
+$$
+(b+h)^n-b^n
+=
+nb^{n-1}h+\binom{n}{2}b^{n-2}h^2+\cdots+h^n.
+$$
+
+The first term is
+
+$$
+nb^{n-1}h.
+$$
+
+Since $p\nmid b$, the $p$-adic contribution of this term is essentially
+
+$$
+v_p(n)+v_p(h).
+$$
+
+The later terms contain higher powers of $h$, so they are more divisible by
+$p$. Under the hypotheses of LTE, these later terms do not change the final
+valuation.
+
+Since
+
+$$
+h=a-b,
+$$
+
+this gives
+
+$$
+v_p(a^n-b^n)=v_p(a-b)+v_p(n).
+$$
+
+This proof sketch explains why the formula has the shape it does. A fully
+rigorous proof requires checking that the later binomial terms have large enough $p$-adic valuation.
+
+## Worked Examples
+
+### Example 1
+
+> Find the largest power of $3$ dividing $10^6-1$.
+
+We use LTE with
+
+$$
+p=3,\qquad a=10,\qquad b=1,\qquad n=6.
+$$
+
+Since
+
+$$
+3\mid 10-1
+$$
+
+and
+
+$$
+3\nmid 10,
+$$
+
+the conditions are satisfied.
+
+Therefore,
+
+$$
+v_3(10^6-1)=v_3(10-1)+v_3(6).
+$$
+
+Now
+
+$$
+v_3(10-1)=v_3(9)=2
+$$
+
+and
+
+$$
+v_3(6)=1.
+$$
+
+Thus
+
+$$
+v_3(10^6-1)=3.
+$$
+
+So the largest power of $3$ dividing $10^6-1$ is $3^3$.
+
+## Part 2: Check the part 2 for continuation

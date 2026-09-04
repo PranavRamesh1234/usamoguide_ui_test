@@ -1,0 +1,1136 @@
+{
+  "MODULE_ID": "algebra-equations-and-inequalities-combinatorial-optimization",
+  "practice": [
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-0027",
+      "name": "Berkeley Math Circle: Monthly Contest 7 #0hjf",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 7",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Games / greedy algorithms",
+        "Coloring schemes, extremal arguments",
+        "Combinatorial optimization"
+      ],
+      "statement": "Problem:\n\nSeveral weights are given, each of which is not heavier than $1 \\mathrm{lb}$. It is known that they cannot be divided into two groups such that the weight of each group is greater than $1 \\mathrm{lb}$. Find the maximum possible total weight of these weights.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSuppose you start putting weights into two pans of a scale and stop when you cannot add another weight to either pan without it exceeding $1 \\mathrm{lb}$. At this point, you have put at most $2 \\mathrm{lb}$ of weight on the scale, and there can only be one weight left, otherwise you could add a weight to each pan and both would exceed $1 \\mathrm{lb}$. This remaining weight weighs at most $1 \\mathrm{lb}$, so the weights add up to at most $3 \\mathrm{lb}$ total. It is possible to have exactly $3 \\mathrm{lb}$ with three $1 \\mathrm{lb}$ weights, so this is the largest possible."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-0133",
+      "name": "Berkeley Math Circle Monthly Contest 5 #0hmd",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 5",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Pigeonhole principle",
+        "Coloring schemes, extremal arguments",
+        "Combinatorial optimization"
+      ],
+      "statement": "Problem:\nA $2012 \\times 2012$ table is to be filled with integers in such a way that each of the 4026 rows, columns, and main diagonals has a different sum. What is the smallest number of distinct values that must be used in the table?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: 3.\nIf at most two numbers are used, say $x$ and $y$, the sum of every row and column is completely determined by the number of $y$'s it has, which ranges from 0 to 2012. Thus there are only 2013 possible sums, not enough for the 4026 rows, columns, and diagonals.\n\nOn the other hand, if $n$ is a large integer (say, 10000), then it is possible to fill the table using 0, 1, and $n$. Here is a $6 \\times 6$ example that generalizes readily:\n\n| 1 | 0 | 0 | 0 | 0 | 0 |\n| :--- | :--- | :--- | :--- | :--- | :--- |\n| 1 | 1 | 0 | 0 | 0 | $n$ |\n| 1 | 1 | 1 | 0 | $n$ | $n$ |\n| 1 | 1 | 0 | $n$ | $n$ | $n$ |\n| 1 | 0 | 0 | 0 | $n$ | $n$ |\n| 0 | 0 | 0 | 0 | 0 | $n$ |"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-0148",
+      "name": "Berkeley Math Circle #0hms",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Jensen / smoothing",
+        "Combinatorial optimization",
+        "Coloring schemes, extremal arguments"
+      ],
+      "statement": "Problem:\n\nGiven an $n \\times n$ matrix whose entries $a_{i j}$ satisfy $a_{i j} = \\frac{1}{i + j - 1}$, $n$ numbers are chosen from the matrix no two of which are from the same row or the same column. Prove that the sum of these $n$ numbers is at least $1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSuppose that $a_{i j}$ and $a_{k l}$ are among the chosen numbers and suppose that $i < k$ and $j < l$. It is straightforward to show that $a_{i j} + a_{k l} \\geqslant a_{i l} + a_{k j}$. Hence, whenever $a_{i j}$ and $a_{k l}$ with $i < k$ and $j < l$ are among chosen numbers, we can lower the sum by replacing these two numbers with $a_{i l}$ and $a_{k j}$. Hence the smallest possible sum is when we choose $a_{1 n}, a_{2, n-1}, \\ldots, a_{n 1}$—and in that case the sum is $1$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-0451",
+      "name": "Berkeley Math Circle Monthly Contest 8 #0hv7",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 8",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "QM-AM-GM-HM / Power Mean",
+        "Combinatorial optimization"
+      ],
+      "statement": "Problem:\n\nGiven five nonnegative real numbers with sum $1$, prove that it is possible to arrange them at the vertices of a regular pentagon such that no two numbers connected by a side of the pentagon have product exceeding $1/9$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLabel the numbers $a, b, c, d, e$ in increasing order. Place them around the pentagon in the order $e, a, d, c, b$. Then it is clear that the products of the numbers on the sides follow the inequalities\n$$\na d \\leq a e \\leq b e \\quad \\text{and} \\quad b c \\leq c d\n$$\nThus it suffices to prove that $b e \\leq 1/9$ and $c d \\leq 1/9$. Using the AM-GM inequality,\n$$\n1 = a + b + c + d + e \\geq 0 + 0 + c + d + d = c + 2d \\geq \\frac{3c}{2} + \\frac{3d}{2} \\geq 2 \\sqrt{\\frac{3c}{2} \\cdot \\frac{3d}{2}} = 3 \\sqrt{c d}\n$$\nso $c d \\leq 1/9$. Also,\n$$\n1 = a + b + c + d + e \\geq 0 + b + b + b + e = 3b + e \\geq 2 \\sqrt{3b \\cdot e}\n$$\nso $b e \\leq 1/12 < 1/9$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-0587",
+      "name": "Harvard-MIT Math Tournament #0hyz",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Invariants / monovariants",
+        "Combinatorial optimization"
+      ],
+      "statement": "Problem:\n\nYou are trapped in a room with only one exit, a long hallway with a series of doors and land mines. To get out you must open all the doors and disarm all the mines. In the room is a panel with 3 buttons, which conveniently contains an instruction manual. The red button arms a mine, the yellow button disarms two mines and closes a door, and the green button opens two doors. Initially 3 doors are closed and 3 mines are armed. The manual warns that attempting to disarm two mines or open two doors when only one is armed/closed will reset the system to its initial state. What is the minimum number of buttons you must push to get out?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nClearly we do not want to reset the system at any time. After pressing the red button $r$ times, the yellow button $y$ times, and the green button $g$ times, there will be $3 + r - 2y$ armed mines and $3 + y - 2g$ closed doors, so we want the values of $r$, $y$, and $g$ that make both of these quantities $0$ while minimizing $r + y + g$.\n\nFrom the number of doors we see that $y$ must be odd, from the number of mines we see $y = (3 + r)/2 \\geq 3/2$, so $y \\geq 3$. Then $g = (3 + y)/2 \\geq 3$, and $r = 2y - 3 \\geq 3$, so $r + y + g \\geq 9$.\n\nCall the red, yellow, and green buttons $1$, $2$, and $3$ respectively for notational convenience, then a sequence of buttons that would get you out is $123123123$. Another possibility is $111222333$, and of course there are others. Therefore the answer is $9$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-0668",
+      "name": "Berkeley Math Circle Monthly Contest #1 #0i18",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest #1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Jensen / smoothing",
+        "Combinatorial optimization",
+        "Coloring schemes, extremal arguments",
+        "Sums and products"
+      ],
+      "statement": "Problem:\nLet $a_{1}, a_{2}, \\ldots, a_{2000}$ be real numbers in the interval $[0,1]$. Find the maximum possible value of\n$$\n\\sum_{1 \\leq i<j \\leq 2000}(j-i)\\left|a_{j}-a_{i}\\right|\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe answer is $1,000,000,000$. First, note that the desired sum $S$ is convex as a function of each $a_{i}$. (Indeed, $\\left|a_{i}-a\\right|$ is convex for any real number $a$, and a sum of convex functions is itself convex.) Consequently, it attains a maximum at some point where each variable lies at an endpoint of its interval, i.e. $S$ has a maximum with each $a_{i}$ equal to either $0$ or $1$. So we may restrict our attention to these cases.\n\nThen $\\left|a_{j}-a_{i}\\right|=0$ if $a_{i}=a_{j}$ and $1$ otherwise, so $S$ is really the sum of all values of $j-i$ where $a_{i} \\neq a_{j}$. Equivalently, it equals $\\sum_{1 \\leq i<j \\leq 2000}(j-i)$ minus the sum of $j-i$ over pairs for which $a_{i}=a_{j}$. So our goal is equivalent to minimizing the latter sum. Fix a positive integer $k$, and suppose there are $k$ values of $i$ with $a_{i}=0$ (and $2000-k$ values with $a_{i}=1$). If we consider the sum of $j-i$ over all pairs $i<j$ with $a_{i}=a_{j}=0$, this sum is clearly minimized when all the $i$'s with $a_{i}=0$ are consecutive; likewise the sum over all pairs with $a_{i}=a_{j}=1$ is minimized when all the $1$'s are consecutive. So we may restrict our attention to the case where $a_{1}=a_{2}=\\cdots=a_{k}=0$ and $a_{k+1}=\\cdots=a_{2000}=1$. (The case where the block of $1$'s precedes the block of $0$'s is symmetrically equivalent.)\n\nIn this case, the sum $S$ comes out to be\n$$\n\\begin{aligned}\n& \\sum_{\\substack{1 \\leq i<j \\leq 2000 \\\\\\ a_{i} \\neq a_{j}}}(j-i)=\\sum_{i=1}^{k} \\sum_{j=k+1}^{2000}(j-i)=\\sum_{j=k+1}^{2000}\\left(\\sum_{i=1}^{k} j\\right)-\\sum_{i=1}^{k}\\left(\\sum_{j=k+1}^{2000} i\\right)=\\sum_{j=k+1}^{2000} k j-\\sum_{i=1}^{k}(2000-k) i \\\\\n= & \\frac{(2000-k)(2000+[k+1])}{2}-(2000-k) \\frac{k(k+1)}{2}=1000 k(2000-k)=1000\\left(1000^{2}-[k-1000]^{2}\\right)\n\\end{aligned}\n$$\nwhich is at most $1000^{3}$, with equality holding iff $k=1000$. So $1000^{3}$ is our desired maximum, attained when $a_{i}=0$ for $i \\leq 1000$ and $a_{i}=1$ for $i>1000$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-0820",
+      "name": "Harvard-MIT Math Tournament #0i5g",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Linear and quadratic inequalities",
+        "Combinatorial optimization"
+      ],
+      "statement": "Problem:\nSuppose $a, b, c, d$ are real numbers such that\n$$\n|a-b|+|c-d|=99 ; \\quad|a-c|+|b-d|=1\n$$\nDetermine all possible values of $|a-d|+|b-c|$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n99 If $w \\geq x \\geq y \\geq z$ are four arbitrary real numbers, then $|w-z|+|x-y|=|w-y|+|x-z|=w+x-y-z \\geq w-x+y-z=|w-x|+|y-z|$. Thus, in our case, two of the three numbers $|a-b|+|c-d|,|a-c|+|b-d|,|a-d|+|b-c|$ are equal, and the third one is less than or equal to these two. Since we have a 99 and a 1, the third number must be 99."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-0900",
+      "name": "Harvard-MIT Mathematics Tournament #0i7o",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorial optimization",
+        "Coloring schemes, extremal arguments"
+      ],
+      "statement": "Problem:\n\nSeveral positive integers are given, not necessarily all different. Their sum is $2003$. Suppose that $n_{1}$ of the given numbers are equal to $1$, $n_{2}$ of them are equal to $2$, $\\ldots$, $n_{2003}$ of them are equal to $2003$. Find the largest possible value of\n$$\nn_{2}+2 n_{3}+3 n_{4}+\\cdots+2002 n_{2003}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe sum of all the numbers is $n_{1}+2 n_{2}+\\cdots+2003 n_{2003}$, while the number of numbers is $n_{1}+n_{2}+\\cdots+n_{2003}$. Hence, the desired quantity equals\n$$\n\\begin{gathered}\n\\left(n_{1}+2 n_{2}+\\cdots+2003 n_{2003}\\right)-\\left(n_{1}+n_{2}+\\cdots+n_{2003}\\right) \\\\\n=(\\text{sum of the numbers})-(\\text{number of numbers})\n\\end{gathered}\n$$\n$$\n=2003-\\text{(number of numbers)},\n$$\nwhich is maximized when the number of numbers is minimized. Hence, we should have just one number, equal to $2003$, and then the specified sum is $2003-1=2002$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-1105",
+      "name": "Harvard-MIT Mathematics Tournament #0idd",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Integers",
+        "Combinatorial optimization"
+      ],
+      "statement": "Problem:\n\na and b are positive integers. When written in binary, $a$ has 2004 1's, and $b$ has 2005 1's (not necessarily consecutive). What is the smallest number of 1's $a+b$ could possibly have?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nConsider the following addition:\n$$\n\\begin{array}{r}\n111\\cdots 100\\cdots 01 \\\\\n+ \\\\\n11\\cdots 11\n\\end{array}\n$$\nBy making the blocks of 1's and 0's appropriately long, we can ensure that the addends respectively contain 2004 and 2005 1's. (To be precise, we get $a = 2^{4008} - 2^{2005} + 1$ and $b = 2^{2005} - 1$.) Then the sum has only one 1. And clearly it is not possible to get any less than one 1."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-1238",
+      "name": "Harvard-MIT Mathematics Tournament #0ih2",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Coloring schemes, extremal arguments",
+        "Combinatorial optimization"
+      ],
+      "statement": "Problem:\n\nWhat is the maximum number of bishops that can be placed on an $8 \\times 8$ chessboard such that at most three bishops lie on any diagonal?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nIf the chessboard is colored black and white as usual, then any diagonal is a solid color, so we may consider bishops on black and white squares separately. In one direction, the lengths of the black diagonals are $2, 4, 6, 8, 6, 4$, and $2$. Each of these can have at most three bishops, except the first and last which can have at most two, giving a total of at most $2+3+3+3+3+3+2=19$ bishops on black squares. Likewise there can be at most $19$ bishops on white squares for a total of at most $38$ bishops. This is indeed attainable as in the diagram below.\n\n![](attached_image_1.png)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-1343",
+      "name": "Harvard-MIT Mathematics Tournament #0ijz",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cartesian coordinates",
+        "Optimization in geometry",
+        "Algorithms",
+        "Combinatorial optimization"
+      ],
+      "statement": "Problem:\n\n$$\n\\begin{array}{rlrr}\nA=(0,428) & B=(9,85) & C=(42,865) & D=(192,875) \\\\\nE=(193,219) & F=(204,108) & G=(292,219) & H=(316,378) \\\\\nI=(375,688) & J=(597,498) & K=(679,766) & L=(739,641) \\\\\n& M=(772,307) & & N=(793,0) \\\\\n&\n\\end{array}\n$$\nA fly starts at $A$, visits all the other points, and comes back to $A$ in such a way as to minimize the total distance covered. What path did the fly take? Give the names of the points it visits in order. Your score will be\n$$\n20+\\lfloor\\text{ the optimal distance }\\rfloor-\\lfloor\\text{ your distance }\\rfloor\n$$\nor $0$, whichever is greater.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThis problem is an instance of the Traveling Salesman Problem, which is NP-hard. There is an obvious algorithm in $O(n!)$ time (where $n$ is the number of points), but faster algorithms exist. Nonetheless, the best strategy for solving this problem is probably to draw the points and exercise your geometric intuition."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-1455",
+      "name": "Harvard-MIT Mathematics Tournament #0in3",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Algorithms",
+        "Cartesian coordinates",
+        "Combinatorial optimization"
+      ],
+      "statement": "Problem:\n\nThere are thirteen broken computers situated at the following set $S$ of thirteen points in the plane:\n$$\n\\begin{array}{lll}\nA=(1,10) & B=(976,9) & C=(666,87) \\\\\nD=(377,422) & E=(535,488) & F=(775,488) \\\\\nG=(941,500) & H=(225,583) & I=(388,696) \\\\\nJ=(3,713) & K=(504,872) & L=(560,934) \\\\\n& M=(22,997) &\n\\end{array}\n$$\nAt time $t=0$, a repairman begins moving from one computer to the next, traveling continuously in straight lines at unit speed. Assuming the repairman begins at $A$ and fixes computers instantly, what path does he take to minimize the total downtime of the computers? List the points he visits in order. Your score will be $\\left\\lfloor\\frac{N}{40}\\right\\rfloor$, where\n$$\nN=1000+\\lfloor\\text{ the optimal downtime }\\rfloor-\\lfloor\\text{ your downtime }\\rfloor,\n$$\nor $0$, whichever is greater. By total downtime we mean the sum\n$$\n\\sum_{P \\in S} t_{P}\n$$\nwhere $t_{P}$ is the time at which the repairman reaches $P$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: ADHIKLEFGBCJM. This is an instance of the minimum-latency problem, which is at least NP-hard. There is an easy $O(n!)$ algorithm, but this is unavailable to teams on computational grounds (100 MHz calculators used to seem fast...) The best strategy may be drawing an accurate picture and exercising geometric intuition. The distribution of the points somewhat resembles a short, four-pronged fork with its outermost prongs bent apart; it is plausible to assume that the optimal order respects this shape. The optimal downtime is $24113.147907$, realized by ADHIKLEFGBCJM, though a number of others also receive positive marks."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-1956",
+      "name": "USAMO 2010 #0j10",
+      "url": "https://usamoguide.com/",
+      "source": "USAMO 2010",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorial optimization",
+        "Recurrence relations"
+      ],
+      "statement": "The 2010 positive numbers $a_1, a_2, \\dots, a_{2010}$ satisfy the inequality $a_i a_j \\le i + j$ for all distinct indices $i, j$. Determine, with proof, the largest possible value of the product $a_1 a_2 \\cdots a_{2010}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "(By Gabriel Carroll). Multiplying together the inequalities $a_{2i-1}a_{2i} \\le 4i - 1$ for $i = 1, 2, \\dots, 1005$, we get\n$$\na_1 a_2 \\cdots a_{2010} \\le 3 \\cdot 7 \\cdot 11 \\cdots 4019. \\qquad (1)\n$$\nIt remains to show that this bound can be attained.\nLet\n$$\na_{2008} = \\sqrt{\\frac{4017 \\cdot 4018}{4019}}, \\quad a_{2009} = \\sqrt{\\frac{4019 \\cdot 4017}{4018}}, \\quad a_{2010} = \\sqrt{\\frac{4018 \\cdot 4019}{4017}},\n$$\nand define $a_i$ for $i < 2008$ by downward induction using the recursion\n$$\na_i = (2i + 1)/a_{i+1}.\n$$\nWe then have\n$$\na_i a_j = i + j \\quad \\text{whenever } j = i + 1 \\text{ or } (i, j) = (2008, 2010). \\qquad (2)\n$$\nWe will show that (2) implies $a_ia_j \\le i+j$ for all $i < j$, so that this sequence satisfies the hypotheses of the problem. Since $a_{2i-1}a_{2i} = 4i-1$ for $i = 1, \\dots, 1005$, the inequality (1) is an equality, so the bound is attained.\nWe show that $a_ia_j \\le i+j$ for $i < j$ by downward induction on $i+j$. There are several cases:\n\n* If $j = i + 1$, or $(i,j) = (2008, 2010)$, then $a_ia_j = i + j$, from (2).\n\n* If $(i,j) = (2007, 2009)$, then\n$$\na_i a_{i+2} = \\frac{(a_i a_{i+1})(a_{i+2} a_{i+3})}{(a_{i+1} a_{i+3})} = \\frac{(2i+1)(2i+5)}{2i+4} < 2i+2.\n$$\nHere the second equality comes from (2), and the inequality is checked by multiplying out:\n$$ (2i+1)(2i+5) = 4i^2 + 12i + 5 < 4i^2 + 12i + 8 = (2i+2)(2i+4). $$\n\n* If $i < 2007$ and $j = i + 2$, then we have\n$$\na_i a_{i+2} = \\frac{(a_i a_{i+1})(a_{i+2} a_{i+3})(a_{i+2} a_{i+4})}{(a_{i+1} a_{i+2})(a_{i+3} a_{i+4})} \\le \\frac{(2i+1)(2i+5)(2i+6)}{(2i+3)(2i+7)} < 2i+2.\n$$\nThe first inequality holds by applying the induction hypothesis for $(i+2, i+4)$ and applying (2) for the other pairs. The second inequality can again be checked by multiplying out: $(2i+1)(2i+5)(2i+6) = 8i^3 + 48i^2 + 82i + 30 < 8i^3 + 48i^2 + 82i + 42 = (2i+2)(2i+3)(2i+7)$.\n\n* If $j - i > 2$, then\n$$\na_i a_j = \\frac{(a_i a_{i+1})(a_{i+2} a_j)}{a_{i+1} a_{i+2}} \\le \\frac{(2i+1)(i+2+j)}{2i+3} < i+j.\n$$\nHere we have used the induction hypothesis for $(i+2, j)$, and again we check the last inequality by multiplying out: $(2i+1)(i+2+j) = 2i^2+5i+2+2ij+j < 2i^2+3i+2ij+3j = (2i+3)(i+j)$.\n\nThis covers all the cases and shows that $a_ia_j \\le i+j$ for all $i < j$, as required."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-2137",
+      "name": "Harvard-MIT November Tournament #0j61",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Floors and ceilings",
+        "Combinatorial optimization"
+      ],
+      "statement": "Problem:\n\nIn a game of Fish, $R2$ and $R3$ are each holding a positive number of cards so that they are collectively holding a total of $24$ cards. Each player gives an integer estimate for the number of cards he is holding, such that each estimate is an integer between $80\\%$ of his actual number of cards and $120\\%$ of his actual number of cards, inclusive. Find the smallest possible sum of the two estimates.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $20$\n\nTo minimize the sum, we want each player to say an estimate as small as possible—i.e., an estimate as close to $80\\%$ of his actual number of cards as possible. We claim that the minimum possible sum is $20$.\n\nFirst, this is achievable when $R2$ has $10$ cards and estimates $8$, and when $R3$ has $14$ cards and estimates $12$.\n\nThen, suppose that $R2$ has $x$ cards and $R3$ has $24-x$. Then, the sum of their estimates is\n$$\n\\left\\lceil \\frac{4}{5}x \\right\\rceil + \\left\\lceil \\frac{4}{5}(24-x) \\right\\rceil \\geq \\left\\lceil \\frac{4}{5}x + \\frac{4}{5}(24-x) \\right\\rceil = \\left\\lceil \\frac{4}{5} \\times 24 \\right\\rceil = \\left\\lceil 19.2 \\right\\rceil = 20\n$$\nNote: We use the fact that for all real numbers $a, b$, $\\lceil a \\rceil + \\lceil b \\rceil \\geq \\lceil a + b \\rceil$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-2149",
+      "name": "Harvard-MIT Mathematics Tournament #0j6d",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorial optimization",
+        "Coloring schemes, extremal arguments"
+      ],
+      "statement": "Problem:\nLet $S$ be the set of points $(x, y, z)$ in $\\mathbb{R}^3$ such that $x, y$, and $z$ are positive integers less than or equal to $100$. Let $f$ be a bijective map between $S$ and the $\\{1,2, \\ldots, 1000000\\}$ that satisfies the following property: if $x_1 \\leq x_2, y_1 \\leq y_2$, and $z_1 \\leq z_2$, then $f\\left(x_1, y_1, z_1\\right) \\leq f\\left(x_2, y_2, z_2\\right)$. Define\n$$\n\\begin{aligned}\nA_i & =\\sum_{j=1}^{100} \\sum_{k=1}^{100} f(i, j, k), \\\\\nB_i & =\\sum_{j=1}^{100} \\sum_{k=1}^{100} f(j, i, k), \\\\\n\\text{ and } C_i & =\\sum_{j=1}^{100} \\sum_{k=1}^{100} f(j, k, i)\n\\end{aligned}\n$$\nDetermine the minimum value of $A_{i+1}-A_i+B_{j+1}-B_j+C_{k+1}-C_k$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe examine the $6$ planes, their intersections and the lines between $2$ points in one of the three pairs of parallel planes. The expression is equivalent to summing differences in values along all these lines. We examine the planes intersections. There is one cube, $3 \\cdot 98$ squares and $3 \\cdot 98 \\cdot 98$ lines. The minimum value of the difference along a line is $1$. For a square, to minimize the differences we take four consecutive numbers, and the minimum value is $6$. To find the minimum value along a cube, we take $8$ consecutive numbers. Since we are taking differences, we can add or subtract any constant to the numbers, so we assume the numbers are $1$-$8$. Examining the cube, we see there's $1$ spot where the number is multiplied by $-3$, $3$ spots where the number is multiplied by $-1$, $1$ spot where the number is multiplied by $3$, and $3$ spots where the number is multiplied by $1$. $1$ and $8$ must go in the corners, and $2,3,4,5$ must go in spots multiplied by $-1,-1,1,1$, respectively. To minimize the differences we put $5$ in the final spot multiplied by $-1$, and $4$ in the spot multiplied by $1$ opposite $5$. Then the sum of all the differences is $28$, so the minimum for a cube is $28$. So the answer is $28+18(100-2)+3(100-2)^2=30000+600+12-36+28=30604$. It is clear that this value can be obtained."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-2234",
+      "name": "Harvard-MIT November Tournament #0j8q",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorial optimization",
+        "Linear and quadratic inequalities",
+        "Integers"
+      ],
+      "statement": "Problem:\nLet $a$, $b$, $c$ be not necessarily distinct integers between $1$ and $2011$, inclusive. Find the smallest possible value of $\\frac{a b + c}{a + b + c}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $\\frac{2}{3}$\n\nWe have\n$$\n\\frac{a b + c}{a + b + c} = \\frac{a b - a - b}{a + b + c} + 1\n$$\nWe note that $\\frac{a b - a - b}{a + b + c} < 0 \\Leftrightarrow (a - 1)(b - 1) < 1$, which only occurs when either $a = 1$ or $b = 1$. Without loss of generality, let $a = 1$. Then, we have a value of\n$$\n\\frac{-1}{b + c + a} + 1\n$$\nWe see that this is minimized when $b$ and $c$ are also minimized (so $b = c = 1$), for a value of $\\frac{2}{3}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-2283",
+      "name": "Harvard-MIT Mathematics Tournament #0ja3",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorial optimization"
+      ],
+      "statement": "Problem:\n\nYou are given an unlimited supply of red, blue, and yellow cards to form a hand. Each card has a point value and your score is the sum of the point values of those cards. The point values are as follows: the value of each red card is $1$, the value of each blue card is equal to twice the number of red cards, and the value of each yellow card is equal to three times the number of blue cards. What is the maximum score you can get with fifteen cards?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $168$\n\nIf there are $B$ blue cards, then each red card contributes $1 + 2B$ points (one for itself and two for each blue card) and each yellow card contributes $3B$ points. Thus, if $B > 1$, it is optimal to change all red cards to yellow cards. When $B = 0$, the maximum number of points is $15$. When $B = 1$, the number of points is always $42$. When $B > 1$, the number of points is $3BY$, where $Y$ is the number of yellow cards. Since $B + Y = 15$, the desired maximum occurs when $B = 7$ and $Y = 8$, which gives $168$ points."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-2309",
+      "name": "Harvard-MIT Mathematics Tournament #0jat",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorial optimization",
+        "Invariants / monovariants"
+      ],
+      "statement": "Problem:\n\nMac is trying to fill 2012 barrels with apple cider. He starts with 0 energy. Every minute, he may rest, gaining 1 energy, or if he has $n$ energy, he may expend $k$ energy $(0 \\leq k \\leq n)$ to fill up to $n(k+1)$ barrels with cider. What is the minimal number of minutes he needs to fill all the barrels?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: 46\n\nFirst, suppose that Mac fills barrels during two consecutive minutes. Let his energy immediately before doing so be $n$, and the energy spent in the next two minutes be $k_{1}, k_{2}$, respectively. It is not difficult to check that he can fill at least as many barrels by spending $k_{1}+k_{2}+1$ energy and resting for an additional minute before doing so, so that his starting energy is $n+1$: this does not change the total amount of time. Furthermore, this does not affect the amount of energy Mac has remaining afterward. We may thus assume that Mac first rests for a (not necessarily fixed) period of time, then spends one minute filling barrels, and repeats this process until all of the barrels are filled.\n\nNext, we check that he only needs to fill barrels once. Suppose that Mac first rests for $n_{1}$ minutes, then spends $k_{1}$ energy, and next rests for $n_{2}$ minutes and spends $k_{2}$ energy. It is again not difficult to check that Mac can instead rest for $n_{1}+n_{2}+1$ minutes and spend $k_{1}+k_{2}+1$ energy, to increase the number of barrels filled, while not changing the amount of time nor the energy remaining. Iterating this operation, we can reduce our problem to the case in which Mac first rests for $n$ minutes, then spends $n$ energy filling all of the barrels.\n\nWe need $n(n+1) \\geq 2012$, so $n \\geq 45$, and Mac needs a minimum of 46 minutes."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-2364",
+      "name": "15th Annual Harvard-MIT Mathematics Tournament #0jcc",
+      "url": "https://usamoguide.com/",
+      "source": "15th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorial optimization",
+        "Recurrence relations",
+        "Sums and products",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\n\n$M$ is an $8 \\times 8$ matrix. For $1 \\leq i \\leq 8$, all entries in row $i$ are at least $i$, and all entries on column $i$ are at least $i$. What is the minimum possible sum of the entries of $M$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $372$\n\nLet $s_{n}$ be the minimum possible sum for an $n \\times n$ matrix. Then, we note that increasing it by adding row $n+1$ and column $n+1$ gives $2n+1$ additional entries, each of which has minimal size at least $n+1$. Consequently, we obtain\n$$\ns_{n+1} = s_{n} + (2n+1)(n+1) = s_{n} + 2n^{2} + 3n + 1.\n$$\nSince $s_{0} = 0$, we get that\n$$\ns_{8} = 2\\left(7^{2} + \\ldots + 0^{2}\\right) + 3(7 + \\ldots + 0) + 8 = 372.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-2369",
+      "name": "15th Annual Harvard-MIT Mathematics Tournament #0jch",
+      "url": "https://usamoguide.com/",
+      "source": "15th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorial optimization"
+      ],
+      "statement": "Problem:\n\nAmy and Ben need to eat 1000 total carrots and 1000 total muffins. The muffins can not be eaten until all the carrots are eaten. Furthermore, Amy can not eat a muffin within 5 minutes of eating a carrot and neither can Ben. If Amy eats 40 carrots per minute and 70 muffins per minute and Ben eats 60 carrots per minute and 30 muffins per minute, what is the minimum number of minutes it will take them to finish the food?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: 23.5 or $47 / 2$\n\nAmy and Ben will continuously eat carrots, then stop (not necessarily at the same time), and continuously eat muffins until no food is left. Suppose that Amy and Ben finish eating the carrots in $T_{1}$ minutes and the muffins $T_{2}$ minutes later; we wish to find the minimum value of $T_{1}+T_{2}$. Furthermore, suppose Amy finishes eating the carrots at time $a_{1}$, and Ben does so at time $b_{1}$, so that $T_{1} = \\max(a_{1}, b_{1})$.\n\nFirst, suppose that $a_{1} \\leq b_{1}$, and let $b_{1} - a_{1} = c$. We have $40(T_{1} - c) + 60 T_{1} = 1000$, so $T_{1}$ is minimized when $c = 0$. Also, $30(T_{2} - 5) + 70(T_{2} - \\max(5 - c, 0)) = 1000$. We see that $T_{1} + T_{2}$ is minimized when $c = 5$, and $T_{1} + T_{2} = 23.5$. In a similar way, we see that when $b_{1} \\leq a_{1}$, $T_{1} + T_{2} > 23.5$, so our answer is 23.5."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-2437",
+      "name": "HMMT 2013 #0jed",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2013",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Coloring schemes, extremal arguments",
+        "Combinatorial optimization"
+      ],
+      "statement": "Problem:\nA cafe has 3 tables and 5 individual counter seats. People enter in groups of size between 1 and 4, inclusive, and groups never share a table. A group of more than 1 will always try to sit at a table, but will sit in counter seats if no tables are available. Conversely, a group of 1 will always try to sit at the counter first. One morning, $M$ groups consisting of a total of $N$ people enter and sit down. Then, a single person walks in, and realizes that all the tables and counter seats are occupied by some person or group. What is the minimum possible value of $M+N$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: 16\n\nWe first show that $M+N \\geq 16$. Consider the point right before the last table is occupied. We have two cases:\n\nFirst, suppose there exists at least one open counter seat. Then, every table must contribute at least 3 to the value of $M+N$, because no groups of 1 will have taken a table with one of the counter seats open. By the end, the counter must contribute at least $5+2=7$ to $M+N$, as there must be at least two groups sitting at the counter. It follows that $M+N \\geq 16$.\n\nFor the second case, assume the counter is full right before the last table is taken. Then, everybody sitting at the counter must have entered as a singleton, since they entered when a table was still available. Consequently, the counter must contribute 10 to $M+N$, and each table contributes at least 2, so once again $M+N \\geq 16$.\n\nNow, $M+N=16$ is achievable with eight groups of one, who first fill the counter seats, then the three tables. Thus, our answer is 16."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-2471",
+      "name": "Berkeley Math Circle Monthly Contest 4 #0jfb",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 4",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Jensen / smoothing",
+        "QM-AM-GM-HM / Power Mean",
+        "Combinatorial optimization"
+      ],
+      "statement": "Problem:\n\n$$\n\\left(\\begin{array}{lllll}\n1 & 1 & 1 & \\cdots & 1\n\\end{array}\\right)\n$$\nis written on a board, with 2013 ones in between the outer parentheses. Between each pair of consecutive ones you may write either \"+\" or \")(\" (you cannot leave the space blank). What is the maximum possible value of the resulting expression?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe answer is $3^{671}$, formed by dividing the ones into groups of three as the answer suggests.\nIt should be obvious that a maximum value exists, since there are only finitely many ways to place the pluses and parentheses and one (or more) of them must give the largest value.\n\nIf there is a factor greater than or equal to $5$, we can prove that the arrangement is not optimal by splitting off two $1$'s, e.g. changing\n$$\n(1+1+1+1+1) \\text{ to } (1+1)(1+1+1) \\text{.}\n$$\nThis is tantamount to changing a factor of $n+2$ to $2n$ for $n \\geq 3$, which increases the value of the expression.\n\nIf we have a factor containing only one $1$, then we can merge it with any other factor $n$; this changes $n$ to $n+1$ and therefore also increases the value of the expression.\n\nTherefore we need only consider expressions in which every factor is $2$, $3$, or $4$. Because $4$ can be broken up into $2 \\cdot 2$ without changing the value of the expression, we will restrict our attention to expressions made up of $2$'s and $3$'s.\n\nNow if there are at least three factors of $2$, we can change them to two factors of $3$ without altering the total number of $1$'s in the expression. This replaces a factor of $8$ by a factor of $9$, thus increasing the expression.\n\nSo the optimal way of forming the expression consists of zero, one, or two $2$'s and some undetermined number of $3$'s. Given that the total number of ones is $2013$, it is clear that there must be no twos and $671$ threes, implying that $3^{671}$ is the maximum value."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-2535",
+      "name": "Berkeley Math Circle Monthly Contest 6 #0jh3",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorial optimization",
+        "Linear and quadratic inequalities",
+        "Sums and products"
+      ],
+      "statement": "Problem:\nLet $a_{1}, a_{2}, \\ldots, a_{2013}$ be real numbers satisfying the following conditions:\n- $a_{1}=a_{2013}=0$\n- $|a_{i}-a_{i+1}|<1$, for $1 \\leq i \\leq 2012$.\n- $\\sum_{i=1}^{2013} a_{i}=0$.\nFind the greatest possible value of the sum $\\sum_{i=1}^{m} a_{i}$, where $m$ ($1 \\leq m \\leq 2013$) is allowed to vary, in addition to the sequence $\\{a_{i}\\}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe answer is that the sum can come arbitrarily close to $503^{2}=253009$, but (due to an unfortunate oversight in the problem statement) cannot equal it.\n\nSuppose that the sequence $\\{a_{i}\\}$ is fixed, and consider the $m$ that yields the largest value of the sum $\\sum_{i=1}^{m} a_{i}$. Clearly, we can assume $1 \\leq m \\leq 2012$. If $m \\geq 1007$, consider the alternative sequence $\\{a_{i}^{\\prime}\\}$ defined by\n$$\na_{i}^{\\prime}=-a_{2014-i} .\n$$\nThe partial sums of this sequence and the original one are related by\n$$\n\\sum_{i=1}^{m} a_{i}=\\sum_{i=1}^{2013-m} a_{i}^{\\prime}\n$$\nso by passing from one sequence to the other we can assume that the greatest sum occurs for $m \\leq 1006$.\n\nThe conditions obviously imply\n$$\na_{2}<1,\\ a_{3}<2,\\ \\ldots,\\ a_{i}<a_{i-1} .\n$$\nOn the other hand, note that $a_{m+1} \\leq 0$, since otherwise a better value of $m$ would be $m+1$. So\n$$\na_{m}<1,\\ a_{m-1}<2,\\ \\ldots,\\ a_{i}<a_{m+1-i}\n$$\nIf $m \\leq 504$, we use (1) to write $a_{1}+\\cdots+a_{m}<0+1+\\cdots+503$. Otherwise, we use (11) on $a_{1}, \\ldots, a_{504}$ and (2) on the remaining terms (one can make the cut at $1+\\lfloor m / 2\\rfloor$ instead, but the expressions become needlessly uglier) to write\n$$\n\\begin{aligned}\na_{1}+\\cdots+a_{m} & <0+1+\\cdots+502+503+(m-504)+(m-505)+\\cdots+1 \\\\\n& \\leq 0+1+\\cdots+502+503+502+\\cdots+1 \\\\\n& =\\frac{503 \\cdot 504}{2}+\\frac{502 \\cdot 503}{2}=503^{2}\n\\end{aligned}\n$$\nOne can indeed achieve this bound to arbitrary precision by taking\n$$\n\\begin{gathered}\na_{1}=0,\\ a_{2}=x,\\ a_{3}=2 x,\\ \\ldots,\\ a_{503}=502 x,\\ a_{504}=503 x,\\ a_{505}=502 x,\\ \\ldots,\\ a_{1006}=x,\\ a_{1007}=0 \\\\\na_{1008}=-x,\\ \\ldots,\\ a_{1509}=-502 x,\\ a_{1510}=-503 x,\\ a_{1511}=-502 x,\\ \\ldots,\\ a_{2012}=-x,\\ a_{2013}=0\n\\end{gathered}\n$$\nwhere $x$ is a real number that may be brought arbitrarily close to $1$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-2649",
+      "name": "HMMT 2014 #0jk9",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2014",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Counting two ways",
+        "Combinatorial optimization",
+        "Floors and ceilings"
+      ],
+      "statement": "Problem:\nSuppose that $(a_{1}, \\ldots, a_{20})$ and $(b_{1}, \\ldots, b_{20})$ are two sequences of integers such that the sequence $(a_{1}, \\ldots, a_{20}, b_{1}, \\ldots, b_{20})$ contains each of the numbers $1, \\ldots, 40$ exactly once. What is the maximum possible value of the sum\n\n$$\n\\sum_{i=1}^{20} \\sum_{j=1}^{20} \\min (a_{i}, b_{j}) ?\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $x_{k}$, for $1 \\leq k \\leq 40$, be the number of integers $i$ with $1 \\leq i \\leq 20$ such that $a_{i} \\geq k$. Let $y_{k}$, for $1 \\leq k \\leq 40$, be the number of integers $j$ with $1 \\leq j \\leq 20$ such that $b_{j} \\geq k$. It follows from the problem statement that $x_{k}+y_{k}$ is the number of elements of the set $\\{1, \\ldots, 40\\}$ which are greater than or equal to $k$, which is just $41-k$.\n\nNote that if $1 \\leq i, j \\leq 20$, and $1 \\leq k \\leq 40$, then $\\min (a_{i}, b_{j}) \\geq k$ if and only if $a_{i} \\geq k$ and $b_{j} \\geq k$. So for a fixed $k$ with $1 \\leq k \\leq 40$, the number of pairs $(i, j)$ with $1 \\leq i, j \\leq 20$ such that $\\min (a_{i}, b_{j}) \\geq k$ is equal to $x_{k} y_{k}$. So we can rewrite\n\n$$\n\\sum_{i=1}^{20} \\sum_{j=1}^{20} \\min (a_{i}, b_{j}) = \\sum_{k=1}^{40} x_{k} y_{k}\n$$\n\nSince $x_{k}+y_{k}=41-k$ for $1 \\leq k \\leq 40$, we have\n$$\nx_{k} y_{k} \\leq \\left\\lfloor \\frac{41-k}{2} \\right\\rfloor \\left\\lceil \\frac{41-k}{2} \\right\\rceil\n$$\nby a convexity argument. So\n$$\n\\sum_{i=1}^{20} \\sum_{j=1}^{20} \\min (a_{i}, b_{j}) \\leq \\sum_{k=1}^{40} \\left\\lfloor \\frac{41-k}{2} \\right\\rfloor \\left\\lceil \\frac{41-k}{2} \\right\\rceil = 5530.\n$$\n\nEquality holds when $(a_{1}, \\ldots, a_{20}) = (2, 4, \\ldots, 38, 40)$ and $(b_{1}, \\ldots, b_{20}) = (1, 3, \\ldots, 37, 39)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-2823",
+      "name": "HMMT November 2015 #0jp3",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2015",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Integers",
+        "Games / greedy algorithms",
+        "Combinatorial optimization"
+      ],
+      "statement": "Problem:\n\nNeo has an infinite supply of red pills and blue pills. When he takes a red pill, his weight will double, and when he takes a blue pill, he will lose one pound. If Neo originally weighs one pound, what is the minimum number of pills he must take to make his weight 2015 pounds?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: 13\nSuppose instead Neo started at a weight of 2015 pounds, instead had green pills, which halve his weight, and purple pills, which increase his weight by a pound, and he wished to reduce his weight to one pound. It is clear that, if Neo were able to find such a sequence of pills in the case where he goes from 2015 pounds to 1 pound, he can perform the sequence in reverse (replacing green pills with red pills and purple pills with blue pills) to achieve the desired weight, so this problem is equivalent to the original.\nSuppose at some point, Neo were to take two purple pills followed by a green pill; this changes his weight from $2k$ to $k+1$. However, the same effect could be achieved using less pills by first taking a green pill and then taking a purple pill, so the optimal sequence will never contain consecutive purple pills. As a result, there is only one optimal sequence for Neo if he is trying to lose weight: take a purple pill when his weight is odd, and a green pill when his weight is even. His weight thus becomes\n$$\n\\begin{aligned}\n2015 & \\rightarrow 2016 \\rightarrow 1008 \\rightarrow 504 \\rightarrow 252 \\rightarrow 126 \\rightarrow 63 \\\\\n& \\rightarrow 64 \\rightarrow 32 \\rightarrow 16 \\rightarrow 8 \\rightarrow 4 \\rightarrow 2 \\rightarrow 1\n\\end{aligned}\n$$\nwhich requires a total of 13 pills. Reversing this sequence solves the original problem directly."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-2876",
+      "name": "HMMT February 2015 #0jqk",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2015",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Techniques: modulo, size analysis, order analysis, inequalities",
+        "Combinatorial optimization"
+      ],
+      "statement": "Problem:\n\nLet $a, b, c, d, e$ be nonnegative integers such that $625 a + 250 b + 100 c + 40 d + 16 e = 15^{3}$. What is the maximum possible value of $a + b + c + d + e$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $153$\n\nThe intuition is that as much should be in $e$ as possible. But divisibility obstructions like $16 \\nmid 15^{3}$ are in our way. However, the way the coefficients $5^{4} > 5^{3} \\cdot 2 > \\cdots$ are set up, we can at least easily avoid having $a, b, c, d$ too large (specifically, $\\geq 2$). This is formalized below.\n\nFirst, we observe that $(a_{1}, a_{2}, a_{3}, a_{4}, a_{5}) = (5, 1, 0, 0, 0)$ is a solution. Then given a solution, replacing $(a_{i}, a_{i+1})$ with $(a_{i} - 2, a_{i+1} + 5)$, where $1 \\leq i \\leq 4$, also yields a solution. Given a solution, it turns out all solutions can be achieved by some combination of these swaps (or inverses of these swaps).\n\nThus, to optimize the sum, we want $(a, b, c, d) \\in \\{0, 1\\}^{4}$, since in this situation, there would be no way to make swaps to increase the sum. So the sequence of swaps looks like $(5, 1, 0, 0, 0) \\rightarrow (1, 11, 0, 0, 0) \\rightarrow (1, 1, 25, 0, 0) \\rightarrow (1, 1, 1, 60, 0) \\rightarrow (1, 1, 1, 0, 150)$, yielding a sum of $1 + 1 + 1 + 0 + 150 = 153$.\n\nWhy is this optimal? Suppose $(a, b, c, d, e)$ maximizes $a + b + c + d + e$. Then $a, b, c, d \\leq 1$, or else we could use a replacement $(a_{i}, a_{i+1}) \\rightarrow (a_{i} - 2, a_{i+1} + 5)$ to strictly increase the sum. But modulo $2$ forces $a$ odd, so $a = 1$. Subtracting off and continuing in this manner shows that we must have $b = 1$, then $c = 1$, then $d = 0$, and finally $e = 150$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-2971",
+      "name": "HMMT November #0jt7",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Jensen / smoothing",
+        "Combinatorial optimization"
+      ],
+      "statement": "Problem:\n\nZlatan has $2017$ socks of various colours. He wants to proudly display one sock of each of the colours, and he counts that there are $N$ ways to select socks from his collection for display. Given this information, what is the maximum value of $N$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $3^{671} \\cdot 4$\n\nSay that there are $k$ sock types labeled $1,2, \\ldots, k$, and $a_{i}$ socks of type $i$. The problem asks to maximize $\\prod_{i=1}^{k} a_{i}$ subject to $\\sum_{i=1}^{k} a_{i}=2017$, over all $k$ and all sequences of positive integers $a_{1}, \\ldots, a_{k}$.\n\nThe optimal $(a_{1}, \\ldots, a_{k})$ cannot have any $a_{i}=1$ for any $i$, because if there exists $a_{i}=1$ we can delete this $a_{i}$ and add $1$ to any $a_{j}$ ($j \\neq i$) to increase the product while keeping the sum constant.\n\nThere exists an optimal $(a_{1}, \\ldots, a_{k})$ without any $a_{i} \\geq 4$ because if there exists $a_{i} \\geq 4$ we can replace this $a_{i}$ with $a_{i}-2$ and $2$, which nonstrictly increases the product while keeping the sum constant.\n\nTherefore, there exists an optimal $(a_{1}, \\ldots, a_{k})$ whose terms are all $2$ or $3$. The optimal $(a_{1}, \\ldots, a_{k})$ cannot have more than two $2$s, because we can replace three $2$s with two $3$s, which increases the product by a factor of $\\frac{3^{2}}{2^{3}}=\\frac{9}{8}$ while keeping the sum constant.\n\nIt follows that we want to partition $2017$ into $671$ $3$s and two $2$s, for a product of $3^{671} \\cdot 4$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-2987",
+      "name": "HMMT November #0jtn",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Coloring schemes, extremal arguments",
+        "Combinatorial optimization"
+      ],
+      "statement": "Problem:\nWe want to design a new chess piece, the American, with the property that (i) the American can never attack itself, and (ii) if an American $A_{1}$ attacks another American $A_{2}$, then $A_{2}$ also attacks $A_{1}$. Let $m$ be the number of squares that an American attacks when placed in the top left corner of an $8$ by $8$ chessboard. Let $n$ be the maximal number of Americans that can be placed on the $8$ by $8$ chessboard such that no Americans attack each other, if one American must be in the top left corner. Find the largest possible value of $m n$.\nProposed by: Kevin Yang",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $1024$\nSince one of the Americans must be in the top left corner, that eliminates $m$ squares from consideration for placing additional Americans. So $m+n$ is at most $64$, which implies $m n$ can be at most $1024$. To achieve $1024$, we can color a chessboard the normal way, and say that an American attacks all squares of the opposite color. Then the American in the top left corner attacks the $32$ squares of the opposite color, and placing all Americans on the squares of the same color as the top-left corner guarantees no Americans attack each other."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-3092",
+      "name": "HMMT November 2017 #0jwk",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2017",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Invariants / monovariants",
+        "Algorithms",
+        "Combinatorial optimization"
+      ],
+      "statement": "Problem:\n\nYannick has a bicycle lock with a 4-digit passcode whose digits are between $0$ and $9$ inclusive. (Leading zeroes are allowed.) The dials on the lock are currently set at $0000$. To unlock the lock, every second he picks a contiguous set of dials, and increases or decreases all of them by one, until the dials are set to the passcode. For example, after the first second the dials could be set to $1100$, $0010$, or $9999$, but not $0909$ or $0190$. (The digits on each dial are cyclic, so increasing $9$ gives $0$, and decreasing $0$ gives $9$.) Let the complexity of a passcode be the minimum number of seconds he needs to unlock the lock. What is the maximum possible complexity of a passcode, and how many passcodes have this maximum complexity? Express the two answers as an ordered pair.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nTo simplify the solution, we instead consider the equivalent problem of reducing a passcode to $0000$ using the given move.\n\nGiven a passcode $a_{1} a_{2} a_{3} a_{4}$, define a differential of the passcode to be a quintuple $(d_{1}, d_{2}, d_{3}, d_{4}, d_{5})$ such that $d_{i} \\equiv a_{i}-a_{i-1} \\pmod{10}$ for $i=1,2,3,4,5$, where we define $a_{0}=a_{5}=0$.\n\nClaim 1: For any passcode, there exists a differential that satisfies the following two conditions:\n- $d_{1}+d_{2}+d_{3}+d_{4}+d_{5}=0$;\n- The range (difference between the maximum and minimum) of these five numbers is at most $10$.\n\nProof: We first see that the differential defined by $d_{i}=a_{i}-a_{i-1}$ satisfy the first condition since the sum of the five numbers is $a_{5}-a_{0}=0$. Suppose that a differential satisfying the first condition has a range greater than $10$, then we take one of the largest number $d_{m}$ and one of the smallest number $d_{n}$ (where $d_{m}-d_{n}>10$), and replace the former by $d_{m}-10$ and the latter by $d_{n}+10$. This will either reduce the range or reduce the number of maximal and minimal numbers, so the process will terminate after finitely many iterations. Thus we can find a differential that satisfies both conditions.\n\n(Note: we call such a differential a standard differential from now on, although it is important to remember that there may be more than one standard differential for one passcode. As a corollary, all of the numbers in a standard differential must be in the range $[-9,9]$, as a number greater than $9$ will be more than $10$ away from a negative number, and similar for a number smaller than $-9$.)\n\nGiven a passcode, we define the magnitude of one of its standard differentials to be the sum of all the positive values in the differential (which is also the absolute value of the sum all the negative values).\n\nClaim 2: The magnitude of a passcode's standard differential is equal to the passcode's complexity.\n\nProof: Obviously $0000$ is the only passcode with complexity $0$ whose standard differential has magnitude $0$. Suppose that the magnitude of a standard differential is $M$, then it suffices show that the magnitude can be reduced to $0$ in $M$ moves, and that the magnitude can only decrease by at most $1$ with each move.\n\nThe first part can be shown via the following algorithm. When the magnitude is not zero, there must be a positive number $d_{i}$ and a negative number $d_{j}$. WLOG assume that $i<j$, then after taking the dials $a_{i}, a_{i+1}, \\ldots, a_{j-1}$ and decreases them all by $1$, $d_{i}$ decreases by $1$ and $d_{j}$ increases by $1$. This will decrease the magnitude by $1$ (and the differential remains standard), so by repeating this process $M$ times we can bring the magnitude down to $0$.\n\nFor the second part, we assume WLOG that we take the dials $a_{i}, a_{i+1}, \\ldots, a_{j-1}$ and decrease them all by $1$, and then $d_{i}$ is replaced by $d_{i}'=d_{i}-1$ and $d_{j}'=d_{j}+1$. If the differential remains standard, then the magnitude decreases by $1$ (when $d_{i}>0$ and $d_{j}<0$), remains the same (when either $d_{i} \\leq 0$ and $d_{j}<0$ or $d_{i}>0$ and $d_{j} \\geq 0$), or increases by $1$ (when $d_{i} \\leq 0$ and $d_{j} \\geq 0$).\n\nIn the latter two cases, it is possible that the differential is no longer standard.\n\nIf the magnitude previously remained the same (WLOG suppose that $d_{i}>0$ and $d_{j} \\geq 0$), then there exists a negative $d_{k}$ that is minimal such that $d_{j}-d_{k}=10$ and now $d_{j}'$ is the unique maximum. Replacing $d_{k}$ by $d_{k}+10=d_{j}$ and $d_{j}'$ by $d_{j}'-10=d_{k}+1$ will reduce the magnitude by $1$, and the new differential will be standard because the unique maximum $d_{j}'$ is no longer present and the minimum is now either $d_{k}$ or $d_{k}+1$. This means that the magnitude decreases by at most $1$.\n\nIf the magnitude previously increased by $1$ (when $d_{i} \\leq 0$ and $d_{j} \\geq 0$), then there exists either a negative $d_{k}$ that is (previously) minimal such that $d_{j}-d_{k}=10$, or a positive $d_{l}$ that is (previously) maximal such that $d_{l}-d_{i}=10$, or both. By similar logic as the previous case, replacing $d_{k}$ by $d_{k}+10$ and $d_{j}'$ by $d_{j}'-10$, or replacing $d_{l}$ by $d_{l}-10$ and $d_{i}'$ by $d_{i}'+10$ (or both, if both $d_{k}$ and $d_{l}$ exist), will decrease the magnitude by $1$, and ensure that the new differential is standard. The replacement will decrease the current magnitude by at most $2$, this means that the original magnitude decreases by at most $1$ in total.\n\nThese considerations finishes the second part and therefore the proof.\n\nWith this claim, we also see that the magnitudes of all possible standard differentials of a given passcode are the same, so the choice of the differential is irrelevant.\n\nWe can now proceed to find the maximum possible complexity. Suppose that there are $m$ positive numbers and $n$ negative numbers in the differential, and suppose that the maximum and the minimum are $x$ and $-y$ respectively. Since the sum of all positive numbers is at most $m x$ and the absolute value of the sum of all negative numbers is at most $n y$, the complexity is at most $C=\\min (m x, n y)$. It suffices to maximize $C$ under the condition that $m+n \\leq 5$ and $x+y=x-(-y) \\leq 10$. It is not difficult to see (via casework) that the maximal $C$ is $12$, achieved by $m=2, n=3, x=6, y=4$ or $m=3, n=2, x=4, y=6$. In the first case, the digits must increase from $0$ by $6$ twice and decrease by $4$ three times (and reduced modulo $10$), which gives the passcode $6284$; in the second case the digits increase by $4$ three times and decrease by $6$ twice instead, which gives the passcode $4826$. Since all inequalities are tight, these two passcodes are the only ones that have the maximal complexity of $12$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-3104",
+      "name": "February 2017 #0jww",
+      "url": "https://usamoguide.com/",
+      "source": "February 2017",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorial optimization",
+        "Jensen / smoothing"
+      ],
+      "statement": "Problem:\n\nMrs. Toad has a class of 2017 students, with unhappiness levels $1,2, \\ldots, 2017$ respectively. Today in class, there is a group project and Mrs. Toad wants to split the class in exactly 15 groups. The unhappiness level of a group is the average unhappiness of its members, and the unhappiness of the class is the sum of the unhappiness of all 15 groups. What's the minimum unhappiness of the class Mrs. Toad can achieve by splitting the class into 15 groups?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nOne can show that the optimal configuration is $\\{1\\}, \\{2\\}, \\ldots, \\{14\\}, \\{15, \\ldots, 2017\\}$. This would give us an answer of $1+2+\\cdots+14+\\frac{15+2017}{2}=105+1016=1121$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-3112",
+      "name": "HMMT November #0jx4",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorial optimization"
+      ],
+      "statement": "Problem:\n\nMr. Taf takes his 12 students on a road trip. Since it takes two hours to walk from the school to the destination, he plans to use his car to expedite the journey. His car can take at most 4 students at a time, and travels 15 times as fast as traveling on foot. If they plan their trip optimally, what is the shortest amount of time it takes for them to all reach the destination, in minutes?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nA way to plan the trip is to have Mr. Taf drive 4 students to the $80\\%$ mark, then drive back to the $10\\%$ mark to pick up another 4 students to the $90\\%$ mark, and finally drive back to the $20\\%$ mark to pick up the last 4 students to the destination. All students will reach the destination at the same time, and Mr. Taf would have driven for $(0.8+0.7+0.8+0.7+0.8) \\cdot \\frac{120}{15}=30.4$ minutes.\n\nNow we show that 30.4 minutes is necessary. First of all, for a trip to be optimal, Mr. Taf must not carry students when he was driving away from the destination, and all students not on the car must keep walking towards the destination. Suppose that among all the students, the student that walked for the longest walked for $15 m$ minutes, where $0 \\leq m \\leq 8$, then he spent $\\frac{120-15 m}{15}=8-m$ minutes on the car, so it took them exactly $14 m+8$ minutes to get to the destination. Moreover, all students must have spent at least $12(8-m)$ minutes on the car total, and Mr. Taf would need to spend at least $3(8-m)=24-3 m$ minutes driving students towards the destination. Since it takes Mr. Taf 8 minutes to drive the entire trip, he would need to drive $3(8-m)-8=16-3 m$ minutes away from the destination, so Mr. Taf drove for at least $40-6 m$ minutes. From this we derive the inequality $40-6 m \\geq 14 m+8$, which comes out to $m \\geq 1.6$, so the journey is at least $14(1.6)+8=30.4$ minutes."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-3229",
+      "name": "HMMT November #0k0d",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Techniques: modulo, size analysis, order analysis, inequalities",
+        "Inverses mod n",
+        "Simple Equations",
+        "Combinatorial optimization"
+      ],
+      "statement": "Problem:\nA malfunctioning digital clock shows the time $9:57\\ \\mathrm{AM}$; however, the correct time is $10:10\\ \\mathrm{AM}$. There are two buttons on the clock, one of which increases the time displayed by 9 minutes, and another which decreases the time by 20 minutes. What is the minimum number of button presses necessary to correctly set the clock to the correct time?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe need to increase the time by 13 minutes. If we click the 9 minute button $a$ times and the 20 minute button $b$ times, then we must have $9a - 20b = 13$. Note that if this equation is satisfied, then $b$ increases as $a$ increases, so it suffices to minimize $a$. This means that $a$ must end in a 7. However, since $63 - 20b = 13$ has no integer solution, the next smallest possible value of $a$ is 17, which gives the solution $(a, b) = (17, 7)$, or 24 button presses."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-3273",
+      "name": "HMMT November 2018 #0k1l",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2018",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "QM-AM-GM-HM / Power Mean",
+        "Combinatorial optimization"
+      ],
+      "statement": "Problem:\n\nOn a computer screen is the single character $a$. The computer has two keys: $c$ (copy) and $p$ (paste), which may be pressed in any sequence.\n\nPressing $p$ increases the number of $a$'s on screen by the number that were there the last time $c$ was pressed. $c$ doesn't change the number of $a$'s on screen. Determine the fewest number of keystrokes required to attain at least $2018$ $a$'s on screen. (Note: pressing $p$ before the first press of $c$ does nothing).",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe first keystroke must be $c$ and the last keystroke must be $p$. If there are $k$ $c$'s pressed in total, let $n_{i}$ denote one more than the number of $p$'s pressed immediately following the $i$'th $c$, for $1 \\leq i \\leq k$.\n\nThen, we have that the total number of keystrokes is\n$$\ns := \\sum_{i=1}^{k} n_{i}\n$$\nand the total number of $a$'s is\n$$\nr := \\prod_{i=1}^{k} n_{i}\n$$\nWe desire to minimize $s$ with the constraint that $r \\geq 2018$. We claim that the minimum possible $s$ is $s=21$.\n\nThis value of $s$ is achieved by $k=7$ and $n_{1}=n_{2}=n_{3}=n_{4}=n_{5}=n_{6}=n_{7}=3$, so it remains to show that $s=20$ is not possible.\n\nSuppose it were for some $k$ and $n_{i}$. By the AM-GM inequality,\n$$\n\\left(\\frac{n_{1}+n_{2}+\\cdots+n_{k}}{k}\\right) \\geq \\sqrt[k]{n_{1} n_{2} \\cdots n_{k}}\n$$\nimplying that\n$$\n\\begin{aligned}\n2018 & \\leq n_{1} n_{2} \\cdots n_{k} \\\\\n& \\leq \\left(\\frac{n_{1}+n_{2}+\\cdots+n_{k}}{k}\\right)^{k} \\\\\n& = \\left(\\frac{20}{k}\\right)^{k}\n\\end{aligned}\n$$\nwhich is satisfied by no positive integers $k$. More rigorously, the function $f(x)=x^{\\frac{1}{x}}$ is well known to have a maximum at $x=e$. Making the substitution $u=\\frac{20}{k}$, we obtain\n$$\n\\begin{aligned}\n\\left(\\frac{20}{k}\\right)^{k} & = u^{\\frac{20}{u}} \\\\\n& = \\left(u^{\\frac{1}{u}}\\right)^{20}\n\\end{aligned}\n$$\nwhich is maximized by setting $u=e$. However, $e^{\\frac{20}{e}} \\approx 1568.05$, meaning that $s=20$ is not possible."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-3381",
+      "name": "HMMT November 2018 #0k4l",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2018",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Coloring schemes, extremal arguments",
+        "Combinatorial optimization"
+      ],
+      "statement": "Problem:\nA $5 \\times 5$ grid of squares is filled with integers. Call a rectangle corner-odd if its sides are grid lines and the sum of the integers in its four corners is an odd number. What is the maximum possible number of corner-odd rectangles within the grid?\n\nNote: A rectangle must have four distinct corners to be considered corner-odd; i.e. no $1 \\times k$ rectangle can be corner-odd for any positive integer $k$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: 60\n\nConsider any two rows and the five numbers obtained by adding the two numbers which share a given column. Suppose $a$ of these are odd and $b$ of these are even. The number of corner-odd rectangles with their sides contained in these two rows is $a b$. Since $a+b=5$, we have $a b \\leq 6$. Therefore every pair of rows contains at most 6 corner-odd rectangles.\n\nThere are $\\binom{5}{2}=10$ pairs of rows, so there are at most 60 corner-odd rectangles. Equality holds when we place 1 along one diagonal and 0 everywhere else."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-3414",
+      "name": "USA TSTST #0k5i",
+      "url": "https://usamoguide.com/",
+      "source": "USA TSTST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Invariants / monovariants",
+        "Abel summation",
+        "Induction / smoothing",
+        "Recursion, bijection",
+        "Combinatorial optimization"
+      ],
+      "statement": "Let $n$ be a positive integer. A frog starts on the number line at $0$. Suppose it makes a finite sequence of hops, subject to two conditions:\n* The frog visits only points in $\\{1, 2, \\dots, 2^n - 1\\}$, each at most once.\n* The length of each hop is in $\\{2^0, 2^1, 2^2, \\dots\\}$. (The hops may be either direction, left or right.)\nLet $S$ be the sum of the (positive) lengths of all hops in the sequence. What is the maximum possible value of $S$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "We claim the answer is $\\frac{4^n-1}{3}$.\n\nWe first prove the bound. First notice that the hop sizes are in $\\{2^0, 2^1, \\dots, 2^{n-1}\\}$, since the frog must stay within bounds the whole time. Let $a_i$ be the number of hops of size $2^i$ the frog makes, for $0 \\le i \\le n-1$.\n\n**Claim.** For any $k = 1, \\dots, n$ we have\n$$\na_{n-1} + \\dots + a_{n-k} \\le 2^n - 2^{n-k}.\n$$\n*Proof.* Let $m = n-k$ and look modulo $2^m$. Call a jump *small* if its length is at most $2^{m-1}$, and *large* if it is at least $2^m$; the former changes the residue class of the frog modulo $2^m$ while the latter does not.\nWithin each fixed residue modulo $2^m$, the frog can make at most $\\frac{2^n}{2^m} - 1$ large jumps. So the total number of large jumps is at most $2^m \\left(\\frac{2^n}{2^m} - 1\\right) = 2^n - 2^m$. $\\square$\n\n(As an example, when $n=3$ this means there are at most four hops of length $4$, at most six hops of length $2$ or $4$, and at most seven hops total. Of course, if we want to max the length of the hops, we see that we want $a_2 = 4$, $a_1 = 2$, $a_0 = 1$, and in general equality is achieved when $a_m = 2^m$ for any $m$.)\n\nNow, the total distance the frog travels is\n$$\nS = a_0 + 2a_1 + 4a_2 + \\dots + 2^{n-1}a_{n-1}.\n$$\nWe rewrite using the so-called “summation by parts”:\n$$\n\\begin{aligned}\nS =\\{}& a_0 + a_1 + a_2 + a_3 + \\dots + a_{n-1} \\\\\n& + a_1 + a_2 + a_3 + \\dots + a_{n-1} \\\\\n& + 2a_2 + 2a_3 + \\dots + 2a_{n-1} \\\\\n& + 4a_3 + \\dots + 4a_{n-1} \\\\\n& \\vdots \\qquad \\ddots \\qquad \\vdots \\\\\n& + 2^{n-2}a_{n-1}.\n\\end{aligned}\n$$\n\nIt remains to show that equality can hold. There are many such constructions but most are inductive. Here is one approach. We will construct two family of paths such that there are $2^k$ hops of size $2^k$, for every $0 \\le k \\le n-1$, and we visit each of $\\{0, \\dots, 2^n - 1\\}$ once, starting on $0$ and ending on $x$, for the two values $x \\in \\{1, 2^n - 1\\}$.\n\nThe base case $n=1$ is clear. To take a path from $0$ to $2^{n+1} - 1$:\n* Take a path on $\\{0, 2, 4, \\dots, 2^{n+1} - 2\\}$ starting from $0$ and ending on $2$ (by inductive hypothesis).\n* Take a path on $\\{1, 3, 5, \\dots, 2^{n+1} - 1\\}$ starting from $1$ and ending on $2^{n+1} - 1$ (by inductive hypothesis).\n* Link them together by adding a single jump $2 \\to 1$.\n\nThe other case is similar, but we route $0 \\to (2^{n+1} - 2) \\to (2^{n+1} - 1) \\to 1$ instead. (This can also be visualized as hopping along a hypercube of binary strings; each inductive step takes two copies of the hypercube and links them together by a single edge.)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-3502",
+      "name": "Berkeley Math Circle: Monthly Contest 2 #0k7y",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 2",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorial optimization",
+        "QM-AM-GM-HM / Power Mean",
+        "Decimals",
+        "Integers"
+      ],
+      "statement": "Problem:\n\nWe use the digits $1, 2, \\ldots, 9$ once each to form two integers (e.g., $7419$ and $82635$). What two integers formed in this way have the greatest product? Prove your answer.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe answer is $9642 \\times 87531$.\n\nPlace value is an important feature of this problem, but it's awkward to write about since the leading digits matter most, yet we do not know how many digits each number will have. As a workaround, let us prepend \"0.\" to the two integers we are forming, making them into decimals. For example, $7419$ and $82635$ would become $0.7419$ and $0.82635$. Regardless of how many digits our two integers have, the effect is to divide their product by $10^{9}$. Thus, whichever decimals formed in this way have the largest product will correspond to the integers that have the largest product in the original formulation of the problem. The benefit of this transformation is that the leading digits now have a definite place value of tenths, etc.\n\nIt is clear that the digits of each decimal should be in descending order (otherwise we can increase that number by rearranging them). Less obviously, a larger digit should never be assigned a lower place value in one decimal than the place value assigned to a smaller digit in the other decimal. For example, we should not form the decimals $0.98\\ldots$ and $0.7\\ldots$, where the larger $8$ is assigned a place value of hundredths while the smaller $7$ is assigned a place value of tenths. \n\nProof: Let our two decimals be $x$ and $y$, let digit $d$ have place value $10^{-a}$ in decimal $x$, and let digit $e$ have place value $10^{-b}$ in decimal $y$, where $d>e$ and $a>b$. Then swapping these two digits increases the product of the two decimals by $(d-e)\\left(10^{-b} y-10^{-a} x\\right) = (d-e)\\left(10^{-a}\\right)\\left(10^{a-b} y-x\\right)$. Since $0.1 \\leq x, y < 1$, we have $y > 10^{-1} x$, and therefore the increase is positive.\n\nAs a result of the foregoing, we see that the tenths digits of our two decimals must be $9$ and $8$ (in some order), the hundredths digits must be $7$ and $6$ (in some order), the thousandths must be $5$ and $4$, the ten-thousandths $3$ and $2$, and the hundred-thousandths $1$ (and $0$). Now the sum of the two decimals is fixed, so their product is maximized by making the two numbers as close to each other as possible. This is achieved by $0.9642$ and $0.87531$, and we are done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-3615",
+      "name": "USA TSTST #0kb3",
+      "url": "https://usamoguide.com/",
+      "source": "USA TSTST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorial optimization",
+        "Coloring schemes, extremal arguments"
+      ],
+      "statement": "Consider coins with positive real denominations not exceeding $1$. Find the smallest $C > 0$ such that the following holds: if we are given any $100$ such coins with total value $50$, then we can always split them into two stacks of $50$ coins each such that the absolute difference between the total values of the two stacks is at most $C$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "The answer is $C = \\frac{50}{51}$. The lower bound is obtained if we have $51$ coins of value $\\frac{1}{51}$ and $49$ coins of value $1$. We now present two (similar) proofs that this $C = \\frac{50}{51}$ suffices.\n\n**First proof (original)** Let $a_1 \\le \\dots \\le a_{100}$ denote the values of the coins in ascending order. Since the $51$ coins $a_{50}, \\dots, a_{100}$ are worth at least $51a_{50}$, it follows that $a_{50} \\le \\frac{50}{51}$; likewise $a_{51} \\ge \\frac{1}{51}$.\nWe claim that choosing the stacks with coin values\n$$\na_1, a_3, \\dots, a_{49}, a_{52}, a_{54}, \\dots, a_{100}\n$$\nand\n$$\na_2, a_4, \\dots, a_{50}, a_{51}, a_{53}, \\dots, a_{99}\n$$\nworks. Let $D$ denote the (possibly negative) difference between the two total values. Then\n$$\n\\begin{aligned}\nD &= (a_1 - a_2) + \\dots + (a_{49} - a_{50}) - a_{51} + (a_{52} - a_{53}) + \\dots + (a_{98} - a_{99}) + a_{100} \\\\\n&\\le 25 \\cdot 0 - \\frac{1}{51} + 24 \\cdot 0 + 1 = \\frac{50}{51}.\n\\end{aligned}\n$$\nSimilarly, we have\n$$\n\\begin{aligned}\nD &= a_1 + (a_3 - a_2) + \\dots + (a_{49} - a_{48}) - a_{50} + (a_{52} - a_{51}) + \\dots + (a_{100} - a_{99}) \\\\\n&\\ge 0 + 24 \\cdot 0 - \\frac{50}{51} + 25 \\cdot 0 = -\\frac{50}{51}.\n\\end{aligned}\n$$\nIt follows that $|D| \\le \\frac{50}{51}$, as required.\n\n\n**Second proof (Evan Chen)** Again we sort the coins in increasing order $0 < a_1 \\le a_2 \\le \\dots \\le a_{100} \\le 1$. A large gap is an index $i \\ge 2$ such that $a_i > a_{i-1} + \\frac{50}{51}$; obviously there is at most one such large gap.\n**Claim** — If there is a large gap, it must be $a_{51} > a_{50} + \\frac{50}{51}$.\n*Proof*. If $i < 50$ then we get $a_{50}, \\dots, a_{100} > \\frac{50}{51}$ and the sum $\\sum_{1}^{100} a_i > 50$ is too large. Conversely if $i > 50$ then we get $a_1, \\dots, a_{i-1} < \\frac{1}{51}$ and the sum $\\sum_{1}^{100} a_i < 1/51 \\cdot 51 + 49$ is too small. $\\square$\nNow imagine starting with the coins $a_1, a_3, \\dots, a_{99}$, which have total value $S \\le 25$. We replace $a_1$ by $a_2$, then $a_3$ by $a_4$, and so on, until we replace $a_{99}$ by $a_{100}$. At the end of the process we have $S \\ge 25$. Moreover, since we did not cross a large gap at any point, the quantity $S$ changed by at most $C = \\frac{50}{51}$ at each step. So at some point in the process we need to have $25 - C/2 \\le S \\le 25 + C/2$, which proves $C$ works."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-3626",
+      "name": "HMMO 2020 #0kbe",
+      "url": "https://usamoguide.com/",
+      "source": "HMMO 2020",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Counting two ways",
+        "Combinatorial optimization"
+      ],
+      "statement": "Problem:\n\nChelsea goes to La Verde's at MIT and buys 100 coconuts, each weighing 4 pounds, and 100 honeydews, each weighing 5 pounds. She wants to distribute them among $n$ bags, so that each bag contains at most 13 pounds of fruit. What is the minimum $n$ for which this is possible?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe answer is $n=75$, given by 50 bags containing one honeydew and two coconuts (13 pounds), and 25 bags containing two honeydews (10 pounds).\n\nTo show that this is optimal, assign each coconut 1 point and each honeydew 2 points, so that 300 points worth of fruit are bought in total. Then, we claim that each bag can contain at most 4 points of fruit, thus requiring $n \\geq 300 / 4 = 75$. To see this, note that each bag containing greater than 4 points must contain either five coconuts (20 pounds), three coconuts and a honeydew (17 pounds), one coconut and two honeydews (14 pounds), or three honeydews (15 pounds)."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-4114",
+      "name": "AIME II #0koy",
+      "url": "https://usamoguide.com/",
+      "source": "AIME II",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Games / greedy algorithms",
+        "Induction / smoothing",
+        "Combinatorial optimization"
+      ],
+      "statement": "For positive integers $a, b$, and $c$ with $a < b < c$, consider collections of postage stamps in denominations $a, b$, and $c$ cents that contain at least one stamp of each denomination. If there exists such a collection that contains sub-collections worth every whole number of cents up to 1000 cents, let $f(a, b, c)$ be the minimum number of stamps in such a collection. Find the sum of the three least values of $c$ such that $f(a, b, c) = 97$ for some choice of $a$ and $b$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-4232",
+      "name": "AIME II #0ks8",
+      "url": "https://usamoguide.com/",
+      "source": "AIME II",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Jensen / smoothing",
+        "Combinatorial optimization"
+      ],
+      "statement": "Let $x_1 \\le x_2 \\le \\dots \\le x_{100}$ be real numbers such that $|x_1| + |x_2| + \\dots + |x_{100}| = 1$ and $x_1 + x_2 + \\dots + x_{100} = 0$. Among all such 100-tuples of numbers, the greatest value that $x_{76} - x_{16}$ can achieve is $\\frac{m}{n}$, where $m$ and $n$ are relatively prime positive integers. Find $m+n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Let $x_1 \\le x_2 \\le \\dots \\le x_{100}$, $S = x_1 + x_2 + \\dots + x_{100} = 0$, and $T = |x_1| + |x_2| + \\dots + |x_{100}| = 1$.\n\nWe want to maximize $x_{76} - x_{16}$.\n\nLet $k$ be the number of negative $x_i$'s, and $100-k$ the number of nonnegative $x_i$'s. Since the sum is $0$, the sum of the negative numbers equals the sum of the positive numbers in magnitude.\n\nLet $x_1 = x_2 = \\dots = x_k = -a$ and $x_{k+1} = x_{k+2} = \\dots = x_{100} = b$, with $a, b \\ge 0$.\n\nThen:\n\n$k(-a) + (100-k)b = 0 \\implies (100-k)b = ka \\implies b = \\frac{k}{100-k}a$\n\nAlso,\n\n$k|{-a}| + (100-k)|b| = ka + (100-k)b = 1$\n\nSubstitute $b$:\n\n$ka + (100-k)\\left(\\frac{k}{100-k}a\\right) = 1$\n\n$ka + k a = 1$\n\n$2ka = 1 \\implies a = \\frac{1}{2k}$\n\nThen $b = \\frac{k}{100-k}a = \\frac{k}{100-k} \\cdot \\frac{1}{2k} = \\frac{1}{2(100-k)}$\n\nNow, $x_{76} - x_{16}$:\n\nSince $x_1 = \\dots = x_k = -a$, $x_{k+1} = \\dots = x_{100} = b$.\n\nThe first $k$ entries are $-a$, the next $100-k$ are $b$.\n\n$x_{16}$ is $-a$ if $k \\ge 16$, otherwise $b$.\n\n$x_{76}$ is $-a$ if $k \\ge 76$, otherwise $b$.\n\nWe want to maximize $x_{76} - x_{16}$.\n\nCase 1: $k < 16$\n\nThen $x_{16} = b$, $x_{76} = b$, so $x_{76} - x_{16} = 0$.\n\nCase 2: $16 \\le k < 76$\n\nThen $x_{16} = -a$, $x_{76} = b$, so $x_{76} - x_{16} = b - (-a) = a + b$\n\nCase 3: $k \\ge 76$\n\nThen $x_{16} = -a$, $x_{76} = -a$, so $x_{76} - x_{16} = 0$\n\nSo, the maximum occurs for $16 \\le k < 76$, and $x_{76} - x_{16} = a + b = \\frac{1}{2k} + \\frac{1}{2(100-k)}$\n\nLet $f(k) = \\frac{1}{2k} + \\frac{1}{2(100-k)}$ for $16 \\le k < 76$.\n\nWe want to maximize $f(k)$.\n\nLet’s write $f(k) = \\frac{100 - k + k}{2k(100 - k)} = \\frac{100}{2k(100 - k)}$\n\nSo $f(k)$ is maximized when $k(100 - k)$ is minimized for $16 \\le k < 76$.\n\n$k(100 - k)$ is minimized at the endpoints, i.e., $k = 16$ or $k = 75$.\n\nFor $k = 16$:\n\n$f(16) = \\frac{100}{2 \\cdot 16 \\cdot 84} = \\frac{100}{2 \\cdot 1344} = \\frac{100}{2688} = \\frac{25}{672}$\n\nFor $k = 75$:\n\n$f(75) = \\frac{100}{2 \\cdot 75 \\cdot 25} = \\frac{100}{2 \\cdot 1875} = \\frac{100}{3750} = \\frac{2}{75}$\n\nNow, $\\frac{25}{672} \\approx 0.0372$, $\\frac{2}{75} \\approx 0.0267$, so $\\frac{25}{672}$ is larger.\n\nTherefore, the maximum is $\\frac{25}{672}$, so $m = 25$, $n = 672$, $m+n = 697$.\n\nAnswer: $697$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-4247",
+      "name": "2022 AIME I #0ksn",
+      "url": "https://usamoguide.com/",
+      "source": "2022 AIME I",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorial optimization",
+        "Integers",
+        "Coloring schemes, extremal arguments"
+      ],
+      "statement": "Let $a$, $b$, $c$, $d$, $e$, $f$, $g$, $h$, $i$ be distinct integers from $1$ to $9$. The minimum possible positive value of\n$$\n\\frac{a \\cdot b \\cdot c - d \\cdot e \\cdot f}{g \\cdot h \\cdot i}\n$$\ncan be written as $\\frac{m}{n}$, where $m$ and $n$ are relatively prime positive integers. Find $m+n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFirst consider the case when $abc = def + 1$. Let $X = abc$. Then\n$$\n\\frac{abc - def}{ghi} = \\frac{1}{ghi} = \\frac{abcdef}{9!} = \\frac{X \\cdot (X-1)}{9!}\n$$\nBecause $X > 1$, this is an increasing function of $X$. Note that $X(X - 1) = abcdef \\ge 6!$, and therefore $X \\ge 28$. Either $X$ or $X - 1$ is odd and is therefore a product of three distinct odd factors from $\\{1, 2, \\dots, 9\\}$.\nIf $X - 1 = 27$, then $\\{d, e, f\\} = \\{1, 3, 9\\}$. However, $X = 28$ is not factorable into three distinct positive integers each greater than $1$. The next odd number greater than $27$ whose prime factors are less than $10$ is $35 = 7 \\cdot 5 \\cdot 1$. If either $X$ or $X - 1$ is $35$, then the other is either $34$ or $36$. But $17$ is a prime factor of $34$, so this forces $X$ to be $36 = 6 \\cdot 3 \\cdot 2$.\nTherefore in the case when $abc$ and $def$ are consecutive integers, the minimum value of the expression is\n$$\n\\frac{36 \\cdot 35}{9!} = \\frac{6 \\cdot 3 \\cdot 2 - 7 \\cdot 5 \\cdot 1}{9 \\cdot 8 \\cdot 4} = \\frac{1}{288}\n$$\nIf $abc \\ge def + 2$, then\n$$\n\\frac{abc - def}{ghi} \\ge \\frac{2}{9 \\cdot 8 \\cdot 7} = \\frac{1}{252} > \\frac{1}{288}\n$$\nHence the least possible positive value of the expression is $\\frac{1}{288}$. The requested sum is $1 + 288 = 289$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-4401",
+      "name": "HMMT February #0kwx",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cartesian coordinates",
+        "Inclusion-exclusion",
+        "Greatest common divisors (gcd)",
+        "Combinatorial optimization"
+      ],
+      "statement": "Problem:\n\nLet $S$ be the set of all points in the plane whose coordinates are positive integers less than or equal to $100$ (so $S$ has $100^{2}$ elements), and let $\\mathcal{L}$ be the set of all lines $\\ell$ such that $\\ell$ passes through at least two points in $S$. Find, with proof, the largest integer $N \\geq 2$ for which it is possible to choose $N$ distinct lines in $\\mathcal{L}$ such that every two of the chosen lines are parallel.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet the lines all have slope $\\frac{p}{q}$ where $p$ and $q$ are relatively prime. Without loss of generality, let this slope be positive. Consider the set of points that consists of the point of $S$ with the smallest coordinates on each individual line in the set $L$. Consider a point $(x, y)$ in this, because there is no other point in $S$ on this line with smaller coordinates, either $x \\leq q$ or $y \\leq p$. Additionally, since each line passes through at least two points in $S$, we need $x+q \\leq 100$ and $y+p \\leq 100$.\n\nThe shape of this set of points will then be either a rectangle from $(1,1)$ to $(100-q, 100-p)$ with the rectangle from $(q+1, p+1)$ to $(100-q, 100-p)$ removed, or if $100-q<q+1$ or $100-p<p+1$, just the initial rectangle. This leads us to two formulas for the number of lines,\n$$\nN= \\begin{cases}(100-p)(100-q)-(100-2 p)(100-2 q) & p, q<50 \\\\ (100-p)(100-q) & \\text{ otherwise }\\end{cases}\n$$\nIn the first case, we need to minimize the quantity\n$$\n\\begin{aligned}\n(100-p)(100-q)-(100-2 p)(100-2 q) & =100(p+q)-3 p q \\\\\n& =\\frac{10000}{3}-3\\left(q-\\frac{100}{3}\\right)\\left(p-\\frac{100}{3}\\right)\n\\end{aligned}\n$$\nif one of $p, q$ is above $100 / 3$ and the other is below it, we would want to maximize how far these two are from $100 / 3$. The case $(p, q)=(49,1)$ will be the optimal case since all other combinations will have $p, q$'s closer to $100 / 3$, this gives us $4853$ cases.\n\nIn the second case, we need to minimize $p$ and $q$ while keeping at least one above $50$ and them relatively prime. From here we need only check $(p, q)=(50,1)$ since for all other cases, we can reduce either $p$ or $q$ to increase the count. This case gives a maximum of $4950$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-4435",
+      "name": "HMMT November 2023 #0kxv",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2023",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Induction / smoothing",
+        "Combinatorial optimization"
+      ],
+      "statement": "Problem:\n\nThere are $n \\geq 2$ coins, each with a different positive integer value. Call an integer $m$ sticky if some subset of these $n$ coins have total value $m$. We call the entire set of coins a stick if all the sticky numbers form a consecutive range of integers. Compute the minimum total value of a stick across all sticks containing a coin of value $100$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSort a stick by increasing value. Note that all sticks must contain $1$ by necessity, or the largest and second largest sticky values would not be consecutive. So, let's say a stick's highest coin value is $a$, and all the other terms have a value of $S$. If $a \\geq S+2$, we cannot build $S+1$, but we can produce $S$ and $S+2$, meaning that this cannot happen. So, $a \\leq S+1$, and therefore $100 \\leq S+1 \\rightarrow S \\geq 99$ giving a lower bound on the answer of $199$. This is easily achievable by picking any stick with $S=99$. For instance, $\\{1,2,3,7,12,24,50,100\\}$ is a construction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-4457",
+      "name": "HMMT November #0kyh",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Coloring schemes, extremal arguments",
+        "Games / greedy algorithms",
+        "Combinatorial optimization"
+      ],
+      "statement": "Problem:\n\nThe integers from $1$ to $9$ are arranged in a $3 \\times 3$ grid. The rows and columns of the grid correspond to $6$ three-digit numbers, reading rows from left to right, and columns from top to bottom. Compute the least possible value of the largest of the $6$ numbers.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe $5$ cells that make up the top row and left column are all leading digits of the three-digit numbers. Therefore, the largest number has leading digit at least $5$, achievable only if $6,7,8$, and $9$ are placed in the bottom right $2 \\times 2$ square. Then, the only three-digit numbers with tens digit less than $6$ are the top row and the left column, so unless $5$ is in the top left corner, the three-digit number starting with $5$ will be at least $560$.\n\nNow observe $5$ is next to two other digits; if they are not $1$ or $2$ in some order, then either the top row or left column will read at least $530$. Thus we can assume $5$ is next to $1$ or $2$. The next-smallest remaining digit is $3$, so the three-digit number starting with $52$ must be at least $523$. This is achievable as shown below.\n\n| 5 | 2 | 3 |\n| :--- | :--- | :--- |\n| 1 | 6 | 7 |\n| 4 | 8 | 9 |"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-4614",
+      "name": "HMMT November 2024 #0l2u",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2024",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Games / greedy algorithms",
+        "Coloring schemes, extremal arguments",
+        "Combinatorial optimization"
+      ],
+      "statement": "Problem:\n\nAlf, the alien from the 1980s TV show, has a big appetite for the mineral apatite. However, he's currently on a diet, so for each integer $k \\geq 1$, he can eat exactly $k$ pieces of apatite on day $k$. Additionally, if he eats apatite on day $k$, he cannot eat on any of days $k+1, k+2, \\ldots, 2k-1$. Compute the maximum total number of pieces of apatite Alf could eat over days $1,2, \\ldots, 99,100$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nIf Alf doesn't eat on day $100$, he could have changed his diet so that he eats on all the same days except the last day is changed to $100$. This attains strictly more apatite, and therefore an optimal diet must have Alf eating on day $100$.\n\nKnowing this, Alf must not have eaten anything on days $51, \\ldots, 99$. Now, by the same logic, Alf must have eaten on day $50$. Continuing the logic recursively gives that Alf must have eaten on days\n$$\n100, 50, 25, 12, 6, 3, 1\n$$\nThe sum of these numbers is $197$.\n\nSolution:\n\nThe answer is $197$, achieved by Alf eating on days $1, 3, 6, 12, 25, 50, 100$. We show that we could not do better.\n\nLet $a_{1} > a_{2} > \\cdots > a_{k}$ be the days that Alf ate apatite. By the problem's condition, $a_{i} \\geq 2 a_{i+1}$ for all $i$. Thus, beginning with $a_{1} \\leq 100$, we deduce that\n- $a_{2} \\leq \\left\\lfloor \\frac{a_{1}}{2} \\right\\rfloor = 50$,\n- $a_{3} \\leq \\left\\lfloor \\frac{a_{2}}{2} \\right\\rfloor = 25$,\n- $a_{4} \\leq \\left\\lfloor \\frac{a_{3}}{2} \\right\\rfloor = 12$,\n- $a_{5} \\leq \\left\\lfloor \\frac{a_{4}}{2} \\right\\rfloor = 6$,\n- $a_{6} \\leq \\left\\lfloor \\frac{a_{5}}{2} \\right\\rfloor = 3$,\n- $a_{7} \\leq \\left\\lfloor \\frac{a_{6}}{2} \\right\\rfloor = 1$,\nand hence $k \\leq 7$. Thus, $a_{1} + \\cdots + a_{k} \\leq 100 + 50 + 25 + 12 + 6 + 3 + 1 = 197$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-4668",
+      "name": "HMMT February 2024 #0l4c",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2024",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Coloring schemes, extremal arguments",
+        "Combinatorial optimization"
+      ],
+      "statement": "Problem:\nOn each cell of a $200 \\times 200$ grid, we place a car, which faces in one of the four cardinal directions. In a move, one chooses a car that does not have a car immediately in front of it, and slides it one cell forward. If a move would cause a car to exit the grid, the car is removed instead. The cars are placed so that there exists a sequence of moves that eventually removes all the cars from the grid. Across all such starting configurations, determine the maximum possible number of moves to do so.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $n=100$. The answer is $\\frac{1}{2} n\\left(12 n^{2}+3 n-1\\right)=6014950$.\nA construction for an $8 \\times 8$ grid instead (so $n=4$ ):\n\n![](attached_image_1.png)\n\nLabel the rows and columns from 1 to $2 n$, and let $(r, c)$ denote the cell at row $r$, column $c$. The cars can be cleared in the following order:\n- Remove all cars in row $n$.\n- For each row $k=n-1, \\ldots, 1$, move the $n$ upward-facing cars in row $k$ once, then remove all remaining cars in row $k$.\n- Now all cars in the upper-left quarter of the grid can be removed, then those in the upper-right, then those in the lower-right.\n\nMoreover, this starting configuration indeed requires\n$$\n4 \\cdot \\frac{n^{2}(3 n+1)}{2}-\\frac{n(n+1)}{2}=\\frac{1}{2} n\\left(12 n^{2}+3 n-1\\right)\n$$\nmoves to clear.\n\nNow we show this is the best possible. Take some starting configuration for which it is possible for all cars to leave. For each car $c$, let $d(c)$ denote the number of moves $c$ makes before it exits. Partition the grid into concentric square \"rings\" $S_{1}, \\ldots, S_{n}$, such that $S_{1}$ consists of all cells on the border of the grid, $\\ldots, S_{n}$ consists of the four central cells:\n\n![](attached_image_2.png)\n\nSince all cars can be removed, each $S_{k}$ contains some car $c$ which points away from the ring, so that $d(c)=k$. Now fix some ring $S_{k}$. Then:\n- If car $c$ is at a corner of $S_{k}$, we have $d(c) \\leq 2 n+1-k$.\n- Each car $c$ on the bottom edge of $S_{k}$, say at $(x, k)$ for $k<x<2 n+1-k$, can be paired with the opposing car $c^{\\prime}$ at $(x, 2 n+1-k)$. As $c, c^{\\prime}$ cannot point toward each other, we have\n$$\nd(c)+d\\left(c^{\\prime}\\right) \\leq(2 n+1-k)+\\max \\{x, 2 n+1-x\\} .\n$$\nLikewise, we can pair each car $c$ at $(k, x)$ with the opposing car $c^{\\prime}$ at $(2 n+1-k, x)$, getting the same bound.\n- If $d(c)=k$, then pairing it with the opposing car $c^{\\prime}$ gives $d(c)+d\\left(c^{\\prime}\\right) \\leq 2 n+1$. Note that this is less than the previous bound, by at least\n$$\n\\max \\{x, 2 n+1-x\\}-k \\geq n+1-k>0\n$$\nSumming the contributions $d(c)$ from the four corners, each pair among the non-corner cars, and a pair involving an outward-facing car gives\n$$\n\\sum_{c \\in S_{k}} d(c) \\leq 4(2 n+1-k)+4\\left(\\sum_{x=k+1}^{n}[(2 n+1-k)+(2 n+1-x)]\\right)-(n+1-k)\n$$\nOne can verify that this evaluates to $\\frac{1}{2} n\\left(12 n^{2}+3 n-1\\right)$; alternatively, note that equality holds in our construction, so summing over all $1 \\leq k \\leq n$ must yield the desired tight upper bound."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-4675",
+      "name": "25th Bay Area Mathematical Olympiad #0l4j",
+      "url": "https://usamoguide.com/",
+      "source": "25th Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Pigeonhole principle",
+        "Coloring schemes, extremal arguments",
+        "Combinatorial optimization"
+      ],
+      "statement": "Problem:\n\nC/1 Sugar Station sells 44 different kinds of candies, packaged one to a box. Each box is priced at a positive integer number of cents, and it costs $1.51$ to buy one of every kind. (There is no discount based on the number of candies in a purchase.) Unfortunately, Anna only has $0.75$.\n\na) Show that Anna can buy at least 22 boxes, each containing a different candy.\n\nb) Show that Anna can do even better, buying at least 25 boxes, each containing a different candy.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFor part (a), pick boxes containing 22 different candies chosen at random. Let their total cost be $m$ cents. If $m \\leq 75$, Anna can buy these candies. Otherwise, $m \\geq 76$. In this case, the other 22 candies have a total cost of $151-m \\leq 75$ cents, so Anna can buy those candies instead.\n\nFor part (b), rank the candies from most to least expensive and consider the $19^{\\text{th}}$ candy in the ranking. If this candy costs 4 cents or more, then the first 19 candies cost at least 76 cents and so the last 25 candies cost at most 75 cents. But if the $19^{\\text{th}}$ most expensive candy costs 3 cents or less, then so do the remaining 25 candies in the list, so the last 25 candies again cost at most 75 cents."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-combinatorial-optimization-auto-4740",
+      "name": "HMMT February #0l6c",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Integers",
+        "Combinatorial optimization"
+      ],
+      "statement": "Problem:\n\nEthan initially writes some numbers on a blackboard, each of which is either a $3$ or a $5$. He then repeatedly picks two numbers and replaces them with their sum, difference, product, or quotient (if the divisor is nonzero). Let $f(n)$ denote the minimum number of numbers Ethan must initially write for him to be able to eventually write the number $n$. For example, $f(2025) \\leq 6$ because Ethan could start with $3$, $3$, $3$, $3$, $5$, and $5$ on the board, then repeatedly multiply two numbers at a time to eventually get $2025$.\n\nSubmit a comma-separated ordered 8-tuple of integers corresponding to the values of $f(164)$, $f(187)$, $f(191)$, $f(224)$, $f(255)$, $f(286)$, $f(374)$, and $f(479)$, in that order, or an X for any value you wish to leave blank. For instance, if you think $f(164) = 9$ and $f(224) = 8$, you should submit \"9, X, X, 8, X, X, X, X\". You will earn $\\left|0.6^{W} \\cdot \\frac{(C + 1)^{2}}{4}\\right|$ points, where $C$ is the number of correct answers you submit and $W$ is the number of incorrect (non-blank) answers.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe following expressions represent optimal ways for Ethan to make each of the 8 given numbers.\n\n$$164 = 3(5(5 + 5) + 3) + 5$$\n\n$$187 = 3(3 + 5)(3 + 5) - 5$$\n\n$$191 = 5 \\cdot 5(3 + 5) - 3 \\cdot 3$$\n\n$$224 = (3 + 5)(5 \\cdot 5 + 3)$$\n\n$$255 = 5 \\cdot 5(5 + 5) + 5$$\n\n$$286 = (3 + 5 + 5)(5 \\cdot 5 - 3)$$\n\n$$374 = 3 \\cdot 5 \\cdot 5 \\cdot 5 - 3 / 3 = 3 \\cdot 5 \\cdot 5 \\cdot 5 - 5 / 5$$\n\n$$479 = (5 \\cdot 5 - 3)(5 \\cdot 5 - 3) - 5 = (3 - 5 \\cdot 5)(3 - 5 \\cdot 5) - 5$$\n\nIt can be checked by code that these are optimal."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

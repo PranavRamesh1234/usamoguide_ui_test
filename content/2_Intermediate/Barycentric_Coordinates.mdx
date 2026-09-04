@@ -1,0 +1,360 @@
+---
+id: barycentric-coordinates-intermediate
+title: Barycentric Coordinates
+author: Mehul Biala
+description: Master the algebraic form of Mass Point Geometry. Learn to instantly solve complex cevian intersections, area ratios, and collinearity problems without construction lines.
+prerequisites: []
+---
+
+## Overview
+
+Traditional Euclidean geometry requires drawing clever auxiliary lines, finding similar triangles, and relying on flashes of insight. **Barycentric Coordinates** (and their cousin, Mass Point Geometry) offer a completely different approach: they turn geometry into pure algebra. 
+
+By placing imaginary "weights" at the vertices of a triangle, you can locate any point inside the triangle as a center of mass. This allows you to compute intersection ratios and areas of completely arbitrary lines with zero geometric construction.
+
+## 1. The Core Intuition: Weights and Areas
+
+Let $\triangle ABC$ be our reference triangle. Any point $P$ inside the triangle can be defined by three masses, $m_A, m_B, m_C$, placed at the vertices $A, B$, and $C$, such that $P$ perfectly balances the triangle on a pinpoint.
+
+<div style={{ display: 'flex', justifyContent: 'center', margin: '2rem 0' }}>
+  <svg viewBox="0 0 300 200" width="100%" height="200" xmlns="http://www.w3.org/2000/svg">
+    <!-- Main Triangle (Mathematically Strict) -->
+    <polygon points="150,30 30,170 270,170" fill="none" stroke="white" strokeWidth="2"/>
+    <!-- True Cevians intersecting perfectly at P(130,100) -->
+    <line x1="150" y1="30" x2="110" y2="170" stroke="white" strokeWidth="1" strokeDasharray="4"/>
+    <line x1="30" y1="170" x2="180" y2="65" stroke="white" strokeWidth="1" strokeDasharray="4"/>
+    <line x1="270" y1="170" x2="102" y2="86" stroke="white" strokeWidth="1" strokeDasharray="4"/>
+    <!-- Point P -->
+    <circle cx="130" cy="100" r="4" fill="#60a5fa"/>
+    <text x="135" y="90" fontFamily="sans-serif" fontSize="14" fill="#60a5fa">P</text>
+    
+    <!-- Area Regions (Positioned at exact sub-triangle centroids) -->
+    <text x="143" y="150" textAnchor="middle" fontFamily="sans-serif" fontSize="12" fill="#f472b6">[Area A]</text>
+    <text x="185" y="105" textAnchor="middle" fontFamily="sans-serif" fontSize="12" fill="#34d399">[Area B]</text>
+    <text x="95" y="105" textAnchor="middle" fontFamily="sans-serif" fontSize="12" fill="#a78bfa">[Area C]</text>
+
+    <!-- Vertices -->
+    <text x="150" y="20" textAnchor="middle" fontFamily="sans-serif" fill="white">A (mass A)</text>
+    <text x="30" y="190" textAnchor="middle" fontFamily="sans-serif" fill="white">B (mass B)</text>
+    <text x="270" y="190" textAnchor="middle" fontFamily="sans-serif" fill="white">C (mass C)</text>
+  </svg>
+</div>
+
+The barycentric coordinates of $P$ are written as a ratio of these masses: **$P = [m_A : m_B : m_C]$**.
+
+### The Areal Definition & Extracting Area Ratios
+There is a beautiful geometric reality behind these masses. The weight $m_A$ at vertex $A$ is directly proportional to the area of the triangle *opposite* to vertex $A$ (which is $\triangle BPC$). 
+Therefore, the exact barycentric coordinates are just the area ratios:
+
+$$ 
+P = [\text{Area}(BPC) : \text{Area}(CPA) : \text{Area}(APB)] 
+$$
+
+*(Note: The coordinates $[1:2:3]$ represent the exact same point as $[2:4:6]$. They are homogeneous, meaning only the **ratio** between the numbers matters).*
+
+**Crucial AIME Application:** This is actually the most commonly used barycentric fact on the AIME. If you have algebraically calculated that a point $P = [x:y:z]$, you can instantly extract the area ratios of the sub-triangles formed by $P$:
+
+$$ 
+[BCP] : [CAP] : [ABP] = x : y : z 
+$$
+
+Many AIME problems reduce directly to "Find an area ratio," and if you know the coordinates of the point, the answer literally drops right out of the brackets.
+
+### Mass Points vs. Barycentrics
+Because this module is aimed at intermediate/advanced competitors, we must clarify the distinction between Mass Point Geometry and full Barycentric Coordinates:
+* **Mass Points** handles *edges* and *cevian intersections*. It is a mechanical balancing act.
+* **Barycentric Coordinates** is the generalized algebraic framework. It additionally handles *arbitrary interior points*, *full area computations*, *collinearity tests*, and *coordinate algebra*. 
+
+If you are only balancing lines, Mass Points is sufficient. If you are calculating the area of a floating triangle formed by three random line intersections, you must upgrade to Barycentrics.
+
+## 2. The Golden Rule of Edges (The Swap)
+
+The most critical skill in Barycentrics is placing a point on an edge. 
+If a point $D$ lies on segment $BC$, its mass at $A$ is $0$ because the area of $\triangle BDC$ is $0$. Thus, $D$ has coordinates of the form $[0 : m_B : m_C]$.
+
+**The Lever Principle:** To balance a line segment $BC$ at point $D$, the mass at $B$ times the distance $BD$ must equal the mass at $C$ times the distance $DC$. 
+
+$$ 
+m_B \cdot BD = m_C \cdot DC \implies \frac{m_B}{m_C} = \frac{DC}{BD} 
+$$
+
+Notice the **swap**! If $BD : DC = 1 : 2$, the larger distance is on the $C$ side, which means the heavier mass must be on the $B$ side to balance it. 
+Therefore, if $BD : DC = 1 : 2$, the coordinates are $D = [0 : 2 : 1]$.
+
+<div style={{ display: 'flex', justifyContent: 'center', margin: '2rem 0' }}>
+  <svg viewBox="0 0 300 80" width="100%" height="80" xmlns="http://www.w3.org/2000/svg">
+    <!-- Segment BC -->
+    <line x1="30" y1="40" x2="270" y2="40" stroke="white" strokeWidth="3"/>
+    <!-- Points -->
+    <circle cx="30" cy="40" r="5" fill="white"/>
+    <circle cx="270" cy="40" r="5" fill="white"/>
+    <circle cx="110" cy="40" r="5" fill="#60a5fa"/> <!-- Point D at 1/3 distance -->
+    
+    <!-- Labels -->
+    <text x="30" y="25" textAnchor="middle" fontFamily="sans-serif" fill="white">B (mass=2)</text>
+    <text x="270" y="25" textAnchor="middle" fontFamily="sans-serif" fill="white">C (mass=1)</text>
+    <text x="110" y="25" textAnchor="middle" fontFamily="sans-serif" fill="#60a5fa">D [0:2:1]</text>
+    
+    <!-- Ratios -->
+    <text x="70" y="60" textAnchor="middle" fontFamily="sans-serif" fontSize="12" fill="#9ca3af">Distance 1</text>
+    <text x="190" y="60" textAnchor="middle" fontFamily="sans-serif" fontSize="12" fill="#9ca3af">Distance 2</text>
+  </svg>
+</div>
+
+## 3. Finding Intersections (The Magic of Addition)
+
+When two cevians (lines from a vertex to the opposite side) intersect, Barycentric coordinates find the intersection instantly using pure addition. 
+
+If you have a triangle where the total mass at $A$ is $m_A$, at $B$ is $m_B$, and at $C$ is $m_C$, the center of mass $P$ is simply the sum of the weights:
+
+$$ 
+P = [m_A : m_B : m_C] 
+$$
+
+Furthermore, $P$ must lie on the line connecting $A$ to the center of mass of $BC$. If $D$ is the center of mass of $BC$, then $D = [0 : m_B : m_C]$. 
+The ratio in which $P$ divides the cevian $AD$ is exactly the ratio of the masses:
+
+$$ 
+\frac{AP}{PD} = \frac{\text{Mass at } D}{\text{Mass at } A} = \frac{m_B + m_C}{m_A} 
+$$
+
+### Famous Triangle Centers
+If you memorize these fundamental coordinates, many AIME problems collapse in seconds, circumventing angle-chasing completely.
+
+| Center | Coordinates | Notes |
+| :--- | :--- | :--- |
+| **Centroid ($G$)** | $[1 : 1 : 1]$ | All areas equal, medians intersect symmetrically. |
+| **Incenter ($I$)** | $[a : b : c]$ | Masses are exactly the side lengths of the triangle. |
+| **Symmedian Point ($K$)** | $[a^2 : b^2 : c^2]$ | Highly useful in AIME for isogonal conjugates. |
+| **Orthocenter ($H$)** | $[\tan A : \tan B : \tan C]$ | Often easier than synthetic altitude proofs. |
+
+*(Note: The Circumcenter ($O$) is $[\sin 2A : \sin 2B : \sin 2C]$ but its algebraic manipulation often gets ugly. Use with caution.)*
+
+## 4. Lines, Collinearity, and Concurrency
+
+To graduate from "Mass Points" to true "Barycentrics", you must be able to describe lines that don't pass through vertices.
+
+### Explicit Equation of a Line
+If a line contains two known points $P = [p : q : r]$ and $Q = [u : v : w]$, then *any* point on the line $PQ$ can be written as a linear combination of those two points:
+
+$$ 
+[\lambda p + \mu u : \lambda q + \mu v : \lambda r + \mu w] 
+$$
+
+where $\lambda$ and $\mu$ are real numbers. This is immensely powerful for proving that a third mystery point lies on a known line.
+
+### The Collinearity Test (Determinant)
+This theorem appears constantly on Olympiad-level geometry. Three points $P = [p_1 : q_1 : r_1]$, $Q = [p_2 : q_2 : r_2]$, and $R = [p_3 : q_3 : r_3]$ are **collinear** if and only if the determinant of their coordinates is exactly zero:
+
+$$ 
+\begin{vmatrix} p_1 & q_1 & r_1 \\ p_2 & q_2 & r_2 \\ p_3 & q_3 & r_3 \end{vmatrix} = 0 
+$$
+
+*(This is identical to the Area Determinant formula we will use later—if the area of the triangle formed by three points is 0, they must form a straight line!)*
+
+### Concurrency via Ceva in Mass Form
+Suppose we have three points on the sides of $\triangle ABC$: $D \in BC$, $E \in CA$, and $F \in AB$. 
+The cevians $AD, BE,$ and $CF$ are concurrent (meet at a single point) if and only if Ceva's Theorem holds:
+
+$$ 
+\frac{BD}{DC} \cdot \frac{CE}{EA} \cdot \frac{AF}{FB} = 1 
+$$
+
+Barycentrics provide an automatic, constructive proof of Ceva. If the three lines concur at a point $P = [x:y:z]$, then the endpoints on the edges *must* be the sub-centers of mass: $D = [0:y:z]$, $E = [x:0:z]$, and $F = [x:y:0]$. 
+Taking the "Swap" ratios for each side:
+$$\frac{BD}{DC} = \frac{z}{y}, \quad \frac{CE}{EA} = \frac{x}{z}, \quad \frac{AF}{FB} = \frac{y}{x}$$
+Multiplying them together gives $\frac{z}{y} \cdot \frac{x}{z} \cdot \frac{y}{x} = 1$. The algebra natively guarantees the geometry!
+
+## 5. A Contest Playbook
+
+When should you actually use Barycentric Coordinates during a high-stakes exam?
+
+**Use Barycentrics when you see:**
+* Several cevians intersecting inside a triangle.
+* Problems asking for Area Ratios of weird internal quadrilaterals or triangles.
+* "Mass Points" almost works, but the point isn't on a cevian.
+* A point is defined strictly by balancing conditions or side-length ratios.
+* Standard triangle centers ($G, I, K$) interacting with each other.
+* You need to prove three obscure points are collinear.
+
+**Do NOT use Barycentrics when:**
+* Circle geometry or angle-chasing dominates the problem (concyclic points are terrible in barycentrics).
+* The problem relies heavily on perpendicularity and lengths, but isn't tied to the orthocenter.
+* A Cartesian coordinate plane system is already simpler (e.g., right triangles resting on the $x$-axis).
+
+## Worked Examples
+
+### Example 1: The Classic Cevian Intersection
+
+**Problem:** In $\triangle ABC$, point $D$ is on $BC$ such that $BD:DC = 1:2$. Point $E$ is on $AC$ such that $CE:EA = 1:3$. The lines $AD$ and $BE$ intersect at $P$. Find the ratio $AP:PD$.
+
+<div style={{ display: 'flex', justifyContent: 'center', margin: '2rem 0' }}>
+  <svg viewBox="0 0 300 200" width="100%" height="200" xmlns="http://www.w3.org/2000/svg">
+    <!-- True Geometry: A(150,30), B(30,170), C(270,170) -->
+    <!-- D is 1/3 from B to C = (110, 170) -->
+    <!-- E is 3/4 from C to A = (180, 65) -->
+    <!-- P is intersection of AD and BE = [3:2:1] = (130, 100) -->
+    <polygon points="150,30 30,170 270,170" fill="none" stroke="white" strokeWidth="2"/>
+    
+    <!-- Cevian AD -->
+    <line x1="150" y1="30" x2="110" y2="170" stroke="#60a5fa" strokeWidth="2"/>
+    <!-- Cevian BE -->
+    <line x1="30" y1="170" x2="180" y2="65" stroke="#f472b6" strokeWidth="2"/>
+    
+    <!-- Intersection P -->
+    <circle cx="130" cy="100" r="4" fill="white"/>
+    
+    <text x="150" y="20" textAnchor="middle" fontFamily="sans-serif" fill="white">A [3:0:0]</text>
+    <text x="15" y="185" fontFamily="sans-serif" fill="white">B [0:2:0]</text>
+    <text x="260" y="185" fontFamily="sans-serif" fill="white">C [0:0:1]</text>
+    <text x="110" y="190" textAnchor="middle" fontFamily="sans-serif" fill="#60a5fa">D [0:2:1]</text>
+    <text x="215" y="65" textAnchor="middle" fontFamily="sans-serif" fill="#f472b6">E [3:0:1]</text>
+    <text x="115" y="95" fontFamily="sans-serif" fill="white">P</text>
+  </svg>
+</div>
+
+**Solution:**
+We must assign masses to $A, B$, and $C$ so that both $D$ and $E$ are perfectly balanced.
+1. For $D$ on $BC$, $BD:DC = 1:2$. By the swap rule, $D = [0:2:1]$. This requires $m_B = 2$ and $m_C = 1$.
+2. For $E$ on $AC$, $CE:EA = 1:3$. By the swap rule, $E = [3:0:1]$. This requires $m_A = 3$ and $m_C = 1$.
+
+Notice that the mass at $C$ is identically $1$ in both requirements! Our system is already perfectly balanced.
+The absolute weights are $m_A = 3$, $m_B = 2$, and $m_C = 1$. 
+
+The intersection $P$ is simply the sum of all three: 
+$$P = [3 : 2 : 1]$$
+The point $D$ is the sub-center of $B$ and $C$, carrying a combined mass of $m_B + m_C = 2 + 1 = 3$. 
+To find the ratio in which $P$ splits $AD$, we compare the mass at $D$ to the mass at $A$:
+$$\frac{AP}{PD} = \frac{\text{Mass at } D}{\text{Mass at } A} = \frac{3}{3} = 1:1$$
+The segments are exactly equal!
+
+*(Bonus: What about $BP:PE$? The mass at $E$ is $m_A + m_C = 3 + 1 = 4$. The mass at $B$ is $2$. Therefore, $BP:PE = 4:2 = 2:1$.)*
+
+### Example 2: The Incenter Split Theorem
+
+**Problem:** In $\triangle ABC$ with side lengths $BC=a, AC=b, AB=c$, the angle bisector of $A$ intersects $BC$ at $D$. Let $I$ be the incenter. Find the ratio $AI:ID$.
+
+**Solution:**
+Instead of a lengthy geometric proof involving similar triangles or the Angle Bisector Theorem, we apply Barycentrics.
+We know the incenter's coordinates are defined strictly by the side lengths:
+$$I = [a : b : c]$$
+The point $D$ lies on $BC$, meaning its $A$ coordinate is $0$. Since $D$ is on the cevian through $I$, its coordinates are just the $B$ and $C$ components of $I$:
+$$D = [0 : b : c]$$
+The combined mass at $D$ is $b + c$. The mass at $A$ is $a$.
+Using the cevian ratio rule:
+$$\frac{AI}{ID} = \frac{\text{Mass at } D}{\text{Mass at } A} = \frac{b+c}{a}$$
+The proof is complete in two lines of algebra.
+
+### Example 3: The Determinant Area Formula
+
+Barycentric coordinates possess a god-tier formula for calculating the area of any inner triangle. If you have three points $P, Q, R$ defined by their **normalized** barycentric coordinates (where the three components sum to exactly 1), the ratio of the area of $\triangle PQR$ to $\triangle ABC$ is the absolute value of the determinant of their coordinates:
+
+$$ 
+\frac{\text{Area}(PQR)}{\text{Area}(ABC)} = \left| \begin{vmatrix} p_A & p_B & p_C \\ q_A & q_B & q_C \\ r_A & r_B & r_C \end{vmatrix} \right|
+$$
+
+**Problem:** In Example 1, we found $D = [0:2:1]$, $E = [3:0:1]$, and $P = [3:2:1]$. What fraction of the total area of $\triangle ABC$ is contained within $\triangle PDE$?
+
+**Solution:**
+First, we must **normalize** the coordinates by dividing each by the sum of its masses so they add to 1.
+* $P = [3:2:1] \implies P = \left(\frac{3}{6}, \frac{2}{6}, \frac{1}{6}\right) = \left(\frac{1}{2}, \frac{1}{3}, \frac{1}{6}\right)$
+* $D = [0:2:1] \implies D = \left(0, \frac{2}{3}, \frac{1}{3}\right)$
+* $E = [3:0:1] \implies E = \left(\frac{3}{4}, 0, \frac{1}{4}\right)$
+
+Now, plug these into the determinant formula:
+$$ 
+\text{Area Ratio} = \begin{vmatrix} \frac{1}{2} & \frac{1}{3} & \frac{1}{6} \\ 0 & \frac{2}{3} & \frac{1}{3} \\ \frac{3}{4} & 0 & \frac{1}{4} \end{vmatrix} 
+$$
+
+Expand along the first column:
+$$= \frac{1}{2} \left( \frac{2}{3}\cdot\frac{1}{4} - \frac{1}{3}\cdot 0 \right) - 0 + \frac{3}{4} \left( \frac{1}{3}\cdot\frac{1}{3} - \frac{1}{6}\cdot\frac{2}{3} \right)$$
+$$= \frac{1}{2} \left( \frac{2}{12} \right) + \frac{3}{4} \left( \frac{1}{9} - \frac{2}{18} \right)$$
+Notice that $\frac{1}{9} - \frac{2}{18} = 0$.
+$$= \frac{1}{2} \left( \frac{1}{6} \right) = \frac{1}{12}$$
+
+The area of $\triangle PDE$ is exactly $\frac{1}{12}$ the area of $\triangle ABC$.
+
+### Example 4: AIME Level
+
+**Problem:** In $\triangle ABC$, point $D$ is on $BC$ such that $BD:DC = 2:3$. Point $E$ is on $AC$ such that $CE:EA = 3:4$. The cevians $AD$ and $BE$ intersect at $P$. The line $CP$ is drawn and intersects $AB$ at $F$. Find the area of $\triangle PEF$ as a fraction of the area of $\triangle ABC$.
+
+<div style={{ display: 'flex', justifyContent: 'center', margin: '2rem 0' }}>
+  <svg viewBox="0 0 300 200" width="100%" height="200" xmlns="http://www.w3.org/2000/svg">
+    <!-- True Geometry: A(150,20), B(30,160), C(270,160) -->
+    <!-- D: 2/5 from B to C = (126, 160) -->
+    <!-- E: 3/7 from C to A = (218.6, 100) -->
+    <!-- F: 2/3 from A to B = (70, 113.3) -->
+    <!-- P: intersection [3:6:4] = (133.8, 116.9) -->
+    <polygon points="150,20 30,160 270,160" fill="none" stroke="white" strokeWidth="2"/>
+    
+    <!-- Cevians -->
+    <line x1="150" y1="20" x2="126" y2="160" stroke="#60a5fa" strokeWidth="1" strokeDasharray="4"/>
+    <line x1="30" y1="160" x2="218.6" y2="100" stroke="#f472b6" strokeWidth="1" strokeDasharray="4"/>
+    <line x1="270" y1="160" x2="70" y2="113.3" stroke="#34d399" strokeWidth="1" strokeDasharray="4"/>
+    
+    <!-- Triangle PEF Highlight -->
+    <polygon points="133.8,116.9 218.6,100 70,113.3" fill="rgba(244,114,182,0.3)" stroke="#f472b6" strokeWidth="2"/>
+    
+    <!-- Intersection P -->
+    <circle cx="133.8" cy="116.9" r="4" fill="white"/>
+    
+    <!-- Labels -->
+    <text x="150" y="10" textAnchor="middle" fontFamily="sans-serif" fill="white">A</text>
+    <text x="15" y="170" fontFamily="sans-serif" fill="white">B</text>
+    <text x="280" y="170" fontFamily="sans-serif" fill="white">C</text>
+    <text x="126" y="178" textAnchor="middle" fontFamily="sans-serif" fill="#60a5fa">D</text>
+    <text x="230" y="95" textAnchor="middle" fontFamily="sans-serif" fill="#f472b6">E</text>
+    <text x="55" y="110" textAnchor="middle" fontFamily="sans-serif" fill="#34d399">F</text>
+    <text x="135" y="105" fontFamily="sans-serif" fill="white">P</text>
+  </svg>
+</div>
+
+**Solution:**
+This problem combines intersections, concurrency, and area ratios. A synthetic geometry solution is messy, but Barycentrics makes it automatic.
+
+1. **Assign Weights:** * $D$ on $BC$ splits $BD:DC = 2:3$. Swap the ratio: $D = [0:3:2]$. This needs $m_B = 3$, $m_C = 2$.
+   * $E$ on $AC$ splits $CE:EA = 3:4$. Swap the ratio: $E = [4:0:3]$. This needs $m_A = 4$, $m_C = 3$.
+
+2. **Balance the System:** We have a contradiction at $C$ ($2$ vs $3$). We must find a common multiple, which is $6$.
+   * Multiply $D$'s ratio by $3$: $D = [0:9:6]$. Thus, $m_B = 9, m_C = 6$.
+   * Multiply $E$'s ratio by $2$: $E = [8:0:6]$. Thus, $m_A = 8, m_C = 6$.
+   The universal weights are $m_A = 8, m_B = 9, m_C = 6$.
+
+3. **Find the Coordinates of the Points:**
+   * The intersection point is $P = [8 : 9 : 6]$.
+   * Because $CF$ is a cevian passing through $P$, $F$ is just the $A$ and $B$ components of $P$. 
+   * $F = [8 : 9 : 0]$.
+   *(Notice how Barycentrics automatically proved Ceva's theorem for us! We didn't need to manually calculate $AF:FB$.)*
+
+4. **Apply the Determinant Formula:**
+   We need the area of $\triangle PEF$. We must normalize the coordinates of $P, E, F$:
+   * $P = [8:9:6] \implies (8/23, 9/23, 6/23)$
+   * $E = [8:0:6] \implies (8/14, 0, 6/14) = (4/7, 0, 3/7)$
+   * $F = [8:9:0] \implies (8/17, 9/17, 0)$
+
+   $$ 
+   \text{Area Ratio} = \left| \begin{vmatrix} \frac{8}{23} & \frac{9}{23} & \frac{6}{23} \\ \frac{4}{7} & 0 & \frac{3}{7} \\ \frac{8}{17} & \frac{9}{17} & 0 \end{vmatrix} \right|
+   $$
+   
+   Factor out the denominators: $\frac{1}{23 \cdot 7 \cdot 17} = \frac{1}{2737}$.
+   
+   $$ 
+   = \frac{1}{2737} \left| \begin{vmatrix} 8 & 9 & 6 \\ 4 & 0 & 3 \\ 8 & 9 & 0 \end{vmatrix} \right|
+   $$
+   
+   Expand along the second row:
+   $$ 
+   = \frac{1}{2737} \left| -4(0 - 54) + 0 - 3(72 - 72) \right| = \frac{1}{2737} \left| 216 \right| = \frac{216}{2737}
+   $$
+
+The area of $\triangle PEF$ is exactly $\frac{216}{2737}$ the area of $\triangle ABC$.
+
+## Common Pitfalls
+
+- **Forgetting to Normalize:** You can use raw ratios $[3:2:1]$ to find points on lines, but if you want to use the Determinant Area Formula, you **must** scale them so they add to $1$ (e.g., $(3/6, 2/6, 1/6)$).
+- **The Swap Trap:** Remember that if $BD:DC = 2:5$, the larger mass must go to the side with the smaller distance. The coordinates are $D = [0:5:2]$, NOT $[0:2:5]$.
+- **Mismatched System Weights:** If you define $D$ forcing $C$ to have a mass of $3$, and you define $E$ forcing $C$ to have a mass of $5$, you cannot combine them yet. You must multiply the entire $D$ ratio by 5 and the $E$ ratio by 3 to create a universal mass of 15 at $C$ before adding them to find an intersection.
+
+## Practice Problems
+
+<Problems problems="practice" />

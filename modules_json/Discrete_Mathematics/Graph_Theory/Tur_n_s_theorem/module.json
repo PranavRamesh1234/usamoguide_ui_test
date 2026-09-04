@@ -1,0 +1,99 @@
+{
+  "MODULE_ID": "discrete-mathematics-graph-theory-tur-n-s-theorem",
+  "practice": [
+    {
+      "uniqueId": "discrete-mathematics-graph-theory-tur-n-s-theorem-auto-1598",
+      "name": "Team Selection Test #0ir2",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Turán's theorem",
+        "Pigeonhole principle",
+        "Cartesian coordinates"
+      ],
+      "statement": "For a pair $A = (x_1, y_1)$ and $B = (x_2, y_2)$ of points on the coordinate plane, let $d(A, B) = |x_1 - x_2| + |y_1 - y_2|$. We call a pair $(A, B)$ of (unordered) points *harmonic* if $1 < d(A, B) \\le 2$. Determine the maximum number of harmonic pairs among 100 points on the plane.\n\n(This problem was suggested by Zuming Feng and Oleg Golberg.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "We claim that there do not exist five points on the plane such that they are pairwise harmonic. Suppose such a set of five points exists. We say $(x_1, y_1)$ precedes $(x_2, y_2)$, denoted by $(x_1, y_1) \\prec (x_2, y_2)$, if and only if $x_1 \\le x_2$ and $y_1 \\le y_2$. This defines a partial order on the set. Because it has five elements, it has either a chain or an antichain of three elements. Let $A, B, C$ in the order of their $x$-coordinates form a chain or an antichain under the ordering we defined. Then $d(A, B) + d(B, C) = d(A, C)$ and all pairs of $A, B, C$ cannot be good. (This may also be proved by invoking the pigeon-hole principle to prove the more general result of Erdős-Szekeres: a sequence of $mn + 1$ real numbers either contains a non-increasing sequence of length $m+1$ or a non-decreasing sequence of length $n+1$.)\n\nConsider the graph with vertices at 100 points of the plane and edges connecting good pairs. Then due to the above statement the graph has no complete subgraph with 5 vertices. By Turan's theorem it has at most\n$$\n\\binom{100}{2} - 4 \\cdot \\binom{25}{2} = 3750 = 6 \\cdot 25^2\n$$\nedges. Therefore, every set of 100 points of the plane has at most 3750 harmonic pairs.\n\nTo complete our proof, we show that the bound 3750 can be attained. Consider the square with vertices at $A(0,1)$, $B(1,0)$, $C(0,-1)$, $D(-1,0)$. On each of the sides $AB, BC, CD, DA$ choose 25 points close to $A, B, C, D$, respectively. Among the chosen 100 points, any pair of two points lying on different sides of the square is good. Therefore, $6 \\cdot 25^2 = 3750$ is the maximum number of good pairs among 100 points of the plane."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-graph-theory-tur-n-s-theorem-auto-3299",
+      "name": "HMMT February 2018 #0k2b",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2018",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Turán's theorem",
+        "Coloring schemes, extremal arguments"
+      ],
+      "statement": "Problem:\n\nHow many graphs are there on $10$ vertices labeled $1,2, \\ldots, 10$ such that there are exactly $23$ edges and no triangles?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nNote that the sum of the degrees of the graph is $23 \\cdot 2 = 46$, so at least one vertex has degree $5$ or more. We casework on the maximal degree $n$.\n\nCase 1: $n \\geq 7$, then none of the $n$ neighbors can have an edge between each other, for $\\binom{n}{2}$ edges unusable, and the vertex with maximal degree cannot connect to the $9-n$ other vertices. Then we have $\\binom{n}{2} + 9 - n > \\binom{10}{2} - 23 = 22$ when $n \\geq 7$, so there cannot be any graph in this case.\n\nCase 2: $n = 6$. WLOG suppose that $1$ is connected to $2,3,4,5,6,7$, then none of $2,3,4,5,6,7$ can connect to each other.\n\nCase 2.1: There is at least one edge between $8,9,10$, then each of $2,3,4,5,6,7$ can connect to at most two of $8,9,10$, for at most $6 \\cdot 2 + \\binom{3}{2} = 15$ additional edges. Along with the $6$ original edges, it is not enough to reach $23$ edges.\n\nCase 2.2: There are no edges between $8,9,10$, then this graph is a bipartite graph between $1,8,9,10$ and $2,3,4,5,6,7$. There can be at most $4 \\cdot 6 = 24$ edges in this graph, so exactly one edge is removed from this graph. There are $\\binom{10}{4} \\cdot 24 = 5040$ possible graphs in this case.\n\nCase 3: $n = 5$. WLOG suppose that $1$ is connected to $2,3,4,5,6$, then none of $2,3,4,5,6$ can connect to each other.\n\nCase 3.1: There is at least one edge between $7,8,9,10$. Then each of $2,3,4,5,6$ can connect to at most three of $7,8,9,10$, for $5 \\cdot 3 = 15$ edges. In this case at least three of $7,8,9,10$ must not be connected to each other, so there can be at most three edges, for $5 + 15 + 3 = 23$ edges at most. However, this requires the three disconnected vertices of $7,8,9,10$ to be connected to all of $2,3,4,5,6$ and the other vertex of $7,8,9,10$, causing them to have degree $6$. We can therefore ignore this case. (The case where $2,3,4,5,6$ can connect to two or less of $7,8,9,10$ can be easily ruled out.)\n\nCase 3.2: There are no edges between $7,8,9,10$, then this graph is a bipartite graph between $1,7,8,9,10$ and $2,3,4,5,6$. This is a $K_{5,5}$ with two edges removed, which accounts for $\\binom{10}{5} / 2 \\cdot \\binom{25}{2} = 126 \\cdot 300 = 37800$ graphs.\n\nIt is not difficult to see that Case 2.2 and Case 3.2 are disjoint (by considering max degree), so there are $5040 + 37800 = 42840$ graphs in total."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-graph-theory-tur-n-s-theorem-auto-3756",
+      "name": "Berkeley Math Circle: Monthly Contest 4 #0kf0",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 4",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Turán's theorem",
+        "Coloring schemes, extremal arguments"
+      ],
+      "statement": "Problem:\n\nA simple graph $G$ on $2020$ vertices has its edges colored red and green. It turns out that any monochromatic cycle has even length. Given this information, what is the maximum number of edges $G$ could have?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nNote that $G$ has no $K_{5}$; indeed, it's well-known that the only triangle-free coloring of the edges of $K_{5}$ consists of two monochromatic $5$-cycles. Therefore, the number of edges of $G$ is at most $\\binom{4}{2} \\cdot 505^{2} = 1530150$ by Turán's theorem.\n\nTo show this occurs, we split the graph into four equally sized components $A, B, C, D$. We color red all edges between $A$ and $B$, or $C$ and $D$. We color green all edges between $A$ and $C$, $A$ and $D$, $B$ and $C$, and $B$ and $D$. This indeed has the claimed number of edges, and the subgraphs formed by each color are bipartite, so this solves the problem."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-graph-theory-tur-n-s-theorem-auto-3797",
+      "name": "USA TSTST #0kg5",
+      "url": "https://usamoguide.com/",
+      "source": "USA TSTST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Turán's theorem",
+        "Coloring schemes, extremal arguments",
+        "3D Shapes"
+      ],
+      "statement": "Ten million fireflies are glowing in $\\mathbb{R}^3$ at midnight. Some of the fireflies are friends, and friendship is always mutual. Every second, one firefly moves to a new position so that its distance from each one of its friends is the same as it was before moving. This is the only way that the fireflies ever change their positions. No two fireflies may ever occupy the same point.\n\nInitially, no two fireflies, friends or not, are more than a meter away. Following some finite number of seconds, all fireflies find themselves at least ten million meters away from their original positions. Given this information, find the greatest possible number of friendships between the fireflies.\n\nIn general, we show that when $n \\ge 70$, the answer is $f(n) = \\lfloor \\frac{n^2}{3} \\rfloor$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**Construction:** Choose three pairwise parallel lines $l_A, l_B, l_C$ forming an infinite equilateral triangle prism (with side larger than 1). Split the $n$ fireflies among the lines as equally as possible, and say that two fireflies are friends iff they lie on different lines.\nTo see this works:\n1. Reflect $l_A$ and all fireflies on $l_A$ in the plane containing $l_B$ and $l_C$.\n2. Reflect $l_B$ and all fireflies on $l_B$ in the plane containing $l_C$ and $l_A$.\n3. Reflect $l_C$ and all fireflies on $l_C$ in the plane containing $l_A$ and $l_B$.\n...\n\n**Proof:** Consider a valid configuration of fireflies. If there is no 4-clique of friends, then by Turán's theorem, there are at most $f(n)$ pairs of friends.\nLet $g(n)$ be the answer, given that there exist four pairwise friends (say $a, b, c, d$). Note that for a firefly to move, all its friends must be coplanar.\n\n**Claim (No coplanar $K_4$) —** We can't have four coplanar fireflies which are pairwise friends.\n*Proof.* If we did, none of them could move (unless three are collinear, in which case they can't move). □\n\n**Claim (Key claim — tetrahedrons don't share faces often) —** There are at most 12 fireflies $e$ which are friends with at least three of $a, b, c, d$.\n*Proof.* First denote by $A, B, C, D$ the locations of fireflies $a, b, c, d$. These four positions change over time as fireflies move, but the tetrahedron $ABCD$ always has a fixed shape, and we will take this tetrahedron as our reference frame for the remainder of the proof.\nWLOG, will assume that $e$ is friends with $a, b, c$. Then $e$ will always be located at one of two points $E_1$ and $E_2$ relative to $ABC$, such that $E_1ABC$ and $E_2ABC$ are two congruent tetrahedrons with fixed shape. We note that points $D, E_1$, and $E_2$ are all different: clearly $D \\neq E_1$ and $E_1 \\neq E_2$. (If $D = E_2$, then some fireflies won't be able to move.)\nConsider the moment where firefly $a$ moves. Its friends must be coplanar at that time, so one of $E_1, E_2$ lies in plane $BCD$. Similar reasoning holds for planes $ACD$ and $ABD$.\nSo, WLOG $E_1$ lies on both planes $BCD$ and $ACD$. Then $E_1$ lies on line $CD$, and $E_2$ lies in plane $ABD$. This uniquely determines $(E_1, E_2)$ relative to $ABCD$:\n\n* $E_1$ is the intersection of line $CD$ with the reflection of plane $ABD$ in plane $ABC$.\n* $E_2$ is the intersection of plane $ABD$ with the reflection of line $CD$ in plane $ABC$.\nAccounting for WLOGs, there are at most 12 possibilities for the set $\\{E_1, E_2\\}$, and thus at most 12 possibilities for $E$. (It's not possible for both elements of one pair $\\{E_1, E_2\\}$ to be occupied, because then they couldn't move.) □\nThus, the number of friendships involving exactly one of $a, b, c, d$ is at most $(n-16) \\cdot 2+12 \\cdot 3 = 2n+4$, so removing these four fireflies gives\n$$\ng(n) \\le 6 + (2n + 4) + \\max\\{f(n-4), g(n-4)\\}.\n$$\nThe rest of the solution is bounding. When $n \\ge 24$, we have $(2n+10)+f(n-4) \\le f(n)$, so\n$$\ng(n) \\le \\max\\{f(n), (2n+10) + g(n-4)\\} \\quad \\forall n \\ge 24.\n$$\nBy iterating the above inequality, we get\n$$\ng(n) \\le \\max \\left\\{ f(n), (2n+10) + (2(n-4)+10) \\right. \\\\ \\left. \\qquad + \\cdots + (2(n-4r)+10) + g(n-4r-4) \\right\\},\n$$\nwhere $r$ satisfies $n - 4r - 4 < 24 \\le n - 4r$.\nNow\n$$\n\\begin{aligned} & (2n + 10) + (2(n - 4) + 10) + \\dots + (2(n - 4r) + 10) + g(n - 4r - 4) \\\\ &= (r + 1)(2n - 4r + 10) + g(n - 4r - 4) \\\\ &\\le \\left(\\frac{n}{4} - 5\\right) (n + 37) + \\binom{24}{2}. \\end{aligned}\n$$\nThis is less than $f(n)$ for $n \\ge 70$, which concludes the solution."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

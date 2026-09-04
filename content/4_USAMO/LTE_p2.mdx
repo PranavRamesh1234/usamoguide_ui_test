@@ -1,0 +1,387 @@
+---
+id: lifting-the-exponent-lemma-p2
+title: Lifting the Exponent Lemma
+author: USAMO Guide Team
+description: Learn how the Lifting the Exponent Lemma helps compute prime powers dividing expressions such as a^n-b^n and a^n+b^n.
+prerequisites: []
+---
+
+### Example 2
+
+> Find $v_5(11^{20}-1)$.
+
+We apply LTE with
+
+$$
+p=5,\qquad a=11,\qquad b=1,\qquad n=20.
+$$
+
+Since
+
+$$
+5\mid 11-1
+$$
+
+and
+
+$$
+5\nmid 11,
+$$
+
+LTE gives
+
+$$
+v_5(11^{20}-1)=v_5(11-1)+v_5(20).
+$$
+
+Now
+
+$$
+v_5(11-1)=v_5(10)=1
+$$
+
+and
+
+$$
+v_5(20)=1.
+$$
+
+Therefore,
+
+$$
+v_5(11^{20}-1)=2.
+$$
+
+So $25$ divides $11^{20}-1$, but $125$ does not.
+
+### Example 3
+
+> Find $v_7(15^{14}-1)$.
+
+Use LTE with
+
+$$
+p=7,\qquad a=15,\qquad b=1,\qquad n=14.
+$$
+
+Since
+
+$$
+15\equiv 1 \pmod 7,
+$$
+
+we have
+
+$$
+7\mid 15-1.
+$$
+
+Also $7\nmid 15$, so the conditions hold.
+
+As such
+
+$$
+v_7(15^{14}-1)=v_7(15-1)+v_7(14).
+$$
+
+Now both $15-1$ and $14$ contain exactly one factor of $7$, so
+
+$$
+v_7(15-1)=1
+$$
+
+and
+
+$$
+v_7(14)=1.
+$$
+
+Therefore,
+
+$$
+v_7(15^{14}-1)=2.
+$$
+
+So the largest power of $7$ dividing $15^{14}-1$ is $7^2$.
+
+## Sum Form
+
+There is also a useful sum version of LTE.
+
+Let $p$ be an odd prime. Suppose that
+
+$$
+p\mid a+b
+$$
+
+and
+
+$$
+p\nmid ab.
+$$
+
+If $n$ is odd, then
+
+$$
+v_p(a^n+b^n)
+=
+v_p(a+b)+v_p(n).
+$$
+
+This follows by applying the difference form to
+
+$$
+a^n-(-b)^n.
+$$
+
+When $n$ is odd,
+
+$$
+(-b)^n=-b^n,
+$$
+
+so
+
+$$
+a^n-(-b)^n=a^n+b^n.
+$$
+
+## Worked Examples for the Sum Form
+
+### Example 4
+
+> Find $v_3(8^9+1)$.
+
+We use the sum form with
+
+$$
+p=3,\qquad a=8,\qquad b=1,\qquad n=9.
+$$
+
+Since
+
+$$
+3\mid 8+1
+$$
+
+and $n$ is odd, LTE gives
+
+$$
+v_3(8^9+1)=v_3(8+1)+v_3(9).
+$$
+
+Now both $8+1$ and $9$ contain exactly two factors of $3$, so
+
+$$
+v_3(8+1)=2
+$$
+
+and
+
+$$
+v_3(9)=2.
+$$
+
+Therefore,
+
+$$
+v_3(8^9+1)=4.
+$$
+
+So the largest power of $3$ dividing $8^9+1$ is $3^4$.
+
+### Example 5
+
+> Find $v_5(4^{15}+1)$.
+
+Since
+
+$$
+5\mid 4+1
+$$
+
+and $15$ is odd, we may apply the sum form:
+
+$$
+v_5(4^{15}+1)=v_5(4+1)+v_5(15).
+$$
+
+Now
+
+$$
+v_5(4+1)=v_5(5)=1
+$$
+
+and
+
+$$
+v_5(15)=1.
+$$
+
+Thus
+
+$$
+v_5(4^{15}+1)=2.
+$$
+
+So $25$ divides $4^{15}+1$, but $125$ does not.
+
+## The Case $p=2$
+
+The prime $2$ requires special care. The simplest useful version is the
+following.
+
+If $a$ and $b$ are odd positive integers and $n$ is a positive integer, then
+
+### If $n$ is odd
+
+$$
+v_2(a^n-b^n)=v_2(a-b).
+$$
+
+### If $n$ is even
+
+$$
+v_2(a^n-b^n)
+=
+v_2(a-b)+v_2(a+b)+v_2(n)-1.
+$$
+
+This version is very useful, but it is also easier to misuse. Always check that
+$a$ and $b$ are odd before applying it.
+
+## Worked Examples for $p=2$
+
+### Example 6
+
+> Find $v_2(5^{12}-1)$.
+
+Here
+
+$$
+a=5,\qquad b=1,\qquad n=12.
+$$
+
+Since $a$ and $b$ are odd and $n$ is even, we use the even version:
+
+$$
+v_2(5^{12}-1)
+=
+v_2(5-1)+v_2(5+1)+v_2(12)-1.
+$$
+
+Now
+
+$$
+v_2(5-1)=v_2(4)=2,
+$$
+
+$$
+v_2(5+1)=v_2(6)=1,
+$$
+
+and
+
+$$
+v_2(12)=2.
+$$
+
+Therefore,
+
+$$
+v_2(5^{12}-1)=2+1+2-1=4.
+$$
+
+So the largest power of $2$ dividing $5^{12}-1$ is $2^4$.
+
+### Example 7
+
+> Find $v_2(7^9-1)$.
+
+Here
+
+$$
+a=7,\qquad b=1,\qquad n=9.
+$$
+
+Since $a$ and $b$ are odd and $n$ is odd,
+
+$$
+v_2(7^9-1)=v_2(7-1).
+$$
+
+Thus
+
+$$
+v_2(7^9-1)=v_2(6)=1.
+$$
+
+So the largest power of $2$ dividing $7^9-1$ is $2$.
+
+## Using LTE in Olympiad Problems
+
+LTE is most useful when a problem asks for:
+- The highest power of a prime dividing an expression
+- Divisibility by a large prime power
+- Solving equations involving expressions like $a^n-b^n$
+- Comparing valuations on both sides of an equation
+- Proving that an expression is not a perfect power
+
+A common pattern is to apply $v_p$ to both sides of an equation.
+
+For example, if a problem gives
+
+$$
+a^n-b^n=p^k,
+$$
+
+then applying LTE can turn the equation into a much simpler statement about
+
+$$
+v_p(a-b)+v_p(n).
+$$
+
+## Key Contest Insight
+
+When you see an expression like
+
+$$
+a^n-b^n
+$$
+
+or
+
+$$
+a^n+b^n,
+$$
+
+and a prime divides $a-b$ or $a+b$, consider using LTE.
+
+The key question is not just whether the prime divides the expression, but how
+many times it divides the expression.
+
+LTE converts a difficult divisibility question into a simple valuation formula.
+
+## Strategy Tips
+
+- Check whether the expression is of the form $a^n-b^n$ or $a^n+b^n$.
+- Identify the prime $p$ whose power you want to count.
+- Check whether $p\mid a-b$ for the difference form.
+- Check whether $p\mid a+b$ and $n$ is odd for the sum form.
+- Make sure $p\nmid ab$.
+- Treat $p=2$ separately.
+- After applying LTE, compute each valuation carefully.
+- In equation problems, take $v_p$ of both sides.
+
+## Common Pitfalls
+
+- Applying the odd prime version when $p=2$.
+- Forgetting to check that $p\nmid ab$.
+- Using the sum form when $n$ is even.
+- Confusing $v_p(a-b)$ with $a-b$ itself.
+- Forgetting that $v_p(n)$ contributes extra powers of $p$.
+- Applying LTE before checking that $p$ divides $a-b$ or $a+b$.
+
+## Practice Problems
+
+<Problems problems="practice" />

@@ -1,0 +1,648 @@
+{
+  "MODULE_ID": "number-theory-number-theoretic-functions-sum-of-divisors",
+  "practice": [
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-sum-of-divisors-auto-0513",
+      "name": "Berkeley Math Circle: Monthly Contest 7 #0hwx",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 7",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "σ (sum of divisors)",
+        "τ (number of divisors)",
+        "Greatest common divisors (gcd)"
+      ],
+      "statement": "Problem:\nLet $\\sigma(n)$ denote the sum of the positive divisors of $n$. We say $n$ is perfect if $\\sigma(n)=2 n$. If $n$ is a positive integer such that\n$$\n\\frac{\\sigma(n)}{n}=\\frac{5}{3}\n$$\nshow that $5 n$ is an odd perfect number.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nNote that $\\sigma(n) / n$ is the sum of the reciprocals of the divisors of $n$. Since $3 \\sigma(n)=5 n$, $n$ must be divisible by $3$. If $n$ were even, then $n$ would be divisible by $6$, so we would get\n$$\n\\frac{\\sigma(n)}{n} \\geq 1+\\frac{1}{2}+\\frac{1}{3}+\\frac{1}{6}=2>\\frac{5}{3}\n$$\na contradiction. Thus, $n$ is odd, so $\\sigma(n)$ is odd as well. This means $n$ is a perfect square, since $\\sigma(n)$ is the sum of the (odd) divisors of $n$, and $n$ has an odd number of divisors if and only if it is a square. Thus, since $n$ is divisible by $3$, it is also divisible by $9$. Now we claim that $n$ is not divisible by $5$. If so, it would also be divisible by $45$, so we would get\n$$\n\\frac{\\sigma(n)}{n} \\geq 1+\\frac{1}{3}+\\frac{1}{5}+\\frac{1}{9}+\\frac{1}{15}+\\frac{1}{45}=\\frac{78}{45}=\\frac{26}{15}>\\frac{5}{3} .\n$$\nThus, $n$ is not divisible by $5$, so $\\sigma(5 n)=\\sigma(5) \\sigma(n)=6 \\sigma(n)$. Thus we get\n$$\n\\frac{\\sigma(5 n)}{5 n}=\\frac{6}{5} \\cdot \\frac{\\sigma(n)}{n}=\\frac{6}{5} \\cdot \\frac{5}{3}=2 .\n$$\nThus, $5 n$ is a perfect number, and since $n$ is odd, $5 n$ is odd as well."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-sum-of-divisors-auto-0567",
+      "name": "1st Bay Area Mathematical Olympiad #0hyf",
+      "url": "https://usamoguide.com/",
+      "source": "1st Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Factorization techniques",
+        "σ (sum of divisors)"
+      ],
+      "statement": "Problem:\n\nProve that among any 12 consecutive positive integers there is at least one which is smaller than the sum of its proper divisors. (The proper divisors of a positive integer $n$ are all positive integers other than 1 and $n$ which divide $n$. For example, the proper divisors of 14 are 2 and 7.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nOne of the twelve numbers must be a multiple of twelve; call it $a = 12 n$. Among the proper divisors of $a$ are the integers $2 n$, $3 n$, $4 n$, $6 n$. These sum to $15 n > a$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-sum-of-divisors-auto-0678",
+      "name": "Berkeley Math Circle Monthly Contest #7 #0i1i",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest #7",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "σ (sum of divisors)",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\n\nShow that there exist infinitely many natural numbers $n$ with the following property: the sum of all the positive divisors of $n$, excluding $n$ itself, equals $n+12$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $p$ be any prime number greater than $3$; we show that $n = 6p$ has the desired property. The positive divisors of $6p = 2 \\cdot 3 \\cdot p$ are $1, 2, 3, p, 2 \\cdot 3, 2 \\cdot p, 3 \\cdot p$, and $2 \\cdot 3 \\cdot p$. The sum of all the factors other than $6p$ is equal to $6p + 12$, as needed.\n\nIt is well known that there are infinitely many prime numbers. Since each value of $p$ gives a different value for $n = 6p$, we obtain infinitely many values for $n$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-sum-of-divisors-auto-0861",
+      "name": "Harvard-MIT Math Tournament #0i6l",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "σ (sum of divisors)",
+        "Factorization techniques"
+      ],
+      "statement": "Problem:\nFind the sum of the even positive divisors of $1000$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n$2184$. Notice that $2k$ is a divisor of $1000$ if and only if $k$ is a divisor of $500$, so we need only find the sum of the divisors of $500$ and multiply by $2$. This can be done by enumerating the divisors individually, or simply by using the formula: \n$$\n\\sigma\\left(2^{2} \\cdot 5^{3}\\right) = (1+2+2^{2})(1+5+5^{2}+5^{3}) = 1092,\n$$\nand then doubling gives $2184$.\n\nAlternate Solution: The sum of all the divisors of $1000$ is \n$$\n(1+2+2^{2}+2^{3})(1+5+5^{2}+5^{3}) = 2340.\n$$\nThe odd divisors of $1000$ are simply the divisors of $125$, whose sum is $1+5+5^{2}+5^{3}=156$; subtracting this from $2340$, we are left with the sum of the even divisors of $1000$, which is $2184$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-sum-of-divisors-auto-0891",
+      "name": "5th Bay Area Mathematical Olympiad #0i7f",
+      "url": "https://usamoguide.com/",
+      "source": "5th Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "σ (sum of divisors)",
+        "Factorization techniques"
+      ],
+      "statement": "Problem:\n\nAn integer is a perfect number if and only if it is equal to the sum of all of its divisors except itself. For example, $28$ is a perfect number since $28 = 1 + 2 + 4 + 7 + 14$.\n\nLet $n!$ denote the product $1 \\cdot 2 \\cdot 3 \\cdots n$, where $n$ is a positive integer. An integer is a factorial if and only if it is equal to $n!$ for some positive integer $n$. For example, $24$ is a factorial number since $24 = 4! = 1 \\cdot 2 \\cdot 3 \\cdot 4$.\n\nFind all perfect numbers greater than $1$ that are also factorials.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe only perfect factorial is $6 = 3!$. Certainly, $2! = 2$ is not perfect. For $n > 3$, note that $n! = 6k$, where $k > 1$, and thus the factors of $n!$ will include $1, k, 2k, 3k$. This sums to $6k + 1$, showing that $n!$ is not perfect."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-sum-of-divisors-auto-0913",
+      "name": "Harvard-MIT Mathematics Tournament #0i81",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "σ (sum of divisors)",
+        "Factorization techniques"
+      ],
+      "statement": "Problem:\nFind the sum of the reciprocals of all the (positive) divisors of $144$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAs $d$ ranges over the divisors of $144$, so does $144 / d$, so the sum of $1 / d$ is $1 / 144$ times the sum of the divisors of $144$. Using the formula for the sum of the divisors of a number (or just counting them out by hand), we get that this sum is $403$, so the answer is $403/144$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-sum-of-divisors-auto-1031",
+      "name": "Harvard-MIT Mathematics Tournament #0ibb",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "σ (sum of divisors)",
+        "Floors and ceilings",
+        "Counting two ways"
+      ],
+      "statement": "Problem:\nLet $\\sigma(n)$ denote the sum of the (positive) divisors of $n$, including $1$ and $n$ itself.\nProve that\n$$\n\\sigma(1)+\\sigma(2)+\\sigma(3)+\\cdots+\\sigma(n) \\leq n^{2}\n$$\nfor every positive integer $n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe $i$th term on the left is the sum of all $d$ dividing $i$. If we write this sum out explicitly, then each term $d=1,2,\\ldots,n$ appears $\\lfloor n/d \\rfloor$ times—once for each multiple of $d$ that is $\\leq n$. Thus, the sum equals\n$$\n\\begin{aligned}\n\\lfloor n/1 \\rfloor + 2\\lfloor n/2 \\rfloor + 3\\lfloor n/3 \\rfloor + \\cdots + n\\lfloor n/n \\rfloor &\\leq n/1 + 2n/2 + 3n/3 + \\cdots + n/n \\\\\n&= n + n + \\cdots + n \\\\\n&= n^{2}.\n\\end{aligned}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-sum-of-divisors-auto-1033",
+      "name": "Harvard-MIT Mathematics Tournament #0ibd",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "σ (sum of divisors)",
+        "Counting two ways",
+        "Telescoping series",
+        "Floors and ceilings"
+      ],
+      "statement": "Problem:\nProve that\n$$\n\\frac{\\sigma(1)}{1}+\\frac{\\sigma(2)}{2}+\\frac{\\sigma(3)}{3}+\\cdots+\\frac{\\sigma(n)}{n} \\leq 2 n\n$$\nfor every positive integer $n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThis is similar to the previous solution. If $d$ is a divisor of $i$, then so is $i/d$, and $(i/d)/i = 1/d$. Summing over all $d$, we see that $\\sigma(i)/i$ is the sum of the reciprocals of the divisors of $i$, for each positive integer $i$. So, summing over all $i$ from $1$ to $n$, we get the value $1/d$ appearing $\\lfloor n/d \\rfloor$ times, once for each multiple of $d$ that is at most $n$. In particular, the sum is\n$$\n\\frac{1}{1}\\left\\lfloor\\frac{n}{1}\\right\\rfloor+\\frac{1}{2}\\left\\lfloor\\frac{n}{2}\\right\\rfloor+\\frac{1}{3}\\left\\lfloor\\frac{n}{3}\\right\\rfloor+\\cdots+\\frac{1}{n}\\left\\lfloor\\frac{n}{n}\\right\\rfloor < \\frac{n}{1^{2}}+\\frac{n}{2^{2}}+\\cdots+\\frac{n}{n^{2}}.\n$$\nSo now all we need is $1/1^{2} + 1/2^{2} + \\cdots + 1/n^{2} < 2$. This can be obtained from the classic formula $1/1^{2} + 1/2^{2} + \\cdots = \\pi^{2}/6$, or from the more elementary estimate\n$$\n\\begin{aligned}\n1/2^{2} + 1/3^{2} + \\cdots + 1/n^{2} &< 1/(1 \\cdot 2) + 1/(2 \\cdot 3) + \\cdots + 1/((n-1) \\cdot n) \\\\\n&= (1/1 - 1/2) + (1/2 - 1/3) + \\cdots + (1/(n-1) - 1/n) \\\\\n&= 1 - 1/n \\\\\n&< 1.\n\\end{aligned}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-sum-of-divisors-auto-1395",
+      "name": "10th Annual Harvard-MIT Mathematics Tournament #0ilf",
+      "url": "https://usamoguide.com/",
+      "source": "10th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "φ (Euler's totient)",
+        "σ (sum of divisors)",
+        "τ (number of divisors)",
+        "Factorization techniques"
+      ],
+      "statement": "Problem:\n\nEvaluate the functions $\\phi(n)$, $\\sigma(n)$, and $\\tau(n)$ for $n=12$, $n=2007$, and $n=2^{2007}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFor $n=12=2^{2} \\cdot 3^{1}$,\n$$\n\\phi(12)=2(2-1)(3-1)=4, \\quad \\sigma(12)=(1+2+4)(1+3)=28, \\quad \\tau(12)=(2+1)(1+1)=6\n$$\n\nFor $n=2007=3^{2} \\cdot 223$,\n$$\n\\phi(2007)=3(3-1)(223-1)=1332, \\quad \\sigma(2007)=(1+3+9)(1+223)=2912, \\quad \\tau(2007)=(2+1)(1+1)=6\n$$\n\nFor $n=2^{2007}$,\n$$\n\\phi\\left(2^{2007}\\right)=2^{2006}, \\quad \\sigma\\left(2^{2007}\\right)=\\left(1+2+\\cdots+2^{2007}\\right)=2^{2008}-1, \\quad \\tau\\left(2^{2007}\\right)=2007+1=2008\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-sum-of-divisors-auto-1396",
+      "name": "Harvard-MIT Mathematics Tournament #0ilg",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "σ (sum of divisors)",
+        "Sums and products"
+      ],
+      "statement": "Problem:\n\nFind the sum of the positive integer divisors of $2^{2007}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n$2^{2007}$ has divisors $1, 2, 2^2, \\ldots, 2^{2007}$. The sum is\n$$\n1 + 2 + 2^2 + \\cdots + 2^{2007} = 2^{2008} - 1.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-sum-of-divisors-auto-1407",
+      "name": "10th Annual Harvard-MIT Mathematics Tournament #0ilr",
+      "url": "https://usamoguide.com/",
+      "source": "10th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "φ (Euler's totient)",
+        "σ (sum of divisors)",
+        "Factorization techniques",
+        "Sums and products",
+        "Telescoping series"
+      ],
+      "statement": "Problem:\nFind all pairs $(n, k)$ of positive integers such that\n$$\nsigma(n) \\phi(n) = \\frac{n^{2}}{k}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $(1, 1)$.\n\nIt is clear that for a given integer $n$, there is at most one integer $k$ for which the equation holds. For $n=1$ this is $k=1$. But, for $n>1$, problem 1 asserts that $\\sigma(n) \\phi(n) \\leq n^{2}-1 < n^{2}$, so that $k \\geq 2$. We now claim that $2 > \\frac{n^{2}}{\\sigma(n) \\phi(n)}$. Write $n = p_{1}^{e_{1}} \\cdots p_{k}^{e_{k}}$, where the $p_{i}$ are distinct primes and $e_{i} \\geq 1$ for all $i$, and let $q_{1} < q_{2} < \\cdots$ be the primes in ascending order. Then\n$$\n\\begin{aligned}\n& \\frac{n^{2}}{\\sigma(n) \\phi(n)} = \\prod_{i=1}^{k} \\frac{p_{i}^{2 e_{i}}}{\\frac{p_{i}^{e_{i}+1}-1}{p_{i}-1} \\cdot (p_{i}-1) p_{i}^{e_{i}-1}} = \\prod_{i=1}^{k} \\frac{p_{i}^{2 e_{i}}}{p_{i}^{2 e_{i}} - p_{i}^{e_{i}-1}} \\\\\n& \\quad = \\prod_{i=1}^{k} \\frac{1}{1 - p_{i}^{-1-e_{i}}} \\leq \\prod_{i=1}^{k} \\frac{1}{1 - p_{i}^{-2}} < \\prod_{i=1}^{\\infty} \\frac{1}{1 - q_{i}^{-2}} \\\\\n& \\quad = \\prod_{i=1}^{\\infty} \\left( \\sum_{j=0}^{\\infty} \\frac{1}{q_{i}^{2j}} \\right ) = \\sum_{n=1}^{\\infty} \\frac{1}{n^{2}} \\\\\n& \\quad < 1 + \\sum_{n=2}^{\\infty} \\frac{1}{n^{2}-1} = 1 + \\frac{1}{2} \\left( \\left( \\frac{1}{1} - \\frac{1}{3} \\right ) + \\left( \\frac{1}{2} - \\frac{1}{4} \\right ) + \\left( \\frac{1}{3} - \\frac{1}{5} \\right ) + \\cdots \\right ) = \\frac{7}{4} < 2.\n\\end{aligned}\n$$\nIt follows that there can be no solutions to $k = \\frac{n^{2}}{\\sigma(n) \\phi(n)}$ other than $n = k = 1$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-sum-of-divisors-auto-1445",
+      "name": "10th Annual Harvard-MIT Mathematics Tournament #0imt",
+      "url": "https://usamoguide.com/",
+      "source": "10th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "φ (Euler's totient)",
+        "σ (sum of divisors)",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\nProve that for every integer $n$ greater than $1$,\n$$\n\\sigma(n) \\phi(n) \\leq n^{2}-1\n$$\nWhen does equality hold?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nNote that\n$$\n\\sigma(m n) \\phi(m n) = \\sigma(m) \\phi(m) \\sigma(n) \\phi(n) \\leq (m^{2}-1)(n^{2}-1) = (m n)^{2} - (m^{2} + n^{2} - 1) < (m n)^{2} - 1\n$$\nfor any pair of relatively prime positive integers $(m, n)$ other than $(1,1)$. Now, for $p$ a prime and $k$ a positive integer, $\\sigma\\left(p^{k}\\right) = 1 + p + \\cdots + p^{k} = \\frac{p^{k+1}-1}{p-1}$ and $\\phi\\left(p^{k}\\right) = p^{k} - \\frac{1}{p} \\cdot p^{k} = (p-1) p^{k-1}$. Thus,\n$$\n\\sigma\\left(p^{k}\\right) \\phi\\left(p^{k}\\right) = \\frac{p^{k+1}-1}{p-1} \\cdot (p-1) p^{k-1} = (p^{k+1}-1) p^{k-1} = p^{2k} - p^{k-1} \\leq p^{2k} - 1\n$$\nwith equality where $k=1$. It follows that equality holds in the given inequality if and only if $n$ is prime."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-sum-of-divisors-auto-1503",
+      "name": "10th Annual Harvard-MIT Mathematics Tournament #0iof",
+      "url": "https://usamoguide.com/",
+      "source": "10th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "φ (Euler's totient)",
+        "τ (number of divisors)",
+        "σ (sum of divisors)",
+        "Sums and products"
+      ],
+      "statement": "Problem:\nDetermine with proof, a simple closed form expression for\n$$\n\\sum_{d \\mid n} \\phi(d) \\tau\\left(\\frac{n}{d}\\right)\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe claim the series reduces to $\\sigma(n)$. The series counts the ordered triples $(d, x, y)$ with $d \\mid n;\\ x \\mid d;\\ 0 < y \\leq n/d;$ and $(y, n/d) = 1$. To see this, write\n$$\n\\sum_{d \\mid n} \\phi(d) \\tau\\left(\\frac{n}{d}\\right) = \\sum_{d' \\mid n} \\phi\\left(\\frac{n}{d'}\\right) \\tau\\left(d'\\right)\n$$\nso that for a given $d' \\mid n$ we may choose $x$ and $y$ as described above. On the other hand, we can count these triples by groups sharing a given $x$. Fixing $x$ as a divisor of $n$ fixes an integer $\\frac{n}{x}$. Then $d$ varies such that $\\frac{n}{d}$ is a divisor of $\\frac{n}{x}$. For each divisor $\\frac{n}{d}$ of $\\frac{n}{x}$ there are precisely $\\phi\\left(\\frac{n}{d}\\right)$ choices $y$, so that by the lemma from the previous problem, there are $\\frac{n}{x}$ triples $(d, x, y)$ for a given $x$. It follows that there are precisely $\\sigma(n)$ such triples $(d, x, y)$.\n\nAgain, an alternative is to use the multiplicativity of the convolution, although it is now a little more difficult. Write $n = p^{k}$ so that\n$$\n\\begin{aligned}\n\\sum_{d \\mid n} & \\phi(d) \\tau\\left(\\frac{n}{d}\\right) = \\sum_{m=0}^{k} \\phi\\left(p^{m}\\right) \\tau\\left(p^{k-m}\\right) = k+1 + \\sum_{m=1}^{k} p^{m-1}(p-1)(k-m+1) \\\\\n& = k+1 + \\left(\\sum_{m=1}^{k} p^{m}(k-m+1)\\right) - \\left(\\sum_{m=1}^{k} p^{m-1}(k-m+1)\\right) = k+1 + p^{k} - k + \\sum_{m'=1}^{k-1} p^{m'} \\\\\n& = 1 + p + \\cdots + p^{k} = \\sigma\\left(p^{k}\\right)\n\\end{aligned}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-sum-of-divisors-auto-1671",
+      "name": "Bay Area Mathematical Olympiad #0it3",
+      "url": "https://usamoguide.com/",
+      "source": "Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Factorization techniques",
+        "σ (sum of divisors)",
+        "Sums and products",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\nA positive integer $N$ is called stable if it is possible to split the set of all positive divisors of $N$ (including $1$ and $N$) into two subsets that have no elements in common, which have the same sum. For example, $6$ is stable, because $1+2+3=6$ but $10$ is not stable. Is $2^{2008} \\cdot 2008$ stable?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nYes. In general, let $N$ be a number of the form $N=2^{k} p$, where $p$ is an odd prime less than $2^{k+1}$. We will show that one can form an expression, obtained by adding and subtracting together all the divisors of $N$, which is equal to zero. First note that\n$$\n2^{k} p-2^{k-1} p-\\cdots-p=p .\n$$\nThe remaining divisors are $1,2, \\ldots, 2^{k}$, whose sum is more than $p$. Thus we are able to write $\\left(2^{k+1}-1+p\\right) / 2$ as a sum of some subset of the remaining divisors simply by considering its binary representation. Clearly the unused terms will sum to $\\left(2^{k+1}-1-p\\right) / 2$. But the difference between these two quantities is $p$, just as above. It is now clear how to form the desired expression involving all divisors of $N$ which evaluates to zero, and you're done.\n\nIf $N$ is to be stable, then the factors of $N$ can be put on either side of an equal sign, and when these factors are summed, you get an equality. The highest power of $2$ that divides $N$ will either lie on the same side as $N$, or the opposite side. The key idea of David's solution is the observation that if $N$ is stable and the highest power of $2$ that divides $N$ lies on the opposite side of the equal sign from $N$, then $2N$ is also stable.\nFor example, $12$ is stable, because\n$$\n1+3+4+6=2+12 \\text{,}\n$$\nand notice that $4$ lies opposite $12$. To show that $24$ is stable, we let $4$ and $12$ exchange places, and then add in the two new factors ($8$ and $24$), getting\n$$\n1+3+12+6+8=4+24 \\text{.}\n$$\nIt is easy to see why this method works (verify it!)\nThe remainder of David's argument looks at $2008$, which is not stable, but he successively doubles it, making it more and more balanced, until he shows that $2008 \\cdot 2^{4}$ is stable. Then the algorithm described above will show that $2008 \\cdot 2^{k}$ is stable for all $k \\geq 4$.\n\nSolution:\n(Sketch) This solution, by David Spies of Albany High School, won the Brilliancy Award, because it used ideas that no other solution had.\nIf $N$ is to be stable, then the factors of $N$ can be put on either side of an equal sign, and when these factors are summed, you get an equality. The highest power of $2$ that divides $N$ will either lie on the same side as $N$, or the opposite side. The key idea of David's solution is the observation that if $N$ is stable and the highest power of $2$ that divides $N$ lies on the opposite side of the equal sign from $N$, then $2N$ is also stable."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-sum-of-divisors-auto-1725",
+      "name": "12th Annual Harvard-MIT Mathematics Tournament #0iul",
+      "url": "https://usamoguide.com/",
+      "source": "12th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "σ (sum of divisors)",
+        "Factorization techniques",
+        "Floors and ceilings"
+      ],
+      "statement": "Problem:\n\nCompute\n$$\n\\sum_{k=1}^{2009} k\\left(\\left\\lfloor\\frac{2009}{k}\\right\\rfloor-\\left\\lfloor\\frac{2008}{k}\\right\\rfloor\\right)\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe summand is equal to $k$ if $k$ divides $2009$ and $0$ otherwise. Thus the sum is equal to the sum of the divisors of $2009$, or $2394$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-sum-of-divisors-auto-2689",
+      "name": "HMMT 2014 #0jld",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2014",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "σ (sum of divisors)",
+        "Factorization techniques"
+      ],
+      "statement": "Problem:\n\nLet $D$ be the set of divisors of $100$. Let $Z$ be the set of integers between $1$ and $100$, inclusive. Mark chooses an element $d$ of $D$ and an element $z$ of $Z$ uniformly at random. What is the probability that $d$ divides $z$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe answer is $\\frac{217}{900}$.\n\nAs $100 = 2^{2} \\cdot 5^{2}$, there are $3 \\cdot 3 = 9$ divisors of $100$, so there are $900$ possible pairs of $d$ and $z$ that can be chosen.\n\nIf $d$ is chosen, then there are $\\frac{100}{d}$ possible values of $z$ such that $d$ divides $z$, so the total number of valid pairs of $d$ and $z$ is $\\sum_{d \\mid 100} \\frac{100}{d} = \\sum_{d \\mid 100} d = (1 + 2 + 2^{2})(1 + 5 + 5^{2}) = 7 \\cdot 31 = 217$.\n\nThe answer is therefore $\\frac{217}{900}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-sum-of-divisors-auto-3010",
+      "name": "HMMT November #0jua",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "σ (sum of divisors)",
+        "Algorithms"
+      ],
+      "statement": "Problem:\n\nFind the number of positive integers less than $1000000$ which are less than or equal to the sum of their proper divisors. If your answer is $X$ and the actual value is $Y$, your score will be $\\max \\left(0,20-80\\left|1-\\frac{X}{Y}\\right|\\right)$ rounded to the nearest integer.\n\nProposed by: Allen Liu",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $247548$\n\nThe following code computes the answer:\n\n```\nN = 1000000\ns = [0] * N\nans = 0\nfor i in range(1, N):\n    if i <= s[i]:\n        ans += 1\n    for j in range(i + i, N, i):\n        s[j] += i\nprint(ans)\n```\n\nHere, $s[i]$ stores the sum of proper divisors of $i$. For each $i$ from $1$ to $999999$, if $i \\leq s[i]$, we increment the answer."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-sum-of-divisors-auto-3380",
+      "name": "HMMT November 2018 #0k4k",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2018",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Factorization techniques",
+        "σ (sum of divisors)"
+      ],
+      "statement": "Problem:\n\nAnders is solving a math problem, and he encounters the expression $\\sqrt{15!}$. He attempts to simplify this radical by expressing it as $a \\sqrt{b}$ where $a$ and $b$ are positive integers. The sum of all possible distinct values of $a b$ can be expressed in the form $q \\cdot 15!$ for some rational number $q$. Find $q$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nNote that $15! = 2^{11} \\cdot 3^{6} \\cdot 5^{3} \\cdot 7^{2} \\cdot 11^{1} \\cdot 13^{1}$. The possible $a$ are thus precisely the factors of $2^{5} \\cdot 3^{3} \\cdot 5^{1} \\cdot 7^{1} = 30240$. Since $\\frac{a b}{15!} = \\frac{a b}{a^{2} b} = \\frac{1}{a}$, we have\n$$\n\\begin{aligned}\nq & = \\frac{1}{15!} \\sum_{\\substack{a, b: \\\\\na \\sqrt{b} = \\sqrt{15!}}} a b \\\\\n& = \\sum_{a \\mid 30240} \\frac{a b}{15!} \\\\\n& = \\sum_{a \\mid 30240} \\frac{1}{a} \\\\\n& = \\left(1 + \\frac{1}{2} + \\frac{1}{4} + \\frac{1}{8} + \\frac{1}{16} + \\frac{1}{32}\\right)\\left(1 + \\frac{1}{3} + \\frac{1}{9} + \\frac{1}{27}\\right)\\left(1 + \\frac{1}{5}\\right)\\left(1 + \\frac{1}{7}\\right) \\\\\n& = \\left(\\frac{63}{32}\\right)\\left(\\frac{40}{27}\\right)\\left(\\frac{6}{5}\\right)\\left(\\frac{8}{7}\\right) \\\\\n& = 4.\n\\end{aligned}"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-sum-of-divisors-auto-3602",
+      "name": "Bay Area Mathematical Olympiad #0kaq",
+      "url": "https://usamoguide.com/",
+      "source": "Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "σ (sum of divisors)",
+        "Inclusion-exclusion",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\nEvery positive integer is either nice or naughty, and the Oracle of Numbers knows which are which. However, the Oracle will not directly tell you whether a number is nice or naughty. The only questions the Oracle will answer are questions of the form \"What is the sum of all nice divisors of $n$?\", where $n$ is a number of the questioner's choice. For instance, suppose (just for this example) that $2$ and $3$ are nice, while $1$ and $6$ are naughty. In that case, if you asked the Oracle, \"What is the sum of all nice divisors of $6$?\", the Oracle's answer would be $5$.\nShow that for any given positive integer $n$ less than $1$ million, you can determine whether $n$ is nice or naughty by asking the Oracle at most four questions.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $f(u)$ denote the sum of all nice divisors of $u$. Note that $f(u) \\leq \\sigma(u)$, where $\\sigma(u)$ denotes the sum of all the divisors of $u$, including $1$ and $u$.\n\nWe also note the following facts about the $\\sigma$ function:\n\n1. $\\sigma$ is multiplicative: if $a$ and $b$ are relatively prime (share no prime factors), then $\\sigma(ab) = \\sigma(a) \\sigma(b)$.\n2. If $p$ is prime, then $\\sigma(p^{a}) = 1 + p + p^{2} + \\cdots + p^{a} = \\frac{p^{a+1} - 1}{p - 1} = p^{a} \\left(\\frac{p - 1 / p^{a}}{p - 1}\\right) < p^{a} \\left(\\frac{p}{p - 1}\\right)$.\n\nTo solve the problem, let us consider a few cases.\n\n- Suppose $n$ is prime. Then ask the Oracle to compute $f(n)$. Clearly $f(n) \\geq n$ if and only if $n$ is nice.\n\n- Suppose $n$ is a power of a prime, so $n = p^{a}$ for some prime $p$, with $a > 1$. Again, ask the Oracle to compute $f(n)$. We claim again that $f(n) \\geq n$ if and only if $n$ is nice. Clearly if $n$ is nice, then $f(n) > n$. But if $n$ is naughty, then $f(n) = f(p^{a-1}) \\leq \\sigma(p^{a-1}) < p^{a-1} \\left(\\frac{p}{p-1}\\right) \\leq 2 p^{a-1} \\leq p^{a}$.\n\n- Now suppose that $n$ has at least two prime factors, so we can write $n = p^{a} q^{b} R$, where $p, q$ are the two smallest primes found in the factorization of $n$, $a, b > 0$, and $R$ is an integer whose prime factorization does not contain $p$ or $q$ (of course, $R$ could equal $1$). Note that $R$ contains at most $5$ different primes, since the product of the first $8$ primes is larger than $1$ million. We will modify the previous strategy, where we examined a subset of the divisors of $n$ that were less than $n$ and whose sum was bounded below $n$; this allowed us to focus on $n$ and determine whether it is nice or naughty.\n\nThe subset of the divisors that we seek is the set $D$ of divisors of $n$ that are multiples of $p^{a} q^{b}$; in other words, $D := \\{ p^{a} q^{b} r : r \\text{ divides } R \\}$. We claim that the sum of the elements of $D$ is less than $2n$, and since $p^{a} q^{b} R = n \\in D$, we conclude that $n$ is nice if and only if the sum of the nice members of $D$ is greater than or equal to $n$ (this follows because our claim implies that the members of $D$ that are not $n$ have a sum that is strictly less than $n$).\n\nTwo things remain: to verify the claim that the sum of all the members of $D$ is less than $2n$, and we need to know how to get the Oracle to compute the sum of the nice members of $D$ with at most four questions.\n\n1. The sum of the members of $D$ is equal to $p^{a} q^{b} \\sigma(R)$. By fact #2 above,\n$$\n\\sigma(R) < R \\left(\\frac{p_{1}}{p_{1} - 1}\\right) \\left(\\frac{p_{2}}{p_{2} - 1}\\right) \\cdots\n$$\nwhere the $p_{i}$ range over the distinct prime factors of $R$. We know that there are at most five such prime factors, and this product is bounded above by\n$$\n\\left(\\frac{5}{4}\\right) \\left(\\frac{7}{6}\\right) \\left(\\frac{11}{10}\\right) \\left(\\frac{13}{12}\\right) \\left(\\frac{17}{16}\\right) = \\frac{7 \\cdot 11 \\cdot 13 \\cdot 17}{2^{10 \\cdot 9}} = \\frac{1001 \\cdot 17}{1024 \\cdot 9},\n$$\nwhich is clearly less than $2$.\n\n2. Finally, let the \"universal set\" be the divisors of $n$, and let $P$ and $Q$ denote the divisors of $n/p$ and $n/q$, respectively. It is easy to see that $P \\cup Q$ is the complement of $D$ (since membership in $P$ guarantees that the exponent of $p$ is too small, and membership in $Q$ does the same for $q$). By the inclusion-exclusion principle, the members of $D$ can be obtained by starting with the universal set (all divisors of $n$), removing members of $P$, removing members of $Q$, and then adding back in the members of $P \\cap Q$, which just consists of the divisors of $n/(pq)$. Consequently, the sum of the nice members of $D$ is given by\n$$\nf(n) - f(n/p) - f(n/q) + f(n/(pq))\n$$\nwhich requires just four questions to compute!"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-sum-of-divisors-auto-3796",
+      "name": "USA TSTST #0kg4",
+      "url": "https://usamoguide.com/",
+      "source": "USA TSTST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "σ (sum of divisors)",
+        "τ (number of divisors)",
+        "Prime numbers"
+      ],
+      "statement": "For every positive integer $N$, let $\\sigma(N)$ denote the sum of the positive integer divisors of $N$. Find all integers $m \\ge n \\ge 2$ satisfying\n$$\n\\frac{\\sigma(m) - 1}{m - 1} = \\frac{\\sigma(n) - 1}{n - 1} = \\frac{\\sigma(mn) - 1}{mn - 1}.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "The answer is that $m$ and $n$ should be powers of the same prime number. These all work because for a prime power we have\n$$\n\\frac{\\sigma(p^e) - 1}{p^e - 1} = \\frac{(1 + p + \\cdots + p^e) - 1}{p^e - 1} = \\frac{p(1 + \\cdots + p^{e-1})}{p^e - 1} = \\frac{p}{p-1}.\n$$\nSo we now prove these are the only ones. Let $\\lambda$ be the common value of the three fractions.\n\n**Claim** — Any solution $(m, n)$ should satisfy $d(mn) = d(m) + d(n) - 1$.\n\n*Proof.* The divisors of $mn$ include the divisors of $m$, plus $m$ times the divisors of $n$ (counting $m$ only once). Let $\\lambda$ be the common value; then this gives\n$$\n\\begin{aligned}\n\\sigma(mn) &\\ge \\sigma(m) + m\\sigma(n) - m \\\\\n&= (\\lambda m - \\lambda + 1) + m(\\lambda n - \\lambda + 1) - m \\\\\n&= \\lambda mn - \\lambda + 1\n\\end{aligned}\n$$\nand so equality holds. Thus these are all the divisors of $mn$, for a count of $d(m) + d(n) - 1$. $\\square$\n\n**Claim** — If $d(mn) = d(m) + d(n) - 1$ and $\\min(m, n) \\ge 2$, then $m$ and $n$ are powers of the same prime.\n\n*Proof.* Let $A$ denote the set of divisors of $m$ and $B$ denote the set of divisors of $n$. Then $|A \\cdot B| = |A| + |B| - 1$ and $\\min(|A|, |B|) > 1$, so $|A|$ and $|B|$ are geometric progressions with the same ratio. It follows that $m$ and $n$ are powers of the same prime. $\\square$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-sum-of-divisors-auto-3820",
+      "name": "HMMT Spring 2021 #0kgs",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT Spring 2021",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Factorization techniques",
+        "Chinese remainder theorem",
+        "σ (sum of divisors)"
+      ],
+      "statement": "Problem:\nLet $S$ be a set of positive integers satisfying the following two conditions:\n- For each positive integer $n$, at least one of $n, 2n, \\ldots, 100n$ is in $S$.\n- If $a_{1}, a_{2}, b_{1}, b_{2}$ are positive integers such that $\\operatorname{gcd}\\left(a_{1} a_{2}, b_{1} b_{2}\\right)=1$ and $a_{1} b_{1}, a_{2} b_{2} \\in S$, then $a_{2} b_{1}, a_{1} b_{2} \\in S$.\nSuppose that $S$ has natural density $r$. Compute the minimum possible value of $\\left\\lfloor 10^{5} r\\right\\rfloor$.\nNote: $S$ has natural density $r$ if $\\frac{1}{n}|S \\cap\\{1, \\ldots, n\\}|$ approaches $r$ as $n$ approaches $\\infty$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe optimal value of $r$ is $\\frac{1}{252}$. This is attained by letting $S$ be the set of integers $n$ for which $\\nu_{2}(n) \\equiv 4 \\bmod 5$ and $\\nu_{3}(n) \\equiv 1 \\bmod 2$.\n\nLet $S$ be a set of positive integers satisfying the two conditions. For each prime $p$, let $A_{p}=\\left\\{\\nu_{p}(n): n \\in S\\right\\}$. We claim that in fact $S$ is precisely the set of positive integers $n$ for which $\\nu_{p}(n) \\in A_{p}$ for each prime $p$.\n\nLet $p$ be prime and suppose that $a_{1} p^{e_{1}}, a_{2} p^{e_{2}} \\in S$, with $p \\nmid a_{1}, a_{2}$. Then, setting $b_{1}=p^{e_{1}}$ and $b_{2}=p^{e_{2}}$ in the second condition gives that $a_{1} p^{e_{2}} \\in S$ as well. So, if we have an integer $n$ for which $\\nu_{p}(n) \\in A_{p}$ for each prime $p$, we can start with any element $n'$ of $S$ and apply this step for each prime divisor of $n$ and $n'$ to obtain $n \\in S$.\n\nNow we deal with the first condition. Let $n$ be any positive integer. We will compute the least positive integer $m$ such that $mn \\in S$. By the above result, we can work with each prime separately. For a given prime $p$, let $e_{p}$ be the least element of $A_{p}$ with $e_{p} \\geq \\nu_{p}(n)$. Then we must have $\\nu_{p}(m) \\geq e_{p}-\\nu_{p}(n)$, and equality for all primes $p$ is sufficient. So, if the elements of $A_{p}$ are $c_{p, 1}<c_{p, 2}<c_{p, 3}<c_{p, 4}<\\ldots$, then\n$$\nc_{p}=\\max \\left(c_{p, 1}, c_{p, 2}-c_{p, 1}-1, c_{p, 3}-c_{p, 2}-1, c_{p, 4}-c_{p, 3}-1, \\ldots\\right)\n$$\nis the worst case value for $\\nu_{p}(m)$.\n\nWe conclude two things from this. First, we must have $\\prod_{p} p^{c_{p}} \\leq 100$ by condition 1, and in fact this is sufficient. Second, since we only care about $c_{p}$ and would like to minimize $r$, the optimal choice for $A_{p}$ is an arithmetic progression with first term $c_{p}$ and common difference $c_{p}+1$. So we assume that each $A_{p}$ is of this form.\n\nLet $t=\\prod_{p} p^{c_{p}}$. We now compute $r$. Note that $S$ is the set of integers $n$ such that for each prime $p$,\n$$\nn \\equiv a p^{k\\left(c_{p}+1\\right)-1} \\bmod p^{k\\left(c_{p}+1\\right)}\n$$\nfor some positive integers $a, k$ with $a<p$. This means that each prime $p$ contributes a factor of\n$$\n\\frac{p-1}{p^{c_{p}+1}}+\\frac{p-1}{p^{2 c_{p}+2}}+\\frac{p-1}{p^{3 c_{p}+3}}+\\cdots=\\frac{p-1}{p^{c_{p}+1}-1}=\\frac{1}{1+p+\\cdots+p^{c_{p}}}\n$$\nto the density of $S$. Multiplying over all primes $p$ gives $r=\\frac{1}{\\sigma(t)}$, where $\\sigma(t)$ is the sum of divisors of $t$. So, it suffices to maximize $\\sigma(t)$ for $t \\leq 100$. By inspection, $t=96$ is optimal, giving $r=\\frac{1}{252}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-sum-of-divisors-auto-3832",
+      "name": "AMC 12 B #0kh4",
+      "url": "https://usamoguide.com/",
+      "source": "AMC 12 B",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "σ (sum of divisors)",
+        "Factorization techniques"
+      ],
+      "statement": "For $n$ a positive integer, let $f(n)$ be the quotient obtained when the sum of all positive divisors of $n$ is divided by $n$. For example, $f(14) = (1 + 2 + 7 + 14) \\div 14 = \\frac{12}{7}$. What is $f(768) - f(384)$ ?\n\n(A) $\\frac{1}{768}$\n(B) $\\frac{1}{192}$\n(C) 1\n(D) $\\frac{4}{3}$\n(E) $\\frac{8}{3}$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-sum-of-divisors-auto-3836",
+      "name": "AMC 12 B #0kh8",
+      "url": "https://usamoguide.com/",
+      "source": "AMC 12 B",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "σ (sum of divisors)",
+        "Factorization techniques"
+      ],
+      "statement": "For $n$ a positive integer, let $f(n)$ be the quotient obtained when the sum of all positive divisors of $n$ is divided by $n$. For example, $f(14) = (1 + 2 + 7 + 14) \\div 14 = \\frac{12}{7}$. What is $f(768) - f(384)$?\n\n(A) $\\frac{1}{768}$ (B) $\\frac{1}{192}$ (C) 1 (D) $\\frac{4}{3}$ (E) $\\frac{8}{3}$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Suppose all the positive divisors of $n$ are $d_1 < d_2 < \\dots < d_k$. Then\n$$\nf(n) = \\frac{d_1 + d_2 + \\dots + d_k}{n} = \\frac{d_1}{n} + \\frac{d_2}{n} + \\dots + \\frac{d_k}{n} = \\frac{1}{d_k} + \\frac{1}{d_{k-1}} + \\dots + \\frac{1}{d_1}.\n$$\nThus $f(n)$ is the sum of the reciprocals of the positive divisors of $n$. Because $768 = 384 \\cdot 2$, all the divisors of $384$ also divide $768$, so it is necessary to consider only the divisors of $768$ that do not divide $384$, which are $2^8$ and $2^8 \\cdot 3$. Therefore\n$$\nf(768) - f(384) = \\frac{1}{2^8} + \\frac{1}{2^8 \\cdot 3} = \\frac{4}{2^8 \\cdot 3} = \\frac{1}{192}.\n$$\n\nLet $\\sigma(n)$ be the sum of the divisors of $n$. Then $f(n) = \\frac{\\sigma(n)}{n}$, and because $\\sigma$ is multiplicative (meaning that $\\sigma(ab) = \\sigma(a)\\sigma(b)$ whenever $\\gcd(a, b) = 1$), $f$ is multiplicative as well. That is,\n$$\nf(768) - f(384) = f(2^8 \\cdot 3) - f(2^7 \\cdot 3) = f(3)(f(2^8) - f(2^7)).\n$$\nNote that $f(3) = \\frac{4}{3}$ and\n$$\nf(2^k) = \\frac{\\sigma(2^k)}{2^k} = \\frac{2^{k+1} - 1}{2^k} = 2 - \\frac{1}{2^k}.\n$$\nThus\n$$\nf(3)(f(2^8) - f(2^7)) = \\frac{4}{3} \\cdot \\frac{1}{2^8} = \\frac{1}{2^6 \\cdot 3} = \\frac{1}{192}.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-sum-of-divisors-auto-3941",
+      "name": "HMMT November 2021 #0kk5",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2021",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "σ (sum of divisors)",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\nFind the smallest positive integer $n$ such that the divisors of $n$ can be partitioned into three sets with equal sums.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nI claim the answer is $120$. First, note that $120 = 2^{3} \\cdot 3 \\cdot 5$, so the sum of divisors is $(1+2+4+8)(1+3)(1+5) = 15 \\cdot 4 \\cdot 6 = 360$. Thus, we need to split the divisors into groups summing to $120$. But then we can just take $\\{120\\}$, $\\{20, 40, 60\\}$, $\\{1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 24, 30\\}$. Thus, $120$ works.\n\nNow we need to show $120$ is the lowest. Let $s(n)$ be the sum of divisors. Since $n$ will be in one of the piles, we need $s(n) \\geq 3n$. First, we claim that $n$ must have at least $3$ distinct prime divisors. Surely, if it had $2$ distinct prime divisors, say $p$ and $q$, so that $n = p^{a} q^{b}$, then the sum of divisors is\n$$\n\\left(1 + p + p^{2} + \\ldots + p^{a}\\right)\\left(1 + q + q^{2} + \\ldots + q^{b}\\right) = p^{a} q^{b}\\left(1 + \\frac{1}{p} + \\ldots + \\frac{1}{p^{a}}\\right)\\left(1 + \\frac{1}{q} + \\ldots + \\frac{1}{q^{b}}\\right)\n$$\nHowever, the expression $1 + \\frac{1}{p} + \\ldots + \\frac{1}{p^{a}}$ is maximized when $p$ is minimized, and further, as $a$ is finite, must be at most $\\frac{1}{1 - \\frac{1}{p}} = \\frac{p}{p-1}$. Thus, the sum of divisors is less than\n$$\np^{a} q^{b} \\frac{p}{p-1} \\frac{q}{q-1} \\leq n \\cdot 2 \\cdot \\frac{3}{2} = 3n\n$$\nThus, $n$ can't have $2$ distinct prime divisors and must have at least $3$ distinct prime divisors.\n\nAs we already discovered $120$ works, we need not worry about $4$ distinct prime divisors, as the value of $n$ would be at least $2 \\cdot 3 \\cdot 5 \\cdot 7 = 210$. We now work through the numbers with $3$ distinct divisors. If $2$ is not one of them, then the only number that works is $105 = 3 \\cdot 5 \\cdot 7$, which has a sum of divisors that is not large enough. Therefore, $2$ must be a prime divisor of $n$. Additionally, if $3$ is not a divisor, then our options are $2 \\cdot 5 \\cdot 7$ and $2 \\cdot 5 \\cdot 11$, which also do not work. Therefore, $3$ must also be a prime divisor. Then, if $5$ is not a prime divisor, then if $n$ is $2 \\cdot 3 \\cdot p$, it has a sum of divisors of $(1+2)(1+3)(1+p) = n \\cdot \\frac{3}{2} \\cdot \\frac{4}{3} \\cdot \\frac{p+1}{p}$, which is only at least $3n$ if $p$ is exactly $2$, which is not feasible. Additionally, if we use $2^{2}$, then the sum of divisors is $(1+2+4)(1+3)(1+p) = n \\cdot \\frac{7}{4} \\cdot \\frac{4}{3} \\cdot \\frac{p}{p+1}$, so $\\frac{p+1}{p} > \\frac{9}{7} \\Longrightarrow p < 4.5$, which also can't happen. Further, we can't have $3^{2}$ be a divisor of $n$ as $2 \\cdot 3^{2} \\cdot 5$ is the only value less than $120$ with this, and that also does not work. Lastly, we just need to check $2^{3} \\cdot 3 \\cdot p$, which has a sum of divisors of $(1+2+4+8)(1+3)(1+p) = n \\cdot \\frac{15}{8} \\cdot \\frac{4}{3} \\cdot \\frac{p+1}{p} = n \\cdot \\frac{5}{2} \\cdot \\frac{p}{p+1}$, so $p=5$ and that works. This means that $n=120$ is the smallest value for which $s(n) \\geq 3n$, and thus is our answer."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-sum-of-divisors-auto-4000",
+      "name": "HMMT Spring 2021 #0kls",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT Spring 2021",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "φ (Euler's totient)",
+        "σ (sum of divisors)",
+        "τ (number of divisors)",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\nLet $n$ be the product of the first 10 primes, and let\n$$\nS=\\sum_{x y \\mid n} \\varphi(x) \\cdot y\n$$\nwhere $\\varphi(x)$ denotes the number of positive integers less than or equal to $x$ that are relatively prime to $x$, and the sum is taken over ordered pairs $(x, y)$ of positive integers for which $x y$ divides $n$. Compute $\\frac{S}{n}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe see that, for any positive integer $n$,\n$$\nS=\\sum_{x y \\mid n} \\varphi(x) \\cdot y=\\sum_{x \\mid n} \\varphi(x)\\left(\\sum_{y \\left\\lvert\\, \\frac{n}{x}\\right.} y\\right)=\\sum_{x \\mid n} \\varphi(x) \\sigma\\left(\\frac{n}{x}\\right) .\n$$\nSince $\\varphi$ and $\\sigma$ are both weakly multiplicative (if $x$ and $y$ are relatively prime, then $\\varphi(x y)=\\varphi(x) \\varphi(y)$ and $\\sigma(x y)=\\sigma(x) \\sigma(y)$), we may break this up as\n$$\n\\prod_{p}(\\varphi(p)+\\sigma(p))\n$$\nwhere the product is over all primes that divide $n$. This is simply $2^{10} n$, giving an answer of $2^{10}=1024$.\n\nSolution 2:\nWe recall that\n$$\n\\sum_{d \\mid n} \\varphi(d)=n\n$$\nSo, we may break up the sum as\n$$\nS=\\sum_{x y \\mid n} \\varphi(x) \\cdot y=\\sum_{y \\mid n} y \\sum_{x \\left\\lvert\\, \\frac{n}{y}\\right.} \\varphi(x)=\\sum_{y \\mid n} y\\left(\\frac{n}{y}\\right)\n$$\nso $S$ is simply $n$ times the number of divisors of $n$. This number is $2^{10}=1024$.\n\nSolution 3:\nWhen constructing a term in the sum, for each prime $p$ dividing $n$, we can choose to include $p$ in $x$, or in $y$, or in neither. This gives a factor of $p-1, p$, or 1, respectively. Thus we can factor the sum as\n$$\nS=\\prod_{p \\mid n}(p-1+p+1)=\\prod_{p \\mid n} 2 p=2^{10} n\n$$\nSo the answer is 1024."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-sum-of-divisors-auto-4684",
+      "name": "HMMT February #0l4s",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Factorization techniques",
+        "σ (sum of divisors)"
+      ],
+      "statement": "Problem:\nCompute the sum of the positive divisors (including 1) of $9!$ that have units digit $1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe prime factorization of $9!$ is $2^{7} \\cdot 3^{4} \\cdot 5 \\cdot 7$. Every divisor of $9!$ has prime factorization $2^{a} \\cdot 3^{b} \\cdot 5^{c} \\cdot 7^{d}$, where $0 \\leq a \\leq 7$, $0 \\leq b \\leq 4$, $0 \\leq c \\leq 1$, and $0 \\leq d \\leq 1$. If the divisor has units digit $1$, it cannot be divisible by $2$ or $5$, so $a = c = 0$.\n\nNow take cases on the value of $d$:\n- If $d = 0$, then the divisor is $3^{b}$ for some $0 \\leq b \\leq 4$. The possible divisors are $1$, $3$, $9$, $27$, and $81$, of which $1$ and $81$ work.\n- If $d = 1$, then the divisor is $3^{b} \\cdot 7$ for some $0 \\leq b \\leq 4$. The possible divisors are then $7$, $3 \\cdot 7$, $9 \\cdot 7$, $27 \\cdot 7$, and $81 \\cdot 7$. Of these, only $3 \\cdot 7 = 21$ works.\n\nThe answer is $1 + 21 + 81 = \\boxed{103}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-sum-of-divisors-auto-4706",
+      "name": "HMMT February #0l5e",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inverses mod n",
+        "Greatest common divisors (gcd)",
+        "σ (sum of divisors)",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\nA subset $S$ of $\\{1,2,3,\\ldots ,2025\\}$ is called balanced if for all elements $a$ and $b$ both in $S$, there exists an element $c$ in $S$ such that $2025$ divides $a + b - 2c$. Compute the number of nonempty balanced subsets.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe work mod $2025$, so the condition becomes that for any $a$, $b \\in S$, we have $\\frac{a + b}{2} \\in S$.\n\nFirst, we prove that $S$ must be an arithmetic sequence. Observe that if $S$ is balanced, then so is the shift $S + k = \\{s + k \\mid s \\in S\\}$ for all $k$, so we can assume $0 \\in S$. Let $s$ be an element of $S$ such that $d = \\gcd (s, 2025)$ is minimal. Observe that for any $t \\in S$, we have $\\frac{t}{2} = \\frac{0 + t}{2} \\in S$. Thus, $\\frac{s}{2^n}$ is in $S$ for all $n$. Because $\\gcd (2, 2025) = 1$, this implies $2^n s \\bmod 2025 \\in S$ for all $n$. We prove the following claim.\n\nClaim 1. For all positive integers $m$, we have $ms \\in S$.\n\nProof. We proceed with induction on the number of 1's in the binary representation of $m$.\n\nBase Case: $m$ has one 1 in binary, so $m$ is a power of 2. Then $ms \\in S$ as noted above.\n\nInduction Step: Assume the claim holds for all $m$ which have $k$ 1's in their binary representations. Suppose $m$ has $k + 1$ 1's in its binary representation. Let $2^{n}$ be the largest power of 2 which is at most $m$. Then $m - 2^{n}$ has $k$ 1's in its binary representation, so $2(m - 2^{n})$ does as well. By the induction hypothesis, $2(m - 2^{n})s \\in S$. Also, $2^{n + 1}s \\in S$, so\n$$\nm s = \\frac{2^{n + 1}s + 2(m - 2^{n})s}{2} \\in S,\n$$\nas desired. $\\square$\n\nIt follows that every multiple of $s$ is in $S$. The multiples of $s$ are precisely the multiples of $d$, so $S$ contains every multiple of $d$. Now assume for sake of contradiction that $S$ contains some element $t$ which is not a multiple of $d$, so we can write $t = cd + r$ such that $0 < r < d$. Then $2t \\in S$, so\n$$\nr = \\frac{2t + (- 2c)d}{2} \\in S.\n$$\nBut then $\\gcd (r, 2025) \\leq r < d$, contradicting the minimality of $d$. Thus $S$ is precisely the multiples of $d$.\n\nIt can be verified that for any $d \\mid 2025$, the set of multiples of $d$ is balanced. Indeed, as $d$ is odd, for any $ad$, $bd \\in S$, their average $\\frac{(a + b)d}{2}$ is a multiple of $d$ and hence also in $S$. Thus, any shift of such a set is also balanced; as seen above, these classify all balanced sets. For each $d \\mid 2025$, there are $d$ choices for $S$, so the answer is\n$$\n\\sum_{d \\mid 2025} d = \\frac{3^5 - 1}{2} \\cdot \\frac{5^3 - 1}{4} = \\left\\lceil \\frac{3751}{2} \\right\\rceil.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

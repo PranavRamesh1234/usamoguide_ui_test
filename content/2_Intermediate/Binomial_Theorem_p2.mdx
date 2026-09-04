@@ -1,0 +1,419 @@
+---
+id: binomial-theorem-p2
+title: Binomial Theorem II
+author: Neronvain
+description: Learn how the Binomial Theorem expands powers, explains binomial coefficients, and connects algebraic expressions with counting and probability.
+prerequisites: []
+---
+## Useful Binomial Identities
+
+The Binomial Theorem gives several important identities.
+
+### Sum of Binomial Coefficients
+
+Set $a=1$ and $b=1$ in the Binomial Theorem:
+
+$$
+(1+1)^n
+=
+\sum_{k=0}^{n}\binom{n}{k}.
+$$
+
+Therefore,
+
+$$
+\sum_{k=0}^{n}\binom{n}{k}
+=
+2^n.
+$$
+
+This says that the sum of the entries in row $n$ of Pascal's Triangle is $2^n$.
+
+### Alternating Sum
+
+Set $a=1$ and $b=-1$
+
+$$
+(1-1)^n
+=
+\sum_{k=0}^{n}\binom{n}{k}(-1)^k.
+$$
+
+For $n>0$, this gives
+
+$$
+\sum_{k=0}^{n}(-1)^k\binom{n}{k}
+=
+0.
+$$
+
+This means the sum of the even indexed binomial coefficients equals the sum of
+the odd indexed binomial coefficients.
+
+### Weighted Sum
+
+Another useful identity is
+
+$$
+\sum_{k=0}^{n}k\binom{n}{k}=n2^{n-1}.
+$$
+
+One way to see this is combinatorially, count the number of ways to choose a
+committee from $n$ people and then choose a leader from that committee.
+
+If the committee has size $k$, there are
+
+$$
+\binom{n}{k}k
+$$
+
+ways.
+
+On the other hand, choose the leader first in $n$ ways, and then choose any
+subset of the remaining $n-1$ people to join the committee. This gives
+
+$$
+n2^{n-1}
+$$
+
+ways.
+
+So
+
+$$
+\sum_{k=0}^{n}k\binom{n}{k}=n2^{n-1}.
+$$
+
+## Estimating and Approximating Powers
+
+The Binomial Theorem can also be used to approximate powers.
+
+For small values of $x$,
+
+$$
+(1+x)^n
+=
+1+nx+\binom{n}{2}x^2+\binom{n}{3}x^3+\cdots.
+$$
+
+If $x$ is very small, the higher powers of $x$ may be much smaller than the
+first few terms.
+
+For example,
+
+$$
+(1.01)^5
+=
+1+5(0.01)+10(0.01)^2+10(0.01)^3+5(0.01)^4+(0.01)^5.
+$$
+
+The first few terms already give a strong approximation
+
+$$
+(1.01)^5\approx 1+0.05+0.001=1.051.
+$$
+
+In olympiad problems, this idea is more commonly used for exact expansion than
+decimal approximation, but the intuition is still useful.
+
+## Modular Applications
+
+The Binomial Theorem is often useful in modular arithmetic.
+
+### Example 5
+
+> Find the remainder when $101^5$ is divided by $100$.
+
+Write
+
+$$
+101=100+1.
+$$
+
+Then
+
+$$
+101^5=(100+1)^5.
+$$
+
+Using the Binomial Theorem,
+
+$$
+(100+1)^5
+=
+1+5(100)+10(100)^2+10(100)^3+5(100)^4+(100)^5.
+$$
+
+Every term except the first is divisible by $100$, so
+
+$$
+101^5\equiv 1 \pmod{100}.
+$$
+
+Thus the remainder is $1$.
+
+### Example 6
+
+> Show that $10^{n}-1$ is divisible by $9$ for every positive integer $n$.
+
+Write
+
+$$
+10=9+1.
+$$
+
+Then
+
+$$
+10^n-1=(9+1)^n-1.
+$$
+
+By the Binomial Theorem,
+
+$$
+(9+1)^n
+=
+1+\binom{n}{1}9+\binom{n}{2}9^2+\cdots+9^n.
+$$
+
+Subtracting $1$ gives
+
+$$
+10^n-1
+=
+\binom{n}{1}9+\binom{n}{2}9^2+\cdots+9^n.
+$$
+
+Every term on the right is divisible by $9$, so $10^n-1$ is divisible by $9$.
+
+## Combinatorial Interpretation
+
+The Binomial Theorem is not just an algebraic formula. It also has a counting
+interpretation.
+
+When expanding
+
+$$
+(a+b)^n,
+$$
+
+we are multiplying $n$ copies of
+
+$$
+(a+b).
+$$
+
+Each factor gives us two choices: choose $a$ or choose $b$.
+
+Thus the full expansion corresponds to all possible ways of making $n$ binary
+choices.
+
+The coefficient
+
+$$
+\binom{n}{k}
+$$
+
+counts the number of ways to choose exactly $k$ of the factors to contribute
+$b$.
+
+This is why binomial coefficients appear naturally in combinatorics and
+probability.
+
+## Application to Counting
+
+Suppose there are $n$ people, and each person can either be chosen for a team or
+not chosen.
+
+There are $2$ choices for each person, so the total number of possible teams is
+
+$$
+2^n.
+$$
+
+On the other hand, we can count by team size.
+
+There are
+
+$$
+\binom{n}{0}
+$$
+
+teams of size $0$,
+
+$$
+\binom{n}{1}
+$$
+
+teams of size $1$,
+
+$$
+\binom{n}{2}
+$$
+
+teams of size $2$,
+
+and so on.
+
+Therefore,
+
+$$
+\binom{n}{0}+\binom{n}{1}+\cdots+\binom{n}{n}
+=
+2^n.
+$$
+
+This is the identity obtained from expanding $(1+1)^n$.
+
+## Application to Probability
+
+The Binomial Theorem is also the foundation of binomial probability.
+
+Suppose an experiment has two possible outcomes
+- Success with probability $p$
+- Failure with probability $1-p$
+
+If the experiment is repeated $n$ times independently, the probability of
+getting exactly $k$ successes is
+
+$$
+\binom{n}{k}p^k(1-p)^{n-k}.
+$$
+
+Why?
+
+We must choose which $k$ of the $n$ trials are successes. This can be done in
+
+$$
+\binom{n}{k}
+$$
+
+ways.
+
+For any fixed set of $k$ successes and $n-k$ failures, the probability is
+
+$$
+p^k(1-p)^{n-k}.
+$$
+
+Therefore the total probability is
+
+$$
+\binom{n}{k}p^k(1-p)^{n-k}.
+$$
+
+If we sum over all possible values of $k$, we get
+
+$$
+\sum_{k=0}^{n}\binom{n}{k}p^k(1-p)^{n-k}.
+$$
+
+By the Binomial Theorem this equals
+
+$$
+(p+(1-p))^n=1.
+$$
+
+This confirms that the probabilities of all possible numbers of successes sum
+to $1$.
+
+## Worked Probability Example
+
+### Example 7
+
+> A fair coin is flipped $6$ times. What is the probability of getting exactly
+> $4$ heads?
+
+Here, a success is getting heads, so
+
+$$
+p=\frac{1}{2}.
+$$
+
+We want exactly $4$ successes in $6$ trials, so
+
+$$
+n=6,\qquad k=4.
+$$
+
+The probability is
+
+$$
+\binom{6}{4}\left(\frac{1}{2}\right)^4
+\left(\frac{1}{2}\right)^2.
+$$
+
+Since
+
+$$
+\binom{6}{4}=15,
+$$
+
+this becomes
+
+$$
+15\left(\frac{1}{2}\right)^6
+=
+\frac{15}{64}.
+$$
+
+So the probability is
+
+$$
+\frac{15}{64}.
+$$
+
+## Key Contest Insight
+
+The Binomial Theorem is useful whenever a problem involves a power of a sum.
+Look for expressions such as
+
+$$
+(a+b)^n,
+$$
+
+$$
+(1+x)^n,
+$$
+
+or
+
+$$
+(m+1)^n.
+$$
+
+The theorem can help you:
+- Expand powers efficiently
+- Find a single coefficient or term
+- Prove divisibility statements
+- Evaluate binomial sums
+- Count subsets
+- Compute probabilities
+
+The main idea is that coefficients in expansions count choices.
+
+## Strategy Tips
+
+- Identify the two terms being raised to a power
+- Write the general term before expanding everything
+- For coefficient problems, solve for the exponent you need
+- For constant term problems, set the exponent of the variable equal to $0$
+- For modular arithmetic, write numbers as something convenient plus a small
+  remainder, such as $101=100+1$
+- For combinatorics, remember that $\binom{n}{k}$ counts choices
+- For probability, identify the number of successes, the success probability,
+  and the number of trials
+
+## Common Pitfalls
+
+- Forgetting the binomial coefficient
+- Mixing up $k$ and $n-k$ in the general term
+- Losing negative signs in expansions such as $(a-b)^n$
+- Expanding the whole expression when only one term is needed
+- Forgetting to check whether a term is constant in constant-term problems
+- In probability, forgetting to multiply by the number of ways to choose which
+  trials are successes
+
+## Practice Problems
+
+<Problems problems="practice" />

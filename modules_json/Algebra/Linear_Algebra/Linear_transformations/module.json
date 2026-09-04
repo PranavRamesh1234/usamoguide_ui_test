@@ -1,0 +1,199 @@
+{
+  "MODULE_ID": "algebra-linear-algebra-linear-transformations",
+  "practice": [
+    {
+      "uniqueId": "algebra-linear-algebra-linear-transformations-auto-2481",
+      "name": "USAMO #0jfl",
+      "url": "https://usamoguide.com/",
+      "source": "USAMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Invariants / monovariants",
+        "Enumeration with symmetry",
+        "Linear transformations"
+      ],
+      "statement": "Let $n$ be a positive integer. There are $\\frac{n(n+1)}{2}$ marks, each with a black side and a white side, arranged into an equilateral triangle, with the biggest row containing $n$ marks. Initially, each mark has the black side up. An *operation* is to choose a line parallel to one of the sides of the triangle, and flipping all the marks on that line. A configuration is called *admissible* if it can be obtained from the initial configuration by performing a finite number of operations. For each admissible configuration $C$, let $f(C)$ denote the smallest number of operations required to obtain $C$ from the initial configuration. Find the maximum value of $f(C)$, where $C$ varies over all admissible configurations.\n(This problem was suggested by Warut Suksompong.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**Solution** (By Warut Suksompong). The answer is $6\\lfloor\\frac{n}{4}\\rfloor + n - 4\\lfloor\\frac{n}{4}\\rfloor = n + 2\\lfloor\\frac{n}{4}\\rfloor$.\nFor $n=1$ the answer is clearly 1, since there is only one configuration other than the initial one, and that configuration takes 1 step to get to. From now on we will consider $n \\ge 2$.\nNote that there are $3n$ possible operations in total, since we can select $3n$ lines to perform an operation on ($n$ lines parallel to each side of the triangle.) Performing an operation twice on the same line is equivalent to doing nothing. Hence, we will describe any combination of operations as a triple of $n$-tuples $((a_1, a_2, \\dots, a_n), (b_1, b_2, \\dots, b_n), (c_1, c_2, \\dots, c_n))$, where each element $a_i, b_i, c_i$ is either 0 or 1 ($0$ means no operation, $1$ means the opposite), each tuple of the triple denotes operating on a line parallel to one of the sides, and the indices denote the number of marks in the row of operation. Let $A$ denote the set of all such $3n$-tuples, so that $|A| = 2^{3n}$.\nLet $B$ denote the set of all admissible configurations. Let $N = \\frac{n(n+1)}{2}$. We will describe each element of $B$ by an $N$-tuple $(z_1, z_2, \\dots, z_N)$, where $z_i = 0$ if mark $i$ is black and $z_i = 1$ otherwise.\nFor each element $a \\in A$, let $b = f(a)$ be the element of $B$ that is the result of applying the operations in $a$. Then $f(a + a') = f(a) + f(a')$ for all $a, a' \\in A$, where addition is considered in modulo 2. Let $K$ be the set of all $a \\in A$ such that $f(a)$ is the all-black configuration. The following eight elements are easily seen to be in $K$.\n\n* $((0, 0, \\dots, 0), (0, 0, \\dots, 0), (0, 0, \\dots, 0)) = \\text{id}$\n* $((0, 0, \\dots, 0), (1, 1, \\dots, 1), (1, 1, \\dots, 1)) = x$\n* $((1, 1, \\dots, 1), (1, 1, \\dots, 1), (0, 0, \\dots, 0)) = y$\n* $((1, 1, \\dots, 1), (0, 0, \\dots, 0), (1, 1, \\dots, 1)) = x + y$\n* $((0, 1, 0, 1, \\dots), (0, 1, 0, 1, \\dots), (0, 1, 0, 1, \\dots)) = z$\n* $((0, 1, 0, 1, \\dots), (1, 0, 1, 0, \\dots), (1, 0, 1, 0, \\dots)) = x + z$\n* $((1, 0, 1, 0, \\dots), (1, 0, 1, 0, \\dots), (0, 1, 0, 1, \\dots)) = y + z$\n* $((1, 0, 1, 0, \\dots), (0, 1, 0, 1, \\dots), (1, 0, 1, 0, \\dots)) = x + y + z$\nWe will show that they are the only elements of $K$.\nSuppose $L = ((a_1, a_2, \\dots, a_n), (b_1, b_2, \\dots, b_n), (c_1, c_2, \\dots, c_n))$ is in $K$. For $i+j+k = 2n+1$, there is a unique mark contained in a row of length $i$ in the $a$ direction, a row of length $j$ in the $b$ direction, and a row of length $k$ in the $c$ direction. Operations $a_i$, $b_j$, and $c_k$ are the only operations affecting the mark, so $a_i + b_j + c_k = 0$. By adding one or both of $x$ and $y$ if necessary, we will assume that $b_n = c_n = 0$. Since $a_2 + b_{n-1} + c_n = a_2 + b_n + c_{n-1} = 0$, we have that $b_{n-1} = c_{n-1}$. We now have two cases.\n\na. First, suppose that $b_{n-1} = c_{n-1} = 0$. Then from $a_3+b_{n-2}+c_n = a_3+b_{n-1}+c_{n-1} = a_3+b_n+c_{n-2}$, we have that $b_{n-2} = c_{n-2} = 0$. Continuing in this manner (considering equalities with $a_4, a_5, \\dots$), we find that all the $b_i$'s and $c_i$'s are 0, from which we deduce that $L = \\text{id}$.\n\nb. Second, suppose that $b_{n-1} = c_{n-1} = 1$. Then from $a_3 + b_{n-2} + c_n = a_3 + b_{n-1} + c_{n-1} = a_3 + b_n + c_{n-2}$, we have that $b_{n-2} = c_{n-2} = 0$. Continuing in this manner (considering equalities with $a_4, a_5, \\dots$), we find that $(b_1, b_2, \\dots, b_n) = (c_1, c_2, \\dots, c_n) = (\\dots, 1, 0, 1, 0)$, from which we deduce that either $L = z$ or $L = x + z$.\n\nHence $L$ is one of the eight elements listed above. It follows that the $2^{3n}$ elements of $A$ form $2^{3n-3}$ sets consisting of elements differing by an element of $K$. Each $a \\in A$ corresponds to an element of $B$ which is the result of applying the operations in $a$. For each element $a \\in A$, let $x_1$ be the number of $a_i$ with odd indices which are equal to 1, and let $x_2$ be the number of $a_i$ with even indices which are equal to 1. Define $y_1, y_2, z_1$, and $z_2$ similarly for the $b_i$'s and $c_i$'s. Note that for each choice of $(x_1, x_2, y_1, y_2, z_1, z_2)$, there is at least one element of $A$ which corresponds to this choice.\nLet $T(a)$ be the minimum value of $T$ over the set containing $a$. The maximum of this value over all the sets is the desired answer. For an element $a \\in A$ with minimal value of $T$ in its set, adding an element of $K$ to $a$ must increase the value of $T$. Conversely if adding any element of $K$ to $a$ decreases $T$, then $a$ has the minimal value of $T$ within its set. Applying this observation for $x, y, x+y, z, x+z, y+z, x+y+z \\in K$, we see that $a \\in A$ has the minimal value of $T$ within its set if and only if the following inequalities hold.\n\n(a) $x_1 + x_2 + y_1 + y_2 \\le n$\n(b) $x_1 + x_2 + z_1 + z_2 \\le n$\n(c) $y_1 + y_2 + z_1 + z_2 \\le n$\n\n(d) $x_2 + y_2 + z_2 \\le \\left\\lfloor \\frac{3\\lfloor n/2 \\rfloor}{2} \\right\\rfloor = V$\n(e) $x_1 + y_1 + z_2 \\le \\left\\lfloor \\frac{2\\lfloor n/2 \\rfloor + \\lfloor n/2 \\rfloor}{2} \\right\\rfloor = W$\n\n$$\n(f) \\quad x_2 + y_1 + z_1 \\le \\left\\lfloor \\frac{2\\lfloor n/2 \\rfloor + \\lfloor n/2 \\rfloor}{2} \\right\\rfloor = W\n$$\n$$\n(g) \\quad x_1 + y_2 + z_1 \\le \\left\\lfloor \\frac{2\\lfloor n/2 \\rfloor + \\lfloor n/2 \\rfloor}{2} \\right\\rfloor = W\n$$\nAdding the last four inequalities and dividing by 4, we obtain\n$$\nT(a) \\le \\left\\lfloor \\frac{V + 3W}{2} \\right\\rfloor.\n$$\nWe analyze this in four separate cases:\n\na. $n = 4k$. Then $V = W = 3k$, and so $T(a) \\le 6k$, with equality for $x_1 = x_2 = y_1 = y_2 = z_1 = z_2 = k$.\nb. $n = 4k + 1$. Then $V = 3k$ and $W = 3k + 1$, and so $T(a) \\le 6k + 1$ with equality for $x_1 = x_2 = y_1 = y_2 = z_2 = k$ and $z_1 = k + 1$.\nc. $n = 4k + 2$. Then $V = 3k + 1$ and $W = 3k + 1$, and so $T(a) \\le 6k + 2$ with equality for $x_1 = x_2 = y_1 = y_2 = k$ and $z_1 = z_2 = k + 1$.\nd. $n = 4k + 3$. Then $V = 3k + 1$ and $W = 3k + 2$, and so $T(a) \\le 6k + 3$ with equality for $x_1 = x_2 = y_2 = k$ and $y_1 = z_1 = z_2 = k + 1$.\nIn each case, observe that $T(a) \\le n + 2 \\lfloor \\frac{n}{4} \\rfloor$ and that equality is attained for some configuration in $A$, hence the maximum value of $T(a)$ is as claimed, concluding our proof."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-linear-transformations-auto-2695",
+      "name": "HMMT 2014 HMIC #0jlj",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2014 HMIC",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Matrices",
+        "Linear transformations"
+      ],
+      "statement": "Problem:\nLet $n$ be a positive integer, and let $A$ and $B$ be $n \\times n$ matrices with complex entries such that $A^{2}=B^{2}$. Show that there exists an $n \\times n$ invertible matrix $S$ with complex entries that satisfies $S(A B-B A)=(B A-A B) S$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $X=A+B$ and $Y=A-B$, so $X Y=B A-A B$ and $Y X=A B-B A$. Note that $X Y=-Y X$.\n\nIt suffices (actually is equivalent) to show that $A B-B A$ and $B A-A B$ have the same Jordan forms. In other words, we need to show that for any complex number $\\lambda$, the Jordan $\\lambda$-block decompositions of $A B-B A$ and $B A-A B$ are the same.\n\nHowever, the $\\lambda$-decomposition of a matrix $M$ is uniquely determined by the infinite (eventually constant) sequence $\\left(\\operatorname{dim} \\operatorname{ker}(M-\\lambda I)^{1}, \\operatorname{dim} \\operatorname{ker}(M-\\lambda I)^{2}, \\ldots\\right)$, so we only have to show that $\\operatorname{dim} \\operatorname{ker}(X Y-\\lambda I)^{k}=\\operatorname{dim} \\operatorname{ker}(Y X-\\lambda I)^{k}$ for all positive integers $k$ and complex numbers $\\lambda$.\n\nFor $\\lambda=0$, this follows trivially from $X Y=-Y X$ : we have $(X Y)^{k} v=0$ if and only if $(Y X)^{k} v=0$.\n\nNow suppose $\\lambda \\neq 0$, and define the (matrix) polynomial $p(T)=(T-\\lambda I)^{k}$. Let $V_{1}=\\left\\{v \\in \\mathbb{C}^{n}: p(X Y) v=0\\right\\}$, and $V_{2}=\\left\\{v \\in \\mathbb{C}^{n}: p(Y X) v=0\\right\\}$. Note that if $v \\in V_{1}$, then $0=[Y p(X Y)] v=[p(Y X) Y] v=p(Y X)[Y v]$, so $Y v \\in V_{2}$.\n\nFurthermore, if $v \\neq 0$, then $Y v \\neq 0$, or else $p(X Y) v=p(0) v=(-\\lambda I)^{k} v \\neq 0$ (since $(X Y)^{j} v=0$ for all $j \\geq 1$ ), contradiction. Viewing $Y$ (more precisely, $v \\rightarrow Y v$) as a linear map from $V_{1}$ to $V_{2}$, we have $\\operatorname{dim} V_{1}=\\operatorname{dim} Y V_{1}+\\operatorname{dim} \\operatorname{ker} Y=\\operatorname{dim} Y V_{1} \\leq \\operatorname{dim} V_{2}$ (alternatively, if $v_{1}, \\ldots, v_{r}$ is a basis of $V_{1}$, then $Y v_{1}, \\ldots, Y v_{r}$ are linearly independent in $V_{2}$ ). By symmetry, $\\operatorname{dim} V_{1}=\\operatorname{dim} V_{2}$, and we're done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-linear-transformations-auto-3392",
+      "name": "HMMT November 2018 #0k4w",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2018",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Linear transformations",
+        "Graph Theory"
+      ],
+      "statement": "Problem:\n\nTessa has a unit cube, on which each vertex is labeled by a distinct integer between $1$ and $8$ inclusive. She also has a deck of $8$ cards, $4$ of which are black and $4$ of which are white. At each step she draws a card from the deck, and\n- if the card is black, she simultaneously replaces the number on each vertex by the sum of the three numbers on vertices that are distance $1$ away from this vertex;\n- if the card is white, she simultaneously replaces the number on each vertex by the sum of the three numbers on vertices that are distance $\\sqrt{2}$ away from this vertex.\nWhen Tessa finishes drawing all cards of the deck, what is the maximum possible value of a number that is on the cube?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $42648$\nThe order of the deck does not matter as black cards and white cards commute, therefore we can assume that the cards are alternating black and white, and only worry about the arrangement of the numbers. After each pair of black and white cards, each number is replaced by the sum of two times the edge neighbors and three times the diagonally opposite number. We can compute that after four pairs of operations, the number at vertex $V$ will be $1641 v + 1640 (d_{1} + d_{2} + d_{3})$, where $v$ is the number originally at $v$ and $d_{1}, d_{2}, d_{3}$ are the numbers at diagonally adjacent vertices. Set $v = 8$ and $d_{1}, d_{2}, d_{3} = 5, 6, 7$ in any order to obtain the maximum number $42648$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-linear-transformations-auto-3438",
+      "name": "HMMT February 2019 #0k66",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2019",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recursion, bijection",
+        "Linear transformations",
+        "Vectors"
+      ],
+      "statement": "Problem:\n\nFred the Four-Dimensional Fluffy Sheep is walking in 4-dimensional space. He starts at the origin. Each minute, he walks from his current position $(a_{1}, a_{2}, a_{3}, a_{4})$ to some position $(x_{1}, x_{2}, x_{3}, x_{4})$ with integer coordinates satisfying\n$$(x_{1}-a_{1})^{2}+(x_{2}-a_{2})^{2}+(x_{3}-a_{3})^{2}+(x_{4}-a_{4})^{2}=4$$\nand\n$$\\left| (x_{1}+x_{2}+x_{3}+x_{4})-(a_{1}+a_{2}+a_{3}+a_{4}) \\right|=2.$$\nIn how many ways can Fred reach $(10,10,10,10)$ after exactly 40 minutes, if he is allowed to pass through this point during his walk?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe possible moves correspond to the vectors $\\pm\\langle 2,0,0,0\\rangle$, $\\pm\\langle 1,1,1,-1\\rangle$, and their permutations. It's not hard to see that these vectors form the vertices of a 4-dimensional hypercube, which motivates the change of coordinates\n$$\n(x_{1}, x_{2}, x_{3}, x_{4}) \\Rightarrow \\left(\\frac{x_{1}+x_{2}+x_{3}+x_{4}}{2}, \\frac{x_{1}+x_{2}-x_{3}-x_{4}}{2}, \\frac{x_{1}-x_{2}+x_{3}-x_{4}}{2}, \\frac{x_{1}-x_{2}-x_{3}+x_{4}}{2}\\right)\n$$\nUnder this change of coordinates, Fred must travel from $(0,0,0,0)$ to $(20,0,0,0)$, and the possible moves correspond to the sixteen vectors $\\langle \\pm 1, \\pm 1, \\pm 1, \\pm 1\\rangle$. The new $x_{1}$-coordinate must increase 30 times and decrease 10 times during Fred's walk, while the other coordinates must increase 20 times and decrease 20 times. Therefore, there are $\\binom{40}{10}\\binom{40}{20}^{3}$ possible walks."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-linear-transformations-auto-3635",
+      "name": "HMMT February 2020 #0kbn",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2020",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Field Theory",
+        "Linear transformations",
+        "Chinese remainder theorem",
+        "Roots of unity"
+      ],
+      "statement": "Problem:\nWe define $\\mathbb{F}_{101}[x]$ as the set of all polynomials in $x$ with coefficients in $\\mathbb{F}_{101}$ (the integers modulo $101$ with usual addition and subtraction), so that two polynomials are equal if and only if the coefficients of $x^{k}$ are equal in $\\mathbb{F}_{101}$ for each nonnegative integer $k$. For example, $(x+3)(100 x+5)=100 x^{2}+2 x+15$ in $\\mathbb{F}_{101}[x]$ because the corresponding coefficients are equal modulo $101$.\nWe say that $f(x) \\in \\mathbb{F}_{101}[x]$ is lucky if it has degree at most $1000$ and there exist $g(x), h(x) \\in \\mathbb{F}_{101}[x]$ such that\n$$\nf(x)=g(x)\\left(x^{1001}-1\\right)+h(x)^{101}-h(x)\n$$\nin $\\mathbb{F}_{101}[x]$. Find the number of lucky polynomials.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $p=101$, $m=1001$, and work in the ring $R:=\\mathbb{F}_{p}[x] /\\left(x^{m}-1\\right)$. We want to find the number of elements $a$ of this ring that are of the form $x^{p}-x$. We first solve this question for a field extension $\\mathbb{F}_{p^{d}}$ of $\\mathbb{F}_{p}$. Note that $(x+n)^{p}-(x+n)=x^{p}-x$ for any $n \\in \\mathbb{F}_{p}$, and the polynomial $t^{p}-t=b$ has at most $p$ solutions in $\\mathbb{F}_{p^{d}}$ for any $b \\in \\mathbb{F}_{p^{d}}$. Combining these implies that $t^{p}-t=b$ always has either $p$ or $0$ solutions in $\\mathbb{F}_{p^{d}}$, so there are $p^{d-1}$ elements of $\\mathbb{F}_{p^{d}}$ expressible in the form $x^{p}-x$.\n\nNow, note that we may factor $R$ into a product of field extensions of $\\mathbb{F}_{p}$, each corresponding to an irreducible factor of $x^{m}-1$ in $\\mathbb{F}_{p}$, as the polynomial $x^{m}-1$ has no double roots in $\\mathbb{F}_{p}$ as $p \\nmid m$. By the Chinese Remainder Theorem, we may multiply the number of lucky polynomials for each of the field extensions to find the final answer. A field extension of degree $d$ will yield $p^{d-1}$ lucky polynomials. Thus, the final answer is $p^{m-q}$, where $q$ is the number of fields in the factorization of $R$ into fields.\n\nTo do determine $q$, we first factor\n$$\nx^{m}-1=\\prod_{k \\mid m} \\Phi_{k}(x)\n$$\nin $\\mathbb{Z}[x]$ where $\\Phi_{k}(x)$ are the cyclotomic polynomials. Then we compute the number of irreducible divisors of the cyclotomic polynomial $\\Phi_{k}(x)$ in $\\mathbb{F}_{p}[x]$. We claim that this is equal to $\\frac{\\varphi(k)}{\\operatorname{ord}_{k}(p)}$. Indeed, note that given a root $\\omega$ of $\\Phi_{k}$ in the algebraic closure of $\\mathbb{F}_{p}$, the roots of its minimal polynomial are $\\omega, \\omega^{p}, \\omega^{p^{2}}, \\ldots$, and this will cycle after the numerator repeats modulo $k$, from which it follows that the degree of the minimal polynomial of $\\omega$ is $\\operatorname{ord}_{k}(p)$. Thus, $\\Phi_{k}(x)$ factors into $\\frac{\\varphi(k)}{\\operatorname{ord}_{k}(p)}$ irreducible polynomials.\n\nIt remains to compute orders. We have that\n$$\n\\begin{aligned}\n\\operatorname{ord}_{7}(101)=\\operatorname{ord}_{7}(3) & =6 \\\\\n\\operatorname{ord}_{11}(101)=\\operatorname{ord}_{11}(2) & =10 \\\\\n\\operatorname{ord}_{13}(101)=\\operatorname{ord}_{13}(10) & =6\n\\end{aligned}\n$$\nThus,\n$$\n\\begin{aligned}\n\\operatorname{ord}_{77}(101) & =30 \\\\\n\\operatorname{ord}_{91}(101) & =6 \\\\\n\\operatorname{ord}_{143}(101) & =30 \\\\\n\\operatorname{ord}_{1001}(101) & =30 \\\\\n\\operatorname{ord}_{1}(101) & =1\n\\end{aligned}\n$$\nThe number of factors of $x^{1001}-1$ in $\\mathbb{F}_{101}[x]$ is thus\n$$\n\\frac{1}{1}+\\frac{6}{6}+\\frac{10}{10}+\\frac{12}{6}+\\frac{60}{30}+\\frac{72}{6}+\\frac{120}{30}+\\frac{720}{30}=1+1+1+2+2+12+4+24=47\n$$\nso the total number of lucky polynomials is $101^{1001-47}=101^{954}$.\n\nSolution:\nAs in the previous solution, we work in the ring $R=\\mathbb{F}_{p} /\\left(x^{m}-1\\right)$, which we can treat as the set of polynomials in $\\mathbb{F}_{p}[x]$ with degree less than $m$. The problem is asking us for the number of elements of the map $\\alpha: h \\mapsto h^{p}-h$ in $R$. Note that this map is linear because $(a+b)^{p}=a^{p}+b^{p}$ in any field where $p=0$ (which $R$ is an example of). Hence it suffices to determine the size of the kernel of $\\alpha$.\n\nWe can directly compute that if\n$$\nh(x)=a_{m-1} x^{m-1}+a_{m-2} x^{m-2}+\\cdots+a_{1} x+a_{0}\n$$\nthen\n$$\nh(x)^{p}=a_{m-1} x^{p(m-1)}+a_{m-2} x^{p(m-2)}+\\cdots+a_{1} x^{p}+a_{0}\n$$\nwhere exponents are taken modulo $m$. Therefore $h$ is in the kernel if and only if $a_{k}=a_{p k}$ for all $k$ where indices are taken modulo $m$. Letting $q$ denote the number of orbits of the map $x \\mapsto p x$ in $\\mathbb{Z} / m \\mathbb{Z}$, the size of the kernel is then $p^{q}$ so the size of the image is $p^{m-q}$. It remains to compute $q$, which will end up being the same computation as in the previous solution."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-linear-transformations-auto-3975",
+      "name": "HMIC 2021 #0kl3",
+      "url": "https://usamoguide.com/",
+      "source": "HMIC 2021",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Volume",
+        "Other 3D problems",
+        "Matrices",
+        "Determinants",
+        "Linear transformations"
+      ],
+      "statement": "Problem:\n\nLet $A_{1} A_{2} A_{3} A_{4}$, $B_{1} B_{2} B_{3} B_{4}$, and $C_{1} C_{2} C_{3} C_{4}$ be three regular tetrahedra in 3-dimensional space, no two of which are congruent. Suppose that, for each $i \\in \\{1,2,3,4\\}$, $C_{i}$ is the midpoint of the line segment $A_{i} B_{i}$. Determine whether the four lines $A_{1} B_{1}$, $A_{2} B_{2}$, $A_{3} B_{3}$, and $A_{4} B_{4}$ must concur.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $P_{i}(t)$ be lines in space so that $P_{i}(0)=A_{i}$, $P_{i}(1)=C_{i}$, and $P_{i}(2)=B_{i}$. Then observe that $P_{i} P_{j}^{2}$ are quadratics in $t$. The difference between any of these two is zero at $t=0,1,2$, so it must be identically zero. Therefore, we find that $P_{1} P_{2} P_{3} P_{4}$ is a regular tetrahedron or a point for all $t$.\n\nNow consider the signed volume $[P_{1} P_{2} P_{3} P_{4}]$. It can be written as a determinant of a matrix whose entries are constant or linear polynomials in $t$, so it must be $V(t)$ for some polynomial $V$ that is at most cubic. We claim that it actually is cubic. One way to see this is that since $P_{i} P_{j}^{2}$ is nonconstant, it must be $\\Theta(t^{2})$ for large $t$, which implies that $|V(t)|=\\Theta(t^{3})$.\n\nHowever, every cubic polynomial has a real root. A nondegenerate regular tetrahedron cannot have zero volume, so we conclude that $P_{1}, P_{2}, P_{3}, P_{4}$ are equal for some $t$. This yields the desired concurrency.\n\nSolution:\n\nWe will prove that the three tetrahedra are homothetic, which will prove the desired concurrency. Now translate so that all the tetrahedra are centered at the origin. This preserves midpoints and homothetic-ness, so it suffices to solve the problem in this case.\n\nLet $M$ be the matrix that takes $A_{i}$ to $B_{i}$. Since the two tetrahedra are regular, we find that $M$ is conformal and thus must be $r T$ for some $T \\in \\mathrm{SO}(3)$ and $r \\in \\mathbb{R}$. Similarly, $\\frac{1}{2}(I+M)$ must be $s' U$ for some $U \\in \\mathrm{SO}(3)$. Making the substitution $s=2 s'$, we must solve $I+r T=s U$.\n\nThe remainder of the solution is a straightforward computation by eigenvalues. We know that the eigenvalues of $r T$ must have magnitude $|r|$. Also, the eigenvalues of $I+r T$, which are just one plus the eigenvalues of $r T$, must have magnitude $|s|$. Thus, the eigenvalues $z$ of $M$ must satisfy a system of the form $|z|=|r|$ and $|1+z|=|s|$.\n\nIf the tetrahedra are not homothetic, then $M$ cannot be a multiple of the identity, meaning that $M$ must have more than one distinct eigenvalue (everything in $\\mathrm{SO}(3)$ is normal and thus unitarily diagonalizable). However, by, say, geometry, that system can only have two solutions only if they are nonreal and conjugates of each other. But every $3 \\times 3$ matrix has a real eigenvalue, contradiction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-linear-transformations-auto-4187",
+      "name": "HMMT February #0kqz",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers in geometry",
+        "Linear transformations",
+        "Determinants",
+        "Roots of unity"
+      ],
+      "statement": "Problem:\nFor a point $P=(x, y)$ in the Cartesian plane, let $f(P)=\\left(x^{2}-y^{2}, 2 x y-y^{2}\\right)$. If $S$ is the set of all $P$ so that the sequence $P, f(P), f(f(P)), f(f(f(P))), \\ldots$ approaches $(0,0)$, then the area of $S$ can be expressed as $\\pi \\sqrt{r}$ for some positive real number $r$. Compute $\\lfloor 100 r\\rfloor$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFor a point $P=(x, y)$, let $z(P)=x+y \\omega$, where $\\omega$ is a nontrivial third root of unity. Then\n$$\n\\begin{aligned}\nz(f(P))=\\left(x^{2}-y^{2}\\right)+\\left(2 x y-y^{2}\\right) \\omega=x^{2}+2 x y \\omega+y^{2}( -1-\\omega) \\\\\n& =x^{2}+2 x y \\omega+y^{2} \\omega^{2}=(x+y \\omega)^{2}=z(P)^{2}\n\\end{aligned}\n$$\nApplying this recursively gives us $z\\left(f^{n}(P)\\right)=z\\left(f^{n-1}(P)\\right)^{2}=z\\left(f^{n-2}(P)\\right)^{4}=\\cdots=z(P)^{2^{n}}$. Thus the condition $f^{n}(P) \\rightarrow(0,0)$ is equivalent to $|z(P)|<1$. The region of such points is the preimage of the unit disk (area $\\pi$) upon the \"shear\" sending $(0,1)$ to $\\left(-\\frac{1}{2}, \\frac{\\sqrt{3}}{2}\\right)$. This shear multiplies areas by a factor of $\\frac{\\sqrt{3}}{2}$, so the original area was $\\frac{2 \\pi}{\\sqrt{3}}=\\pi \\sqrt{\\frac{4}{3}}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-linear-transformations-auto-4217",
+      "name": "HMIC #0krt",
+      "url": "https://usamoguide.com/",
+      "source": "HMIC",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial interpolation: Newton, Lagrange",
+        "Polynomial operations",
+        "Linear transformations"
+      ],
+      "statement": "Problem:\n\nLet $p$ be a prime and let $\\mathbb{F}_p$ be the set of integers modulo $p$. Call a function $f: \\mathbb{F}_p^2 \\rightarrow \\mathbb{F}_p$ quasiperiodic if there exist $a, b \\in \\mathbb{F}_p$, not both zero, so that $f(x+a, y+b)=f(x, y)$ for all $x, y \\in \\mathbb{F}_p$. Find, with proof, the number of functions $\\mathbb{F}_p^2 \\rightarrow \\mathbb{F}_p$ that can be written as the sum of some number of quasiperiodic functions.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nEvery function $\\mathbb{F}_p^2 \\rightarrow \\mathbb{F}_p$ can be written uniquely as a polynomial $\\sum_{i=0}^{p-1} \\sum_{j=0}^{p-1} a_{ij} x^i y^j$. We claim that a function can be written as a sum of quasiperiodic functions if and only if $a_{ij}=0$ for all $i+j \\geq p$. The only if direction follows directly from the fact that quasiperiodic functions are all of the form $g(by-ax)$ for some function $g$ which can be written as a polynomial of degree at most $p-1$.\n\nThe if direction is more involved. Pick some $d \\leq p-1$, and we will argue by induction on $i$ that $x^i y^{d-i}$ is a sum of quasiperiodic functions. This is clear for $i=0$. Now, if $i>0$ consider the following sum of quasiperiodic functions:\n$$\n\\begin{aligned}\n\\sum_{j=0}^{d-i}(-1)^j\\binom{d-i}{j}(x+j y)^d & =\\sum_{k=0}^{d} \\sum_{j=0}^{d-i}(-1)^j\\binom{d-i}{j}\\binom{d}{k} x^k j^{d-k} y^{d-k} \\\\\n& =\\sum_{k=0}^{d}\\binom{d}{k} x^k y^{d-k} \\sum_{j=0}^{d-i}(-1)^j\\binom{d-i}{j} j^{d-k} .\n\\end{aligned}\n$$\nBy the theory of finite differences, we know that $\\sum_{j=0}^{d-i}(-1)^j\\binom{d-i}{j} j^{d-k}$ is zero if $d-i>d-k \\Longleftrightarrow k>i$, and nonzero if $d-i=d-k \\Longleftrightarrow i=k$ (specifically it is $(-1)^{d-i}(d-i)!$). Therefore, this is\n$$\n\\sum_{k=0}^{i} a_k x^k y^{d-k}\n$$\nfor some $a_k$ so that $a_i$ is nonzero. By the inductive hypothesis, $x^k y^{d-k}$ is a sum of quasiperiodic functions for all $k<i$, so we are done.\n\nSolution:\n\nThis solution will make heavy use of linear algebra. First, let $\\mathcal{L}$ be the set of affine lines in $\\mathbb{F}_p^2$. If $\\ell \\in \\mathcal{L}$ and $f: \\mathbb{F}_p^2 \\rightarrow \\mathbb{F}_p$ is a function, let $S_{\\ell}(f)= \\sum_{(x, y) \\in \\ell} f(x, y)$ and let $\\mathbf{1}_{\\ell}: \\mathbb{F}_p^2 \\rightarrow \\mathbb{F}_p$ be the indicator function of $\\ell$. Let $V$ be the vector space spanned by all the quasiperiodic functions, which can alternatively be defined by the space spanned by all the $\\mathbf{1}_{\\ell}$. Furthermore, let $W$ be the vector space of functions $f$ so that $S_{\\ell}(f)=0$ for all lines $\\ell$.\n\nThis next claim is the heart of the proof:\n\nClaim. $W \\subseteq V$.\n\nProof. Surprisingly, this is easier to prove when lifted to $\\mathbb{Z}$. Specifically, for a line $\\ell \\subseteq \\mathbb{F}_p^2$, let $\\tilde{\\mathbf{1}}_{\\ell}: \\mathbb{F}_p^2 \\rightarrow \\mathbb{Z}$ be the indicator function of $\\ell$ and let $f: \\mathbb{F}_p^2 \\rightarrow \\mathbb{Z}$ be a function so that $S_{\\ell}(f) \\equiv 0(\\bmod p)$ for all $\\ell$. We will show that $f$ can be written as a linear combination of functions of the form $\\tilde{\\mathbf{1}}_{\\ell}$ and a remainder term $g$ so that $g(x, y) \\equiv 0(\\bmod p)$. (It is in fact true that $g$ can be made to be identically zero, but this is irrelevant for our purposes.)\n\nSuppose that a counterexample $f$ exists. Then, by possibly adjusting the values of $f$ by multiples of $p$ (which can be absorbed into the remainder $g$ term), we may assume that $\\sum_{x, y \\in \\mathbb{F}_p} f(x, y)=0$. Out of all such counterexamples, pick an $f$ that minimizes the sum $\\sum_{\\ell \\in \\mathcal{L}}\\left|S_{\\ell}(f)\\right|$.\n\nWe now split the analysis into two cases. If $S_{\\ell}(f)=0$ for all lines $\\ell$, then for every point $(x, y) \\in \\mathbb{F}_p^2$ we have\n$$\np f(x, y)=\\sum_{(x, y) \\in \\ell} S_{\\ell}(f)-\\sum_{x', y' \\in \\mathbb{F}_p^2} f\\left(x', y'\\right)=0,\n$$\nso $f$ is identically zero. This clearly cannot be a counterexample.\n\nIn the other case, we must have a line $\\ell$ with $S_{\\ell}(f)>0$. Since the sum of all values of $f$ is zero, there is a line $\\ell'$ parallel to $\\ell$ with $S_{\\ell'}(f)<0$. Then it is not hard to show that $f'=f-\\tilde{\\mathbf{1}}_{\\ell}+\\tilde{\\mathbf{1}}_{\\ell'}$ is another counterexample with $\\sum_{\\ell \\in \\mathcal{L}}\\left|S_{\\ell}\\left(f'\\right)\\right|<\\sum_{\\ell \\in \\mathcal{L}}\\left|S_{\\ell}(f)\\right|$, which contradicts the minimality of $f$. This finishes the proof of the claim.\n\nBecause of the claim, we can now describe $W$ as the kernel of the map $\\Phi: V \\rightarrow \\mathbb{F}_p^{\\mathcal{L}}$ sending $f$ to $\\left(S_{\\ell}(f)\\right)_{\\ell \\in \\mathcal{L}}$. Note that $S_{\\ell}\\left(\\mathbf{1}_{\\ell'}\\right)$ is 0 if $\\ell$ and $\\ell'$ are parallel and 1 otherwise, so the image of $\\Phi$ is generated by the $p+1$ vectors $v_i=\\Phi\\left(\\mathbf{1}_{\\ell_i}\\right)$, where $\\ell_1, \\ell_2, \\ldots, \\ell_{p+1}$ range over the parallel classes of lines in $\\mathbb{F}_p^2$. One can check that $v_1+v_2+\\cdots+v_{p+1}=0$, but this is in fact the only linear relation. To see this, note that if $\\sum_i c_i v_i=0$, then for all $j$ we have $0=\\sum_i c_i S_{\\ell_j}\\left(\\mathbf{1}_{\\ell_i}\\right)=-c_j+\\sum_i c_i$. It follows that all the $c_j$ are the same. Therefore, the image of $\\Phi$ has dimension $p$.\n\nSince the image of $\\Phi$ has dimension $p$, we conclude that $\\operatorname{dim} V-\\operatorname{dim} W=p$. Also, by definition, $W$ is the space of functions that are orthogonal to $V$ under the bilinear pairing $(f, g) \\mapsto \\sum_{x, y \\in \\mathbb{F}_p} f(x, y) g(x, y)$, so $\\operatorname{dim} V+\\operatorname{dim} W=p^2$. Solving these equations yields that $\\operatorname{dim} V=\\frac{p(p+1)}{2}$, so the size of $V$ is $p^{\\frac{p(p+1)}{2}}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

@@ -1,0 +1,196 @@
+---
+id: substitution-techniques
+title: Substitution Techniques
+author: USAMO Guide Team - Ava Berenji
+description: Replace repeated structure to lower degree and simplify.
+prerequisites: []
+---
+
+## Overview
+
+In all levels of competition math, you often encounter expressions that look messy at first glance, but actually have an elegant structure underneath. Substitution is a common and powerful strategy to find these hidden structures, turning messy expressions into familiar ones. Look for repeated
+terms/patterns like $x+1/x$, $x^2$, or symmetric sums.
+
+
+## Definition and Usage
+
+Substitution is a technique that replaces a (possibly hidden) repeated expression with a single variable in order to simplify a problem.
+Consider using substitution when, for instance:
+
+- The same expression appears multiple times
+- Only even powers of a term are present (e.g. $y=x^2$ for $x^4+x^2+1$)
+- The expression is symmetric
+- The answer choices look simple, but the expression looks unnecessarily complicated 
+
+## Common Types of Substitution
+
+### 1. Symmetric Substitution (Two Variables)
+
+An expression is **symmetric** in two variables when switching $x$ and $y$ does not change its value. It is often useful to make the substitution 
+$$
+s=x+y, p=xy.
+$$
+
+A useful identity is 
+
+$$
+x^2+y^2 = (x+y)^2 - 2xy = s^2-2p.
+$$
+
+Also, 
+
+$$
+x^3+y^3=(x+y)(x^2-xy+y^2)=s(s^2-3p).
+$$
+
+Some substitutions only become evident once the problem is factored or rewritten in a clever way. In fact, it is *always* possible to write any symmetric expression in terms of $s$ and $p.$
+
+### 2. Even-Power Substitution
+
+Consider letting $t=x^2$ when only even powers of a term appear. 
+
+**Note:** This is not limited to powers of 2. If you see the equation $x^6+2x^3+1=0,$ for example, you can turn it into a quadratic by letting $t=x^3.$
+
+### 3. Reciprocal Substitution
+
+Consider making the substitution $t=x+1/x$ when the expression is unchanged when $x$ is replaced with $1/x,$ or when you see terms involving $x + \frac{1}{x}, x^2+\frac{1}{x^2},$ etc.
+
+Each term $x^n+\frac{1}{x^n}$ can be expressed fully in terms of $t.$ Notice that $t^2 = \left(x+\frac{1}{x}\right)\left(x+\frac{1}{x}\right)=x^2+2+\frac{1}{x^2},$ so 
+
+$$
+x^2+\frac{1}{x^2} = t^2 - 2.
+$$
+
+Similarly, $\left(x^2+\frac{1}{x^2}\right)\left(x+\frac{1}{x}\right)=x^3+x+\frac{1}{x}+\frac{1}{x^3},$ so 
+
+$$
+x^3+\frac{1}{x^3}= t^3-3t.
+$$
+
+For higher powers, this process continues. **Note:** This is a special case of symmetric substitution!
+
+### 4. Repeated Structure (General)
+
+Look for the same expression appearing multiple times, then replace it with a
+single variable to reduce complexity.
+
+> *Example:* If $2^{2x}+2^{x+1}+1=25,$ find $x.$
+
+*Solution:* Let $t=2^x.$ Then $t^2+2t+1=25,$ so $(t+1)^2=25$ and $t=-6,4.$ However, no power of $2$ is negative, so $2^x=4$ and so $x=2.$
+
+
+## Common Mistakes
+
+-  **Leftover Terms:** Ensure your substitution accounts for all of the old variable's occurrences. For instance, the substitution $t=x^2$ is not useful for the equation $x^4+x^2+x+1=0,$ due to the $x$ term.
+- **Forgetting to substitute back for the original variable:** It may help to circle or write a note on your scratch paper to remember this.
+- **Extraneous solutions:** After solving in the new variable, substitute back and check that all solutions fit the original domain. Some substitutions may introduce extraneous solutions.
+  - *Example:* Solve for $x$ if $\sqrt{x}^2+2\sqrt{x}+1=25.$
+  - *Incorrect Solution:* Let $t=\sqrt{x}.$ Then we have $t^2+2t+1=25,$ so $(t+1)^2=5$ and $t = -6, 4.$ Then $\sqrt{x}=-6,4,$ so $x=36,16.$
+  - In making the substitution $t = \sqrt{x},$ we implicitly assumed that $t \ge 0,$ the range of the square root function. Thus $t=-6$ is not a solution (we can also check this by inputting the resulting solution for $x$ back into the original equation), but $t=4 \implies x=16$ is.
+  - Ensure you exclude $x \ne 0$ as a solution if the equation involves $1/x,$ as well.
+- **The substitution doesn't simplify the equation:** In general, a good substitution should immediately make the problem simpler. 
+
+
+## Worked Examples
+
+### Example 1. Reciprocal Form
+
+> If $x^2+\frac{1}{x^2}=7$ and $x>0,$ find $x^3+\frac{1}{x^3}.$
+
+*Solution:* Let $t=x+\frac{1}{x}.$ Notice that 
+
+$$
+x^2+\frac{1}{x^2} = \left(x+\frac{1}{x}\right)^2-2 = t^2-2.
+$$
+
+Therefore, $t^2=9,$ so $t=3, -3.$ We discard $-3$ as $x>0.$ Next we apply the identity 
+
+$$
+x^3+\frac{1}{x^3}=t^3-3t,
+$$
+
+obtaining a final answer of $3^3-3\cdot 3=18.$ 
+
+### Example 2. Harder Reciprocal Form
+
+> If $x+\frac{1}{x}=3,$ find $x^5+\frac{1}{x^5}.$
+
+*Solution:* Let $t=x+\frac{1}{x}.$ Then $t=3,$ so we know that 
+
+$$
+x^2+\frac{1}{x^2} = t^2-2=7.
+$$
+
+Also,
+
+
+$$
+\left(x^2+\frac{1}{x^2}\right)\left(x^2+\frac{1}{x^2}\right)=x^4+2+\frac{1}{x^4},
+$$
+
+so
+
+$$
+x^4+\frac{1}{x^4} = 49-2 = 47.
+$$
+
+Next,
+
+$$
+x^3+\frac{1}{x^3}=t^3-3t=18.
+$$
+
+Finally, we have 
+
+$$
+\left(x^4+\frac{1}{x^4}\right)\left(x+\frac{1}{x}\right)=x^5+x^3+\frac{1}{x^3}+\frac{1}{x^5},
+$$
+
+so
+
+$$
+x^5+\frac{1}{x^5}=47 \cdot 3 - 18 = \boxed{123.}
+$$
+
+
+### Example 3: Even Powers
+
+> If $x^4-5x^2+4=0$, solve for $x$.
+
+*Solution:* Let $u=x^2$. Then $u^2-5u+4=0,$ so we factor as $(u-1)(u-4)=0,$ yielding $u=1$ or $4$. Hence $x=\pm 1,\pm 2$.
+
+### Example 4: Symmetric System
+
+> If $x^2+y^2=8$ and $\frac{1}{x}+\frac{1}{y}=1,$ find the positive value of $x+y.$
+
+*Solution:* These expressions are both symmetric, so we let $s=x+y$ and $p=xy.$ Then, notice that
+
+$$
+x^2+y^2=s^2-2p
+$$
+
+$$
+\frac{1}{x}+\frac{1}{y} = \frac{x+y}{xy} = \frac{s}{p}.
+$$
+
+Thus $s^2-2p=8,$ and $s=p.$ Inputting, we have 
+
+$$
+s^2-2s-8=0
+$$
+
+$$
+(s-4)(s+2)=0
+$$
+
+$$
+s=4.
+$$
+
+Checking, $s=4$ and $p=4$ yields $x,y=2,$ which is indeed a solution.
+
+
+
+## Practice Problems
+
+<Problems problems="practice" />

@@ -1,0 +1,464 @@
+{
+  "MODULE_ID": "shoelace-theorem-p2",
+  "practice": [
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-pick-s-theorem-auto-0929",
+      "name": "Harvard-MIT Mathematics Tournament #0i8h",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Pick's theorem",
+        "Cartesian coordinates",
+        "Vectors"
+      ],
+      "statement": "Problem:\nHow many lattice points are enclosed by the triangle with vertices $(0,99)$, $(5,100)$, and $(2003, 500)$? Don't count boundary points.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nUsing the determinant formula, we get that the area of the triangle is\n$$\n\\left|\\begin{array}{cc}\n5 & 1 \\\\\n2003 & 401\n\\end{array}\\right| / 2 = 1\n$$\nThere are 4 lattice points on the boundary of the triangle (the three vertices and $(1004, 300)$), so it follows from Pick's Theorem that there are 0 in the interior."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-pick-s-theorem-auto-2925",
+      "name": "HMMT February 2016 #0jrx",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2016",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cartesian coordinates",
+        "Pick's theorem",
+        "Constructions and loci"
+      ],
+      "statement": "Problem:\n\nDodecagon $Q W A R T Z S P H I N X$ has all side lengths equal to $2$, is not self-intersecting (in particular, the twelve vertices are all distinct), and moreover each interior angle is either $90^{\\circ}$ or $270^{\\circ}$. What are all possible values of the area of $\\triangle S I X$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe dodecagon has to be a \"plus shape\" of area $20$, then just try the three non-congruent possibilities."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-pick-s-theorem-auto-3262",
+      "name": "HMMT February #0k1a",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Pick's theorem",
+        "Quadrilaterals",
+        "Cartesian coordinates",
+        "Greatest common divisors (gcd)"
+      ],
+      "statement": "Problem:\n\nLet $n$ and $m$ be positive integers which are at most $10^{10}$. Let $R$ be the rectangle with corners at $(0,0)$, $(n, 0)$, $(n, m)$, $(0, m)$ in the coordinate plane. A simple non-self-intersecting quadrilateral with vertices at integer coordinates is called far-reaching if each of its vertices lie on or inside $R$, but each side of $R$ contains at least one vertex of the quadrilateral. Show that there is a far-reaching quadrilateral with area at most $10^{6}$.\n\n(A side of a rectangle includes the two endpoints.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $g = \\gcd(n, m)$, with $n = g \\cdot a$ and $m = g \\cdot b$. Note that the number of points on the diagonal of $R$ connecting $(0,0)$ and $(n, m)$ is $g+1$.\n\nWe construct two far-reaching quadrilaterals and show that at least one of them has small area.\n\nFor our first quadrilateral, let $(x_1, y_1)$ and $(x_2, y_2)$ be the points with the shortest nonzero distances to the diagonal between $(0,0)$ and $(n, m)$ which lie above and below the diagonal, respectively. Now consider the quadrilateral with vertices $(0,0)$, $(x_1, y_1)$, $(n, m)$, $(x_2, y_2)$. Note that the only lattice points which can lie on or inside this quadrilateral are $(x_1, y_1)$, $(x_2, y_2)$, and points on the diagonal of $R$, as otherwise we could find a closer point to the diagonal than $(x_1, y_1)$ and $(x_2, y_2)$. Thus by Pick's Theorem, the area of this quadrilateral is at most $g$.\n\nFor our second quadrilateral, we will take as our vertices the points $(0,0)$, $(n-1, m)$, $(a, b)$, and $(n, m-1)$. This is a concave quadrilateral which can be split into two triangles of areas $\\frac{a}{2}$ and $\\frac{b}{2}$, so the area of this quadrilateral is at most $\\frac{1}{2}(a+b)$.\n\nWe have therefore shown that there is always a far-reaching quadrilateral with area at most $\\min\\left(g, \\frac{1}{2}(a+b)\\right)$. Since $g \\cdot \\frac{1}{2}(a+b) = \\frac{1}{2}(n+m) \\leq 10^{10}$, we have that $\\min\\left(g, \\frac{1}{2}(a+b)\\right) \\leq 10^{5}$, so we can always find a far-reaching quadrilateral with area at most $10^{5}$ as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-pick-s-theorem-auto-4150",
+      "name": "HMMT February #0kpy",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Pick's theorem",
+        "Rotation",
+        "Homothety",
+        "Cartesian coordinates"
+      ],
+      "statement": "Problem:\n\nIn the Cartesian plane, let $A=(0,0)$, $B=(200,100)$, and $C=(30,330)$. Compute the number of ordered pairs $(x, y)$ of integers so that $\\left(x+\\frac{1}{2}, y+\\frac{1}{2}\\right)$ is in the interior of triangle $ABC$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe use Pick's Theorem, which states that in a lattice polygon with $I$ lattice points in its interior and $B$ lattice points on its boundary, the area is $I + B/2 - 1$. Also, call a point center if it is of the form $\\left(x+\\frac{1}{2}, y+\\frac{1}{2}\\right)$ for integers $x$ and $y$.\n\nThe key observation is the following: suppose we draw in the center points, rotate $45^{\\circ}$ degrees about the origin and scale up by $\\sqrt{2}$. Then, the area of the triangle goes to $2K$, and the set of old lattice points and center points becomes a lattice. Hence, we can also apply Pick's theorem to this new lattice.\n\nLet the area of the original triangle be $K$, let $I_1$ and $B_1$ be the number of interior lattice points and boundary lattice points, respectively. Let $I_c$ and $B_c$ be the number of interior and boundary points that are center points in the original triangle. Finally, let $I_2$ and $B_2$ be the number of interior and boundary points that are either lattice points or center points in the new triangle. By Pick's Theorem on both lattices,\n$$\n\\begin{aligned}\nK &= I_1 + B_1/2 - 1 \\\\\n2K &= I_2 + B_2/2 - 1 \\\\\n\\Longrightarrow (I_2 - I_1) &= K - \\frac{B_1 - B_2}{2} \\\\\n\\Longrightarrow I_c &= K - \\frac{B_c}{2}.\n\\end{aligned}\n$$\nOne can compute that the area is $31500$. The number of center points that lie on $AB$, $BC$, and $CA$ are $0$, $10$, and $30$, respectively. Thus, the final answer is $31500 - \\frac{0 + 10 + 30}{2} = 31480$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-pick-s-theorem-auto-4298",
+      "name": "HMMT November 2023 #0ku2",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2023",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Pick's theorem",
+        "Greatest common divisors (gcd)"
+      ],
+      "statement": "Problem:\n\nCompute the number of ways a non-self-intersecting concave quadrilateral can be drawn in the plane such that two of its vertices are $(0,0)$ and $(1,0)$, and the other two vertices are two distinct lattice points $(a, b),(c, d)$ with $0 \\leq a, c \\leq 59$ and $1 \\leq b, d \\leq 5$.\n\n(A concave quadrilateral is a quadrilateral with an angle strictly larger than $180^{\\circ}$. A lattice point is a point with both coordinates integers.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe instead choose points $(0,0)$, $(1,0)$, $(a, b)$, $(c, d)$ with $0 \\leq a, c \\leq 59$ and $0 \\leq b, d \\leq 5$ with $(c, d)$ in the interior of the triangle formed by the other three points. Any selection of these four points may be connected to form a concave quadrilateral in precisely three ways.\n\nApply Pick's theorem to this triangle. If $I$ is the count of interior points, and $B$ is the number of boundary lattice points, we have that the triangle's area is equal to\n\n$$\n\\frac{b}{2} = I + \\frac{B}{2} - 1\n$$\n\nLet's first compute the number of boundary lattice points on the segment from $(0,0)$ to $(a, b)$, not counting $(0,0)$. This is just $\\operatorname{gcd}(a, b)$. Similarly, there are $\\operatorname{gcd}(a-1, b)$ boundary lattice points from $(1,0)$ to $(a, b)$. Adjusting for the overcounting at $(a, b)$, we have\n\n$$\nB = \\operatorname{gcd}(a, b) + \\operatorname{gcd}(a-1, b) - 1\n$$\n\nand thus\n\n$$\nI = \\frac{b - \\operatorname{gcd}(a, b) - \\operatorname{gcd}(a-1, b) + 1}{2}\n$$\n\nwhich we notice is periodic in $a$ with period $b$. That is, the count of boundary points does not change between choices $(a, b)$ and $(a+b, b)$.\n\nWe wanted to find the sum across all $(a, b)$ of $I$, the number of interior points $(c, d)$. Using casework on $b$, the periodicity allows us to just check $I$ across points with $0 \\leq a < b$, and then multiply the count by $\\frac{60}{b}$ to get the sum of $I$ across the entire row of points.\n\nFor $b=1,2$, we always have $I=0$.\n\nFor $b=3$, we have $I=0$ at $(0,3)$, $(1,3)$ and $I=1$ for $(2,3)$. Using periodicity, this $y$-coordinate has a total of\n\n$$\n(0+0+1) \\cdot \\frac{60}{3} = 20\n$$\n\nFor $b=4$, we have $I=0$ at $(0,4)$ and $(1,4)$, and $I=1$ at both $(2,4)$ and $(3,4)$. Using periodicity, this $y$-coordinate has a total of\n\n$$\n(0+0+1+1) \\cdot \\frac{60}{4} = 30\n$$\n\nFor $b=5$, we have $I=0$ at $(0,5)$, $(1,5)$ and $I=2$ at $(2,5)$, $(3,5)$, $(4,5)$. Using periodicity, this $y$-coordinate has a total of\n\n$$\n(0+0+2+2+2) \\cdot \\frac{60}{5} = 72\n$$\n\nAdding our cases, we have $20+30+72=122$ ways to choose the four points. Multiplying back by the number of ways to connect the quadrilateral gives an answer of $122 \\cdot 3 = 366$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-pick-s-theorem-auto-4423",
+      "name": "Bay Area Mathematical Olympiad #0kxj",
+      "url": "https://usamoguide.com/",
+      "source": "Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Pick's theorem",
+        "Vectors",
+        "Determinants",
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Modular Arithmetic"
+      ],
+      "statement": "Problem:\n\nA lattice point in the plane is a point with integer coordinates. Let $T$ be a triangle in the plane whose vertices are lattice points, but with no other lattice points on its sides. Furthermore, suppose $T$ contains exactly four lattice points in its interior. Prove that these four points lie on a straight line.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet us begin with some preliminaries. In the solution to follow, we treat points freely as vectors, e.g. writing $n A$ to mean the point whose coordinates are $n$ times the coordinates of $A$, or $A+B$ to mean the point which is the coordinate-wise sum of $A$ and $B$.\nA basic result from vector geometry, which we will assume, states that given any three noncollinear points $A, B, C$ in the plane, every point $Q$ may be represented in the form $r A+s B+t C$ for unique $r, s, t$ satisfying $r+s+t=1$. Moreover, $Q$ is in the interior of $\\triangle A B C$ if and only if such $r, s, t$ are all positive. In similar fashion, any point on the line through $A$ and $B$ can be expressed as $r A+s B$ with $r+s=1$, and lies between $A$ and $B$ if and only if $r, s>0$.\nWe will also make repeated use of Pick's Theorem, which we now state without proof. This theorem asserts that a lattice polygon (a polygon whose vertices are lattice points) has area equal to\n$$\ni+\\frac{1}{2} b-1$$\nwhere $i$ and $b$ are the number of lattice points on the polygon's interior and boundary, respectively. Thus (for instance), the triangle $T$ described in the problem must have area $4+\\frac{1}{2}(3)-1=\\frac{9}{2}$.\nNow we are ready to begin the solution. With no loss of generality, let us assume $T$ has one vertex at the origin $O$, which we identify with the zero vector. Call the other two vertices $A$ and $B$.\nOf the four lattice points in the interior of $T$, let $P$ be the point closest to line $O A$. It follows that there are no lattice points lying inside $\\triangle O P A$ or on its boundary, other than $O, P, A$ themselves, since any such point would be closer than $P$ to line $O A$. Therefore, by Pick's Theorem, $\\triangle O P A$ has area $\\frac{1}{2}$.\n\nLemma: Every lattice point $Q$ can be expressed in the form $n P+k A$ for some pair of integers $(n, k)$. Moreover, when $Q$ is expressed in such form, we have $n=2[O Q A]$. (The brackets represent area.)\n\nProof. Let $Q$ be a lattice point. By Pick's Theorem, $[O Q A]=\\frac{n}{2}$ for some integer $n$. Thus $[O Q A]=n \\cdot[O P A]$. By the base-height formula for triangle area, it follows that $Q$ is on the line parallel to line $O A$ that passes through the point $n P$. Thus $Q=n P+k A$ for some real $k$, where $k A$ is a lattice point.\nWe assert that $k$ is an integer. Indeed, if $\\{k\\}$ denotes the fractional part of $k$, then $\\{k\\} A=k A-\\lfloor k\\rfloor A$ is a lattice point which lies on segment $O A$, part of the boundary of $T$. Since $T$ has no lattice points on its boundary other than its vertices, we must have $\\{k\\}=0$. This completes the proof of the lemma.\n\nLet us return to the main problem. As already noted, $[T]=[O B A]=\\frac{9}{2}$. Thus by the lemma, $B=9 P- k A$ for some integer $k$ (the minus sign in the expression is not a typo, but a deliberate convenience for what follows). Rearranging, and using the fact that $O$ is the zero vector, we have $P=\\frac{k}{9} A+\\frac{1}{9} B+\\frac{8-k}{9} O$. Since $P$ is in the interior of $T$, we have $0<k<8$. We will consider the possible values of $k$ in turn.\n\nIf $k \\equiv 0(\\bmod 3)$, then $\\frac{1}{3} B=3 P-\\frac{k}{3} A$ is a lattice point lying on segment $O B$. This contradicts the specification of $T$ as having no lattice points on its sides.\nIf $k \\equiv 2(\\bmod 3)$, then $\\frac{1}{3} B+\\frac{2}{3} A=3 P-\\frac{k-2}{3} A$ is a lattice point lying on $A B$, similarly yielding a contradiction.\nThe remaining possibilities are $k=1,4,7$.\n\nIf $k=1$, then the interior of $T$ contains in its interior the four collinear lattice points\n$$\nP=\\frac{1}{9} A+\\frac{1}{9} B+\\frac{7}{9} O, \\quad 2 P=\\frac{2}{9} A+\\frac{2}{9} B+\\frac{5}{9} O, \\quad 3 P=\\frac{3}{9} A+\\frac{3}{9} B+\\frac{3}{9} O, \\quad 4 P=\\frac{4}{9} A+\\frac{4}{9} B+\\frac{1}{9} O\n$$\nIf $k=4$, then the interior of $T$ contains in its interior the four collinear lattice points\n$$\nP=\\frac{4}{9} A+\\frac{1}{9} B+\\frac{4}{9} O, \\quad 3 P-A=\\frac{3}{9} A+\\frac{3}{9} B+\\frac{3}{9} O, \\quad 5 P-2 A=\\frac{2}{9} A+\\frac{5}{9} B+\\frac{2}{9} O, \\quad 7 P-3 A=\\frac{1}{9} A+\\frac{7}{9} B+\\frac{1}{9} O .\n$$\nIf $k=7$, then the interior of $T$ contains in its interior the four collinear lattice points\n$$\nP=\\frac{7}{9} A+\\frac{1}{9} B+\\frac{1}{9} O, \\quad 2 P-A=\\frac{5}{9} A+\\frac{2}{9} B+\\frac{2}{9} O, \\quad 3 P-2 A=\\frac{3}{9} A+\\frac{3}{9} B+\\frac{3}{9} O, \\quad 4 P-3 A=\\frac{1}{9} A+\\frac{4}{9} B+\\frac{4}{9} O\n$$\nThus, the four lattice points inside $T$ are collinear in every case, as desired.\n\nSolution:\n\nWe assume the same basic facts about vectors as in the previous solution, as well as Pick's Theorem and the determinant formula for the area of a parallelogram.\nLet $T$ have vertices $A=(x_{1}, y_{1}), B=(x_{2}, y_{2})$, and $C=(x_{3}, y_{3})$. We know that\n$$\n\\left|\\begin{array}{ll}\nx_{2}-x_{1} & x_{3}-x_{1} \\\\\ny_{2}-y_{1} & y_{3}-y_{1}\n\\end{array}\\right|=2[A B C]=9\n$$\nConsider equation (1) modulo $3$, that is, over the field $\\mathbb{Z} / 3 \\mathbb{Z}$. In this setting, the determinant is zero, so the vectors $\\mathbf{u}=(x_{2}-x_{1}, y_{2}-y_{1})$ and $\\mathbf{v}=(x_{3}-x_{1}, y_{3}-y_{1})$ are linearly dependent. If either of these vectors is zero $(\\bmod 3)$, that is, or if they are equal, then the trisection points of a side of $T$ are lattice points, which contradicts the problem statement. Thus $\\mathbf{u}, \\mathbf{v} \\neq \\mathbf{0}$ and $\\mathbf{u}=-\\mathbf{v}$.\nAn immediate consequence is that $(x_{1}+x_{2}+x_{3}, y_{1}+y_{2}+y_{3})=\\mathbf{u}+\\mathbf{v}+3(x_{3}, y_{3})=\\mathbf{0}$ over $\\mathbb{Z} / 3 \\mathbb{Z}$, with the result that the centroid, $G=\\frac{1}{3}(A+B+C)$, is a lattice point.\nNow consider $\\triangle A B G$, whose area is $\\frac{1}{3}[A B C]=\\frac{3}{2}$. By Pick's Theorem, $\\triangle A B G$ has either\n- one lattice point in its interior and none on its boundary (besides vertices), or\n- two lattice points on its boundary.\n\nCase 1: $\\triangle A B G$ has a lattice point in its interior and none on its boundary. In this case, a repetition of the preceding $(\\bmod 3)$ argument shows that the centroid $G_{1}$ of $\\triangle A B G$ is a lattice point. In this case, $G_{1}+k(G-G_{1})$ for $k=0,1,2,3$ are four collinear lattice points inside $T$.\n\nCase 2: $\\triangle A B G$ has two lattice points on its boundary. Note that if at least two lattice points occur on a line, then the lattice points on that line occur at regular intervals. Thus the two lattice points on the boundary of $\\triangle A B G$ are either the midpoints of $A G$ and $B G$ or the trisection points of one of these sides (say, $A G$). In the two cases, if we extend side $A G$ beyond $G$, the next lattice point occurring on the extension is respectively either on $T$ (at the midpoint of side $B C$), which is a contradiction, or inside $T$, being then the fourth collinear lattice point inside $T$. So we are finished."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-analytic-coordinate-methods-cartesian-coordinates-auto-0135",
+      "name": "Berkeley Math Circle #0hmf",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cartesian coordinates",
+        "Optimization in geometry",
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle"
+      ],
+      "statement": "Problem:\nProve or disprove the following assertion: given 3 noncollinear points in the plane, the disk with the smallest radius which contains all three points is the circle passing through all three points.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe assertion is false. Consider the points $A = (-\\sqrt{3}, 0)$, $B = (\\sqrt{3}, 0)$, $C = (0, 1)$. They are contained in the circle with diameter $AB$, which has radius $\\sqrt{3}$, but the circumcircle of the triangle $ABC$ has radius $2$ (centered at $O = (0, -1)$)."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-analytic-coordinate-methods-cartesian-coordinates-auto-0175",
+      "name": "MathNet #0hnj",
+      "url": "https://usamoguide.com/",
+      "source": "MathNet",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Homothety",
+        "Cartesian coordinates"
+      ],
+      "statement": "Problem:\n\nSquare $ABCD$ has side length $1$. A dilation is performed about point $A$, creating square $AB' C' D'$. If $BC' = 29$, determine the area of triangle $BDC'$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n$29^{2} - 2 \\cdot \\frac{1}{2}(29)\\left(\\frac{29}{2}\\right) - \\frac{1}{2} = 420$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-analytic-coordinate-methods-cartesian-coordinates-auto-0210",
+      "name": "Berkeley Math Circle #0hoi",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cartesian coordinates",
+        "Homothety",
+        "Distance chasing"
+      ],
+      "statement": "Problem:\n\nA point $M$ and a circle $k$ are given in the plane. If $ABCD$ is an arbitrary square inscribed in $k$, prove that the sum $MA^{4} + MB^{4} + MC^{4} + MD^{4}$ is independent of the positioning of the square.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nBy scaling, assume $k$ has radius $1$. Position the circle in the coordinate plane with its center $O$ at the origin, and points $A$, $B$, $C$, $D$ at $(1,0)$, $(0,1)$, $(-1,0)$, $(0,-1)$, respectively. Let $M$ have coordinates $(x, y)$. Then, using the Pythagorean theorem to expand $MA^{2}$, $MB^{2}$, $MC^{2}$, $MD^{2}$, we get\n$$\n\\begin{aligned}\nMA^{4} & + MB^{4} + MC^{4} + MD^{4} = \\left[(x-1)^{2} + y^{2}\\right]^{2} + \\left[x^{2} + (y-1)^{2}\\right]^{2} + \\left[(x+1)^{2} + y^{2}\\right]^{2} + \\left[x^{2} + (y+1)^{2}\\right]^{2} \\\\\n& = \\left(x^{2} - 2x + 1 + y^{2}\\right)^{2} + \\left(x^{2} + y^{2} - 2y + 1\\right)^{2} + \\left(x^{2} + 2x + 1 + y^{2}\\right)^{2} + \\left(x^{2} + y^{2} + 2y + 1\\right)^{2}\n\\end{aligned}\n$$\nIf we set $s = x^{2} + y^{2} + 1 = OM^{2} + 1$, this becomes\n$$\n\\begin{gathered}\n(s - 2x)^{2} + (s - 2y)^{2} + (s + 2x)^{2} + (s + 2y)^{2} \\\\\n= \\left(s^{2} - 4sx + 4x^{2}\\right) + \\left(s^{2} - 4sy + 4y^{2}\\right) + \\left(s^{2} + 4sx + 4x^{2}\\right) + \\left(s^{2} + 4sy + 4y^{2}\\right) \\\\\n= 4s^{2} + 8(x^{2} + y^{2}) = 4 OM^{4} + 16 OM^{2} + 4.\n\\end{gathered}\n$$\nThus, our sum depends only on the circle's radius and the distance $OM$, which is what we need."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-analytic-coordinate-methods-cartesian-coordinates-auto-0227",
+      "name": "Berkeley Math Circle Monthly Contest 6 #0hoz",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cartesian coordinates",
+        "Constructions and loci"
+      ],
+      "statement": "Problem:\n\nIn this fragment of a computer keyboard, the keys are congruent squares touching along their edges, and each letter refers to the point at the center of the corresponding key. Prove that triangles $Q A Z$ and $E S Z$ have the same area.\n\n![](attached_image_1.png)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet us use measuring units in which the side length of each key is $1$. We express the area of quadrilateral $Q A Z E$ in two ways:\n\na. By dividing into triangles $Q A Z$ and $Q Z E$. Since $\\triangle Q Z E$ has base $Q E = 2$ and height $2$, we get\n$$\n\\text{Area } Q A Z E = \\text{Area } Q A Z + \\frac{1}{2} \\cdot 2 \\cdot 2 = \\operatorname{Area} Q A Z + 2\n$$\n\nb. By dividing to triangles $E S Z$, $Q W A$, $W A S$, $W E S$, and $A S Z$. The four latter triangles all have base $1$, height $1$, and area $1/2$, so\n$$\n\\text{Area } Q A Z E = \\text{Area } E S Z + \\frac{1}{2} + \\frac{1}{2} + \\frac{1}{2} + \\frac{1}{2} = \\operatorname{Area} E S Z + 2\n$$\n\nSince quadrilateral $Q A Z E$ must have the same area in both computations, we deduce that $\\text{Area } Q A Z = \\text{Area } E S Z$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-analytic-coordinate-methods-cartesian-coordinates-auto-0238",
+      "name": "Berkeley Math Circle #0hpa",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cartesian coordinates",
+        "Rotation",
+        "Quadrilaterals"
+      ],
+      "statement": "Problem:\nLet $ABCD$ be a square in the coordinate plane such that $A$ is on the $x$-axis and $C$ is on the $y$-axis. Prove that one of the vertices $B$ and $D$ lies on the line $y = x$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAssume without loss of generality that the vertices $A, B, C, D$ are labeled in counterclockwise order. Let $A$ and $C$ have the coordinates $(a, 0)$ and $(0, c)$ respectively. The center $M$ of the square is the midpoint of $AC$ and therefore has the coordinates\n$$\n\\left(\\frac{a}{2}, \\frac{c}{2}\\right).\n$$\n\nTo get from $M$ to $C$, we can move upward $c/2$ units and then leftward $a/2$ units (of course, these are signed distances, indicating movement in the opposite directions if they are negative). Since $B$ is the $90^{\\circ}$ clockwise rotation of $C$ around $M$, we can get from $M$ to $B$ by moving rightward $c/2$ units and then upward $a/2$ units. This takes us from $M$ to the point\n$$\n\\left(\\frac{a}{2} + \\frac{c}{2}, \\frac{c}{2} + \\frac{a}{2}\\right)\n$$\nwhich clearly lies on the line $y = x$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-analytic-coordinate-methods-cartesian-coordinates-auto-0250",
+      "name": "Berkeley Math Circle: Monthly Contest 6 #0hpm",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Constructions and loci",
+        "Cartesian coordinates",
+        "Radical axis theorem"
+      ],
+      "statement": "Problem:\n\nLet $A$ and $B$ be two points on the plane with $AB = 7$. What is the set of points $P$ such that $PA^2 = PB^2 - 7$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nIf we let $K$ be the point on $AB$ with $AK = 4$, $BK = 3$, then the answer is the line through $K$ perpendicular to $AB$. To see this, set $A = (0, 0)$ and $B = (7, 0)$. Then the points $P = (x, y)$ are exactly those satisfying\n$$\n(x - 0)^2 + (y - 0)^2 = (x - 7)^2 + (y - 0)^2 - 7\n$$\nwhich rearranges to $9 = -14x + 42$, i.e., $x = 3$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-analytic-coordinate-methods-cartesian-coordinates-auto-0355",
+      "name": "MathNet #0hsj",
+      "url": "https://usamoguide.com/",
+      "source": "MathNet",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangles",
+        "Homothety",
+        "Isogonal/isotomic conjugates, barycentric coordinates",
+        "Cartesian coordinates"
+      ],
+      "statement": "Problem:\n\nThrough a point in the interior of a triangle $ABC$, three lines are drawn, one parallel to each side. These lines divide the sides of the triangle into three regions each. Let $a$, $b$, and $c$ be the lengths of the sides opposite $\\angle A$, $\\angle B$, and $\\angle C$, respectively, and let $a'$, $b'$, and $c'$ be the lengths of the middle regions of the sides opposite $\\angle A$, $\\angle B$, and $\\angle C$, respectively. Find the numerical value of $\\dfrac{a'}{a} + \\dfrac{b'}{b} + \\dfrac{c'}{c}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n$1$ ."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-analytic-coordinate-methods-cartesian-coordinates-auto-0380",
+      "name": "Berkeley Math Circle Monthly Contest 4 #0ht8",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 4",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recursion, bijection",
+        "Recurrence relations",
+        "Cartesian coordinates"
+      ],
+      "statement": "Problem:\nLet $n \\geq 1$ be an integer. How many ways can the rectangle having vertices $(0,0)$, $(n, 0)$, $(n, 1)$, $(0,1)$ be dissected into $2n$ triangles, all vertices of which have integer coordinates?\n\nThe triangles are considered as positioned on the coordinate plane; in particular, tilings related by rotation and reflection are considered distinct.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nSince the vertices of the tiles must lie within the rectangle and cannot be collinear, all tiles have the form\n$$\n(a, 0)(b, 0)(c, 1) \\text{ or } \\quad (a, 1)(b, 1)(c, 0) \\quad (a < b).\n$$\nSuch a triangle has area $(b-a)/2$; for $2n$ such triangles to tile a rectangle of area $n$, it is necessary that they all have area $1/2$, i.e. be of the form\n$$\n(a, 0)(a+1, 0)(c, 1) \\quad \\text{ or } \\quad (a, 1)(a+1, 1)(c, 0).\n$$\nLet $T_{a, b}$, for $a, b \\geq 0$, be the trapezoid (or rectangle, triangle, degenerate segment) having vertices $(0,0)$, $(a, 0)$, $(b, 1)$, $(0,1)$, and let $t_{a, b}$ be the number of ways to tile it with triangles of type (11). If $a$ and $b$ are positive, the right-hand edge can be covered in only two ways:\n- Laying the tile $(a-1, 0)(a, 0)(b, 1)$ and tiling the resulting $T_{a-1, b}$;\n- Laying the tile $(a, 0)(b-1, 1)(b, 1)$ and tiling the resulting $T_{a, b-1}$.\nThus in this case $t_{a, b} = t_{a-1, b} + t_{a, b-1}$. This, together with the initial conditions $t_{a, 0} = t_{0, b} = 1$, is the recursion of Pascal's triangle; it shows that $t_{a, b} = \\binom{a+b}{a}$. Thus the desired answer is $t_{n, n} = \\binom{2n}{n}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-analytic-coordinate-methods-cartesian-coordinates-auto-0449",
+      "name": "MathNet #0hv5",
+      "url": "https://usamoguide.com/",
+      "source": "MathNet",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cartesian coordinates",
+        "Optimization in geometry"
+      ],
+      "statement": "Problem:\nLet $(x, y)$ be a point in the cartesian plane, $x, y > 0$. Find a formula in terms of $x$ and $y$ for the minimal area of a right triangle with hypotenuse passing through $(x, y)$ and legs contained in the $x$ and $y$ axes.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n$2 x y$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-analytic-coordinate-methods-cartesian-coordinates-auto-0492",
+      "name": "Berkeley Math Circle Monthly Contest 6 #0hwc",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Cartesian coordinates",
+        "Vectors"
+      ],
+      "statement": "Problem:\n\nA lattice point is a point in the coordinate plane both of whose coordinates are integers. In $\\triangle ABC$, all three vertices are lattice points and the area of the triangle is $1/2$. Prove that the orthocenter of $\\triangle ABC$ is also a lattice point.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet us position our coordinate system so that $A$ is the origin. Let $B = (a, b)$ and $C = (c, d)$. Then the formula for the area of a triangle with given vertex coordinates gives $\\frac{1}{2} = \\frac{1}{2}|ad - bc|$, i.e. $ad - bc = \\pm 1$.\n\nLet $H = (x, y)$ be the orthocenter of $\\triangle ABC$. The condition $CH \\perp AB$ can be expressed in vector form as\n$$\n0 = \\overrightarrow{AB} \\cdot \\overrightarrow{CH} = \\langle a, b \\rangle \\cdot \\langle x - c, y - d \\rangle\n$$\nor\n$$\na x + b y = a c + b d.\n$$\nSimilarly, the condition $BH \\perp AC$ can be expressed as\n$$\nc x + d y = a c + b d.\n$$\nAdding $d$ times equation (2) to $-b$ times equation (3)$:$\n$$\n(a d - b c) x = d(a c + b d) - b(a c + b d).\n$$\nSince $ad - bc = \\pm 1$, it follows that $x$ is an integer. Similarly, we can prove that $y$ is an integer as well."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-analytic-coordinate-methods-cartesian-coordinates-auto-0524",
+      "name": "Berkeley Math Circle: Monthly Contest 1 #0hx8",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Cartesian coordinates",
+        "Optimization in geometry",
+        "Quadratic functions"
+      ],
+      "statement": "Problem:\nGiven a fixed triangle $\\triangle ABC$ and a point $P$, find the maximum value of\n$$\n\\frac{AB^{2} + BC^{2} + CA^{2}}{PA^{2} + PB^{2} + PC^{2}}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe use the following lemma.\n\nLemma. Given $a, b, c, p \\in \\mathbb{R}$ such that not all of $a, b, c$ are equal,\n$$\n(a-b)^{2} + (b-c)^{2} + (c-a)^{2} \\leq 3\\left((p-a)^{2} + (p-b)^{2} + (p-c)^{2}\\right)\n$$\nwith equality if and only if $p = (a+b+c)/3$.\n\nProof. For fixed $a, b, c$, the right hand side is a quadratic in $p$, namely\n$$\n\\begin{aligned}\n3\\left((p-a)^{2} + (p-b)^{2} + (p-c)^{2}\\right) &= 3\\left((p^{2} - 2ap + a^{2}) + (p^{2} - 2bp + b^{2}) + (p^{2} - 2cp + c^{2})\\right) \\\\\n&= 9p^{2} - 6(a+b+c)p + 3(a^{2} + b^{2} + c^{2}) .\n\\end{aligned}\n$$\nand is thus minimized at $-\\frac{-6(a+b+c)}{2 \\cdot 9} = (a+b+c)/3$. By plugging $p = (a+b+c)/3$ into the original equation, we observe equality, as desired.\n\nUsing Cartesian coordinates, let $A = (a_{x}, a_{y})$, $B = (b_{x}, b_{y})$, $C = (c_{x}, c_{y})$, and $P = (p_{x}, p_{y})$. By the Pythagorean theorem,\n$$\n\\begin{gathered}\nAB^{2} + BC^{2} + CA^{2} = [(a_{x} - b_{x})^{2} + (a_{y} - b_{y})^{2}] + [(b_{x} - c_{x})^{2} + (b_{y} - c_{y})^{2}] \\\\\n+ [(c_{x} - a_{x})^{2} + (c_{y} - a_{y})^{2}] \\\\\n= [(a_{x} - b_{x})^{2} + (b_{x} - c_{x})^{2} + (c_{x} - a_{x})^{2}] \\\\\n+ [(a_{y} - b_{y})^{2} + (b_{y} - c_{y})^{2} + (c_{y} - a_{y})^{2}]\n\\end{gathered}\n$$\nso by the above,\n$$\n\\begin{aligned}\nAB^{2} + BC^{2} + CA^{2} \\leq 3[ & (p_{x} - a_{x})^{2} + (p_{x} - b_{x})^{2} + (p_{x} - c_{x})^{2} ] \\\\\n& + 3[ (p_{y} - a_{y})^{2} + (p_{y} - b_{y})^{2} + (p_{y} - c_{y})^{2} ] \\\\\n= & 3[ (p_{x} - a_{x})^{2} + (p_{y} - a_{y})^{2} ] + 3[ (p_{x} - b_{x})^{2} + (p_{y} - b_{y})^{2} ] \\\\\n& + 3[ (p_{x} - c_{x})^{2} + (p_{y} - c_{y})^{2} ] \\\\\n= & 3(PA^{2} + PB^{2} + PC^{2}) .\n\\end{aligned}\n$$\nThis gives\n$$\n\\frac{AB^{2} + BC^{2} + CA^{2}}{PA^{2} + PB^{2} + PC^{2}} \\leq 3,\n$$\nwith equality at\n$$\nP = \\left(\\frac{a_{x} + b_{x} + c_{x}}{3}, \\frac{a_{y} + b_{y} + c_{y}}{3}\\right),\n$$\nthe centroid of $\\triangle ABC$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-analytic-coordinate-methods-cartesian-coordinates-auto-0541",
+      "name": "HMMT #0hxp",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Quadratic functions",
+        "Linear and quadratic inequalities",
+        "Cartesian coordinates",
+        "Constructions and loci"
+      ],
+      "statement": "Problem:\n\nLet $S$ be the locus of all points $(x, y)$ in the first quadrant such that $\\frac{x}{t}+\\frac{y}{1-t}=1$ for some $t$ with $0<t<1$. Find the area of $S$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSolving for $t$ in the given equation, we get $t^{2}+(y-x-1) t+x=0$. Using the quadratic equation, we get\n$$\nt=\\frac{(x+1-y) \\pm \\sqrt{(y-x-1)^{2}-4 x}}{2}.\n$$\nFor all valid combinations of $(x, y)$, $t$ is positive and less than $1$ (this is easy to see by inspection). All valid combinations of $(x, y)$ are those that make $(y-x-1)^{2}-4 x \\geq 0$.\n\nSolving for $y$ in the equation $(y-x-1)^{2}-4 x=0$ yields\n$$\ny^{2}-(2 x+2) y+(x-1)^{2}=0 \\implies y=(x+1) \\pm 2 \\sqrt{x}.\n$$\nIn the original equation, it is given that $\\frac{x}{t}+\\frac{y}{1-t}=1$, and $0<t<1$. This implies that $x, y<1$. Then the only possible $y<1$ that satisfies $(y-x-1)^{2}-4 x=0$ is $y=x+1-2 \\sqrt{x}$.\n\nThen to satisfy the inequality $(y-x-1)^{2}-4 x \\geq 0$, we must have $y \\leq x+1-2 \\sqrt{x}$. Recall that this is when $0<y<1$. Hence we integrate in the interval $[0,1]$:\n$$\n\\int_{0}^{1} x+1-2 \\sqrt{x} \\, dx = \\frac{1}{6}.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-analytic-coordinate-methods-cartesian-coordinates-auto-0557",
+      "name": "HMMT #0hy5",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cartesian coordinates",
+        "Trigonometry",
+        "Quadratic functions"
+      ],
+      "statement": "Problem:\nA parabola is inscribed in equilateral triangle $ABC$ of side length $1$ in the sense that $AC$ and $BC$ are tangent to the parabola at $A$ and $B$, respectively. Find the area between $AB$ and the parabola.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nSuppose $A = (0, 0)$, $B = (1, 0)$, and $C = \\left(\\frac{1}{2}, \\frac{\\sqrt{3}}{2}\\right)$. Then the parabola in question goes through $(0, 0)$ and $(1, 0)$ and has tangents with slopes of $\\sqrt{3}$ and $-\\sqrt{3}$, respectively, at these points. Suppose the parabola has equation $y = a x^{2} + b x + c$. Then $\\frac{d y}{d x} = 2 a x + b$.\n\nAt point $(0, 0)$, $\\frac{d y}{d x} = b$. Also the slope at $(0, 0)$, as we determined earlier, is $\\sqrt{3}$. Hence $b = \\sqrt{3}$. Similarly, at point $(1, 0)$, $\\frac{d y}{d x} = 2 a + b$. The slope at $(1, 0)$, as we determined earlier, is $-\\sqrt{3}$. Then $a = -\\sqrt{3}$.\n\nSince the parabola goes through $(0, 0)$, $c = 0$. Hence the equation of the parabola is $y = -\\sqrt{3} x^{2} + \\sqrt{3} x$. The desired area is simply the area under the parabolic curve in the interval $[0, 1]$.\n\nHence\n$$\n\\int_{0}^{1} \\left( -\\sqrt{3} x^{2} + \\sqrt{3} x \\right) dx = \\frac{\\sqrt{3}}{6}.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

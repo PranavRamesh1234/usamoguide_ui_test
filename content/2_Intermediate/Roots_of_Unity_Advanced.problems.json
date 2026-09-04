@@ -1,0 +1,603 @@
+{
+  "MODULE_ID": "roots-of-unity-advanced",
+  "practice": [
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-roots-of-unity-auto-0126",
+      "name": "Berkeley Math Circle Take-Home Contest #0hm6",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Take-Home Contest",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Invariants / monovariants",
+        "Roots of unity",
+        "Sums and products"
+      ],
+      "statement": "Problem:\n\nLet $m, n$ be positive integers. Suppose that a given rectangle can be tiled (without overlaps) by a combination of horizontal $1 \\times m$ strips and vertical $n \\times 1$ strips. Show that it can be tiled using just one of the two types.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nIf the rectangle is $a \\times b$ ($a$ the horizontal dimension), it is clear that $a$ and $b$ are integers since the rectangle can be divided into rectangles of integer side lengths; we want to show that either $a$ is divisible by $m$ or $b$ is divisible by $n$.\n\nLet $\\zeta = \\cos \\frac{2\\pi}{m} + i \\sin \\frac{2\\pi}{m}$, $\\xi = \\cos \\frac{2\\pi}{n} + i \\sin \\frac{2\\pi}{n}$ be complex $m$th and $n$th roots of unity, respectively. Divide the rectangle into $ab$ unit squares, and write the number $\\zeta^{x} \\xi^{y}$ in the square with coordinates $(x, y)$.\n\nFor each vertical strip, the sum of the numbers written in it is zero: if its lowermost square has coordinates $(x, y)$, then the sum of these numbers is\n$$\n\\zeta^{x} \\xi^{y} + \\zeta^{x} \\xi^{y+1} + \\cdots + \\zeta^{x} \\xi^{y+n-1} = \\zeta^{x} \\xi^{y} (1 + \\xi + \\xi^{2} + \\cdots + \\xi^{n-1}) = \\zeta^{x} \\xi^{y} \\cdot \\frac{\\xi^{n} - 1}{\\xi - 1} = 0\n$$\nsince $\\xi^{n} = 1$.\n\nA similar calculation shows that the sum of the numbers in any horizontal strip is zero.\n\nSince the rectangle is tiled by these strips, the sum of all the numbers in the rectangle is zero. But this sum is also equal to\n$$\n\\left(\\zeta + \\zeta^{2} + \\zeta^{3} + \\cdots + \\zeta^{a}\\right) \\left(\\xi + \\xi^{2} + \\xi^{3} + \\cdots + \\xi^{b}\\right) = \\zeta \\xi \\cdot \\frac{\\zeta^{a} - 1}{\\zeta - 1} \\cdot \\frac{\\xi^{b} - 1}{\\xi - 1}\n$$\nFor this to be $0$, we must have $\\zeta^{a} = 1$ or $\\xi^{b} = 1$, which implies $a$ divisible by $m$ or $b$ divisible by $n$, respectively."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-roots-of-unity-auto-0286",
+      "name": "Berkeley Math Circle Take-Home Contest #1 #0hqm",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Take-Home Contest #1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vieta's formulas",
+        "Roots of unity",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\n\nLet $z = \\cos \\dfrac{2\\pi}{n} + i \\sin \\dfrac{2\\pi}{n}$ where $n$ is a positive odd integer. Prove that\n$$\n\\frac{1}{1+z} + \\frac{1}{1+z^{2}} + \\frac{1}{1+z^{3}} + \\cdots + \\frac{1}{1+z^{n}} = \\frac{n}{2}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nConsider the polynomial $P(x) = x^{n} + (x-1)^{n}$. We claim that for each integer $i$, $x = 1/(1+z^{i})$ is a root. Indeed, we have $(-z^{i})^{n} = (-1)^{n} z^{i n} = -1$ (since $z^{n} = 1$ and $n$ is odd) and so\n$$\nx^{n} = \\frac{1}{(1+z^{i})^{n}} ; \\quad (x-1)^{n} = \\left(\\frac{-z^{i}}{1+z^{i}}\\right)^{n} = \\frac{-1}{(1+z^{i})^{n}} \\Rightarrow x^{n} + (x-1)^{n} = 0 .\n$$\nMoreover, since the values of $z^{i}$ are distinct for $i = 1, 2, \\ldots, n$, we have found $n$ different roots of this polynomial which has degree $n$, so by the Fundamental Theorem of Algebra, they are all the roots and we can write\n$$\nP(x) = c\\left(x - \\frac{1}{1+z}\\right)\\left(x - \\frac{1}{1+z^{2}}\\right) \\cdots \\left(x - \\frac{1}{1+z^{n}}\\right) \\text{ for some constant } c \\text{. }\n$$\nIf we expand the expression on the right side, the coefficient of $x^{n}$ is $c$ and the coefficient of $x^{n-1}$ is $-c\\left[1/(1+z) + 1/(1+z^{2}) + \\cdots + 1/(1+z^{n})\\right]$. On the other hand, on the left side, the coefficient of $x^{n}$ is $2$ and the coefficient of $x^{n-1}$ is $-n$ (found by expanding $(x-1)^{n}$ using the binomial theorem). Equating coefficients, we get $c = 2$ and thus $-2\\left[1/(1+z) + 1/(1+z^{2}) + \\cdots + 1/(1+z^{n})\\right] = -n$ which yields what we need."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-roots-of-unity-auto-0382",
+      "name": "Berkeley Math Circle Take-Home Contest #2 #0hta",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Take-Home Contest #2",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Roots of unity",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\nProve that\n$$\ntan \\left(\\frac{3 \\pi}{11}\\right)+4 \\sin \\left(\\frac{2 \\pi}{11}\\right)=\\sqrt{11}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe work with complex roots of unity. Let $\\zeta=\\cos \\frac{\\pi}{11}+i \\sin \\frac{\\pi}{11}$; then we know that $\\zeta^{n}=\\cos \\frac{n \\pi}{11}+i \\sin \\frac{n \\pi}{11}$ and, in particular, $\\zeta^{11}=-1$. Now, the given expression is clearly positive (since each term is positive), so we need only check that its square is $11$. To do that, observe that $\\sin \\frac{2 \\pi}{11}=\\frac{\\zeta^{2}+\\zeta^{9}}{2i}$, $\\sin \\frac{3 \\pi}{11}=\\frac{\\zeta^{3}+\\zeta^{8}}{2i}$, and $\\cos \\frac{3 \\pi}{11}=\\frac{\\zeta^{3}-\\zeta^{8}}{2}$; hence our objective is to show that\n$$\n\\left(2 \\frac{\\zeta^{2}+\\zeta^{9}}{i}+\\frac{\\zeta^{3}+\\zeta^{8}}{(\\zeta^{3}-\\zeta^{8}) i}\\right)^{2}=11\n$$\nor, equivalently, that $\\left[2(\\zeta^{2}+\\zeta^{9})(\\zeta^{3}-\\zeta^{8})+(\\zeta^{3}+\\zeta^{8})\\right]^{2}=-11(\\zeta^{3}-\\zeta^{8})^{2}$. The expression inside brackets on the left multiplies out to $2 \\zeta^{5}+2 \\zeta^{12}-2 \\zeta^{10}-2 \\zeta^{17}+\\zeta^{3}+\\zeta^{8}=-2 \\zeta^{10}+\\zeta^{8}+2 \\zeta^{6}+2 \\zeta^{5}+\\zeta^{3}-2 \\zeta$; when we square this and collect terms (remembering again that $\\zeta^{11}=-1$), we obtain\n$$\n\\begin{gathered}\n4 \\zeta^{10}-4 \\zeta^{9}+4 \\zeta^{8}-4 \\zeta^{7}-7 \\zeta^{6}+7 \\zeta^{5}+4 \\zeta^{4}-4 \\zeta^{3}+4 \\zeta^{2}-4 \\zeta-18 \\\\\n=4\\left(\\zeta^{10}-\\zeta^{9}+\\zeta^{8}-\\cdots+1\\right)+11\\left(\\zeta^{5}-2-\\zeta^{6}\\right) .\n\\end{gathered}\n$$\nSince the first expression in parentheses is $\\frac{\\zeta^{11}+1}{\\zeta+1}=0$ and the second is $-\\left(\\zeta^{3}-\\zeta^{8}\\right)^{2}$, we have what we wanted."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-roots-of-unity-auto-0598",
+      "name": "Harvard-MIT Math Tournament #0hza",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial operations",
+        "Complex numbers",
+        "Roots of unity"
+      ],
+      "statement": "Problem:\n\nFind an ordered pair $(a, b)$ of real numbers for which $x^{2}+a x+b$ has a non-real root whose cube is 343.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe cube roots of $343$ are the roots of $x^{3}-343$, which is $(x-7)(x^{2}+7x+49)$. Therefore the ordered pair we want is $(7, 49)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-roots-of-unity-auto-1040",
+      "name": "USA IMO #0ibk",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inclusion-exclusion",
+        "Generating functions",
+        "Enumeration with symmetry",
+        "Roots of unity",
+        "Complex numbers"
+      ],
+      "statement": "Let $n$ be a positive integer. Consider sequences $a_0, a_1, \\dots, a_n$ such that $a_i \\in \\{1, 2, \\dots, n\\}$ for each $i$ and $a_n = a_0$.\n\na. Call such a sequence *good* if for all $i = 1, 2, \\dots, n$, $a_i - a_{i-1} \\not\\equiv i \\pmod n$. Suppose that $n$ is odd. Find the number of good sequences.\n\nb. Call such a sequence *great* if for all $i = 1, 2, \\dots, n$, $a_i - a_{i-1} \\not\\equiv i, 2i \\pmod n$. Suppose that $n$ is an odd prime. Find the number of great sequences.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**First Solution:** The answer is $(n-1)^n - (n-1)$ for part (a) and $(n-1)((n-2)^{n-1} - 1)$ for part (b).\n\na. Observe that the number of good sequences is clearly the same for any choice of $a_0$. For fixed $a_0$, call the condition $a_i - a_{i-1} \\not\\equiv i \\pmod n$ *condition (i)*. Now let $S_i$ be the set of sequences $A = \\{a_i\\}_{i=1}^n, a_i \\in \\{1, 2, \\dots, n\\}$ such that $A$ satisfies conditions (1), (2), \\dots, $(n-i)$ and fails to satisfy conditions $(n-i+2)$, $(n-i+3)$, \\dots, $(n)$. Note that there is no constraint on whether or not $A$ satisfies condition $(n-i+1)$. Finally, let $F$ be the set of sequences that fails all conditions (1), (2), \\dots, $(n)$. Then we claim that the number of good sequences starting with $a_0$ is\n$$\nm = |S_1| - |S_2| + |S_3| - \\dots + |S_n| - |F|.\n$$\nConsider the following table, representing the conditions on sequences in $S_i$.\n$$\n\\begin{array}{c|ccccccc}\nS_1 & (1) & (2) & (3) & \\dots & (n-2) & (n-1) & \\\\\n\\hline\nS_2 & (1) & (2) & (3) & \\dots & (n-2) & \\overline{(n)} & \\\\\n\\hline\nS_3 & (1) & (2) & (3) & \\dots & \\overline{(n-1)} & \\overline{(n)} & \\\\\n\\hline\n\\vdots & \\vdots & \\vdots & \\vdots & \\dots & \\vdots & \\vdots & \\vdots \\\\\n\\hline\nS_n & \\overline{(2)} & \\overline{(3)} & \\dots & \\overline{(n-2)} & \\overline{(n-1)} & \\overline{(n)} & \\\\\n\\hline\nF & (1) & (2) & (3) & \\dots & \\overline{(n-2)} & \\overline{(n-1)} & \\overline{(n)}\n\\end{array}\n$$\nConditions that appear as $(j)$ in row $i$ are satisfied by sequences in $S_i$, and those that appear as $\\overline{(j)}$ are failed.\n\nNow take any sequence $A$. If $A$ is good, then $A$ is counted exactly once in $|S_1|$ and is not counted anywhere else. Otherwise, if $A$ is not good, let $(i)$ be the first condition that $A$ fails. If $i > 1$, then $A$ belongs to exactly the sets $S_{n-1}, S_{n-2}$. As one of $|S_{n-1}|, |S_{n-2}|$ is added and one is subtracted, $A$ has no net contribution to $m$. Finally, if $i = 1$, then $A$ belongs to $S_n$ and $F$, so again $A$ does not contribute to $m$. Therefore, $m$ is indeed the number of good sequences.\n\nWe are left with computing the sizes of the $S_i$'s and $F$. This is easy, as the failure of the final $i-1$ conditions determines the terms $a_{n-1}, a_{n-2}, \\dots, a_{n-i+1}$, whereas there are just $n-1$ ways to satisfy each of the conditions (1), (2), \\dots, $(n-i)$, producing $(n-1)^{n-i}$ subsequences $a_0, a_1, \\dots, a_{n-i}$. As there is no constraint on $a_{n-i+1} - a_{n-i}$, we have found all sequences in $S_i$. Hence, $|S_i| = (n-1)^{n-i}$. As for $F$, there is clearly exactly one way to fail every single condition, because $1+2+\\dots+(n-1) = \\frac{n(n-1)}{2}$ is divisible by $n$. Therefore, $|S_n| - F = 0$ and\n$$\n\\begin{align*}\nm &= |S_1| - |S_2| + \\dots - |S_{n-1}| \\\\\n&= (n-1)^{n-1} - (n-1)^{n-2} + \\dots - (n-1) \\\\\n&= \\frac{(n-1)^n - (n-1)}{n}.\n\\end{align*}\n$$\nAs there were originally $n$ choices for $a_0$, multiplying by $n$ gives the desired answer.\n\nb. We can use the same argument as in part (a), but we must recompute the values of $|S_i|$ and $|F|$. Note that for $1 \\le i \\le n-1$, there are exactly two ways to fail condition (i) (because $n$ is odd) while condition (n) is degenerate and reduces to the single restriction $a_n - a_{n-1} \\not\\equiv 0 \\pmod{n}$. Hence, we have\n$$\n|S_1| = (n-2)^{n-1} \\quad \\text{and} \\quad |S_i| = 2^{i-2}(n-2)^{n-i},\n$$\nfor $2 \\le i \\le n$. Finding $|F|$ is trickier in this case, however. Considering the differences $b_i = a_i - a_{i-1}$, $i = 1, 2, \\dots, n$, we wish to count the number of choices of $\\{b_i\\}_{i=1}^n$ such that\n$$\nb_1 + b_2 + \\dots + b_n \\equiv 0 \\pmod{n},\n$$\nwhere $b_i = i$ or $2i \\pmod{n}$ for each $i$. Note that because of the degenerate condition $(n)$, $b_n \\equiv 0 \\pmod{n}$ is forced; hence, we are actually looking at $2^{n-1}$ sums $b_1 + b_2 + \\dots + b_{n-1}$ rather than $2^n$. Now, as $n \\mid [1 + 2 + \\dots + (n-1)] = \\frac{n(n-1)}{2}$, we can equivalently consider sums of terms $c_i = b_i - i$. That is, we wish to find the number of choices of $c_1, c_2, \\dots, c_{n-1}$ such that\n$$\nc_1 + c_2 + \\dots + c_{n-1} \\equiv 0 \\pmod{n},\n$$\nwhere $c_i = 0$ or $i$ for each $i$. We now introduce an extra term $c_n$ that can be either 0 or $n$. The only effect of this extra term is to double the number of choices of $\\{c_i\\}_{i=1}^n$ compared to the number of choices of $\\{c_i\\}_{i=1}^{n-1}$. That is, letting\n$$\nF' = \\{(c_1, c_2, \\dots, c_n) \\mid \\begin{aligned}[t] & c_i = 0 \\text{ or } i, \\\\ & c_1 + c_2 + \\dots + c_n \\equiv 0 \\pmod{n} \\end{aligned}\\},\n$$\nwe have $|F| = \\frac{1}{2}|F'|$.\n\nObserve that we can identify choices $(c_1, c_2, \\dots, c_n)$ with subsets of $T = \\{1, 2, \\dots, n\\}$; the elements of $F'$ are then simply the subsets of $T$ that have sum divisible by $n$. The empty set and the set $T$ are two sets that clearly satisfy this property. All remaining subsets $U \\subset T$ have from 1 to $n-1$ elements. Write $U+k$ for the set $\\{x+k \\mid x \\in U\\}$ (taken mod $n$); this is the rotation of $U$ by $k$ shifts to the right. Then because $n$ is prime and $0 < |U| < n$, the subsets $U, U+1, U+2, \\dots, U+(n-1)$ form an equivalence class of exactly $n$ distinct subsets. Furthermore, the sums of the elements in $U$ and $U + k$ differ by $k|U|(\\text{mod } n)$, so exactly one element of each class has sum divisible by $n$. It follows that\n$$\n|F'| = 2 + \\frac{2^n - 2}{n}, \\quad |F| = \\frac{1}{2}|F'| = \\frac{2^{n-1} + n - 1}{n}.\n$$\nTherefore,\n$$\n\\begin{align*}\nm &= |S_1| - |S_2| + |S_3| - \\dots + |S_n| - |F| \\\\\n&= (n-2)^{n-1} - (n-2)^{n-2} + 2(n-2)^{n-3} \\\\\n&\\quad - 2^2(n-2)^{n-4} + \\dots + 2^{n-2} - \\frac{2^{n-1} + n-1}{n} \\\\\n&= (n-2)^{n-1} - \\frac{(n-2)^{n-1} - 2^{n-1}}{n} - \\frac{2^{n-1} + n-1}{n} \\\\\n&= \\frac{(n-1)(n-2)^{n-1} - (n-1)}{n}.\n\\end{align*}\n$$\nAs before, multiplying by $n$ gives the desired answer.\n\n\n**Second Solution:** The answer is $(n-1)^n - (n-1)$ for part (a) and $(n-1)((n-2)^{n-1} - 1)$ for part (b). Observe that the number of good sequences is clearly the same for any choice of $a_0$. Fixing $a_0$, we represent the choices for the differences $a_i - a_{i-1} \\pmod n$ with the generating function\n$$\ng_i(x) = 1 + x + x^2 + \\dots + x^{i-1} + x^{i+1} + \\dots + x^{n-1} = p(x) - x^i,\n$$\nwhere $p(x) = 1 + x + x^2 + \\cdots + x^{n-1}$. Then the generating function representing all the possibilities for $a_1 - a_0, a_2 - a_1, \\ldots, a_{n-1} - a_{n-2}$ is\n$$\ng(x) = \\prod_{i=1}^{n-1} g_i(x) = \\prod_{i=1}^{n-1} (p(x) - x^i).\n$$\nThe condition that $a_0 - a_{n-1} \\not\\equiv 0 \\pmod{n}$ means that we wish to sum the coefficients of the $x^k$ terms of $g(x)$ for $n \\not\\mid k$.\n\nNow the sum of all the coefficients is simply $g(1) = (n-1)^{n-1}$. The sum of the coefficients of the $x^k$ terms for $n \\mid k$ can be obtained by taking\n$$\n\\frac{1}{n} \\sum_{j=0}^{n-1} g(\\epsilon^j),\n$$\nwhere $\\epsilon = e^{2\\pi i/n}$ is a primitive $n^{\\text{th}}$ root of unity. As we noted above, $g(1) = (n-1)^{n-1}$. For $n > j > 0$, note that $p(\\epsilon^j) = 0$, so\n$$\ng(\\epsilon^j) = \\prod_{k=1}^{n-1} -\\epsilon^{kj} = (-1)^{n-1} \\epsilon^{n(n-1)/2} j = 1,\n$$\nas $n$ is odd. Therefore, the sum of the coefficients of the terms with powers not dividing $n$ is\n$$\n(n-1)^{n-1} - \\frac{1}{n}((n-1)^{n-1} + (n-1)) = \\frac{1}{n}((n-1)^n - (n-1)).\n$$\nRemembering that we had $n$ choices of $a_0$ to begin with, we obtain $(n-1)^n - (n-1)$ as the answer to part (a).\n\nFor part (b), we change our generating functions to\n$$\nh_i(x) = p(x) - (x^i + x^{2i}), \\quad h(x) = \\prod_{i=1}^{n-1} h_i(x).\n$$\nNote that for $1 \\le i \\le n-1$, the terms $x^i$ and $x^{2i}$ both appear because $i \\ne 2i \\pmod n$ as $n$ is odd. For the final condition, however, $n \\equiv 2n \\equiv 0 \\pmod n$, so we are still counting those terms—and only those terms—with powers not divisible by $n$. Hence, using the same method as before, we have $h(1) = (n-2)^{n-1}$,\n$$\nh(\\epsilon^j) = \\prod_{k=1}^{n-1} -\\epsilon^{kj}(1 + \\epsilon^{kj}) = \\prod_{k=1}^{n-1} (1 + \\epsilon^k),\n$$\nfor $1 \\le j \\le n-1$, as $n$ is prime. Now, $1+\\epsilon^i$, $i=0,1,\\dots,n-1$, are all of the roots of the polynomial $(x-1)^n-1$. Therefore, their product is $(-1)^n = -1$ times the constant coefficient of the polynomial, $-2$. Hence, the product of the roots not including $i=0$ (in which case $1+\\epsilon^0 = 2$) is 1. Therefore, $h(\\epsilon^j) = 1$.\n\nIt follows that the number of sequences for a fixed $a_0$ is\n$$\n(n-2)^{n-1} - \\frac{1}{n}((n-2)^{n-1} + (n-1)) = \\frac{1}{n}((n-1)((n-2)^{n-1} - 1)),\n$$\nso the answer to part (b) is $(n-1)((n-2)^{n-1} - 1)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-roots-of-unity-auto-1055",
+      "name": "Harvard-MIT Mathematics Tournament #0ibz",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Roots of unity",
+        "Algebraic properties of binomial coefficients"
+      ],
+      "statement": "Problem:\n\n$$\n\\binom{2003}{1} + \\binom{2003}{4} + \\binom{2003}{7} + \\cdots + \\binom{2003}{2002}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $\\omega = -1/2 + i \\sqrt{3}/2$ be a complex cube root of unity. Then, by the binomial theorem, we have\n$$\n\\begin{aligned}\n\\omega^{2}(\\omega+1)^{2003} &= \\binom{2003}{0} \\omega^{2} + \\binom{2003}{1} \\omega^{3} + \\binom{2003}{2} \\omega^{4} + \\cdots + \\binom{2003}{2003} \\omega^{2005} \\\\\n2^{2003} &= \\binom{2003}{0} + \\binom{2003}{1} + \\binom{2003}{2} + \\cdots + \\binom{2003}{2003} \\\\\n\\omega^{-2}(\\omega^{-1}+1)^{2003} &= \\binom{2003}{0} \\omega^{-2} + \\binom{2003}{1} \\omega^{-3} + \\binom{2003}{2} \\omega^{-4} + \\cdots + \\binom{2003}{2003} \\omega^{-2005}\n\\end{aligned}\n$$\nIf we add these together, then the terms $\\binom{2003}{n}$ for $n \\equiv 1 \\pmod{3}$ appear with coefficient $3$, while the remaining terms appear with coefficient $1 + \\omega + \\omega^{2} = 0$. Thus the desired sum is just $\\left(\\omega^{2}(\\omega+1)^{2003} + 2^{2003} + \\omega^{-2}(\\omega^{-1}+1)^{2003}\\right)/3$. Simplifying using $\\omega+1 = -\\omega^{2}$ and $\\omega^{-1}+1 = -\\omega$ gives $\\left(-1 + 2^{2003} + -1\\right)/3 = \\left(2^{2003} - 2\\right)/3$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-roots-of-unity-auto-1074",
+      "name": "Harvard-MIT Mathematics Tournament #0ici",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Roots of unity",
+        "Vieta's formulas",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\nSimplify $\\prod_{k=1}^{2004} \\sin (2 \\pi k / 4009)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n$\\frac{\\sqrt{4009}}{2^{2004}}$\n\nLet $\\zeta = e^{2 \\pi i / 4009}$ so that $\\sin (2 \\pi k / 4009) = \\frac{\\zeta^{k} - \\zeta^{-k}}{2i}$ and $x^{4009} - 1 = \\prod_{k=0}^{4008} (x - \\zeta^{k})$. Hence $1 + x + \\cdots + x^{4008} = \\prod_{k=1}^{4008} (x - \\zeta^{k})$. Comparing constant coefficients gives $\\prod_{k=1}^{4008} \\zeta^{k} = 1$, setting $x = 1$ gives $\\prod_{k=1}^{4008} (1 - \\zeta^{k}) = 4009$, and setting $x = -1$ gives $\\prod_{k=1}^{4008} (1 + \\zeta^{k}) = 1$. Now, note that $\\sin (2 \\pi (4009 - k) / 4009) = -\\sin (2 \\pi k / 4009)$, so\n$$\n\\begin{aligned}\n\\left(\\prod_{k=1}^{2004} \\sin (2 \\pi k / 4009)\\right)^{2} &= (-1)^{2004} \\prod_{k=1}^{4008} \\sin (2 \\pi k / 4009) \\\\\n&= \\prod_{k=1}^{4008} \\frac{\\zeta^{k} - \\zeta^{-k}}{2i} \\\\\n&= \\frac{1}{(2i)^{4008}} \\prod_{k=1}^{4008} \\frac{\\zeta^{2k} - 1}{\\zeta^{k}} \\\\\n&= \\frac{1}{2^{4008}} \\prod_{k=1}^{4008} (\\zeta^{2k} - 1) \\\\\n&= \\frac{1}{2^{4008}} \\prod_{k=1}^{4008} (\\zeta^{k} - 1)(\\zeta^{k} + 1) \\\\\n&= \\frac{4009 \\cdot 1}{2^{4008}} .\n\\end{aligned}\n$$\nHowever, $\\sin(x)$ is nonnegative on the interval $[0, \\pi]$, so our product is positive. Hence it is $\\frac{\\sqrt{4009}}{2^{2004}}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-roots-of-unity-auto-1089",
+      "name": "Harvard-MIT Mathematics Tournament #0icx",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers",
+        "Ring Theory",
+        "Roots of unity"
+      ],
+      "statement": "Problem:\n$S$ is a set of complex numbers such that if $u, v \\in S$, then $u v \\in S$ and $u^{2}+v^{2} \\in S$. Suppose that the number $N$ of elements of $S$ with absolute value at most $1$ is finite. What is the largest possible value of $N$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFirst, if $S$ contained some $u \\neq 0$ with absolute value $<1$, then (by the first condition) every power of $u$ would be in $S$, and $S$ would contain infinitely many different numbers of absolute value $<1$. This is a contradiction.\n\nNow suppose $S$ contains some number $u$ of absolute value $1$ and argument $\\theta$. If $\\theta$ is not an integer multiple of $\\pi / 6$, then $u$ has some power $v$ whose argument lies strictly between $\\theta+\\pi / 3$ and $\\theta+\\pi / 2$. Then $u^{2}+v^{2}=u^{2}\\left(1+(v / u)^{2}\\right)$ has absolute value between $0$ and $1$, since $(v / u)^{2}$ lies on the unit circle with angle strictly between $2 \\pi / 3$ and $\\pi$. But $u^{2}+v^{2} \\in S$, so this is a contradiction.\n\nThis shows that the only possible elements of $S$ with absolute value $\\leq 1$ are $0$ and the points on the unit circle whose arguments are multiples of $\\pi / 6$, giving $N \\leq 1+12=13$.\n\nTo show that $N=13$ is attainable, we need to show that there exists a possible set $S$ containing all these points. Let $T$ be the set of all numbers of the form $a+b \\omega$, where $a, b$ are integers and $\\omega$ is a complex cube root of $1$. Since $\\omega^{2}=-1-\\omega$, $T$ is closed under multiplication and addition. Then, if we let $S$ be the set of numbers $u$ such that $u^{2} \\in T$, $S$ has the required properties, and it contains the $13$ complex numbers specified, so we're in business."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-roots-of-unity-auto-1142",
+      "name": "Harvard-MIT Mathematics Tournament #0iee",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers in geometry",
+        "Roots of unity",
+        "Counting two ways"
+      ],
+      "statement": "Problem:\nLet $P$ be a regular $k$-gon inscribed in a circle of radius $1$. Find the sum of the squares of the lengths of all the sides and diagonals of $P$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nPlace the vertices of $P$ at the $k$th roots of unity, $1, \\omega, \\omega^{2}, \\ldots, \\omega^{k-1}$. We will first calculate the sum of the squares of the lengths of the sides and diagonals that contain the vertex $1$. This is\n$$\n\\begin{aligned}\n\\sum_{i=0}^{k-1} \\left|1-\\omega^{i}\\right|^{2} & = \\sum_{i=0}^{k-1} \\left(1-\\omega^{i}\\right)\\left(1-\\bar{\\omega}^{i}\\right) \\\\\n& = \\sum_{i=0}^{k-1} \\left(2-\\omega^{i}-\\bar{\\omega}^{i}\\right) \\\\\n& = 2k - 2 \\sum_{i=0}^{k-1} \\omega^{i} \\\\\n& = 2k\n\\end{aligned}\n$$\nusing the fact that $1+\\omega+\\cdots+\\omega^{k-1}=0$. Now, by symmetry, this is the sum of the squares of the lengths of the sides and diagonals emanating from any vertex. Since there are $k$ vertices and each segment has two endpoints, the total sum is $2k \\cdot k / 2 = k^{2}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-roots-of-unity-auto-1145",
+      "name": "Harvard-MIT Mathematics Tournament #0ieh",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Roots of unity",
+        "Polynomial operations",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\n\nLet $P(x) = a_{n} x^{n} + a_{n-1} x^{n-1} + \\cdots + a_{0}$ be a polynomial with real coefficients, $a_{n} \\neq 0$. Suppose every root of $P$ is a root of unity, but $P(1) \\neq 0$. Show that the coefficients of $P$ are symmetric; that is, show that $a_{n} = a_{0}, a_{n-1} = a_{1}, \\ldots$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSince the coefficients of $P$ are real, the complex conjugates of the roots of $P$ are also roots of $P$. Now, if $x$ is a root of unity, then $x^{-1} = \\bar{x}$. But the roots of\n$$\nx^{n} P\\left(x^{-1}\\right) = a_{0} x^{n} + a_{1} x^{n-1} + \\cdots + a_{n}\n$$\nare then just the complex conjugates of the roots of $P$, so they are the roots of $P$. Therefore, $P(x)$ and $x^{n} P\\left(x^{-1}\\right)$ differ by a constant multiple $c$. Since $a_{n} = c a_{0}$ and $a_{0} = c a_{n}$, $c$ is either $1$ or $-1$. But if it were $-1$, then\n$$\nP(1) = a_{n} + a_{n-1} + \\cdots + a_{0} = \\frac{1}{2}\\left(\\left(a_{n} + a_{0}\\right) + \\left(a_{n-1} + a_{1}\\right) + \\cdots + \\left(a_{0} + a_{n}\\right)\\right) = 0,\n$$\na contradiction. Therefore $c = 1$, giving the result."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-roots-of-unity-auto-1156",
+      "name": "Harvard-MIT Mathematics Tournament #0ies",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Generating functions",
+        "Roots of unity"
+      ],
+      "statement": "Problem:\nSuppose $S$ tiles $\\mathbb{N}$. Show that $S$ is symmetric; that is, if $-S=\\{-s_{n}, \\ldots,-s_{0}\\}$, show that $S \\sim -S$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAssume without loss of generality that the minimum element of $S$ is $0$. By the previous problem, $S$ tiles the set $\\{1,2, \\ldots, k\\}$ for some positive integer $k$. Then let $P(x)$ be the polynomial $\\sum_{i=0}^{n} x^{s_{i}}$. To say that the set $\\{1,2, \\ldots, k\\}$, or equivalently the set $\\{0,1, \\ldots, k-1\\}$, is tiled by $S$ is to say that there is some polynomial $Q(x)$ with coefficients $0$ or $1$ such that $P(x) Q(x) = 1 + x + \\cdots + x^{k-1} = \\frac{x^{k}-1}{x-1}$. It follows that all the roots of $P(x)$ are roots of unity, but $P(1) \\neq 0$. By question 11 above, this implies that $P(x)$ is symmetric. Therefore, $s_{0} + s_{n} = s_{1} + s_{n-1} = \\cdots = s_{n} + s_{0}$, so $S$ is symmetric."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-roots-of-unity-auto-1233",
+      "name": "Harvard-MIT Mathematics Tournament #0igx",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Roots of unity",
+        "Polynomial operations"
+      ],
+      "statement": "Problem:\n\nFind a real, irreducible quartic polynomial with leading coefficient 1 whose roots are all twelfth roots of unity.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAll twelfth roots of unity are roots of\n$$\n\\begin{aligned}\nx^{12}-1 & =\\left(x^{6}-1\\right)\\left(x^{6}+1\\right) \\\\\n& =\\left(x^{3}-1\\right)\\left(x^{3}+1\\right)\\left(x^{6}+1\\right) \\\\\n& =(x-1)\\left(x^{2}+x+1\\right)(x+1)\\left(x^{2}-x+1\\right)\\left(x^{2}+1\\right)\\left(x^{4}-x^{2}+1\\right)\n\\end{aligned}\n$$\nso the answer is $x^{4}-x^{2}+1$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-roots-of-unity-auto-1239",
+      "name": "Harvard-MIT Mathematics Tournament #0ih3",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Roots of unity",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\nSuppose $x$ is a fifth root of unity. Find, in radical form, all possible values of\n$$\n2x + \\frac{1}{1+x} + \\frac{x}{1+x^{2}} + \\frac{x^{2}}{1+x^{3}} + \\frac{x^{3}}{1+x^{4}}.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nNote that\n$$\n\\begin{gathered}\n\\frac{x}{1+x^{2}} + \\frac{x^{2}}{1+x^{3}} = \\frac{x^{6}}{1+x^{2}} + \\frac{x^{4}}{x^{2}+x^{5}} = \\frac{x^{4}+x^{6}}{1+x^{2}} = x^{4} = \\frac{1}{x}, \\text{ and } \\\\\n\\frac{1}{1+x} + \\frac{x^{3}}{1+x^{4}} = \\frac{x^{5}}{1+x} + \\frac{x^{4}}{x+x^{5}} = \\frac{x^{4}+x^{5}}{1+x} = x^{4} = \\frac{1}{x}\n\\end{gathered}\n$$\nTherefore, the sum is just $2x + \\frac{2}{x}$. If $x=1$, this is $4$. Otherwise, let $y = x + \\frac{1}{x}$. Then $x$ satisfies\n$$\n0 = 1 + x + x^{2} + x^{3} + x^{4} = \\left(x^{2} + \\frac{1}{x^{2}} + 2\\right) + \\left(x + \\frac{1}{x}\\right) - 1 = y^{2} + y - 1,\n$$\nso solving this quadratic yields $y = \\frac{-1 \\pm \\sqrt{5}}{2}$, or $2y = -1 \\pm \\sqrt{5}$. Since each value of $y$ can correspond to only 2 possible values of $x$, and there are 4 possible values of $x$ besides $1$, both of these values for $y$ are possible, which yields the answers, $4$ and $-1 \\pm \\sqrt{5}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-roots-of-unity-auto-1243",
+      "name": "Harvard-MIT Mathematics Tournament #0ih7",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers",
+        "Roots of unity",
+        "Complex numbers in geometry"
+      ],
+      "statement": "Problem:\n\nA $k$th root of unity is any complex number $\\omega$ such that $\\omega^{k}=1$.\n\nLet $x$ and $y$ be two $k$th roots of unity. Prove that $(x+y)^{k}$ is real.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nNote that\n$$\n\\begin{aligned}\n(x+y)^{k} & = \\sum_{i=0}^{k} \\binom{k}{i} x^{i} y^{k-i} \\\\\n& = \\frac{1}{2} \\sum_{i=0}^{k} \\binom{k}{i} \\left(x^{i} y^{k-i} + x^{k-i} y^{i}\\right)\n\\end{aligned}\n$$\nby pairing the $i$th and $(k-i)$th terms. But $x^{k-i} y^{i} = \\left(x^{i} y^{k-i}\\right)^{-1}$ since $x$ and $y$ are $k$th roots of unity. Moreover, since $x$ and $y$ have absolute value $1$, so does $x^{i} y^{k-i}$, so $x^{k-i} y^{i}$ is in fact its complex conjugate. It follows that their sum is real, thus so is $(x+y)^{k}$.\n\nThis can also be shown geometrically. The argument of $x$ (the angle between the vector $x$ and the positive $x$-axis) is an integer multiple of $\\frac{2 \\pi}{k}$, as is the argument of $y$. Since $x+y$ bisects the angle between $x$ and $y$, its argument is an integer multiple of $\\frac{\\pi}{k}$. Multiplying this angle by $k$ gives a multiple of $\\pi$, so $(x+y)^{k}$ is real."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-roots-of-unity-auto-1245",
+      "name": "Harvard-MIT Mathematics Tournament #0ih9",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers in geometry",
+        "Roots of unity",
+        "Optimization in geometry"
+      ],
+      "statement": "Problem:\nLet $A_{1} A_{2} \\ldots A_{k}$ be a regular $k$-gon inscribed in a circle of radius $1$, and let $P$ be a point lying on or inside the circumcircle. Find the maximum possible value of $\\left(PA_{1}\\right)\\left(PA_{2}\\right) \\cdots\\left(PA_{k}\\right)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nPlace the vertices at the $k$th roots of unity, $1, \\omega, \\ldots, \\omega^{k-1}$, and place $P$ at some complex number $p$. Then\n$$\n\\begin{aligned}\n\\left(\\left(PA_{1}\\right)\\left(PA_{2}\\right) \\cdots\\left(PA_{k}\\right)\\right)^{2} & = \\prod_{i=0}^{k-1}\\left|p-\\omega^{i}\\right|^{2} \\\\\n& = \\left|p^{k}-1\\right|^{2},\n\\end{aligned}\n$$\nsince $x^{k}-1=(x-1)(x-\\omega) \\cdots\\left(x-\\omega^{k-1}\\right)$. This is maximized when $p^{k}$ is as far as possible from $1$, which occurs when $p^{k}=-1$. Therefore, the maximum possible value of $\\left(PA_{1}\\right)\\left(PA_{2}\\right) \\cdots\\left(PA_{k}\\right)$ is $2$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-roots-of-unity-auto-1253",
+      "name": "Harvard-MIT Mathematics Tournament #0ihh",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers in geometry",
+        "Vectors",
+        "Roots of unity"
+      ],
+      "statement": "Problem:\n\nLet $x$ and $y$ be two distinct roots of unity. Prove that $x+y$ is also a root of unity if and only if $\\frac{y}{x}$ is a cube root of unity.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThis is easiest to see geometrically. The vectors corresponding to $x$, $y$, and $-x-y$ sum to $0$, so they form a triangle. In order for them all to be roots of unity, they must all have length one, so the triangle must be equilateral. Therefore the angle between $x$ and $y$ is $\\pm \\frac{2 \\pi}{3}$, that is, $\\frac{y}{x}$ is a cube root of unity."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-roots-of-unity-auto-1303",
+      "name": "Harvard-MIT Mathematics Tournament #0iiv",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Roots of unity",
+        "Polynomial operations",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\nFind the smallest positive integer $k$ such that $z^{10}+z^{9}+z^{6}+z^{5}+z^{4}+z+1$ divides $z^{k}-1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $Q(z)$ denote the polynomial divisor. We need that the roots of $Q$ are $k$-th roots of unity. With this in mind, we might observe that solutions to $z^{7}=1$ and $z \\neq 1$ are roots of $Q$, which leads to its factorization. Alternatively, we note that\n$$\n(z-1) Q(z)=z^{11}-z^{9}+z^{7}-z^{4}+z^{2}-1=\\left(z^{4}-z^{2}+1\\right)\\left(z^{7}-1\\right)\n$$\nSolving for the roots of the first factor, $z^{2}=\\frac{1+i \\sqrt{3}}{2}= \\pm \\operatorname{cis} \\pi / 3$ (we use the notation $\\operatorname{cis}(x)=\\cos (x)+i \\sin (x)$) so that $z= \\pm \\operatorname{cis}( \\pm \\pi / 6)$. These are primitive 12-th roots of unity. The other roots of $Q(z)$ are the primitive 7-th roots of unity (we introduced $z=1$ by multiplication.) It follows that the answer is $\\operatorname{lcm}[12,7]=84$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-roots-of-unity-auto-1404",
+      "name": "Harvard-MIT Mathematics Tournament #0ilo",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Roots of unity",
+        "Polynomial operations",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\n\nThe polynomial $f(x) = x^{2007} + 17 x^{2006} + 1$ has distinct zeroes $r_1, \\ldots, r_{2007}$. A polynomial $P$ of degree $2007$ has the property that $P\\left(r_j + \\frac{1}{r_j}\\right) = 0$ for $j = 1, \\ldots, 2007$. Determine the value of $\\frac{P(1)}{P(-1)}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $\\mathbf{289}$.\n\nFor some constant $k$, we have\n$$\nP(z) = k \\prod_{j=1}^{2007} \\left(z - \\left(r_j + \\frac{1}{r_j}\\right)\\right)\n$$\nNow writing $\\omega^3 = 1$ with $\\omega \\neq 1$, we have $\\omega^2 + \\omega = -1$. Then\n$$\n\\begin{gathered}\n\\frac{P(1)}{P(-1)} = \\frac{k \\prod_{j=1}^{2007} \\left(1 - \\left(r_j + \\frac{1}{r_j}\\right)\\right)}{k \\prod_{j=1}^{2007} \\left(-1 - \\left(r_j + \\frac{1}{r_j}\\right)\\right)} = \\prod_{j=1}^{2007} \\frac{r_j^2 - r_j + 1}{r_j^2 + r_j + 1} = \\prod_{j=1}^{2007} \\frac{\\left(-\\omega - r_j\\right)\\left(-\\omega^2 - r_j\\right)}{\\left(\\omega - r_j\\right)\\left(\\omega^2 - r_j\\right)} \\\\\n= \\frac{f(-\\omega) f\\left(-\\omega^2\\right)}{f(\\omega) f\\left(\\omega^2\\right)} = \\frac{\\left(-\\omega^{2007} + 17 \\omega^{2006} + 1\\right)\\left(-\\left(\\omega^2\\right)^{2007} + 17\\left(\\omega^2\\right)^{2006} + 1\\right)}{\\left(\\omega^{2007} + 17 \\omega^{2006} + 1\\right)\\left(\\left(\\omega^2\\right)^{2007} + 17\\left(\\omega^2\\right)^{2006} + 1\\right)} = \\frac{\\left(17 \\omega^2\\right)(17 \\omega)}{\\left(2 + 17 \\omega^2\\right)(2 + 17 \\omega\\right)} \\\\\n= \\frac{289}{4 + 34\\left(\\omega + \\omega^2\\right) + 289} = \\frac{289}{259}.\n\\end{gathered}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-roots-of-unity-auto-1501",
+      "name": "Harvard-MIT Mathematics Tournament #0iod",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Roots of unity",
+        "Polynomial operations"
+      ],
+      "statement": "Problem:\nSuppose that $\\omega$ is a primitive $2007^{\\text{th}}$ root of unity. Find $\\left(2^{2007}-1\\right) \\sum_{j=1}^{2006} \\frac{1}{2-\\omega^{j}}$.\n\nFor this problem only, you may express your answer in the form $m \\cdot n^{k}+p$, where $m, n, k$, and $p$ are positive integers. Note that a number $z$ is a primitive $n^{\\text{th}}$ root of unity if $z^{n}=1$ and $n$ is the smallest number amongst $k=1,2, \\ldots, n$ such that $z^{k}=1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $2005 \\cdot 2^{2006}+1$. Note that\n$$\n\\begin{aligned}\n& \\frac{1}{z-\\omega}+\\cdots+\\frac{1}{z-\\omega^{2006}}=\\frac{\\sum_{j=1}^{2006} \\prod_{i \\neq j}\\left(z-\\omega^{i}\\right)}{(z-\\omega) \\cdots\\left(z-\\omega^{2006}\\right)} \\\\\n& \\quad=\\frac{\\frac{\\mathrm{d}}{\\mathrm{~d} z}\\left[z^{2006}+z^{2005}+\\cdots+1\\right]}{z^{2006}+z^{2005}+\\cdots+1}=\\frac{2006 z^{2005}+2005 z^{2004}+\\cdots+1}{z^{2006}+z^{2005}+\\cdots+1} \\cdot \\frac{z-1}{z-1} \\\\\n& \\quad=\\frac{2006 z^{2006}-z^{2005}-z^{2004}-\\cdots-1}{z^{2007}-1} \\cdot \\frac{z-1}{z-1}=\\frac{2006 z^{2007}-2007 z^{2006}+1}{\\left(z^{2007}-1\\right)(z-1)} .\n\\end{aligned}\n$$\nPlugging in $z=2$ gives $\\frac{2005 \\cdot 2^{2006}+1}{2^{2007}-1}$; whence the answer."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-roots-of-unity-auto-1665",
+      "name": "11th Annual Harvard-MIT Mathematics Tournament #0isx",
+      "url": "https://usamoguide.com/",
+      "source": "11th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Roots of unity",
+        "Vieta's formulas",
+        "Complex numbers",
+        "Quadratic functions"
+      ],
+      "statement": "Problem:\nA root of unity is a complex number that is a solution to $z^{n}=1$ for some positive integer $n$. Determine the number of roots of unity that are also roots of $z^{2}+a z+b=0$ for some integers $a$ and $b$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: 8\n\nThe only real roots of unity are $1$ and $-1$.\n\nIf $\\zeta$ is a complex root of unity that is also a root of the equation $z^{2}+a z+b=0$, then its conjugate $\\bar{\\zeta}$ must also be a root. In this case, $|a|=|\\zeta+\\bar{\\zeta}| \\leq |\\zeta|+|\\bar{\\zeta}| = 2$ and $b=\\zeta \\bar{\\zeta}=1$.\n\nSo we only need to check the quadratics $z^{2}+2z+1$, $z^{2}+z+1$, $z^{2}+1$, $z^{2}-z+1$, $z^{2}-2z+1$.\n\nWe find 8 roots of unity: $\\pm 1$, $\\pm i$, $\\frac{1}{2}(\\pm 1 \\pm \\sqrt{3} i)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-roots-of-unity-auto-1760",
+      "name": "12th Annual Harvard-MIT Mathematics Tournament #0ivk",
+      "url": "https://usamoguide.com/",
+      "source": "12th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers in geometry",
+        "Trigonometry",
+        "Triangle trigonometry",
+        "Roots of unity"
+      ],
+      "statement": "Problem:\n\nThe roots of $z^{6}+z^{4}+z^{2}+1=0$ are the vertices of a convex polygon in the complex plane. Find the sum of the squares of the side lengths of the polygon.\n\nAnswer: $12-4 \\sqrt{2}$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFactoring the polynomial as $(z^{4}+1)(z^{2}+1)=0$, we find that the 6 roots are $e^{ \\pm i \\pi / 4}$, $e^{ \\pm i \\pi / 2}$, $e^{ \\pm i 3 \\pi / 4}$. The calculation then follows from the Law of Cosines or the distance formula."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-roots-of-unity-auto-1991",
+      "name": "13th Annual Harvard-MIT Mathematics Tournament #0j1z",
+      "url": "https://usamoguide.com/",
+      "source": "13th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Roots of unity",
+        "Polynomial operations",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\nSuppose that there exist nonzero complex numbers $a$, $b$, $c$, and $d$ such that $k$ is a root of both the equations $a x^{3} + b x^{2} + c x + d = 0$ and $b x^{3} + c x^{2} + d x + a = 0$. Find all possible values of $k$ (including complex values).",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n$1, -1, i, -i$\n\nLet $k$ be a root of both polynomials. Multiplying the first polynomial by $k$ and subtracting the second, we have $a k^{4} - a = 0$, which means that $k$ is either $1, -1, i$, or $-i$. If $a = b = c = d = 1$, then $-1, i$, and $-i$ are roots of both polynomials. If $a = b = c = 1$ and $d = -3$, then $1$ is a root of both polynomials. So $k$ can be $1, -1, i$, and $-i$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-roots-of-unity-auto-1998",
+      "name": "Harvard-MIT Mathematics Tournament #0j26",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial operations",
+        "Roots of unity",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\nSuppose that there exist nonzero complex numbers $a$, $b$, $c$, and $d$ such that $k$ is a root of both the equations $a x^{3} + b x^{2} + c x + d = 0$ and $b x^{3} + c x^{2} + d x + a = 0$. Find all possible values of $k$ (including complex values).",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n$1, -1, i, -i$\n\nLet $k$ be a root of both polynomials. Multiplying the first polynomial by $k$ and subtracting the second, we have $a k^{4} - a = 0$, which means that $k$ is either $1, -1, i$, or $-i$. If $a = b = c = d = 1$, then $-1, i$, and $-i$ are roots of both polynomials. If $a = b = c = 1$ and $d = -3$, then $1$ is a root of both polynomials. So $k$ can be $1, -1, i$, and $-i$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-roots-of-unity-auto-2026",
+      "name": "Harvard-MIT November Tournament #0j2y",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial operations",
+        "Roots of unity"
+      ],
+      "statement": "Problem:\nWhat is the remainder when $(1+x)^{2010}$ is divided by $1+x+x^{2}$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe use polynomial congruence $\\bmod 1+x+x^{2}$ to find the desired remainder. Since $x^{2}+x+1 \\mid x^{3}-1$, we have that $x^{3} \\equiv 1\\ (\\bmod\\ 1+x+x^{2})$. Now:\n$$\n\\begin{aligned}\n(1+x)^{2010} & \\equiv (-x^{2})^{2010} \\quad (\\bmod\\ 1+x+x^{2}) \\\\\n& \\equiv x^{4020} \\quad (\\bmod\\ 1+x+x^{2}) \\\\\n& \\equiv (x^{3})^{1340} \\quad (\\bmod\\ 1+x+x^{2}) \\\\\n& \\equiv 1^{1340} \\quad (\\bmod\\ 1+x+x^{2}) \\\\\n& \\equiv 1 \\quad (\\bmod\\ 1+x+x^{2})\n\\end{aligned}\n$$\nThus, the answer is $1$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-roots-of-unity-auto-2032",
+      "name": "Harvard-MIT Mathematics Tournament #0j34",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vieta's formulas",
+        "Polynomial operations",
+        "Roots of unity",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\nSuppose that $x$ and $y$ are complex numbers such that $x+y=1$ and that $x^{20}+y^{20}=20$. Find the sum of all possible values of $x^{2}+y^{2}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe have $x^{2}+y^{2}+2 x y=1$. Define $a=2 x y$ and $b=x^{2}+y^{2}$ for convenience. Then $a+b=1$ and $b-a=x^{2}+y^{2}-2 x y=(x-y)^{2}=2 b-1$ so that $x, y=\\frac{\\sqrt{2 b-1} \\pm 1}{2}$. Then\n\\[\n\\begin{aligned}\nx^{20}+y^{20} & =\\left(\\frac{\\sqrt{2 b-1}+1}{2}\\right)^{20}+\\left(\\frac{\\sqrt{2 b-1}-1}{2}\\right)^{20} \\\\\n& =\\frac{1}{2^{20}}\\left[(\\sqrt{2 b-1}+1)^{20}+(\\sqrt{2 b-1}-1)^{20}\\right] \\\\\n& =\\frac{2}{2^{20}}\\left[(\\sqrt{2 b-1})^{20}+\\binom{20}{2}(\\sqrt{2 b-1})^{18}+\\binom{20}{4}(\\sqrt{2 b-1})^{16}+\\ldots\\right] \\\\\n& =\\frac{2}{2^{20}}\\left[(2 b-1)^{10}+\\binom{20}{2}(2 b-1)^{9}+\\binom{20}{4}(2 b-1)^{8}+\\ldots\\right] \\\\\n& =20\n\\end{aligned}\n\\]\nWe want to find the sum of distinct roots of the above polynomial in $b$; we first prove that the original polynomial is square-free. The conditions $x+y=1$ and $x^{20}+y^{20}=20$ imply that $x^{20}+(1-x)^{20}-20=0$; let $p(x)=x^{20}+(1-x)^{20}-20$. $p$ is square-free if and only if $\\gcd\\left(p, p'\\right)=c$ for some constant $c$:\n$$\n\\begin{aligned}\n\\gcd\\left(p, p'\\right) & =\\gcd\\left(x^{20}+(1-x)^{20}-20,20\\left(x^{19}-(1-x)^{19}\\right)\\right) \\\\\n& =\\gcd\\left(x^{20}-x(1-x)^{19}+(1-x)^{19}-20,20\\left(x^{19}-(1-x)^{19}\\right)\\right) \\\\\n& =\\gcd\\left((1-x)^{19}-20, x^{19}-(1-x)^{19}\\right) \\\\\n& =\\gcd\\left((1-x)^{19}-20, x^{19}-20\\right)\n\\end{aligned}\n$$\nThe roots of $x^{19}-20$ are $\\sqrt[19]{20^{k}} \\exp \\left(\\frac{2 \\pi i k}{19}\\right)$ for some $k=0,1, \\ldots, 18$; the roots of $(1-x)^{19}-20$ are $1-\\sqrt[19]{20^{k}} \\exp \\left(\\frac{2 \\pi i k}{19}\\right)$ for some $k=0,1, \\ldots, 18$. If $x^{19}-20$ and $(1-x)^{19}-20$ share a common root, then there exist integers $m$, $n$ such that $\\sqrt[19]{20^{m}} \\exp \\left(\\frac{2 \\pi i m}{19}\\right)=1-\\sqrt[19]{20^{n}} \\exp \\left(\\frac{2 \\pi i n}{19}\\right)$; since the imaginary parts of both sides must be the same, we have $m=n$ and $\\sqrt[19]{20^{m}} \\exp \\left(\\frac{2 \\pi i m}{19}\\right)=\\frac{1}{2} \\Longrightarrow 20^{m}=\\frac{1}{2^{19}}$, a contradiction. Thus we have proved that the polynomial in $x$ has no double roots. Since for each $b$ there exists a unique pair $(x, y)$ (up to permutations) that satisfies $x^{2}+y^{2}=b$ and $(x+y)^{2}=1$, the polynomial in $b$ has no double roots.\nLet the coefficient of $b^{n}$ in the above equation be $\\left[b^{n}\\right]$. By Vieta's Formulas, the sum of all possible values of $b=x^{2}+y^{2}$ is equal to $-\\frac{\\left[b^{9}\\right]}{\\left[b^{10}\\right]}$. $\\left[b^{10}\\right]=\\frac{2}{2^{20}}\\left(2^{10}\\right)$ and $\\left[b^{9}\\right]=\\frac{2}{2^{20}}\\left(-\\binom{10}{1} 2^{9}+\\binom{20}{2} 2^{9}\\right)$; thus $-\\frac{\\left[b^{9}\\right]}{\\left[b^{10}\\right]}=-\\frac{\\binom{10}{1} 2^{9}-\\binom{20}{2} 2^{9}}{2^{10}}=-90$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

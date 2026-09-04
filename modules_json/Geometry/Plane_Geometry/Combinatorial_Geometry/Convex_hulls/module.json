@@ -1,0 +1,435 @@
+{
+  "MODULE_ID": "geometry-plane-geometry-combinatorial-geometry-convex-hulls",
+  "practice": [
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-convex-hulls-auto-0309",
+      "name": "Berkeley Math Circle: Monthly Contest 2 #0hr9",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 2",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Convex hulls",
+        "Optimization in geometry",
+        "Trigonometry"
+      ],
+      "statement": "Problem:\nLet $P$ be a $2023$-sided polygon. All but one side has length $1$. What is the maximum possible area of $P$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFirst, we claim $P$ must be convex to maximize its area. If not, let $A$ and $B$ be consecutive vertices on the perimeter of its convex hull that aren't consecutive vertices of $P$. Reflecting the path between $A$ and $B$ over line $AB$ must increase the area of $P$ as the new shape strictly contains $P$.\n\nThus we assume $P$ is convex. Let $\\ell$ be the line containing the side with length not equal to $1$. Let $P'$ be the reflection of $P$ over $\\ell$. By convexity, $P$ and $P'$ do not overlap, so the union of $P$ and $P'$ is a polygon, specifically an equilateral $4044$-gon with sides of length $1$.\n\nThe area of an equilateral polygon is maximized when it is regular, so this union has maximum area that of a regular $4044$-gon, which is $1011 \\cot \\dfrac{\\pi}{4044}$. Thus, the answer is half of this, i.e.\n$$\n\\frac{1011}{2} \\cdot \\cot \\frac{\\pi}{4044}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-convex-hulls-auto-1059",
+      "name": "USA IMO #0ic3",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vectors",
+        "Convex hulls",
+        "φ (Euler's totient)",
+        "Greatest common divisors (gcd)"
+      ],
+      "statement": "A $2004 \\times 2004$ array of points is drawn. Find the largest integer $n$ such that it is possible to draw a convex $n$-sided polygon whose vertices lie on the points of the array.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "For a vector $v = (x, y)$, define $\\|v\\| = |x| + |y|$, the so-called taxicab distance (or taxicab norm). Embed the array of points in the plane such that they correspond to the lattice points in $\\{(x, y) : 1 \\le x, y \\le 2004\\}$.\n\nConsider a convex $n$-gon drawn in our square array, and imagine that we walk along the edges in a counterclockwise direction. Then we can orient each edge and obtain a set of $n$ nonzero vectors $S = \\{v_i = (x_i, y_i)\\}$, with integer coordinates, whose sum is $(0,0)$. $S$ has several further properties. First, no two vectors in $S$ are positive multiples of each other by convexity (if $i \\ne j$ and the directed edges $v_i$ and $v_j$ are parallel and pointing in the same direction, then our polygon cannot be strictly convex.) Second, the sum of the $x_i$ which are positive is at most $2003$, and the same is true for the sum of the $y_i > 0$, as well as the sums of the $|x_i|$ and $|y_i|$ for $x_i < 0$ and $y_i < 0$. This is true because all the vectors with, say, $x_i$ positive will correspond to adjacent edges (by convexity), and if one traces these edges in order on the polygon, one must start from a point within $\\{(x, y) : 1 \\le x, y \\le 2004\\}$ and finish at a point in that same region; therefore the total displacement in the $x$-dimension is bounded by $2003$. In particular, this implies that $\\sum \\|v_i\\| \\le 8012$. Third, given $S$ that satisfies the above properties, we can construct a convex polygon that fits within the bounds: since the polygon should be convex, we must place the vectors end to end ordered by the angle (measured counterclockwise) that they make with the positive $x$-axis, and the resulting polygon will fit within the array because of the given inequalities.\n\nWe now show that it is impossible to draw a $562$-gon in the array. We will prove that for every set $S$ of $562$ vectors such that no two are positive multiples of each other, $\\sum \\|v_i\\| > 8012$. We can even ignore the condition that $\\sum v_i = (0,0)$. Let us now try to minimize $\\sum \\|v_i\\|$. Since no two vectors in $S$ are positive multiples of each other, we may assume that for each $i$, $\\gcd(|x_i|, |y_i|) = 1$, or else we might as well scale that vector down by that gcd (it will only reduce $\\sum \\|v_i\\|$).\n\nNow:\n\n**Lemma** For any positive integer $k$, the maximum number of distinct $v_i = (x_i, y_i)$ that satisfy $\\|v_i\\| = k$ and $\\gcd(|x_i|, |y_i|) = 1$ is $4\\phi(k)$. Recall that $\\phi(k)$ is Euler's totient function, which counts the number of positive integers $z \\le k$ that satisfy $\\gcd(z, k) = 1$.\n\n*Proof:* For $k=1$, the lemma is trivial. For $k \\ge 2$, the gcd condition forces that neither of $x_i$ or $y_i$ can ever be $0$. So, it suffices to show that the number of $v_i$ with $x_i > 0$ and $y_i > 0$ is $\\phi(k)$, because there are exactly $4$ ways to choose pairs of signs, for the coordinates of each $v_i$. Well, since $\\|v_i\\| = k$, this means that $|x_i| + |y_i| = k$. Hence $\\gcd(|x_i|, |y_i|) = 1 \\Rightarrow \\gcd(|x_i|, k) = 1$. By definition of $\\phi(k)$, there are precisely $\\phi(k)$ ways to choose positive $x_i$ to satisfy this condition; each way yields exactly one positive choice for $y_i$, so we are done with the proof of this lemma. ■\n\nNow for $n = 562$, since $\\sum_{k=1}^{21} 4\\phi(k) = 560$, we minimize $\\sum \\|v_i\\|$ when we use all $560$ vectors with $\\|v_i\\| \\le 21$, and $2$ more vectors with $\\|v_i\\| = 22$. The value of this sum is $\\sum \\|v_i\\| \\ge \\sum_{k=1}^{21} 4k\\phi(k) + 2 \\cdot 22 = 8032 > 8012$, as was claimed. Thus $n \\le 561$.\n\nIndeed, we now construct a $561$-gon in the array by constructing a suitable set $S$. Start by setting $S$ to be the set of all $560$ integer vectors $(x_i, y_i)$ with norm at most $21$ and $\\gcd(|x_i|, |y_i|) = 1$. By symmetry, the vector sum of these $560$ vectors is $(0, 0)$. Also by symmetry, the sum of all of the positive $x_i$ is exactly $1/4$ of the sum of all of the taxicab norms, so it is $\\sum_{k=1}^{21} k\\phi(k) = 1997$. This is the span of the $560$-gon in the $x$-dimension. Similarly, that is also the span of the $560$-gon in the $y$-dimension.\n\nNext, remove from $S$ the vectors $(20, 1)$ and $(-11, 10)$, and insert the vectors $(5, 17)$, $(-17, -5)$, and $(21, -1)$. Now we have a $561$-gon. Since the vector sum of $(20, 1)$ and $(-11, 10)$ is equal to the vector sum of the $3$ new vectors, this preserves the fact that $\\sum v_i = (0, 0)$, so we can still have a closed, convex polygon. Let us see what has happened to the $x$-span and $y$-span: we removed $20$ from the sum of positive $x_i$, but added back $5$ and $21$. This is a net gain of $6$, so the sum of positive $x_i$ will increase from $1997$ to $2003$—this exactly matches the upper limit imposed by the second observation at the beginning of the proof. Similarly, the sum of positive $y_i$ will lose summands of $1$ and $10$ from the deletion, but it will gain $17$ from the insertion. This is also a net gain of $6$, so we also have $2003$ as the final sum of positive $y_i$. Since the vector sum of all $v_i$ is $(0, 0)$, similar results with $2003$ hold for the negative $x_i$ and $y_i$. By the third observation at the beginning of the proof, we are done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-convex-hulls-auto-1155",
+      "name": "Harvard-MIT Mathematics Tournament #0ier",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Convex hulls",
+        "Cartesian coordinates",
+        "Optimization in geometry"
+      ],
+      "statement": "Problem:\nLet $S$ be the set of lattice points inside the circle $x^{2}+y^{2}=11$. Let $M$ be the greatest area of any triangle with vertices in $S$. How many triangles with vertices in $S$ have area $M$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe boundary of the convex hull of $S$ consists of points with $(x, y)$ or $(y, x) = (0, \\pm 3)$, $(\\pm 1, \\pm 3)$, and $(\\pm 2, \\pm 2)$. For any triangle $T$ with vertices in $S$, we can increase its area by moving a vertex not on the boundary to some point on the boundary. Thus, if $T$ has area $M$, its vertices are all on the boundary of $S$.\n\nThe next step is to see (either by inspection or by noting that $T$ has area no larger than that of an equilateral triangle inscribed in a circle of radius $\\sqrt{10}$, which has area less than $13$) that $M = 12$. There are $16$ triangles with area $12$, all congruent to one of the following three: vertices $(2,2), (1,-3)$, and $(-3,1)$; vertices $(3,-1), (-3,-1)$, and $(1,3)$; or vertices $(3,-1), (-3,-1)$, and $(0,3)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-convex-hulls-auto-1344",
+      "name": "Harvard-MIT Mathematics Tournament #0ik0",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Convex hulls",
+        "Coloring schemes, extremal arguments"
+      ],
+      "statement": "Problem:\nOn your answer sheet, clearly mark at least seven points, as long as\n(i) No three are collinear.\n(ii) No seven form a convex heptagon.\nPlease do not cross out any points; erase if you can do so neatly. If the graders deem that your paper is too messy, or if they determine that you violated one of those conditions, your submission for this problem will be disqualified. Otherwise, your score will be the number of points you marked minus $6$, even if you actually violated one of the conditions but were able to fool the graders.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThis is the heptagon case of what is known as the \"Happy Ending\" or \"Erdős-Szekeres\" problem, which in general asks, For any integer $n \\geq 3$, what is the smallest $N(n)$, such that any $N(n)$ points in the plane in general position determine a convex $n$-gon? It is known that such an $N(n)$ always exists and is finite (in fact a specific upper bound has been found). The best known lower bound is $N(n) \\geq 2^{n-2}+1$; Erdős and Szekeres conjectured that this bound is tight. The $n \\leq 5$ cases have been known for some time. According to the Wikipedia, the $n=6$ case is solved but unpublished, and for $n \\geq 7$, the problem remains open.\nFor a discussion, see\nW. Morris and V. Soltan. The Erdős-Szekeres Problem on Points in Convex Position-A Survey, Bulletin of the American Math Monthly. 37 (2000), 437-458.\nThis article is available at\nhttp://www.ams.org/bull/2000-37-04/S0273-0979-00-00877-6/home.html.\nIf $N(7)=33$, the highest sure score on this problem would be $32-6=26$. It is not known whether there exist arbitrarily large sets of points that will fool the graders."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-convex-hulls-auto-1879",
+      "name": "Harvard-MIT November Tournament #0iyv",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Convex hulls",
+        "Cartesian coordinates"
+      ],
+      "statement": "Problem:\nA set of points is convex if the points are the vertices of a convex polygon (that is, a non-selfintersecting polygon with all angles less than or equal to $180^{\\circ}$). Let $S$ be the set of points $(x, y)$ such that $x$ and $y$ are integers and $1 \\leq x, y \\leq 26$. Find the number of ways to choose a convex subset of $S$ that contains exactly 98 points.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n4958\n\nFor this problem, let $n=26$. A convex set may be divided into four subsets: a set of points with maximal $y$ coordinate, a set of points with minimal $y$ coordinate, the points to the left of one of these subsets, and the points to the right of one of these subsets (the left, top, right, and bottom of the corresponding convex polygon). Each of these four parts contains at most $n$ points. (All points in the top or bottom have distinct $x$ coordinates while all points in the left or right have distinct $y$ coordinates.) Moreover, there are four corners each of which is contained in two of these regions. This implies that at most $4n-4$ distinct points are in any convex set. To find a set of size $4n-6$ we can remove 2 additional points. Either exactly one of the top, bottom, left, or right contains exactly $n-2$ points or some two of them each contain exactly $n-1$ points.\n\nAny of the $\\binom{100}{98}=4950$ sets of 98 points with either $x$ or $y$ coordinate either 1 or 26 have this property. Suppose instead that some of the points have $x$ coordinate and $y$ coordinate both different from 1 and from 26. In this case we can check that it is impossible for one side to have $n-2$ points. If two opposite sides (top/bottom or left/right) have $n-1$ points, then we obtain all the points on the boundary of an $n-1$ by $n$ rectangle (of which there are four). If two adjacent sides (any of the other pairs) have $n-1$ points, then we obtain the points on the boundary of an $n$ by $n$ square with the points $(1,1),(1,2)$, $(2,1)$ missing and the point $(2,2)$ added (or one of its rotations). There are an additional 4 such sets, for a total of 4958."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-convex-hulls-auto-2015",
+      "name": "Harvard-MIT Mathematics Tournament #0j2n",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Convex hulls",
+        "Tangents",
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Distance chasing"
+      ],
+      "statement": "Problem:\nLet $S$ be a convex set in the plane with a finite area $a$. Prove that either $a=0$ or $S$ is bounded.\n\nNote: a set is bounded if it is contained in a circle of finite radius.\n\nNote: a set is convex if, whenever two points $A$ and $B$ are in the set, the line segment between them is also in the set.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nIf all points in $S$ lie on a straight line, then $a=0$.\nOtherwise we may pick three points $A$, $B$, and $C$ that are not collinear. Let $\\omega$ be the incircle of $\\triangle ABC$, with $I$ its center and $r$ its radius. Since $S$ is convex, $S$ must contain $\\omega$.\n\n![](attached_image_1.png)\n\nSuppose $S$ also contains a point $X$ at a distance $d$ from $I$, with $d>r$. We will show that $d \\leq \\sqrt{r^{2}+\\frac{a^{2}}{r^{2}}}$, which implies that $S$ is bounded since all points are contained within the circle centered at $I$ of radius $\\sqrt{r^{2}+\\frac{a^{2}}{r^{2}}}$.\n\nLet $Y$ and $Z$ be on $\\omega$ such that $\\overline{XY}$ and $\\overline{XZ}$ are tangents to $\\omega$. Because $S$ is convex, it must contain kite $IYXZ$, whose area we can compute in terms of $d$ and $r$.\n\nLet $M$ be the midpoint of $\\overline{YZ}$. Since $\\triangle IYX \\sim \\triangle IMY$, we know that $\\frac{IM}{IY}=\\frac{IY}{IX}$, that is, $IM=\\frac{(IY)^{2}}{IX}=\\frac{r^{2}}{d}$. Then $MY=\\sqrt{r^{2}-\\frac{r^{4}}{d^{2}}}=r\\sqrt{1-\\left(\\frac{r}{d}\\right)^{2}}=\\frac{1}{2}YZ$.\n\nThe area of $IYXZ$ is $\\frac{1}{2}(YZ)(IX)=rd\\sqrt{1-\\left(\\frac{r}{d}\\right)^{2}}=r\\sqrt{d^{2}-r^{2}}$. This must be less than or equal to $a$, the area of $S$. This yields $a^{2} \\geq r^{2}d^{2}-r^{4}$ or $d^{2} \\leq r^{2}+\\frac{a^{2}}{r^{2}}$. It follows that $d \\leq \\sqrt{r^{2}+\\frac{a^{2}}{r^{2}}}$, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-convex-hulls-auto-2033",
+      "name": "Harvard-MIT Mathematics Tournament #0j35",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Expected values",
+        "Convex hulls"
+      ],
+      "statement": "Problem:\n\nFor each integer $x$ with $1 \\leq x \\leq 10$, a point is randomly placed at either $(x, 1)$ or $(x,-1)$ with equal probability. What is the expected area of the convex hull of these points? Note: the convex hull of a finite set is the smallest convex polygon containing it.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $n=10$. Given a random variable $X$, let $\\mathbb{E}(X)$ denote its expected value. If all points are collinear, then the convex hull has area zero. This happens with probability $\\frac{2}{2^{n}}$ (either all points are at $y=1$ or all points are at $y=-1$). Otherwise, the points form a trapezoid with height $2$ (the trapezoid is possibly degenerate, but this won't matter for our calculation). Let $x_{1, l}$ be the $x$-coordinate of the left-most point at $y=1$ and $x_{1, r}$ be the $x$-coordinate of the right-most point at $y=1$. Define $x_{-1, l}$ and $x_{-1, r}$ similarly for $y=-1$. Then the area of the trapezoid is\n$$\n2 \\cdot \\frac{\\left(x_{1, r}-x_{1, l}\\right)+\\left(x_{-1, r}-x_{-1, l}\\right)}{2}=x_{1, r}+x_{-1, r}-x_{1, l}-x_{-1, l}.\n$$\nThe expected area of the convex hull (assuming the points are not all collinear) is then, by linearity of expectation,\n$$\n\\mathbb{E}\\left(x_{1, r}+x_{-1, r}-x_{1, l}-x_{-1, l}\\right)=\\mathbb{E}\\left(x_{1, r}\\right)+\\mathbb{E}\\left(x_{-1, r}\\right)-\\mathbb{E}\\left(x_{1, l}\\right)-\\mathbb{E}\\left(x_{-1, l}\\right).\n$$\nWe need only compute the expected values given in the above equation. Note that $x_{1, r}$ is equal to $k$ with probability $\\frac{2^{k-1}}{2^{n}-2}$, except that it is equal to $n$ with probability $\\frac{2^{n-1}-1}{2^{n}-2}$ (the denominator is $2^{n}-2$ instead of $2^{n}$ because we need to exclude the case where all points are collinear). Therefore, the expected value of $x_{1, r}$ is equal to\n$$\n\\begin{aligned}\n& \\frac{1}{2^{n}-2}\\left(\\left(\\sum_{k=1}^{n} k \\cdot 2^{k-1}\\right)-n \\cdot 1\\right) \\\\\n& \\quad=\\frac{1}{2^{n}-2}\\left(\\left(1+2+\\cdots+2^{n-1}\\right)+\\left(2+4+\\cdots+2^{n-1}\\right)+\\cdots+2^{n-1}-n\\right) \\\\\n& =\\frac{1}{2^{n}-2}\\left(\\left(2^{n}-1\\right)+\\left(2^{n}-2\\right)+\\cdots+\\left(2^{n}-2^{n-1}\\right)-n\\right) \\\\\n& =\\frac{1}{2^{n}-2}\\left(n \\cdot 2^{n}-\\left(2^{n}-1\\right)-n\\right) \\\\\n& \\quad=(n-1) \\frac{2^{n}-1}{2^{n}-2}\n\\end{aligned}\n$$\nSimilarly, the expected value of $x_{-1, r}$ is also $(n-1) \\frac{2^{n}-1}{2^{n}-2}$. By symmetry, the expected value of both $x_{1, l}$ and $x_{-1, l}$ is $n+1-(n-1) \\frac{2^{n}-1}{2^{n}-2}$. This says that if the points are not all collinear then the expected area is $2 \\cdot\\left((n-1) \\frac{2^{n}-1}{2^{n}-2}-(n+1)\\right)$. So, the expected area is\n$$\n\\begin{aligned}\n\\frac{2}{2^{n}} \\cdot 0+(1- & \\left.\\frac{2}{2^{n}}\\right) \\cdot 2 \\cdot\\left((n-1) \\frac{2^{n}-1}{2^{n}-2}-(n+1)\\right) \\\\\n& =2 \\cdot \\frac{2^{n-1}-1}{2^{n-1}} \\cdot\\left((n-1) \\frac{2^{n}-1}{2^{n-1}-1}-(n+1)\\right) \\\\\n& =2 \\cdot \\frac{(n-1)\\left(2^{n}-1\\right)-(n+1)\\left(2^{n-1}-1\\right)}{2^{n-1}} \\\\\n& =2 \\cdot \\frac{((2 n-2)-(n+1)) 2^{n-1}+2}{2^{n-1}} \\\\\n& =2 n-6+\\frac{1}{2^{n-3}}\n\\end{aligned}\n$$\nPlugging in $n=10$, we get $14+\\frac{1}{128}=\\frac{1793}{128}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-convex-hulls-auto-2195",
+      "name": "Harvard-MIT Mathematics Tournament #0j7n",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Convex hulls",
+        "Translation",
+        "Distance chasing"
+      ],
+      "statement": "Problem:\n\nLet $H$ be a regular hexagon of side length $x$. Call a hexagon in the same plane a \"distortion\" of $H$ if and only if it can be obtained from $H$ by translating each vertex of $H$ by a distance strictly less than $1$. Determine the smallest value of $x$ for which every distortion of $H$ is necessarily convex.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "![](attached_image_1.png)\nLet $H = A_{1}A_{2}A_{3}A_{4}A_{5}A_{6}$ be the hexagon, and for all $1 \\leq i \\leq 6$, let points $A_{i}'$ be considered such that $A_{i}A_{i}' < 1$. Let $H' = A_{1}'A_{2}'A_{3}'A_{4}'A_{5}'A_{6}'$, and consider all indices modulo $6$. For any point $P$ in the plane, let $D(P)$ denote the unit disk $\\{ Q \\mid PQ < 1 \\}$ centered at $P$; it follows that $A_{i}' \\in D(A_{i})$.\nLet $X$ and $X'$ be points on line $A_{1}A_{6}$, and let $Y$ and $Y'$ be points on line $A_{3}A_{4}$ such that $A_{1}X = A_{1}X' = A_{3}Y = A_{3}Y' = 1$ and $X$ and $X'$ lie on opposite sides of $A_{1}$ and $Y$ and $Y'$ lie on opposite sides of $A_{3}$. If $X'$ and $Y'$ lie on segments $A_{1}A_{6}$ and $A_{3}A_{4}$, respectively, then segment $A_{1}'A_{3}'$ lies between the lines $XY$ and $X'Y'$. Note that $\\frac{x}{2}$ is the distance from $A_{2}$ to $A_{1}A_{3}$.\n![](attached_image_2.png)\nIf $\\frac{x}{2} \\geq 2$, then $C(A_{2})$ cannot intersect line $XY$, since the distance from $XY$ to $A_{1}A_{3}$ is $1$ and the distance from $XY$ to $A_{2}$ is at least $1$. Therefore, $A_{1}'A_{3}'$ separates $A_{2}'$ from the other $3$ vertices of the hexagon. By analogous reasoning applied to the other vertices, we may conclude that $H'$ is convex.\nIf $\\frac{x}{2} < 2$, then $C(A_{2})$ intersects $XY$, so by choosing $A_{1}' = X$ and $A_{3}' = Y$, we see that we may choose $A_{2}'$ on the opposite side of $XY$, in which case $H'$ will be concave. Hence the answer is $4$, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-convex-hulls-auto-2260",
+      "name": "Harvard-MIT Mathematics Tournament #0j9g",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomials",
+        "QM-AM-GM-HM / Power Mean",
+        "Convex hulls"
+      ],
+      "statement": "Problem:\nSuppose that there are 16 variables $\\{a_{i, j}\\}_{0 \\leq i, j \\leq 3}$, each of which may be 0 or 1. For how many settings of the variables $a_{i, j}$ do there exist positive reals $c_{i, j}$ such that the polynomial\n$$\nf(x, y) = \\sum_{0 \\leq i, j \\leq 3} a_{i, j} c_{i, j} x^{i} y^{j}\n$$\n$(x, y \\in \\mathbb{R})$ is bounded below?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: 126\n\nFor some choices of the $a_{i, j}$, let $S = \\{(i, j) \\mid a_{i, j} = 1\\}$, and let $S' = S \\cup \\{(0,0)\\}$. Let $C(S')$ denote the convex hull of $S'$. We claim that the problem conditions are satisfied (there exist positive coefficients for the terms so that the polynomial is bounded below) if and only if the vertices of $C(S')$ all have both coordinates even.\n\nFor one direction, suppose that $C(S')$ has a vertex $v = (i', j')$ with at least one odd coordinate; WLOG, suppose it is $i'$. Since $v$ is a vertex, it maximizes some objective function $a i + b j$ over $C(S')$ uniquely, and thus also over $S'$. Since $(0,0) \\in S'$, we must have $a i' + b j' > 0$. Now consider plugging in $(x, y) = (-t^{a}, t^{b})$ ($t > 0$) into $f$. This gives the value\n$$\nf(-t^{a}, t^{b}) = \\sum_{(i, j) \\in S} (-1)^{i} c_{i, j} t^{a i + b j}\n$$\nBut no matter what positive $c_{i, j}$ we choose, this expression is not bounded below as $t$ grows infinitely large, as there is a $-c_{i', j'} t^{a i' + b j'}$ term, with $a i' + b j' > 0$, and all other terms have smaller powers of $t$. So the polynomial cannot be bounded below.\n\nFor the other direction, suppose the vertices of $C(S')$ all have both coordinates even. If all points in $S'$ are vertices of $C(S')$, then the polynomial is a sum of squares, so it is bounded below. Otherwise, we assume that some points in $S'$ are not vertices of $C(S')$. It suffices to consider the case where there is exactly one such point. Call this point $w = (i', j')$. Let $V(S')$ denote the set of the vertices of $C(S')$, and let $n = |V(S')|$. Enumerate the points of $V(S')$ as $v_1, v_2, \\ldots, v_n$. Let $i_k, j_k$ denote the $i$ and $j$ coordinates of $v_k$, respectively.\n\nSince $w \\in C(S')$, there exist nonnegative constants $\\lambda_1, \\lambda_2, \\ldots, \\lambda_n$ such that $\\sum_{k=1}^n \\lambda_k = 1$ and $\\sum_{k=1}^n \\lambda_k v_k = w$. (Here, we are treating the ordered pairs as vectors.) Then, by weighted AM-GM, we have\n$$\n\\sum_{k=1}^n \\lambda_k |x|^{i_k} |y|^{j_k} \\geq |x|^{i'} |y|^{j'}\n$$\nLet $c$ be the $\\lambda$-value associated with $(0,0)$. Then by picking $c_{i_k, j_k} = \\lambda_k$ and $c_{i', j'} = 1$, we find that $p(x, y) \\geq -c$ for all $x, y$, as desired.\n\nWe now find all possible convex hulls $C(S')$ (with vertices chosen from $(0,0), (0,2), (2,0)$, and $(2,2)$), and for each convex hull, determine how many possible settings of $a_{i, j}$ give that convex hull. There are 8 such possible convex hulls: the point $(0,0)$ only, 3 lines, 3 triangles, and the square. The point has 2 possible choices, each line has 4 possible choices, each triangle has 16 possible choices, and the square has 64 possible choices, giving $2 + 3 \\cdot 4 + 3 \\cdot 16 + 64 = 126$ total choices."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-convex-hulls-auto-2519",
+      "name": "HMIC #0jgn",
+      "url": "https://usamoguide.com/",
+      "source": "HMIC",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Convex hulls",
+        "Optimization in geometry"
+      ],
+      "statement": "Problem:\n\na.\nGiven a finite set $X$ of points in the plane, let $f_{X}(n)$ be the largest possible area of a polygon with at most $n$ vertices, all of which are points of $X$. Prove that if $m, n$ are integers with $m \\geq n > 2$, then $f_{X}(m) + f_{X}(n) \\geq f_{X}(m+1) + f_{X}(n-1)$.\n\nb.\nLet $P_{0}$ be a 1-by-2 rectangle (including its interior), and inductively define the polygon $P_{i}$ to be the result of folding $P_{i-1}$ over some line that cuts $P_{i-1}$ into two connected parts. The diameter of a polygon $P_{i}$ is the maximum distance between two points of $P_{i}$. Determine the smallest possible diameter of $P_{2013}$.\n\n(In other words, given a polygon $P_{i-1}$, a fold of $P_{i-1}$ consists of a line $l$ dividing $P_{i-1}$ into two connected parts $A$ and $B$, and the folded polygon $P_{i} = A \\cup B_{l}$, where $B_{l}$ is the reflection of $B$ over the line $l$.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n## 1 Convexity of the largest area of a polygon function\n\na.\nLet $V$ be a finite set of points in the plane. Let $f_{V}$ be a function that takes integers $\\geq 3$ as input, and outputs a polygon of largest area with vertices in $V$.\n\nLemma 1.1. $\\left[f_{V}(a+1)\\right] + \\left[f_{V}(a-1)\\right] \\leq 2\\left[f_{V}(a)\\right]$, where $[P]$ represents the area of polygon $P$.\n\nProof. Let the vertices of $f_{V}(a+1)$ be $1_{a+1}, 2_{a+1}, \\ldots, (a+1)_{a+1}$, and let the vertices of $f_{V}(a-1)$ be $1_{a-1}, 2_{a-1}, \\ldots, (a-1)_{a-1}$.\n\nLemma 1.2. The collection of vertices\n$$\nW = \\left(1_{a-1}, 2_{a-1}, \\ldots, (a-1)_{a-1}, 1_{a+1}, \\ldots, (a+1)_{a+1}\\right)\n$$\nare in convex configuration.\n\nProof. Suppose that the vertex $s_{x} \\in W$ (for some integers $x \\in \\{a-1, a+1\\}, s$) is inside the convex hull of $W$. Then there exists a vertex $k$ on the convex hull of $W$ such that replacing vertex $s_{x}$ in $f_{V}(x)$ with $k$ increases the area of the polygon $f_{V}(x)$. However, $f_{V}(x)$ is defined to be the polygon with $x$ sides with maximum area. Contradiction. This proves Lemma 2.\n\nTherefore the vertices in $W$ are in convex configuration. Label them with $1, 2, \\ldots, 2a$ in clockwise order, starting from an arbitrary vertex. Let $(2a)$ denote the vertex labeled $(2a)$. (The vertex $(1)$ will be shorthanded as 1 when there is no ambiguity).\n\nLemma 1.3. We have the inequality\n$$\n\\left[f_{V}(a+1)\\right] + \\left[f_{V}(a-1)\\right] \\leq [\\mathcal{P} 1357 \\ldots (2a-1)] + [\\mathcal{P} 2468 \\ldots (2a)] .\n$$\n(Throughout, the symbol $\\mathcal{P}$ denotes an arbitrary polygon.)\n\nProof. It suffices to show that\n$$\n\\begin{aligned}\n& 2[\\mathcal{P} 1234 \\ldots (2a)] - \\left[f_{V}(a+1)\\right] - \\left[f_{V}(a-1)\\right] \\\\\n& \\geq 2[\\mathcal{P} 1234 \\ldots (2a)] - [\\mathcal{P} 1357 \\ldots (2a-1)] - [\\mathcal{P} 2468 \\ldots (2a)] .\n\\end{aligned}\n$$\nWe will do this using the next few lemmas.\n\nLemma 1.4. Let $x$ and $y$ be integers $\\leq 2a$. If ray $\\overrightarrow{(x)(x+1)}$ intersects (or is parallel to) ray $\\overrightarrow{(y)(y-1)}$. Then $[\\mathcal{P}(x)(x+1)(x+2) \\ldots (y-1)(y)] \\geq [\\Delta(x)(x+1)(x+2)] + [\\Delta(x+1)(x+2)(x+3)] + \\ldots + [\\Delta(y-2)(y-1)(y)]$ (where $(2a+k)$ is equivalent to $(k)$ for all $k$).\n\nProof. $[\\mathcal{P}(x)(x+1)(x+2) \\ldots (y-1)(y)] = [\\triangle(x)(x+1)(x+2)] + [\\triangle(x)(x+2)(x+3)] + \\ldots + [\\Delta(x)(y-1)(y)]$. Suppose ray $\\overline{(x)(x+1)}$ intersects ray $\\overline{(y)(y-1)}$ at point $D$, the convexity of $W$ tells us that all vertices in between $x$ and $y$ exclusive going clockwise from $x$ are contained inside triangle $(x) D (y)$. It follows that for any $x'$ between $x$ and $y$ exclusive going clockwise from $x$, that $(x)$ is farther from line $\\overline{(x')(x'+1)}$ than $(x'-1)$. Therefore\n$$\n[\\Delta(x)(x')(x'+1)] \\leq [\\triangle(x'-1)(x')(x'+1)] .\n$$\nSumming these relations over all $x$ in between $x$ and $y$ exclusive going clockwise from $x$ gives the statement of Lemma 4, as desired.\n\nAn identical argument works if ray $\\overline{(x)(x+1)}$ and ray $\\overline{(y)(y-1)}$ are parallel, except instead of $D$, all the points between $x$ and $y$ are bounded by the two rays and the line $\\overline{(x)(y)}$.\n\nThis proves Lemma 4.\n\nLet $z$ and $s$ be integers such that $z \\in \\{a-1, a+1\\}$ and both vertices $s_{z}$ and $(s+1)_{z}$ are adjacent vertices of $f_{V}(z)$. $u$ and $v$ are positive integers defined such that $s_{z}$ has label $(u)$ and $s_{z+1}$ has label $(v)$.\n\nLemma 1.5. Rays $\\overrightarrow{(u)(u+1)}$ and $\\overrightarrow{(v)(v-1)}$ intersect or are parallel to each other.\n\nProof. Since $(u), (u+1), (v-1), (v)$ are in convex formation, then either $\\overrightarrow{(u)(u+1)}$ and $\\overrightarrow{(v)(v-1)}$ intersect or are parallel to each other, or else $\\overrightarrow{(u+1)(u)}$ and $\\overrightarrow{(v-1)(v)}$ intersect. If we suppose that the lemma statement does not hold for the sake of contradiction, then it follows that rays $\\overrightarrow{(u+1)(u)}$ and $\\overrightarrow{(v-1)(v)}$ must intersect. Let $Q$ be the collection of vertices between $v$ and $u$ in $W$, going clockwise, inclusive. Since $Q$ is in convex formation (it's a subset of $W$), and $\\overrightarrow{(u+1)(u)}$ and $\\overrightarrow{(v+1)(v)}$ intersect, it follows that $u+1$ is farther than $u$ from any line joining two vertices of $Q$. Therefore removing $s_{z}$ (which is the same vertex as $(u)$) from $f_{V}(z)$ and replacing it with vertex $(u+1)$ increases the area of $f_{V}(z)$, contradicting the assertion that $f_{V}(z)$ was the polygon of $z$ vertices with maximal area on the set $V$. Therefore Lemma 5 is proven.\n\nLemma 5 allows us to apply Lemma 4 to the polygons formed by taking $(\\mathcal{P} 1234 \\ldots (2a))$ and subtracting out $\\left[f_{V}(a+1)\\right]$, as well as the polygons formed by taking $(\\mathcal{P} 1234 \\ldots (2a))$ and subtracting out $f_{V}(a-1)$. Adding the results tells us that\n$$\n\\begin{aligned}\n& 2[\\mathcal{P} 1234 \\ldots (2a)] - \\left[f_{V}(a+1)\\right] - \\left[f_{V}(a-1)\\right] \\\\\n& \\geq 2[\\mathcal{P} 1234 \\ldots (2a)] - [\\mathcal{P} 1357 \\ldots (2a-1)] - [\\mathcal{P} 2468 \\ldots (2a)]\n\\end{aligned}\n$$\nwhich is sufficient to prove Lemma 3.\n\nSince $[\\mathcal{P} 135 \\ldots (2a-1)]$, $[\\mathcal{P} 246 \\ldots (2a)] \\leq f_{V}(a)$ since $(1), (2), \\ldots, (2a) \\in V$. Using this fact with Lemma 3, we have proven Lemma 1 as desired.\n\nLemma 1.6. Any function $g$ from integers to real numbers that satisfies $g(x+1) + g(x-1) \\leq 2g(x)$ satisfies the inequality $g(x) + g(y) \\leq g(x+1) + g(y-1)$ for $y-1 \\geq x+1$, and is thus a convex function.\n\nProof. We proceed by induction on $y-x$. When $y-x=2$, the problem is trivial.\n\nFor $y-x>2$, note that $g(x) + g(x+2) + g(y) + g(y-2) \\leq 2g(x+1) + 2g(y-1)$, but the inductive statement shows that $g(x+2) + g(y-2) \\geq g(x+1) + g(y-1)$. It follows that $g(x) + g(y) \\leq g(x+1) + g(y-1)$, which completes our induction as desired.\n\nIt follows from the preceding lemma that $f_{V}(a)$ is a convex function, as desired.\n\n\n## 2 Folding a paper\n\nLet the smallest diameter be $M$. We claim that $M$ is $\\frac{\\sqrt{2}}{2^{1006}}$. Let the $P_{0}$ be a 1 by 2 rectangle. For $0 \\leq i \\leq 2012$, polygon $P_{i+1}$ is polygon $P_{i}$ folded across line $l_{i}$. Line $l_{i}$ splits $P_{i}$ into $P_{i}^{\\prime}$ and $P_{i}^{\\prime\\prime}$, and $P_{i}^{\\prime\\prime}$ is reflected to $P_{i}^{\\prime\\prime\\prime}$, and $P_{i+1} = P_{i}^{\\prime} \\cup P_{i}^{\\prime\\prime\\prime}$.\n\nClaim 1. For $1 \\leq i \\leq 2013$, $P_{i}$ can be expressed as the union of no more than $2^{i}$ convex polygons, and the average number of sides of these polygons is not more than 4.\n\nProof. We proceed by induction. $P_{0}$ clearly satisfies the inductive hypothesis. Suppose that $P_{i}$ is the union of convex polygons $A_{1}, A_{2}, \\ldots, A_{n}$. Folding $A_{1}, A_{2}, \\ldots, A_{n}$ across $l_{i}$ and taking the union of the resulting polygons yields $P_{i+1}$.\n\nLet $S(P)$ be the number of sides of polygon $P$.\n\nLemma. A convex polygon $Z$ is folded once. $Z^{\\prime}$ and $Z^{\\prime\\prime\\prime}$ are convex, and $S\\left(Z^{\\prime}\\right) + S\\left(Z^{\\prime\\prime\\prime}\\right) \\leq S(Z) + 4$.\n\nProof. Any line $l$ through $Z$ splits $Z$ into two convex polygons, and four new vertices are formed by $l$. The number of vertices in a convex polygon equals the number of sides, proving our lemma.\n\nThus $P_{i+1}$ can be expressed as the union of no more than $2^{i+1}$ convex polygons, and the average number of sides of these convex polygons does not exceed 4. Claim 1 is proven.\n\nClaim 2. For a quadrilateral of area $A$, the diameter has length less than $\\sqrt{2A}$.\n\nProof. Without loss of generality, let the fixed area be 1. The diagonal is not longer than the diameter of the quadrilateral. Half of the product of the diagonals is not less than the area, and Claim 2 follows.\n\nClaim 1 tells us that $P_{2013}$ is the union of no more than $2^{2013}$ convex polygons, whose average number of sides is no more than 4. Part (a) of the problem tells us that there is some quadrilateral with area $\\geq \\frac{1}{2^{2012}}$, with vertices at the vertices of the final folded figure. Claim 2 tells us that the diameter of this quadrilateral, and thus of $P_{2013}$, is $\\geq \\frac{\\sqrt{2}}{2^{1006}}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-convex-hulls-auto-3023",
+      "name": "BAMO-12 #0jun",
+      "url": "https://usamoguide.com/",
+      "source": "BAMO-12",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Convex hulls"
+      ],
+      "statement": "Problem:\nThe corners of a fixed convex (but not necessarily regular) $n$-gon are labeled with distinct letters. If an observer stands at a point in the plane of the polygon, but outside the polygon, they see the letters in some order from left to right, and they spell a \"word\" (that is, a string of letters; it doesn't need to be a word in any language). For example, in the diagram below (where $n=4$), an observer at point $X$ would read \"BAMO,\" while an observer at point $Y$ would read \"MOAB.\"\n![](attached_image_1.png)\nDetermine, as a formula in terms of $n$, the maximum number of distinct $n$-letter words which may be read in this manner from a single $n$-gon. Do not count words in which some letter is missing because it is directly behind another letter from the viewer's position.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet us call our original $n$ points $V_{1}, V_{2}, \\ldots, V_{n}$.\nIf $A, B$ are two points, then viewers on one side of line $\\overleftrightarrow{A B}$ see $A$ to the left of $B$, and viewers on the other side see $B$ to the left of $A$. Therefore, if we draw the $\\binom{n}{2}$ lines determined by pairs $\\{V_{i}, V_{j}\\}$ ($1 \\leq i < j \\leq n$), then different \"views\" of $V_{1}, V_{2}, \\ldots, V_{n}$ (from outside their convex hull) are in one-to-one correspondence with the regions formed outside the convex hull by these $\\binom{n}{2}$ lines. These regions are what we will now count. Our strategy is to count all regions, then subtract those regions that are inside the convex hull of $V_{1}, V_{2}, \\ldots, V_{n}$.\n\nWe begin by stating and proving a general lemma:\n\nLemma. Let $K$ be a convex region of the plane. Let $r$ lines pass through the interior of $K$, making a total of $m$ intersections in the interior of $K$. Suppose further that no three of the lines meet at one of these intersections. Then $K$ is divided by the lines into $1 + r + m$ regions.\n\nProof of Lemma. Number the lines $\\ell_{1}, \\ell_{2}, \\ldots, \\ell_{r}$. We imagine that we draw the lines one at a time, in this order. Suppose $m_{i}$ is the number of points in the interior of $K$ where $\\ell_{i}$ intersects $\\ell_{1}, \\ell_{2}, \\ldots, \\ell_{i-1}$. Then at the stage when we draw $\\ell_{i}$, it passes through $m_{i} + 1$ existing regions, dividing each of them into two regions and thereby increasing the number of regions by $m_{i} + 1$. Since there is initially one region ($K$ itself), the final number of regions after all $r$ lines are drawn is\n$$\n1 + (m_{1} + 1) + (m_{2} + 1) + (m_{3} + 1) + \\cdots + (m_{r} + 1).\n$$\nBut observe that $m_{1} + m_{2} + \\cdots + m_{r} = m$, since each intersection point in the interior of $K$ is counted exactly once on each side of the equation. Thus the final number of regions is $1 + r + m$.\n\nBy the lemma, if $\\binom{n}{2}$ lines are in general position (no two parallel, no three concurrent), then they divide the plane into $1 + \\binom{n}{2} + \\binom{n}{2}$ regions.\n\nHowever, our $\\binom{n}{2}$ lines aren't in general position; $n-1$ lines meet at each of our original points $V_{i}$. Each $V_{i}$ is surrounded by $2(n-1)$ regions, but if we nudged each line by a tiny amount so as to separate all their pairwise intersections, then these $2(n-1)$ regions would become $1 + n + \\binom{n-1}{2}$ regions (by the lemma). Accounting for this, the number of regions formed by our $\\binom{n}{2}$ lines is\n$$\n1 + \\binom{n}{2} + \\binom{n}{2} + n\\left[2(n-1) - (1 + n + \\binom{n-1}{2})\\right].\n$$\n\nFinally, we subtract the regions inside the convex hull of $V_{1}, V_{2}, \\ldots, V_{n}$. The number of lines passing through the convex hull (i.e., diagonals, not sides) is $\\binom{n}{2} - n$. Every set of four points $\\{V_{i}, V_{j}, V_{k}, V_{m}\\}$ ($1 \\leq i < j < k < m \\leq n$) determines a unique intersection inside the convex hull, so there are $\\binom{n}{4}$ such intersections. Thus by the lemma, the convex hull is cut into $1 + \\binom{n}{2} - n + \\binom{n}{4}$ regions. Subtracting this from our total count of regions in the plane, we conclude that the number of regions outside the convex hull (which is our final answer) is\n$$\n1 + \\binom{n}{2} + \\binom{n}{2} + n\\left[2(n-1) - (1 + n + \\binom{n-1}{2})\\right] - \\left[1 + \\binom{n}{2} - n + \\binom{n}{4}\\right]\n$$\nThis may be simplified to\n$$\n\\frac{1}{12} n(n-1)\\left(n^{2} - 5n + 18\\right).\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-convex-hulls-auto-3167",
+      "name": "February 2017 #0jyn",
+      "url": "https://usamoguide.com/",
+      "source": "February 2017",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Sylvester's theorem",
+        "Isogonal/isotomic conjugates, barycentric coordinates",
+        "Convex hulls",
+        "Optimization in geometry",
+        "Constructions and loci",
+        "Triangle inequalities"
+      ],
+      "statement": "Problem:\n\na. Does there exist a finite set of points, not all collinear, such that a line between any two points in the set passes through a third point in the set?\n\nb. Let $ABC$ be a triangle and $P$ be a point. The isogonal conjugate of $P$ is the intersection of the reflection of line $AP$ over the $A$-angle bisector, the reflection of line $BP$ over the $B$-angle bisector, and the reflection of line $CP$ over the $C$-angle bisector. Clearly the incenter is its own isogonal conjugate. Does there exist another point that is its own isogonal conjugate?\n\nc. Let $F$ be a convex figure in a plane, and let $P$ be the largest pentagon that can be inscribed in $F$. Is it necessarily true that the area of $P$ is at least $\\frac{3}{4}$ the area of $F$?\n\nd. Is it possible to cut an equilateral triangle into 2017 pieces, and rearrange the pieces into a square?\n\ne. Let $ABC$ be an acute triangle and $P$ be a point in its interior. Let $D, E, F$ lie on $BC, CA, AB$ respectively so that $PD$ bisects $\\angle BPC$, $PE$ bisects $\\angle CPA$, and $PF$ bisects $\\angle APB$. Is it necessarily true that $AP + BP + CP \\geq 2(PD + PE + PF)$?\n\nf. Let $P_{2018}$ be the surface area of the 2018-dimensional unit sphere, and let $P_{2017}$ be the surface area of the 2017-dimensional unit sphere. Is $P_{2018} > P_{2017}$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-convex-hulls-auto-3619",
+      "name": "USA TSTST #0kb7",
+      "url": "https://usamoguide.com/",
+      "source": "USA TSTST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Catalan numbers, partitions",
+        "Induction / smoothing",
+        "Convex hulls"
+      ],
+      "statement": "Let $S$ be a set of 16 points in the plane, no three collinear. Let $\\chi(S)$ denote the number of ways to draw 8 line segments with endpoints in $S$, such that no two drawn segments intersect, even at endpoints. Find the smallest possible value of $\\chi(S)$ across all such $S$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "The answer is 1430. In general, we prove that with $2n$ points the answer is the $n^{\\text{th}}$ Catalan number $C_n = \\frac{1}{n+1}\\binom{2n}{n}$.\nFirst of all, it is well-known that if $S$ is a convex $2n$-gon, then $\\chi(S) = C_n$.\n\nIt remains to prove the lower bound. We proceed by (strong) induction on $n$, with the base case $n=0$ and $n=1$ clear. Suppose the statement is proven for $0, 1, \\dots, n$ and consider a set $S$ with $2(n+1)$ points.\nLet $P$ be a point on the convex hull of $S$, and label the other $2n+1$ points $A_1, \\dots, A_{2n+1}$ in order of angle from $P$.\nConsider drawing a segment $\\overline{PA_{2k+1}}$. This splits the $2n$ remaining points into two halves $\\mathcal{U}$ and $\\mathcal{V}$, with $2k$ and $2(n-k)$ points respectively.\n\n![](attached_image_1.png)\n\nNote that by choice of $P$, no segment in $\\mathcal{U}$ can intersect a segment in $\\mathcal{V}$. By the inductive hypothesis,\n$$\n\\chi(\\mathcal{U}) \\ge C_k \\quad \\text{and} \\quad \\chi(\\mathcal{V}) \\ge C_{n-k}.\n$$\nThus, drawing $\\overline{PA_{2k+1}}$, we have at least $C_k C_{n-k}$ ways to complete the drawing. Over all choices of $k$, we obtain\n$$\n\\chi(S) \\ge C_0 C_n + \\dots + C_n C_0 = C_{n+1}\n$$\nas desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-convex-hulls-auto-3712",
+      "name": "HMMT February 2020 #0kds",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2020",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Convex hulls",
+        "Expected values"
+      ],
+      "statement": "Problem:\nA collection $\\mathcal{S}$ of $10000$ points is formed by picking each point uniformly at random inside a circle of radius $1$. Let $N$ be the expected number of points of $\\mathcal{S}$ which are vertices of the convex hull of the $\\mathcal{S}$. (The convex hull is the smallest convex polygon containing every point of $\\mathcal{S}$.) Estimate $N$.\n\nAn estimate of $E>0$ will earn $\\max (\\lfloor 22-|E-N|\\rfloor, 0)$ points.\n\nProposed by: Shengtong Zhang",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nHere is $\\mathrm{C}++$ code by Benjamin Qi to estimate the answer via simulation. It is known that the expected number of vertices of the convex hull of $n$ points chosen uniformly at random inside a circle is $O\\left(n^{1 / 3}\\right)$. See \"On the Expected Complexity of Random Convex Hulls\" by Har-Peled."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-convex-hulls-auto-3763",
+      "name": "Bay Area Mathematical Olympiad #0kf7",
+      "url": "https://usamoguide.com/",
+      "source": "Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other 3D problems",
+        "Euler characteristic: V-E+F",
+        "Counting two ways",
+        "Induction / smoothing",
+        "Convex hulls"
+      ],
+      "statement": "Problem:\nLet $S$ be a set of $a+b+3$ points on a sphere, where $a, b$ are nonnegative integers and no four points of $S$ are coplanar (that is, no four points lie on a plane). Determine how many planes pass through three points of $S$ and separate the remaining points into $a$ points on one side of the plane and $b$ points on the other side.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $f(a, b)$ be the number of oriented planes through three of the given $a+b+3$ points, such that exactly $a$ points lie above the plane (a plane divides 3D-space into two regions; an oriented plane can be thought of as a plane and a choice of one side \"above\" the plane). We then recover $g$ as\n$$\ng(a, b)=\\left\\{\\begin{array}{cc}\nf(a, b), & a \\neq b \\\\\n\\frac{1}{2} f(a, b), & a=b\n\\end{array}\\right.\n$$\nbecause each plane is counted twice when $a=b$.\n\nWe begin by calculating $f(a, 0)$. Consider the convex hull $\\Sigma$ of our $a+3$ points. This is a polyhedron, so we apply Euler's formula $V-E+F=2$. Since our $a+3$ points lie on a sphere, they are all vertices of $\\Sigma$ and hence $V=a+3$. No four of our points are coplanar, so each face of $\\Sigma$ is a triangle and thus $2 E=3 F$. Therefore,\n$$\nF=3 F-2 F=2 E-2(2-V+E)=2(V-2)=2(a+1) \\text{.}\n$$\nBut a plane through three of our points has all the other points on one side iff it does not cut through the interior of $\\Sigma$, i.e. iff it is a face of $\\Sigma$ (the orientation should be such that the other points lie above the plane of this face). Hence $f(a, 0)=F=2(a+1)$.\n\nNext, notice that $f(a, b)=f(b, a)$ for any $a, b \\geq 0$, because reversing the orientations of all planes interchanges the roles of $a$ and $b$. Moreover, if $n=a+b+3$, then there are a total of $2\\left(\\begin{array}{l}n \\\\ 3\\end{array}\\right)$ oriented planes passing through three of our points, so $f(n-3,0)+f(n-4,1)+\\cdots+f(1, n-4)+f(0, n-3)=2\\left(\\begin{array}{l}n \\\\ 3\\end{array}\\right)$. Some small values of $f(a, b)$ can now be calculated directly:\n\n|   | 0 | 1 | 2 | 3 |\n| :---: | :---: | :---: | :---: | :---: |\n| 0 | 2 | 4 | 6 | 8 |\n| 1 | 4 | 8 | 12 |  |\n| 2 | 6 | 12 |  |  |\n| 3 | 8 |  |  |  |\n\nBased on these small cases, we conjecture that\n$$\nf(a, b)=2(a+1)(b+1) .\n$$\nWe will prove this by induction.\n\nConsider a fixed arrangement of $n+1$ points (on a sphere, with no four points coplanar) and suppose that $(*)$ holds for any $n$ points (the base case of $n=3$ is trivial). Consider $a, b \\geq 0$ with $a+b+3=n$. Let $S_{a, b}$ denote the set of all pairs $(P, \\Pi)$, where $P$ is one of our $n+1$ points, $\\Pi$ is an oriented plane through three of the other points, and precisely $a$ of the remaining points lie above $\\Pi$. By first choosing $P$ and then $\\Pi$, we find that\n$$\n\\left|S_{a, b}\\right|=(n+1) f(a, b)=2(n+1)(a+1)(b+1),\n$$\nwhere the second equality is by the induction hypothesis. By first choosing $\\Pi$ and then $P$, we find that\n$$\n\\left|S_{a, b}\\right|=(a+1) f(a+1, b)+(b+1) f(a, b+1) .\n$$\nEquating these two expressions for $\\left|S_{a, b}\\right|$, we have\n$$\n(a+1) f(a+1, b)+(b+1) f(a, b+1)=2(a+b+4)(a+1)(b+1) \\text{,}\n$$\nfor any $a, b \\geq 0$ such that $a+b+3=n$. But if we have $f(a+1, b)=2(a+2)(b+1)$, then (1) gives\n$$\n\\begin{aligned}\n(b+1) f(a, b+1) & =2(a+b+4)(a+1)(b+1)-(a+1) f(a+1, b) \\\\\n& =2(a+b+4)(a+1)(b+1)-2(a+1)(a+2)(b+1) \\\\\n& =2(a+1)(b+1)((a+b+4)-(b+2))=2(a+1)(b+1)(b+2),\n\\end{aligned}\n$$\nand thus $f(a, b+1)=2(a+1)(b+2)$. Thus, for any $a, b \\geq 0$ with $a+b+3=n$,\n$$\nf(a+1, b) \\text{ satisfies }(*) \\quad \\Longrightarrow \\quad f(a, b+1) \\text{ satisfies }(*) \\text{.}\n$$\nStarting with the base case $f(n-2,0)=n-1$ (proven above) and applying another layer of induction, we see that the values $f(n-2,0), f(n-3,1), f(n-4,2), \\ldots, f(0, n-2)$ all satisfy $(*)$. This proves the induction hypothesis (i.e. that $(*)$ holds for any $n+1$ points) and thus concludes the proof."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-convex-hulls-auto-3971",
+      "name": "HMMT Spring 2021 Guts Round #0kkz",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT Spring 2021 Guts Round",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Convex hulls",
+        "Pick's theorem",
+        "Expected values"
+      ],
+      "statement": "Problem:\n\nA set of 6 distinct lattice points is chosen uniformly at random from the set $\\{1,2,3,4,5,6\\}^2$. Let $A$ be the expected area of the convex hull of these 6 points. Estimate $N=\\left\\lfloor 10^4 A\\right\\rfloor$.\n\nAn estimate of $E$ will receive $\\max \\left(0,\\left\\lfloor 20-20\\left(\\frac{|E-N|}{10^4}\\right)^{1 / 3}\\right\\rfloor\\right)$ points.\n\nProposed by: Milan Haiman",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe main tools we will use are linearity of expectation and Pick's theorem. Note that the resulting polygon is a lattice polygon, and thus the expected area $A$ satisfies\n$$\nA = I + \\frac{B}{2} - 1\n$$\nwhere $I$ is the expected number of interior points and $B$ is the expected number of boundary points. We may now use linearity of expectation to write this as\n$$\nA = -1 + \\sum_{p \\in \\{1,2, \\ldots, 6\\}^2} \\mathbb{E}\\left[X_p\\right]\n$$\nwhere $X_p$ is 1 if the point is inside the polygon, $1 / 2$ if the point is on the boundary, and 0 otherwise. Letting $f(p) = \\mathbb{E}\\left[X_p\\right]$, we may write this by symmetry as\n$$\nA = -1 + 4 f(1,1) + 8 f(1,2) + 8 f(1,3) + 4 f(2,2) + 8 f(2,3) + 4 f(3,3)\n$$\nThere are many ways to continue the estimation from here; we outline one approach. Since $X_{(1,1)}$ is $1 / 2$ if and only if $(1,1)$ is one of the selected points (and 0 otherwise), we see\n$$\nf(1,1) = \\frac{1}{12}\n$$\nOn the other hand, we may estimate that a central point is exceedingly likely to be within the polygon, and guess $f(3,3) \\approx 1$. We may also estimate $f(1, y)$ for $y \\in \\{2,3\\}$; such a point is on the boundary if and only if $(1, y)$ is selected or $(1, z)$ is selected for some $z<y$ and for some $z>y$. The first event happens with probability $1 / 6$, and the second event happens with some smaller probability that can be estimated by choosing the 6 points independently (without worrying about them being distinct); this works out to give the slight overestimate\n$$\nf(1,2), f(1,3) \\approx \\frac{1}{8}\n$$\nFrom here, it is not so clear how to estimate $f(2,2)$ and $f(2,3)$, but one way is to make $f(x, y)$ somewhat linear in each component; this works out to give\n$$\nf(2,2) \\approx \\frac{1}{4}, \\quad f(2,3) \\approx \\frac{1}{2}\n$$\n(In actuality the estimates we'd get would be slightly higher, but each of our estimates for $f(x, y)$ up until this point have been slight overestimates.) Summing these up gives us an estimate of $A \\approx \\frac{31}{3}$ or $E=103333$, which earns 10 points. The actual value of $A$ is $10.4552776 \\ldots$, and so $N=104552$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-convex-hulls-auto-4442",
+      "name": "HMMT February 2023 #0ky2",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2023",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Convex hulls",
+        "Optimization in geometry"
+      ],
+      "statement": "Problem:\n\nOne hundred points labeled $1$ to $100$ are arranged in a $10 \\times 10$ grid such that adjacent points are one unit apart. The labels are increasing left to right, top to bottom (so the first row has labels $1$ to $10$, the second row has labels $11$ to $20$, and so on).\n\nConvex polygon $\\mathcal{P}$ has the property that every point with a label divisible by $7$ is either on the boundary or in the interior of $\\mathcal{P}$. Compute the smallest possible area of $\\mathcal{P}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe vertices of the smallest $\\mathcal{P}$ are located at the points on the grid corresponding to the numbers $7, 21, 91, 98$, and $70$. The entire grid has area $81$, and the portion of the grid not in $\\mathcal{P}$ is composed of three triangles of areas $6, 9, 3$. Thus the area of $\\mathcal{P}$ is $81 - 6 - 9 - 3 = 63$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-convex-hulls-auto-4595",
+      "name": "HMMT February 2024 Guts Round #0l2b",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2024 Guts Round",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Expected values",
+        "Convex hulls"
+      ],
+      "statement": "Problem:\n\nBarry picks infinitely many points inside a unit circle, each independently and uniformly at random, $P_{1}, P_{2}, \\ldots$ Compute the expected value of $N$, where $N$ is the smallest integer such that $P_{N+1}$ is inside the convex hull formed by the points $P_{1}, P_{2}, \\ldots, P_{N}$.\n\nSubmit a positive real number $E$. If the correct answer is $A$, you will receive $\\lfloor 100 \\cdot \\max (0.2099-|E-A|, 0)\\rfloor$ points.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nClearly, $N \\geq 3$, and let's scale the circle to have area $1$. We can see that the probability to not reach $N=4$ is equal to the probability that the fourth point is inside the convex hull of the past three points. That is, the probability is just one minus the expected area of those $N$ points. The area of this turns out to be really small, and is around $0.074$, and so $(1-0.074)$ of all sequences of points make it to $N=4$. The probability to reach to the fifth point from there should be around $(1-0.074)(1-0.074 \\cdot 2)$, as any four points in convex configuration can be covered with $2$ triangles. Similarly, the chance of reaching $N=6$ should be around $(1-0.074)(1-0.074 \\cdot 2)(1-0.074 \\cdot 3)$, and so on. Noting that our terms eventually decay to zero around term $1 / 0.074 = 13$, our answer should be an underestimate. In particular, we get\n$$\n3 + (1-0.074)\\left[1 + (1-0.074 \\cdot 2)\\left[1 + (1-0.074 \\cdot 3)(1+\\cdots)\\right]\\right] \\approx 6.3\n$$\nGuessing anything slightly above this lower bound should give a positive score.\n\nHere is a Python code that simulates the result.\n\n```\nfrom random import randrange, getrandbits\nimport itertools, math\nfrom tqdm import tqdm\nimport numpy as np\nDEBUG = False\ndef unit_circle_pt():\n    while True:\n        x = randrange(-(2**32), 2**32+1)\n        y = randrange(-(2**32), 2**32+1)\n        if x*x + y*y < 2**64:\n            return (x, y)\ndef area_of_triangle(p1, p2, p3):\n    return abs((p2[0] - p1[0])*(p3[1] - p2[1]) - (p2[1] - p1[1])*(p3[0] - p2[0]))\ndef pt_inside_polygon(point, polygon):\n    # point is a pair\n    # polygon is an angle-sorted list of points that are the vertices of a convex polygon in some order\n    # area of polygon\n    # plot the polygon and the point\n    if DEBUG:\n        import matplotlib.pyplot as plt\n        # plot the big circle\n        circle = plt.Circle((0,0), 2**32, color='b', fill=False)\n        # fix view to circle\n        plt.xlim(-2**32,2**32)\n        plt.ylim(-2**32,2**32)\n        plt.gca().add_artist(circle)\n        # make the window to scale\n        plt.gca().set_aspect('equal', adjustable='box')\n        plt.plot([x for x,_ in polygon], [y for _,y in polygon])\n        plt.scatter([point[0]], [point[1]])\n        plt.show()\n    area = 0\n    for i in range(1, len(polygon)-1):\n        # add on area between points 0, i, i+1\n        area += area_of_triangle(polygon[0], polygon[i], polygon[i+1])\n    # point is inside polygon if the area of the triangles formed by the point and each edge of the polygon sum to the area of the polygon\n    area_sum = 0\n    for i in range(len(polygon)):\n        # add on area between points point, polygon[i], polygon[(i+1)%len(polygon)]\n        area_sum += area_of_triangle(point, polygon[i], polygon[(i+1)%len(polygon)])\n    return area_sum == area\ndef convex_hull(points):\n    # sort by x, then y\n    points = sorted(points, key=lambda x: (x[0], x[1]))\n    # graham scan\n    # find the lowest point\n    lowest = points[0]\n    for p in points:\n        if p[1] < lowest[1]:\n            lowest = p\n    # sort by angle\n    points = sorted(points, key=lambda x: (math.atan2(x[1]-lowest[1], x[0]-lowest[0]), -x[1], x[0]))\n    # remove duplicates\n    points = list(k for k,_ in itertools.groupby(points))\n    # stack to hold the points\n    stack = []\n    for p in points:\n        while len(stack) > 1 and (stack[-1][0]-stack[-2][0])*(p[1]-stack[-2][1]) - (stack[-1][1]-stack[-2][1])*(p[0]-stack[-2][0]) <= 0:\n            stack.pop()\n        stack.append(p)\n    return stack\ndef pulse(horizon=1000):\n    cur = [unit_circle_pt() for _ in range(3)]\n    for N in range(3, horizon):\n        pt = unit_circle_pt()\n        if pt_inside_polygon(pt, cur):\n            return N\n        cur = convex_hull(cur + [pt])\ntrials = 1000\nblocks = 100000\ncur_trials = 0\ncur_sum = 0\nresults = []\nfor block in range(trials):\n    for _ in tqdm(range(blocks)):\n        results.append(pulse())\n    cur_trials += blocks\n    mean = np.mean(results)\n    stddev = np.std(results)\n    z = 5.0\n    ci = (mean - z*stddev/np.sqrt(cur_trials), mean + z*stddev/np.sqrt(cur_trials))\n    print(block+1, mean, stddev, ci)\n```"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

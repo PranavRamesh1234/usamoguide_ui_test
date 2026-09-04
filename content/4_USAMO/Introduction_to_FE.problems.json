@@ -1,0 +1,482 @@
+{
+  "MODULE_ID": "introduction-to-function-equations",
+  "practice": [
+    {
+      "uniqueId": "Benelux-2025-1",
+      "name": "Benelux 2025/1",
+      "url": "https://aops.com/community/c4305548_2025_benelux",
+      "source": "Benelux",
+      "difficulty": "Normal",
+      "isStarred": false,
+      "tags": [
+        "FE"
+      ],
+      "statement": "Does there exist a function $f:\\mathbb{R}\to \\mathbb{R}$ such that $$f(x^2+f(y))=f(x)^2-y$$ for all $x, y\\in \\mathbb{R}$?",
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "pagmo-2024-5",
+      "name": "PAGMO 2024/5",
+      "url": "https://aops.com/community/c6h3451998p33317639",
+      "source": "PAGMO",
+      "difficulty": "hard",
+      "isStarred": false,
+      "tags": [
+        "FE"
+      ],
+      "statement": "Find all functions $f: \\mathbb{R} \\to \\mathbb{R}$ such that $f(f(x+y) - f(x)) + f(x)f(y) = f(x^2) - f(x+y),$ for all real numbers $x, y$.",
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "isl-2015-C2",
+      "name": "ISL 2015 C2",
+      "url": "https://aops.com/community/c111148_2015_imo_shortlist",
+      "source": "IMO shortlist",
+      "difficulty": "hard",
+      "isStarred": false,
+      "tags": [
+        "FE"
+      ],
+      "statement": "Determine all functions $f:\\mathbb{Z}\\rightarrow\\mathbb{Z}$ with the property that $$f(x-f(y))=f(f(x))-f(y)-1$$ holds for all $x,y\\in\\mathbb{Z}$.",
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-0074",
+      "name": "Berkeley Math Circle #0hkq",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\nFind all functions $f: \\mathbb{R} \\rightarrow \\mathbb{R}$ satisfying $f(x)+f(y) \\neq 0$ and\n$$\n\\frac{f(x)-f(x-y)}{f(x)+f(x+y)}+\\frac{f(x)-f(x+y)}{f(x)+f(x-y)}=0\n$$\nfor all $x, y \\in \\mathbb{R}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAny function of the form $f(x)=c$, where $c$ is a nonzero constant, clearly satisfies the requirements; we will show these are the only solutions. Bringing the original equation to a common denominator yields $2 f(x)^2 - f(x-y)^2 - f(x+y)^2 = 0$ for all $x$, $y$. Define $g(x)=f(x)^2$; clearly $g(x) \\geq 0$ for all $x$. Our equation states that $2 g(x) = g(x-y) + g(x+y)$. We will show this forces $g$ to be constant.\n\nIf $g$ is not constant, there exist some $a, b$ with $g(a) < g(b)$. We claim that $g(n a - (n-1) b) = n g(a) - (n-1) g(b)$ for all nonnegative integers $n$. This is shown by induction: the base cases $n=0,1$ are clear; if $n>1$ then our equation (with $x=(n-1)a-(n-2)b$, $y=a-b$) yields\n$$\n2 g((n-1)a-(n-2)b) = g(n a-(n-1) b) + g((n-2)a-(n-3)b)\n$$\n$\\Rightarrow 2(n-1) g(a) - 2(n-2) g(b) = g(n a-(n-1) b) + (n-2) g(a) - (n-3) g(b)$ (by induction hypothesis)\n$$\n\\Rightarrow g(n a-(n-1) b) = n g(a) - (n-1) g(b)\n$$\nand the induction step is complete. However, if $n > g(b)/(g(b)-g(a))$ then $g(n a-(n-1) b) = n g(a) - (n-1) g(b) < 0$ and we have a contradiction. This shows that $g$ must be constant.\n\nSo $g(x) = d$ for some constant $d \\geq 0$; then $f(x) = \\pm \\sqrt{d}$ for all $x$. If both values occur, then the $f(x)+f(y) \\neq 0$ constraint is violated; hence we must have $f(x) = \\sqrt{d}$ for all $x$ or $f(x) = -\\sqrt{d}$ for all $x$ (and $d \\neq 0$)."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-0123",
+      "name": "Berkeley Math Circle: Monthly Contest 7 #0hm3",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 7",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Simple Equations",
+        "Functional Equations"
+      ],
+      "statement": "Problem:\nFind the value of the infinite continued fraction\n$$\n1 + \\frac{1}{2 + \\frac{1}{2 + \\frac{1}{2 + \\frac{1}{\\ldots}}}}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet the value of the fraction be $x$. Then we get\n$$\nx = 1 + \\frac{1}{x + 1} \\Longrightarrow x(x + 1) = (x + 1) + 1 \\Longrightarrow x^{2} = 2\n$$\nThus, since $x$ is positive, we must have $x = \\sqrt{2}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-0244",
+      "name": "Berkeley Math Circle #0hpg",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Quadratic functions"
+      ],
+      "statement": "Problem:\nFind all functions $f: \\mathbb{R} \\rightarrow \\mathbb{R}$ which satisfy\n$$\nf(x+y)=f(x-y)+4 x y\n$$\nfor all real numbers $x$ and $y$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe answer is the functions $f(x)=x^{2}+c$, where $c$ is a constant. It is easy to check that all such functions work, since\n$$\n(x+y)^{2}+c=(x-y)^{2}+c+4 x y\n$$\nis trivially true.\n\nNow, we prove these are the only functions. Put $x=y=\\frac{1}{2} a$ to obtain\n$$\nf(a)=f(0)+a^{2}\n$$\nfor all real numbers $a$, which implies the conclusion."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-0297",
+      "name": "Berkeley Math Circle #0hqx",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial operations",
+        "Functional Equations"
+      ],
+      "statement": "Problem:\nFind all polynomials $f$ that satisfy the equation\n$$\n\\frac{f(9 x)}{f(3 x)} = \\frac{243 x - 729}{x - 81}\n$$\nfor infinitely many values of $x$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe have\n$$\n(x-81) f(9 x) = (243 x - 729) f(3 x)\n$$\nfor infinitely many values of $x$. Since both sides of this equation are polynomials, they must then be equal for all $x$.\n\nPlugging in $x=3$, we get $f(27)=0$. Plugging in $x=9$ then gives $f(81)=0$. Plugging in $x=27$ then gives $f(243)=0$. Thus we have that $f(x) = g(x) \\cdot (x-27)(x-81)(x-243)$ for some polynomial $g(x)$.\n\nPlugging this into the original equation, we get that for infinitely many $x$,\n$$\n243 \\frac{x-3}{x-81} = \\frac{f(9 x)}{f(3 x)} = \\frac{g(9 x)}{g(3 x)} \\cdot \\frac{(9 x-27)(9 x-81)(9 x-243)}{(3 x-27)(3 x-81)(3 x-243)} = \\frac{g(9 x)}{g(3 x)} \\cdot 27 \\frac{x-3}{x-81},\n$$\nso $\\frac{g(9 x)}{g(3 x)} = \\frac{243}{27} = 9$ and thus $f$ works if and only if $g(9 x) = 9 g(3 x)$ for all $x$. Thus, the roots of $g(9 x)$ are those of $g(3 x)$, so they must all be zero, so $g$ must be of the form $a x^{n}$. Plugging in $x=1$ then gives $9^{n} = 9 \\cdot 3^{n}$, so $n=2$. Indeed, $g(x) = x^{2}$ works.\n\nThe solutions are then\n$$\nf(x) = a x^{2} (x-27)(x-81)(x-243)\n$$\nfor real constants $a$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-0365",
+      "name": "Berkeley Math Circle Monthly Contest 3 #0hst",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 3",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Existential quantifiers"
+      ],
+      "statement": "Problem:\nLet $\\ominus$ be an operation on the set of real numbers such that\n$$\n(x \\ominus y)+(y \\ominus z)+(z \\ominus x)=0\n$$\nfor all real $x$, $y$, and $z$. Prove that there is a function $f: \\mathbb{R} \\rightarrow \\mathbb{R}$ such that\n$$\nx \\ominus y=f(x)-f(y)\n$$\nfor all real $x$ and $y$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFirst we plug in $x=y=z=0$ to get\n$$\n(0 \\ominus 0)+(0 \\ominus 0)+(0 \\ominus 0)=0\n$$\nthat is, $0 \\ominus 0=0$. Then we plug $y=z=0$, keeping $x$ undetermined, into the original equation to get\n$$\n(x \\ominus 0)+0+(0 \\ominus x)+0=0 .\n$$\nSo $0 \\ominus x=-(x \\ominus 0)$. Define $g(x)=x \\ominus 0$. Plugging $z=0$ into the original equation gives\n$$\n\\begin{aligned}\n(x \\ominus y)+(y \\ominus 0)+(0 \\ominus x) & =0 \\\\\n(x \\ominus y)+(y \\ominus 0)-(x \\ominus 0) & =0 \\\\\n(x \\ominus y) & =(x \\ominus 0)-(y \\ominus 0) \\\\\n& =g(x)-g(y)\n\\end{aligned}\n$$\nas desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-0369",
+      "name": "Berkeley Math Circle Monthly Contest 6 #0hsx",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Recurrence relations"
+      ],
+      "statement": "Problem:\nDefine a function $f$ on the real numbers by\n$$\nf(x)= \\begin{cases}2 x & \\text{ if } x<1 / 2 \\\\ 2 x-1 & \\text{ if } x \\geq 1 / 2\\end{cases}\n$$\nDetermine all values $x$ satisfying $f(f(f(f(f(x)))))=x$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe answer is the 32 values $0, \\frac{1}{31}, \\frac{2}{31}, \\ldots, \\frac{30}{31}, 1$.\n\nIf $x<0$, then $f(x)=2 x<x$ so the sequence $x, f(x), f(f(x)), \\ldots$ is strictly decreasing and cannot return to $x$.\n\nIf $x>1$, similarly $f(x)=2 x-1>x$ so the sequence $x, f(x), f(f(x)), \\ldots$ is strictly increasing and cannot return to $x$.\n\nIf $x=1$, then $f(x)=1$ and we have $1$ as a solution.\n\nFinally, we assume that $0 \\leq x<1$, so $0 \\leq f(x)<1$ as well. For simplicity let $x_{0}=x$ and $x_{n+1}=f\\left(x_{n}\\right)$ so the equation we are trying to solve is $x_{5}=x_{0}$. Note that $2 x_{n}-x_{n+1}$ is an integer (either $0$ or $1$) for each $n$, so\n$$\n32 x_{0}-x_{5}=16\\left(2 x_{0}-x_{1}\\right)+8\\left(2 x_{1}-x_{2}\\right)+4\\left(2 x_{2}-x_{3}\\right)+2\\left(2 x_{3}-x_{4}\\right)+\\left(2 x_{4}-x_{5}\\right)\n$$\nmust be an integer as well. If we assume $x_{5}=x_{0}$ we deduce that $31 x_{0}$ is an integer. Conversely, if $31 x_{0}$ is an integer, then $x_{5}-x_{0}$ is an integer and this integer must be $0$ because $0 \\leq x_{0}, x_{5}<1$. Thus the solutions in this range are exactly the multiples of $\\frac{1}{31}$: $0, \\frac{1}{31}, \\frac{2}{31}, \\ldots, \\frac{30}{31}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-0370",
+      "name": "Berkeley Math Circle #0hsy",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations"
+      ],
+      "statement": "Problem:\nProve that the functional equations\n$$\n\\begin{aligned}\nf(x+y) &= f(x) + f(y) \\\\\n\\text{and}\\quad f(x+y+xy) &= f(x) + f(y) + f(xy) \\quad (x, y \\in \\mathbb{R})\n\\end{aligned}\n$$\nare equivalent.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet us assume that $f(x+y) = f(x) + f(y)$ for all reals. In this case we trivially apply the equation to get $f(x+y+xy) = f(x+y) + f(xy) = f(x) + f(y) + f(xy)$. Hence the equivalence is proved in the first direction.\n\nNow let us assume that $f(x+y+xy) = f(x) + f(y) + f(xy)$ for all reals. Plugging in $x = y = 0$ we get $f(0) = 0$. Plugging in $y = -1$ we get $f(x) = -f(-x)$. Plugging in $y = 1$ we get $f(2x+1) = 2f(x) + f(1)$ and hence $f(2(u+v+uv)+1) = 2f(u+v+uv) + f(1) = 2f(uv) + 2f(u) + 2f(v) + f(1)$ for all real $u$ and $v$. On the other hand, plugging in $x = u$ and $y = 2v+1$ we get $f(2(u+v+uv)+1) = f(u + (2v+1) + u(2v+1)) = f(u) + 2f(v) + f(1) + f(2uv + u)$. Hence it follows that $2f(uv) + 2f(u) + 2f(v) + f(1) = f(u) + 2f(v) + f(1) + f(2uv + u)$, i.e.,\n$$\nf(2uv + u) = 2f(uv) + f(u).\n$$\nPlugging in $v = -1/2$ we get $0 = 2f(-u/2) + f(u) = -2f(u/2) + f(u)$. Hence, $f(u) = 2f(u/2)$ and consequently $f(2x) = 2f(x)$ for all reals. Now (1) reduces to $f(2uv + u) = f(2uv) + f(u)$. Plugging in $u = y$ and $x = 2uv$, we obtain $f(x) + f(y) = f(x + y)$ for all nonzero reals $x$ and $y$. Since $f(0) = 0$, it trivially holds that $f(x + y) = f(x) + f(y)$ when one of $x$ and $y$ is $0$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-0428",
+      "name": "Berkeley Math Circle Monthly Contest 1 #0huk",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Injectivity / surjectivity",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\n\nFind all functions $f: \\mathbb{Z} \\rightarrow \\mathbb{Z}$ such that $f(f(x)+y+1)=x+f(y)+1$ for every two integers $x$ and $y$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSubstituting $x=0$ we get $f(f(0)+y+1)=f(y)+1$.\n\nNow we have $x+f(y)+1=f(f(x)+y+1)=f[(f(x)+1)+y]=f[f(f(0)+x+1)+(y-1)+1]=f(y-1)+(f(0)+x+1)+1$ from where we conclude that\n\n$$\nf(y)=f(y-1)+f(0)+1 .\n$$\n\nUsing induction we obtain $f(n)=f(0)+n(f(0)+1)$ for all integers $n$.\n\nIf we set $y=0$ in (1) we get $f(-1)=-1$ and substituting $y=-1$ in the original equation yields $f(f(x))=x$.\n\nIf we apply $f$ to both sides of $f(n)=f(0)+n(f(0)+1)$ we get $n=f(0)+[f(0)+n(f(0)+1)](f(0)+1)$ which is equivalent to $n=f(0)(f(0)+2)+n(f(0)+1)^2$ and this can be satisfied for all integers $n$ if and only if $f(0)=0$ or $f(0)=-2$.\n\nIn the first case we get $f(n)=n$ and in the second $f(n)=-n-2$.\n\nIt is easy to verify that both functions satisfy the required conditions."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-0471",
+      "name": "Berkeley Math Circle: Monthly Contest 6 #0hvr",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Polynomials",
+        "Recurrence relations"
+      ],
+      "statement": "Problem:\nFind all functions $f: \\mathbb{Q} \\rightarrow \\mathbb{R}$ from rational to real numbers such that for all rational $p, q$,\n$$\nf(p+2q) - f(p-2q) = 2(f(p+q) - f(p-q)).\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $P(p, q)$ be the given condition. Expanding $P(p-q, q) + 2P(p, q) + P(p+q, q)$ gives\n$$\nf(p+3q) - f(p-3q) = 3(f(p+q) - f(p-q)).\n$$\nLet $F$ be the quadratic that equals $f$ at $-1, 0, 1$. Plugging in $p=0.5, q=0.5$, we get that it also intersects $f$ at $2$. Plugging in $p=1.5, q=0.5$ then gives that it also intersects $f$ at $3$, and continuing this induction gives that it is equal to $f$ for all positive integers. Continuing this reasoning in the other direction gives that it is equal to $f$ for all negative integers as well.\n\nWe now claim that $f$ is in fact equal to $F$. Let $r/s$ be a rational number. Consider the arithmetic sequence from $-r$ to $r$ with difference $r/s$. By similar reasoning, $f$ is a quadratic over this sequence. However, $F$ contains three of the terms: $-r, 0, r$. Therefore, $f$ is equal to $F$ over this sequence; in particular, $f(r/s) = F(r/s)$.\n\nTherefore, $f$ is a quadratic, and all quadratics work, so the answer is all quadratics."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-0477",
+      "name": "Berkeley Math Circle Monthly Contest 4 #0hvx",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 4",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\nFind all functions $f: \\mathbb{R} \\rightarrow \\mathbb{R}$ such that\n$$\nf(x y+z)=f(x) f(y)+f(z)\n$$\nfor all real numbers $x$, $y$, and $z$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $f(x)=0$ or $f(x)=x$. Both of these trivially satisfy the equation.\n\nWe plug in $x=y=z=0$ to get\n$$\n\\begin{array}{r}\nf(0)=f(0)^{2}+f(0) \\\\\n0=f(0)^{2} \\\\\n0=f(0)\n\\end{array}\n$$\nThen we plug in $x=y=1$, $z=0$ to get\n$$\n\\begin{aligned}\nf(1) & =f(1)^{2}+f(0) \\\\\n0 & =f(1)^{2}-f(1)\n\\end{aligned}\n$$\nso $f(1)=0$ or $f(1)=1$. If $f(1)=0$, we can immediately plug in $y=1$ and $z=0$ to conclude that\n$$\nf(x)=f(x) \\cdot 0+0=0\n$$\nfor all $x$.\n\nIf $f(1)=1$, then we can derive that $f$ has two simple properties: the addition property from plugging in $y=1$,\n$$\nf(x+z)=f(x)+f(z)\n$$\nand the multiplication property from plugging in $z=0$,\n$$\nf(x y)=f(x) f(y) .\n$$\nPlugging $z=-x$ into the addition property tells us that $f(-x)=-f(x)$, i.e. $f$ is an odd function. Also, the addition property lends itself to use for an induction, starting at $f(1)=1$, that proves $f(n)=n$ for all positive integers $n$.\n\nSuppose that $f$ is not the identity function. Then there is a number $x$ such that $f(x) \\neq x$. Changing $x$ to $-x$ if necessary, we can assume that $f(x)<x$. We can then double $x$ repeatedly, which will also double $f(x)$ by the addition property, until the difference $x-f(x)$ becomes at least $2$. Then there is an integer $n$ between $f(x)$ and $x$:\n$$\nf(x)<n<x \\text{.}\n$$\nWe note that $x-n$ is positive, while $f(x)-n=f(x-n)$ is negative. Thus we have a number $u>0$ such that $f(u)<0$. This is impossible by the multiplication property, since for $u>0$,\n$$\nf(u)=f(\\sqrt{u} \\cdot \\sqrt{u})=f(\\sqrt{u}) \\cdot f(\\sqrt{u}) \\geq 0 .\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-0483",
+      "name": "Berkeley Math Circle Monthly Contest 8 #0hw3",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 8",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Recurrence relations"
+      ],
+      "statement": "Problem:\nLet $f: \\mathbb{Z} \\rightarrow \\mathbb{Z}$ be a function such that $f(0)=2$ and for all integers $x$,\n$$\nf(x+1)+f(x-1)=f(x) f(1) .\n$$\nProve that for all integers $x$ and $y$,\n$$\nf(x+y)+f(x-y)=f(x) f(y) .\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet us first prove the result for nonnegative $y$ by strong induction on $y$. If $y=0$, (2) becomes\n$$\nf(x)+f(x)=f(x) f(0),\n$$\nwhich is true since $f(0)=2$, and if $y=1$, (2) is the same as (1). Let us assume (2) for $y=z-1$ and $y=z$ and try to prove it for $y=z+1$. We have\n$$\n\\begin{gathered}\nf(x+z-1)+f(x-z+1)=f(x) f(z-1) \\\\\nf(x+z)+f(x-z)=f(x) f(z)\n\\end{gathered}\n$$\nMultiplying (4) by $f(1)$ and subtracting (3) yields\n$$\n\\begin{gathered}\nf(x+z) f(1)-f(x+z-1)+f(x-z) f(1)-f(x-z+1)=f(x)[f(z) f(1)-f(z-1)] \\\\\nf(x+z+1)+f(x-z-1)=f(x) f(z+1)\n\\end{gathered}\n$$\nas desired.\nIt remains to prove (2) for $y<0$. If $y=-z$ and $z>0$, (2) becomes\n$$\nf(x-z)+f(x+z)=f(x) f(-z)\n$$\nwhich would follow from (2) for $y=z$ if $f(-z)=f(z)$. To prove this, let $x=0$ and $y=z$ in (2), getting\n$$\n\\begin{aligned}\nf(z)+f(-z) & =f(0) f(z) \\\\\nf(z)+f(-z) & =2 f(z) \\\\\nf(-z) & =f(z) .\n\\end{aligned}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-0560",
+      "name": "Harvard-MIT Mathematics Tournament #0hy8",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations"
+      ],
+      "statement": "Problem:\n\nGiven any two positive real numbers $x$ and $y$, then $x \\diamond y$ is a positive real number defined in terms of $x$ and $y$ by some fixed rule. Suppose the operation $x \\diamond y$ satisfies the equations $(x \\cdot y) \\diamond y = x(y \\diamond y)$ and $(x \\diamond 1) \\diamond x = x \\diamond 1$ for all $x, y > 0$. Given that $1 \\diamond 1 = 1$, find $19 \\diamond 98$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nNote first that $x \\diamond 1 = (x \\cdot 1) \\diamond 1 = x \\cdot (1 \\diamond 1) = x \\cdot 1 = x$.\n\nAlso, $x \\diamond x = (x \\diamond 1) \\diamond x = x \\diamond 1 = x$.\n\nNow, we have $(x \\cdot y) \\diamond y = x \\cdot (y \\diamond y) = x \\cdot y$.\n\nSo $19 \\diamond 98 = \\left(\\frac{19}{98} \\cdot 98\\right) \\diamond 98 = \\frac{19}{98} \\cdot (98 \\diamond 98) = \\frac{19}{98} \\cdot 98 = 19$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-0565",
+      "name": "HMMT 1998 #0hyd",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 1998",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations"
+      ],
+      "statement": "Problem:\nSuppose $f(x)$ is a rational function such that $3 f\\left(\\frac{1}{x}\\right)+\\frac{2 f(x)}{x}=x^{2}$ for $x \\neq 0$. Find $f(-2)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $x=\\frac{-1}{2}$. Then\n$$\n\\begin{aligned}\n& 3 f(-2)+\\frac{2 f\\left(\\frac{-1}{2}\\right)}{\\frac{-1}{2}}=\\frac{1}{4} \\\\\n& \\Rightarrow 3 f(-2)-4 f\\left(\\frac{-1}{2}\\right)= \\frac{1}{4}\n\\end{aligned}\n$$\nLet $x=-2$. Then\n$$\n\\begin{aligned}\n& 3 f\\left(\\frac{-1}{2}\\right)+\\frac{2 f(-2)}{-2}=4 \\\\\n\\Rightarrow 3 f\\left(\\frac{-1}{2}\\right)-f(-2) & =4\n\\end{aligned}\n$$\nSolving this system of equations $\\{(1),(2)\\}$ for $f(-2)$ yields $f(-2)=\\frac{67}{20}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-0605",
+      "name": "Harvard-MIT Math Tournament #0hzh",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations"
+      ],
+      "statement": "Problem:\n\n$f$ is a continuous real-valued function such that $f(x+y)=f(x) f(y)$ for all real $x, y$. If $f(2)=5$, find $f(5)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSince $f(n x)=f(x)^{n}$ for all integers $n$, $f(5)=f(1)^{5}$ and $f(2)=f(1)^{2}$, so $f(5)=f(2)^{5 / 2}=25 \\sqrt{5}$.\n\nSolution:\n\nMore generally, since $f(n x)=f(x)^{n}$ for all integers $n$, $f(1)=c=f(1 / n)^{n}$ for some constant $c$ and all integers $n$. Thus $f(k / n)=f(1 / n)^{k}=f(1)^{k / n}=c^{k / n}$ for all rational numbers $k / n$. By continuity, it follows that $f(x)=c^{x}$ for all real numbers $x$. Since $f(2)=5$, $c=\\sqrt{5}$, so $f(5)=25 \\sqrt{5}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-0651",
+      "name": "Berkeley Math Circle Monthly Contest #1 #0i0r",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest #1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations"
+      ],
+      "statement": "Problem:\nFind all functions $f$ from the set $\\mathbf{R}$ of real numbers to itself such that $f(x y+1)=x f(y)+2$ for all $x, y \\in \\mathbf{R}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe only such function is $f(x)=2 x$. First, we note that this function really is a solution of the equation, since $2(x y+1)=2 x y+2=x(2 y)+2$ for all $x, y$.\n\nNow let $f$ be any function satisfying the equation. First put $x=y=0$; the equation gives $f(0 \\cdot 0+1)=0 f(0)+2$ or $f(1)=2$. Now suppose $y=1$ (and $x$ may be anything); we have $f(1 x+1)=x f(1)+2$ or $f(x+1)=2 x+2$ for all $x \\in \\mathbf{R}$. Equivalently, $f(x)=f((x-1)+1)=2(x-1)+2=2 x$ for all $x$, so we have verified that this is the only function satisfying the equation."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-0840",
+      "name": "Harvard-MIT Math Tournament #0i60",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations"
+      ],
+      "statement": "Problem:\n\nThe real function $f$ has the property that, whenever $a$, $b$, $n$ are positive integers such that $a + b = 2^{n}$, the equation $f(a) + f(b) = n^{2}$ holds. What is $f(2002)$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe know $f(a) = n^{2} - f\\left(2^{n} - a\\right)$ for any $a$, $n$ with $2^{n} > a$; repeated application gives\n$$\n\\begin{gathered}\nf(2002) = 11^{2} - f(46) = 11^{2} - \\left(6^{2} - f(18)\\right) = 11^{2} - \\left(6^{2} - \\left(5^{2} - f(14)\\right)\\right) \\\\\n= 11^{2} - \\left(6^{2} - \\left(5^{2} - \\left(4^{2} - f(2)\\right)\\right)\\right) .\n\\end{gathered}\n$$\nBut $f(2) = 2^{2} - f(2)$, giving $f(2) = 2$, so the above simplifies to $11^{2} - \\left(6^{2} - \\left(5^{2} - \\left(4^{2} - 2\\right)\\right)\\right) = 96$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-0956",
+      "name": "USA IMO 2003 #0i98",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO 2003",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations"
+      ],
+      "statement": "Let $\\mathbb{N}$ denote the set of positive integers. Find all functions $f : \\mathbb{N} \\to \\mathbb{N}$ such that\n$$\nf(m+n)f(m-n) = f(m^2)\n$$\nfor all $m, n \\in \\mathbb{N}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Function $f(n) = 1$, for all $n \\in \\mathbb{N}$, is the only function satisfying the conditions of the problem.\n\nNote that\n$$\nf(1)f(2n-1) = f(n^2) \\quad \\text{and} \\quad f(3)f(2n-1) = f((n+1)^2)\n$$\nfor $n \\ge 3$. Thus\n$$\n\\frac{f(3)}{f(1)} = \\frac{f((n+1)^2)}{f(n^2)}.\n$$\nSetting $\\frac{f(3)}{f(1)} = k$ yields $f(n^2) = k^{n-3}f(9)$ for $n \\ge 3$. Similarly, for all $h \\ge 1$,\n$$\n\\frac{f(h+2)}{f(h)} = \\frac{f((m+1)^2)}{f(m^2)}\n$$\nfor sufficiently large $m$ and is thus also $k$. Hence $f(2h) = k^{h-1}f(2)$ and $f(2h+1) = k^h f(1)$.\n\nBut\n$$\n\\frac{f(25)}{f(9)} = \\frac{f(25)}{f(23)} \\cdots \\frac{f(11)}{f(9)} = k^8\n$$\nand\n$$\n\\frac{f(25)}{f(9)} = \\frac{f(25)}{f(16)} \\cdot \\frac{f(16)}{f(9)} = k^2,\n$$\nso $k = 1$ and $f(16) = f(9)$. This implies that $f(2h+1) = f(1) = f(2) = f(2j)$ for all $j, h$, so $f$ is constant. From the original functional equation it is then clear that $f(n) = 1$ for all $n \\in \\mathbb{N}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-1006",
+      "name": "Harvard-MIT Mathematics Tournament #0iam",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Linear and quadratic inequalities"
+      ],
+      "statement": "Problem:\n\nFor $x$ a real number, let $f(x)=0$ if $x<1$ and $f(x)=2x-2$ if $x \\geq 1$. How many solutions are there to the equation\n$$\nf(f(f(f(x))))=x ?\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nCertainly $0, 2$ are fixed points of $f$ and therefore solutions. On the other hand, there can be no solutions for $x<0$, since $f$ is nonnegative-valued; for $0 < x < 2$, we have $0 \\leq f(x) < x < 2$ (and $f(0) = 0$), so iteration only produces values below $x$, and for $x > 2$, $f(x) > x$, and iteration produces higher values. So there are no other solutions."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-1064",
+      "name": "Harvard-MIT Mathematics Tournament #0ic8",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Simple Equations"
+      ],
+      "statement": "Problem:\nSuppose $f$ is a function that assigns to each real number $x$ a value $f(x)$, and suppose the equation\n$$\nf\\left(x_{1}+x_{2}+x_{3}+x_{4}+x_{5}\\right)=f\\left(x_{1}\\right)+f\\left(x_{2}\\right)+f\\left(x_{3}\\right)+f\\left(x_{4}\\right)+f\\left(x_{5}\\right)-8\n$$\nholds for all real numbers $x_{1}, x_{2}, x_{3}, x_{4}, x_{5}$. What is $f(0)$ ?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nPlug in $x_{1}=x_{2}=x_{3}=x_{4}=x_{5}=0$. Then the equation reads $f(0)=5 f(0)-8$, so $4 f(0)=8$, so $f(0)=2$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

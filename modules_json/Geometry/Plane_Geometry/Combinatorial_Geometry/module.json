@@ -1,0 +1,517 @@
+{
+  "MODULE_ID": "geometry-plane-geometry-combinatorial-geometry",
+  "practice": [
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-auto-0155",
+      "name": "Berkeley Math Circle Monthly Contest 1 #0hmz",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorial Geometry",
+        "Coloring schemes, extremal arguments"
+      ],
+      "statement": "Problem:\n\nA finite number of points are drawn in the plane. Prove that one can select two of them, $A$ and $B$, such that:\n\na. $A$ and $B$ are not the same point.\n\nb. No drawn point, other than $A$ itself, is closer to $A$ than $B$ is.\n\nc. No drawn point, other than $B$ itself, is closer to $B$ than $A$ is.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nConsider all the distances $X Y$ between two different drawn points. Since a finite number of points are drawn, there are only finitely many distances, and one of them, say $d$, is minimal. Let $A$ and $B$ be two of the drawn points such that $A B = d$. Now, by definition, $A$ and $B$ are not the same point.\n\nTo verify part (b), let $C$ be any drawn point other than $A$ and $B$. Then $A C \\geq d = A B$, so $C$ is not closer to $A$ than $B$ is.\n\nThe verification of part (c) is similar."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-auto-0281",
+      "name": "Berkeley Math Circle: Monthly Contest 7 #0hqh",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 7",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorial Geometry",
+        "Expected values"
+      ],
+      "statement": "Problem:\n\nGiven ten points in the plane, show that it is always possible to cover all of them with non-overlapping unit circles.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSuppose we place the circles in a hexagonal tiling so they are all tangent to each other. Then each circle has area $\\pi$, and each circle is inscribed in a hexagon. In each hexagon, the distance from the center to each side is $1$. Thus, each of the six equilateral triangles making up the hexagon has height $1$ and thus side length $2 / \\sqrt{3}$. Therefore, the triangle's area is\n$$\n\\frac{1}{2} \\cdot 1 \\cdot \\frac{2}{\\sqrt{3}} = \\frac{1}{\\sqrt{3}}\n$$\nSince the hexagon is made of six triangles, it has area $6 \\cdot 1 / \\sqrt{3} = 2 \\sqrt{3}$. Thus, the portion of the plane covered by circles is the area of each circle divided by the area of the hexagon it is inscribed in, or\n$$\n\\frac{\\pi}{2 \\sqrt{3}} \\approx 0.907\n$$\nSo, if we use unit circles in a hexagonal tiling with a randomly chosen center, each point has a $90.7\\%$ chance of being covered by a circle, so the expected number of our $10$ points that are covered is $9.07 > 9$. Since every tiling covers a whole number of points and the expected number covered is more than $9$, there must be some tiling that covers at least $10$ points."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-auto-0472",
+      "name": "Berkeley Math Circle Monthly Contest 6 #0hvs",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Invariants / monovariants",
+        "Combinatorial Geometry"
+      ],
+      "statement": "Problem:\n\nVandal Evan cut a rectangular portrait of Professor Zvezda along a straight line. Then he cut one of the pieces along a straight line, and so on. After he had made 100 cuts, Professor Zvezda walked in and forced him to pay 2 cents for each triangular piece and 1 cent for each quadrilateral piece. Prove that Vandal Evan paid more than $1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFirst note that the total number of sides increases by at most $4$ at each cut. This is because two new sides are created along the cut, and the two endpoints of the cut may optionally divide other sides into two parts. Therefore, since there are initially $4$ sides, at the end there are at most $404$ sides.\n\nNow note that the cost of a piece ($2$, $1$, or $0$ cents as specified in the problem) is at least five minus its number of sides. So the total of the costs of all $101$ pieces is at least $505$ minus the total number of sides, or at least $505 - 404 = 101$ cents as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-auto-0926",
+      "name": "Harvard-MIT Mathematics Tournament #0i8e",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorial Geometry",
+        "Translation",
+        "Rotation",
+        "Constructions and loci"
+      ],
+      "statement": "Problem:\nWhat is the smallest number of regular hexagons of side length $1$ needed to completely cover a disc of radius $1$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFirst, we show that two hexagons do not suffice. Specifically, we claim that a hexagon covers less than half of the disc's boundary. First, a hexagon of side length $1$ may be inscribed in a circle, and this covers just $6$ points. Translating the hexagon vertically upward (regardless of its orientation) will cause it to no longer touch any point on the lower half of the circle, so that it now covers less than half of the boundary. By rotational symmetry, the same argument applies to translation in any other direction, proving the claim. Then, two hexagons cannot possibly cover the disc.\n\nThe disc can be covered by three hexagons as follows. Let $P$ be the center of the circle. Put three non-overlapping hexagons together at point $P$. This will cover the circle, since each hexagon will cover a $120^{\\circ}$ sector of the circle.\n\n![](attached_image_1.png)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-auto-1012",
+      "name": "Bay Area Mathematical Olympiad #0ias",
+      "url": "https://usamoguide.com/",
+      "source": "Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorial Geometry",
+        "Coloring schemes, extremal arguments",
+        "Angle chasing"
+      ],
+      "statement": "Problem:\nA tiling of the plane with polygons consists of placing the polygons in the plane so that interiors of polygons do not overlap, each vertex of one polygon coincides with a vertex of another polygon, and no point of the plane is left uncovered. A unit polygon is a polygon with all sides of length one.\nIt is quite easy to tile the plane with infinitely many unit squares. Likewise, it is easy to tile the plane with infinitely many unit equilateral triangles.\n\na. Prove that there is a tiling of the plane with infinitely many unit squares and infinitely many unit equilateral triangles in the same tiling.\n\nb. Prove that it is impossible to find a tiling of the plane with infinitely many unit squares and finitely many (and at least one) unit equilateral triangles in the same tiling.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\na.\nThis can be done easily with parallel rows of squares and triangles, as shown.\n\n![](attached_image_1.png)\n\nOf course, other tilings are possible.\n\n\nb.\nMany people received only partial credit for part (b), because their arguments were not rigorous. In order to show that a tiling is not possible, you need a completely general argument, that handles all cases. Since there are infinitely many cases, this can be problematical. The way out is a very neat idea known as the Extreme Principle, which essentially says, \"focus on the largest or smallest entity.\" The advantage of this approach is that we now are reduced to studying just one polygon in the infinite plane.\n\nMethod 1:\nSuppose, to the contrary, that there were such a tiling. Since there are only finitely many triangles, there is a vertex that is \"northernmost.\" If there are ties, pick the vertex that lies furthest to the \"east.\" At most one other triangle (located to the west) can share this vertex. This is a contradiction, since the only way that triangles and squares can share a vertex in a tiling is with 3 triangles and two squares (in order to add up to 360 degrees).\n\n\nMethod 2:\nSuppose, to the contrary, that there were such a tiling. Since there are only finitely many triangles, they are contained in a bounded region. Let $N$ be a square that lies to the \"north\" of (i.e., its south side is further north than any point in the region containing the triangles). Likewise, let $E, W, S$ be squares that lie, respectively, east, west, and south of this region.\n\nObserve that the east and west neighbors of $N$ must be squares, since there are no triangles that far north. Thus, there is an infinite east-west chain of connected squares containing $N$. Likewise, there is an infinite east-west chain of squares containing $S$, and there are two infinite north-south chains, one containing $W$, and one containing $E$.\n\nThese four chains meet, forming a rectangular boundary of connected squares that completely encloses the region containing the triangles. Now we have a contradiction: This rectangular region has rational (in fact, integer) area, yet it is tiled with a non-zero number of equilateral triangles, plus, perhaps, some squares. But the area of each triangle is $\\sqrt{3}/4$, and hence the area of the entire collection of triangles and squares inside this rectangular region is irrational.\n\n![](attached_image_2.png)\n\n\nMethod 3:\nSuppose that there were such a tiling. By similar reasoning to method 2, we deduce that the tiling is \"eventually\" all squares; thus it can be formed by starting with an all-squares tiling, and then removing a finite number of squares, and filling in the \"holes\" with a finite number of triangles. The \"holes\" only have 90-degree angles; they can never be filled with triangles, since 90 is not a multiple of 60."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-auto-1368",
+      "name": "Harvard-MIT Mathematics Tournament, Team Round A #0iko",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament, Team Round A",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorial Geometry",
+        "Constructions and loci"
+      ],
+      "statement": "Problem:\n\nGiven a convex $n$-gon, $n \\geq 4$, at most how many diagonals can be drawn such that each drawn diagonal intersects every other drawn diagonal either in the interior of the $n$-gon or at a vertex? Prove your answer.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFirst of all, assume without loss of generality that the $n$-gon is regular (this has no effect as far as diagonal intersection is concerned). Also, treat $n=4$ as a special case; obviously the answer is 2 here.\n\nIf $n$ is odd, simply draw $n$ diagonals, connecting each vertex to the ones $(n-1) / 2$ vertices away (in either direction).\n\nIf $n$ is even, first draw the $n / 2$ diagonals connecting pairs of vertices $n / 2$ vertices apart. Then, there are $n$ diagonals connecting pairs of vertices $n / 2-1$ vertices apart; they come in $n / 2$ pairs of parallel diagonals; from each such pair, randomly pick one diagonal and draw it.\n\nTo see that these constructions work, note that two diagonals, each connecting pairs of vertices at least $n / 2-1$ vertices apart, can fail to intersect or share a vertex only if they are parallel.\n\nThe previous problem shows that these constructions are optimal."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-auto-1374",
+      "name": "Harvard-MIT Mathematics Tournament, Team Round B #0iku",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament, Team Round B",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorial Geometry",
+        "Constructions and loci"
+      ],
+      "statement": "Problem:\n\nSuppose we have an octagon with all angles of $135^{\\circ}$, and consecutive sides of alternating length $1$ and $\\sqrt{2}$. We draw all its sides and diagonals. Into how many regions do the segments divide the octagon? (No proof is necessary.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe easiest way to see the answer is to view the octagon as five unit squares in a cross arrangement, with four half-squares wedged at the corners. The center square is divided into $8$ regions. The other $4$ squares are each divided into $15$ regions. The $4$ half-squares are each divided into $4$ regions. The answer is thus $8 + 4 \\times 15 + 4 \\times 4 = 84$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-auto-1420",
+      "name": "9th Bay Area Mathematical Olympiad #0im4",
+      "url": "https://usamoguide.com/",
+      "source": "9th Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorial Geometry",
+        "Vectors",
+        "Invariants / monovariants"
+      ],
+      "statement": "Problem:\n\nThe points of the plane are colored in black and white so that whenever three vertices of a parallelogram are the same color, the fourth vertex is that color, too. Prove that all the points of the plane are the same color.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSuppose not. Let $A$ be a white point and $B$ a black point. Their midpoint $C$ is one of the two colors; without loss of generality suppose $C$ is black. Now pick any point $D$ not collinear with $A, B, C$, and construct $E$ so that $C A D E$ is a parallelogram. If $D, E$ are both white, then $C A D E$ has three white vertices and one black vertex, impossible; if they are both black, then $C A D E$ has three black vertices and one white vertex, impossible. So $D$ and $E$ are opposite colors.\n\nBut $B C D E$ is also a parallelogram, since $B C=A C=D E$ and lines $B C, D E$ are parallel. However, $B C D E$ it has three black vertices and one white vertex. Thus we have a contradiction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-auto-1627",
+      "name": "USAMO #0irv",
+      "url": "https://usamoguide.com/",
+      "source": "USAMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Angle chasing",
+        "Circles",
+        "Combinatorial Geometry"
+      ],
+      "statement": "Let $\\mathcal{P}$ be a convex polygon with $n$ sides, $n \\ge 3$. Any set of $n-3$ diagonals of $\\mathcal{P}$ that do not intersect in the interior of the polygon determine a *triangulation* of $\\mathcal{P}$ into $n-2$ triangles. If $\\mathcal{P}$ is regular and there is a triangulation of $\\mathcal{P}$ consisting of only isosceles triangles, find all the possible values of $n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**Solution.** The answer is $n = 2^{m+1} + 2^k$, where $m$ and $k$ are nonnegative integers. In other words, $n$ is either a power of 2 (when $m+1=k$) or the sum of two nonequal powers of 2 (with $1=2^0$ being considered as a power of 2).\nWe start with the following observation.\n**Lemma.** Let $Q = Q_0Q_1\\dots Q_t$ be a convex polygon with $Q_0Q_1 = Q_1Q_2 = \\dots = Q_{t-1}Q_t$. Suppose that $Q$ is cyclic and its circumcenter does not lie in its interior. If there is a triangulation of $Q$ consisting only of isosceles triangles, then $t = 2^a$, where $a$ is a positive integer.\n*Proof.* We call an arc *minor* if its arc measure is less than or equal to 180°. By the given conditions, points $Q_1, \\dots, Q_{t-1}$ lie on the minor arc $\\overarc{Q_0Q_t}$ of the circumcircle, so none of the angles $Q_iQ_jQ_k$ ($0 \\le i < j < k \\le t$) is acute. (See the left-hand side diagram shown below.) It is not difficult to see that $Q_0Q_t$ is longer than each other side or diagonal of $Q$. Thus $Q_0Q_t$ must be the base of an isosceles triangle in the triangulation of $Q$. Therefore, $t$ must be even. We write $t = 2s$. Then $Q_0Q_sQ_t$ is an isosceles triangle in the triangulation. We can apply the same process to polygon $Q_0Q_1\\dots Q_s$ and show that $s$ is even. Repeating this process leads to the conclusion that $t = 2^a$ for some positive integer $a$.\nThe results of the lemma can be generalized by allowing $a=0$ if we consider the degenerate case $Q = Q_0Q_1$. $\\square$\n\n![](attached_image_1.png)\n\nWe are ready to prove our main result. Let $\\mathcal{P} = P_1P_2...P_n$ denote the regular polygon. There is an isosceles triangle in the triangulation such that the center of $\\mathcal{P}$ lies within the boundary of the triangle. Without loss of generality, we may assume that $P_1P_iP_j$, with $P_1P_i = P_1P_j$ (that is, $P_j = P_{n-i+2}$), is this triangle. Applying the Lemma to the polygons $P_1...P_i, P_i...P_j$, and $P_j...P_1$, we conclude that there are $2^m-1, 2^k-1, 2^m-1$ (where $m$ and $k$ are nonnegative integers) vertices in the interiors of the minor arcs $\\widehat{P_1P_i}, \\widehat{P_iP_j}, \\widehat{P_jP_1}$, respectively. (In other words, $i = 2^m+1, j = 2^k+i$.) Hence\n$$\nn = 2^m - 1 + 2^k - 1 + 2^m - 1 + 3 = 2^{m+1} + 2^k,\n$$\nwhere $m$ and $k$ are nonnegative integers. The above discussion can easily lead to a triangulation consisting of only isosceles triangles for $n = 2^{m+1}+2^k$. (The middle diagram shown above illustrates the case $n = 18 = 2^{3+1}+2^1$. The right-hand side diagram shown above illustrates the case $n = 16 = 2^{2+1}+2^3$.)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-auto-1681",
+      "name": "Harvard-MIT Mathematics Tournament #0itd",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Coloring schemes, extremal arguments",
+        "Induction / smoothing",
+        "Combinatorial Geometry"
+      ],
+      "statement": "Problem:\nShow that for positive integers $n_{1}$, $n_{2}$ and $d$,\n\n$$\nf\\left(n_{1} n_{2}, d\\right) \\leq f\\left(n_{1}, d\\right)+n_{1}\\left(f\\left(n_{2}, d\\right)-1\\right)\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nGiven a multiset of $f\\left(n_{1}, d\\right)+n_{1}\\left(f\\left(n_{2}, d\\right)-1\\right)$ lattice points, we may select $l=f\\left(n_{2}, d\\right)$ pairwise disjoint submultisets $S_{1}, S_{2}, \\ldots, S_{l}$, each consisting of $n_{1}$ points, whose centroid is a lattice point.\n\nLet $\\varphi$ map each multiset $S_{i}$ to its centroid $g_{i}$. By the definition of $f\\left(n_{2}, d\\right)$, there exists a submultiset $T \\subset \\{g_{1}, g_{2}, \\ldots, g_{l}\\}$ satisfying $|T|=n_{2}$ whose centroid is a lattice point.\n\nThen $\\bigcup_{i \\in T} \\varphi^{-1}\\left(g_{i}\\right)$ is a multiset of $n_{1} n_{2}$ lattice points whose centroid is also a lattice point."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-auto-2022",
+      "name": "Harvard-MIT Mathematics Tournament #0j2u",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorial Geometry"
+      ],
+      "statement": "Problem:\nInto how many regions can a circle be cut by 10 parabolas?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $201$\n\nWe will consider the general case of $n$ parabolas, for which the answer is $2 n^{2} + 1$.\n\nWe will start with some rough intuition, then fill in the details afterwards. The intuition is that, if we make the parabolas steep enough, we can basically treat them as two parallel lines. Furthermore, the number of regions is given in terms of the number of intersections of the parabolas that occur within the circle, since every time two parabolas cross a new region is created. Since two pairs of parallel lines intersect in $4$ points, and pairs of parabolas also intersect in $4$ points, as long as we can always make all $4$ points of intersection lie inside the circle, the parallel lines case is the best we can do.\n\nIn other words, the answer is the same as the answer if we were trying to add ten pairs of parallel lines. We can compute the answer for pairs of parallel lines as follows: when we add the $k$th set of parallel lines, there are already $2k-2$ lines that the two new lines can intersect, meaning that each of the lines adds $2k-1$ new regions. This means that we add $4k-2$ regions when adding the $k$th set of lines, making the answer\n$$\n1 + 2 + 6 + 10 + 14 + \\cdots + (4n-2) = 1 + 2(1 + 3 + 5 + 7 + \\cdots + (2n-1)) = 1 + 2 \\cdot n^{2} = 2n^{2} + 1.\n$$\n\nNow that we have sketched out the solution, we will fill in the details more rigorously. First, if there are $n$ parabolas inside the circle, and they intersect in $K$ points total, then we claim that the number of regions the circle is divided into will be at most $K + n + r + 1$, where $r$ is the number of parabolas that intersect the circle itself in exactly four points.\n\nWe will prove this by induction. In the base case of $n=0$, we are just saying that the circle itself consists of exactly one region.\n\nTo prove the inductive step, suppose that we have $n$ parabolas with $K$ points of intersection. We want to show that if we add an additional parabola, and this parabola intersects the other parabolas in $p$ points, then this new parabola adds either $p+1$ or $p+2$ regions to the circle, and that we get $p+2$ regions if and only if the parabola intersects the circle in exactly four points.\n\nWe will do this by considering how many regions the parabola cuts through, following its path from when it initially enters the circle to when it exits the circle for the last time. When it initially enters the circle, it cuts through one region, thereby increasing the number of regions by one. Then, for each other parabola that this parabola crosses, we cut through one additional region. It is also possible for the parabola to leave and then re-enter the circle, which happens if and only if the parabola intersects the circle in four points, and also adds one additional region. Therefore, the number of regions is either $p+1$ or $p+2$, and it is $p+2$ if and only if the parabola intersects the circle in four points. This completes the induction and proves the claim.\n\nSo, we are left with trying to maximize $K + n + r + 1$. Since a pair of parabolas intersects in at most $4$ points, and there are $\\binom{n}{2}$ pairs of parabolas, we have $K \\leq 4 \\binom{n}{2} = 2n^{2} - 2n$. Also, $r \\leq n$, so $K + n + r + 1 \\leq 2n^{2} + 1$. On the other hand, as explained in the paragraphs giving the intuition, we can attain $2n^{2} + 1$ by making the parabolas sufficiently steep that they act like pairs of parallel lines. Therefore, the answer is $2n^{2} + 1$, as claimed.\n\nFor $n = 10$, the answer is $2 \\times 10^{2} + 1 = 201$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-auto-2413",
+      "name": "HMMT 2013 #0jdp",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2013",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorial Geometry",
+        "Translation",
+        "Cartesian coordinates"
+      ],
+      "statement": "Problem:\n\nChim Tu has a large rectangular table. On it, there are finitely many pieces of paper with nonoverlapping interiors, each one in the shape of a convex polygon. At each step, Chim Tu is allowed to slide one piece of paper in a straight line such that its interior does not touch any other piece of paper during the slide. Can Chim Tu always slide all the pieces of paper off the table in finitely many steps?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet the pieces of paper be $P_{1}, P_{2}, \\ldots, P_{n}$ in the Cartesian plane. It suffices to show that for any constant distance $D$, they can be slid so that each pairwise distance is at least $D$. Then, we can apply this using $D$ equal to the diameter of the rectangle, sliding all but at most one of the pieces of paper off the table, and then slide this last one off arbitrarily.\n\nWe show in particular that there is always a polygon $P_{i}$ which can be slid arbitrarily far to the right (i.e. in the positive $x$-direction). For each $P_{i}$ let $B_{i}$ be a bottommost (i.e. lowest $y$-coordinate) point on the boundary of $P_{i}$. Define a point $Q$ to be exposed if the ray starting at $Q$ in the positive $x$ direction meets the interior of no piece of paper.\n\nConsider the set of all exposed $B_{i}$; this set is nonempty because certainly the bottommost of all the $B_{i}$ is exposed. Of this set, let $B_{k}$ be the exposed $B_{i}$ with maximal $y$-coordinate, and if there are more than one such, choose the one with maximal $x$-coordinate. We claim that the corresponding $P_{k}$ can be slid arbitrarily far to the right.\n\nSuppose for the sake of contradiction that there is some polygon blocking this path. To be precise, if $A_{k}$ is the highest point of $P_{k}$, then the region $R$ formed by the right-side boundary of $P_{k}$ and the rays pointing in the positive $x$ direction from $A_{k}$ and $B_{k}$, must contain interior point(s) of some set of polygon(s) $P_{j}$ in its interior. All of their bottommost points $B_{j}$ must lie in $R$, since none of them can have boundary intersecting the ray from $B_{k}$, by the construction of $B_{k}$.\n\nBecause $B_{k}$ was chosen to be rightmost out of all the exposed $B_{i}$ with that $y$-coordinate, it must be that all of the $B_{j}$ corresponding to the blocking $P_{j}$ have larger $y$-coordinate. Now, choose of these the one with smallest $y$-coordinate - it must be exposed, and it has strictly higher $y$-coordinate than $B_{k}$, contradiction. It follows that the interior of $R$ intersects no pieces of paper.\n\nNow, for a fixed $D$ such that $D$ is at least the largest distance between any two points of two polygons, we can shift this exposed piece of paper $n D$ to the right, the next one of the remaining pieces $(n-1) D$, and so on, so that the pairwise distances between pieces of paper, even when projected onto the $x$-axis, are at least $D$ each. We're done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-auto-2586",
+      "name": "HMMT 2014 HMIC #0jii",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2014 HMIC",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorial Geometry"
+      ],
+      "statement": "Problem:\n\nConsider a regular $n$-gon with $n>3$, and call a line acceptable if it passes through the interior of this $n$-gon. Draw $m$ different acceptable lines, so that the $n$-gon is divided into several smaller polygons.\n\na. Prove that there exists an $m$, depending only on $n$, such that any collection of $m$ acceptable lines results in one of the smaller polygons having 3 or 4 sides.\n\nb. Find the smallest possible $m$ which guarantees that at least one of the smaller polygons will have 3 or 4 sides.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe will prove that if $m \\geq n-4$, then there is guaranteed to be a smaller polygon with 3 or 4 sides, while if $m \\leq n-5$, there might not be a polygon with 3 or 4 sides. This will solve both parts of the problem.\n\nGiven a configuration of lines, let $P_{1}, \\ldots, P_{k}$ be all of the resulting smaller polygons. Let $E\\left(P_{i}\\right)$ be the number of edges in polygon $P_{i}$, and let $E=E\\left(P_{1}\\right)+\\cdots+E\\left(P_{k}\\right)$. First, note that whenever a new polygon is formed, it must have been because a larger polygon was split into two smaller polygons by a line passing through it. When this happens, $k$ increases by 1 and $E$ increases by at most 4 (it might be less than 4 if the line passes through vertices of the larger polygon). Therefore, if adding an acceptable line increases the number of polygons by $a$, then $E$ increases by at most $4a$.\n\nNow, assume $m \\geq n-4$. At the beginning, we have $k=1$ and $E=n$. If the number of polygons at the end is $p+1$, then $E \\leq n+4p$, so the average number of edges per polygon is less than or equal to $\\frac{n+4p}{1+p}$. Now, note that each acceptable line introduces at least one new polygon, so $p \\geq m \\geq n-4$. Also, note that as $p$ increases, $\\frac{n+4p}{1+p}$ strictly decreases, so it is maximized at $p=n-4$, where $\\frac{n+4p}{1+p}=\\frac{5n-16}{n-3}=5-\\frac{1}{n-3}<5$. Therefore, the average number of edges per polygon is less than 5, so there must exist a polygon with either 3 or 4 edges, as desired.\n\nWe will now show that if $m \\leq n-5$, then we can draw $m$ acceptable lines in a regular $n$-gon $A_{1} A_{2} \\ldots A_{n}$ such that there are no polygons with 3 or 4 sides. Let $M_{1}$ be the midpoint of $A_{3} A_{4}$, $M_{2}$ be the midpoint of $A_{4} A_{5}$, $\\ldots$, $M_{n-5}$ be the midpoint of $A_{n-3} A_{n-4}$. Let the $m$ acceptable lines be $A_{1} M_{1}, A_{1} M_{2}, \\ldots, A_{1} M_{m}$. We can see that all resulting polygons have 5 sides or more, so we are done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-auto-3004",
+      "name": "HMMT February #0ju4",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cartesian coordinates",
+        "Vectors",
+        "Combinatorial Geometry",
+        "Enumeration with symmetry"
+      ],
+      "statement": "Problem:\n\nHow many equilateral hexagons of side length $\\sqrt{13}$ have one vertex at $(0,0)$ and the other five vertices at lattice points?\n\n(A lattice point is a point whose Cartesian coordinates are both integers. A hexagon may be concave but not self-intersecting.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe perform casework on the point three vertices away from $(0,0)$. By inspection, that point can be $( \\pm 8, \\pm 3),( \\pm 7, \\pm 2),( \\pm 4, \\pm 3),( \\pm 3, \\pm 2),( \\pm 2, \\pm 1)$ or their reflections across the line $y=x$. The cases are as follows:\n\nIf the third vertex is at any of $( \\pm 8, \\pm 3)$ or $( \\pm 3, \\pm 8)$, then there are 7 possible hexagons. There are 8 points of this form, contributing 56 hexagons.\n\nIf the third vertex is at any of $( \\pm 7, \\pm 2)$ or $( \\pm 2, \\pm 7)$, there are 6 possible hexagons, contributing 48 hexagons.\n\nIf the third vertex is at any of $( \\pm 4, \\pm 3)$ or $( \\pm 3, \\pm 4)$, there are again 6 possible hexagons, contributing 48 more hexagons.\n\nIf the third vertex is at any of $( \\pm 3, \\pm 2)$ or $( \\pm 2, \\pm 3)$, then there are again 6 possible hexagons, contributing 48 more hexagons.\n\nFinally, if the third vertex is at any of $( \\pm 2, \\pm 1)$, then there are 2 possible hexagons only, contributing 16 hexagons.\n\nAdding up, we get our answer of 216."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-auto-3156",
+      "name": "Berkeley Math Circle: Monthly Contest 5 #0jyc",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 5",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorial Geometry",
+        "Greatest common divisors (gcd)"
+      ],
+      "statement": "Problem:\n\nWe define a chessboard polygon to be a polygon whose edges are situated along lines of the form $x = a$ and $y = b$, where $a$ and $b$ are integers. These lines divide the interior into unit squares, which we call cells.\n\nLet $n$ and $k$ be positive integers. Assume that a square can be partitioned into $n$ congruent chessboard polygons of $k$ cells each. Prove that this square may also be partitioned into $k$ congruent chessboard polygons of $n$ cells each.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nNote that $n k = s^{2}$ for some $s$. By Factor Lemma, pick $n = a b$, $k = c d$, and $s = a c = b d$. Now we can tile the board with $a \\times b$ rectangles!"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-auto-3253",
+      "name": "HMMT November 2018 #0k11",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2018",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Circles",
+        "Combinatorial Geometry"
+      ],
+      "statement": "Problem:\n\nSquare $CASH$ and regular pentagon $MONEY$ are both inscribed in a circle. Given that they do not share a vertex, how many intersections do these two polygons have?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nPentagon $MONEY$ divides the circumference into $5$ circular arcs, and each vertex of $CASH$ lies in a different arc. Then each side of $CASH$ will intersect two sides of $MONEY$, for a total of $8$ intersections."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-auto-3437",
+      "name": "HMMT November 2019 #0k65",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2019",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorial Geometry",
+        "Constructions and loci"
+      ],
+      "statement": "Problem:\nA convex 2019-gon $A_{1} A_{2} \\ldots A_{2019}$ is cut into smaller pieces along its 2019 diagonals of the form $A_{i} A_{i+3}$ for $1 \\leq i \\leq 2019$, where $A_{2020}=A_{1}$, $A_{2021}=A_{2}$, and $A_{2022}=A_{3}$. What is the least possible number of resulting pieces?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nEach time we draw in a diagonal, we create one new region, plus one new region for each intersection on that diagonal. So, the number of regions will be\n$$\n1+ (\\text{number of diagonals}) + (\\text{number of intersections})\n$$\nwhere (number of intersections) counts an intersection of three diagonals twice. Since no four diagonals can pass through a point, the only nonconstant term in our expression is the last one. To minimize this term, we want to maximize the number of triples of diagonals passing through the same point. Consider the set $S$ of triples of diagonals $A_{n} A_{n+3}$ that intersect at a single point. Each triple in $S$ must come from three consecutive diagonals, and two different triples can only have one diagonal in common, so $S$ has at $\\operatorname{most}\\left\\lfloor\\frac{2019}{2}\\right\\rfloor=1009$ triples. Hence the number of resulting pieces is at least\n$$\n1 + 2019 + (2 \\cdot 2019 - 1009) = 5049\n$$\nTo show that 5049 is attainable, we use the following construction. Let $B_{1} \\ldots B_{1010}$ be a regular 1010-gon, and let $\\ell_{n}$ denote the external angle bisector of $\\angle B_{n-1} B_{n} B_{n+1}$. Let $A_{1}=\\overleftrightarrow{B_{1009} B_{1010}} \\cap \\overleftrightarrow{B_{1} B_{2}}$, $A_{2018}=\\overleftrightarrow{B_{1008} B_{1009}} \\cap \\overleftrightarrow{B_{1010} B_{1}}$, $A_{2019}=\\ell_{1} \\cap \\ell_{1009}$, and for $n=1, \\ldots, 1008$, define $A_{2n}=\\ell_{n+1} \\cap \\overleftrightarrow{B_{n-1} B_{n}}$ and $A_{2n+1}=\\ell_{n} \\cap \\overleftrightarrow{B_{n+1} B_{n+2}}$. It follows that, for all $n=0, \\ldots, 1008$, $\\overline{A_{2n-1} A_{2n+2}}$, $\\overline{A_{2n} A_{2n+3}}$, and $\\overline{A_{2n+1} A_{2n+4}}$ intersect at $B_{n+1}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-auto-4011",
+      "name": "Berkeley Math Circle: Monthly Contest 4 #0km3",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 4",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorial Geometry",
+        "Counting two ways"
+      ],
+      "statement": "Problem:\n\nIn a convex $n$-sided polygon, all the diagonals are drawn and no three of them pass through a point. Find a formula for the number of regions formed inside the polygon.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nTo start with, there is one region inside the $n$-gon. A new region is created each time a new diagonal is drawn or two diagonals intersect. The number of diagonals is $\\binom{n}{2} - n$, since each diagonal corresponds to a pair of non-adjacent vertices. The number of intersections of two diagonals is $\\binom{n}{4}$, since each set of four vertices determines a unique pair of intersecting diagonals. Thus, the total number of regions formed is\n\n$$\n1 + \\binom{n}{2} - n + \\binom{n}{4}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-auto-4161",
+      "name": "HMMT November 2022 #0kq9",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2022",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorial Geometry",
+        "Other"
+      ],
+      "statement": "Problem:\n\nHow many ways are there to cut a $1$ by $1$ square into $8$ congruent polygonal pieces such that all of the interior angles for each piece are either $45$ or $90$ degrees? Two ways are considered distinct if they require cutting the square in different locations. In particular, rotations and reflections are considered distinct.\n\nProposed by: Freddie Zhao",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFirst note that only triangles and quadrilaterals are possible.\nThere are $3$ possibilities:\n- $1/2$ by $1/2$ right isosceles triangles\n- $1$ by $1/8$ rectangles\n- $1/2$ by $1/4$ rectangles\n\nThe first case has $16$ possibilities (there are $2$ choices for the orientation of each quadrant).\nThe second case has $2$ possibilities (either all horizontal or all vertical).\n\nThe third case is the trickiest. Label the quadrants $A, B, C, D$ where $A, B$ are at the top and $B, C$ are on the left. If each rectangle lies completely within a quadrant, there are $16$ ways. If rectangles span quadrants $A, B$ but not $C$ or $D$, there are $4$ ways. Similarly, there are $4$ ways each for [rectangles spanning $B, C$ but not $D, A$], [rectangles spanning $C, D$ but not $A, B$], and [rectangles spanning $D, A$ but not $B, C$]. Next, if rectangles span both $A, B$ and $C, D$, there is $1$ way, and if rectangles span both $B, C$ and $D, A$ there is $1$ way. Finally there are $2$ ways for each adjacent pair of quadrants to have a rectangle spanning them. This brings us to $16+4+4+4+4+1+1+2=36$ ways.\n\nThe final answer is $16+2+36=54$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-auto-4275",
+      "name": "AIME II #0ktf",
+      "url": "https://usamoguide.com/",
+      "source": "AIME II",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorial Geometry"
+      ],
+      "statement": "Let $\\ell_A$ and $\\ell_B$ be two distinct parallel lines. For positive integers $m$ and $n$, distinct points $A_1, A_2, A_3, \\dots, A_m$ lie on $\\ell_A$, and distinct points $B_1, B_2, B_3, \\dots, B_n$ lie on $\\ell_B$. Additionally, when segments $A_iB_j$ are drawn for all $i = 1, 2, 3, \\dots, m$ and $j = 1, 2, 3, \\dots, n$, no point strictly between $\\ell_A$ and $\\ell_B$ lies on more than two of the segments. Find the number of bounded regions into which this figure divides the plane when $m = 7$ and $n = 5$. The figure shows that there are 8 regions when $m = 3$ and $n = 2$.\n\n![](attached_image_1.png)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-auto-4582",
+      "name": "HMMT November 2024 #0l1y",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2024",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorial Geometry",
+        "Cartesian coordinates"
+      ],
+      "statement": "Problem:\nThe graphs of the lines\n$$\ny = x + 2, \\quad y = 3x + 4, \\quad y = 5x + 6, \\quad y = 7x + 8, \\quad y = 9x + 10, \\quad y = 11x + 12\n$$\nare drawn. These six lines divide the plane into several regions. Compute the number of regions the plane is divided into.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n![](attached_image_1.png)\n\nAll lines are of the form $y = xk + (k + 1)$. Note that all lines pass through the point $(-1, 1)$, since $1 = (-1)k + (k + 1)$ for all $k$.\nThus all lines pass through a single point, $(-1, 1)$. The first line divides the plane into two parts, and each subsequent line divides two of the current regions into two more parts. Thus altogether the six lines divide the plane into 12 parts."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-auto-4709",
+      "name": "HMMT February 2025 #0l5h",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2025",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorial Geometry",
+        "Linear and quadratic inequalities"
+      ],
+      "statement": "Problem:\nA polyomino is a connected figure constructed by joining one or more unit squares edge-to-edge. Determine, with proof, the number of non-congruent polyominoes with no holes, perimeter $180$, and area $2024$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nDefine the bounding box of a polyomino to be the smallest axis-aligned rectangle that contains the entire polyomino. Suppose a polyomino satisfying the given conditions has a bounding box with dimensions $w \\times h$.\n\nClaim 1. $w + h \\leq 90$.\n\nProof. The polyomino has at least $2w$ horizontal edges and at least $2h$ vertical edges. Moreover, it has a perimeter of $180$. Therefore, $2w + 2h \\leq 180$, so $w + h \\leq 90$. $\\square$\n\nClaim 2. The dimensions of the bounding box are either $44 \\times 46$, $45 \\times 45$, or $46 \\times 44$.\n\nProof. Note that $hw \\geq 2024$ since it contains the polyomino with area $2024$. Suppose for sake of contradiction that $h + w \\leq 89$. Then,\n$$\n(h - w)^2 = (h + w)^2 - 4hw \\leq 89^2 - 4 \\cdot 2024 = -175,\n$$\ncontradiction. Therefore, $h + w = 90$, so we can let $(h,w) = (45 + x,45 - x)$. Then, $2025 - x^2 = hw \\geq 2024$ implies that $x \\in \\{-1,0,1\\}$, as desired. $\\square$\n\nIn the first and third cases, the bounding box has area $2024$, so it must be the entire polyomino, giving us the $44 \\times 46$ rectangle (and its rotation) as a possible answer. In the second case, the bounding box has area $2025$, so one cell must be removed to form the polyomino. Removing the corner cell yields a polyomino with perimeter $180$, and removing any other cells yields a polyomino with perimeter greater than $180$. Therefore, the only other possibility is a $45 \\times 45$ square missing a corner. Thus the answer is $\\boxed{2}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

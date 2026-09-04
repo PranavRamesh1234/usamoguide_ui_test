@@ -1,0 +1,84 @@
+---
+id: related-rates
+title: Related Rates
+author: Pranav Ramesh
+description: Using derivatives to analyze how interdependent quantities change with respect to time
+prerequisites: [differentiation-rules, chain-rule, implicit-differentiation]
+---
+
+# Introduction
+
+Related rates is a fascinating branch of calculus that deals with how different quantities change in relation to each other. It is used to solve real-world problems where multiple variables are interdependent and changing with respect to time. By examining the rate of change of one quantity, we can determine how other related quantities change simultaneously.
+
+The process involves identifying the relevant equations, differentiating them with respect to time using the chain rule, and solving for the desired rate of change. Drawing a diagram and labeling all variables before starting is strongly encouraged — it makes the relationships between quantities much clearer.
+
+## Key Steps
+
+1. **Identify the Variables:** Assign meaningful names to each changing quantity and denote their rates of change with respect to time (e.g. $\dfrac{dx}{dt}$).
+
+2. **Establish an Equation:** Write an equation that relates the variables, drawn from the problem's context or geometry.
+
+3. **Differentiate with Respect to Time:** Differentiate both sides of the equation with respect to $t$, applying the chain rule to obtain a new equation relating the rates of change.
+
+4. **Plug in Known Values:** Substitute the known values of the variables and their rates into the differentiated equation.
+
+5. **Solve for the Desired Rate:** Solve for the unknown rate of change.
+
+# Examples
+
+> **Example 1 (Shadow Problem):** A streetlight is mounted on top of a pole. A person of height 1.8 m is walking away from the pole at 1.5 m/s. When the person is 10 m away from the pole, their shadow is 6 m long. At what rate is the tip of the person's shadow moving at that moment?
+>
+> **Solution:**
+>
+> **Step 1 — Identify variables:**
+> - $h = 1.8$ m (person's height, constant)
+> - $x$ = distance from person to pole (changing)
+> - $s$ = length of shadow (changing)
+> - $\dfrac{dx}{dt} = 1.5$ m/s (walking away from pole)
+>
+> **Step 2 — Establish an equation:** By similar triangles:
+>
+> $$\frac{s}{x} = \frac{h}{10} \implies \frac{s}{x} = \frac{1.8}{10}$$
+>
+> **Step 3 — Differentiate with respect to $t$:**
+>
+> $$\frac{d}{dt}\!\left(\frac{s}{x}\right) = 0 \implies \frac{1}{x}\frac{ds}{dt} - \frac{s}{x^2}\frac{dx}{dt} = 0$$
+>
+> **Step 4 — Plug in known values** ($x = 10$, $s = 6$, $\dfrac{dx}{dt} = 1.5$):
+>
+> $$\frac{1}{10}\frac{ds}{dt} - \frac{6}{100}(1.5) = 0$$
+>
+> **Step 5 — Solve:**
+>
+> $$\frac{ds}{dt} = \frac{6}{10} \times 1.5 = \boxed{0.9 \text{ m/s}}$$
+>
+> The tip of the person's shadow is moving away from the pole at **0.9 m/s**.
+
+> **Example 2 (Nuclear Fireball):** The 1945 Trinity test created a fireball of superheated plasma reaching temperatures hotter than the core of the sun. At 700 microseconds after the detonation of a 1 Megaton thermonuclear warhead, the nuclear fireball is expanding at a rate of $\dfrac{dV}{dt} = 330{,}000$ m³/s. How fast is the surface area of the fireball expanding when the radius is 160 m?
+>
+> **Solution:**
+>
+> **Step 1 — Identify variables:**
+> - $r$ = radius of fireball (changing), $r = 160$ m at the moment of interest
+> - $V$ = volume of fireball, $\dfrac{dV}{dt} = 330{,}000$ m³/s
+> - $A$ = surface area of fireball (the quantity we want)
+>
+> **Step 2 — Establish equations** (sphere formulas):
+>
+> $$V = \frac{4}{3}\pi r^3, \qquad A = 4\pi r^2$$
+>
+> **Step 3 — Differentiate both with respect to $t$:**
+>
+> $$\frac{dV}{dt} = 4\pi r^2 \frac{dr}{dt}, \qquad \frac{dA}{dt} = 8\pi r \frac{dr}{dt}$$
+>
+> **Step 4 — Solve for $\dfrac{dr}{dt}$** using the volume equation:
+>
+> $$\frac{dr}{dt} = \frac{330{,}000}{4\pi (160)^2} \approx 1.026 \text{ m/s}$$
+>
+> **Step 5 — Solve for $\dfrac{dA}{dt}$:**
+>
+> $$\frac{dA}{dt} = 8\pi (160)(1.026) \approx \boxed{1.03 \times 10^4 \text{ m}^2/\text{s}}$$
+>
+> The surface area of the fireball is expanding at approximately $1.03 \times 10^4$ m²/s.
+
+<Problems problems="practice" />

@@ -1,0 +1,126 @@
+---
+id: lhopitals-rule
+title: L'Hôpital's Rule
+author: Pranav Ramesh
+description: Using L'Hôpital's Rule to evaluate limits in indeterminate form
+prerequisites: [differentiation-rules, chain-rule]
+---
+ 
+# Introduction
+ 
+L'Hôpital's Rule is an important technique that makes our lives easier when dealing with certain forms of tricky limits — those that evaluate to **indeterminate form**.
+ 
+# Identifying Indeterminate Form
+ 
+## Indeterminate Form
+ 
+Indeterminate form arises when evaluating a limit leads to an expression that cannot be truly evaluated. There are several different kinds:
+ 
+**Quotient Forms** are the most common:
+ 
+- $\dfrac{0}{0}$
+- $\dfrac{\infty}{\infty}$
+**Other Forms** include:
+ 
+- **Product Form:** $0 \cdot \infty$ (e.g. $\lim_{x \to 0^+} x \ln x$)
+- **Difference Form:** $\infty - \infty$ (e.g. $\lim_{x \to 0^+} \dfrac{1}{x^2} - \dfrac{1}{\tan x}$)
+- **Power Form:** $\infty^0$, $0^0$, or $1^\infty$ (e.g. $\lim_{x \to \infty} x^{1/x}$)
+## Getting to Quotient Form
+ 
+L'Hôpital's Rule requires the limit to be in quotient form. Non-quotient indeterminate forms must first be algebraically rearranged into a fraction — the examples below illustrate how.
+ 
+# Applying L'Hôpital's Rule
+ 
+Once a limit is confirmed to be in indeterminate quotient form, L'Hôpital's Rule states:
+ 
+If $\displaystyle\lim_{x \to a} \frac{f(x)}{g(x)}$ evaluates to $\dfrac{0}{0}$ or $\dfrac{\infty}{\infty}$, then:
+ 
+$$
+\lim_{x \to a} \frac{f(x)}{g(x)} = \lim_{x \to a} \frac{f'(x)}{g'(x)}
+$$
+ 
+If the result is still indeterminate, the rule can be applied **repeatedly**.
+ 
+<Info title="Important">
+L'Hôpital's Rule **only applies** when the limit is in indeterminate form. Applying it to a non-indeterminate limit will give an incorrect result.
+ 
+</Info>
+## Worked Examples
+ 
+> **Example 1:** Evaluate $\displaystyle\lim_{x \to 0} \frac{\sin(x)}{x}$.
+>
+> **Solution:** Both $\sin(x)$ and $x$ approach $0$ as $x \to 0$, giving the form $\dfrac{0}{0}$. Setting $f(x) = \sin(x)$ and $g(x) = x$, we apply L'Hôpital's Rule:
+>
+> $$\lim_{x \to 0} \frac{\sin(x)}{x} = \lim_{x \to 0} \frac{\cos(x)}{1} = \boxed{1}$$
+ 
+> **Example 2:** Evaluate $\displaystyle\lim_{x \to \infty} \frac{3x + 5}{2x + 1}$.
+>
+> **Solution:** As $x \to \infty$, both numerator and denominator grow without bound, giving $\dfrac{\infty}{\infty}$. Applying L'Hôpital's Rule:
+>
+> $$\lim_{x \to \infty} \frac{3x + 5}{2x + 1} = \lim_{x \to \infty} \frac{3}{2} = \boxed{\frac{3}{2}}$$
+ 
+> **Example 3:** Evaluate $\displaystyle\lim_{x \to 0^+} x \ln x$.
+>
+> **Solution:** As $x \to 0^+$, we have $x \to 0$ and $\ln x \to -\infty$, giving the form $0 \cdot \infty$. Rewrite as a quotient by dividing instead of multiplying:
+>
+> $$\lim_{x \to 0^+} x \ln x = \lim_{x \to 0^+} \frac{\ln x}{1/x}$$
+>
+> Now apply L'Hôpital's Rule (this is $\dfrac{\infty}{\infty}$):
+>
+> $$= \lim_{x \to 0^+} \frac{1/x}{-1/x^2} = \lim_{x \to 0^+} (-x) = \boxed{0}$$
+ 
+> **Example 4:** Evaluate $\displaystyle\lim_{x \to 0^+} \left(\frac{1}{x^2} - \frac{1}{\tan x}\right)$.
+>
+> **Solution:** As $x \to 0^+$, both terms approach $\infty$, giving the form $\infty - \infty$. Combine into a single fraction by cross-multiplying:
+>
+> $$\lim_{x \to 0^+} \frac{\tan(x) - x^2}{x^2 \tan(x)}$$
+>
+> Apply L'Hôpital's Rule:
+>
+> $$= \lim_{x \to 0^+} \frac{\sec^2(x) - 2x}{x^2 \sec^2(x) + 2x\tan(x)}$$
+>
+> As $x \to 0^+$: the numerator approaches $\sec^2(0) = 1$, while the denominator approaches $0$. Hence the limit is $\boxed{\infty}$.
+ 
+> **Example 5:** Evaluate $\displaystyle\lim_{x \to \infty} x^{1/x}$.
+>
+> **Solution:** This has the form $\infty^0$. Take the natural log to convert to a quotient:
+>
+> $$\ln\!\left(x^{1/x}\right) = \frac{\ln x}{x}$$
+>
+> Using the continuity of $\ln$:
+>
+> $$\ln\!\left(\lim_{x \to \infty} x^{1/x}\right) = \lim_{x \to \infty} \frac{\ln x}{x}$$
+>
+> Apply L'Hôpital's Rule (this is $\dfrac{\infty}{\infty}$):
+>
+> $$= \lim_{x \to \infty} \frac{1/x}{1} = 0$$
+>
+> Therefore $\ln\!\left(\displaystyle\lim_{x \to \infty} x^{1/x}\right) = 0$, which gives $\displaystyle\lim_{x \to \infty} x^{1/x} = e^0 = \boxed{1}$.
+ 
+# Proof
+ 
+Starting with a quotient limit that evaluates to $\dfrac{0}{0}$, we know $f(a) = g(a) = 0$:
+ 
+$$
+\lim_{x \to a} \frac{f(x)}{g(x)} = \lim_{x \to a} \frac{f(x) - f(a)}{g(x) - g(a)} = \lim_{x \to a} \frac{\dfrac{f(x) - f(a)}{x - a}}{\dfrac{g(x) - g(a)}{x - a}}
+$$
+ 
+Since the limit of a quotient equals the quotient of the limits (when both exist):
+ 
+$$
+= \frac{\displaystyle\lim_{x \to a} \frac{f(x) - f(a)}{x - a}}{\displaystyle\lim_{x \to a} \frac{g(x) - g(a)}{x - a}} = \frac{f'(a)}{g'(a)} = \lim_{x \to a} \frac{f'(x)}{g'(x)}
+$$
+ 
+The numerator and denominator are precisely the difference quotient definitions of $f'$ and $g'$.
+ 
+# Shortcomings
+ 
+L'Hôpital's Rule **only works** when the limit is in indeterminate form. Misapplying it to a determinate limit yields a wrong answer.
+ 
+> **Example (misuse):** Evaluate $\displaystyle\lim_{x \to 1} \frac{x^2 + 5}{3x + 4}$.
+>
+> **Correct approach:** Substituting $x = 1$ directly: $\dfrac{1 + 5}{3 + 4} = \dfrac{6}{7}$.
+>
+> **Incorrect use of L'Hôpital's Rule:** Since this is *not* indeterminate form, applying the rule gives $\displaystyle\lim_{x \to 1} \frac{2x}{3} = \frac{2}{3}$, which is **wrong**. Always check for indeterminate form before applying the rule.
+ 
+<Problems problems="practice" />

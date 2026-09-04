@@ -1,0 +1,571 @@
+{
+  "MODULE_ID": "induction-oly",
+  "practice": [
+    {
+      "uniqueId": "canada-2015-1",
+      "name": "Canada 2015/1",
+      "url": "https://aops.com/community/c6h1181540p5720240",
+      "source": "Canada",
+      "difficulty": "easy",
+      "isStarred": true,
+      "tags": [
+        "Induction"
+      ],
+      "statement": "Find all functions $f\\colon \\mathbb{Z}_{>0}\rightarrow \\mathbb{Z}_{>0}$, such that $(n-1)^2<f(n)f(f(n))<n^2+n$ for every positive integer $n$.",
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "imo-2013-1",
+      "name": "IMO 2013/1",
+      "url": "https://artofproblemsolving.com/wiki/index.php/2013_IMO_Problems/Problem_1",
+      "source": "IMO",
+      "difficulty": "medium",
+      "isStarred": false,
+      "tags": [
+        "Induction"
+      ],
+      "statement": "Assume that $k$ and $n$ are two positive integers. Prove that there exist positive integers $m_1 , \\dots , m_k$ such that $$1+\\frac{2^k-1}{n}=\\left(1+\\frac1{m_1}\\right)\\cdots \\left(1+\\frac1{m_k}\\right).$$",
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "usamo-2009-2",
+      "name": "USAMO 2009/2",
+      "url": "https://aops.com/community/c5h274370p1485139$0",
+      "source": "USAMO",
+      "difficulty": "hard",
+      "isStarred": false,
+      "tags": [
+        "Induction"
+      ],
+      "statement": "Let $n$ be a positive integer.  Determine the size of the largest subset of $\\{ -n, -n+1, \\dots, n-1, n\\}$ which does not contain three elements $a$, $b$, $c$ (not necessarily distinct) satisfying $a+b+c=0$..",
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-induction-smoothing-auto-0007",
+      "name": "Berkeley Math Circle Take-Home Contest #1 #0hiv",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Take-Home Contest #1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Divisibility / Factorization",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\n\nLet $k$ and $n$ be positive integers such that $k < 2^{n+1} - 1$. Prove that there is a sum of exactly $n$ powers of $2$ that is divisible by $k$. (Example: if $k = 9$ and $n = 4$, then $2 + 4 + 16 + 32$ is divisible by $9$.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWrite $k$ in base $2$ and suppose there are $r$ $1$'s. Since $2^{n+1} - 1$ is the smallest number with at least $n+1$ $1$'s, we conclude $r \\leq n$. Also $k$ clearly divides a sum of $r$ powers of $2$, since $k$ is such a sum. Now we claim that if $k$ divides a sum of $i$ powers of $2$, it also divides a sum of $i+1$ such powers. To see this, suppose that $2^{l}$ is one of our $i$ powers with $l > 0$; then rewrite this as $2^{l-1} + 2^{l-1}$ and keep the remaining $i-1$ powers the same. This gives us the needed sum of $2^{i+1}$ powers. We can always do this unless all $i$ of our powers are equal to $2^{0}$; in this case we have $k \\mid i$, but then $k \\mid 2i$, so we can multiply everything by $2$ and then split one of the resulting $2^{1}$'s as described previously.\n\nNow by induction, it follows that $k$ divides a sum of $i$ powers of $2$ for all $i \\geq r$. In particular, since $n \\geq r$, we have what we need."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-induction-smoothing-auto-0039",
+      "name": "Berkeley Math Circle Take-Home Contest #0hjr",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Take-Home Contest",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Linear and quadratic inequalities",
+        "Vectors",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\n\nGiven are $n+1$ real linear equations in $n$ variables (of the form $a_{1} x_{1}+a_{2} x_{2}+\\cdots+a_{n} x_{n}=a$). Prove that each $=$ sign can be replaced with either $\\leq$ or $\\geq$ so that the resulting $n+1$ inequalities have the following property: for every choice of real numbers $x_{1}, x_{2}, \\ldots, x_{n}$, at least one inequality is true.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nHenceforth, we assume that every equation has some $a_{i} \\neq 0$, since otherwise it is of the form $0=a$, and then we can change it to either $0 \\leq a$ or $0 \\geq a$ to form an inequality which is always true. We use induction on $n$.\n\nIf $n=1$, we have the two equations $a x=b$, $c x=d$. We can divide out by $a$ and $c$ to obtain the two equations $x=b'$, $x=d'$ equivalent to our original equations. Without loss of generality we can assume $b' \\leq d'$; then if we form the inequalities equivalent to $x \\geq b'$, $x \\leq d'$, at least one of these always holds.\n\nSuppose $n>1$ and that the statement has been proven for $n$ equations in $n-1$ variables. Given $n+1$ equations in $n$ variables, look at the last equation. By assumption, some coefficient - say the coefficient of $x_{n}$ - is nonzero, so we can solve this equation for $x_{n}$ in terms of the other variables. Plugging this result into the first $n$ equations, we obtain $n$ linear equations in $x_{1}, \\ldots, x_{n-1}$. By the induction hypothesis, we can replace each of these equalities with a $\\leq$ or $\\geq$ sign so that, for any choice of $x_{1}, \\ldots, x_{n-1}$, some one of these $n$ inequalities is true.\n\nWe thus assign either the $\\leq$ or the $\\geq$ sign for the first $n$ original equations, and we claim we can choose the sign in our $n+1$th equation so that this result still holds. Suppose, otherwise, that, either way we choose the sign, some choice of the variables causes all of the inequalities to be violated. If the $n+1$th equation was $a_{1} x_{1}+\\cdots+a_{n} x_{n}=a$, then we can choose $x_{1}', \\ldots, x_{n}'$ to violate the first $n$ inequalities so that $a_{1} x_{1}'+\\cdots+a_{n} x_{n}'=a'<a$, and we can also choose $x_{1}'', \\ldots, x_{n}''$ to violate the first $n$ inequalities so that $a_{1} x_{1}''+\\cdots+a_{n} x_{n}''=a''>a$. Now, consider what happens when we set\n$$\nx_{i}=\\frac{\\left[a''-a\\right] x_{i}'+\\left[a-a'\\right] x_{i}''}{a''-a'}.\n$$\nThe $n+1$th equation now holds (as an equality), since\n$$\n\\sum_{i=1}^{n} a_{i}\\frac{\\left[a''-a\\right] x_{i}'+\\left[a-a'\\right] x_{i}''}{a''-a'}=\\frac{\\left[a''-a\\right] \\sum_{i=1}^{n} a_{i} x_{i}'+\\left[a-a'\\right] \\sum_{i=1}^{n} a_{i} x_{i}''}{a''-a'}=\\frac{\\left[a''-a\\right] a'+\\left[a-a'\\right] a''}{a''-a'}=a.\n$$\nWe claim that each of the first $n$ inequalities is still violated. Suppose, for example, that the inequality $c_{1} x_{1}+\\cdots+c_{n} x_{n} \\leq c$ is violated, so that $c_{1} x_{1}'+\\cdots+c_{n} x_{n}'>c$ and $c_{1} x_{1}''+\\cdots+c_{n} x_{n}''>c$. We can multiply the first of these inequalities by $a''-a$ and the second by $a-a'$ (preserving their signs, since these quantities are positive), add them, and divide by $a''-a'$ to obtain\n$$\n\\sum_{i=1}^{n} c_{i}\\frac{\\left[a''-a\\right] x_{i}'+\\left[a-a'\\right] x_{i}''}{a''-a'}>c,\n$$\nas claimed. The $\\geq$ case is, of course, analogous. Thus, we have found values of $x_{i}$ for which the $n+1$th equality holds but none of the first $n$ inequalities hold. But this contradicts the way the first $n$ signs were chosen. So our assumption was wrong, and it was indeed possible to choose the sign of the $n+1$th inequality so that there would always be at least one true inequality, completing the induction step and the proof."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-induction-smoothing-auto-0074",
+      "name": "Berkeley Math Circle #0hkq",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\nFind all functions $f: \\mathbb{R} \\rightarrow \\mathbb{R}$ satisfying $f(x)+f(y) \\neq 0$ and\n$$\n\\frac{f(x)-f(x-y)}{f(x)+f(x+y)}+\\frac{f(x)-f(x+y)}{f(x)+f(x-y)}=0\n$$\nfor all $x, y \\in \\mathbb{R}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAny function of the form $f(x)=c$, where $c$ is a nonzero constant, clearly satisfies the requirements; we will show these are the only solutions. Bringing the original equation to a common denominator yields $2 f(x)^2 - f(x-y)^2 - f(x+y)^2 = 0$ for all $x$, $y$. Define $g(x)=f(x)^2$; clearly $g(x) \\geq 0$ for all $x$. Our equation states that $2 g(x) = g(x-y) + g(x+y)$. We will show this forces $g$ to be constant.\n\nIf $g$ is not constant, there exist some $a, b$ with $g(a) < g(b)$. We claim that $g(n a - (n-1) b) = n g(a) - (n-1) g(b)$ for all nonnegative integers $n$. This is shown by induction: the base cases $n=0,1$ are clear; if $n>1$ then our equation (with $x=(n-1)a-(n-2)b$, $y=a-b$) yields\n$$\n2 g((n-1)a-(n-2)b) = g(n a-(n-1) b) + g((n-2)a-(n-3)b)\n$$\n$\\Rightarrow 2(n-1) g(a) - 2(n-2) g(b) = g(n a-(n-1) b) + (n-2) g(a) - (n-3) g(b)$ (by induction hypothesis)\n$$\n\\Rightarrow g(n a-(n-1) b) = n g(a) - (n-1) g(b)\n$$\nand the induction step is complete. However, if $n > g(b)/(g(b)-g(a))$ then $g(n a-(n-1) b) = n g(a) - (n-1) g(b) < 0$ and we have a contradiction. This shows that $g$ must be constant.\n\nSo $g(x) = d$ for some constant $d \\geq 0$; then $f(x) = \\pm \\sqrt{d}$ for all $x$. If both values occur, then the $f(x)+f(y) \\neq 0$ constraint is violated; hence we must have $f(x) = \\sqrt{d}$ for all $x$ or $f(x) = -\\sqrt{d}$ for all $x$ (and $d \\neq 0$)."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-induction-smoothing-auto-0113",
+      "name": "Berkeley Math Circle #0hlt",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Modular Arithmetic",
+        "Induction / smoothing",
+        "Algebraic properties of binomial coefficients"
+      ],
+      "statement": "Problem:\nProve that for $n \\geq 1$, the last $n+2$ digits of $11^{10^{n}}$ are $6000 \\ldots 0001$, with $n$ zeros between the 6 and the final 1.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe statement is that $11^{10^{n}} = k \\cdot 10^{n+2} + 6 \\cdot 10^{n+1} + 1$ for some positive integer $k$; we prove it by induction on $n$.\n\nFor the base case $n=1$, we expand $(10+1)^{10}$ by the binomial theorem and obtain\n$$\n\\left(\\text{ terms divisible by } 10^{3}\\right) + \\binom{10}{2} 10^{2} + \\binom{10}{1} 10^{1} + 1 = \\left(\\text{ terms divisible by } 10^{3}\\right) + 4500 + 100 + 1\n$$\nwhose last three digits are indeed 601.\n\nNow, for $n \\geq 2$, if the statement holds for $n-1$, then to prove it for $n$, we continue the process, using the binomial theorem twice:\n$$\n\\begin{gathered}\n11^{10^{n}} = \\left(11^{10^{n-1}}\\right)^{10} = \\left(k \\cdot 10^{n+1} + \\left[6 \\cdot 10^{n} + 1\\right]\\right)^{10} \\\\\n= \\left(\\text{ terms divisible by } 10^{2n+2}\\right) + \\binom{10}{1}\\left(k \\cdot 10^{n+1}\\right)\\left(6 \\cdot 10^{n} + 1\\right)^{9} + \\left(6 \\cdot 10^{n} + 1\\right)^{10}\n\\end{gathered}\n$$\nand all the terms except the last are divisible by $10^{n+2}$. Therefore it suffices to find the last $n+2$ digits of $\\left(6 \\cdot 10^{n} + 1\\right)^{10}$, which equals\n$$\n\\left(\\text{ terms divisible by } 10^{2n}\\right) + \\binom{10}{1} 6 \\cdot 10^{n} + 1 = \\left(\\text{ terms divisible by } 10^{2n}\\right) + 6 \\cdot 10^{n+1} + 1\n$$\nSince $2n \\geq n+2$, we have what we need."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-induction-smoothing-auto-0164",
+      "name": "Berkeley Math Circle Take-Home Contest #6 #0hn8",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Take-Home Contest #6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Sums and products",
+        "Telescoping series",
+        "Polynomial operations",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\nLet $d$ be a fixed positive integer. Prove that there exists a unique polynomial $S(n)$ such that for every integer $n \\geq 0$, $S(n) = \\sum_{k=0}^{n} k^{d} = 0^{d} + 1^{d} + \\cdots + n^{d}$. Also prove that $S(n)$ can be expressed in the form\n$$\nc_{0} + c_{1}(2n+1) + c_{2}(2n+2)^{2} + \\cdots + c_{d+1}(2n+1)^{d+1}\n$$\nwhere the $c_{i}$ are rational numbers such that $c_{i} c_{i+1} = 0$ for $i = 0, 1, \\ldots, d$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe shall prove by strong induction on $d \\geq 0$ the existence of a polynomial $P_{d}(x)$ of degree $d+1$ with rational coefficients such that\n- the exponents of $x$ which occur with nonzero coefficients are all of opposite parity from $d$;\n- $P_{d}(2n+1) - P_{d}(2n-1) = n^{d}$ (defined to be $1$ when $n = d = 0$);\n- $P_{d}(1) = 1/2$ if $d = 0$, and $P_{d}(1) = 0$ otherwise.\n\nThen, $S(n) = P_{d}(2n+1)$ will meet our requirements (we know $S(n) = 0^{d} + \\cdots + n^{d}$ by using the second property of $P_{d}$ to form a telescoping sum).\n\nThe base cases are $P_{0}(x) = x/2$, $P_{1}(x) = (x^{2} - 1)/8$. If $d > 1$, consider what happens when $(2n+1)^{d+1} - (2n-1)^{d+1}$ is expanded by the binomial theorem. The result is a polynomial in $n$, in which the powers having the same parity as $d+1$ cancel, leaving $c_{d} n^{d} + c_{d-2} n^{d-2} + \\cdots + c_{2\\lfloor d/2 \\rfloor} n^{2\\lfloor d/2 \\rfloor}$ where, using the binomial theorem, $c_{k} = 2^{k+1} \\binom{d+1}{k}$.\n\nNow first suppose $d$ is odd. By the induction hypothesis, for any odd $k < d$, there exists a rational polynomial $P_{k}$ meeting the conditions above (and every exponent of $x$ is even). Then\n$$\nP_{d}(x) = \\frac{x^{d+1} - c_{d-2} P_{d-2}(x) - c_{d-4} P_{d-4}(x) - \\cdots - c_{1} P_{1}(x) - 1}{c_{d}}\n$$\nmeets all the conditions.\n\nIf, instead, $d$ is even, then for any even $k < d$, there exists an odd rational polynomial $P_{k}$ meeting these conditions, and\n$$\nP_{d}(x) = \\frac{x^{d+1} - c_{d-2} P_{d-2}(x) - c_{d-4} P_{d-4}(x) - \\cdots - c_{0} P_{0}(x)}{c_{d}}\n$$\nmeets our requirements—the first two are clear, and, for the third, we use our earlier computation that $c_{0} = 2$ to find\n$$\n\\frac{1^{d+1} - c_{0} P_{0}(1)}{c_{d}} = \\frac{1 - 1}{c_{d}} = 0\n$$\nas claimed. Thus $P_{d}$ exists as needed."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-induction-smoothing-auto-0166",
+      "name": "Berkeley Math Circle Monthly Contest 3 #0hna",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 3",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Constructions and loci",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\nShow that for each $n \\geq 17$ one can cut a square into $n$ smaller squares.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nOne can cut a square into $n$ smaller squares for all $n \\geq 6$. Here is how.\nFor $n=4$\n![](attached_image_1.png)\n\nFor $n=6$\n![](attached_image_2.png)\n\nFor $n=8$\n![](attached_image_3.png)\n\nSuppose we know how to cut a square into $n$ smaller squares. If we take one of the square \"pieces\" and cut it onto four smaller squares (as in the picture above for $n=4$). Now we have cut our original square into $n+3$ pieces. Since we know how to cut a square into 4 pieces, we can cut it into $7,10, \\ldots, 3k+1, \\ldots$ pieces. Similarly, starting with 6 pieces we can get $6,9, \\ldots, 3k, \\ldots$ pieces, and from 8 pieces $8,11, \\ldots, 3k+2, \\ldots$ pieces. Hence we can get any number of pieces bigger or equal to 6."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-induction-smoothing-auto-0277",
+      "name": "Berkeley Math Circle Monthly Contest 1 #0hqd",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recursion, bijection",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\n\nCall a positive integer one-full if it satisfies the following criteria:\n\na. Every digit is either $0$, $1$, or $2$.\n\nb. Out of every two consecutive digits, at least one of them is a $1$.\n\nFor $n \\geq 2$, calculate the number of $n$-digit one-full numbers. (Numbers beginning with the digit $0$ are not allowed.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe answer is $2^{n}$. It is clear that there are four $2$-digit one-full numbers: $10$, $11$, $12$, and $21$.\n\nTo prove that the required number is $2^{n}$ for all $n \\geq 3$, it is enough to show that there are twice as many $n$-digit one-full numbers as $(n-1)$-digit one-full numbers for every $n$.\n\nGiven an $(n-1)$-digit one-full number, we construct two different $n$-digit one-full numbers via the following rules:\n\n- If the first digit is $1$, we replace it with $11$ and then with $21$.\n- If the first digit is $2$, we replace it with $12$ and then with $10$.\n\nSince $2$'s and $0$'s have the same function in the middle of a number, the two numbers that we get using this process are both one-full. Moreover, since any $n$-digit one-full number must begin with one of the four $2$-digit one-full numbers, we can get all $n$-digit one-full numbers in this way. Thus there are twice as many $n$-digit one-full numbers as $(n-1)$-digit ones."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-induction-smoothing-auto-0307",
+      "name": "Berkeley Math Circle Monthly Contest 4 #0hr7",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 4",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Factorization techniques",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\n\nProve that for each $n \\geq 1$, there is a number $N$ having $n$ digits, each of which is either $1$ or $2$, such that $N$ is divisible by $2^{n}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe proceed by induction. For $n=1$, the number $N=2$ works. Suppose $N$ works for a given $n$. Consider the two $(n+1)$-digit numbers\n$$\nN_{1}=10^{n}+N \\quad \\text{ and } \\quad N_{2}=2 \\cdot 10^{n}+N .\n$$\nformed by attaching a single $1$ or $2$ to the left-hand side of $N$. Note that $N_{1}$ and $N_{2}$ are both divisible by $2^{n}$ (since $N$ and $10^{n}$ are) and their difference, $N_{2}-N_{1}=10^{n}=2^{n} \\cdot 5^{n}$, is divisible by $2^{n}$ but not by $2^{n+1}$. Therefore, one of $N_{1}$ and $N_{2}$ is divisible by $2^{n+1}$, which completes the induction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-induction-smoothing-auto-0324",
+      "name": "Berkeley Math Circle Take-Home Contest #6 #0hro",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Take-Home Contest #6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Greatest common divisors (gcd)",
+        "Polynomial operations",
+        "Recurrence relations",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\n\nLet $P(x)$ be a polynomial with integer coefficients. Let $a_{0}=0$ and for $i \\geq 0$ define $a_{i+1}=P\\left(a_{i}\\right)$. Prove that $\\operatorname{gcd}\\left(a_{m}, a_{n}\\right)=a_{\\gcd(m, n)}$ for any integers $m, n \\geq 1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nIf $Q(x), R(x)$ are any two polynomials with integer coefficients, it is not hard to see that their composition $Q(R(x))$ is also such a polynomial. In particular, for any nonnegative integer $n$, $P^{n}(x)$, the function obtained by iterating $P$ $n$ times, is an integer polynomial. Note that $a_{n}=P^{n}(0)$.\n\nNow, we prove the result by induction on the larger one of $m, n$. The base case is $m, n=1$, where we want $\\operatorname{gcd}\\left(a_{1}, a_{1}\\right)=a_{\\operatorname{gcd}(1,1)}$, and this is obvious. Now suppose one of $n, m$ is greater than $1$. For definiteness take $n \\geq m$. If $n=m$, the result is again obvious, so assume $n>m$. Since $a_{n-m}=P^{n-m}(0)$, $P^{n-m}$ is a polynomial whose constant term is $a_{n-m}$. Then $a_{n}=P^{n}(0)=P^{n-m}\\left(P^{m}(0)\\right)=P^{n-m}\\left(a_{m}\\right)$ which equals $a_{n-m}$ (the constant term) plus a sum of terms divisible by $a_{m}$. It follows that $\\operatorname{gcd}\\left(a_{n}, a_{m}\\right)=\\operatorname{gcd}\\left(a_{n-m}, a_{m}\\right)$. But by the induction hypothesis (since $m$ and $n-m$ are less than $n$), we have $\\operatorname{gcd}\\left(a_{n-m}, a_{m}\\right)=a_{\\operatorname{gcd}(n-m, m)}=a_{\\operatorname{gcd}(n, m)}$; combining this with the previous equality completes the induction step and the proof."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-induction-smoothing-auto-0357",
+      "name": "MathNet #0hsl",
+      "url": "https://usamoguide.com/",
+      "source": "MathNet",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Coloring schemes, extremal arguments",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\n\nDraw a rectangle. Connect the midpoints of the opposite sides to get 4 congruent rectangles. Connect the midpoints of the lower right rectangle for a total of 7 rectangles. Repeat this process infinitely. Let $n$ be the minimum number of colors we can assign to the rectangles so that no two rectangles sharing an edge have the same color and $m$ be the minimum number of colors we can assign to the rectangles so that no two rectangles sharing a corner have the same color. Find the ordered pair $(n, m)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n$(3,4)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-induction-smoothing-auto-0367",
+      "name": "Berkeley Math Circle Monthly Contest 8 #0hsv",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 8",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Modular Arithmetic",
+        "Recursion, bijection",
+        "Induction / smoothing",
+        "Recurrence relations"
+      ],
+      "statement": "Problem:\nLet $M_{n}$ be the number of integers $N$ such that\n(a) $0 \\leq N < 10^{n}$;\n(b) $N$ is divisible by $4$;\n(c) The sum of the digits of $N$ is also divisible by $4$.\nProve that $M_{n} \\neq 10^{n} / 16$ for all positive integers $n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nSince $10^{n} / 16$ is not an integer for $n=1,2,3$, we may assume that $n \\geq 4$. Let\n$$\n\\tilde{M}_{n} = M_{n} - \\frac{10^{n}}{16}\n$$\nWe note that numbers whose hundreds digit is between $2$ and $9$ inclusive make no total contribution to $\\tilde{M}_{n}$ for $n \\geq 3$. This is because, given the remaining digits, divisibility by $4$ (which depends only on the tens and units digits) occurs one-fourth of the time, and exactly two of the eight choices for the hundreds digit brings the total of the digits to a multiple of $4$. Similarly, numbers with hundreds digit $0$ or $1$ but thousands digit at least $2$ make no contribution to $\\tilde{M}_{n}$. (We require the hundreds digit to be less than $2$ to avoid double counting.) Continuing in this way, we find that only the $25 \\cdot 2^{n}$ numbers with all but the last two digits equal to $0$ or $1$ can make $\\tilde{M}_{n}$ nonzero. Let $L_{n}$ be the number of such numbers satisfying conditions (a), (b), and (c). We thus have\n$$\n\\tilde{M}_{n} = L_{n} - \\frac{25 \\cdot 2^{n}}{16}\n$$\nNow let $f(i, k)$ be the number of binary strings of length $k$ whose sum is congruent to $i \\bmod 4$. Since there are respectively $9, 4, 6, 6$ multiples of $4$ less than $100$ with digit sums $\\equiv 0, 1, 2, 3 \\bmod 4$, we have\n$$\nL_{n} = 9 f(0, n-2) + 4 f(3, n-2) + 6 f(2, n-2) + 6 f(1, n-2).\n$$\nIf we let $\\tilde{f}(i, k) = f(i, k) - 2^{k} / 4$, we can subtract $25 \\cdot 2^{n} / 16$ from both sides of the above equation to get\n$$\n\\tilde{M}_{n} = 9 \\tilde{f}(0, n-2) + 4 \\tilde{f}(3, n-2) + 6 \\tilde{f}(2, n-2) + 6 \\tilde{f}(1, n-2)\n$$\nOn the other hand, dividing a binary $k$-string with sum $i$ into a $k-1$-string and a single bit and noting that the sum of the $k-1$-string is either $i$ or $i-1$, we get the recurrence\n$$\nf(i, k) = f(i, k-1) + f(i-1, k-1)\n$$\nwhich is equivalent to\n$$\n\\tilde{f}(i, k) = \\tilde{f}(i, k-1) + \\tilde{f}(i-1, k-1).\n$$\nTogether with the boundary conditions\n$$\n\\begin{array}{ll}\nf(0,0)=1, & f(1,0)=f(2,0)=f(3,0)=0, \\\\\n\\tilde{f}(0,0)=\\frac{3}{4}, & \\tilde{f}(1,0)=\\tilde{f}(2,0)=\\tilde{f}(3,0)=-\\frac{1}{4},\n\\end{array}\n$$\nthis enables us to calculate values of $\\tilde{f}(i, k)$ and therefore of $\\tilde{M}_{n}$. It is trivial to prove by induction that for $k \\geq 1$,\n$$\n\\tilde{f}(i, k) = -\\tilde{f}(i+2, k),\n$$\nfrom which it follows after a short computation using (4) that\n$$\n\\tilde{f}(i, k+4) = -4 \\tilde{f}(i, k), \\quad k \\geq 1\n$$\nNow we substitute this equation into (3), yielding\n$$\n\\tilde{M}_{n+4} = -4 \\tilde{M}_{n}, \\quad n \\geq 3\n$$\nThis implies that $\\tilde{M}_{n+4}$ is nonzero if $\\tilde{M}_{n}$ is. We have already noted that $\\tilde{M}_{3}$ is nonzero because it is not an integer. Computing $\\tilde{M}_{4}=2$, $\\tilde{M}_{5}=-1$, and $\\tilde{M}_{6}=-6$ by hand using (5), (4), and (3) completes the proof that $\\tilde{M}_{n}$ is nonzero for all $n \\geq 1$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-induction-smoothing-auto-0392",
+      "name": "Berkeley Math Circle #0htk",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Induction / smoothing",
+        "Coloring schemes, extremal arguments"
+      ],
+      "statement": "Problem:\n\nThe positive integers from $1$ to $100$ are written, in some order, in a $10 \\times 10$ square. In each row, the five smallest numbers are crossed out. In each column, the five largest numbers (including those that have already been crossed out) are circled. Prove that at least $25$ numbers will be circled but not crossed out.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe generalize to the following:\nLet $m \\geq p$, $n \\geq q$ be integers. Each square of an $m$-row, $n$-column grid is filled with a different positive integer.\nThen at least $p q$ numbers are among the $p$ largest numbers in their columns and the $q$ largest numbers in their rows.\nWe prove this latter statement by induction on $m+n$. The base case, when $m=1$ or $n=1$, is trivial. Given an $m \\times n$ grid with $m \\geq 2$ and $n \\geq 2$, let $L$ be the largest number that is one of the largest in its row or its column, but not both. Assume without loss of generality that $L$ is among the largest in its column and not among the largest in its row, so the $q$ largest numbers in $L$'s row are all larger than $L$ and all among the largest in their columns. Temporarily remove this row from the matrix. By the induction hypothesis, at least $(p-1) q$ numbers are now among the $q$ largest numbers in their rows and the $p-1$ largest numbers in their columns. These are also among the $p$ largest numbers in their columns in the original matrix. Adding the $q$ largest numbers in the deleted row, we find $(p-1) q+q=p q$ numbers satisfying the original condition. The problem follows by taking $m=n=10$ and $p=q=5$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-induction-smoothing-auto-0412",
+      "name": "Berkeley Math Circle Monthly Contest 6 #0hu4",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recurrence relations",
+        "Sums and products",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\nLet $a_{1}, a_{2}, a_{3}, \\ldots$ be an infinite sequence of positive real numbers such that for all $n \\geq 1$,\n$$\na_{n} \\leq a_{2 n}+a_{2 n+1}\n$$\nProve that there exists an $N \\geq 1$ such that\n$$\n\\sum_{n=1}^{N} a_{n}>1\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet us prove by induction that for any positive integer $k$, there is an $N$ for which\n$$\n\\sum_{n=1}^{N} a_{n} \\geq k a_{1}\n$$\nThe base case, $k=1$ and $N=1$, is trivial. Given that (1) is true for a given $k$, we have\n$$\nk a_{1} \\leq \\sum_{n=1}^{N} a_{n} \\leq \\sum_{n=1}^{N}\\left(a_{2 n}+a_{2 n+1}\\right)=\\sum_{\\substack{2 \\leq n \\leq 2 N \\\\ n \\text{ even }}} a_{n}+\\sum_{\\substack{3 \\leq n \\leq 2 N+1 \\\\ n \\text{ odd }}} a_{n}=\\sum_{n=2}^{2 N+1} a_{n}\n$$\nAdding $a_{1}$, we get\n$$\n\\sum_{n=1}^{2 N+1} a_{n} \\geq(k+1) a_{1}\n$$\nas desired.\n\nThe problem now follows by taking $k$ large enough so that $k>1 / a_{1}$, so $k a_{1}>1$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-induction-smoothing-auto-0428",
+      "name": "Berkeley Math Circle Monthly Contest 1 #0huk",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Injectivity / surjectivity",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\n\nFind all functions $f: \\mathbb{Z} \\rightarrow \\mathbb{Z}$ such that $f(f(x)+y+1)=x+f(y)+1$ for every two integers $x$ and $y$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSubstituting $x=0$ we get $f(f(0)+y+1)=f(y)+1$.\n\nNow we have $x+f(y)+1=f(f(x)+y+1)=f[(f(x)+1)+y]=f[f(f(0)+x+1)+(y-1)+1]=f(y-1)+(f(0)+x+1)+1$ from where we conclude that\n\n$$\nf(y)=f(y-1)+f(0)+1 .\n$$\n\nUsing induction we obtain $f(n)=f(0)+n(f(0)+1)$ for all integers $n$.\n\nIf we set $y=0$ in (1) we get $f(-1)=-1$ and substituting $y=-1$ in the original equation yields $f(f(x))=x$.\n\nIf we apply $f$ to both sides of $f(n)=f(0)+n(f(0)+1)$ we get $n=f(0)+[f(0)+n(f(0)+1)](f(0)+1)$ which is equivalent to $n=f(0)(f(0)+2)+n(f(0)+1)^2$ and this can be satisfied for all integers $n$ if and only if $f(0)=0$ or $f(0)=-2$.\n\nIn the first case we get $f(n)=n$ and in the second $f(n)=-n-2$.\n\nIt is easy to verify that both functions satisfy the required conditions."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-induction-smoothing-auto-0431",
+      "name": "Berkeley Math Circle: Monthly Contest 7 #0hun",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 7",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Induction / smoothing",
+        "Integers"
+      ],
+      "statement": "Problem:\nProve that there exist pairwise distinct positive integers $a_{0}, a_{1}, a_{2}, \\ldots, a_{1000}$ such that\n$$\na_{0}! = a_{1}!\\, a_{2}!\\, \\ldots\\, a_{1000}!\n$$\nHere $n! = 1 \\times 2 \\times \\cdots \\times n$ as usual.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe proceed by induction on $n \\geq 2$. First, we can have $a_{1}=3$, $a_{2}=5$ and $a_{0}=6$. Now, given a working tuple $\\left(a_{0}, a_{1}, \\ldots, a_{n}\\right)$, note that the tuple\n$$\n\\left(a_{0}!, a_{1}, \\ldots, a_{n},\\left(a_{0}-1\\right)!\\right)\n$$\nis a working tuple of length $n+1$. This completes the proof."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-induction-smoothing-auto-0434",
+      "name": "Berkeley Math Circle Monthly Contest 2 #0huq",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 2",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Techniques: modulo, size analysis, order analysis, inequalities",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\nProve that for every positive integer $n$, there is an integer $x$ such that $x^{2}-17$ is divisible by $2^{n}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe prove this by induction on $n$.\n\nIf $n=1,2$, or $3$, then $x=1$ works.\n\nSuppose that $x^{2}-17$ is divisible by $2^{n}$ and $n \\geq 3$. We seek to find $y$ such that $y^{2}-17$ is divisible by $2^{n+1}$. Let\n$$\nx^{2}-17=k \\cdot 2^{n} \\text{.}\n$$\nIf $k$ is even, we are done since $x^{2}-17$ is divisible by $2^{n+1}$. If $k$ is odd, $k=2 m+1$, we have\n$$\n\\begin{aligned}\n\\left(x+2^{n-1}\\right)^{2}-17 & =x^{2}+2 \\cdot x \\cdot 2^{n-1}+2^{2(n-1)}-17 \\\\\n& =x^{2}-17+x \\cdot 2^{n}+2^{2 n-2} \\\\\n& =(2 m+1) \\cdot 2^{n}+x \\cdot 2^{n}+2^{2 n-2} \\\\\n& =2^{n}(x+1)+2^{n+1}\\left(m+2^{n-3}\\right)\n\\end{aligned}\n$$\nSince $x$ is obviously odd and $n \\geq 3$, this is a multiple of $2^{n+1}$, and $y=x+2^{n-1}$ works."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-induction-smoothing-auto-0459",
+      "name": "Berkeley Math Circle Monthly Contest 5 #0hvf",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 5",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial operations",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\nDetermine whether there exist two distinct finite subsets $A$ and $B$ of the reals such that for every polynomial $f$ of degree $2012$ with real coefficients,\n$$\n\\sum_{x \\in A} f(x) = \\sum_{x \\in B} f(x)\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe will prove by induction on $n \\geq 0$ that there exist distinct sets $A_n$ and $B_n$ satisfying the desired equality\n$$\n\\sum_{x \\in A_n} f(x) = \\sum_{x \\in B_n} f(x)\n$$\nfor all polynomials $f$ of degree at most $n$.\n\nThe base case is $n=0$; we take $A = \\{0\\}$ and $B = \\{1\\}$.\n\nNow we suppose $A_{n-1}$ and $B_{n-1}$, $n \\geq 1$, to be constructed and define\n$$\n\\begin{aligned}\n& A_n = A_{n-1} \\cup (B_{n-1} + t) \\\\\n& B_n = B_{n-1} \\cup (A_{n-1} + t)\n\\end{aligned}\n$$\nwhere the parameter $t$ of the translations is a real number large enough that the unions are actually disjoint unions.\n\nNow the condition becomes\n$$\n\\begin{aligned}\n\\sum_{x \\in A_{n-1}} f(x) + \\sum_{x \\in B_{n-1}} f(x+t) &= \\sum_{x \\in B_{n-1}} f(x) + \\sum_{x \\in A_{n-1}} f(x+t) \\\\\n\\sum_{x \\in A_{n-1}} [f(x) - f(x+t)] &= \\sum_{x \\in B_{n-1}} [f(x) - f(x+t)] .\n\\end{aligned}\n$$\nIf $f(x)$ has degree at most $n$, then the polynomial $g(x) = f(x) - f(x+t)$ has degree at most $n-1$ since the leading terms of $f(x)$ and $f(x+t)$ are identical. Thus this last condition holds by the induction hypothesis."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-induction-smoothing-auto-0461",
+      "name": "Berkeley Math Circle #0hvh",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Algebraic properties of binomial coefficients",
+        "Invariants / monovariants",
+        "Induction / smoothing",
+        "Coloring schemes, extremal arguments"
+      ],
+      "statement": "Problem:\nA bulldozer is touring Pascal's triangle. It starts at the top of the triangle, at $\\left(\\begin{array}{l}0 \\\\ 0\\end{array}\\right)=1$. Each move, it travels to an adjacent positive integer, but can never return to a spot it has already visited. Moreover, if it has visited two numbers $a>b$, it may not visit $a+b$ or $a-b$. Finally, the bulldozer is confined to the first 140 rows of Pascal's triangle.\nProve that the bulldozer may visit at least 2017 numbers. (By convention, the $n$th row contains the entries $\\left(\\begin{array}{c}n-1 \\\\ k\\end{array}\\right)$ for $k=0, \\ldots, n-1$, hence the $n$th row has $n$ entries.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe main idea is to visit odd numbers!\nWe claim inductively that the first $2^{n}$ rows of Pascal's triangle satisfy the following properties:\n- The $2^{n}$th row contains only odd numbers.\n- The first $2^{n}$ rows contain $3^{n}$ odd numbers.\n- When taken modulo 2, there is 120 degree symmetry\n- There is a path starting at any corner to any other corner through only odd numbers.\nIndeed this is clear for $n=1$. For the inductive step, let $T$ denote the shape of the first $2^{n}$ rows modulo 2. Note that row $2^{n}+1$ contains all even numbers except the endpoints $\\left(\\begin{array}{c}2^{n} \\\\ 0\\end{array}\\right)=\\left(\\begin{array}{c}2^{n} \\\\ 2^{n}\\end{array}\\right)=1$. Thus in fact we get two side-by-side copies of the triangle $T$, which meet on row $2^{n+1}$ and thus have all ones. (Between the two copies of $T$ we get an inverted triangle having all entries 0.) From these observations, we see that all statements in the inductive hypothesis hold.\nThus, we may visit odd numbers from rows 1 to 128. In doing so, we visit $3^{7}=2187$ odd numbers."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-induction-smoothing-auto-0464",
+      "name": "Berkeley Math Circle #0hvk",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Coloring schemes, extremal arguments",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\nDetermine if it is possible to color each of the rational numbers either red or blue such that the following three conditions are all satisfied:\n(i) $x$ and $-x$ are opposite colors, for all rational $x \\neq 0$;\n(ii) $x$ and $1-x$ are opposite colors, for all rational $x \\neq 1 / 2$;\n(iii) $x$ and $1 / x$ are opposite colors, for all rational $x \\neq 0, \\pm 1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe answer is yes.\nWe will prove the following statement by induction: It is possible to color the rational numbers with denominator at most $n$ red and blue such that the conditions (i)-(iii) hold whenever the two rational numbers in question both have denominator at most $n$, and such that no number reverses color at any step. (The last condition ensures that, when the induction is complete, every number will have a well-defined color.)\n\nWe make two base cases. For $n=1$, color all the positive integers red and all the nonpositive integers blue. Then, for $n=2$, color the number $x+\\frac{1}{2}$ (for integer $x$) blue if $x \\geq 0$ and red if $x<0$. It is easy to see that conditions (i)-(iii) are satisfied so far.\n\nAssume that all rational numbers with denominator less than $n$ ($n \\geq 3$) have been colored. We must color the fractions $m / n$, where $m$ is an integer coprime to $n$. First, when $0<m<n$, color $m / n$ the opposite of $n / m$ (which has already been colored). Then color $1+m / n$ the same color as $m / n$ for each $m>0$ coprime to $n$. Finally, color $-m / n$ the opposite of $m / n$. Condition (i) is obviously satisfied. Condition (iii), that $m / n$ and $n / m$ are opposite colors, is relevant only if $|m|<n$; it is satisfied by definition if $m>0$, and otherwise it is enough to note that the row of numbers\n$$\n\\frac{m}{n}, \\quad \\frac{n}{m}, \\quad-\\frac{n}{m}, \\quad-\\frac{m}{n}\n$$\nhas been colored alternately red and blue, implying that the two end terms have opposite colors. It remains to verify condition (ii). If $x>1$ or $x<0$, this follows from (i) and the fact that $y$ and $y+1$ have been colored alike for $y>0$. So we are left with the case $0<x<1$, that is, proving that $m / n$ and $(n-m) / n$ are the same color when $0<m<n$. The six numbers\n$$\n\\frac{m}{n}, \\frac{n}{m},-\\frac{n-m}{m},-\\frac{m}{n-m}, \\frac{n}{n-m}, \\frac{n-m}{n}\n$$\nhave been colored alternately red and blue by (ii) and (iii), so the two end terms have opposite colors."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-induction-smoothing-auto-0465",
+      "name": "Berkeley Math Circle #0hvl",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Invariants / monovariants",
+        "Coloring schemes, extremal arguments",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\n\nFor which $n \\geq 3$ can an $n \\times n$ board with all four corners removed be tiled with \"L\" and \"J\" tetris pieces?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe claim that $n$ works iff $n \\equiv 2 \\pmod{4}$.\n\nThe board has $n^{2}-4$ squares. If $n$ is odd, this is odd, so the board wouldn't be coverable with tetris tiles (which have 4 cells each).\n\nThus $n$ is even. Alternately color the rows of the board black and white. Each of the tetris pieces must cover three squares of one color and one of the other. Let $b$ be the number of blocks which cover three black squares and $w$ be the number of blocks which cover three white squares.\n\nBy vertical symmetry, there are an equal amount of black squares and white squares, so $b=w$. The total number of tiles is thus $b+w=2b$, so the total number of cells is $8b=n^{2}-4$. Thus, $8 \\mid n^{2}-4$, so $8 \\nmid n^{2}$, so $4 \\nmid n$. Thus, $n \\equiv 2 \\pmod{4}$, as desired.\n\nIt remains to show that all $n$ such that $n \\equiv 2 \\pmod{4}$ work. In fact, one only needs \"J\" tiles to construct such $n$; we present the following proof by induction:\n\n![](attached_image_1.png)\n\nOur base case is $n=2$, which loses its tiles once we remove the corners, so it is trivially tiled by 0 pieces. For $n \\equiv 2 \\pmod{4}$, we can follow the process illustrated in the illustration: The pink rectangles have length $n-6 \\equiv 0 \\pmod{4}$ and width 2, so we can nest $\\mathrm{J}$ blocks to form a rectangle of width 2 and length 4, which we stack to tile the pink regions. The red region is a board with length $n-4 \\equiv 2 \\pmod{4}$ and its corners removed. By induction, such a board can be tiled by our blocks, so we're done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-induction-smoothing-auto-0477",
+      "name": "Berkeley Math Circle Monthly Contest 4 #0hvx",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 4",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\nFind all functions $f: \\mathbb{R} \\rightarrow \\mathbb{R}$ such that\n$$\nf(x y+z)=f(x) f(y)+f(z)\n$$\nfor all real numbers $x$, $y$, and $z$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $f(x)=0$ or $f(x)=x$. Both of these trivially satisfy the equation.\n\nWe plug in $x=y=z=0$ to get\n$$\n\\begin{array}{r}\nf(0)=f(0)^{2}+f(0) \\\\\n0=f(0)^{2} \\\\\n0=f(0)\n\\end{array}\n$$\nThen we plug in $x=y=1$, $z=0$ to get\n$$\n\\begin{aligned}\nf(1) & =f(1)^{2}+f(0) \\\\\n0 & =f(1)^{2}-f(1)\n\\end{aligned}\n$$\nso $f(1)=0$ or $f(1)=1$. If $f(1)=0$, we can immediately plug in $y=1$ and $z=0$ to conclude that\n$$\nf(x)=f(x) \\cdot 0+0=0\n$$\nfor all $x$.\n\nIf $f(1)=1$, then we can derive that $f$ has two simple properties: the addition property from plugging in $y=1$,\n$$\nf(x+z)=f(x)+f(z)\n$$\nand the multiplication property from plugging in $z=0$,\n$$\nf(x y)=f(x) f(y) .\n$$\nPlugging $z=-x$ into the addition property tells us that $f(-x)=-f(x)$, i.e. $f$ is an odd function. Also, the addition property lends itself to use for an induction, starting at $f(1)=1$, that proves $f(n)=n$ for all positive integers $n$.\n\nSuppose that $f$ is not the identity function. Then there is a number $x$ such that $f(x) \\neq x$. Changing $x$ to $-x$ if necessary, we can assume that $f(x)<x$. We can then double $x$ repeatedly, which will also double $f(x)$ by the addition property, until the difference $x-f(x)$ becomes at least $2$. Then there is an integer $n$ between $f(x)$ and $x$:\n$$\nf(x)<n<x \\text{.}\n$$\nWe note that $x-n$ is positive, while $f(x)-n=f(x-n)$ is negative. Thus we have a number $u>0$ such that $f(u)<0$. This is impossible by the multiplication property, since for $u>0$,\n$$\nf(u)=f(\\sqrt{u} \\cdot \\sqrt{u})=f(\\sqrt{u}) \\cdot f(\\sqrt{u}) \\geq 0 .\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-induction-smoothing-auto-0480",
+      "name": "Berkeley Math Circle: Monthly Contest 2 #0hw0",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 2",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Induction / smoothing",
+        "Expected values",
+        "Sums and products",
+        "Coloring schemes, extremal arguments"
+      ],
+      "statement": "Problem:\nLet $A$ be a set of size $2023$. Find the maximum number of pairs of elements $x, y \\in A$ so that $x-y$ is a power of $e$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $a_{n}$ be the maximum possible number of such pairs for a set of size $n$. Let $s_{2}(n)$ be the number of ones in $n$'s binary representation. Let $S(n)=\\sum_{k=0}^{n-1} s_{2}(k)$. We show that $a_{n}=S(n)$.\n\nFor the construction, we can take the binary representations of all numbers from $0$ to $n-1$, and interpret them as numbers \"base $e$\". Every $x$ corresponding to some integer $0 \\leq k < n$ then has $s_{2}(k)$ working values of $y$, corresponding to all ways to replace a $1$ with a $0$ in $k$'s binary representation.\n\nFor optimality, we use strong induction. The base case of $n=1$ holds as $a_{1}=0=s_{2}(0)$.\n\nNow assume $n>1$. If $A$ has no working pairs $x, y$, we are done. Otherwise, let $t$ be an integer so that there is at least one pair $x, y \\in A$ so that $x-y=e^{t}$.\n\nLet $G$ be the graph of such pairs in $A$. If $G$ is not connected, we can increase the number of edges of $G$ by shifting the vertices of one component of $G$ to create at least one edge to another component. Thus we can assume that all elements of $A$ are sums of powers of $e$. For an element $z \\in A$, let $c_{z}$ be the coefficient of $e^{t}$ in the representation of $A$ as a sum.\n\nLet $X$ be the set of $z$ so that $c_{z} \\geq c_{x}$ and let $Y$ be the set of $z$ so that $c_{z} \\leq c_{y}$. Note that $X \\sqcup Y = A$. By strong induction, there are at most $a_{|X|}$ working pairs in $X$, and at most $a_{|Y|}$ pairs in $Y$. By definition of $X$ and $Y$, any pair between them can only have one possible difference, namely $e^{t}$. Thus, there are at most $\\min (|X|,|Y|)$ pairs between them.\n\nThus, we have the recurrence $a_{n} \\leq \\max_{X+Y=n}\\left(a_{X}+a_{Y}\\right)+\\min (X, Y)$. It thus suffices to show that if $Y \\geq X$, $S(X+Y)-S(Y) \\geq S(X)+X$, which expands to\n$$\n\\sum_{k=Y}^{Y+X-1} s_{2}(k) \\geq \\sum_{k=0}^{X-1}\\left(1+s_{2}(k)\\right).\n$$\nAn exercise to the interested reader is to show this by strong induction on $X$.\n\nNow it remains to evaluate $S(2023)$. By linearity of expectation, $S(2048)$ is equal to $2048 \\cdot 11 / 2$. For every number from $2032=2048-16$ to $2048$, $7$ digits must be $1$ and the remaining four each have a half chance of being $1$, giving $S(2048)-S(2032)=16 \\cdot(7+4 / 2)$. Similarly $S(2032)-S(2024)=8 \\cdot(7+3 / 2)$, $S(2024)-S(2023)$ is just the number of ones in $2023=11111100111_{2}$ is $9$. Thus the answer is\n$$\n2048 \\cdot 11 / 2 - 16 \\cdot (7+4/2) - 8 \\cdot (7+3/2) - 9 = 11043.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

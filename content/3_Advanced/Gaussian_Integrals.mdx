@@ -1,0 +1,269 @@
+---
+id: gaussian-integrals
+title: Gaussian Integrals
+author: Pranav Ramesh
+description: A guide to Gaussian integrals — motivation from probability distributions, the polar coordinate trick, expectation values, and related higher-order Gaussian integrals with worked examples.
+prerequisites: ["intuition-behind-integrals", "substitutions", "integration-by-parts"]
+---
+
+## Overview
+
+This handout examines methods for computing Gaussian integrals and presents several practice problems relevant to physics Olympiads.
+
+## 1. Motivation: Probability Distributions
+
+To motivate the importance of Gaussian integrals, consider their most important application to probability theory used in thermodynamics. Thermodynamics considers macroscopic systems involving a large number (on the order of $10^{23}$) of atomic or molecular particles — too many to individually describe the mechanics of each particle. Fortunately, thermodynamics is often interested in "average" quantities of an entire system, rather than the specifics of individual molecules. With this in mind, the specifics of individual particles can be ignored, and instead the *distribution* of quantities over the entire system is considered.
+
+The distribution of a quantity can be described with a **probability density function**, or PDF. For a PDF $f(x)$, the value $f(a)\,dx$ equals the probability of measuring $x$ between $a$ and $a + dx$:
+
+$$
+f(a)\,dx = \text{probability of finding } x \text{ between } a \text{ and } a + dx \tag{1.1}
+$$
+
+The total probability of finding $x$ within an interval $a < x < b$ is just the integral from $a$ to $b$ of $f(x)\,dx$:
+
+$$
+\int_a^b f(x)\,dx = \text{probability of finding } x \text{ between } a \text{ and } b \tag{1.2}
+$$
+
+Some of the most common PDFs in thermodynamics and modern physics are the **Gaussian function**
+
+$$
+f(x) = Ae^{-\alpha x^2} \tag{1.3}
+$$
+
+and a related set of functions containing the Gaussian multiplied by a polynomial
+
+$$
+f(x) = Ax^n e^{-\alpha x^2} \tag{1.4}
+$$
+
+where $A$ and $\alpha$ are parameters. A **Gaussian integral** is the definite integral of the Gaussian function from $-\infty$ to $\infty$:
+
+$$
+I = \int_{-\infty}^{\infty} Ae^{-\alpha x^2}\,dx \tag{1.5}
+$$
+
+When finding probabilities with a Gaussian PDF, the need to compute Gaussian integrals invariably comes up as a result of Equation (1.2).
+
+## 2. Gaussian Integrals
+
+To start, consider the simple case of a Gaussian integral $I$ with $A = \alpha = 1$ in Equation (1.5):
+
+$$
+I = \int_{-\infty}^{\infty} e^{-x^2}\,dx \tag{2.1}
+$$
+
+Unfortunately, the general antiderivative of $e^{-x^2}$ cannot be expressed in terms of elementary functions. However, the specific integral in Equation (2.1) can still be evaluated with a trick using polar coordinates.
+
+Consider two Gaussian functions of two independent variables $x$ and $y$. From basic probability theory, the probability of finding $x$ in $(a_x, a_x + dx)$ and $y$ in $(a_y, a_y + dy)$ is the product of the individual probabilities:
+
+$$
+\left(e^{-x^2}\,dx\right)\left(e^{-y^2}\,dy\right) = \text{probability of finding } a_x < x < a_x + dx \text{ and } a_y < y < a_y + dy \tag{2.2}
+$$
+
+This probability, rewritten as $\exp(-(x^2 + y^2)) \times dx \times dy$, has the interpretation as the volume of a rectangular prism placed on the $xy$-plane. The total probability over the entire plane equals the total volume $V$ of the surface $z = \exp(-(x^2 + y^2))$ over the entire $xy$-plane.
+
+Because $x$ and $y$ are independent variables, the total probability equals the product of the individual probabilities:
+
+$$
+\left(\int_{-\infty}^{\infty} e^{-x^2}\,dx\right)\left(\int_{-\infty}^{\infty} e^{-y^2}\,dy\right) = V \tag{2.3}
+$$
+
+The left-hand side of Equation (2.3) is just the product of two Gaussian integrals $I$, so
+
+$$
+I^2 = V \tag{2.4}
+$$
+
+The volume under $z = \exp(-(x^2 + y^2))$ is rotationally symmetric about the $z$-axis, so the **shell method** can be used. Each shell centered on the $z$-axis with radius $r$ has height
+
+$$
+z = e^{-(x^2 + y^2)} = e^{-r^2} \tag{2.5}
+$$
+
+The shell volume $dV$ is the product of height, thickness $dr$, and circumference $2\pi r$:
+
+$$
+dV = 2\pi r e^{-r^2}\,dr \tag{2.6}
+$$
+
+The total volume is then
+
+$$
+V = \int_0^{\infty} 2\pi r e^{-r^2}\,dr \tag{2.7}
+$$
+
+Because polar coordinates introduce an extra $r$ factor, this can be solved with $u$-substitution. Making the substitution $u = r^2$:
+
+$$
+V = \int_0^{\infty} \frac{2\pi r}{2r} e^{-u}\,du = \int_0^{\infty} \pi e^{-u}\,du = -\pi e^{-u}\Big|_0^{\infty} = \pi
+$$
+
+Substituting $V$ into Equation (2.4) solves the Gaussian integral:
+
+$$
+I = \sqrt{\pi} \tag{2.8}
+$$
+
+**Example 1:** Show that the general Gaussian integral is
+
+$$
+I = \int_{-\infty}^{\infty} Ae^{-ax^2}\,dx = A\sqrt{\frac{\pi}{a}} \tag{2.9}
+$$
+
+**Solution 1:** Applying the polar substitution trick, the integral $I$ boils down to finding the volume under the surface
+
+$$
+I^2 = A^2 \int_0^{\infty} 2\pi r e^{-ar^2}\,dr \tag{2.10}
+$$
+
+with the two factors of $A$ pulled out. Using the substitution $u = ar^2$:
+
+$$
+I^2 = A^2 \int_0^{\infty} \frac{2\pi r}{2ar} e^{-u}\,du = A^2 \int_0^{\infty} \frac{\pi}{a} e^{-u}\,du = A^2 \left(-\frac{\pi}{a} e^{-u}\Big|_0^{\infty}\right) = A^2 \frac{\pi}{a}
+$$
+
+which means $I = A\sqrt{\pi/a}$.
+
+**Example 2:** In thermodynamics, the Maxwell–Boltzmann velocity distribution describes the distribution of velocities of molecules in an ideal gas. The PDF for the $x$-component of velocity $v_x$ is:
+
+$$
+f(v_x) = Ae^{-mv_x^2/2kT} \tag{2.11}
+$$
+
+where $A$ is some scaling constant and $m$, $k$, $T$ are given for an ideal gas. The probability of finding any value of $v_x$ from $-\infty$ to $\infty$ is $1$, so
+
+$$
+1 = \int_{-\infty}^{\infty} f(v_x)\,dv_x \tag{2.12}
+$$
+
+Using Equation (2.12), find the expression for the scaling constant $A$.
+
+**Solution 2:** $f(v_x)$ is a Gaussian function with $a = m/2kT$. Applying the polar coordinate trick:
+
+$$
+1 = A\sqrt{\frac{\pi}{m/2kT}}
+$$
+
+$$
+A = \sqrt{\frac{m}{2\pi kT}} \tag{2.14}
+$$
+
+## 3. Motivation: Expectation Values
+
+Suppose you know the PDF $f(x)$ for some quantity $x$. One thing you might be interested in is the **average** or **expectation value** for $x$, denoted $\langle x \rangle$, in some interval $(a, b)$. For a non-uniform $f(x)$, the average is a weighted sum of $x$ multiplied by the probability of finding $x$ at that value:
+
+$$
+\langle x \rangle = \sum_{x_i} x_i \cdot f(x_i)\,dx \tag{3.1}
+$$
+
+For a continuous distribution, Equation (3.1) is rewritten with an integral:
+
+$$
+\langle x \rangle = \int_a^b x f(x)\,dx \tag{3.2}
+$$
+
+Therefore, to find the expectation value of any polynomial of $x$ in a Gaussian distribution over $(-\infty, \infty)$, integrals of the form
+
+$$
+\langle x^n \rangle = A \int_{-\infty}^{\infty} x^n e^{-ax^2}\,dx \tag{3.3}
+$$
+
+must be evaluated. Note that the expectation value of any polynomial of $x$ in a Gaussian distribution is just a sum of separate $x^n$ Gaussian integrals, since integration is a linear operation.
+
+## 4. Related Gaussian Integrals
+
+Consider the simple case where $n = 1$ and $A = a = 1$. The related Gaussian integral $I_1$ is:
+
+$$
+I_1 = \int_0^{\infty} x e^{-x^2}\,dx \tag{4.1}
+$$
+
+Note that the lower limit is $0$. Since $x\exp(-x^2)$ is an odd function, the integral from $(-\infty, \infty)$ is trivially zero and not particularly interesting.
+
+**Example 3:** Show that $I_1 = 1/2$ in Equation (4.1).
+
+**Solution 3:** $I_1$ is easily evaluated using $u$-substitution:
+
+$$
+I_1 = \int_0^{\infty} x e^{-x^2}\,dx = \int_0^{\infty} e^{-x^2} \frac{1}{2}\,dx^2 = -\frac{1}{2} e^{-x^2}\Big|_0^{\infty} = \frac{1}{2}
+$$
+
+The usual $u$-substitution has been written as $x\,dx = \frac{1}{2}\,dx^2$, which is just $u = x^2$ in convenient notation.
+
+Now consider the integral $I_2$:
+
+$$
+I_2 = \int_{-\infty}^{\infty} x^2 e^{-x^2}\,dx \tag{4.3}
+$$
+
+Direct $u$-substitution will not work here — the standard approach is to separate the product of $x$ and $e^{-x^2}$ using **integration by parts**:
+
+$$
+I_2 = -\frac{x e^{-x^2}}{2}\Bigg|_{-\infty}^{\infty} + \int_{-\infty}^{\infty} \frac{e^{-x^2}}{2}\,dx \tag{4.5}
+$$
+
+The second term is half of the simple Gaussian integral, giving $\sqrt{\pi}/2$. Using L'Hôpital's rule, the first term is zero. Therefore:
+
+$$
+I_2 = \frac{\sqrt{\pi}}{2} \tag{4.6}
+$$
+
+The process of $u$-substitution with integration by parts can be repeated to find expectation values of successively higher powers of $x^n$ in a Gaussian distribution.
+
+**Example 4:** Evaluate the integral
+
+$$
+I_4 = \int_{-\infty}^{\infty} x^4 e^{-x^2}\,dx \tag{4.7}
+$$
+
+Then evaluate the general integral $I_{2n}$ such that $n \in \mathbb{Z}$:
+
+$$
+I_{2n} = \int_{-\infty}^{\infty} x^n e^{-x^2}\,dx \tag{4.8}
+$$
+
+**Solution 4:** To evaluate $I_4$, first perform an $x^2$ substitution:
+
+$$
+I_4 = \int_{-\infty}^{\infty} x^3 e^{-x^2} \frac{1}{2}\,dx^2 \tag{4.9}
+$$
+
+Then integration by parts gives:
+
+$$
+I_4 = -\frac{x^3 e^{-x^2}}{2}\Bigg|_{-\infty}^{\infty} + \int_{-\infty}^{\infty} \frac{3x^2 e^{-x^2}}{2}\,dx \tag{4.10}
+$$
+
+By L'Hôpital's rule, the boundary term goes to zero. The second term is $\frac{3}{2} \cdot I_2$, so:
+
+$$
+I_4 = \frac{3\sqrt{\pi}}{4} \tag{4.11}
+$$
+
+This procedure can be generalized. All boundary terms from integration by parts vanish by L'Hôpital's rule:
+
+$$
+\text{boundary term} \propto x^m e^{-x^2}\Big|_{-\infty}^{\infty} = 0 \tag{4.12}
+$$
+
+Each substitution reduces the power of $x^{2m}$ by two, always remaining even until the integral reduces to the standard Gaussian. Each substitution contributes a factor of $\frac{1}{2}$, giving a total factor of
+
+$$
+\text{substitution factor} = \frac{1}{2^n} \tag{4.13}
+$$
+
+An odd factor $2m - 1$ (one below the power $x^{2m}$) is multiplied each time integration by parts is performed, giving a factor expressible for any general $I_{2n}$ as
+
+$$
+\text{integration by parts factor} = \frac{(2n-1)!}{2^{n-1}(n-1)!} \tag{4.14}
+$$
+
+Combining Equations (4.13) and (4.14) with the value of the standard Gaussian integral gives:
+
+$$
+I_{2n} = \frac{(2n-1)!}{2^{2n-1}(n-1)!}\sqrt{\pi} \tag{4.15}
+$$
+
+<Problems problems="practice" />

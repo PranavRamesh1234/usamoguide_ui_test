@@ -1,0 +1,442 @@
+---
+id: arc-and-chord
+title: Arc and Chord Relations
+author: Lefteris Demosthenous
+description: Chord length, arc length, and angle theorems in circle geometry.
+prerequisites: [circle-angles]
+---
+
+## Overview
+
+Arcs and chords are closely connected in circle geometry. A central angle determines both the arc it intercepts and the chord connecting the endpoints of that arc.
+
+Many AMC geometry problems can be solved by moving freely between angles, arcs, and chords. In particular, equal chords correspond to equal arcs, and larger arcs correspond to longer chords.
+
+Note: The little arc notation over segment names denotes an arc. For example, with arcs AB and CD,
+
+$$
+\widehat{AB}=\widehat{CD}.
+$$
+
+## Definitions and Key Ideas
+
+A chord is a segment whose endpoints lie on a circle.
+
+An arc is a portion of the circle between two points on the circle.
+
+A central angle is an angle whose vertex is at the centre of the circle.
+
+An inscribed angle is an angle whose vertex lies on the circle itself, with both sides as chords.
+
+A tangent to a circle is a line that touches the circle at exactly one point.
+
+If a central angle intercepts an arc of measure $\theta^\circ$, then the arc itself also has measure $\theta^\circ$.
+
+## Fundamental Relationships
+
+### Equal Chords and Equal Arcs
+
+* Equal chords subtend equal arcs.
+* Equal arcs subtend equal chords.
+* Equal chords subtend equal central angles.
+
+Thus if $AB = CD$, then $\widehat{AB} = \widehat{CD}$ and the corresponding central angles are equal.
+
+### Larger Arcs Correspond to Larger Chords
+
+If one arc has greater measure than another, then its corresponding chord is longer:
+
+$$
+m(\widehat{AB}) > m(\widehat{CD}) \implies AB > CD.
+$$
+
+### Diameter and Semicircles
+
+A diameter divides a circle into two semicircles, each measuring $180^\circ$. Any chord between the endpoints of a diameter is the longest possible chord.
+
+## Angle Theorems
+
+### Inscribed Angle Theorem
+
+<svg viewBox="0 0 500 340" role="img" aria-label="Inscribed angle theorem" style={{ width: '100%', maxWidth: '520px', height: 'auto', display: 'block', margin: '1.5rem auto' }} xmlns="http://www.w3.org/2000/svg">
+  <circle cx="220" cy="165" r="125" fill="none" stroke="#ffffff" strokeWidth="1.5"/>
+  <circle cx="220" cy="165" r="3.5" fill="#ffffff"/>
+  <text x="228" y="170" fill="#ffffff" fontFamily="Georgia, serif" fontSize="13">O</text>
+
+  <circle cx="107" cy="232" r="3.5" fill="#ffffff"/>
+  <text x="88" y="246" fill="#ffffff" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">A</text>
+  <circle cx="333" cy="232" r="3.5" fill="#ffffff"/>
+  <text x="340" y="246" fill="#ffffff" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">B</text>
+  <circle cx="220" cy="40" r="3.5" fill="#ffffff"/>
+  <text x="224" y="33" fill="#ffffff" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">P</text>
+
+  <path d="M 107 232 A 125 125 0 0 1 333 232" fill="none" stroke="#EF9F27" strokeWidth="4" strokeLinecap="round"/>
+
+  <line x1="220" y1="165" x2="107" y2="232" stroke="#ffffff" strokeWidth="1.5"/>
+  <line x1="220" y1="165" x2="333" y2="232" stroke="#ffffff" strokeWidth="1.5"/>
+  <line x1="220" y1="40" x2="107" y2="232" stroke="#5DCAA5" strokeWidth="1.5"/>
+  <line x1="220" y1="40" x2="333" y2="232" stroke="#5DCAA5" strokeWidth="1.5"/>
+
+  <text x="232" y="200" fill="#AFA9EC" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">2θ</text>
+  <text x="224" y="68" fill="#5DCAA5" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">θ</text>
+
+  <line x1="370" y1="120" x2="400" y2="120" stroke="#ffffff" strokeWidth="1.5"/>
+  <text x="407" y="125" fill="#AFA9EC" fontFamily="Georgia, serif" fontSize="12">Central angle (at O)</text>
+  <line x1="370" y1="145" x2="400" y2="145" stroke="#5DCAA5" strokeWidth="1.5"/>
+  <text x="407" y="150" fill="#5DCAA5" fontFamily="Georgia, serif" fontSize="12">Inscribed angle (at P)</text>
+  <line x1="370" y1="170" x2="400" y2="170" stroke="#EF9F27" strokeWidth="4" strokeLinecap="round"/>
+  <text x="407" y="175" fill="#EF9F27" fontFamily="Georgia, serif" fontSize="12">Intercepted arc AB</text>
+
+  <text x="250" y="310" fill="#ffffff" fontFamily="Georgia, serif" fontSize="14" textAnchor="middle">∠AOB = 2 · ∠APB</text>
+</svg>
+
+The central angle is exactly twice the inscribed angle when both subtend the same arc:
+
+$$
+\angle AOB = 2 \cdot \angle APB,
+$$
+
+where $O$ is the centre and $P$ is any point on the major arc. This is one of the most important and frequently tested results in circle geometry.
+
+Corollary. Since all inscribed angles subtending the same arc yield the same central angle, any two inscribed angles subtending the same arc are equal.
+
+### Angles in the Same Segment
+
+<svg viewBox="0 0 620 360" role="img" aria-label="Angles in the same segment and angle in a semicircle" style={{ width: '100%', maxWidth: '640px', height: 'auto', display: 'block', margin: '1.5rem auto' }} xmlns="http://www.w3.org/2000/svg">
+  <circle cx="155" cy="175" r="115" fill="none" stroke="#ffffff" strokeWidth="1.5"/>
+
+  <circle cx="50" cy="237" r="3.5" fill="#ffffff"/>
+  <text x="33" y="250" fill="#ffffff" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">A</text>
+  <circle cx="260" cy="237" r="3.5" fill="#ffffff"/>
+  <text x="266" y="250" fill="#ffffff" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">B</text>
+  <circle cx="214" cy="72" r="3.5" fill="#5DCAA5"/>
+  <text x="218" y="64" fill="#5DCAA5" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">P</text>
+  <circle cx="133" cy="61" r="3.5" fill="#AFA9EC"/>
+  <text x="115" y="56" fill="#AFA9EC" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">Q</text>
+
+  <line x1="50" y1="237" x2="260" y2="237" stroke="#ffffff" strokeWidth="1" strokeDasharray="4 3"/>
+  <line x1="214" y1="72" x2="50" y2="237" stroke="#5DCAA5" strokeWidth="1.5"/>
+  <line x1="214" y1="72" x2="260" y2="237" stroke="#5DCAA5" strokeWidth="1.5"/>
+  <line x1="133" y1="61" x2="50" y2="237" stroke="#AFA9EC" strokeWidth="1.5"/>
+  <line x1="133" y1="61" x2="260" y2="237" stroke="#AFA9EC" strokeWidth="1.5"/>
+
+  <text x="202" y="92" fill="#5DCAA5" fontFamily="Georgia, serif" fontSize="14" fontStyle="italic">θ</text>
+  <text x="138" y="82" fill="#AFA9EC" fontFamily="Georgia, serif" fontSize="14" fontStyle="italic">θ</text>
+
+  <text x="155" y="328" fill="#ffffff" fontFamily="Georgia, serif" fontSize="14" textAnchor="middle">∠APB = ∠AQB</text>
+  <text x="155" y="348" fill="#ffffff" fontFamily="Georgia, serif" fontSize="11" textAnchor="middle">Same segment → equal angles</text>
+
+  <circle cx="465" cy="175" r="115" fill="none" stroke="#ffffff" strokeWidth="1.5"/>
+  <circle cx="465" cy="175" r="3.5" fill="#ffffff"/>
+  <text x="472" y="180" fill="#ffffff" fontFamily="Georgia, serif" fontSize="13">O</text>
+
+  <circle cx="350" cy="175" r="3.5" fill="#ffffff"/>
+  <text x="333" y="180" fill="#ffffff" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">A</text>
+  <circle cx="580" cy="175" r="3.5" fill="#ffffff"/>
+  <text x="585" y="180" fill="#ffffff" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">B</text>
+  <line x1="350" y1="175" x2="580" y2="175" stroke="#ffffff" strokeWidth="2"/>
+
+  <circle cx="514" cy="68" r="3.5" fill="#F0997B"/>
+  <text x="518" y="60" fill="#F0997B" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">P</text>
+  <line x1="350" y1="175" x2="514" y2="68" stroke="#F0997B" strokeWidth="1.5"/>
+  <line x1="580" y1="175" x2="514" y2="68" stroke="#F0997B" strokeWidth="1.5"/>
+
+  <path d="M 503 75 L 496 63 L 509 56" fill="none" stroke="#F0997B" strokeWidth="1.2"/>
+
+  <text x="465" y="328" fill="#ffffff" fontFamily="Georgia, serif" fontSize="14" textAnchor="middle">∠APB = 90°</text>
+  <text x="465" y="348" fill="#ffffff" fontFamily="Georgia, serif" fontSize="11" textAnchor="middle">Angle in a semicircle is always 90°</text>
+</svg>
+
+All inscribed angles subtending the same chord from the same side of that chord are equal:
+
+$$
+\angle APB = \angle AQB.
+$$
+
+This follows directly from the Inscribed Angle Theorem, since both angles equal half the same arc.
+
+### Angle in a Semicircle (Thales' Theorem)
+
+
+If $AB$ is a diameter, then any inscribed angle $\angle APB$ with $P$ on the circle satisfies
+
+$$
+\angle APB = 90°.
+$$
+
+This is a special case of the Inscribed Angle Theorem: the arc $AB$ is a semicircle of $180°$, so the inscribed angle is $180° / 2 = 90°$. Whenever you see a triangle inscribed in a semicircle, the angle at the circumference is a right angle.
+
+### Cyclic Quadrilateral — Opposite Angles
+
+<svg viewBox="0 0 620 370" role="img" aria-label="Cyclic quadrilateral and alternate segment theorem" style={{ width: '100%', maxWidth: '640px', height: 'auto', display: 'block', margin: '1.5rem auto' }} xmlns="http://www.w3.org/2000/svg">
+  <circle cx="155" cy="180" r="115" fill="none" stroke="#ffffff" strokeWidth="1.5"/>
+  <polygon points="91,92 253,106 239,268 57,219" fill="none" stroke="#ffffff" strokeWidth="1.5" strokeLinejoin="round"/>
+
+  <circle cx="91" cy="92" r="3.5" fill="#ffffff"/>
+  <text x="76" y="85" fill="#ffffff" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">A</text>
+  <circle cx="253" cy="106" r="3.5" fill="#ffffff"/>
+  <text x="258" y="101" fill="#ffffff" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">B</text>
+  <circle cx="239" cy="268" r="3.5" fill="#ffffff"/>
+  <text x="244" y="281" fill="#ffffff" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">C</text>
+  <circle cx="57" cy="219" r="3.5" fill="#ffffff"/>
+  <text x="36" y="224" fill="#ffffff" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">D</text>
+
+  <text x="97" y="112" fill="#AFA9EC" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">α</text>
+  <text x="226" y="266" fill="#5DCAA5" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">β</text>
+  <text x="240" y="113" fill="#5DCAA5" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">β</text>
+  <text x="62" y="235" fill="#AFA9EC" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">α</text>
+
+  <text x="155" y="338" fill="#ffffff" fontFamily="Georgia, serif" fontSize="14" textAnchor="middle">α + β = 180°</text>
+  <text x="155" y="356" fill="#ffffff" fontFamily="Georgia, serif" fontSize="11" textAnchor="middle">Opposite angles of a cyclic quad.</text>
+
+  <circle cx="465" cy="180" r="115" fill="none" stroke="#ffffff" strokeWidth="1.5"/>
+
+  <line x1="330" y1="295" x2="600" y2="295" stroke="#EF9F27" strokeWidth="2"/>
+  <circle cx="465" cy="295" r="3.5" fill="#EF9F27"/>
+  <text x="470" y="288" fill="#EF9F27" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">T</text>
+
+  <circle cx="393" cy="106" r="3.5" fill="#ffffff"/>
+  <text x="380" y="100" fill="#ffffff" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">A</text>
+  <line x1="465" y1="295" x2="393" y2="106" stroke="#ffffff" strokeWidth="1.8"/>
+
+  <circle cx="556" cy="212" r="3.5" fill="#5DCAA5"/>
+  <text x="561" y="208" fill="#5DCAA5" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">P</text>
+  <line x1="556" y1="212" x2="465" y2="295" stroke="#5DCAA5" strokeWidth="1.5"/>
+  <line x1="556" y1="212" x2="393" y2="106" stroke="#5DCAA5" strokeWidth="1.5"/>
+
+  <text x="480" y="288" fill="#EF9F27" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">θ</text>
+  <text x="536" y="220" fill="#5DCAA5" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">θ</text>
+
+  <text x="465" y="338" fill="#ffffff" fontFamily="Georgia, serif" fontSize="13" textAnchor="middle">Tangent-chord ∠ = alternate segment ∠</text>
+  <text x="465" y="356" fill="#ffffff" fontFamily="Georgia, serif" fontSize="11" textAnchor="middle">Alternate segment theorem</text>
+</svg>
+
+A quadrilateral whose four vertices all lie on a circle is called a **cyclic quadrilateral**. Its opposite angles are supplementary:
+
+$$
+\alpha + \beta = 180°.
+$$
+
+This follows because each pair of opposite angles subtends arcs that together make the full circle of $360°$, so each angle is half of $180°$.
+
+Converse. If the opposite angles of a quadrilateral sum to $180°$, then the quadrilateral is cyclic.
+
+### Tangent-Chord Angle (Alternate Segment Theorem)
+
+
+The angle between a tangent to a circle and a chord drawn from the point of tangency equals the inscribed angle subtending the same chord from the opposite arc:
+
+$$
+\angle(\text{tangent, chord}) = \angle(\text{inscribed angle in alternate segment}).
+$$
+
+This is also called the **tangent-chord angle** or **alternate segment theorem**. It appears frequently in problems where a tangent is drawn at one end of a chord.
+
+## Tangent Theorems
+
+### Radius to Tangent is Perpendicular
+
+A tangent to a circle is perpendicular to the radius drawn to the point of tangency:
+
+$$
+OT \perp \text{tangent at } T.
+$$
+
+This is the key fact for computing distances involving tangents.
+
+### Two Tangents from an External Point
+
+*[diagram: tangent_properties_and_intersecting_chords — left panel]*
+
+If two tangent segments are drawn to a circle from the same external point $P$, touching the circle at $T_1$ and $T_2$, then they are equal in length:
+
+$$
+PT_1 = PT_2.
+$$
+
+The triangles $OT_1P$ and $OT_2P$ are congruent (hypotenuse $OP$ and equal radii $OT_1 = OT_2$, with right angles at the touch points), giving the result immediately.
+
+## Chord Intersection Theorems
+
+### Intersecting Chords Inside the Circle
+
+<svg viewBox="0 0 620 360" role="img" aria-label="Equal tangent lengths and intersecting chords" style={{ width: '100%', maxWidth: '640px', height: 'auto', display: 'block', margin: '1.5rem auto' }} xmlns="http://www.w3.org/2000/svg">
+  <circle cx="145" cy="175" r="90" fill="none" stroke="#ffffff" strokeWidth="1.5"/>
+  <circle cx="145" cy="175" r="3.5" fill="#ffffff"/>
+  <text x="130" y="172" fill="#ffffff" fontFamily="Georgia, serif" fontSize="13">O</text>
+
+  <circle cx="310" cy="175" r="4" fill="#F0997B"/>
+  <text x="316" y="180" fill="#F0997B" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">P</text>
+
+  <circle cx="191" cy="98" r="3.5" fill="#ffffff"/>
+  <text x="180" y="90" fill="#ffffff" fontFamily="Georgia, serif" fontSize="14">T₁</text>
+  <circle cx="191" cy="252" r="3.5" fill="#ffffff"/>
+  <text x="180" y="266" fill="#ffffff" fontFamily="Georgia, serif" fontSize="14">T₂</text>
+
+  <line x1="310" y1="175" x2="191" y2="98" stroke="#ffffff" strokeWidth="1.5"/>
+  <line x1="310" y1="175" x2="191" y2="252" stroke="#ffffff" strokeWidth="1.5"/>
+  <line x1="145" y1="175" x2="191" y2="98" stroke="#ffffff" strokeWidth="0.8" strokeDasharray="4 3"/>
+  <line x1="145" y1="175" x2="191" y2="252" stroke="#ffffff" strokeWidth="0.8" strokeDasharray="4 3"/>
+
+  <path d="M 186 105 L 179 100 L 184 93" fill="none" stroke="#ffffff" strokeWidth="1"/>
+  <path d="M 186 245 L 179 250 L 184 257" fill="none" stroke="#ffffff" strokeWidth="1"/>
+
+  <text x="258" y="122" fill="#AFA9EC" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">a</text>
+  <text x="258" y="238" fill="#AFA9EC" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">a</text>
+
+  <text x="145" y="326" fill="#ffffff" fontFamily="Georgia, serif" fontSize="14" textAnchor="middle">PT₁ = PT₂</text>
+  <text x="145" y="344" fill="#ffffff" fontFamily="Georgia, serif" fontSize="11" textAnchor="middle">Tangents from an external point are equal</text>
+
+  <circle cx="465" cy="175" r="115" fill="none" stroke="#ffffff" strokeWidth="1.5"/>
+
+  <line x1="381" y1="109" x2="563" y2="249" stroke="#ffffff" strokeWidth="1.5"/>
+  <line x1="367" y1="214" x2="575" y2="118" stroke="#5DCAA5" strokeWidth="1.5"/>
+
+  <circle cx="461" cy="171" r="3.5" fill="#F0997B"/>
+  <text x="465" y="165" fill="#F0997B" fontFamily="Georgia, serif" fontSize="13">P</text>
+
+  <circle cx="381" cy="109" r="3.5" fill="#ffffff"/>
+  <text x="368" y="102" fill="#ffffff" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">A</text>
+  <circle cx="563" cy="249" r="3.5" fill="#ffffff"/>
+  <text x="568" y="258" fill="#ffffff" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">B</text>
+  <circle cx="367" cy="214" r="3.5" fill="#5DCAA5"/>
+  <text x="350" y="218" fill="#5DCAA5" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">C</text>
+  <circle cx="575" cy="118" r="3.5" fill="#5DCAA5"/>
+  <text x="580" y="114" fill="#5DCAA5" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">D</text>
+
+  <text x="414" y="133" fill="#AFA9EC" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">a</text>
+  <text x="515" y="218" fill="#AFA9EC" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">b</text>
+  <text x="408" y="198" fill="#5DCAA5" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">c</text>
+  <text x="520" y="138" fill="#5DCAA5" fontFamily="Georgia, serif" fontSize="15" fontStyle="italic">d</text>
+
+  <text x="465" y="326" fill="#ffffff" fontFamily="Georgia, serif" fontSize="14" textAnchor="middle">PA · PB = PC · PD</text>
+  <text x="465" y="344" fill="#ffffff" fontFamily="Georgia, serif" fontSize="11" textAnchor="middle">i.e.  a · b = c · d</text>
+</svg>
+
+If two chords $AB$ and $CD$ intersect at a point $P$ inside the circle, then the products of their segments are equal:
+
+$$
+PA \cdot PB = PC \cdot PD.
+$$
+
+This follows from the similar triangles formed by the chords, which arise because the inscribed angles subtending the same arc are equal.
+
+### Secant-Secant from an External Point
+
+If two secants are drawn from an external point $P$, meeting the circle at $A$, $B$ and $C$, $D$ respectively (with $A$, $C$ the nearer points), then:
+
+$$
+PA \cdot PB = PC \cdot PD.
+$$
+
+### Secant-Tangent from an External Point
+
+If a tangent from external point $P$ touches the circle at $T$, and a secant through $P$ meets the circle at $A$ and $B$ (with $A$ nearer), then:
+
+$$
+PT^2 = PA \cdot PB.
+$$
+
+This can be seen as the limiting case of the secant-secant theorem when the two intersection points of one secant merge into a single tangent point.
+
+## Chords and Symmetry
+
+If a radius is drawn perpendicular to a chord, then it bisects the chord. Conversely, if a radius bisects a chord, it is perpendicular to the chord:
+
+> A radius perpendicular to a chord bisects the chord.
+
+## Arc Length
+
+Arc measure is in degrees; arc length is in units of distance. For a circle of radius $r$ and central angle $\theta$ in radians:
+
+$$
+s = r\theta.
+$$
+
+Always convert degrees to radians before applying this formula. For example, $60° = \pi/3$.
+
+## Worked Examples
+
+### Example: Chord from a 60° angle
+
+A circle has radius $10$ and central angle $60°$. Find the chord length.
+
+The triangle formed by the two radii and the chord has two sides of length $10$ with an included angle of $60°$. By the isoceles triangle, all three angles equal $60°$, so the triangle is equilateral and the chord length is $\boxed{10}$.
+
+### Example: Arc Length
+
+Find the arc length when $r = 6$ and $\theta = 150°$.
+
+Convert: $150° = 5\pi/6$. Then $s = 6 \cdot \tfrac{5\pi}{6} = 5\pi$.
+
+### Example: Using the Inscribed Angle Theorem
+
+A central angle $\angle AOB = 100°$. Find the inscribed angle $\angle APB$ for a point $P$ on the major arc.
+
+$$
+\angle APB = \frac{100°}{2} = 50°.
+$$
+
+### Example: Cyclic Quadrilateral
+
+In a cyclic quadrilateral $ABCD$, $\angle A = 110°$. Find $\angle C$.
+
+$$
+\angle A + \angle C = 180° \implies \angle C = 70°.
+$$
+
+### Example: Two Tangents
+
+From external point $P$, two tangents touch a circle of radius $5$ at $T_1$ and $T_2$. If $PT_1 = 12$, find $PO$ (distance to centre).
+
+By the radius-tangent perpendicularity, $OT_1 \perp PT_1$, so:
+
+$$
+PO = \sqrt{PT_1^2 + OT_1^2} = \sqrt{144 + 25} = \sqrt{169} = 13.
+$$
+
+### Example: Intersecting Chords
+
+Two chords intersect inside a circle. One chord is divided into segments of length $4$ and $6$. One segment of the other chord has length $3$. Find the other segment.
+
+$$
+4 \times 6 = 3 \times x \implies x = 8.
+$$
+
+### Example: Comparing Chords
+
+Chord $AB$ subtends $120°$ and chord $CD$ subtends $80°$. Then $AB > CD$ since a larger arc corresponds to a longer chord.
+
+### Example: Perpendicular Radius
+
+A radius bisects a chord of length $12$. Each half has length $6$.
+
+### Example: Semicircle Arc Length
+
+A circle has radius $8$. The semicircular arc length is $s = 8\pi$.
+
+## Strategy Checklist
+
+* Identify whether angles are central or inscribed, then apply the factor-of-two relationship.
+* Check for cyclic quadrilaterals — opposite angles sum to $180°$.
+* Look for tangent points — the radius to the tangent is always perpendicular.
+* For two tangents from an external point, use equal tangent lengths.
+* When chords intersect, use the product-of-segments formula.
+* Ask whether a right angle appears — if so, look for a diameter (Thales' theorem).
+* Determine whether the problem asks for arc measure or arc length; convert degrees to radians for the latter.
+* Look for equal chords and equal arcs.
+* Search for symmetry involving radii and chords.
+
+## Common Pitfalls
+
+* Forgetting the factor of 2 between central and inscribed angles.
+* Applying the inscribed angle theorem when the centre and inscribed point are on the same arc (the formula changes sign — always check which arc the point lies on).
+* Confusing arc measure with arc length, or using degrees directly in $s = r\theta$.
+* Assuming equal arcs in different circles imply equal chord lengths.
+* Forgetting that a diameter is the longest chord.
+* Missing that a radius perpendicular to a chord bisects it.
+* Forgetting the radius-to-tangent perpendicularity when setting up right triangles.
+
+## Practice Problems
+
+<Problems problems="practice" />

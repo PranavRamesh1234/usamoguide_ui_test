@@ -1,0 +1,254 @@
+---
+id: inequalities-foundations
+title: Inequalities Foundations
+author: Mehul Biala
+description: A comprehensive guide to interval bounding, absolute value geometry, quadratic optimization, and the QM-AM-GM-HM means chain.
+prerequisites: ["algebra-basics"]
+---
+
+## Overview
+
+Solving inequalities is fundamentally different from solving equations. While an equation usually gives you a specific destination (e.g., $x = 5$), an inequality defines a *landscape* of possibilities. Mastering inequalities for the AMC 8 and AMC 10 requires shifting your mindset from finding "the answer" to finding the boundaries of what is possible. 
+
+This module covers the core tools for bounding expressions, visualizing absolute values, recognizing symmetry, and utilizing the strict mathematical hierarchy of averages.
+
+## 1. Interval and Number Line Reasoning
+
+Before applying advanced theorems, you must know how to safely manipulate boundaries. Inequalities can be viewed as intervals (e.g., $x \in [-3, 4]$ means $-3 \le x \le 4$).
+
+### Adding and Subtracting Intervals
+
+- **Adding:** You can safely add inequalities that face the same direction. If $a \le x \le b$ and $c \le y \le d$, then $a+c \le x+y \le b+d$.
+- **Subtracting:** **Never subtract inequalities directly.** To find the range of $x - y$, you must first find the bounds of $-y$ (which flips the signs: $-d \le -y \le -c$), and then *add* that to the bounds of $x$.
+
+### Bounding Products (The Four-Corner Check)
+
+Students often assume that if $a \le x \le b$ and $c \le y \le d$, then the minimum of $xy$ is $ac$ and the maximum is $bd$. **This is only true if all numbers are positive.** If signs are mixed, multiplying endpoints blindly will trap you. To find the true bounds of $xy$, you must calculate all four boundary products:
+
+$$
+ac, \quad ad, \quad bc, \quad bd
+$$
+
+The minimum of $xy$ is the smallest of these four, and the maximum is the largest. 
+
+### The "Plugging Endpoints" Strategy
+
+If an expression is strictly **linear** in a variable (e.g., $3x - 7$), it has no curves, peaks, or valleys. It only goes strictly up or strictly down (monotonicity). Therefore, its absolute minimum and maximum on a given interval *must* occur exactly at the endpoints of that interval.
+
+## 2. Absolute Value Inequalities (The Distance Masterkey)
+
+Absolute value is one of the most frequently tested concepts on the AMC. While the algebraic definition is piece-wise ($|x| = x$ if $x \ge 0$, and $-x$ if $x < 0$), the geometric definition is far more powerful: **$|x - c|$ is the distance between $x$ and $c$ on the number line.**
+
+### Core Inequality Forms:
+
+- **The "Less Than" Trap (Inside the Radius):** $|x| \le a \implies -a \le x \le a$. *Geometric meaning:* The distance from $x$ to $0$ is at most $a$. The solutions are "trapped" between $-a$ and $a$.
+
+- **The "Greater Than" Split (Outside the Radius):** $|x| \ge a \implies x \le -a \text{ or } x \ge a$. *Geometric meaning:* The distance from $x$ to $0$ is at least $a$. The solutions split outward in two opposite directions.
+
+**Pro-Tip:** $|x - 5| \le 3$ simply means "$x$ is within 3 units of 5." The range is instantly $[5-3, 5+3] \implies [2, 8]$.
+
+## 3. Quadratics and The Trivial Inequality
+
+The fundamental rule of real numbers is **The Trivial Inequality**: for any real number $x$, $x^2 \ge 0$. The minimum is strictly $0$, occurring when $x = 0$.
+
+When dealing with quadratics like $ax^2 + bx + c$, you have two ways to find the extreme value (minimum if $a > 0$, maximum if $a < 0$):
+
+**Completing the Square:** Group terms to form $a(x-h)^2 + k$. By the Trivial Inequality, the squared term's minimum is $0$, so the expression's minimum is $k$.
+
+**The Vertex Shortcut:** For contest math, speed is critical. The vertex of a parabola always occurs at $x = -b/(2a)$. Simply calculate this $x$-value and plug it back into the expression to find the maximum or minimum bound.
+
+## 4. Symmetry, Equalization, and Matching
+
+Nature loves balance, and so do inequalities. 
+
+### The Equalization Principle
+
+When you have an expression with symmetric variables (meaning you could swap $x$ and $y$ and the expression doesn't change), the extreme values almost always occur when the variables are **equal to each other**. 
+- If $x + y = 10$, the product $xy$ is maximized when $x = y = 5$ (Max = 25).
+- If $x + y = 10$, the sum of squares $x^2 + y^2$ is minimized when $x = y = 5$ (Min = 50).
+
+### Rearrangement-Lite (Matching Intuition)
+
+To maximize the sum of products of two sequences, pair the **largest with the largest**. To minimize, pair the **largest with the smallest**. 
+For example, if you have weights $3$ and $2$, and variables $a$ and $b$ where $a \ge b$, the sum $3a + 2b$ is strictly greater than or equal to $2a + 3b$. 
+
+## 5. The Mean Inequalities (QM-AM-GM-HM)
+
+While you are likely familiar with the standard average (the Arithmetic Mean), mathematics actually defines several types of "means" or averages. For any set of $n$ **strictly positive** real numbers $x_1, x_2, \dots, x_n$, we define four primary means:
+
+**Quadratic Mean (QM / RMS):** Also called the Root Mean Square. It squares the numbers before averaging them, then takes the square root.
+
+$$
+QM = ((x_1^2 + x_2^2 + ... + x_n^2)/n)^(1/2)
+$$
+
+**Arithmetic Mean (AM):** The standard average.
+
+$$
+AM = (x_1 + x_2 + ... + x_n)/n
+$$
+
+**Geometric Mean (GM):** Multiplies the numbers together and takes the $n$-th root.
+
+$$
+GM = (x_1 x_2 ... x_n)^(1/n)
+$$
+
+**Harmonic Mean (HM):** The reciprocal of the average of the reciprocals.
+
+$$
+HM = n/((1/x_1) + (1/x_2) + ... + (1/x_n))
+$$
+
+**The Inequality Chain:**
+
+There is a strict, unbreakable hierarchy among these averages:
+
+$$
+QM \ge AM \ge GM \ge HM
+$$
+
+**The Equality Condition (Crucial):**
+
+Equality across any part of this chain holds **if and only if** all the variables are exactly equal to each other ($x_1 = x_2 = \dots = x_n$). If even one number is different, the inequalities are strictly greater than ($>$).
+
+*Why Does This Happen?*
+The **Quadratic Mean** squares inputs, heavily exaggerating the impact of the *largest* numbers, making it the largest average. The **Harmonic Mean** uses reciprocals, so very small numbers create massive fractions that drag the average down, making it the smallest. AM and GM sit balanced in the middle.
+
+> Although we have introduced the entire QM-AM-GM-HM inequality, the core to focus on is AM-GM as they are by far the most frequent use case.
+
+## Strategy Playbook: Approaching AMC Inequalities
+
+When you face an inequality problem, run through this checklist:
+1. **Is it a fixed sum looking for a product?** $\implies$ Think Equalization Principle or AM-GM.
+2. **Is it a quadratic equation?** $\implies$ Find the vertex $x = -b/2a$ or complete the square.
+3. **Is it an absolute value?** $\implies$ Translate it into distance on a number line or split it into $\le$ and $\ge$ boundary cases.
+4. **Is it a linear expression bounded by an interval?** $\implies$ Just test the endpoints.
+5. **Always Check the Equality Condition:** If you find a minimum bound of 12, can the variables actually equal the numbers required to hit 12? If not, your bound is unreachable.
+
+## Worked Examples
+
+### Example 1: Bounding Products with Mixed Signs
+
+> Given $-2 \le x \le 5$ and $-3 \le y \le 4$, what is the range of possible values for $xy$?
+
+**Solution:**
+We test the four corner products of the intervals:
+- $(-2)(-3) = 6$
+- $(-2)(4) = -8$
+- $(5)(-3) = -15$
+- $(5)(4) = 20$
+
+The smallest product is $-15$ and the largest is $20$. Therefore, $-15 \le xy \le 20$. 
+
+### Example 2: Absolute Value Distance
+
+> Solve the inequality $|2x - 3| \le 5$.
+
+**Solution:**
+*Method 1 (Algebraic):* Trap the expression.
+
+$$
+-5 \le 2x - 3 \le 5
+$$
+
+Add $3$ to all parts:
+
+$$
+-2 \le 2x \le 8
+$$
+
+Divide by $2$:
+
+$$
+-1 \le x \le 4
+$$
+
+*Method 2 (Geometric):* Rewrite as $|x - 1.5| \le 2.5$. The distance from $x$ to $1.5$ is at most $2.5$. 
+Going left: $1.5 - 2.5 = -1$. 
+Going right: $1.5 + 2.5 = 4$. 
+The range is $[-1, 4]$.
+
+### Example 3: The Vertex Shortcut
+
+> Find the minimum value of $f(x) = 3x^2 - 12x + 19$.
+
+**Solution:**
+Instead of completing the square, we use the vertex formula $x = -b/(2a)$.
+Here, $a = 3$ and $b = -12$.
+
+$$
+x = -(-12)/(2(3)) = 12/6 = 2
+$$
+
+The minimum occurs at $x=2$. Plug this back into the expression:
+
+$$
+f(2) = 3(2)^2 - 12(2) + 19 = 12 - 24 + 19 = 7
+$$
+
+The minimum value is $7$.
+
+### Example 4: Classic AM-GM Optimization
+
+> If $x > 0$, find the minimum possible value of the expression $x^2 + 16/x^2$.
+
+**Solution:**
+We are asked to minimize a sum of strictly positive terms. Notice that if we multiply the two terms, the variables cancel out: $x^2 \cdot (16/x^2) = 16$. A constant product is the universal trigger to use AM-GM.
+
+Let $a = x^2$ and $b = 16/x^2$.
+
+$$
+(a + b)/2 \ge (ab)^(1/2)
+$$
+
+$$
+(x^2 + 16/x^2)/2 \ge (x^2 \cdot 16/x^2)^(1/2)
+$$
+>
+> $$
+> (x^2 + 16/x^2)/2 \ge 16^(1/2) = 4
+> $$
+>
+> $$
+> x^2 + 16/x^2 \ge 8
+> $$
+>
+> *Verify the equality condition:* Equality happens if and only if $a = b \implies x^2 = 16/x^2 \implies x^4 = 16$. Since $x > 0$, $x = 2$. Because a valid $x$ exists, the minimum value is confidently **$8$**.
+
+### Example 5: AM-HM for Reciprocal Sums
+
+> Let $a$ and $b$ be positive real numbers such that $a + b = 1$. Find the minimum value of $1/a + 1/b$.
+
+**Solution:**
+We are given a constant sum and asked to minimize the sum of their reciprocals. 
+
+Apply the AM-HM inequality ($AM \ge HM$):
+
+$$
+(a + b)/2 \ge 2/((1/a) + (1/b))
+$$
+
+Substitute $a + b = 1$:
+
+$$
+1/2 \ge 2/((1/a) + (1/b))
+$$
+
+Multiply both sides by $(1/a + 1/b)$ and multiply by $2$:
+>
+> $$
+> 1/a + 1/b \ge 4
+> $$
+>
+> *Verify the equality condition:* Equality holds when $a = b$. Since $a + b = 1$, this means $a = 0.5$ and $b = 0.5$. Testing this: $1/0.5 + 1/0.5 = 2 + 2 = 4$. The minimum value is **$4$**.
+
+## Common Pitfalls
+
+- **Applying AM-GM to negatives:** The AM-GM inequality *only* works for positive numbers. Do not use it if variables can be negative.
+- **Squaring absolute values carelessly:** If you have $|x| < |y|$, you can safely square both sides to get $x^2 < y^2$. But if you have $x < y$ with mixed signs, squaring might flip the truth (for example, $-5 < 2$, but $25$ is not less than $4$).
+- **Forgetting the middle of the interval when bounding squares:** If $-4 < x < 3$, the range of $x^2$ is not $9 < x^2 < 16$. Because $0$ is in the interval, the true minimum is $0$, making the range $0 \le x^2 \le 16$.
+
+## Practice Problems
+
+<Problems problems="practice" />

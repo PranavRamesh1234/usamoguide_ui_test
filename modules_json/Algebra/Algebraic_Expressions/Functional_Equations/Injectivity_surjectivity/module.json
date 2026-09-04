@@ -1,0 +1,498 @@
+{
+  "MODULE_ID": "algebra-algebraic-expressions-functional-equations-injectivity-surjectivity",
+  "practice": [
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-injectivity-surjectivity-auto-0428",
+      "name": "Berkeley Math Circle Monthly Contest 1 #0huk",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Injectivity / surjectivity",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\n\nFind all functions $f: \\mathbb{Z} \\rightarrow \\mathbb{Z}$ such that $f(f(x)+y+1)=x+f(y)+1$ for every two integers $x$ and $y$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSubstituting $x=0$ we get $f(f(0)+y+1)=f(y)+1$.\n\nNow we have $x+f(y)+1=f(f(x)+y+1)=f[(f(x)+1)+y]=f[f(f(0)+x+1)+(y-1)+1]=f(y-1)+(f(0)+x+1)+1$ from where we conclude that\n\n$$\nf(y)=f(y-1)+f(0)+1 .\n$$\n\nUsing induction we obtain $f(n)=f(0)+n(f(0)+1)$ for all integers $n$.\n\nIf we set $y=0$ in (1) we get $f(-1)=-1$ and substituting $y=-1$ in the original equation yields $f(f(x))=x$.\n\nIf we apply $f$ to both sides of $f(n)=f(0)+n(f(0)+1)$ we get $n=f(0)+[f(0)+n(f(0)+1)](f(0)+1)$ which is equivalent to $n=f(0)(f(0)+2)+n(f(0)+1)^2$ and this can be satisfied for all integers $n$ if and only if $f(0)=0$ or $f(0)=-2$.\n\nIn the first case we get $f(n)=n$ and in the second $f(n)=-n-2$.\n\nIt is easy to verify that both functions satisfy the required conditions."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-injectivity-surjectivity-auto-0707",
+      "name": "3rd Bay Area Mathematical Olympiad #0i2b",
+      "url": "https://usamoguide.com/",
+      "source": "3rd Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Injectivity / surjectivity",
+        "Integers"
+      ],
+      "statement": "Problem:\nLet $f(n)$ be a function satisfying the following three conditions for all positive integers $n$:\n(a) $f(n)$ is a positive integer,\n(b) $f(n+1) > f(n)$,\n(c) $f(f(n)) = 3n$.\nFind $f(2001)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe will show that $f(2001)$ must equal $3816$. We start by proving a lemma which gives us some of the values of $f(n)$.\n\nLemma: For $n = 0, 1, 2, \\ldots$,\n(a) $f\\left(3^{n}\\right) = 2 \\cdot 3^{n}$; and\n(b) $f\\left(2 \\cdot 3^{n}\\right) = 3^{n+1}$.\n\nProof: We use induction. For $n = 0$, note that $f(1) \\neq 1$, otherwise $3 = f(f(1)) = f(1) = 1$, which is impossible. Since $f(k)$ is a positive integer for all positive integers $k$, we conclude that $f(1) > 1$. Since $f(n+1) > f(n)$, $f$ is increasing. Thus $1 < f(1) < f(f(1)) = 3$ or $f(1) = 2$. Hence $f(2) = f(f(1)) = 3$.\n\nSuppose that for some positive integer $n \\geq 1$,\n$$\nf\\left(3^{n}\\right) = 2 \\cdot 3^{n} \\text{ and } f\\left(2 \\cdot 3^{n}\\right) = 3^{n+1}\n$$\nThen,\n$$\nf\\left(3^{n+1}\\right) = f\\left(f\\left(2 \\cdot 3^{n}\\right)\\right) = 2 \\cdot 3^{n+1}\n$$\nand\n$$\nf\\left(2 \\cdot 3^{n+1}\\right) = f\\left(f\\left(3^{n+1}\\right)\\right) = 3^{n+2}\n$$\nas desired. This completes the induction, and establishes the lemma.\n\nContinuing with our solution, there are $3^{n} - 1$ integers $m$ such that $3^{n} < m < 2 \\cdot 3^{n}$ and there are $3^{n} - 1$ integers $m'$ such that\n$$\nf\\left(3^{n}\\right) = 2 \\cdot 3^{n} < m' < 3^{n+1} = f\\left(2 \\cdot 3^{n}\\right).\n$$\nSince $f$ is an increasing function,\n$$\nf\\left(3^{n} + m\\right) = 2 \\cdot 3^{n} + m\n$$\nfor $0 \\leq m \\leq 3^{n}$. Therefore\n$$\nf\\left(2 \\cdot 3^{n} + m\\right) = f\\left(f\\left(3^{n} + m\\right)\\right) = 3\\left(3^{n} + m\\right)\n$$\nfor $0 \\leq m \\leq 3^{n}$. Hence\n$$\nf(2001) = f\\left(2 \\cdot 3^{6} + 543\\right) = 3\\left(3^{6} + 543\\right) = 3816.\n$$\n\nSolution:\n(Sketch) Andrew Dudzik's insight was to recognize that $f(n)$ deals in a very simple way, with the base-3 representation of $n$. Let $n = a_{1} a_{2} \\cdots a_{t}$ be the base-3 digits of $n$. For example, if $n = 50$ in base 10, we would write $n = 1212$ in base 3 and hence $a_{1} = 1, a_{2} = 2, a_{3} = 1, a_{4} = 2$. Dudzik proved the following:\n\n1. If $a_{1} = 1$, then $f(n) = 2 a_{2} a_{3} \\cdots a_{t}$.\n2. If $a_{1} = 2$, then $f(n) = 1 a_{2} a_{3} \\cdots a_{t} 0$\n\nThese two statements can be proven easily with induction; we leave this as an exercise for the reader. Note that Dudzik's formulas allow us to immediately compute $f(2001)$. In base-3 notation, $2001$ is equal to $2202010$. Thus, by formula #2,\n$$\nf(2202010) = 12020100 = 1 \\cdot 3^{2} + 2 \\cdot 3^{4} + 2 \\cdot 3^{6} + 3^{7},\n$$\nand this equals $3816$ in base-10 notation."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-injectivity-surjectivity-auto-1104",
+      "name": "USA IMO #0idc",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Injectivity / surjectivity"
+      ],
+      "statement": "Let $\\mathbb{N}_0^+$ and $\\mathbb{Q}$ be the set of nonnegative integers and rational numbers, respectively. Define the function $f : \\mathbb{N}_0^+ \\to \\mathbb{Q}$ by $f(0) = 0$ and\n$$f(3n + k) = -\\frac{3f(n)}{2} + k, \\quad \\text{for } k = 0, 1, 2.$$ \nProve that $f$ is one-to-one, and determine its range.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "We prove that the range of $f$ is the set $T$ of rational numbers of the form $m/2^n$ for $m \\in \\mathbb{Z}$ and $n \\in \\mathbb{N}_0^+$ (also known as the *dyadic rational numbers*). For $x, y \\in T$, we write $x \\equiv y \\pmod 3$ to mean that the numerator of $x - y$, when written in lowest terms, is divisible by 3. Define the function $g : T \\to \\{0, 1, 2\\}$ by declaring that for $x \\in T$, $g(x)$ is the unique element of $\\{0, 1, 2\\}$ such that $g(x) \\equiv x \\pmod 3$.\n\nWe first check that $f$ is one-to-one. Suppose that $f(a) = f(b)$ for some $a, b \\in \\mathbb{N}_0^+$ with $a < b$; choose such a pair with $b$ minimal. Now note that $f(a) \\equiv a \\pmod 3$ and $f(b) \\equiv b \\pmod 3$ from the definition of $f$. Hence $a \\equiv b \\pmod 3$. Choose the $i \\in \\{0, 1, 2\\}$ that is congruent to $a$ and $b$ modulo 3, and put $a' = (a-i)/3$ and $b' = (b-i)/3$. Then $f(a') = f(b')$, but $a' < b'$ and $b' < b$ since $b > 0$. This contradicts the choice of $a$ and $b$. Hence no such pairs exist.\n\nWe next verify that $T$, which clearly contains the range of $f$, is in fact equal to it. Define the map $h : T \\to T$ by setting $h(x) = \\frac{2}{3}(g(x)-x)$. Then $x$ is in the image of $f$ whenever $h(x)$ is: if $h(x) = f(a)$, then $x = f(3a + g(x))$. Hence it suffices to show that if one starts from $x$ and applies $h$ repeatedly, one eventually ends up with an element of the range of $f$.\n\nFirst note that if $x$ is not an integer, then $g(x) - x$ has the same denominator as $x$, and $h(x)$ has denominator half of that. Hence some $x_i$ is an integer.\n\nNext, by the **Triangle Inequality**,\n$$\n|h(x)| \\leq \\frac{2}{3}(2 + |x|) < |x|\n$$\nwhenever $|x| > 4$. Thus, our process eventually hits an integer of absolute value bounded by 4. Simple computation yields the following table:\n\n| x   | -4 | -3 | -2 | -1 | 0 | 1 | 2 | 3 | 4 |\n|-----|----|----|----|----|---|---|---|---|---|\n| h(x)|  4 |  2 |  2 |  2 | 0 | 0 | 0 | -2| -2|\n\n¿From the table, it is clear that starting from any point in $\\{-4, -3, \\ldots, 4\\}$, within 4 applications of $h$, our process hits zero. Since $f(0) = 0$, this value is in the range of $f$, so we are done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-injectivity-surjectivity-auto-1819",
+      "name": "IMO 2009 #0ix7",
+      "url": "https://usamoguide.com/",
+      "source": "IMO 2009",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Injectivity / surjectivity",
+        "Existential quantifiers",
+        "Triangle inequalities",
+        "Coloring schemes, extremal arguments"
+      ],
+      "statement": "Determine all functions $f$ from the set of positive integers to the set of positive integers such that, for all positive integers $a$ and $b$, there exists a non-degenerate triangle with sides of lengths $a$, $f(b)$ and $f(b+f(a)-1)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "If $f(b+v_2) = f(b)-1$, then setting $a=2$ and $b = b+v_2$ in the given condition leads to the triangular triple $\\{2, f(b+v_2) = f(b)-1, f(b+2v_2)\\}$. By the triangle inequality and (c), the only possible value of $f(b+2v_2)$ is $f(b)-2$. Likewise, we can deduce that $f(b+3v_2) = f(b)-3$, and so on. But this impossible, because $f$ takes values in the set of positive integers.\nWe conclude that $f(b + v_2) = f(b) + 1$. By a simple induction, we have $f(b + kv_2) = f(b) + k$ for positive integers $k$. In particular, setting $b = 1$ yields\n$$\nf(1) = 1, \\quad f(1+v_2) = 2, \\quad f(1+2v_2) = 3, \\quad \\dots, \\quad f(1+kv_2) = 1+k, \\dots \\quad (1)\n$$\nSetting $k = v_2$ in (1) gives\n$$\nf(1 + v_2^2) = 1 + v_2.\n$$\nBy (b), we conclude that $1+v_2^2 = f(f(1+v_2^2)) = f(1+v_2) = 2$, implying that $v_2 = 1$. Substituting $v_2 = 1$ in (1) leads to the solution $f(x) = x$.\n\nWe start with a lemma that is slightly stronger than Freiman's theorem. Part of this lemma could be very helpful in certain proofs of USAMO 2009 problem 2 and IMO 2000 problem 1.\n\n**Lemma 1.** Let $A, B$ be finite nonempty subsets of $\\mathbb{Z}$. Then the set $A+B = \\{a+b : a \\in A, b \\in B\\}$ has cardinality at least $|A| + |B| - 1$. Equality holds if and only if either $A$ and $B$ are arithmetic progressions with equal difference or at least one of $|A|$ or $|B|$ is equal to 1. (Here $|S|$ denotes the number of elements in $S$.)\n\n*Proof.* Let $A = \\{a_1 < a_2 < \\dots < a_{|A|}\\}$ and $B = \\{b_1 < b_2 < \\dots < b_{|B|}\\}$. The following $|A| + |B| - 1$ distinct elements, arranged in increasing order, are in $A+B$:\n$$\na_1 + b_1 < \\dots < a_1 + b_{|B|} < a_2 + b_{|B|} < \\dots < a_{|A|+|B|}.\n$$\nTherefore $|A+B| \\ge |A| + |B| - 1$, establishing the inequality.\n\nNext we consider the equality case. Let $c_i$ denote the value of the $i^{\\text{th}}$ element in the above list. Assume that $|A+B| = |A| + |B| - 1$ and $|A|, |B| > 1$. For any $1 < i \\le |A|$ and $1 < j \\le |B|$, consider the following list of $|A| + |B| - 1$ distinct elements in $A+B$:\n$$\n\\underbrace{a_1 + b_1 < \\dots < a_1 + b_{j-1}}_{j-1 \\text{ elements}} < \\underbrace{a_2 + b_{j-1} < \\dots < a_i + b_{j-1}}_{i-1 \\text{ elements}} < \\underbrace{a_i + b_j < \\dots < a_i + b_{|B|}}_{|B|-j+1 \\text{ elements}} < \\underbrace{a_{i+1} + b_{|B|} < \\dots < a_{|A|} + b_{|B|}}_{|A|-i \\text{ elements}}.\n$$\nThis list must be the same as before. Therefore $a_i+b_{j-1} = c_{i+j-2}$. Likewise $a_{i-1}+b_j = c_{i+j-2}$. Therefore $a_i + b_{j-1} = a_{i-1} + b_j$ and $a_i - a_{i-1} = b_j - b_{j-1}$. Hence, both $A$ and $B$ are arithmetic progressions with the same common difference. $\\square$\n\nNow we can complete our proof in a few steps.\n\n(d) For a positive integer $n$, let $I_n = \\{1, 2, \\dots, n\\}$, $\\mathcal{A}_n = \\{f(i) : i \\in I_n\\}$. Because $f(f(n)) = n$, the given condition implies the more symmetric fact that $\\{a, b, f(f(a) + f(b) - 1)\\}$ is triangular. Hence if $a, b \\in I_n$, then $f(f(a) + f(b) - 1) \\le 2n - 1$.\n\n(e) Combining (c) and (d), we conclude that $|\\{f(a) + f(b) - 1 : a, b \\in I_n\\}| \\le 2n - 1$; that is,\n$$\n|\\mathcal{A}_n + \\mathcal{A}_m| = |\\{f(a) + f(b) : a, b \\in I_n\\}| = |\\{f(a) + f(b) - 1 : a, b \\in I_n\\}| \\le 2n - 1 = 2|\\mathcal{A}_n| - 1.\n$$\n\n(f) By the lemma and (e), we deduce that $\\mathcal{A}_n$ is an $n$-element set with its elements forming an arithmetic progression starting with $f(1) = 1$.\n\n(g) Consider the elements in $\\mathcal{A}_n$ and $\\mathcal{A}_{n+1}$. Clearly, $\\mathcal{A}_n \\subset \\mathcal{A}_{n+1}$ and $\\mathcal{A}_{n+1}$ has one additional element. If $n \\ge 3$, this additional element must be at one of the ends of the arithmetic sequence formed by the elements in $\\mathcal{A}_n$. But both sets have minimum value $f(1) = 1$. Hence this new element must be at the upper end. We conclude that $f$ is linear except possibly for $f(2)$ and $f(3)$.\n\n(h) Note that (b) also implies that $f$ is surjective. Combining with (c), we know that $f$ is bijective. By (g), we must have $f(n) = n$ for $n \\ge 4$.\n\n(g) For $a = 2$ and large $b$, $\\{2, b, f(2)+b-1\\}$ is triangular if and only if $f(2)+b-1 < 2+b$, implying that $f(2) = 2$. Likewise, or using injectivity, we have $f(3) = 3$, completing our proof."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-injectivity-surjectivity-auto-2359",
+      "name": "Berkeley Math Circle Monthly Contest #0jc7",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Injectivity / surjectivity",
+        "Polynomial operations"
+      ],
+      "statement": "Problem:\n\nConsider the function\n$$\nf(x) = \\frac{(x-2)(x+1)(2x-1)}{x(x-1)}\n$$\nSuppose that $u$ and $v$ are real numbers such that\n$$\nf(u) = f(v).\n$$\nSuppose that $u$ is rational. Prove that $v$ is rational.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nIt is not hard to see that (for all real $x$ except $0$ and $1$)\n$$\nf(1-x) = -f(x) \\quad \\text{and} \\quad f\\left(\\frac{1}{x}\\right) = -f(x)\n$$\nTherefore\n$$\nf(x) = f\\left(\\frac{1}{1-x}\\right) = f\\left(1 - \\frac{1}{x}\\right)\n$$\nIf $u \\in \\mathbb{Q}$ is given, then $v = u$, $v = 1/(1-u)$, and $v = 1 - 1/u$ are three rational solutions to the equation $f(u) = f(v)$. Moreover, they are all distinct; setting any two equal yields a quadratic with the nonreal solutions $u = (1 \\pm \\sqrt{-3})/2$. However, the equation $f(u) = f(v)$, when expanded as a polynomial in $v$,\n$$\nf(u) \\cdot v(v-1) = (v-2)(v+1)(2v-1)\n$$\nhas degree $3$. Therefore $v$ cannot have any more than these three possible values."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-injectivity-surjectivity-auto-2440",
+      "name": "RMM #0jeg",
+      "url": "https://usamoguide.com/",
+      "source": "RMM",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Existential quantifiers",
+        "Injectivity / surjectivity",
+        "Floors and ceilings",
+        "Other"
+      ],
+      "statement": "Does there exist a pair $(g, h)$ of functions $g, h : \\mathbb{R} \\to \\mathbb{R}$ such that the only function $f : \\mathbb{R} \\to \\mathbb{R}$ satisfying $f(g(x)) = g(f(x))$ and $f(h(x)) = h(f(x))$ for all $x \\in \\mathbb{R}$ is the identity function $f(x) = x$?\n(This problem was suggested by Alexander Betts from the United Kingdom.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**Solution 1.** We claim that $g(x) = 2x$, $h(x) = \\lfloor x \\rfloor - 1$ works. We must show that $f(x) = x$ is the only solution to the system of equations\n$$\n2f(x) = f(2x)\n$$\n$$\nf(\\lfloor x \\rfloor - 1) = \\lfloor f(x) \\rfloor - 1.\n$$\nfor $f(x)$. First, note that $2f(0) = f(0)$, so $f(0) = 0$. Also, if $n$ is an integer, then $f(n) = \\lfloor f(n+1) \\rfloor - 1$, so $f(n)$ is an integer. Therefore, we obtain that\n$$\nf(n) = \\lfloor f(n + 1) \\rfloor - 1 = f(n + 1) - 1,\n$$\nwhich together with $f(0) = 0$ gives $f(n) = n$ for all integers $n$.\nNow, assume that there is some $x$ with $f(x) \\neq x$. Note that if $\\lfloor a \\rfloor = \\lfloor b \\rfloor$, then by using the second equation for $a$ and $b$ we get $\\lfloor f(a) \\rfloor = \\lfloor f(b) \\rfloor$. Now let $f(x) = x + \\epsilon$, where $|\\epsilon| > 1/2^k$ for a large enough integer $k$. Then, we obtain $f(2^k x) = 2^k x + 2^k \\epsilon$ by the first equation. But then because $\\lfloor 2^k x \\rfloor = \\lfloor 2^k x \\rfloor$, we have $\\lfloor 2^k x \\rfloor = \\lfloor 2^k x + 2^k \\epsilon \\rfloor$. But $\\lfloor 2^k \\epsilon \\rfloor > 1$, a contradiction. We conclude that $f(x) = x$ as desired.\n\n\n**Solution 2.** The answer is yes. Let\n$$\ng(x) = \\begin{cases} x + 1 & \\text{if } \\{x\\} < \\frac{1}{2} \\\\ x + \\frac{1}{2} & \\text{if } \\{x\\} \\ge \\frac{1}{2}, \\end{cases}\n$$\nand\n$$\nh(x) = \\sqrt{2} g \\left( \\frac{x}{\\sqrt{2}} \\right),\n$$\nwhere $\\{x\\}$ denotes the fractional part of $x$. By Kronecker's theorem, if $x$ is irrational and $n$ ranges over the positive integers, then $\\{nx\\}$ is dense in the unit interval. Observe that if $x$ is in the range of $g$, then $g(x) = x + 1$, and, if $x$ is in the range of $h$, then $h(x) = x + \\sqrt{2}$. We now make the following observations.\n\na. If $x$ is in the range of $g$, then so is $f(x)$, because then $x = g(x_0)$ for some $x_0$ and $f(x) = f(g(x_0)) = g(f(x_0))$ by the given condition.\n\nb. If $x$ is in the range of $g$, then $f(x+1) = f(g(x)) = g(f(x)) = f(x)+1$, so $f(x+n) = f(x)+n$ for all positive integers $n$.\n\nSimilarly, we notice that\n\nc. If $x$ is in the range of $h$, then so is $f(x)$.\n\nd. If $x$ is in the range of $h$, then $f(x+m\\sqrt{2}) = f(x) + m\\sqrt{2}$ for all positive integers $m$.\n\nWe now show by contradiction that $f(x) = x$. Assume that there exist $a \\neq b$ such that $f(a) = b$. We divide into two cases.\n\n**Case 1:** Suppose that $a$ is in the range of both $g$ and $h$. Then so is $b$ and $f(a+n) = b+n$ for all positive integers $n$. Since $a$ and $b$ are in the range of $h$ we have\n$$\n\\left\\{ \\frac{a}{\\sqrt{2}} \\right\\}, \\left\\{ \\frac{b}{\\sqrt{2}} \\right\\} < \\frac{1}{2}.\n$$\nBy Kronecker's theorem, we can find a positive integer $n$ such that $\\left\\{ \\frac{n}{\\sqrt{2}} \\right\\}$ is in one of the intervals\n$$\n\\left[ \\frac{1}{2} - \\left\\{ \\frac{b}{\\sqrt{2}} \\right\\} , \\frac{1}{2} - \\left\\{ \\frac{a}{\\sqrt{2}} \\right\\} \\right) \\text{ or } \\left[ 1 - \\left\\{ \\frac{a}{\\sqrt{2}} \\right\\} , 1 - \\left\\{ \\frac{b}{\\sqrt{2}} \\right\\} \\right)\n$$\nunless $\\frac{a-b}{\\sqrt{2}}$ is an integer. In the first situation, we would have $\\left\\{ \\frac{a+n}{\\sqrt{2}} \\right\\} < \\frac{1}{2}$ and $\\left\\{ \\frac{b+n}{\\sqrt{2}} \\right\\} \\geq \\frac{1}{2}$, so $a+n$ is in the range of $h$ while $b+n$ is not. But $b+n = f(a+n)$, which contradicts (c).\n\nSimilarly by Kronecker's theorem, we obtain that there exists a positive integer $m$ such that $\\{a+m\\sqrt{2}\\} < \\frac{1}{2}$ and $\\{b+m\\sqrt{2}\\} \\geq \\frac{1}{2}$, which violates (a) because $f(a+m\\sqrt{2}) = b+m\\sqrt{2}$ for all $m$, unless $a-b$ is an integer. Thus, both $a-b$ and $\\frac{a-b}{\\sqrt{2}}$ should be integers, which is clearly impossible.\n\n**Case 2:** Suppose that $a$ is in the range of $g$ but not in the range of $h$. Then $f(a+n) = b+n$ for all positive integers $n$. By Kronecker's theorem, there exists an $n$ such that $\\{\\frac{n}{\\sqrt{2}}\\}$ is in the interval\n$$\n\\left( 1 - \\left\\{ \\frac{a}{\\sqrt{2}} \\right\\} , \\frac{3}{2} - \\left\\{ \\frac{a}{\\sqrt{2}} \\right\\} \\right),\n$$\nso $\\{\\frac{a+n}{\\sqrt{2}}\\} < \\frac{1}{2}$ and $a+n$ is in the range of $h$. We can then use $a+n$ as our $a$ in Case 1 to rule out this case. The case where $a$ is in the range of $h$ but not $g$ is similar.\n\n**Case 3:** Suppose finally that $a$ is in the range of neither $g$ nor $h$. We have $f(g(a)) = g(a) = a + \\frac{1}{2}$ and $f(g(a)) = g(f(a)) = f(a) + 1$, hence $f(a) + \\frac{1}{2}$. Since $f(a) \\neq a$, we have $f(a) = a - \\frac{1}{2}$. But we also have $f(h(a)) = h(a) = a + \\frac{\\sqrt{2}}{2}$ and $f(h(a)) = h(f(a)) = f(a) + \\sqrt{2}$, which implies $f(a) + \\frac{\\sqrt{2}}{2}$. We conclude that $f(a) = a - \\frac{\\sqrt{2}}{2}$. We thus obtained a contradiction that rules out this case as well.\n\nWe have thus obtained a contradiction in each case, and hence $f(a)$ is always equal to $a$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-injectivity-surjectivity-auto-2444",
+      "name": "HMIC #0jek",
+      "url": "https://usamoguide.com/",
+      "source": "HMIC",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Injectivity / surjectivity"
+      ],
+      "statement": "Problem:\nFind all functions $f: \\mathbb{R} \\rightarrow \\mathbb{R}$ such that, for all real numbers $x, y$,\n$$\n(x-y)(f(x)-f(y))=f(x-f(y)) f(f(x)-y)\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $\\quad f(x)=0, f(x)=x$\n\nFirst, suppose that $f(0) \\neq 0$. Then, by letting $x=y=0$, we get that either $f(f(0))$ or $f(-f(0))$ is zero. The former gives a contradiction by plugging in $x=f(0), y=0$ into the original equation. Thus, $f(-f(0))=0$.\n\nNow plugging in $x=0, y=-f(0)$ gives that $f(2 f(0))=f(0)$. Finally, we note that by symmetry of the left hand side of the functional equation, $f(x-f(y)) f(f(x)-y)=f(y-f(x)) f(f(y)-x)$, and letting $y=0$ and $x=2 f(0)$ we get $f(f(0)) f(f(0))=f(-f(0)) f(-f(0))=0$, giving and so $f(f(0))=0$, again a contradiction. Therefore, $f(0)=0$.\n\nSetting $y=0$ yields $x f(x)=f(x) f(f(x))$, so if $f(x) \\neq 0$, then $f(f(x))=x$. On the other hand, setting $y=f(x)$ yields $(x-f(x))(f(x)-f(f(x)))=f(x-f(f(x))) f(0)$, so in fact $f(f(x))=f(x) \\rightarrow f(x)=x$. Thus, for all $x, f(x)=0$ or $f(x)=x$.\n\nClearly, $f \\equiv 0$ satisfies the original equation, so suppose there exists a non-zero $x$ with $f(x)=x$. Then, for all $y \\neq x$, if $f(y) \\neq 0$, the original equation yields $x(x-y)=x f(x-y)$. Thus, $f(x-y)=x-y$. Similarly, if $f(y)=y$, we find $(x-y)^{2}=f(x-y)^{2}$, so $f(x-y)=x-y$. It follows that $f$ must be the identity, which indeed is a solution to the original equation. The proof is complete."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-injectivity-surjectivity-auto-2475",
+      "name": "TSTST #0jff",
+      "url": "https://usamoguide.com/",
+      "source": "TSTST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Prime numbers",
+        "Greatest common divisors (gcd)",
+        "Chinese remainder theorem",
+        "Injectivity / surjectivity"
+      ],
+      "statement": "Let $N$ be the set of positive integers. Let $f: \\mathbb{N} \\to \\mathbb{N}$ be a function satisfying the following two conditions:\n\na. $f(m)$ and $f(n)$ are relatively prime whenever $m$ and $n$ are relatively prime.\n\nb. $n \\le f(n) \\le n + 2012$ for all $n$.\n\nProve that for any natural number $n$ and any prime $p$, if $p$ divides $f(n)$ then $p$ divides $n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Let $g(n)$ be the smallest prime factor of $f(n)$. (Since $f(n) \\ge n$, $f(n)$ must have a prime factor unless $n=1$ and $f(1)=1$. In this case, we define $g(1)=1$.) First, we show that for any prime $p$ and any $k \\ge 1$, $f(p^k)$ is a power of $g(p)$.\n\nSuppose for the sake of contradiction that $f(p^k)$ is not a power of $g(p)$ for some $p$ and $k$. Choose $M$ sufficiently large so that $p^k < M \\cdot 2013!$, and let $P$ be the set of primes less than or equal to $M \\cdot 2013! + 1$. For any $q \\in P$, we have\n$$\ng(q) \\le f(q) \\le q + 2012 \\le M \\cdot 2013! + 2013,\n$$\nand furthermore the numbers $M \\cdot 2013! + i$ are composite for $2 \\le i \\le 2013$. It follows that $g(q) \\in P$, and so $g$ can be treated as a function from $P$ to $P$. Clearly, $g$ is injective because $f(q_1)$ and $f(q_2)$ are relatively prime for any distinct $q_1, q_2 \\in P$. Then, $g$ is bijective and in particular surjective.\n\nNow we can apply the same reasoning we used on primes in $P$ to $p^k$. We have\n$$\nf(p^k) \\le p^k + 2012 \\le M \\cdot 2013! + 2013,\n$$\nand so $f(p^k)$ has only prime factors in $P$. Suppose for the sake of contradiction that there is some prime $q \\in P$ not equal to $g(p)$ which divides $f(p^k)$. Then, by the surjectivity of $g$, there exists $r \\in P$ such that $g(r) = q$ (and with $r \\neq p$). We then find that $p^k$ and $r$ are relatively prime, but $q$ divides both $f(r)$ and $f(p^k)$, contradicting the first condition in the problem. It follows that $f(p^k)$ is a power of $g(p)$, as claimed.\n\nNext, we show that in fact $g(p) = p$. Indeed, suppose instead that $g(p) = q \\neq p$. Then, choose $\\ell$ sufficiently large so that $q^\\ell > 2013$, and letting $P = p^{q^\\ell - q^{\\ell-1}}$, choose $k$ sufficiently large so that $P^k > q^\\ell$. We find that\n$$\nP^k \\equiv 1^k \\equiv 1 \\bmod{q^\\ell}.\n$$\nBy the second condition of the problem, the only possible residues of $f(P^k)$ modulo $q^\\ell$ are the numbers between 1 and 2013, so in particular, $f(P^k)$ cannot be divisible by $q^\\ell$. On the other hand, $f(P^k) \\ge P^k > q^\\ell$, so $f(P^k)$ cannot be any power of $q$, contradicting the fact that since $P^k$ is a power of $p$, $f(P^k)$ must be a power of $g(p) = q$. This proves our claim that $g(p) = p$.\n\nFinally, let $p$ be any prime, and let $n$ be any positive integer relatively prime to $p$. Then, $f(p)$ and $f(n)$ are relatively prime, and since $f(p)$ is a power of $p$, it follows that $f(n)$ is not divisible by $p$. This is the contrapositive of the desired result, so we are done.\n\n(By Gabriel Carroll) We first show that for any positive integer $N > 1$ and residue $r$, there exists a number $L$ such that $L \\equiv r \\bmod{N}$ and $f(L) = L$.\n\nTo see this, let $\\{p_{i,j} \\mid 1 \\le i, j \\le 2012\\}$ be a set of distinct primes not dividing $N$ and larger than 2012. Also, let $\\{q_i \\mid 1 \\le i \\le 2012\\}$ be another disjoint set of primes, also not dividing $N$ and larger than 2012.\n\nBy the Chinese Remainder Theorem, there exists a positive integer $K$ such that the following congruences hold:\n\n* $K \\equiv -i \\bmod{p_{i,j}}$ for $1 \\le i, j \\le 2012$,\n* $K \\equiv 0 \\bmod{q_i}$ for $1 \\le i \\le 2012$, and\n* $K \\equiv r + 1 \\bmod{N}$.\n\nNote that since $p_{i,j} > 2012$ and $1 \\le i \\le 2012$, it follows that $K$ is relatively prime to each $p_{i,j}$. Let $P$ be the product of the prime factors of $K$ not dividing $N$ and not equal to $q_i$ for some $i$.\n\nBy the Chinese Remainder Theorem again, there exists a positive integer $L$ such that the following congruences hold:\n\n* $L \\equiv -j \\bmod{p_{i,j}}$ for $1 \\le i, j \\le 2012$,\n* $L \\equiv -i \\bmod{q_i}$ for $1 \\le i \\le 2012$,\n* $L \\equiv r \\bmod{N}$, and\n* $L \\equiv 1 \\bmod{P}$.\n\nWe first claim that $K$ and $L$ are relatively prime. Indeed, suppose for the sake of contradiction that a prime $q$ divided both $K$ and $L$. By the construction of $L$, $q$ cannot be a factor of $P$ or any of the $q_i$. Thus, the only remaining possibility is that $q \\mid N$. However, $K - L \\equiv 1 \\bmod{N}$, so this is impossible.\n\nThus, since $K$ and $L$ are relatively prime, we have by the first condition of the problem that $f(K)$ and $f(L)$ are relatively prime. Next, note that for any $1 \\le i, j \\le 2012$, we have\n$$\nK + i \\equiv L + j \\equiv 0 \\quad \\text{mod } p_{i,j},\n$$\nand for any $1 \\le j \\le 2012$, we have\n$$\nK \\equiv L + j \\equiv 0 \\quad \\text{mod } q_j.\n$$\nRecall from the second condition of the problem that $f(K)$ and $f(L)$ must take the forms $K + i$ and $L + j$, respectively, where $0 \\le i, j \\le 2012$. It follows from the above considerations that we must have $f(L) = L$, and by construction, we have $L \\equiv r \\pmod N$, as desired.\n\nWe can now quickly finish the problem. Suppose for the sake of contradiction that there is a prime $p$ and a number $n$ such that $p \\mid f(n)$ but $p \\nmid n$. Take $L$ to be a positive integer such that $L \\equiv p \\pmod{np}$ and $f(L) = L$. Then, $L$ is relatively prime to $n$, so $f(n)$ is relatively prime to $f(L)$. But $f(L) = L$ is divisible by $p$, a contradiction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-injectivity-surjectivity-auto-2995",
+      "name": "HMMT Invitational Competition #0jtv",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT Invitational Competition",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Injectivity / surjectivity",
+        "Factorization techniques"
+      ],
+      "statement": "Problem:\n\nDenote by $\\mathbb{N}$ the positive integers. Let $f: \\mathbb{N} \\rightarrow \\mathbb{N}$ be a function such that, for any $w, x, y, z \\in \\mathbb{N}$,\n$$\nf(f(f(z))) f(w x f(y f(z)))=z^{2} f(x f(y)) f(w)\n$$\nShow that $f(n!) \\geq n!$ for every positive integer $n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nIf $f\\left(z_{1}\\right)=f\\left(z_{2}\\right)$, then plugging in $\\left(w, x, y, z_{1}\\right)$ and $\\left(w, x, y, z_{2}\\right)$ yields $z_{1}=z_{2}$. Thus, $f$ is injective. Substitution of $(z, w)$ with $(1, f(f(1)))$ in the main equation yields\n$$\nf(f(f(1)) x f(y f(1)))=f(x f(y))\n$$\nBecause $f$ is injective, we have\n$$\nf(y f(1)) \\cdot f(f(1))=f(y), \\forall y \\in \\mathbb{N}\n$$\nWe can easily show by induction that\n$$\nf(y)=f\\left(y f(1)^{n}\\right) f(f(1))^{n}, \\forall n \\in \\mathbb{N}\n$$\nThus, $f(f(1))^{n} \\mid f(y), \\forall n \\in \\mathbb{N}$ which implies that $f(f(1))=1$. Using this equality in $(*)$ yields $f(1)=1$. Substitution of $(y, z)$ with $(1,1)$ in the main equation yields $f(x y)=f(x) f(y)$.\nSo,\n$$\nf(n!)=f\\left(\\prod_{i=1}^{n} i\\right)=\\prod_{i=1}^{n} f(i)\n$$\nBy injectivity, each $f(i)$ in this product is a distinct positive integer, so their product is at least $\\prod_{i=1}^{n} i=n!$, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-injectivity-surjectivity-auto-3135",
+      "name": "February 2017 #0jxr",
+      "url": "https://usamoguide.com/",
+      "source": "February 2017",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Injectivity / surjectivity",
+        "Polynomial operations",
+        "Other"
+      ],
+      "statement": "Problem:\nFind all real numbers $x$ satisfying the equation $x^{3}-8=16 \\sqrt[3]{x+1}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $f(x)=\\frac{x^{3}-8}{8}$. Then $f^{-1}(x)=\\sqrt[3]{8x+8}=2\\sqrt[3]{x+1}$, and so the given equation is equivalent to $f(x)=f^{-1}(x)$. This implies $f(f(x))=x$. However, as $f$ is monotonically increasing, this implies that $f(x)=x$.\n\nAs a result, we have\n$$\n\\frac{x^{3}-8}{8}=x \\Longrightarrow x^{3}-8x-8=0 \\Longrightarrow (x+2)\\left(x^{2}-2x-4\\right)=0,\n$$\nand so $x=-2, 1 \\pm \\sqrt{5}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-injectivity-surjectivity-auto-3142",
+      "name": "HMMT November #0jxy",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Permutations / basic group theory",
+        "Injectivity / surjectivity"
+      ],
+      "statement": "Problem:\n\nCompute the number of functions $f:\\{1,2, \\ldots, 9\\} \\rightarrow \\{1,2, \\ldots, 9\\}$ which satisfy $f(f(f(f(f(x))))) = x$ for each $x \\in \\{1,2, \\ldots, 9\\}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAll cycle lengths in the permutation must divide $5$, which is a prime number. Either $f(x) = x$ for all $x$, or there exists exactly one permutation cycle of length $5$. In the latter case, there are $\\binom{9}{5}$ ways to choose which numbers are in the cycle and $4!$ ways to create the cycle. The answer is thus $1 + \\binom{9}{5} \\cdot 4! = 3025$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-injectivity-surjectivity-auto-3342",
+      "name": "HMIC 2018 #0k3i",
+      "url": "https://usamoguide.com/",
+      "source": "HMIC 2018",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Injectivity / surjectivity"
+      ],
+      "statement": "Problem:\nFind all functions $f: \\mathbb{R}^{+} \\rightarrow \\mathbb{R}^{+}$ such that\n$$\nf(x+f(y+x y))=(y+1) f(x+1)-1\n$$\nfor all $x, y \\in \\mathbb{R}^{+}$.\n($\\mathbb{R}^{+}$ denotes the set of positive real numbers.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $P(x, y)$ denote the assertion that\n$$\nf(x+f(y+x y))=(y+1) f(x+1)-1.\n$$\n\nClaim 1. $f$ is injective.\n\nProof: If $f(a)=f(b)$ then $P\\left(x, \\frac{a}{x+1}\\right), P\\left(x, \\frac{b}{x+1}\\right)$ yields $a=b$, since $f(x+1) \\in \\mathbb{R}^{+}$ so in particular is nonzero.\n\nNow $P\\left(x, \\frac{1}{f(x+1)}\\right)$ yields\n$$\nf\\left(x+f\\left(\\frac{x+1}{f(x+1)}\\right)\\right)=f(x+1)\n$$\nhence by injectivity\n$$\nx+f\\left(\\frac{x+1}{f(x+1)}\\right)=x+1\n$$\nso that\n$$\nf\\left(\\frac{x+1}{f(x+1)}\\right)=1\n$$\nBy injectivity, this equals some constant $c$, so that\n$$\n\\frac{x+1}{f(x+1)}=c\n$$\nfor all $x \\in \\mathbb{R}^{+}$.\n\nNow letting $x, y>1$ in $P(x, y)$ automatically yields\n$$\n\\frac{x}{c}+\\frac{y+x y}{c^{2}}=(y+1)\\left(\\frac{x+1}{c}\\right)-1\n$$\nwhich immediately yields $c=1$ if we take $x, y$ large.\n\nFinally, we have $f(x+1)=x+1$ for all $x \\in \\mathbb{R}^{+}$.\n\nFinally, $P\\left(x, \\frac{y}{x+1}\\right)$ yields\n$$\nf(x+f(y))=\\left(\\frac{y}{x+1}+1\\right) f(x+1)-1=x+y\n$$\nso that fixing $y$ and letting $x>1$ yields\n$$\nx+f(y)=x+y\n$$\nso that $f(y)=y$.\n\nThis was for arbitrary positive $y$, so that $f(x)=x$ for all $x \\in \\mathbb{R}^{+}$, which clearly works."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-injectivity-surjectivity-auto-4029",
+      "name": "HMMT November 2021 #0kml",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2021",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Injectivity / surjectivity",
+        "Quadratic functions"
+      ],
+      "statement": "Problem:\n\nDefine the function $f: \\mathbb{R} \\rightarrow \\mathbb{R}$ by\n$$\nf(x)= \\begin{cases}\\frac{1}{x^{2}+\\sqrt{x^{4}+2 x}} & \\text{ if } x \\notin(-\\sqrt[3]{2}, 0] \\\\ 0 & \\text{ otherwise }\\end{cases}\n$$\nThe sum of all real numbers $x$ for which $f^{10}(x)=1$ can be written as $\\frac{a+b \\sqrt{c}}{d}$, where $a, b, c, d$ are integers, $d$ is positive, $c$ is square-free, and $\\operatorname{gcd}(a, b, d)=1$. Find $1000 a+100 b+10 c+d$.\n(Here, $f^{n}(x)$ is the function $f(x)$ iterated $n$ times. For example, $f^{3}(x)=f(f(f(x)))$.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nIf $x \\in(-\\sqrt[3]{2}, 0]$, it is evidently not a solution, so let us assume otherwise. Then, we find\n$$\nf(x)=\\frac{\\sqrt{x^{4}+2 x}-x^{2}}{2 x}\n$$\nwhich implies that $x f(x)^{2}+x^{2} f(x)-1 / 2=0$, by reverse engineering the quadratic formula. Therefore, if $x>0, f(x)$ is the unique positive real $t$ so that $x t^{2}+x^{2} t=1 / 2$. However, then $x$ is the unique positive real so that $x t^{2}+x^{2} t=1 / 2$, so $f(t)=x$. This implies that if $x>0$, then $f(f(x))=x$.\n\nSuppose that $f^{10}(x)=1$. Then, since $f(x)>0$, we find that $f(x)=f^{10}(f(x))=f^{11}(x)=f(1)$. Conversely, if $f(x)=f(1)$, then $f^{10}(x)=f^{9}(f(x))=f^{9}(f(1))=1$, so we only need to solve $f(x)=f(1)$.\n\nThis is equivalent to\n$x^{2}+\\sqrt{x^{4}+2 x}=1+\\sqrt{3} \\Longleftrightarrow \\sqrt{x^{4}+2 x}=1+\\sqrt{3}-x^{2} \\Longrightarrow x^{4}+2 x=x^{4}-2(1+\\sqrt{3}) x^{2}+(1+\\sqrt{3})^{2}$,\nwhich is equivalent to\n$$\n2(1+\\sqrt{3}) x^{2}+2 x-(1+\\sqrt{3})^{2}=0\n$$\nObviously, if $x=1$ then $f(x)=f(1)$, so we already know 1 is a root. This allows us to easily factor the quadratic and find that the other root is $-\\frac{1+\\sqrt{3}}{2}$. This ends up not being extraneous—perhaps the shortest way to see this is to observe that if $x=-\\frac{1+\\sqrt{3}}{2}$,\n$$\n1+\\sqrt{3}-x^{2}=(1+\\sqrt{3})\\left(1-\\frac{1+\\sqrt{3}}{4}\\right)>0\n$$\nso since we already know\n$$\nx^{4}+2 x=\\left(1+\\sqrt{3}-x^{2}\\right)^{2}\n$$\nwe have\n$$\n\\sqrt{x^{4}+2 x}=1+\\sqrt{3}-x^{2} .\n$$\nTherefore, the sum of solutions is $\\frac{1-\\sqrt{3}}{2}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-injectivity-surjectivity-auto-4201",
+      "name": "Berkeley Math Circle #0krd",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Injectivity / surjectivity"
+      ],
+      "statement": "Problem:\nFind all functions $f: \\mathbb{Z} \\rightarrow \\mathbb{Z}$ from the integers to the integers satisfying\n$$\nf(m+f(n))-f(m)=n\n$$\nfor all integers $m, n \\in \\mathbb{Z}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAdding $f(m)$ to both sides, we get $f(m+f(n))=n+f(m)$. Swapping $m$ and $n$ gives $m+f(n)=f(n+f(m))=f(f(m+f(n)))$. By fixing $n$ and varying $m$, we can get $m+f(n)$ to be any integer $x$. Thus, $x=f(f(x))$.\nPlugging in $1$ for $m$ and $f(x)$ for $n$ to the original equation then gives $f(x)+f(1)=f(1+f(f(x)))=f(1+x)$, so $f(x)$ is linear, of the form $c x$ for some constant $c$.\n\nPlugging in $0$ for $m$ then gives $n=f(f(n))-f(0)=c^{2} n$, so $c^{2}= \\pm 1$. It is easily seen that both $f(x)=x$ and $f(x)=-x$ indeed work."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-injectivity-surjectivity-auto-4290",
+      "name": "HMIC 2023 #0ktu",
+      "url": "https://usamoguide.com/",
+      "source": "HMIC 2023",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Injectivity / surjectivity"
+      ],
+      "statement": "Problem:\nLet $\\mathbb{Q}^{+}$ denote the set of positive rational numbers. Find, with proof, all functions $f: \\mathbb{Q}^{+} \\rightarrow \\mathbb{Q}^{+}$ such that, for all positive rational numbers $x$ and $y$, we have\n$$\nf(x)=f(x+y)+f\\left(x+x^{2} f(y)\\right)\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $f(x)=\\frac{1}{x}$.\n\nIt is straightforward to check that $f(x)=\\frac{1}{x}$ works. We then focus on proving that there are no other solutions. Let $P(x, y)$ denote the given functional equation. First note that for all $x, y \\in \\mathbb{Q}^{+}$, $f(x)>f(x+y)$, so $f$ is strictly decreasing and hence injective. Now, for all $x, y \\in \\mathbb{Q}^{+}$,\n$$\n\\begin{aligned}\nP(x, y) & \\Longrightarrow f(x)=f(x+y)+f\\left(x+x^{2} f(y)\\right) \\\\\nP\\left(x, x^{2} f(y)\\right) & \\Longrightarrow f(x)=f\\left(x+x^{2} f(y)\\right)+f\\left(x+x^{2} f\\left(x^{2} f(y)\\right)\\right)\n\\end{aligned}\n$$\nEquating these two equations gives\n$$\n\\begin{aligned}\nf\\left(x+x^{2} f\\left(x^{2} f(y)\\right)\\right) & =f(x+y) \\\\\nx+x^{2} f\\left(x^{2} f(y)\\right) & =x+y \\\\\nf\\left(x^{2} f(y)\\right) & =\\frac{y}{x^{2}}\n\\end{aligned}\n$$\nfor all $x, y \\in \\mathbb{Q}^{+}$. In particular, plugging in $x=1$ gives $f(f(y))=y$, and replacing $y$ with $f(y)$ gives $f\\left(x^{2} y\\right)=\\frac{f(y)}{x^{2}}$ for all $x, y \\in \\mathbb{Q}^{+}$. There are two ways to finish.\n\nFinish 1: The above implies that $f\\left(x^{2}\\right)=\\frac{f(1)}{x^{2}}$ for all $x \\in \\mathbb{Q}^{+}$. Since $\\left\\{x^{2}: x \\in \\mathbb{Q}^{+}\\right\\}$ is dense in $\\mathbb{Q}^{+}$ and $f$ is decreasing we find that $f(x)=c / x$ for some constant $c$. Plugging back in now gives $c=1$.\n\nFinish 2: For all $x \\in \\mathbb{Q}^{+}$,\n$$\n\\begin{aligned}\nP\\left(x, \\frac{9 x}{16}\\right) \\Longrightarrow f(x) & =f\\left(\\frac{25 x}{16}\\right)+f\\left(x+x^{2} f\\left(\\frac{9 x}{16}\\right)\\right) . \\\\\n& =\\frac{16 f(x)}{25}+f\\left(x+\\frac{16 x^{2} f(x)}{9}\\right)\n\\end{aligned}\n$$\nHence, we have\n$$\n\\begin{aligned}\nf\\left(\\frac{25 x}{9}\\right)=\\frac{9 f(x)}{25} & =f\\left(x+\\frac{16 x^{2} f(x)}{9}\\right) \\\\\n\\frac{25 x}{9} & =x+\\frac{16 x^{2} f(x)}{9} \\Longrightarrow f(x)=\\frac{1}{x}\n\\end{aligned}\n$$\nas desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-injectivity-surjectivity-auto-4395",
+      "name": "HMIC 2023 #0kwr",
+      "url": "https://usamoguide.com/",
+      "source": "HMIC 2023",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Greatest common divisors (gcd)",
+        "Techniques: modulo, size analysis, order analysis, inequalities",
+        "Injectivity / surjectivity"
+      ],
+      "statement": "Problem:\n\nLet $a_{1}, a_{2}, \\ldots$ be an infinite sequence of positive integers such that, for all positive integers $m$ and $n$, we have that $a_{m+n}$ divides $a_{m} a_{n}-1$. Prove that there exists an integer $C$ such that, for all positive integers $k>C$, we have $a_{k}=1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFor convenience, define $g(x): \\mathbb{N} \\rightarrow \\mathbb{N}$ to be $g(n)=a_{n}$.\nWe first prove that $1 \\in \\operatorname{Im}(g)$. Assume otherwise. First, note that $\\operatorname{gcd}(g(m+n), g(m))=1$ for all positive integers $m, n$, so thus if $g$ never takes the value $1$ then $g$ is injective (and the values it takes are pairwise relatively prime.) Now, let $g(1)=a$ and $g(2)=b$. Note that for every $x$, there exist integers $m, n, p$ such that\n$$\n\\begin{aligned}\ng(x+1) & =\\frac{a g(x)-1}{m} \\\\\ng(x+1) & =\\frac{b g(x-1)-1}{n} \\\\\ng(x) & =\\frac{a g(x-1)-1}{p} .\n\\end{aligned}\n$$\nHence,\n$$\ng(x+1)=\\frac{b g(x-1)-1}{n}=\\frac{a^{2} g(x-1)-a-p}{m p} .\n$$\nNow, suppose $g(x+1) \\geq g(x-1)$. Then we must have $n<b, m p<a^{2}$. Hence there are finitely many choices for $(n, m, p)$, and each such choice leads to finitely many possibilities for $g(x-1)$ unless $b m p=n a^{2}$. But $\\operatorname{gcd}\\left(b, a^{2}\\right)=1$, so this implies that $b \\mid n$, and hence $b \\leq n$, which is false. Hence this means that if $g(x+1) \\geq g(x-1)$ then $g(x-1)$ must take one of a finite set of possible values.\n\nNow, recall that $g$ is injective. Hence this implies that in fact $g(x+1) \\geq g(x-1)$ can only occur a finite number of times, and so for all sufficiently large $x$, $g(x+1)<g(x-1)$. But this is a contradiction to $g$ being injective, and so our hypothesis was false and hence $1 \\in \\operatorname{Im}(g)$.\n\nNote that this proof works identically if we scale all the inputs by any positive integer, so this implies that every integer has a multiple in $S:=g^{-1}(\\{1\\})$.\n\nWe now finish the problem. Consider the smallest value of $\\operatorname{Im}(g)$ not equal to $1$ (if it doesn't exist then we are done), and say $g(c)$ is equal to this value. Then note that if $a \\in S$, then $g(a+c) \\leq g(c)-1$ and so $a+c \\in S$. Now, let $k c$ be a multiple of $c$ which is in $S$; then $d c \\in S$ for all $d \\geq k$. Now, for each residue class modulo $c$, select an element $j$ for which $g(j) \\neq 1$ (if no such element exists we'll still be done, as we will see.) Then for all $d \\geq k, g(j+d c) \\leq g(j)-1$. Hence $g$ is bounded in each residue class, and so $g$ is bounded. Now note that $g$ is injective in $\\mathbb{Z}^{+} \\backslash S$, so in fact $\\mathbb{Z}^{+} \\backslash S$ must be finite! So $g(x)=1$ for all sufficiently large $x$, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-injectivity-surjectivity-auto-4449",
+      "name": "USA TST #0ky9",
+      "url": "https://usamoguide.com/",
+      "source": "USA TST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Injectivity / surjectivity",
+        "Pigeonhole principle"
+      ],
+      "statement": "Fix a function $f: \\mathbb{N} \\to \\mathbb{N}$ and for any $m, n \\in \\mathbb{N}$ define\n$$\n\\Delta(m, n) = \\underbrace{f(f(\\dots f(m)\\dots))}_{f(n) \\text{ times}} - \\underbrace{f(f(\\dots f(n)\\dots))}_{f(m) \\text{ times}}.\n$$\nSuppose $\\Delta(m, n) \\neq 0$ for any distinct $m, n \\in \\mathbb{N}$. Show that $\\Delta$ is unbounded, meaning that for any constant $C$ there exist $m, n \\in \\mathbb{N}$ with $|\\Delta(m, n)| > C$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Suppose for the sake of contradiction that $|\\Delta(m, n)| \\le N$ for all $m, n$. Note that $f$ is injective, as\n$$\nf(m) = f(n) \\implies \\Delta(m, n) = 0 \\implies m = n,\n$$\nas desired.\n\nLet $G$ be the “arrow graph” of $f$, which is the directed graph with vertex set $\\mathbb{N}$ and edges $n \\to f(n)$. The first step in the solution is to classify the structure of $G$. Injectivity implies that $G$ is a disjoint collection of chains (infinite and half-infinite) and cycles. We have the following sequence of claims that further refine the structure.\n\n**Claim** — The graph $G$ has no cycles.\n*Proof.* Suppose for the sake of contradiction that $f^k(n) = n$ for some $k \\ge 2$ and $n \\in \\mathbb{N}$. As $m$ varies over $\\mathbb{N}$, we have $|\\Delta(m, n)| \\le N$, so $f^{f(n)}(m)$ can only take on some finite set of values. In particular, this means that\n$$\nf^{f(n)}(m_1) = f^{f(n)}(m_2)\n$$\nfor some $m_1 \\ne m_2$, which contradicts injectivity.\n\n**Claim** — The graph $G$ has at most $2N + 1$ chains.\n*Proof.* Suppose we have numbers $m_1, \\dots, m_k$ in distinct chains. Select a positive integer $B > \\max\\{f(m_1), \\dots, f(m_k)\\}$. Now,\n$$\n|\\Delta(m_i, f^{B-f(m_i)}(1))| \\le N \\implies |f^B(1) - f^{f^{B-f(m_i)+1}}(m_i)| \\le N.\n$$\nSince the $m_i$s are in different chains, we have that $f^{f^{B-f(m_i)+1}}(m_i)$ are distinct for each $i$, which implies that $k \\le 2N + 1$, as desired.\n\n**Claim** — The graph $G$ consists of exactly one half-infinite chain.\n*Proof.* Fix some $c \\in \\mathbb{N}$. Call an element of $\\mathbb{N}$ *bad* if it is not of the form $f^k(c)$ for some $k \\ge 0$. It suffices to show that there are only finitely many bad numbers.\nSince there are only finitely many chains, $f^{f(c)}(n)$ achieves all sufficiently large positive integers, say all positive integers at least $M$. Fix $A$ and $B$ such that $B > A \\ge M$.\n\nIf $f^{f(c)}(n) \\in [A, B]$, then $f^{f(n)}(c) \\in [A - N, B + N]$, and distinct $n$ generate distinct $f^{f(n)}(c)$ due to the structure of $G$. Therefore, we have at least $B - A + 1$ good numbers in $[A - N, B + N]$, so there are at most $2N$ bad numbers in $[A - N, B + N]$.\nVarying $B$, this shows there are at most $2N$ bad numbers at least $A - N$.\nLet $c$ be the starting point of the chain, so every integer is of the form $f^k(c)$, where $k \\ge 0$. Define a function $g: \\mathbb{Z}_{\\ge 0} \\to \\mathbb{N}$ by\n$$\ng(k) := f^k(c).\n$$\nDue to the structure of $G$, $g$ is a bijection. Define\n$$\n\\delta(a, b) := \\Delta(f^a(c), f^b(c)) = g(g(b+1)+a) - g(g(a+1)+b),\n$$\nso the conditions are equivalent to $|\\delta(a, b)| \\le N$ for all $a, b \\in \\mathbb{Z}_{\\ge 0}$ and $\\delta(a, b) \\ne 0$ for $a \\ne b$, which is equivalent to $g(a+1) - a \\ne g(b+1) - b$ for $a \\ne b$. This tells us that $g(x) - x$ is injective for $x \\ge 1$.\n\n**Lemma**\nFor all $M$, there exists a nonnegative integer $x$ with $g(x) \\le x - M$.\n*Proof.* Assume for the sake of contradiction that $g(x) - x$ is bounded below. Fix some large positive $K$. Since $g(x) - x$ is injective, there exists $B$ such that $g(x) - x \\ge K$ for all $x \\ge B$. Then $\\min\\{g(B+1), g(B+2), \\dots\\} \\ge B + K$, while $\\{g(0), \\dots, g(B)\\}$ only achieve $B+1$ values. Thus, at least $K-1$ values are not achieved by $g$, which is a contradiction.\nNow pick $B$ such that $g(B) + N \\le B$ and $g(B) > N$. Note that infinitely many such $B$ exist, since we can take $M$ to be arbitrarily small in the above lemma. Let\n$$\nt = \\max\\{g^{-1}(g(B) - N), g^{-1}(g(B) - N + 1), \\dots, g^{-1}(g(B) + N)\\}.\n$$\nNote that $g(t) \\le g(B) + N \\le B$, so we have\n$$\n|\\delta(t-1, B - g(t))| = |g(B) - g(t-1 + g(B+1 - g(t)))| \\le N,\n$$\nso\n$$\nt - 1 + g(B + 1 - g(t)) \\in \\{g^{-1}(g(B) - N), g^{-1}(g(B) - N + 1), \\dots, g^{-1}(g(B) + N)\\},\n$$\nso by the maximality of $t$, we must have $g(B + 1 - g(t)) = 1$, so $B + 1 - g(t) = g^{-1}(1)$. We have $|g(t) - g(B)| \\le N$, so\n$$\n|(B - g(B)) + 1 - g^{-1}(1)| \\le N.\n$$\nThis is true for infinitely many values of $B$, so infinitely many values of $B - g(B)$ (by injectivity of $g(x) - x$), which is a contradiction. This completes the proof."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-injectivity-surjectivity-auto-4631",
+      "name": "HMMT February 2024 #0l3b",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2024",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Injectivity / surjectivity"
+      ],
+      "statement": "Problem:\nLet $\\mathbb{Q}$ be the set of rational numbers. Given a rational number $a \\neq 0$, find, with proof, all functions $f: \\mathbb{Q} \\rightarrow \\mathbb{Q}$ satisfying the equation\n$$\nf(f(x)+a y)=a f(y)+x\n$$\nfor all $x, y \\in \\mathbb{Q}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $P(x, y)$ denote the functional equation. From $P(x, 0)$, we have $f(f(x))=x+a f(0)$. Thus, the tripling trick gives $f(x+a f(0))=f(f(f(x)))=f(x)+a f(0)$.\nNow, here is the main idea: $P(f(x), y)$ gives\n$$\n\\begin{aligned}\nf(f(f(x))+a y) & =a f(y)+f(x) \\\\\nf(x+a f(0)+a y) & =f(x)+a f(y) \\\\\nf(x+a y) & =f(x)+a f(y)-a f(0)\n\\end{aligned}\n$$\nIn particular, plugging in $x=0$ into this equation gives $f(a y)=a f(y)+(1-a) f(0)$, so inserting it back to the same equation gives\n$$\nf(x+a y)=f(x)+f(a y)-f(0),\n$$\nfor all rational numbers $x, y$. In particular, the function $g(x)=f(x)-f(0)$ is additive, so $f$ is linear. Let $f(x)=b x+c$. By substituting it in, we have $P(x, y)$ iff\n$$\n\\begin{aligned}\nf(a y+b x+c) & =a(b y+c)+x \\\\\na b y+b^{2} x+b c+c & =a b y+a c+x \\\\\n\\left(b^{2}-1\\right) x+(b+1-a) c & =0\n\\end{aligned}\n$$\nSince $x$ is arbitrary, we can state that $b^{2}-1=0$ and $(b+1-a) c=0$, thus $b= \\pm 1$. As $a \\neq 0$, we know $b+1-a=0$ only if $b=1$ and $a=2$. When $a \\neq 2$ or $b \\neq 1$, we know the only solutions are $b= \\pm 1, c=0$, while for $a=2, b=1$, the equation is automatically satisfied, so the final answer is\n$$\n\\left\\{\\begin{array}{l}\nf(x)=x \\\\\nf(x)=-x \\\\\nf(x)=x+c \\text{ for all rational number } c \\text{ iff } a=2\n\\end{array}\\right.\n$$\n\nSolution:\nWe will only prove that $f$ is linear. Then, proceed as in the end of Solution 1.\nWe know $f(f(x))=a f(0)+x$, so as $a f(0)+x$ can take any rational number when $x$ takes every rational number, the range of $f$ is $\\mathbb{Q}$, and so $f$ is surjective. If $f\\left(x_{1}\\right)=f\\left(x_{2}\\right)$, we have $x_{1}=f\\left(f\\left(x_{1}\\right)\\right)-a f(0)=f\\left(f\\left(x_{2}\\right)\\right)-a f(0)=x_{2}$, so $x_{1}=x_{2}$, implying $f$ being injective. Thus, $f$ is bijective.\nFrom $P(x, 0)$, we still get $f(f(x))=x+a f(0)$.\nThus, from $P(f^{-1}(0), y / a)$, we can get $f(y)=a f(y / a)+f^{-1}(0)$. Plugging again $P(f(x), y / a)$, we have $f(f(f(x))+y)=f(x+y+a f(0))=a f(y / a)+f(x)=f(x)+f(y)-f^{-1}(x)$.\nThus, we know $f(x+y)=f(x-a f(0))+f(y)-f^{-1}(0)=f(x)+f(y)-f(0)$. Hence, the function $g(x)=f(x)-f(0)$ is additive, so $g(x)=k x$ for some rational number $k$. Thus, $f$ is a linear function, and we can proceed as in above solution."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-injectivity-surjectivity-auto-4671",
+      "name": "HMMT February 2024 #0l4f",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2024",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Permutations / basic group theory",
+        "Injectivity / surjectivity"
+      ],
+      "statement": "Problem:\nCompute the number of triples $(f, g, h)$ of permutations on $\\{1,2,3,4,5\\}$ such that\n$$\n\\begin{aligned}\n& f(g(h(x)))=h(g(f(x)))=g(x), \\\\\n& g(h(f(x)))=f(h(g(x)))=h(x), \\text{ and } \\\\\n& h(f(g(x)))=g(f(h(x)))=f(x)\n\\end{aligned}\n$$\nfor all $x \\in \\{1,2,3,4,5\\}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $f g$ represent the composition of permutations $f$ and $g$, where $(f g)(x)=f(g(x))$ for all $x \\in \\{1,2,3,4,5\\}$.\n\nEvaluating $f g h f h$ in two ways, we get\n$$\nf = g f h = (f g h) f h = f g h f h = f(g h f) h = f h h,\n$$\nso $h h = 1$. Similarly, we get $f, g$, and $h$ are all involutions. Then\n$$\nf g h = g \\Longrightarrow f g = g h,\n$$\nso $f g = g h = h f$. Let $x := f g = g h = h f$. Then\n$$\nx^{3} = (f g)(g h)(h f) = 1\n$$\nWe can also show that $f g = g h = h f$ along with $f, g, h$ being involutions is enough to recover the initial conditions, so we focus on satisfying these new conditions.\n\nIf $x = 1$, then $f = g = h$ is an involution. There are $1 + \\binom{5}{2} + \\frac{1}{2} \\binom{5}{2,2,1} = 26$ involutions, so this case gives 26 solutions.\n\nSuppose $x \\neq 1$. Then since $x^{3} = 1$, $x$ is composed of a 3-cycle and two fixed points, of which there are 20 choices. WLOG $x = (123)$. It can be checked that $\\{1,2,3\\}$ must map to itself for all of $f, g, h$ and also $\\{4,5\\}$. We can either have all of $f, g, h$ map 4 and 5 to themselves or each other. Restricted to $\\{1,2,3\\}$, they are some rotation of (12), (23), (13). Each of the 20 cases thus gives $2 \\cdot 3 = 6$ triples, so overall we get $20 \\cdot 6 = 120$.\n\nThe final answer is $26 + 120 = 146$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-injectivity-surjectivity-auto-4783",
+      "name": "HMMT February 2025 #0l7j",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2025",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Quadratic residues",
+        "Quadratic reciprocity",
+        "Fermat / Euler / Wilson theorems",
+        "Polynomials mod p",
+        "Injectivity / surjectivity",
+        "Recurrence relations"
+      ],
+      "statement": "Problem:\nLet $\\mathbb{Z}$ be the set of integers. Determine, with proof, all primes $p$ for which there exists a function $f\\colon \\mathbb{Z}\\to \\mathbb{Z}$ such that for any integer $x$,\n\n$f(x + p) = f(x)$ and $p$ divides $f(x + f(x)) - x$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe work in $\\mathbb{F}_p$, treating $f$ as a map from $\\mathbb{F}_p$ to itself. Clearly, $p = 2$ doesn't work. For $p > 2$ such that $5$ is a quadratic residue mod $p$, as well as $p = 5$ itself, there exists some $\\alpha$ such that $(2\\alpha + 1)^2\\equiv 5$ (mod $p$). Taking $f(x) = \\alpha x$ then works because\n\n$$\nf(x + f(x)) - x = (\\alpha^2 + \\alpha -1)x = \\frac{1}{4}\\left((2\\alpha +1)^2 - 5\\right)x\\equiv 0\\pmod {p}.\n$$\n\nTo prove no other primes satisfy the conditions in the problem statement, note that $f$ is surjective, as for any $x$, $f(x + f(x)) = x$. As $\\mathbb{F}_p$ is finite, $f$ is bijective. Plugging in $x = f(y)$ yields\n\n$$\nf(f(y) + f(f(y))) = f(y)\\implies f(y) + f(f(y)) = y.\n$$\n\nSince $f$ is bijective, there exists $z\\in \\mathbb{F}_p$ such that $f(z) = 0$, then $z = f(z + f(z)) = f(z) = 0$. Therefore, $f(0) = 0$. This is the only fixed point, as any fixed point $d$ would satisfy $d = f(d) + f(f(d)) = 2d$, which is impossible if $d \\neq 0$. Hence the remaining residues form nontrivial cycles $y$, $f(y)$, $f(f(y))$, etc. If the cycle containing $y$ is of length $n$, then\n\n$$\n\\begin{array}{rl}\n& f^{-1}(y) = y + f(y),\\\\\n& f^{-2}(y) = f^{-1}(y) + y = 2y + f(y),\\\\\n& \\qquad \\vdots\\\\\n& f^{-(n - 1)}(y) = f(y) = F_ny + F_{n - 1}f(y),\\\\\n& \\qquad y = F_{n + 1}y + F_n f(y),\n\\end{array} \\quad (\\text{by induction})\n$$\n\nwhere $F_k$ is the $k$-th Fibonacci number. As $y \\neq 0$ and $f(y) \\neq 0$, the last two equations tell us\n\n$$\nF_n^2 \\equiv \\left(\\frac{(1 - F_{n - 1})f(y)}{y}\\right) \\left(\\frac{(1 - F_{n + 1})y}{f(y)}\\right) \\equiv (F_{n + 1} - 1)(F_{n - 1} - 1) \\pmod {p}.\n$$\n\nLet $A = F_{n + 1} - 1$ and $B = F_{n - 1} - 1$ for brevity. The last equation becomes\n\n$$\n(A - B)^2 \\equiv AB \\equiv \\frac{1}{4} ((A + B)^2 - (A - B)^2) \\pmod {p} \\Longrightarrow (A + B)^2 \\equiv 5(A - B)^2 \\pmod {p}.\n$$\n\nAs $5$ is not a quadratic residue, this implies $F_{n + 1} \\equiv F_{n - 1} \\equiv 1 \\pmod {p}$. Hence, if $d$ is the smallest positive integer such that $F_d \\equiv 0 \\pmod {p}$ and $F_{d + 1} \\equiv 1 \\pmod {p}$, then the Fibonacci sequence is periodic modulo $p$ with period $d$, so $d \\mid n$. The sum of all cycle lengths (excluding the fixed point $0$) is $p - 1$, so $d \\mid p - 1$. The following well-known lemma will give us a contradiction.\n\n**Lemma 1.** If $5$ is not a quadratic residue modulo a prime $p$, then $p \\nmid F_{p - 1}$.\n\n**Proof 1.** Recall Binet's formula,\n\n$$\nF_{p - 1} = \\frac{1}{\\sqrt{5}} \\left(\\left(\\frac{1 + \\sqrt{5}}{2}\\right)^{p - 1} - \\left(\\frac{1 - \\sqrt{5}}{2}\\right)^{p - 1}\\right).\n$$\n\nMultiplying both sides by $2^{p - 1}$ and expanding via the binomial theorem, we have\n\n$$\n2^{p - 1}F_{p - 1} = 2\\sum_{k = 0}^{\\frac{p - 3}{2}}5^{k}\\binom{p - 1}{2k + 1}.\n$$\n\nHowever, $\\binom{p- 1}{2k+1} \\equiv(- 1)^{2k+1} \\equiv- 1 \\pmod{p}$ for all $k$, so\n\n$$\np \\mid F_{p - 1} \\quad \\text{if and only if} \\quad p \\left| \\sum_{k = 0}^{\\frac{p - 3}{2}} 5^{k} = \\frac{5^{\\frac{p - 1}{2}} - 1}{5 - 1} \\right.\n$$\n\nTherefore $p \\mid F_{p - 1}$ if and only if $5^{\\frac{p - 1}{2}} \\equiv 1 \\pmod {p}$, which doesn't hold if $5$ is not a quadratic residue modulo $p$, as desired. $\\square$\n\n**Proof 2.** Work in $\\mathbb{F}_{p^{2}} = \\mathbb{F}_{p}[\\sqrt{5}]$. Since $5$ is not a quadratic residue, we get that $(\\sqrt{5})^{p} = - \\sqrt{5}$. Using the fact that $(a + b)^{p} = a^{p} + b^{p}$ (because all other terms have coefficient divisible by $p$), we get that\n\n$$\n\\left(\\frac{1 + \\sqrt{5}}{2}\\right)^{p} = \\frac{1 - \\sqrt{5}}{2} \\implies \\left(\\frac{1 + \\sqrt{5}}{2}\\right)^{p - 1} = \\left(\\frac{1 - \\sqrt{5}}{2}\\right)^{2} = \\frac{3 - \\sqrt{5}}{2}.\n$$\n\nSimilarly, $\\left(\\frac{1 - \\sqrt{5}}{2}\\right)^{p - 1} = \\frac{3 + \\sqrt{5}}{2}$. Hence, by Binet's formula,\n\n$$\nF_{p - 1} = \\frac{1}{\\sqrt{5}}\\left(\\left(\\frac{1 + \\sqrt{5}}{2}\\right)^{p - 1} - \\left(\\frac{1 - \\sqrt{5}}{2}\\right)^{p - 1}\\right)\n= \\frac{1}{\\sqrt{5}}\\left(\\frac{3 - \\sqrt{5}}{2} -\\frac{3 + \\sqrt{5}}{2}\\right) = -1,\n$$\n\nso it is not divisible by $p$.\n\nHence, $F_{p - 1} \\neq 0$ (mod $p$) if $5$ is not a quadratic residue modulo $p$, which contradicts $d \\mid p - 1$ above. This completes the solution."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-injectivity-surjectivity-auto-4784",
+      "name": "16th United States of America Junior Mathematical Olympiad #0l7k",
+      "url": "https://usamoguide.com/",
+      "source": "16th United States of America Junior Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Injectivity / surjectivity",
+        "Existential quantifiers"
+      ],
+      "statement": "Let $\\mathbb{Z}$ be the set of integers, and let $f: \\mathbb{Z} \\to \\mathbb{Z}$ be a function. Prove that there are infinitely many integers $c$ such that the function $g: \\mathbb{Z} \\to \\mathbb{Z}$ defined by $g(x) = f(x) + c x$ is not bijective.\n\n*Note*: A function $g: \\mathbb{Z} \\to \\mathbb{Z}$ is *bijective* if for every integer $b$, there exists exactly one integer $a$ such that $g(a) = b$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

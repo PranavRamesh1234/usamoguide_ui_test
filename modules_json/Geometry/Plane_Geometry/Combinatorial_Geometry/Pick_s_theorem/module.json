@@ -1,0 +1,295 @@
+{
+  "MODULE_ID": "geometry-plane-geometry-combinatorial-geometry-pick-s-theorem",
+  "practice": [
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-pick-s-theorem-auto-0629",
+      "name": "Harvard-MIT Math Tournament #0i05",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Pick's theorem",
+        "Pigeonhole principle",
+        "Optimization in geometry"
+      ],
+      "statement": "Problem:\n\nIf 5 points are placed in the plane at lattice points (i.e. points $(x, y)$ where $x$ and $y$ are both integers) such that no three are collinear, then there are 10 triangles whose vertices are among these points. What is the minimum possible number of these triangles that have area greater than $1/2$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nBy the pigeonhole principle, the 5 points cannot all be distinct modulo 2, so two of them must have a midpoint that is also a lattice point. This midpoint is not one of the 5 since no 3 are collinear. Pick's theorem states that the area of a polygon whose vertices are lattice points is $B/2 + I - 1$ where $B$ is the number of lattice points on the boundary and $I$ is the number in the interior. Thus those two points form the base of 3 triangles whose area will be greater than $1/2$ by Pick's theorem since there are 4 lattice points on the boundary.\n\nNow it also turns out that at least one of the triangles must contain a lattice point, thus giving us a fourth triangle with area greater than $1/2$. This is actually pretty easy to show with the aid of a picture or some visualization. Suppose we have 4 points and we're trying to find a 5th one so that no triangle will contain an interior lattice point. The 4 lattice points must form a quadrilateral of area 1, so in fact it is a parallelogram (think deeply about it). Draw the four sides, extending them throughout the plane. Each vertex is now the tip of an infinite triangular region of the plane, and if the 5th lattice point is chosen in that region then the triangle formed by the 5th point and the two vertices of the parallelogram adjacent to the one we are considering will form a triangle containing the vertex we are considering. But the part of the plane that isn't in one of these 4 regions contains no lattice points or else we could draw a parallelogram congruent to the first one with lattice point vertices and containing that lattice point, but that would violate Pick's theorem since the parallelogram has area 1. Therefore we must have a fourth triangle with area greater than $1/2$ (one must justify that this really is in addition to the 3 triangles we already knew we'd get).\n\nAn example that achieves this minimum is the points $(0,0), (1,0), (1,1), (2,1)$, and $(2,-1)$. Therefore the minimum possible number of these triangles that have area greater than $1/2$ is 4.\n\nA less trivial example that achieves the minimum is $(0,0), (1,1), (2,1), (3,2)$, and $(7,5)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-pick-s-theorem-auto-0929",
+      "name": "Harvard-MIT Mathematics Tournament #0i8h",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Pick's theorem",
+        "Cartesian coordinates",
+        "Vectors"
+      ],
+      "statement": "Problem:\nHow many lattice points are enclosed by the triangle with vertices $(0,99)$, $(5,100)$, and $(2003, 500)$? Don't count boundary points.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nUsing the determinant formula, we get that the area of the triangle is\n$$\n\\left|\\begin{array}{cc}\n5 & 1 \\\\\n2003 & 401\n\\end{array}\\right| / 2 = 1\n$$\nThere are 4 lattice points on the boundary of the triangle (the three vertices and $(1004, 300)$), so it follows from Pick's Theorem that there are 0 in the interior."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-pick-s-theorem-auto-2384",
+      "name": "Harvard-MIT Mathematics Tournament #0jcw",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "φ (Euler's totient)",
+        "Pick's theorem",
+        "Telescoping series",
+        "Greatest common divisors (gcd)"
+      ],
+      "statement": "Problem:\n\nFor any positive integer $n$, let $N=\\varphi(1)+\\varphi(2)+\\ldots+\\varphi(n)$. Show that there exists a sequence\n$$\na_{1}, a_{2}, \\ldots, a_{N}\n$$\ncontaining exactly $\\varphi(k)$ instances of $k$ for all positive integers $k \\leq n$ such that\n$$\n\\frac{1}{a_{1} a_{2}}+\\frac{1}{a_{2} a_{3}}+\\cdots+\\frac{1}{a_{N} a_{1}}=1 .\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe write all fractions of the form $b / a$, where $a$ and $b$ are relatively prime, and $0 \\leq b \\leq a \\leq n$, in ascending order. For instance, for $n=5$, this is the sequence\n$$\n\\frac{0}{1}, \\frac{1}{5}, \\frac{1}{4}, \\frac{1}{3}, \\frac{2}{5}, \\frac{1}{2}, \\frac{3}{5}, \\frac{2}{3}, \\frac{3}{4}, \\frac{4}{5}, \\frac{1}{1}\n$$\n\nThis sequence is known as the Farey sequence.\nNow, if we look at the the sequence of the denominators of the fractions, we see that $k$ appears $\\varphi(k)$ times when $k>1$, although 1 appears twice. Thus, there are $N+1$ elements in the Farey sequence. Let the Farey sequence be\n\n$$\n\\frac{b_{1}}{a_{1}}, \\frac{b_{2}}{a_{2}}, \\ldots, \\frac{b_{N+1}}{a_{N+1}}\n$$\n\nNow, $a_{N+1}=1$, so the sequence $a_{1}, a_{2}, \\ldots, a_{N}$ contains $\\varphi(k)$ instances of $k$ for every $1 \\leq k \\leq n$. We claim that this sequence also satisfies\n$$\n\\frac{1}{a_{1} a_{2}}+\\frac{1}{a_{2} a_{3}}+\\cdots+\\frac{1}{a_{N} a_{1}}=1 .\n$$\n\nSince $a_{1}=a_{N+1}=1$, we have\n$$\n\\frac{1}{a_{1} a_{2}}+\\frac{1}{a_{2} a_{3}}+\\cdots+\\frac{1}{a_{N} a_{1}}=\\frac{1}{a_{1} a_{2}}+\\frac{1}{a_{2} a_{3}}+\\cdots+\\frac{1}{a_{N} a_{N+1}} .\n$$\n\nNow, it will suffice to show that $\\frac{1}{a_{i} a_{i+1}}=\\frac{b_{i+1}}{a_{i+1}}-\\frac{b_{i}}{a_{i}}$. Once we have shown this, the above sum will telescope to $\\frac{b_{N+1}}{a_{N+1}}-\\frac{b_{1}}{a_{1}}=1-0=1$.\nTo see why $\\frac{1}{a_{i} a_{i+1}}=\\frac{b_{i+1}}{a_{i+1}}-\\frac{b_{i}}{a_{i}}$ holds, we note that this is equivalent to $1=b_{i+1} a_{i}-b_{i} a_{i+1}$. We can prove this fact geometrically: consider the triangle in the plane with vertices $(0,0),\\left(a_{i}, b_{i}\\right)$, and\n$\\left(a_{i+1}, b_{i+1}\\right)$. This triangle contains these three boundary points, but it contains no other boundary or interior points since $a_{i}$ and $a_{i+1}$ are relatively prime to $b_{i}$ and $b_{i+1}$, respectively, and since no other fraction with denominator at most $n$ lies between $\\frac{b_{i}}{a_{i}}$ and $\\frac{b_{i+1}}{a_{i+1}}$. Thus, by Pick's theorem, this triangle has area $1 / 2$. But the area of the triangle can also be computed as the cross product $\\frac{1}{2}\\left(b_{i+1} a_{i}-b_{i} a_{i+1}\\right)$; hence $b_{i+1} a_{i}-b_{i} a_{i+1}=1$ and we are done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-pick-s-theorem-auto-2626",
+      "name": "IMO Team Selection Team Selection Test #0jjm",
+      "url": "https://usamoguide.com/",
+      "source": "IMO Team Selection Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Floors and ceilings",
+        "Recurrence relations",
+        "Pick's theorem",
+        "Other"
+      ],
+      "statement": "A finite sequence of integers $a_1, a_2, \\dots, a_n$ is called *regular* if there exists a real number $x$ satisfying\n$$\n\\lfloor kx \\rfloor = a_k \\quad \\text{for } 1 \\le k \\le n.\n$$\nGiven a regular sequence $a_1, a_2, \\dots, a_n$, for $1 \\le k \\le n$ we say the term $a_k$ is *forced* if the following condition is satisfied: the sequence\n$$\na_1, a_2, \\dots, a_{k-1}, b\n$$\nis regular if and only if $b = a_k$. Find the maximum possible number of forced terms in a regular sequence with 1000 terms.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "The maximum is 985. To prove this, we start with two lemmas.\n\n**Lemma 2.** Suppose we begin with the pair of integers $(1, 1)$, and each step we are allowed to replace one of the integers with the sum of both. Then after $k$ steps, the maximum possible sum of the two numbers is $F_{k+3}$, where $F_n$ is the $n$th Fibonacci number with $F_0 = 0$, $F_1 = 1$.\n\n*Proof.* Let the numbers be $a, b$ with $a < b$. We show by induction that $a \\le F_{k+1}$ and $b \\le F_{k+2}$ after $k$ steps. The base case is given. Given it is true for $k$, suppose a pair we get after $k+1$ steps comes from the pair $a, b$. The new pair is either $a, a+b$ or $b, a+b$. By the induction hypothesis $a+b \\le F_{k+1}+F_{k+2} = F_{k+3}$, and we already know that both $a$ and $b$ are at most $F_{k+2}$. This completes the induction and the proof. $\\square$\n\n**Lemma 3.** Let $\\frac{a}{b}$ and $\\frac{c}{d}$ be two rational numbers in lowest terms with $0 \\le \\frac{a}{b} < \\frac{c}{d} \\le 1$ which are adjacent terms of a Farey series; that is, there does not exist $\\frac{p}{q}$ with $\\frac{a}{b} < \\frac{p}{q} < \\frac{c}{d}$ and $q < \\max(b, d)$. Then of all fractions $\\frac{p}{q}$ with $\\frac{a}{b} < \\frac{p}{q} < \\frac{c}{d}$, $\\frac{a+c}{b+d}$ has the smallest denominator.\n\n*Proof.* We use a lattice point interpretation. The condition of $\\frac{a}{b}, \\frac{c}{d}$ being adjacent in a Farey series means that the triangle with vertices $(0,0)$, $(a,b)$, $(c,d)$ has area $\\frac{1}{2}$, which is a consequence of Pick's Theorem. Now notice that in the triangle $(0,0)$, $(na,nb)$, $(nc,nd)$, for any nonnegative integers $k, m$ with $k+m \\le n$ we have $(ka+mc, kb+md)$ in or on the triangle. We also know the triangle's area is $\\frac{n^2}{2}$. Combining these two observations with Pick's Theorem shows that the points we have described are in fact all of the points inside or on the triangle. Using this and taking $n$ arbitrarily high, we conclude that if $\\frac{p}{q}$ is a fraction with $\\frac{a}{b} < \\frac{p}{q} < \\frac{c}{d}$, then there exist positive integers $k, m$ with $p = ka + mc$ and $q = kb + md$. Note $\\text{gcd}(p, q) = 1$ if $\\text{gcd}(k, m) = 1$. The desired conclusion is immediate. $\\square$\n\nNow we prove our main result. Note that if $a_1, a_2, \\dots, a_n$ is a regular sequence, then $a_1 + m, a_2 + 2m, \\dots, a_n + nm$ is also regular by replacing the associated $x$ with $x+m$. Therefore we may assume $a_1 = 0$ and $0 \\le x < 1$ in the regularity condition.\n\nFor each finite regular sequence, we can associate two real numbers $r, s$ to it so that the real numbers $x$ which satisfy the condition for being regular are those with $r \\le x < s$. We claim $r, s$ are always rational numbers which are adjacent terms of a Farey series. We show this by induction on the number of terms. For a 1-term regular sequence with $a_1 = 0$, we have $r = 0$ and $s = 1$. Given that we have it is true for all $n$-term regular sequences, note that if there is no integer multiple of $\\frac{1}{n+1}$ between $r$ and $s$, then $a_{n+1}$ is forced and $r, s$ remain the same as before. Otherwise, if $r < \\frac{k}{n+1} < s$, then $a_{n+1}$ can be either $a_n$ or $a_n + 1$. If $a_{n+1} = a_n$, we can check the new $r, s$ will be $r, \\frac{k}{n+1}$. If $a_{n+1} = a_n + 1$, it will be $\\frac{k}{n+1}, s$. The inductive hypothesis tells us that in both cases we obtain adjacent terms of a Farey series.\n\nCombining the above observations with lemma 3, we can analyze forced terms as follows: if at a given point we have $r = \\frac{a}{b}$ and $s = \\frac{c}{d}$, then the next time we will have an unforced term is at step $b+d$, when one of $r$ and $s$ will change to $\\frac{a+c}{b+d}$ depending on the choice of the $b+d$th term. In particular, the denominators of $r, s$ start at $(1,1)$, and each time we have an unforced term, one denominator becomes the sum of the previous two. Since our sequence has 1000 terms, our goal is to have the sum of denominators greater than 1000 in as few unforced terms as possible, which would make the next unforced term come after the end of our sequence. By lemma 2 and the fact that $F_{16} = 987$, $F_{17} = 1597$, at least 14 unforced terms are required. Combining this with the fact that $a_1$, which we didn't count yet, is also unforced, we have at least 15 unforced terms, and thus at most 985 forced terms as claimed.\n\nTo construct a sequence with this many forced terms, we simply set\n$$\na_k = \\lfloor k\\varphi \\rfloor \\quad \\text{for } 1 \\le k \\le 1000,\n$$\nwhere $\\varphi = \\frac{\\sqrt{5}-1}{2} \\approx 0.618...$. This will make $r, s$ always take the form $\\frac{F_k}{F_{k+1}}$ for some $k$ and obtain the equality case of lemma 2."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-pick-s-theorem-auto-2925",
+      "name": "HMMT February 2016 #0jrx",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2016",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cartesian coordinates",
+        "Pick's theorem",
+        "Constructions and loci"
+      ],
+      "statement": "Problem:\n\nDodecagon $Q W A R T Z S P H I N X$ has all side lengths equal to $2$, is not self-intersecting (in particular, the twelve vertices are all distinct), and moreover each interior angle is either $90^{\\circ}$ or $270^{\\circ}$. What are all possible values of the area of $\\triangle S I X$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe dodecagon has to be a \"plus shape\" of area $20$, then just try the three non-congruent possibilities."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-pick-s-theorem-auto-3159",
+      "name": "February 2017 #0jyf",
+      "url": "https://usamoguide.com/",
+      "source": "February 2017",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Pick's theorem"
+      ],
+      "statement": "Problem:\n\nConsider an equilateral triangular grid $G$ with 20 points on a side, where each row consists of points spaced 1 unit apart. More specifically, there is a single point in the first row, two points in the second row, ..., and 20 points in the last row, for a total of 210 points. Let $S$ be a closed non-selfintersecting polygon which has 210 vertices, using each point in $G$ exactly once. Find the sum of all possible values of the area of $S$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nImagine deforming the triangle lattice such that now it looks like a lattice of 45-45-90 right triangles with legs of length 1. Note that by doing this, the area has multiplied by $\\frac{2}{\\sqrt{3}}$, so we need to readjust our answer on the isosceles triangle lattice by a factor of $\\frac{\\sqrt{3}}{2}$ at the end. By Pick's Theorem, the area in the new lattice is given by $I + \\frac{P}{2} - 1 = 0 + 105 - 1 = 104$. Therefore, the answer is $104 \\cdot \\frac{\\sqrt{3}}{2} = 52 \\sqrt{3}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-pick-s-theorem-auto-3262",
+      "name": "HMMT February #0k1a",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Pick's theorem",
+        "Quadrilaterals",
+        "Cartesian coordinates",
+        "Greatest common divisors (gcd)"
+      ],
+      "statement": "Problem:\n\nLet $n$ and $m$ be positive integers which are at most $10^{10}$. Let $R$ be the rectangle with corners at $(0,0)$, $(n, 0)$, $(n, m)$, $(0, m)$ in the coordinate plane. A simple non-self-intersecting quadrilateral with vertices at integer coordinates is called far-reaching if each of its vertices lie on or inside $R$, but each side of $R$ contains at least one vertex of the quadrilateral. Show that there is a far-reaching quadrilateral with area at most $10^{6}$.\n\n(A side of a rectangle includes the two endpoints.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $g = \\gcd(n, m)$, with $n = g \\cdot a$ and $m = g \\cdot b$. Note that the number of points on the diagonal of $R$ connecting $(0,0)$ and $(n, m)$ is $g+1$.\n\nWe construct two far-reaching quadrilaterals and show that at least one of them has small area.\n\nFor our first quadrilateral, let $(x_1, y_1)$ and $(x_2, y_2)$ be the points with the shortest nonzero distances to the diagonal between $(0,0)$ and $(n, m)$ which lie above and below the diagonal, respectively. Now consider the quadrilateral with vertices $(0,0)$, $(x_1, y_1)$, $(n, m)$, $(x_2, y_2)$. Note that the only lattice points which can lie on or inside this quadrilateral are $(x_1, y_1)$, $(x_2, y_2)$, and points on the diagonal of $R$, as otherwise we could find a closer point to the diagonal than $(x_1, y_1)$ and $(x_2, y_2)$. Thus by Pick's Theorem, the area of this quadrilateral is at most $g$.\n\nFor our second quadrilateral, we will take as our vertices the points $(0,0)$, $(n-1, m)$, $(a, b)$, and $(n, m-1)$. This is a concave quadrilateral which can be split into two triangles of areas $\\frac{a}{2}$ and $\\frac{b}{2}$, so the area of this quadrilateral is at most $\\frac{1}{2}(a+b)$.\n\nWe have therefore shown that there is always a far-reaching quadrilateral with area at most $\\min\\left(g, \\frac{1}{2}(a+b)\\right)$. Since $g \\cdot \\frac{1}{2}(a+b) = \\frac{1}{2}(n+m) \\leq 10^{10}$, we have that $\\min\\left(g, \\frac{1}{2}(a+b)\\right) \\leq 10^{5}$, so we can always find a far-reaching quadrilateral with area at most $10^{5}$ as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-pick-s-theorem-auto-3825",
+      "name": "HMMT Spring 2021 Team Round #0kgx",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT Spring 2021 Team Round",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Pick's theorem",
+        "Coloring schemes, extremal arguments"
+      ],
+      "statement": "Problem:\n\nLet $n>1$ be a positive integer. Each unit square in an $n \\times n$ grid of squares is colored either black or white, such that the following conditions hold:\n- Any two black squares can be connected by a sequence of black squares where every two consecutive squares in the sequence share an edge;\n- Any two white squares can be connected by a sequence of white squares where every two consecutive squares in the sequence share an edge;\n- Any $2 \\times 2$ subgrid contains at least one square of each color.\n\nDetermine, with proof, the maximum possible difference between the number of black squares and white squares in this grid (in terms of $n$).",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe first two conditions also imply that there can be no $2 \\times 2$ checkerboards, so the boundary between black squares and white squares is either a lattice path or cycle (if one color encloses the other). Therefore, the set of squares of each color is the interior of a lattice polygon of genus $0$ or $1$. (In the latter case, the genus-$1$ color uses all squares on the outer boundary, and the opposite color must be genus-$0$.)\n\nThe third condition requires that the perimeter of each color passes through all $(n-1)^2$ interior lattice points, or else there will be a monochromatic $2 \\times 2$ subgrid. Hence, by Pick's Theorem, the area of one color is at least $(n-1)^2 / 2 - 1 = \\left(n^2 - 2n - 1\\right)/2$, and the difference is at most $n^2 - \\left(n^2 - 2n - 1\\right) = 2n + 1$.\n\nFor even $n$, the number of interior lattice points is odd so there is no cycle that only uses them. (In particular, this means that both colors are genus-$0$.) It is impossible for the perimeter to only go through one boundary point either, so we need to add at least three more boundary points, which means that we lose $2(3/2) = 3$ from the bound for odd $n$.\n\nHere is one possible set of constructions. Throughout, we'll label the squares as $(x, y)$, for $1 \\leq x, y \\leq n$:\n- For $n=2$, we color $(2,2)$ black and the others white.\n- For odd values of $n$, we create a comb shape using black squares. Specifically, the base of the comb will consist of the squares $(i, 2)$, for $i=2,3, \\ldots, n-1$. The teeth of the comb will be $(2k, j)$, for $k=1,2, \\ldots, \\frac{n-1}{2}$, and $j=3,4, \\ldots, n-1$.\n- For even values of $n>2$, we make a modified comb shape. The base of the comb will be $(i, 2)$ for $i=2,3, \\ldots, n$, and the teeth will be $(2k, j)$ for $k=1,2, \\ldots, \\frac{n}{2}-1$ and $j=3,4, \\ldots, n-1$. Furthermore, we add the square $(n, 3)$, and the squares $(n-1, 2k+3)$ for $k=1,2, \\ldots, \\frac{n}{2}-2$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-pick-s-theorem-auto-3971",
+      "name": "HMMT Spring 2021 Guts Round #0kkz",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT Spring 2021 Guts Round",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Convex hulls",
+        "Pick's theorem",
+        "Expected values"
+      ],
+      "statement": "Problem:\n\nA set of 6 distinct lattice points is chosen uniformly at random from the set $\\{1,2,3,4,5,6\\}^2$. Let $A$ be the expected area of the convex hull of these 6 points. Estimate $N=\\left\\lfloor 10^4 A\\right\\rfloor$.\n\nAn estimate of $E$ will receive $\\max \\left(0,\\left\\lfloor 20-20\\left(\\frac{|E-N|}{10^4}\\right)^{1 / 3}\\right\\rfloor\\right)$ points.\n\nProposed by: Milan Haiman",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe main tools we will use are linearity of expectation and Pick's theorem. Note that the resulting polygon is a lattice polygon, and thus the expected area $A$ satisfies\n$$\nA = I + \\frac{B}{2} - 1\n$$\nwhere $I$ is the expected number of interior points and $B$ is the expected number of boundary points. We may now use linearity of expectation to write this as\n$$\nA = -1 + \\sum_{p \\in \\{1,2, \\ldots, 6\\}^2} \\mathbb{E}\\left[X_p\\right]\n$$\nwhere $X_p$ is 1 if the point is inside the polygon, $1 / 2$ if the point is on the boundary, and 0 otherwise. Letting $f(p) = \\mathbb{E}\\left[X_p\\right]$, we may write this by symmetry as\n$$\nA = -1 + 4 f(1,1) + 8 f(1,2) + 8 f(1,3) + 4 f(2,2) + 8 f(2,3) + 4 f(3,3)\n$$\nThere are many ways to continue the estimation from here; we outline one approach. Since $X_{(1,1)}$ is $1 / 2$ if and only if $(1,1)$ is one of the selected points (and 0 otherwise), we see\n$$\nf(1,1) = \\frac{1}{12}\n$$\nOn the other hand, we may estimate that a central point is exceedingly likely to be within the polygon, and guess $f(3,3) \\approx 1$. We may also estimate $f(1, y)$ for $y \\in \\{2,3\\}$; such a point is on the boundary if and only if $(1, y)$ is selected or $(1, z)$ is selected for some $z<y$ and for some $z>y$. The first event happens with probability $1 / 6$, and the second event happens with some smaller probability that can be estimated by choosing the 6 points independently (without worrying about them being distinct); this works out to give the slight overestimate\n$$\nf(1,2), f(1,3) \\approx \\frac{1}{8}\n$$\nFrom here, it is not so clear how to estimate $f(2,2)$ and $f(2,3)$, but one way is to make $f(x, y)$ somewhat linear in each component; this works out to give\n$$\nf(2,2) \\approx \\frac{1}{4}, \\quad f(2,3) \\approx \\frac{1}{2}\n$$\n(In actuality the estimates we'd get would be slightly higher, but each of our estimates for $f(x, y)$ up until this point have been slight overestimates.) Summing these up gives us an estimate of $A \\approx \\frac{31}{3}$ or $E=103333$, which earns 10 points. The actual value of $A$ is $10.4552776 \\ldots$, and so $N=104552$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-pick-s-theorem-auto-4150",
+      "name": "HMMT February #0kpy",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Pick's theorem",
+        "Rotation",
+        "Homothety",
+        "Cartesian coordinates"
+      ],
+      "statement": "Problem:\n\nIn the Cartesian plane, let $A=(0,0)$, $B=(200,100)$, and $C=(30,330)$. Compute the number of ordered pairs $(x, y)$ of integers so that $\\left(x+\\frac{1}{2}, y+\\frac{1}{2}\\right)$ is in the interior of triangle $ABC$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe use Pick's Theorem, which states that in a lattice polygon with $I$ lattice points in its interior and $B$ lattice points on its boundary, the area is $I + B/2 - 1$. Also, call a point center if it is of the form $\\left(x+\\frac{1}{2}, y+\\frac{1}{2}\\right)$ for integers $x$ and $y$.\n\nThe key observation is the following: suppose we draw in the center points, rotate $45^{\\circ}$ degrees about the origin and scale up by $\\sqrt{2}$. Then, the area of the triangle goes to $2K$, and the set of old lattice points and center points becomes a lattice. Hence, we can also apply Pick's theorem to this new lattice.\n\nLet the area of the original triangle be $K$, let $I_1$ and $B_1$ be the number of interior lattice points and boundary lattice points, respectively. Let $I_c$ and $B_c$ be the number of interior and boundary points that are center points in the original triangle. Finally, let $I_2$ and $B_2$ be the number of interior and boundary points that are either lattice points or center points in the new triangle. By Pick's Theorem on both lattices,\n$$\n\\begin{aligned}\nK &= I_1 + B_1/2 - 1 \\\\\n2K &= I_2 + B_2/2 - 1 \\\\\n\\Longrightarrow (I_2 - I_1) &= K - \\frac{B_1 - B_2}{2} \\\\\n\\Longrightarrow I_c &= K - \\frac{B_c}{2}.\n\\end{aligned}\n$$\nOne can compute that the area is $31500$. The number of center points that lie on $AB$, $BC$, and $CA$ are $0$, $10$, and $30$, respectively. Thus, the final answer is $31500 - \\frac{0 + 10 + 30}{2} = 31480$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-pick-s-theorem-auto-4298",
+      "name": "HMMT November 2023 #0ku2",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2023",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Pick's theorem",
+        "Greatest common divisors (gcd)"
+      ],
+      "statement": "Problem:\n\nCompute the number of ways a non-self-intersecting concave quadrilateral can be drawn in the plane such that two of its vertices are $(0,0)$ and $(1,0)$, and the other two vertices are two distinct lattice points $(a, b),(c, d)$ with $0 \\leq a, c \\leq 59$ and $1 \\leq b, d \\leq 5$.\n\n(A concave quadrilateral is a quadrilateral with an angle strictly larger than $180^{\\circ}$. A lattice point is a point with both coordinates integers.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe instead choose points $(0,0)$, $(1,0)$, $(a, b)$, $(c, d)$ with $0 \\leq a, c \\leq 59$ and $0 \\leq b, d \\leq 5$ with $(c, d)$ in the interior of the triangle formed by the other three points. Any selection of these four points may be connected to form a concave quadrilateral in precisely three ways.\n\nApply Pick's theorem to this triangle. If $I$ is the count of interior points, and $B$ is the number of boundary lattice points, we have that the triangle's area is equal to\n\n$$\n\\frac{b}{2} = I + \\frac{B}{2} - 1\n$$\n\nLet's first compute the number of boundary lattice points on the segment from $(0,0)$ to $(a, b)$, not counting $(0,0)$. This is just $\\operatorname{gcd}(a, b)$. Similarly, there are $\\operatorname{gcd}(a-1, b)$ boundary lattice points from $(1,0)$ to $(a, b)$. Adjusting for the overcounting at $(a, b)$, we have\n\n$$\nB = \\operatorname{gcd}(a, b) + \\operatorname{gcd}(a-1, b) - 1\n$$\n\nand thus\n\n$$\nI = \\frac{b - \\operatorname{gcd}(a, b) - \\operatorname{gcd}(a-1, b) + 1}{2}\n$$\n\nwhich we notice is periodic in $a$ with period $b$. That is, the count of boundary points does not change between choices $(a, b)$ and $(a+b, b)$.\n\nWe wanted to find the sum across all $(a, b)$ of $I$, the number of interior points $(c, d)$. Using casework on $b$, the periodicity allows us to just check $I$ across points with $0 \\leq a < b$, and then multiply the count by $\\frac{60}{b}$ to get the sum of $I$ across the entire row of points.\n\nFor $b=1,2$, we always have $I=0$.\n\nFor $b=3$, we have $I=0$ at $(0,3)$, $(1,3)$ and $I=1$ for $(2,3)$. Using periodicity, this $y$-coordinate has a total of\n\n$$\n(0+0+1) \\cdot \\frac{60}{3} = 20\n$$\n\nFor $b=4$, we have $I=0$ at $(0,4)$ and $(1,4)$, and $I=1$ at both $(2,4)$ and $(3,4)$. Using periodicity, this $y$-coordinate has a total of\n\n$$\n(0+0+1+1) \\cdot \\frac{60}{4} = 30\n$$\n\nFor $b=5$, we have $I=0$ at $(0,5)$, $(1,5)$ and $I=2$ at $(2,5)$, $(3,5)$, $(4,5)$. Using periodicity, this $y$-coordinate has a total of\n\n$$\n(0+0+2+2+2) \\cdot \\frac{60}{5} = 72\n$$\n\nAdding our cases, we have $20+30+72=122$ ways to choose the four points. Multiplying back by the number of ways to connect the quadrilateral gives an answer of $122 \\cdot 3 = 366$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-combinatorial-geometry-pick-s-theorem-auto-4423",
+      "name": "Bay Area Mathematical Olympiad #0kxj",
+      "url": "https://usamoguide.com/",
+      "source": "Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Pick's theorem",
+        "Vectors",
+        "Determinants",
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Modular Arithmetic"
+      ],
+      "statement": "Problem:\n\nA lattice point in the plane is a point with integer coordinates. Let $T$ be a triangle in the plane whose vertices are lattice points, but with no other lattice points on its sides. Furthermore, suppose $T$ contains exactly four lattice points in its interior. Prove that these four points lie on a straight line.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet us begin with some preliminaries. In the solution to follow, we treat points freely as vectors, e.g. writing $n A$ to mean the point whose coordinates are $n$ times the coordinates of $A$, or $A+B$ to mean the point which is the coordinate-wise sum of $A$ and $B$.\nA basic result from vector geometry, which we will assume, states that given any three noncollinear points $A, B, C$ in the plane, every point $Q$ may be represented in the form $r A+s B+t C$ for unique $r, s, t$ satisfying $r+s+t=1$. Moreover, $Q$ is in the interior of $\\triangle A B C$ if and only if such $r, s, t$ are all positive. In similar fashion, any point on the line through $A$ and $B$ can be expressed as $r A+s B$ with $r+s=1$, and lies between $A$ and $B$ if and only if $r, s>0$.\nWe will also make repeated use of Pick's Theorem, which we now state without proof. This theorem asserts that a lattice polygon (a polygon whose vertices are lattice points) has area equal to\n$$\ni+\\frac{1}{2} b-1$$\nwhere $i$ and $b$ are the number of lattice points on the polygon's interior and boundary, respectively. Thus (for instance), the triangle $T$ described in the problem must have area $4+\\frac{1}{2}(3)-1=\\frac{9}{2}$.\nNow we are ready to begin the solution. With no loss of generality, let us assume $T$ has one vertex at the origin $O$, which we identify with the zero vector. Call the other two vertices $A$ and $B$.\nOf the four lattice points in the interior of $T$, let $P$ be the point closest to line $O A$. It follows that there are no lattice points lying inside $\\triangle O P A$ or on its boundary, other than $O, P, A$ themselves, since any such point would be closer than $P$ to line $O A$. Therefore, by Pick's Theorem, $\\triangle O P A$ has area $\\frac{1}{2}$.\n\nLemma: Every lattice point $Q$ can be expressed in the form $n P+k A$ for some pair of integers $(n, k)$. Moreover, when $Q$ is expressed in such form, we have $n=2[O Q A]$. (The brackets represent area.)\n\nProof. Let $Q$ be a lattice point. By Pick's Theorem, $[O Q A]=\\frac{n}{2}$ for some integer $n$. Thus $[O Q A]=n \\cdot[O P A]$. By the base-height formula for triangle area, it follows that $Q$ is on the line parallel to line $O A$ that passes through the point $n P$. Thus $Q=n P+k A$ for some real $k$, where $k A$ is a lattice point.\nWe assert that $k$ is an integer. Indeed, if $\\{k\\}$ denotes the fractional part of $k$, then $\\{k\\} A=k A-\\lfloor k\\rfloor A$ is a lattice point which lies on segment $O A$, part of the boundary of $T$. Since $T$ has no lattice points on its boundary other than its vertices, we must have $\\{k\\}=0$. This completes the proof of the lemma.\n\nLet us return to the main problem. As already noted, $[T]=[O B A]=\\frac{9}{2}$. Thus by the lemma, $B=9 P- k A$ for some integer $k$ (the minus sign in the expression is not a typo, but a deliberate convenience for what follows). Rearranging, and using the fact that $O$ is the zero vector, we have $P=\\frac{k}{9} A+\\frac{1}{9} B+\\frac{8-k}{9} O$. Since $P$ is in the interior of $T$, we have $0<k<8$. We will consider the possible values of $k$ in turn.\n\nIf $k \\equiv 0(\\bmod 3)$, then $\\frac{1}{3} B=3 P-\\frac{k}{3} A$ is a lattice point lying on segment $O B$. This contradicts the specification of $T$ as having no lattice points on its sides.\nIf $k \\equiv 2(\\bmod 3)$, then $\\frac{1}{3} B+\\frac{2}{3} A=3 P-\\frac{k-2}{3} A$ is a lattice point lying on $A B$, similarly yielding a contradiction.\nThe remaining possibilities are $k=1,4,7$.\n\nIf $k=1$, then the interior of $T$ contains in its interior the four collinear lattice points\n$$\nP=\\frac{1}{9} A+\\frac{1}{9} B+\\frac{7}{9} O, \\quad 2 P=\\frac{2}{9} A+\\frac{2}{9} B+\\frac{5}{9} O, \\quad 3 P=\\frac{3}{9} A+\\frac{3}{9} B+\\frac{3}{9} O, \\quad 4 P=\\frac{4}{9} A+\\frac{4}{9} B+\\frac{1}{9} O\n$$\nIf $k=4$, then the interior of $T$ contains in its interior the four collinear lattice points\n$$\nP=\\frac{4}{9} A+\\frac{1}{9} B+\\frac{4}{9} O, \\quad 3 P-A=\\frac{3}{9} A+\\frac{3}{9} B+\\frac{3}{9} O, \\quad 5 P-2 A=\\frac{2}{9} A+\\frac{5}{9} B+\\frac{2}{9} O, \\quad 7 P-3 A=\\frac{1}{9} A+\\frac{7}{9} B+\\frac{1}{9} O .\n$$\nIf $k=7$, then the interior of $T$ contains in its interior the four collinear lattice points\n$$\nP=\\frac{7}{9} A+\\frac{1}{9} B+\\frac{1}{9} O, \\quad 2 P-A=\\frac{5}{9} A+\\frac{2}{9} B+\\frac{2}{9} O, \\quad 3 P-2 A=\\frac{3}{9} A+\\frac{3}{9} B+\\frac{3}{9} O, \\quad 4 P-3 A=\\frac{1}{9} A+\\frac{4}{9} B+\\frac{4}{9} O\n$$\nThus, the four lattice points inside $T$ are collinear in every case, as desired.\n\nSolution:\n\nWe assume the same basic facts about vectors as in the previous solution, as well as Pick's Theorem and the determinant formula for the area of a parallelogram.\nLet $T$ have vertices $A=(x_{1}, y_{1}), B=(x_{2}, y_{2})$, and $C=(x_{3}, y_{3})$. We know that\n$$\n\\left|\\begin{array}{ll}\nx_{2}-x_{1} & x_{3}-x_{1} \\\\\ny_{2}-y_{1} & y_{3}-y_{1}\n\\end{array}\\right|=2[A B C]=9\n$$\nConsider equation (1) modulo $3$, that is, over the field $\\mathbb{Z} / 3 \\mathbb{Z}$. In this setting, the determinant is zero, so the vectors $\\mathbf{u}=(x_{2}-x_{1}, y_{2}-y_{1})$ and $\\mathbf{v}=(x_{3}-x_{1}, y_{3}-y_{1})$ are linearly dependent. If either of these vectors is zero $(\\bmod 3)$, that is, or if they are equal, then the trisection points of a side of $T$ are lattice points, which contradicts the problem statement. Thus $\\mathbf{u}, \\mathbf{v} \\neq \\mathbf{0}$ and $\\mathbf{u}=-\\mathbf{v}$.\nAn immediate consequence is that $(x_{1}+x_{2}+x_{3}, y_{1}+y_{2}+y_{3})=\\mathbf{u}+\\mathbf{v}+3(x_{3}, y_{3})=\\mathbf{0}$ over $\\mathbb{Z} / 3 \\mathbb{Z}$, with the result that the centroid, $G=\\frac{1}{3}(A+B+C)$, is a lattice point.\nNow consider $\\triangle A B G$, whose area is $\\frac{1}{3}[A B C]=\\frac{3}{2}$. By Pick's Theorem, $\\triangle A B G$ has either\n- one lattice point in its interior and none on its boundary (besides vertices), or\n- two lattice points on its boundary.\n\nCase 1: $\\triangle A B G$ has a lattice point in its interior and none on its boundary. In this case, a repetition of the preceding $(\\bmod 3)$ argument shows that the centroid $G_{1}$ of $\\triangle A B G$ is a lattice point. In this case, $G_{1}+k(G-G_{1})$ for $k=0,1,2,3$ are four collinear lattice points inside $T$.\n\nCase 2: $\\triangle A B G$ has two lattice points on its boundary. Note that if at least two lattice points occur on a line, then the lattice points on that line occur at regular intervals. Thus the two lattice points on the boundary of $\\triangle A B G$ are either the midpoints of $A G$ and $B G$ or the trisection points of one of these sides (say, $A G$). In the two cases, if we extend side $A G$ beyond $G$, the next lattice point occurring on the extension is respectively either on $T$ (at the midpoint of side $B C$), which is a contradiction, or inside $T$, being then the fourth collinear lattice point inside $T$. So we are finished."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

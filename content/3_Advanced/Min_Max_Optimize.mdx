@@ -1,0 +1,179 @@
+---
+id: minima-maxima-optimization
+title: Minima, Maxima, and Optimization
+author: Pranav Ramesh
+description: Finding and classifying extrema of functions, and applying these techniques to real-world optimization problems
+prerequisites: [differentiation-rules, chain-rule]
+---
+ 
+# Introduction
+ 
+Whether it is finding the highest point of a projectile or calculating the quickest path light can take through two different mediums, knowing how to find the extrema of a function is crucial in physics. Beyond pure mathematics, these tools are the backbone of **optimization** — the process of finding the best solution to a problem given certain constraints.
+ 
+In this module we will cover how to find and classify local and global extrema, then apply those techniques to solve real-world optimization problems.
+ 
+# Critical Points
+ 
+Suppose we want to find the maximum or minimum value of $f(x)$ on a certain interval. The minimum or maximum values of $f(x)$ on the interval $[a, b]$ can only occur at one of the following:
+ 
+- Points where $f'(x) = 0$
+- Points where $f'(x)$ is undefined
+- At $x = a$ or $x = b$ — that is, the endpoints of the interval
+Intuitively, this should make sense: at a maximum the function must go up and down a "hill," so there must be some point where the slope of the tangent line is zero (condition 1). Sometimes we have a sharp corner at the top of the hill, and the derivative is undefined (condition 2). Also, the function can just be constantly increasing, in which case the maximum is just an endpoint (condition 3).
+ 
+<Info title="Important">
+These conditions are **necessary but not sufficient**. Just because an $x$ value satisfies one of these conditions does not mean it is a minimum or maximum — it is simply a *candidate*.
+ 
+</Info>
+> **Example 1:** Find the critical points of $f(x) = x^2 - 6x + 1$ on the interval $[2, 5]$.
+>
+> **Solution:** We have $f'(x) = 2x - 6$, so $f'(x) = 0$ at $x = 3$. Since $f'(x)$ is always defined, condition two yields nothing. The endpoints give $x = 2$ and $x = 5$. Hence, the critical points are at $\boxed{x = 2, 3, 5}$.
+ 
+> **Example 2:** Find the critical points of a function on the interval $[1, 12]$, given that the function has a zero derivative only at $x = 10$, undefined derivative at $x = 5$ and $x = 8$, and endpoints at $x = 1$ and $x = 12$.
+>
+> **Solution:** Going through each condition:
+> - Condition 1 ($f'(x) = 0$): $x = 10$
+> - Condition 2 ($f'(x)$ undefined): $x = 5,\ 8$
+> - Condition 3 (endpoints): $x = 1,\ 12$
+ 
+# Local and Global Extrema
+ 
+## Definitions
+ 
+We have a **local minimum** of a function at $x = c$ if $f(c) \leq f(x)$ for all $x$ in *some* open interval $(a, b)$ containing $c$.
+ 
+We have a **global minimum** on an interval $[a, b]$ at $x = c$ if $f(c) \leq f(x)$ for *all* $x$ in $[a, b]$.
+ 
+<Info title="Note">
+Global minimums are by definition also local minimums. Local and global **maximums** are defined symmetrically.
+ 
+</Info>
+## How to Find Global Extrema
+ 
+Since we know how to find critical points, finding global extrema is straightforward: evaluate $f$ at all critical points and select whichever gives the largest (or smallest) value.
+ 
+If there is only one local minimum or maximum on an interval, that point is automatically the global minimum or maximum on that interval as well.
+ 
+# Classifying Extrema
+ 
+## First Derivative Test
+ 
+Let $f$ be a continuous function and suppose $c$ is a point where $f'(c) = 0$ or $f'(c)$ is undefined.
+ 
+- If $f$ is **decreasing** on $(a, c)$ and **increasing** on $(c, b)$ for some open interval $(a, b)$ containing $c$, then $x = c$ is a **local minimum**.
+- If $f$ is **increasing** on $(a, c)$ and **decreasing** on $(c, b)$ for some open interval $(a, b)$ containing $c$, then $x = c$ is a **local maximum**.
+In practice, pick one point just to the left of $c$ and one just to the right of $c$, and evaluate $f'$ at both. If the derivative goes from negative to positive, it's a minimum; if it goes from positive to negative, it's a maximum.
+ 
+> **Example 3:** For $f(x) = x^2$, is $x = 0$ a local minimum or maximum?
+>
+> **Solution:** We have $f'(x) = 2x$, so $f'(0) = 0$. Evaluating to the left: $f'(-1) = -2 \leq 0$. Evaluating to the right: $f'(2) = 4 \geq 0$. Since the derivative goes from negative to positive, $x = 0$ is a **local minimum** by the first derivative test.
+ 
+## Second Derivative Test
+ 
+Suppose $f'(c) = 0$. Then:
+ 
+- If $f''(c) > 0$, then $x = c$ is a **local minimum**.
+- If $f''(c) < 0$, then $x = c$ is a **local maximum**.
+- If $f''(c) = 0$, the test is **inconclusive**.
+This makes intuitive sense: a positive second derivative means the function is concave up (shaped like a $\cup$), so we have a minimum; a negative second derivative means concave down (shaped like a $\cap$), so we have a maximum.
+ 
+> **Example 4:** Is $x = 3$ a local minimum or maximum for $f(x) = -x^2 + 6x$?
+>
+> **Solution:** We find $f'(x) = -2x + 6$, so $f'(3) = 0$. Then $f''(x) = -2$, so $f''(3) = -2 < 0$. Hence $x = 3$ is a **local maximum** by the second derivative test.
+ 
+# Optimization
+ 
+## Understanding Optimization Problems
+ 
+**Optimization** is the process of maximizing or minimizing an **objective function**, subject to a set of **constraints**. The objective function represents the quantity to be optimized (area, cost, time, profit, etc.), while constraints define the conditions the solution must satisfy (fixed perimeter, limited resources, physical boundaries, etc.).
+ 
+Some classic examples include: maximizing the area of a rectangle with a fixed perimeter, minimizing the cost of producing a certain quantity of goods, or maximizing profit from selling a product with limited resources.
+ 
+## General Strategy
+ 
+Solving an optimization problem follows a consistent process:
+ 
+1. **Identify** the quantity to maximize or minimize (the objective function).
+2. **Express** the objective function in terms of a single variable, using the constraints to eliminate others.
+3. **Find critical points** by setting the derivative equal to zero.
+4. **Classify** the critical points using the first or second derivative test.
+5. **Check endpoints** if the variable is restricted to a closed interval, and confirm which critical point gives the global optimum.
+# Practice Problems
+ 
+> **Problem 1:** When is $f(x) = 2x^3 - 15x^2 + 36x$ maximized between $x = 0$ and $x = 3.4$?
+>
+> **Solution:** We compute $f'(x) = 6x^2 - 30x + 36 = 6(x-3)(x-2)$. The critical points in $[0, 3.4]$ are $x = 0, 2, 3, 3.4$ (since $f'(x)$ is always defined). Evaluating $f$ at each:
+>
+> $$f(0) = 0,\quad f(2) = 16 - 60 + 72 = 28,\quad f(3) = 54 - 135 + 108 = 27,\quad f(3.4) \approx 27.5$$
+>
+> The largest value occurs at $\boxed{x = 2}$. This can also be confirmed as a local maximum by the first or second derivative test.
+ 
+> **Problem 2:** A baseball is thrown straight up with initial velocity $v$. Find the maximum height. Assume air resistance is negligible.
+>
+> **Solution:** From kinematics, the height at time $t$ is:
+>
+> $$f(t) = vt - \frac{1}{2}gt^2$$
+>
+> Taking the derivative: $f'(t) = v - gt$, so $f'(t) = 0$ at $t = v/g$. Since $f'(t) > 0$ for $t < v/g$ and $f'(t) < 0$ for $t > v/g$, this is a global maximum. The maximum height is:
+>
+> $$f\!\left(\frac{v}{g}\right) = \frac{v^2}{g} - \frac{g}{2}\cdot\frac{v^2}{g^2} = \boxed{\frac{v^2}{2g}}$$
+ 
+> **Problem 3:** Walt sells water at $x$ dollars per gallon and expects to sell $10 - x^2$ gallons. What value of $x \geq 0$ maximizes his profit?
+>
+> **Solution:** Walt's profit is:
+>
+> $$f(x) = x(10 - x^2) = 10x - x^3$$
+>
+> Taking the derivative: $f'(x) = 10 - 3x^2 = 0 \implies x = \sqrt{10/3}$ (discarding the negative root). Since $f''(x) = -6x$ and $f''\!\left(\sqrt{10/3}\right) < 0$, this is a local maximum. As it is the only critical point in $[0, \infty)$, the profit-maximizing price is $\boxed{x = \sqrt{10/3}}$.
+ 
+> **Problem 4 (River Crossing):** A dog is trying to reach her owner across a 10 m wide river. The dog is 12 m downriver from her owner. She runs along the shore for $a$ meters at 5 m/s, then swims directly to her owner at 2 m/s. Which value of $a \in [0, 12]$ minimizes the total time? *(A calculator is permitted.)*
+>
+> **Solution:** The time on land is $a/5$. By the Pythagorean theorem, the swimming distance is $\sqrt{(12-a)^2 + 10^2}$, so the swimming time is $\frac{1}{2}\sqrt{(12-a)^2 + 100}$. The total time is:
+>
+> $$f(a) = \frac{a}{5} + \frac{\sqrt{a^2 - 24a + 244}}{2}$$
+>
+> Taking the derivative and setting it to zero:
+>
+> $$f'(a) = \frac{1}{5} + \frac{2a - 24}{4\sqrt{a^2 - 24a + 244}} = 0$$
+>
+> Solving: $4(244 - 24a + a^2) = 25(12 - a)^2$, which yields $a \approx 7.64$ or $a \approx 16.36$. Only $a \approx 7.64$ lies in $[0, 12]$. Checking $f'(7.6) < 0$ and $f'(7.7) > 0$ confirms this is a minimum by the first derivative test. The optimal value is $\boxed{a \approx 7.64 \text{ m}}$.
+ 
+> **Problem 5 (Garden Fencing):** A rectangular garden is to be built using a rock wall as one side and 100 ft of wire fencing for the other three sides. Find the dimensions that maximize the garden's area, and state the maximum area. *(Source: Openstax)*
+>
+> **Solution:** Let $W$ be the width (fenced sides) and $L$ be the length (along the rock wall). The fencing constraint gives $2W + L = 100$, so $L = 100 - 2W$. The area is:
+>
+> $$A = LW = (100 - 2W)W = 100W - 2W^2$$
+>
+> Setting $\dfrac{dA}{dW} = 100 - 4W = 0$ gives $W = 25$. Since $\dfrac{d^2A}{dW^2} = -4 < 0$, this is a maximum. Then $L = 100 - 2(25) = 50$. The maximum area is:
+>
+> $$\boxed{A = 25 \times 50 = 1250 \text{ ft}^2}$$
+ 
+> **Problem 6 (Closest Point):** Which point on the graph of $y = x$ is closest to the point $(5, 0)$?
+>
+> **Solution:** A point on $y = x$ has the form $(x, x)$. Its distance to $(5, 0)$ is:
+>
+> $$d = \sqrt{(x-5)^2 + x^2}$$
+>
+> To minimize $d$, we minimize $d^2 = (x-5)^2 + x^2$. Setting the derivative equal to zero:
+>
+> $$2(x - 5) + 2x = 0 \implies 4x = 10 \implies x = \frac{5}{2}$$
+>
+> Since the derivative changes from negative to positive at $x = \frac{5}{2}$, this is a minimum. The closest point is $\boxed{\left(\dfrac{5}{2},\ \dfrac{5}{2}\right)}$.
+ 
+> **Problem 7 (Open Box):** An open box is to be made from a 16 in × 30 in piece of cardboard by cutting equal squares of side $x$ from each corner and folding up the sides. What value of $x$ maximizes the volume?
+>
+> **Solution:** After cutting, the box has dimensions $(30 - 2x) \times (16 - 2x) \times x$, so:
+>
+> $$V = (30 - 2x)(16 - 2x)x = 4x^3 - 92x^2 + 480x$$
+>
+> Note that $x$ is restricted to $[0, 8]$ (cutting more than 8 in from the 16 in side is impossible). Taking the derivative:
+>
+> $$\frac{dV}{dx} = 12x^2 - 184x + 480 = 4(3x - 10)(x - 12) = 0$$
+>
+> This gives $x = \frac{10}{3}$ or $x = 12$. We reject $x = 12$ since it falls outside $[0, 8]$. Checking the second derivative at $x = \frac{10}{3}$:
+>
+> $$\frac{d^2V}{dx^2}\bigg|_{x = 10/3} = 24\cdot\frac{10}{3} - 184 = -8 < 0$$
+>
+> So $x = \frac{10}{3}$ is a maximum, giving a maximum volume of approximately $\boxed{725.9 \text{ in}^3}$.
+ 
+<Problems problems="practice" />

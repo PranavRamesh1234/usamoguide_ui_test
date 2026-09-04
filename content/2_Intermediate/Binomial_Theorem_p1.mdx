@@ -1,0 +1,485 @@
+---
+id: binomial-theorem-p1
+title: Binomial Theorem I
+author: Neronvain
+description: Learn how the Binomial Theorem expands powers, explains binomial coefficients, and connects algebraic expressions with counting and probability.
+prerequisites: []
+---
+
+## Overview
+
+The Binomial Theorem is one of the most important bridges between algebra and
+combinatorics.
+
+It gives a formula for expanding expressions of the form
+
+$$
+(a+b)^n.
+$$
+
+For small powers, we can expand directly:
+
+$$
+(a+b)^2=a^2+2ab+b^2
+$$
+
+and
+
+$$
+(a+b)^3=a^3+3a^2b+3ab^2+b^3.
+$$
+
+The Binomial Theorem generalises this pattern to any nonnegative integer power
+$n$.
+
+It explains:
+- Why the coefficients in these expansions appear
+- How to find a specific term without expanding everything
+- How powers can be estimated or simplified
+- How algebraic expansions connect to counting and probability
+
+## Motivation
+
+Suppose we want to expand
+
+$$
+(x+2)^8.
+$$
+
+Multiplying out eight copies by hand would be slow:
+
+$$
+(x+2)(x+2)(x+2)(x+2)(x+2)(x+2)(x+2)(x+2).
+$$
+
+However, the Binomial Theorem lets us write the full expansion immediately.
+
+It tells us that each term comes from choosing some copies to contribute $x$
+and the remaining copies to contribute $2$.
+
+For example, the term involving $x^5$ occurs when we choose $x$ from $5$ of the
+factors and $2$ from the other $3$ factors. The number of ways to choose which
+$5$ factors provide $x$ is
+
+$$
+\binom{8}{5}.
+$$
+
+So the $x^5$ term is
+
+$$
+\binom{8}{5}x^5 2^3.
+$$
+
+This is the main idea of the theorem, expansion coefficients count choices.
+
+## Binomial Coefficients
+
+Before stating the theorem, we recall the notation
+
+$$
+\binom{n}{k}.
+$$
+
+This is read as $n$ choose $k$ and is defined by
+
+$$
+\binom{n}{k}
+=
+\frac{n!}{k!(n-k)!}.
+$$
+
+It counts the number of ways to choose $k$ objects from a set of $n$ objects.
+
+For example,
+
+$$
+\binom{5}{2}
+=
+\frac{5!}{2!3!}
+=
+10.
+$$
+
+So there are $10$ ways to choose $2$ objects from $5$.
+
+Useful special values include
+
+$$
+\binom{n}{0}=1
+$$
+
+and
+
+$$
+\binom{n}{n}=1.
+$$
+
+Also,
+
+$$
+\binom{n}{k}=\binom{n}{n-k}.
+$$
+
+This symmetry comes from the fact that choosing $k$ objects to include is the
+same as choosing $n-k$ objects to exclude.
+
+## The Binomial Theorem
+
+For every nonnegative integer $n$,
+
+$$
+(a+b)^n
+=
+\sum_{k=0}^{n}
+\binom{n}{k}a^{n-k}b^k.
+$$
+
+Written out, this means
+
+$$
+(a+b)^n
+=
+\binom{n}{0}a^n
++
+\binom{n}{1}a^{n-1}b
++
+\binom{n}{2}a^{n-2}b^2
++
+\cdots
++
+\binom{n}{n}b^n.
+$$
+
+The general term is
+
+$$
+\binom{n}{k}a^{n-k}b^k.
+$$
+
+Here, $k$ tells us how many times we choose $b$ from the $n$ factors.
+
+## Why the Formula Works
+
+Consider
+
+$$
+(a+b)^n.
+$$
+
+This means
+
+$$
+(a+b)(a+b)\cdots(a+b),
+$$
+
+with $n$ factors.
+
+To form a term in the expansion, we choose either $a$ or $b$ from each factor.
+
+Suppose we want a term containing exactly $k$ copies of $b$. Then we must choose
+$b$ from $k$ of the $n$ factors and $a$ from the remaining $n-k$ factors.
+
+This produces
+
+$$
+a^{n-k}b^k.
+$$
+
+The number of ways to choose which $k$ factors supply $b$ is
+
+$$
+\binom{n}{k}.
+$$
+
+Therefore, the coefficient of
+
+$$
+a^{n-k}b^k
+$$
+
+is
+
+$$
+\binom{n}{k}.
+$$
+
+This proves the Binomial Theorem.
+
+## Pascal's Triangle
+
+The coefficients in binomial expansions form Pascal's Triangle:
+
+$$
+1
+$$
+
+$$
+1\quad 1
+$$
+
+$$
+1\quad 2\quad 1
+$$
+
+$$
+1\quad 3\quad 3\quad 1
+$$
+
+$$
+1\quad 4\quad 6\quad 4\quad 1
+$$
+
+$$
+1\quad 5\quad 10\quad 10\quad 5\quad 1
+$$
+
+The row beginning with $1,4,6,4,1$ gives the coefficients of
+
+$$
+(a+b)^4.
+$$
+
+So
+
+$$
+(a+b)^4
+=
+a^4+4a^3b+6a^2b^2+4ab^3+b^4.
+$$
+
+Each entry in Pascal's Triangle is the sum of the two entries above it. This
+reflects the identity
+
+$$
+\binom{n}{k}
+=
+\binom{n-1}{k-1}
++
+\binom{n-1}{k}.
+$$
+
+This identity is often useful in combinatorial arguments.
+
+## Expanding Powers
+
+The most direct use of the Binomial Theorem is expanding powers.
+
+### Example 1
+
+> Expand $(x+3)^5$.
+
+Using the Binomial Theorem,
+
+$$
+(x+3)^5
+=
+\sum_{k=0}^{5}
+\binom{5}{k}x^{5-k}3^k.
+$$
+
+The coefficients in row $5$ of Pascal's Triangle are
+
+$$
+1,5,10,10,5,1.
+$$
+
+Therefore,
+
+$$
+(x+3)^5
+=
+x^5+15x^4+90x^3+270x^2+405x+243.
+$$
+
+### Example 2
+
+> Expand $(2x-y)^4$.
+
+Here, take
+
+$$
+a=2x
+$$
+
+and
+
+$$
+b=-y.
+$$
+
+Then
+
+$$
+(2x-y)^4
+=
+\sum_{k=0}^{4}
+\binom{4}{k}(2x)^{4-k}(-y)^k.
+$$
+
+Now compute each term:
+
+$$
+(2x)^4=16x^4
+$$
+
+$$
+4(2x)^3(-y)=-32x^3y
+$$
+
+$$
+6(2x)^2(-y)^2=24x^2y^2
+$$
+
+$$
+4(2x)(-y)^3=-8xy^3
+$$
+
+$$
+(-y)^4=y^4.
+$$
+
+As such
+
+$$
+(2x-y)^4
+=
+16x^4-32x^3y+24x^2y^2-8xy^3+y^4.
+$$
+
+## Finding a Specific Term
+
+Often we do not need the entire expansion. We only need one coefficient or one
+term.
+
+The general term in
+
+$$
+(a+b)^n
+$$
+
+is
+
+$$
+\binom{n}{k}a^{n-k}b^k.
+$$
+
+This is the term containing $b^k$.
+
+### Example 3
+
+> Find the coefficient of $x^7$ in $(x+2)^{10}$.
+
+The general term is
+
+$$
+\binom{10}{k}x^{10-k}2^k.
+$$
+
+We want the exponent of $x$ to be $7$, so
+
+$$
+10-k=7.
+$$
+
+Thus
+
+$$
+k=3.
+$$
+
+The coefficient is
+
+$$
+\binom{10}{3}2^3.
+$$
+
+Now
+
+$$
+\binom{10}{3}=120,
+$$
+
+so the coefficient is
+
+$$
+120(8)=960.
+$$
+
+### Example 4
+
+> Find the constant term in
+>
+> $$
+> \left(x+\frac{2}{x}\right)^6.
+> $$
+
+The general term is
+
+$$
+\binom{6}{k}x^{6-k}\left(\frac{2}{x}\right)^k.
+$$
+
+This becomes
+
+$$
+\binom{6}{k}2^k x^{6-k-k}
+=
+\binom{6}{k}2^k x^{6-2k}.
+$$
+
+For the constant term, we need the exponent of $x$ to be $0$:
+
+$$
+6-2k=0.
+$$
+
+Thus
+
+$$
+k=3.
+$$
+
+The constant term is
+
+$$
+\binom{6}{3}2^3=20(8)=160.
+$$
+
+## Alternating Signs
+
+The Binomial Theorem also handles expressions of the form
+
+$$
+(a-b)^n.
+$$
+
+Since
+
+$$
+a-b=a+(-b),
+$$
+
+we get
+
+$$
+(a-b)^n
+=
+\sum_{k=0}^{n}
+\binom{n}{k}a^{n-k}(-b)^k.
+$$
+
+So the signs alternate depending on the parity of $k$.
+
+For example,
+
+$$
+(a-b)^5
+=
+a^5-5a^4b+10a^3b^2-10a^2b^3+5ab^4-b^5.
+$$
+
+A common mistake is to get these signs wrong, especially in middle terms.
+
+## Part 2
+Read the continuation in Part 2!

@@ -1,0 +1,203 @@
+---
+id: gcd-and-lcm
+title: GCD and LCM
+author: Siddhant Arora
+description: The fundamental number theory operations
+prerequisites: [prime-factorization]
+---
+
+## Introduction
+
+In Number Theory, the most fundamental *operations* you will run across are that of the **Greatest Common Divisor (GCD)** and **Least Common Multiple (LCM)**. They appear in every level of contest from computational to olympiad. Although they seem simple, they each have a variety of techniques involved to solve problems involving them as effectively as possible.
+
+Here are their ~~straightforward~~ definitions:
+
+**Greatest Common Divisor (GCD)**: The GCD of a set of positive integers is the largest integer that divides all the integers (this value may also be $1$). The notation of GCD is $\gcd(a_1, a_2, ... a_k)$ where $a_1, a_2, ... a_k$ are the numbers to take the GCD of. For instance, $\gcd(18, 27, 45) = 9$
+
+**Least Common Multiple (LCM)**: The LCM of a set of positive integers is the least integer that is divisible by all integers in the set. The notation of LCM is $\text{lcm}(a_1, a_2, ... a_k)$ where $a_1, a_2, ... a_k$ are the numbers to take the GCD of. For instance, $\gcd(17, 9, 18) = 306$
+
+## Handpicked Techniques
+
+When doing a couple examples, you may have noticed that there exists a systematic way of finding both the LCM and GCD of a set of positive integers rather than bashing our head against the wall to find a number that works. This technique being *considering the prime factorization.* This technique shows up extremely frequently across conetsts, so make sure you know when to use it.
+
+### Prime Factorization
+
+For each number in the set of natural numbers $a_1, a_2, \ldots, a_k$, consider the prime factorization:
+
+$$
+a_i = p_1^{e_{i,1}} \cdot p_2^{e_{i,2}} \cdots p_m^{e_{i,m}}
+$$
+
+where $e_{i,j} \geq 0$ is the exponent of prime $p_j$ in $a_i$.
+
+The GCD takes the **minimum** exponent of each prime across all numbers:
+
+$$
+\gcd(a_1, a_2, \ldots, a_k) = p_1^{\min(e_{1,1},\, \ldots,\, e_{k,1})} \cdot p_2^{\min(e_{1,2},\, \ldots,\, e_{k,2})} \cdots p_m^{\min(e_{1,m},\, \ldots,\, e_{k,m})}
+$$
+
+The LCM takes the **maximum** exponent of each prime across all numbers:
+
+$$
+\operatorname{lcm}(a_1, a_2, \ldots, a_k) = p_1^{\max(e_{1,1},\, \ldots,\, e_{k,1})} \cdot p_2^{\max(e_{1,2},\, \ldots,\, e_{k,2})} \cdots p_m^{\max(e_{1,m},\, \ldots,\, e_{k,m})}
+$$
+
+This gives the useful identity for two numbers:
+
+$$
+\gcd(a, b) \cdot \operatorname{lcm}(a, b) = a \cdot b
+$$
+
+To takeaway from this, if a problem provides you with an obscure factorial, binomial coefficient, or even information about primes and asks about some form of GCD or LCM, consider the prime factorization.
+
+> **2017 AMC 8 Problem 12**
+>
+> The smallest positive integer greater than 1 that leaves a remainder of 1 when divided by 4, 5, and 6 lies between which of the following pairs of numbers?
+>
+> $\textbf{(A) }2\text{ and }19\qquad\textbf{(B) }20\text{ and }39\qquad\textbf{(C) }40\text{ and }59\qquad\textbf{(D) }60\text{ and }79\qquad\textbf{(E) }80\text{ and }124$
+
+Don't let the remainder of $1$ trick you. The problem is only asking for $\text{lcm}(4, 5, 6) + 1$, which is trivially 61. $\boxed{\textbf{(D)}\ \text{60 and 79}}.$
+
+> **2020 AMC 12A Problem 21**
+>
+> How many positive integers $n$ are there such that $n$ is a multiple of $5$, and the least common multiple of $5!$ and $n$ equals $5$ times the greatest common divisor of $10!$ and $n?$
+>
+> $\textbf{(A) } 12 \qquad \textbf{(B) } 24 \qquad \textbf{(C) } 36 \qquad \textbf{(D) } 48 \qquad \textbf{(E) } 72$
+
+As noted above, seeing factorials and $\gcd$ should motivate considering the prime factorizations of the given numbers. By <a href="https://en.wikipedia.org/wiki/Legendre%27s_formula" target="_blank" rel="noopener noreferrer">Legendre's theorem</a>:
+
+$$
+5! = 2^3 \cdot 3 \cdot 5, \qquad 10! = 2^8 \cdot 3^4 \cdot 5^2 \cdot 7
+$$
+
+Translating the condition $\operatorname{lcm}(5!, n) = 5 \cdot \gcd(10!, n)$ into an equation:
+
+$$
+\operatorname{lcm}(2^3 \cdot 3 \cdot 5,\; n) = 5 \cdot \gcd(2^8 \cdot 3^4 \cdot 5^2 \cdot 7,\; n)
+$$
+
+
+Write $n = 2^a \cdot 3^b \cdot 5^c \cdot 7^d \cdot k$, where $k$ is coprime to $2, 3, 5, 7$. Any prime $p \geq 11$ dividing $n$ would appear on the LCM side (since the LCM keeps every prime in $n$) but could never appear on the GCD side (since $10!$ contributes no such prime). So $k = 1$, and the prime factors of $n$ lie in $\{2, 3, 5, 7\}$.
+
+Since $n$ must be a multiple of $5$, we also need $c \geq 1$.
+
+ Matching exponents prime by prime
+
+The LCM takes the max of corresponding exponents; the GCD takes the min. Multiplying the GCD side by $5$ bumps the exponent of $5$ up by one. Comparing exponents of each prime on both sides:
+
+**Prime $2$:** $\max(3, a) = \min(8, a)$.
+
+If $a \leq 3$, the left side is $3$ and the right side is $a$, forcing $a = 3$. If $a \geq 4$, the left side is $a$ and the right side is $\min(8, a)$, which holds for $4 \leq a \leq 8$. So $a \in \{3, 4, 5, 6, 7, 8\}$ — **6 choices**.
+
+**Prime $3$:** $\max(1, b) = \min(4, b)$.
+
+By the same logic, $b \in \{1, 2, 3, 4\}$ — **4 choices**.
+
+**Prime $5$:** $\max(1, c) = 1 + \min(2, c)$.
+
+If $c = 1$: left is $1$, right is $1 + 1 = 2$. ✗
+If $c = 2$: left is $2$, right is $1 + 2 = 3$. ✗
+If $c \geq 3$: left is $c$, right is $1 + 2 = 3$, forcing $c = 3$. ✓
+
+So $c = 3$ is the unique solution — **1 choice**. (Note this also satisfies $c \geq 1$ automatically.)
+
+**Prime $7$:** $\max(0, d) = \min(1, d)$.
+
+If $d = 0$: both sides are $0$. ✓
+If $d = 1$: left is $1$, right is $1$. ✓
+If $d \geq 2$: left is $d \geq 2$, right is $1$. ✗
+
+So $d \in \{0, 1\}$ — **2 choices**.
+
+Each prime's exponent is chosen independently, so the total number of valid $n$ is:
+
+$$
+6 \cdot 4 \cdot 1 \cdot 2 = 48
+$$
+
+$\boxed{\textbf{(D) } 48}$
+
+## GCD and LCM Toolkit
+
+Beyond the prime factorization definition, there are several manipulation tools that make GCD/LCM problems tractable. Most olympiad-style problems reward recognizing *which* tool fits the situation rather than grinding through factorizations.
+
+### The Euclidean Algorithm
+
+For any positive integers $a$ and $b$ with $a > b$,
+
+$$
+\gcd(a, b) = \gcd(b, a \bmod b)
+$$
+
+Iterating this recursion terminates when the remainder hits $0$, at which point the other operand is the GCD. This may be pretty useful when you need to take large GCDs, and importantly, to simplify gcd expressions. Generally:
+
+$$
+\gcd(a, b) = \gcd(b - ak, a), k \in \Z
+$$
+
+**Example:** $\gcd(252, 105) = \gcd(105, 42) = \gcd(42, 21) = \gcd(21, 0) = 21$.
+
+See [Euclidean algorithm](https://en.wikipedia.org/wiki/Euclidean_algorithm) for the full treatment, including Bézout's identity!
+
+### Bézout's Identity
+
+For any integers $a, b$, there exist integers $x, y$ such that:
+
+$$
+ax + by = \gcd(a, b)
+$$
+
+More usefully: an equation $ax + by = c$ has integer solutions if and only if $\gcd(a, b) \mid c$. This connects GCD directly to linear Diophantine equations.
+
+### Scaling and Coprimality
+
+Two useful identities for pulling factors in and out:
+
+$$
+\gcd(ka, kb) = k \cdot \gcd(a, b)
+$$
+
+$$
+\gcd(a, b) = 1 \implies \gcd(a, bc) = \gcd(a, c)
+$$
+
+The second is quite powerful, if you can isolate a coprime factor, you can drop it from the GCD entirely.
+
+### Multiplicativity
+
+GCD and LCM are both **multiplicative** when the arguments split into coprime parts. If $\gcd(a, b) = 1$:
+
+$$
+\gcd(ab, n) = \gcd(a, n) \cdot \gcd(b, n)
+$$
+
+$$
+\operatorname{lcm}(ab, n) = \frac{\operatorname{lcm}(a, n) \cdot \operatorname{lcm}(b, n)}{n}
+$$
+
+### When to Reach for Which Tool
+
+| Situation | Tool |
+|---|---|
+| Computing GCD of specific large numbers | Euclidean algorithm |
+| GCD involving polynomial expressions in $n$ | Subtraction/linear combination |
+| Counting solutions to $ax + by = c$ | Bézout's identity |
+| Constraints mixing GCD and LCM (like 2020 AMC 12A #21) | Prime factorization + min/max |
+| Proving divisibility properties | Bézout or multiplicativity |
+| Problems with factorials or highly composite numbers | Prime factorization (Legendre's formula) |
+
+
+## Remarks
+
+As you continue your math journey, you will see increasingly obscure manipulations and identities involving GCD and LCM that we will dive deeper on in more advanced modules like how:
+
+$$
+\gcd(a^m - 1, a^n - 1) = a^{\gcd(m, n)} - 1
+$$
+
+
+The common thread across all of these: GCD and LCM are fundamentally about *prime-by-prime* behavior, and the cleverness in any problem usually comes from finding the right way to isolate one prime at a time. Please continue to build the habit of asking "what does each prime contribute?" and most GCD/LCM problems become a lot easier.
+
+## Practice Problems
+
+<Problems problems="practice" />

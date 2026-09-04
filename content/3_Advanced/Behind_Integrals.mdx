@@ -1,0 +1,199 @@
+---
+id: intuition-behind-integrals
+title: Intuition Behind Integrals
+author: Ong Zhi Zheng
+description: Building intuition for integrals as sums of infinitesimals, with applications in physics
+prerequisites: [differentiation-rules, chain-rule, taylor-series]
+---
+ 
+# Introduction
+ 
+Integrals are often seen in higher physics and might look daunting at first. However, they are crucial in developing theories that accurately model the world. Let's build up the intuition from scratch!
+ 
+# Definition & Intuition
+ 
+When you first learn integration, you might have been introduced to it as a mathematical operator — something that inputs a function and spits out another. But that severely understates the ideas beneath it!
+ 
+Take a look at the integration symbol:
+ 
+$$
+\int
+$$
+ 
+It looks like a stretched "S", and that's because it stands for **sum**. When you see bounds on the symbol:
+ 
+$$
+\int_a^b
+$$
+ 
+it means to add from lower bound $a$ to upper bound $b$. A integral with bounds is called a **definite integral**; one without is an **indefinite integral**.
+ 
+You will always see the term $dx$ inside the integral:
+ 
+$$
+\int_a^b f(x)\, dx
+$$
+ 
+The term $dx$ is called a **differential element**. Recall from differentiation:
+ 
+$$
+\frac{df}{dx} = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}
+$$
+ 
+If we treat the derivative as a fraction (a useful intuition to keep), then $dx$ represents something infinitesimally small in the limit. An integral is nothing but a **summation of infinitely small things**.
+ 
+More formally, the definition of a definite integral is:
+ 
+$$
+\int_a^b f(x)\, dx = \lim_{n \to \infty} \sum_{k=0}^{n} f(x_k)\,\Delta x
+$$
+ 
+where $\Delta x = \dfrac{b-a}{n}$ and $x_k = a + k\cdot\Delta x$.
+ 
+The function $f(x)$ inside the integral represents the quantity we want to sum over — if $x$ denotes time and $f(x)$ denotes velocity, then we are summing velocity $\times$ time, which is displacement. As $n \to \infty$, the intervals $\Delta x$ shrink to zero, leaving no gaps, so every value is accounted for.
+ 
+# Examples & Applications
+ 
+## Integrals as Areas
+ 
+The most common application of integrals in mathematics is finding the **area under a curve**. The Riemann sum definition makes this clear: we break the region into infinitely many thin rectangular strips, each of width $\Delta x$ and height $f(x_k)$, and sum their areas.
+ 
+<Info title="Signed Areas">
+Areas under the curve are **signed** — regions above the $x$-axis contribute positively, and regions below contribute negatively.
+ 
+</Info>
+A classic physics example is the **energy stored in a spring**. By Hooke's Law, the restoring force is $\vec{F} = -k\vec{x}$. The infinitesimal work done stretching the spring by $dx$ is:
+ 
+$$
+dU = -F\,dx = kx\,dx
+$$
+ 
+Integrating from $x = 0$ to $x = x$, the total energy stored is:
+ 
+$$
+U = \int_0^x kx\,dx = \boxed{\frac{1}{2}kx^2}
+$$
+ 
+Graphically, this is just the area of the triangle under the linear graph of $F = kx$ — a satisfying geometric confirmation of the result.
+ 
+## Adding Changes
+ 
+Another way to view integrals is as **accumulated change**. By definition, velocity is:
+ 
+$$
+v = \frac{dx}{dt}
+$$
+ 
+To find the total displacement, we add together infinitely many infinitesimal displacements:
+ 
+$$
+x = \int dx = \int v\, dt
+$$
+ 
+If we know how velocity varies with time, $v(t)$, the integral tells us precisely how far the object has traveled over any interval.
+ 
+## Infinitesimal Superposition
+ 
+Integrals are also essential in **superposition** problems in electromagnetism. *(Feel free to revisit this section after studying electrostatics.)*
+ 
+Rather than discrete point charges, real problems often involve continuous charge distributions. Consider an infinitely long line of charge with linear charge density $\lambda$ — for each infinitesimal segment $dx$ there is charge $dq = \lambda\,dx$. We want the electric potential at a point with perpendicular distance $d$ from the line.
+ 
+For a single point charge $Q$ at distance $r$, the potential is $\phi = \dfrac{kQ}{r}$. By superposition, each infinitesimal segment contributes:
+ 
+$$
+d\phi = \frac{k\,dq}{r} = \frac{k\lambda\,dx}{\sqrt{x^2 + d^2}}
+$$
+ 
+Summing over the entire infinite line:
+ 
+$$
+\phi = \int_{-\infty}^{+\infty} \frac{k\lambda\,dx}{\sqrt{x^2 + d^2}}
+$$
+ 
+which can be evaluated using a table of integrals.
+ 
+# Problems & Practice
+ 
+> **Problem 1 (Isothermal Expansion):** An ideal gas obeys the equation of state $pV = nRT$, where $p$ is pressure, $V$ is volume, $n$ is the number of moles, $T$ is temperature in Kelvin, and $R$ is the molar gas constant. What is the total work done by the gas when it expands isothermally from $V_i$ to $V_f$?
+>
+> *Hint: Isothermal means $T$ is constant. When an ideal gas expands by $dV$, it does work $dW = p\,dV$ on its surroundings.*
+>
+> **Solution:**
+>
+> $$W = \int_{V_i}^{V_f} p\,dV = \int_{V_i}^{V_f} \frac{nRT}{V}\,dV = \boxed{nRT \ln\frac{V_f}{V_i}}$$
+ 
+> **Problem 2 (Gravitational Potential Energy):** Derive the expression for the gravitational potential energy of a mass $m$, given the gravitational force:
+>
+> $$\vec{F} = \frac{GMm}{r^2}(-\hat{r})$$
+>
+> where $M$ and $m$ are masses and $\vec{r}$ points from one mass to the other. Define energy to be zero at $r = \infty$.
+>
+> *Hint: Use $dW = -dU = \vec{F}\cdot d\vec{r}$.*
+>
+> **Solution:**
+>
+> $$U = \int dU = -\int_{\infty}^{r} \frac{GMm}{r^2}(-dr) = \boxed{-\frac{GMm}{r}}$$
+ 
+> **Problem 3 (Spherical Resistor):** Find the resistance of an ohmic spherical shell with resistivity $\rho$, inner radius $a$, and outer radius $b$.
+>
+> *Hint: The resistance of a thin shell at radius $r$ with thickness $dr$ is $dR = \dfrac{\rho\,dr}{4\pi r^2}$. Resistors in series add.*
+>
+> **Solution:**
+>
+> $$R = \int_a^b \frac{\rho\,dr}{4\pi r^2} = \frac{\rho}{4\pi}\left(\frac{1}{a} - \frac{1}{b}\right)$$
+ 
+> **Problem 4 (Infinitesimals):** Convince yourself that the following identity is true:
+>
+> $$\ddot{x} = \dot{x}\,\frac{d\dot{x}}{dx}$$
+>
+> **Solution:** Apply the chain rule:
+>
+> $$\ddot{x} = \frac{d\dot{x}}{dt} = \frac{d\dot{x}}{dx}\cdot\frac{dx}{dt} = \dot{x}\,\frac{d\dot{x}}{dx}$$
+ 
+> **Problem 5 (Moment of Inertia of a Rod):** In rotational mechanics, the moment of inertia of a point mass $m$ at perpendicular distance $r$ from an axis is $I = mr^2$, and it is additive. Derive the moment of inertia of a thin rod of length $L$ and total mass $M$ spinning about its center.
+>
+> **Solution:** The mass per unit length is $M/L$, so $dm = \dfrac{M}{L}dx$. Integrating from $-L/2$ to $L/2$:
+>
+> $$I = \int_{-L/2}^{L/2} x^2\,\frac{M}{L}\,dx = \boxed{\frac{1}{12}ML^2}$$
+ 
+> **Problem 6 (Polar Area Element):** In rectangular coordinates, an infinitesimal area patch is $dA = dx\,dy$. In polar coordinates, points are described by $(r, \theta)$ where $r$ is the distance from the origin and $\theta$ is the angle. Derive the formula for $dA$ in polar coordinates.
+>
+> *Hint: The area of a circular sector is $A = \frac{1}{2}r^2\theta$.*
+>
+> **Solution:** Differentiating the sector area with respect to $\theta$ and then taking an infinitesimal radial strip:
+>
+> $$dA = \frac{1}{2}(r+dr)^2 d\theta - \frac{1}{2}r^2 d\theta \approx r\,dr\,d\theta$$
+>
+> $$\boxed{dA = r\,dr\,d\theta}$$
+ 
+> **Problem 7 (Rotating Water Surface):** When water in a cylindrical container is rotated about its center, the surface curves upward at the edges. Let the origin be at the axis of rotation at the cylinder's base. Let $\rho$ be the water density, $g$ the gravitational acceleration, and $\omega$ the angular velocity.
+>
+> **(a)** Consider an infinitesimal blob of water at the base, at distance $r$ from the axis. Write the force balance for it to undergo circular motion. *(Hint: think in terms of pressure.)*
+>
+> **(b)** Derive the pressure gradient $\dfrac{dp}{dr}$ as a function of $r$.
+>
+> **(c)** Derive the surface gradient $\dfrac{dy}{dr}$, where $y(r)$ is the shape of the water surface.
+>
+> **(d)** Integrate to find the shape $y(r)$.
+>
+> **Solution:**
+>
+> **(a)** The pressure difference across the blob supplies the centripetal force:
+>
+> $$p(r + dr)\,dA - p(r)\,dA = r\omega^2\,dm$$
+>
+> **(b)** Substituting $dm = \rho\,dA\,dr$:
+>
+> $$\boxed{\frac{dp}{dr} = \rho\omega^2 r}$$
+>
+> **(c)** At the surface, pressure is constant, so horizontal and vertical pressure gradients must balance. Since $dp = \rho g\,dy$ vertically:
+>
+> $$\frac{dp}{dr} = \rho g\,\frac{dy}{dr} \implies \boxed{\frac{dy}{dr} = \frac{\omega^2}{g}r}$$
+>
+> **(d)** Integrating:
+>
+> $$\boxed{y = y_0 + \frac{\omega^2}{2g}r^2}$$
+>
+> The surface is a **paraboloid** — a result so precise that rotating liquid mirrors have been used to build real telescopes, such as the Large Zenith Telescope!
+ 
+<Problems problems="practice" />

@@ -1,0 +1,81 @@
+---
+id: exponents-nt
+title: Exponents in NT
+author: Nico Young 
+description: LTE, Zsigmondy, and other things related to Exponents 
+prerequisites: ["number-theory-advanced", "proof-writing-basics"]
+---
+
+## Overview
+In this section we'll be dealing with variable on exponents, 
+using LTE, Zsigmondy, etc. to solve the problem. 
+
+## Orders (review)
+
+This should be a review for most of you. 
+The *order* of $a\pmod p$, sometimes denoted as $\text{ord}_p (a)$ (pretty much similar to the $\log$ function), is the smallest positive integer $m$ such that $a^m\equiv 1\pmod p$. 
+
+Also note that $a^{p-1}\equiv 1\pmod p$, thus $\text{ord}_p (a)\mid p-1$. 
+This is more useful when $p-1$ has few prime factors, e.g. $p=2^{2^k}+1$. 
+
+Also, the existance of *primitive roots* are pretty important too, which is denoted as $g$ and $g^0, g^1, \dots, g^{p-1}$ passes through all the numbers in the set $\{1, 2, \dots, p-1\}$. 
+
+## The v_p argument 
+
+Once we get the relation that $p\mid m$, it is quite natural to think how many times $m$ is divisible by $p$. This motivates us to the following definition. 
+
+-Let $p$ be prime and define a function $\nu_p\colon \mathbb{Q}\mapsto \mathbb{Z}$ as following: If $n$ is an integer and $e$ is the largest integer such that $p^e\mid n$, then $\nu_p (n)=e$. For $n=a/b$, define $\nu_p (n)=\nu_p (a)-\nu_p (b)$. By convention we define $\nu_p (0)=\infty$. 
+
+**problem**: Convince yourself that this definition makes sense. 
+
+Let greek letter $\nu$ is read as ``nu'', but people often use the alphabet $v$ because they're lazy. 
+
+There are a few results about this function. 
+
+- $\nu_p (x+y)\ge \min \{\nu_p(x), \nu_p (y)\}$ and if $\nu_p (x)\ne \nu_p (y)$ then the equality holds. 
+- $\nu_p (xy)=\nu_p (x)+\nu_p (y)$. 
+
+Try to prove these results, as it's not really hard. 
+
+## Lifting Exponents 
+
+The v_p function is not going to be good at most problems with only the above results. In fact, there are one more nice property of this function: the **Lifting The Exponents** lemma, often abbreviated as LTE. 
+
+**definition**. Let $p$ be a prime, and $a$, $b$ are integers. Suppose that 
+- $p>2$; 
+- $p\nmid a, b$; 
+- But $p\mid a-b$. 
+Then for any positive integer $n$, we have the equation 
+$$
+\nu_p (a^n-b^n)=\nu_p (a-b)+\nu_p (n). 
+$$
+
+Always don't forget to confirm this three condition! It's really easy to mess up since each looks like an edge case. 
+
+This time, the proof is not going to be that easy and it is proven by induction on $n$. See https://en.wikipedia.org/wiki/Lifting-the-exponent_lemma for details. 
+
+Note that if $n$ is odd, we can derive to the equation of $\nu_p (a^n+b^n)$ by flipping the sign of $b$. 
+
+## Zsigmondy theorem
+
+Next, we have the **Zsigmondy** theorem, which is also quite mondatory for some intermediate-to-above level problems. There are two versions but they're essentially the same. The statement is: 
+
+**Statement 1**: Let $a>b>0$ be a coprime integers, then for any integer $n>1$, $a^n-b^n$ ``generates a new prime factor'', that is, there exists are prime dividing $a^n-b^n$ but not dividing $a^k-b^k$ for each $n>k$. But, with two edge cases as an exception: 
+- $n=2$ and $a+b$ is a power of $2$. 
+- $(a, b, n)=(2, 1, 6)$. 
+
+Similarly, 
+
+**Statement 2**: $a^n+b^n$ generates a new prime factor for any $n>1$ with an exception 
+- $(a, b, n)=(2, 1, 3)$. 
+
+The Zsigmondy theorem is useful for bounding by prime factors, like in the situation $m^n=a^k-b^k$. 
+
+
+**Example** (USA January TST 2012, this problem is quite silly): Find all positive integers $a, n\ge 1$ such that for all primes $p$ dividing $a^n-1$, there exists a positive integer $m$ less than $n$ such that $p\mid a^m-1$
+
+## Walkthrough
+
+To be written 
+
+<Problems problems="practice" />

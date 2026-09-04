@@ -1,0 +1,93 @@
+/* Geist Sans + Geist Mono, self-hosted via Fontsource so there are no
+   third-party font requests. They are a designed pair, which matters here:
+   this site sets LaTeX, problem identifiers and numeric columns in mono
+   constantly, and the two have to sit together on a line. */
+@import '@fontsource-variable/geist/index.css';
+@import '@fontsource-variable/geist-mono/index.css';
+
+@import 'tailwindcss';
+@import './theme.css' layer(base);
+
+@theme {
+  --color-dark-surface: #101010; /* updated surface base */
+  /* replace white-based emphasis with cream-based emphasis */
+  --color-dark-high-emphasis: rgba(244, 237, 234, 0.9);
+  --color-dark-med-emphasis: rgba(244, 237, 234, 0.68);
+  --color-dark-disabled-emphasis: rgba(244, 237, 234, 0.42);
+}
+
+@import './generalStyles.css' layer(components);
+@import './components.css' layer(components);
+@import './syllabus.css' layer(components);
+@import './link-with-progress.css' layer(components);
+@import './anchor.css' layer(utilities);
+@import './animations.css' layer(utilities);
+
+@source "../../src/components";
+@source "../../src/context";
+@source "../../src/hooks";
+@source "../../src/models";
+@source "../../src/pages";
+@source "../../src/stories";
+@source "../../src/templates";
+@source "../../content";
+/* problemBank holds huge raw data dumps (200MB+ of JSON) that must not be
+   scanned for class candidates — scanning them bloats the CSS and build memory. */
+@source not "../../content/problemBank";
+@source "../../.storybook/preview.js";
+
+@config "../../tailwind.config.js";
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+
+  button,
+  [role='button'] {
+    cursor: pointer;
+  }
+  button:disabled,
+  [role='button']:disabled {
+    cursor: default;
+  }
+
+  ::selection {
+    background: var(--accent-soft-strong);
+  }
+
+  ::-moz-selection {
+    background: var(--accent-soft-strong);
+  }
+
+  .markdown ::selection {
+    background: var(--accent-soft-strong);
+  }
+
+  .markdown ::-moz-selection {
+    background: var(--accent-soft-strong);
+  }
+}
+
+/* Carousels scroll horizontally by touch/arrow; the native bar just adds noise. */
+@utility hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

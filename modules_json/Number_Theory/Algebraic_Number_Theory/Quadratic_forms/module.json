@@ -1,0 +1,226 @@
+{
+  "MODULE_ID": "number-theory-algebraic-number-theory-quadratic-forms",
+  "practice": [
+    {
+      "uniqueId": "number-theory-algebraic-number-theory-quadratic-forms-auto-0383",
+      "name": "Berkeley Math Circle Monthly Contest 8 #0htb",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 8",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Factorization techniques",
+        "Quadratic forms"
+      ],
+      "statement": "Problem:\nProve that any prime which is the difference of two cubes is also the sum of a square and three times a square.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nSuppose that\n$$\np = a^{3} - b^{3}\n$$\nwhere $p$ is prime and $a$ and $b$ are natural numbers. The right side can be factored:\n$$\np = (a - b)\\left(a^{2} + a b + b^{2}\\right)\n$$\nSince $p$ is prime, one of the factors must be $\\pm 1$. We note that $a^{2} + a b + b^{2} \\geq 1 + 1 + 1 = 3$, so $a - b = 1$ and\n$$\np = a^{2} + a b + b^{2} = (b + 1)^{2} + b(b + 1) + b^{2} = 3 b^{2} + 3 b + 1.\n$$\nTrying to express $3 b^{2} + 3 b + 1$ directly as $f(b)^{2} + 3 g(b)^{2}$, where $f(b)$ and $g(b)$ are integer polynomials, leads to difficulties (the coefficient of $b$ can never be made odd). However, we note that $b$ is either even or odd. If $b = 2x$, then\n$$\np = 12 x^{2} + 6 x + 1 = (3x + 1)^{2} + 3 x^{2}\n$$\nwhile if $b = 2x - 1$, then\n$$\np = 12 x^{2} - 6 x + 1 = (3x - 1)^{2} + 3 x^{2}.\n$$\nThus $p = c^{2} + 3 d^{2}$ where $c$ and $d$ are integers."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-algebraic-number-theory-quadratic-forms-auto-0519",
+      "name": "Berkeley Math Circle Monthly Contest 8 #0hx3",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 8",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Techniques: modulo, size analysis, order analysis, inequalities",
+        "Modular Arithmetic",
+        "Quadratic forms"
+      ],
+      "statement": "Problem:\n\nLet $n$ be a positive integer which is divisible by $5$ and which can be written as the sum of two (not necessarily distinct) squares. Prove that $n$ can be written as the sum of two squares one of which is greater than or equal to four times the other.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $n = a^2 + b^2$, where $a$ and $b$ are nonnegative integers. Suppose that each of the squares $a^2$ and $b^2$ is less than $4$ times the other, so\n$$\na < 2b \\text{ and } b < 2a.\n$$\nSince $a^2 + b^2$ is divisible by $5$, so is $a^2 + b^2 - 5b^2 = a^2 - 4b^2 = (a + 2b)(a - 2b)$. Thus $5$ divides either $a + 2b$ or $a - 2b$. If $5 \\mid a - 2b$, then $5 \\mid 2(a - 2b) + 5b = 2a + b$. Thus $5$ divides either $a + 2b$ or $2a + b$, and by switching the labels $a$ and $b$ we may assume that $5 \\mid a + 2b$.\n\nThen\n$$\n5 \\mid 4(a + 2b) - 5b = 4a + 3b\n$$\nand\n$$\n5 \\mid 3(a + 2b) - 10b = 3a - 4b.\n$$\nNote that\n$$\n\\begin{aligned}\n\\left(\\frac{4a + 3b}{5}\\right)^2 + \\left(\\frac{3a - 4b}{5}\\right)^2 &= \\frac{16a^2 + 24ab + 9b^2 + 9a^2 - 24ab + 16b^2}{25} \\\\\n&= \\frac{25a^2 + 25b^2}{25} = a^2 + b^2 = n.\n\\end{aligned}\n$$\nWe claim that\n$$\n\\left(\\frac{4a + 3b}{5}\\right)^2 \\geq 4\\left(\\frac{3a - 4b}{5}\\right)^2\n$$\nwhich is equivalent to\n$$\n4a + 3b \\geq 2|3a - 4b|\n$$\nwhich in turn is equivalent to the pair of inequalities\n$$\n4a + 3b \\geq 2(3a - 4b) \\text{ and } 4a + 3b \\geq -2(3a - 4b)\n$$\nSimplifying the first inequality yields $11b \\geq 2a$ which is true since $2b \\geq a$. Simplifying the second inequality yields $10a \\geq 5b$ which is true since $2a \\geq b$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-algebraic-number-theory-quadratic-forms-auto-1458",
+      "name": "9th Bay Area Mathematical Olympiad #0in6",
+      "url": "https://usamoguide.com/",
+      "source": "9th Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Invariants / monovariants",
+        "Quadratic forms"
+      ],
+      "statement": "Problem:\nLet $N$ be the number of ordered pairs $(x, y)$ of integers such that\n$$\nx^2 + x y + y^2 \\leq 2007\n$$\nRemember, integers may be positive, negative, or zero!\n\na. Prove that $N$ is odd.\n\nb. Prove that $N$ is not divisible by $3$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\na.\nIf $(x, y)$ is a pair of integers that satisfies the inequality, then $(-x, -y)$ is also such a pair, since\n$$\n(-x)^2 + (-x)(-y) + (-y)^2 = x^2 + x y + y^2.\n$$\nSo we can match up pairs of solutions to the inequality, $(x, y) \\leftrightarrow (-x, -y)$. Every solution will be paired with a different solution, except for the one remaining solution $(0, 0)$ which is paired with itself. This shows that the number of solutions is odd.\n\nb.\nThis is similar to the previous part, except now that we have to arrange the nonzero solutions into triples instead of pairs. If $(x, y)$ is a solution to the inequality, then so is $(-x-y, x)$, since\n$$\n(-x-y)^2 + (-x-y)x + x^2 = x^2 + x y + y^2\n$$\nApplying this transformation three times in succession gives the cycle\n$$\n(x, y) \\rightarrow (-x-y, x) \\rightarrow (y, -x-y) \\rightarrow (x, y)\n$$\nso we can unambiguously arrange the solutions into cycles of three, of the form $\\{(x, y), (-x-y, x), (y, -x-y)\\}$. Now, if any two solutions in the same cycle are equal, then the third is also equal to them, so every cycle contains either three distinct solutions or just one solution. If a cycle contains just one solution $(x, y)$, then $x = y$ and $y = -x - y$ gives $x = y = 0$. Therefore, the solution $(0, 0)$ forms a cycle by itself, and every other cycle consists of three different solutions, which means that the total number of solutions has remainder $1$ when divided by $3$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-algebraic-number-theory-quadratic-forms-auto-2520",
+      "name": "TST #0jgo",
+      "url": "https://usamoguide.com/",
+      "source": "TST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle trigonometry",
+        "Constructions and loci",
+        "Greatest common divisors (gcd)",
+        "Quadratic forms",
+        "Polynomial operations"
+      ],
+      "statement": "Two incongruent triangles $ABC$ and $XYZ$ are called a pair of *pals* if they satisfy the following conditions:\n(a) the two triangles have the same area;\n(b) let $M$ and $W$ be the respective midpoints of sides $BC$ and $YZ$. The two sets of lengths $\\{AB, AM, AC\\}$ and $\\{XY, XW, XZ\\}$ are identical 3-element sets of pairwise relatively prime integers.\n\nDetermine if there are infinitely many pairs of triangles that are pals of each other.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**Lemma 2.** The following statement and its converse are both true: If $q, r, s$ are three distinct positive real numbers such that $q, r, 2s$ are side lengths of a triangle, then there is an unique triangle $PQR$ with $PQ = q, PR = r$, and $PS = s$, where $S$ is the midpoint of side $QR$.\n*Proof.* If $q, r, 2s$ are side lengths of a triangle, we construct the unique triangle $PRQ_1$ with $PR = r, RQ_1 = q$, and $PQ_1 = 2s$. Let $S$ be the midpoint of side $PQ_1$. Expend segment $RS$ through $S$ to $Q$ so that $PQQ_1R$ is a parallelogram. It is clear that $PQR$ is a triangle with $PQ = q, PR = r$, and $PS = s$, where $S$ is the midpoint of side $QR$. To prove the converse statement, we only need to note that the above procedure can be reversed. □\n\n**Lemma 3.** Let $PQR$ be a triangle with $PQ = q, PR = r$, and $PS = s$, where $S$ is the midpoint of side $QR$. Then the area of triangle $PQR$ is\n$$\n\\frac{1}{4}\\sqrt{2q^2r^2 + 8r^2s^2 + 8s^2q^2 - q^4 - r^4 - 16s^4}.\n$$\n*Proof.* Because $PQQ_1R$ is a parallelogram, triangles $PQR$ and $PRQ_1$ have the same area. Because $(PR, RQ_1, Q_1P) = (r, q, 2s)$, the desired results follows directly from the Heron's formula. □\n\nIn view of Lemma 2, if triangles $ABC$ and $XYZ$ are a pair of pals, we may assume without of generality that $(AB, AC, AM) = (n, s, t)$ and $(XY, XZ, XW) = (n, t, s)$. By Lemma 3, we have\n$$\n2n^2s^2 + 8s^2t^2 + 8t^2n^2 - n^4 - s^4 - 16t^4 = 2n^2t^2 + 8t^2s^2 + 8s^2n^2 - n^4 - t^4 - 16s^4\n$$\nwhich simplifies to\n$$\n6n^2t^2 - 6n^2s^2 = 15t^4 - 15s^4.\n$$\nBecause $ABC$ and $XYZ$ are incongruent, we deduce that $2n^2 = 5(t^2 + s^2)$. We set $n = 5(k^2 + (k+1)^2) = 10k^2 + 10k + 1$ for some positive integer $k$. By applying the identity $(a^2 + b^2)(c^2 + d^2) = (ac + bd)^2 - (ad - bc)^2$ repeatedly, we have\n$$\n\\begin{aligned}\nt^2 + s^2 &= 10n^2 = (1^2 + 3^2)(k^2 + (k+1)^2)(k^2 + (k+1)^2) \\\\\n&= ((4k+3)^2 + (2k-1)^2)(k^2 + (k+1)^2) \\\\\n&= (6k^2 + 4k - 1)^2 + (2k^2 + 8k + 3)^2.\n\\end{aligned}\n$$\nWe set $(n, s, t) = (10k^2 + 10k + 1, 6k^2 + 4k - 1, 2k^2 + 8k + 3)$ for positive integer $k$. For large $k$, it is easy to see that each of $(n, 2s, t)$ and $(n, s, 2t)$ is a set of side lengths of a triangle. Furthermore, by the Euclidean algorithm, it is not difficult to check these numbers are pairwise relatively prime to each other, hence $(n, 2s, t)$ and $(n, s, 2t)$ are the side lengths of a pair of pals, completing the solution."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-algebraic-number-theory-quadratic-forms-auto-2530",
+      "name": "IMO Team Selection Test #0jgy",
+      "url": "https://usamoguide.com/",
+      "source": "IMO Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangles",
+        "Constructions and loci",
+        "Greatest common divisors (gcd)",
+        "Quadratic forms"
+      ],
+      "statement": "Two incongruent triangles $ABC$ and $XYZ$ are called a pair of *pals* if they satisfy the following conditions:\n(a) the two triangles have the same area;\n(b) let $M$ and $W$ be the respective midpoints of sides $BC$ and $YZ$. The two sets of lengths $\\{AB, AM, AC\\}$ and $\\{XY, XW, XZ\\}$ are identical 3-element sets of pairwise relatively prime integers.\nDetermine if there are infinitely many pairs of triangles that are pals of each other.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "The answer is *yes*.\nWe start with the following observations.\n\n**Lemma 2.** The following statement and its converse are both true: If $q, r, s$ are three distinct positive real numbers such that $q, r, 2s$ are side lengths of a triangle, then there is an unique triangle $PQR$ with $PQ = q, PR = r$, and $PS = s$, where $S$ is the midpoint of side $QR$.\n\n*Proof.* If $q, r, 2s$ are side lengths of a triangle, we construct the unique triangle $PRQ_1$ with $PR = r, RQ_1 = q$, and $PQ_1 = 2s$. Let $S$ be the midpoint of side $PQ_1$. Expend segment $RS$ through $S$ to $Q$ so that $PQQ_1R$ is a parallelogram. It is clear that $PQR$ is a triangle with $PQ = q, PR = r$, and $PS = s$, where $S$ is the midpoint of side $QR$. To prove the converse statement, we only need to note that the above procedure can be reversed. □\n\n**Lemma 3.** Let $PQR$ be a triangle with $PQ = q, PR = r$, and $PS = s$, where $S$ is the midpoint of side $QR$. Then the area of triangle $PQR$ is\n$$\n\\frac{1}{4}\\sqrt{2q^2r^2 + 8r^2s^2 + 8s^2q^2 - q^4 - r^4 - 16s^4}.\n$$\n*Proof.* Because $PQQ_1R$ is a parallelogram, triangles $PQR$ and $PRQ_1$ have the same area. Because $(PR, RQ_1, Q_1P) = (r, q, 2s)$, the desired results follows directly from the Heron's formula. □\n\nIn view of Lemma 2, if triangles $ABC$ and $XYZ$ are a pair of pals, we may assume without loss of generality that $(AB, AC, AM) = (n, s, t)$ and $(XY, XZ, XW) = (n, t, s)$. By Lemma 3, we have\n$$\n2n^2s^2 + 8s^2t^2 + 8t^2n^2 - n^4 - s^4 - 16t^4 = 2n^2t^2 + 8t^2s^2 + 8s^2n^2 - n^4 - t^4 - 16s^4\n$$\nwhich simplifies to\n$$\n6n^2t^2 - 6n^2s^2 = 15t^4 - 15s^4.\n$$\nBecause $ABC$ and $XYZ$ are incongruent, we deduce that $2n^2 = 5(t^2 + s^2)$. We set $n = 5(k^2 + (k+1)^2) = 10k^2 + 10k + 1$ for some positive integer $k$. By applying the identity $(a^2 + b^2)(c^2 + d^2) = (ac + bd)^2 - (ad - bc)^2$ repeatedly, we have\n$$\n\\begin{aligned}\nt^2 + s^2 &= 10n^2 = (1^2 + 3^2)(k^2 + (k+1)^2)(k^2 + (k+1)^2) \\\\\n&= ((4k+3)^2 + (2k-1)^2)(k^2 + (k+1)^2) \\\\\n&= (6k^2 + 4k - 1)^2 + (2k^2 + 8k + 3)^2.\n\\end{aligned}\n$$\nWe set $(n, s, t) = (10k^2 + 10k + 1, 6k^2 + 4k - 1, 2k^2 + 8k + 3)$ for positive integer $k$. For large $k$, it is easy to see that each of $(n, 2s, t)$ and $(n, s, 2t)$ is a set of side lengths of a triangle. Furthermore, by the Euclidean algorithm, it is not difficult to check these numbers are pairwise relatively prime to each other, hence $(n, 2s, t)$ and $(n, s, 2t)$ are the side lengths of a pair of pals, completing the solution."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-algebraic-number-theory-quadratic-forms-auto-2840",
+      "name": "HMMT February #0jpk",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cartesian coordinates",
+        "Trigonometry",
+        "Quadratic forms"
+      ],
+      "statement": "Problem:\nFor an integer $n$, let $f(n)$ denote the number of pairs $(x, y)$ of integers such that $x^{2}+x y+y^{2}=n$. Compute the sum\n$$\n\\sum_{n=1}^{10^{6}} n f(n)\n$$\nWrite your answer in the form $a \\cdot 10^{b}$, where $b$ is an integer and $1 \\leq a<10$ is a decimal number.\nIf your answer is written in this form, your score will be $\\left.\\max \\left\\{0,25-\\left\\lfloor 100\\left|\\log _{10}(A / N)\\right|\\right\\rfloor\\right\\}\\right.$, where $N=a \\cdot 10^{b}$ is your answer to this problem and $A$ is the actual answer. Otherwise, your score will be zero.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $1.813759629294 \\cdot 10^{12}$\n\nRewrite the sum as\n$$\n\\sum_{x^{2}+x y+y^{2} \\leq 10^{6}}\\left(x^{2}+x y+y^{2}\\right),\n$$\nwhere the sum is over all pairs $(x, y)$ of integers with $x^{2}+x y+y^{2} \\leq 10^{6}$. We can find a crude upper bound for this sum by noting that\n$$\nx^{2}+x y+y^{2}=\\frac{3}{4} x^{2}+\\left(\\frac{x}{2}+y\\right)^{2} \\geq \\frac{3}{4} x^{2}\n$$\nso each term of this sum has $|x| \\leq \\frac{2}{\\sqrt{3}} 10^{3}$. Similarly, $|y| \\leq \\frac{2}{\\sqrt{3}} 10^{3}$. Therefore, the number of terms in the sum is at most\n$$\n\\left(\\frac{4}{\\sqrt{3}} 10^{3}+1\\right)^{2} \\approx 10^{6}\n$$\n(We are throwing away \"small\" factors like $\\frac{16}{3}$ in the approximation.) Furthermore, each term in the sum is at most $10^{6}$, so the total sum is less than about $10^{12}$. The answer $1 \\cdot 10^{12}$ would unfortunately still get a score of 0.\n\nFor a better answer, we can approximate the sum by an integral:\n$$\n\\sum_{x^{2}+x y+y^{2} \\leq 10^{6}}\\left(x^{2}+x y+y^{2}\\right) \\approx \\iint_{x^{2}+x y+y^{2} \\leq 10^{6}}\\left(x^{2}+x y+y^{2}\\right) d y d x\n$$\nPerforming the change of variables $(u, v)=\\left(\\frac{\\sqrt{3}}{2} x, \\frac{1}{2} x+y\\right)$ and then switching to polar coordinates $(r, \\theta)=\\left(\\sqrt{u^{2}+v^{2}}, \\tan ^{-1}(v / u)\\right)$ yields\n$$\n\\begin{aligned}\n\\iint_{x^{2}+x y+y^{2} \\leq 10^{6}}\\left(x^{2}+x y+y^{2}\\right) d y d x & =\\frac{2}{\\sqrt{3}} \\iint_{u^{2}+v^{2} \\leq 10^{6}}\\left(u^{2}+v^{2}\\right) d v d u \\\\\n& =\\frac{2}{\\sqrt{3}} \\int_{0}^{2 \\pi} \\int_{0}^{10^{3}} r^{3} d r d \\theta \\\\\n& =\\frac{4 \\pi}{\\sqrt{3}} \\int_{0}^{10^{3}} r^{3} d r \\\\\n& =\\frac{\\pi}{\\sqrt{3}} \\cdot 10^{12}\n\\end{aligned}\n$$\nThis is approximately $1.8138 \\cdot 10^{12}$, which is much closer to the actual answer. (An answer of $1.8 \\cdot 10^{12}$ is good enough for full credit.)\n\nThe answer can also be computed exactly by the Common Lisp code:\n```\n(defconstant +MAX+ 1e6)\n(defvar +lower+ -2000)\n(defvar +upper+ 2000)\n(princ\n(loop for x from +lower+ to +upper+ sum\n(loop for y from +lower+ to +upper+\nsum\n(let ((S (+ (* x x) (* x y) (* y y))))\n(if (and (<= S +MAX+) (> S 0)) S 0))))\n```"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-algebraic-number-theory-quadratic-forms-auto-2942",
+      "name": "HMMT February #0jse",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangles",
+        "Factorization techniques",
+        "Quadratic forms",
+        "Techniques: modulo, size analysis, order analysis, inequalities"
+      ],
+      "statement": "Problem:\nA right triangle has side lengths $a$, $b$, and $\\sqrt{2016}$ in some order, where $a$ and $b$ are positive integers. Determine the smallest possible perimeter of the triangle.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThere are no integer solutions to $a^{2}+b^{2}=2016$ due to the presence of the prime $7$ on the right-hand side (by Fermat's Christmas Theorem). Assuming $a<b$, the minimal solution $(a, b)=(3,45)$ which gives the answer above."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-algebraic-number-theory-quadratic-forms-auto-3411",
+      "name": "USA TSTST #0k5f",
+      "url": "https://usamoguide.com/",
+      "source": "USA TSTST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Factorization techniques",
+        "Techniques: modulo, size analysis, order analysis, inequalities",
+        "Polynomials",
+        "Telescoping series",
+        "Quadratic forms"
+      ],
+      "statement": "For an integer $n > 0$, denote by $\\mathcal{F}(n)$ the set of integers $m > 0$ for which the polynomial $p(x) = x^2 + mx + n$ has an integer root.\n\na. Let $S$ denote the set of integers $n > 0$ for which $\\mathcal{F}(n)$ contains two consecutive integers. Show that $S$ is infinite but\n$$\n\\sum_{n \\in S} \\frac{1}{n} \\le 1.\n$$\n\nb. Prove that there are infinitely many positive integers $n$ such that $\\mathcal{F}(n)$ contains three consecutive integers.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "We prove the following.\n**Claim.** The set $S$ is given explicitly by $S = \\{x(x+1)y(y+1) \\mid x, y > 0\\}$.\n*Proof.* Note that $m, m+1 \\in \\mathcal{F}(n)$ if and only if there exist integers $q > p \\ge 0$ such that\n$$\nm^2 - 4n = p^2 \\\\\n(m+1)^2 - 4n = q^2.\n$$\nSubtraction gives $2m + 1 = q^2 - p^2$, so $p$ and $q$ are different parities. We can thus let $q - p = 2x + 1$, $q + p = 2y + 1$, where $y \\ge x \\ge 0$ are integers. It follows that\n$$\n\\begin{aligned}\n4n &= m^2 - p^2 \\\\\n   &= \\left( \\frac{q^2 - p^2 - 1}{2} \\right)^2 - p^2 \\\\\n   &= \\left( \\frac{q^2 - p^2 - 1}{2} - p \\right) \\left( \\frac{q^2 - p^2 - 1}{2} + p \\right) \\\\\n   &= \\frac{q^2 - (p^2 + 2p + 1)}{2} \\cdot \\frac{q^2 - (p^2 - 2p + 1)}{2} \\\\\n   &= \\frac{1}{4}(q - p - 1)(q - p + 1)(q + p - 1)(q + p + 1) \\\\\n   &= \\frac{1}{4}(2x)(2x + 2)(2y)(2y + 2) \\\\\n\\implies n &= x(x + 1)y(y + 1).\n\\end{aligned}\n$$\nSince $n > 0$ we require $x, y > 0$. Conversely, if $n = x(x+1)y(y+1)$ for positive $x$ and $y$ then $m = \\sqrt{p^2 + 4n} = \\sqrt{(y-x)^2 + 4n} = 2xy + x + y = x(y+1) + (x+1)y$ and $m + 1 = 2xy + x + y + 1 = xy + (x+1)(y+1)$. Thus we conclude the main claim. $\\square$\n\nFrom this, part (a) follows as\n$$\n\\sum_{n \\in S} n^{-1} \\le \\left( \\sum_{x \\ge 1} \\frac{1}{x(x+1)} \\right) \\left( \\sum_{y \\ge 1} \\frac{1}{y(y+1)} \\right) = 1 \\cdot 1 = 1.\n$$\n\nAs for (b), retain the notation in the proof of the claim. Now $m + 2 \\in S$ if and only if $(m+2)^2 - 4n$ is a square, say $r^2$. Writing in terms of $p$ and $q$ as parameters we find\n$$\n\\begin{aligned}\nr^2 &= (m+2)^2 - 4n = m^2 - 4n + 4m + 4 = p^2 + 2 + 2(2m+1) \\\\\n   &= p^2 + 2(q^2 - p^2) + 2 = 2q^2 - p^2 + 2 \\\\\n\\iff 2q^2 + 2 &= p^2 + r^2 \\quad (\\dagger)\n\\end{aligned}\n$$\n\nwith $q > p$ of different parity and $n = \\frac{1}{16}(q-p-1)(q-p+1)(q+p-1)(q+p+1)$.\nNote that (by taking modulo 8) we have $q \\not\\equiv p \\equiv r \\pmod 2$, and so there are no parity issues and we will always assume $p < q < r$ in $(\\dagger)$. Now, for every $q$, the equation $(\\dagger)$ has a canonical solution $(p, r) = (q-1, q+1)$, but this leaves $n = 0$. Thus we want to show for infinitely many $q$ there is a third way to write $2q^2 + 2$ as a sum of squares, which will give the desired $p$.\nTo do this, choose large integers $q$ such that $q^2 + 1$ is divisible by at least three distinct $1 \\bmod 4$ primes. Since each such prime can be written as a sum of two squares, using Lagrange identity, we can deduce that $2q^2 + 2$ can be written as a sum of two squares in at least three different ways, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-algebraic-number-theory-quadratic-forms-auto-3780",
+      "name": "HMMT February 2020 #0kfo",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2020",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Quadratic residues",
+        "Quadratic reciprocity",
+        "Quadratic forms",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\n\nLet $p > 5$ be a prime number. Show that there exists a prime number $q < p$ and a positive integer $n$ such that $p$ divides $n^{2} - q$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nNote that the condition $p \\mid n^{2} - q$ just means that $q$ is a quadratic residue modulo $p$, or that the Legendre symbol $\\left(\\frac{q}{p}\\right)$ is $1$. We use these standard facts about the Legendre symbol:\n- If $p \\equiv \\pm 1 \\pmod{8}$, then $\\left(\\frac{2}{p}\\right) = 1$.\n- For an odd prime $p$,\n  $$\n  \\left(\\frac{-1}{p}\\right) = \\begin{cases}\n  -1 & \\text{ if } p \\equiv 3 \\pmod{4} \\\\\n  +1 & \\text{ if } p \\equiv 1 \\pmod{4}\n  \\end{cases}\n  $$\n- Quadratic reciprocity: for distinct odd primes $p$ and $q$,\n  $$\n  \\left(\\frac{p}{q}\\right)\\left(\\frac{q}{p}\\right) = \\begin{cases}\n  -1 & \\text{ if } p \\equiv q \\equiv 3 \\pmod{4} \\\\\n  +1 & \\text{ otherwise }\n  \\end{cases}\n  $$\n\nIf $p$ is a Fermat prime or Mersenne prime, then $p$ is congruent to $1$ or $7$ modulo $8$ respectively, since $p > 5$. In that case $q = 2$ works. Otherwise assume $p$ is not a Fermat prime or Mersenne prime, so that $p-1$ and $p+1$ are not powers of $2$.\n\nIf $p \\equiv 1 \\pmod{4}$, then let $q$ be an odd prime divisor of $p-1$, so that $p \\equiv 1 \\pmod{q}$. Then by quadratic reciprocity $\\left(\\frac{q}{p}\\right) = \\left(\\frac{p}{q}\\right) = 1$.\n\nIf $p \\equiv 3 \\pmod{4}$, then let $q$ be an odd prime divisor of $p+1$, so that $p \\equiv -1 \\pmod{q}$. Either $q \\equiv 1 \\pmod{4}$ so that $\\left(\\frac{q}{p}\\right) = \\left(\\frac{p}{q}\\right) = 1$ or $q \\equiv 3 \\pmod{4}$ so that $\\left(\\frac{q}{p}\\right) = -\\left(\\frac{p}{q}\\right) = -\\left(\\frac{-1}{q}\\right) = 1$.\n\nSolution:\n\n(Ankan Bhattacharya) We assume the same standard facts about quadratic residues as the previous solution.\n\nIf $p \\equiv 1 \\pmod{4}$, then since $p > 5$, there exists an odd prime divisor $q$ of $p-4$, which gives\n$$\n\\left(\\frac{q}{p}\\right) = \\left(\\frac{p}{q}\\right) = \\left(\\frac{4}{q}\\right) = 1\n$$\n\nIf $p \\equiv 7 \\pmod{8}$, then we can take $q = 2$.\n\nIf $p \\equiv 3 \\pmod{8}$, then by Legendre's three square theorem there exist odd $a, b, c$ satisfying $p = a^{2} + b^{2} + c^{2}$. Since $p > 3$, these are not all equal and we may assume without loss of generality that $b \\neq c$. Then $p - a^{2} = b^{2} + c^{2}$ has a prime divisor $q \\equiv 1 \\pmod{4}$, which gives\n$$\n\\left(\\frac{q}{p}\\right) = \\left(\\frac{p}{q}\\right) = \\left(\\frac{a^{2}}{q}\\right) = 1\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

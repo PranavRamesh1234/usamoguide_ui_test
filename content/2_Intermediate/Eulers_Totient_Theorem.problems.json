@@ -1,0 +1,605 @@
+{
+  "MODULE_ID": "euler-totient-theorem",
+  "practice": [
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-euler-s-totient-auto-0406",
+      "name": "Berkeley Math Circle: Monthly Contest 4 #0hty",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 4",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "φ (Euler's totient)",
+        "Fermat / Euler / Wilson theorems",
+        "Multiplicative order"
+      ],
+      "statement": "Problem:\nShow that $n$ divides $\\varphi\\left(a^{n}-1\\right)$ for any integers $a$ and $n$, where $\\varphi$ is Euler's totient function.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $N = a^{n} - 1$. Then $\\gcd(a, N) = 1$ and the order of $a \\pmod{N}$ is exactly equal to $n$. But $a^{\\varphi(N)} \\equiv 1 \\pmod{N}$ too. Thus $n$ divides $\\varphi(N)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-euler-s-totient-auto-0485",
+      "name": "Berkeley Math Circle Monthly Contest 4 #0hw5",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 4",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "φ (Euler's totient)",
+        "Counting two ways",
+        "Floors and ceilings"
+      ],
+      "statement": "Problem:\n\nFor all positive integers $n$, prove that\n$$\n\\sum_{k=1}^{n} \\phi(k)\\left\\lfloor\\frac{n}{k}\\right\\rfloor=\\frac{n(n+1)}{2}\n$$\n(For a positive integer $n$, $\\phi(n)$ denotes the number of positive integers less than or equal to $n$ and relatively prime to $n$. For a real number $x$, $\\lfloor x\\rfloor$ denotes the greatest integer less than or equal to $x$.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nConsider the fractions $a / b$, where $a$ and $b$ range over integers such that $1 \\leq a \\leq b \\leq n$. We will count these fractions in two ways:\n\na. By unreduced form. For each denominator $b$, there are $b$ possible numerators $a=1,2, \\ldots, b$, so the total number of fractions is\n$$\n1+2+\\cdots+n=\\frac{n(n+1)}{2}\n$$\n\nb. By reduced form. Suppose a fraction $a / b$ has been reduced to $c / d$. Given the denominator $d$, there are $\\phi(d)$ possible numerators $c$ such that $c \\leq d$ and $c / d$ is in lowest terms. To get from $c / d$ back to $a / b$, we must multiply numerator and denominator by a positive integer $k$ such that $k c \\leq k d \\leq n$. Since $k c \\leq k d$ always holds if $c \\leq d$, the choice of $k$ is limited only by the inequality $k d \\leq n$, which has $\\lfloor n / d\\rfloor$ solutions. Thus there are $\\phi(d)\\lfloor n / d\\rfloor$ fractions $a / b$ for a given choice of $d$, so the total number of fractions is\n$$\n\\sum_{d=1}^{n} \\phi(d)\\left\\lfloor\\frac{n}{d}\\right\\rfloor\n$$\nSince both methods of counting must yield the same answer, the identity follows."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-euler-s-totient-auto-0517",
+      "name": "Berkeley Math Circle: Monthly Contest 8 #0hx1",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 8",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "φ (Euler's totient)",
+        "Greatest common divisors (gcd)",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\n\nIn the pattern shown below, row 1 (the bottom row) consists of two $1$'s, and row $n$ is formed by taking row $n-1$ and inserting between each adjacent pair of numbers $a$ and $b$ their sum $a+b$:\n\n| 1 | 5 | 4 | 7 | 3 | 8 | 5 | 7 | 2 | 7 | 5 | 8 | 3 | 7 | 4 | 5 | 1 |\n| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n| 1 |  | 4 |  | 3 |  | 5 |  | 2 |  | 5 |  | 3 |  | 4 |  | 1 |\n| 1 |  |  |  | 3 |  |  |  | 2 |  |  |  | 3 |  |  |  | 1 |\n| 1 |  |  |  |  |  |  |  | 2 |  |  |  |  |  |  |  | 1 |\n| 1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1 |  |\n| 1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |\n\nIn row 2019 of the pattern, how many copies of 2019 will there be?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe number of copies of $n$ in row $n$ is $\\phi(n)$, where $\\phi$ is the totient function, or the number of positive integers less than or equal to $n$ that are relatively prime to $n$. To see this, consider the following pattern of fractions, where we start with $\\frac{0}{1}$ and $\\frac{1}{1}$ and insert $\\frac{a+c}{b+d}$ between $\\frac{a}{b}$ and $\\frac{c}{d}$:\n\n![](attached_image_1.png)\n\nThe denominators of these fractions form the pattern of numbers in the problem, and the fractions are in increasing order. Row $n$ contains all the fractions in the $n$th Farey sequence exactly once, i.e. all the fractions with denominator at most $n$ (plus some other fractions). Thus, the number of copies of $n$ in row $n$ equals the number of fractions between 0 and 1 with denominator $n$ in simplest form. Each of these fractions must have numerator less than or equal to $n$ and relatively prime to $n$, so there are $\\phi(n)$ such fractions. Thus, there are $\\phi(n)$ copies of $n$ in row $n$.\n\nThe prime factorization of $2019$ is $3 \\cdot 673$, thus in row $2019$ the number of copies of $2019$ is\n$$\n\\phi(2019) = 2019\\left(1-\\frac{1}{3}\\right)\\left(1-\\frac{1}{673}\\right) = 2 \\cdot 672 = 1244\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-euler-s-totient-auto-0646",
+      "name": "2nd Bay Area Mathematical Olympiad #0i0m",
+      "url": "https://usamoguide.com/",
+      "source": "2nd Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Greatest common divisors (gcd)",
+        "Prime numbers",
+        "φ (Euler's totient)"
+      ],
+      "statement": "Problem:\n\nProve that any integer greater than or equal to $7$ can be written as a sum of two relatively prime integers, both greater than $1$. (Two integers are relatively prime if they share no common positive divisor other than $1$. For example, $22$ and $15$ are relatively prime, and thus $37=22+15$ represents the number $37$ in the desired way.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFirst note that if $d$ divides two integers $a$ and $b$, then $d$ must also divide their difference $a-b$. Therefore, consecutive positive integers are always relatively prime (difference is $1$). Likewise, if $a$ and $b$ are both odd with a difference of $2$ or $4$, then $a$ and $b$ are relatively prime.\n\nNow let $n$ be greater than $7$.\n\n- If $n$ is odd, then $n$ has the form $n=2k+1$, where $k \\geq 3$ is an integer. Thus we write the sum $n=k+(k+1)$.\n\n- If $n$ is even, then $n$ has the form $n=2k$, where $k \\geq 4$ is an integer.\n\n    - If $k$ is even, we write $n=(k-1)+(k+1)$.\n    \n    - If $k$ is odd, we write $n=(k-2)+(k+2)$.\n\nSolution:\n\n(sketch): Recall that $(x, y)$ denotes the greatest common divisor of the natural numbers $x$ and $y$. To write $n$ as $a+b$ with $(a, b)=1$ and $a, b>1$ is the same as to find $a$ satisfying $(a, n-a)=1$ and $1<a<n-1$. But $(a, n-a)=(a, n)$, so for $n>2$, the number of such $a$ is $\\phi(n)-2$, where $\\phi(n)$ is the Euler $\\phi$-function counting integers $a$ between $1$ and $n-1$ inclusive with $(a, n)=1$. Then the problem reduces to showing that $\\phi(n)>2$ for $n \\geq 7$, and this can be done fairly easily by looking at the well-known formula for $\\phi(n)$:\n\nIf $n=p_{1}^{e_{1}} \\ldots p_{r}^{e_{r}}$ where the $p_{i}$ are distinct primes and $e_{i} \\geq 1$, then\n$$\n\\phi(n)=\\prod_{i=1}^{r} p_{i}^{e_{i}-1}\\left(p_{i}-1\\right)\n$$\n\nSolution:\n\nWe will prove the stronger statement that any $n \\geq 7$ can be expressed as $p+m$ where $p$ and $m$ are relatively prime integers greater than $1$, and $p$ is prime. If $p$ is any prime less than $n-1$, then $p>1$, $n-p>1$ and $p+(n-p)=n$. Moreover $p$ and $n-p$ will be relatively prime, unless $p$ divides $n-p$, or equivalently $p$ divides $n$. Therefore it suffices to show that there is at least one prime less than $n-1$ that does not divide $n$.\n\nSuppose not. Then $2 \\cdot 3 \\cdot 5 \\cdots \\ell$ divides $n$, where $\\ell$ is the largest prime less than $n-1$. In particular, $2 \\cdot 3 \\cdot 5 \\cdots \\ell \\leq n$. Consider the odd integer $k:=(3 \\cdot 5 \\cdots \\ell)-2$. Since $n \\geq 7$, $k \\geq 3 \\cdot 5-2>1$, and hence $k$ has an odd prime factor $q$. Then $q \\leq k \\leq n/2-2 < n-1$, so $q$ appears in the product $3 \\cdot 5 \\cdots \\ell = k+2$. Now $q$ divides $k+2$ as well as $k$, so $q$ divides $2$, contradicting the fact that $q$ is an odd prime.\n\nHence at least one of $2,3,5, \\ldots, \\ell$ does not divide $n$, and that prime may be used as $p$.\n\nSolution:\n\nAnother correct solution uses \"Bertrand's postulate\" that if $m>3$, there exists a prime $p$ with $m<p<2m-2$. (This was first proved by Chebyshev: see p. 373 of Hardy and Wright, An Introduction to the Theory of Numbers, 5th edition, Clarendon Press, 1979.) Applying this with $m=\\lceil n/2 \\rceil$, the smallest integer greater than or equal to $n/2$, produces a prime $p$ with $n/2 < p < n-1$. Such $p$ cannot divide $n$, since $p < n < 2p$. Hence as in the previous solution, the partition $n=p+(n-p)$ works."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-euler-s-totient-auto-0703",
+      "name": "USA IMO #0i27",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inverses mod n",
+        "φ (Euler's totient)",
+        "Prime numbers",
+        "Pigeonhole principle",
+        "Counting two ways"
+      ],
+      "statement": "For a set $S$, let $|S|$ denote the number of elements in $S$. Let $A$ be a set of positive integers with $|A| = 2001$. Prove that there exists a set $B$ such that\n(i) $B \\subseteq A$;\n(ii) $|B| \\geq 668$;\n(iii) for any $u, v \\in B$ (not necessarily distinct), $u + v \\notin B$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**First Solution.** (By Reid Barton) For a positive integer $n$, let $Z_n$ denote the set of residues modulo $n$. Let $\\phi(n)$ be the **Euler function** which is defined to be the number of integers between $1$ and $n$ relatively prime to $n$. Call a set $A$ of residues modulo $3^n$ **sum-free** if for any $a, b \\in A$, $a+b$ is not (congruent to) an element of $A$.\n\nLemma. For any $n \\ge 1$, there exist $3^n - 1$ sum-free sets of $3^{n-1}$ residues modulo $3^n$ such that every nonzero residue modulo $3^n$ appears in exactly $3^{n-1}$ of the subsets.\n\n*Proof.* We construct the desired subsets inductively. For $n = 1$ we take the sets $\\{1\\}$ and $\\{2\\}$.\n\nLet $n \\ge 1$, and suppose that the statement holds for $n$, that is, we have $3^n - 1$ sum-free subsets $A_1, A_2, \\dots, A_{3^{n-1}}$ of $Z_{3^n}$ such that every nonzero element of $Z_{3^n}$ belongs to exactly $3^{n-1}$ of the $A_i$. Construct sets $B_1, B_2, \\dots, B_{3^{n-1}}$ by\n$$\nB_i = \\{ x \\in Z_{3^{n+1}} \\mid x \\equiv m' \\pmod{3^n}, m' \\in A_i \\}.\n$$\nThen each $B_i$ contains $3|A_i| = 3^n$ residues, and the $B_i$ are sum-free, because if $a, b \\in B_i$, $(a+b) \\pmod{3^n}$ is not in $A_i$ so $a+b$ is not in $B_i$. Moreover, each element $x$ of $Z_{3^{n+1}}$ which is not $0$ modulo $3^n$ (i.e., all elements except $0, 3^n, 2 \\cdot 3^n$) is in exactly $3^{n-1}$ of the $B_i$, namely those corresponding to the $A_i$ containing $x \\pmod{3^n}$.\n\nNow define sets\n$$\nC = \\{3^n, 3^n + 1, \\dots, 2 \\cdot 3^n - 1\\}\n$$\nand\n$$\nU = \\{ x \\in Z_{3^{n+1}} \\mid \\gcd(x, 3) = 1 \\}.\n$$\nThen $C \\subset Z_{3^{n+1}}$, $|C| = 3^n$. Note that $C$ is sum-free, because if $a, b \\in C$ with $3^n \\le a, b < 2 \\cdot 3^n$ then $2 \\cdot 3^n \\le a+b < 4 \\cdot 3^n$ so $a+b$ is not congruent modulo $3^{n+1}$ to an element of $C$. For each $y \\in U$, let $C_y = yC = \\{yx \\mid x \\in C\\}$. Then $C_y$ is also sum-free for every $y \\in U$, because if we had $ya$ and $yb$ in $C_y$ with $ya + yb \\in C_y$, then $a$ and $b$ would be elements of $C$ summing to an element of $C$. Also, every $C_y$ contains $|C| = 3^n$ residues because multiplication by $y$ is invertible. Since $|U| = \\phi(3^{n+1}) = 2 \\times 3^n$, there are $2 \\cdot 3^n$ of sets $C_y$.\n\nConsider the sets\n$B_1, B_2, \\dots, B_{3^{n-1}}, C_1, C_2, C_4, C_5, C_7, \\dots, C_{3^{n+1}-2}, C_{3^{n+1}-1}$.\nThere are $3^n - 1 + 2 \\cdot 3^n = 3^{n+1} - 1$ of these sets, so it suffices to check that every nonzero residue modulo $3^{n+1}$ appears in exactly $3^n$ of them.\n\nLet $m$ be a nonzero residue modulo $3^{n+1}$, and write $m = 3^k s$, $0 \\le k \\le n$, $\\gcd(s, 3) = 1$. We consider two cases.\n\n(i) $k < n$. Then $m$ is a nonzero residue modulo $3^n$, so $m$ is contained in exactly $3^{n-1}$ of the sets $B_i$, namely those which correspond to $A_i$ with $m' \\in A_i$ (where $m \\equiv m' \\pmod{3^n}$). The number of sets $C_i$ containing $m$ is the number of solutions to $y^{-1}m \\in C$ with $y \\in U$, or the number of $z \\in U$ such that $zm \\in C$. Since $m \\neq 0$, as $z$ ranges over $Z_{3^{n+1}}$, one third of the residues $zm$ are in $C$; likewise, since $3m \\neq 0$, one third of the residues $3zm$ are in $C$. Since $U = Z_{3^{n+1}} \\setminus 3Z_{3^{n+1}}$, $zm \\in C$ for one third of the values $z \\in U$. So $m$ is in one third of the sets $C_y$, giving $\\frac{1}{3}|U| = 2 \\cdot 3^{n-1}$ more sets containing $m$. The total number of sets containing $m$ is then $3^{n-1} + 2 \\cdot 3^{n-1} = 3^n$.\n\n(ii) $k=n$. Then $m = 3^n$ or $2 \\cdot 3^n$ ($s=1$ or $2$ respectively). Then $m \\bmod 3^n = 0$, so $m$ does not appear in any of the sets $A_i$. However, $m$ appears in every set $C_y$ with $y \\equiv s \\pmod 3$, so $m$ appears in $3^n$ of the $C_y$. Thus the total number of sets containing $m$ is again $3^n$.\n\nThus the sets $\\{B_i\\}$, $\\{C_y\\}$ have the desired properties and the Lemma holds by induction.\n$\\blacksquare$\n\nNow let $3^n$ be a power of $3$ larger than the sum of any two elements of $A$. By the Lemma, there exist $3^n - 1$ sets $S_1, \\dots, S_{3^{n-1}}$ of $3^{n-1}$ residues modulo $3^n$ such that every nonzero residue modulo $3^n$ appears in exactly $3^{n-1}$ of the $S_i$. Let $n_i$ be the number of elements of $A$ contained in $S_i$. Since every element of $A$ appears $3^{n-1}$ times,\n$$\n\\sum_{i=1}^{3^n-1} n_i = 3^{n-1} |A|\n$$\nso some $n_i$ is at least\n$$\n\\frac{3^{n-1}|A|}{3^n-1} > \\frac{1}{3}|A| = \\frac{2001}{3} = 667.\n$$\nLet $B$ be the set of elements of $A$ contained in $S_i$. Then $|B| \\ge 668$, and if $u, v \\in B$, then $u + v \\notin B$, because $S_i$ is sum-free. Thus the set $B$ has the desired properties.\n\n**Second Solution.** Let the elements of $A$ be $a_1, \\dots, a_{2001}$. Let $p$ be a prime number such that $p \\equiv 2 \\pmod 3$ and $p$ is larger than all the $a_i$. Such a prime $p$ exists by **Dirichlet's Theorem**, although the result can also be easily proven directly. There is at least one prime congruent to $2$ modulo $3$ (namely, $2$). Suppose there were only finitely many primes congruent to $2$ modulo $3$, and let their product be $P$. Then $3P-1$, which is larger than $P$ and congruent to $2$ modulo $3$, must have another prime divisor congruent to $2$ modulo $3$, contradiction. Thus, the original assumption was wrong, and there are infinitely many odd primes that are congruent to $2$ modulo $3$. Specifically, one such prime is larger than all $a_i$.\n\nAll elements of $S$ are distinct and nonzero modulo $p$. Call a number $n$ **mediocre** if the least positive residue of $n$ modulo $p$ lies in $[(p+1)/3, (2p-1)/3]$. For any $1 \\le i \\le 2001$, there are exactly $(p+1)/3$ integer values of $k \\in [1, p-1]$ such that $ka_i$ is mediocre. Thus, there are\n$$\n\\frac{2001(p+1)}{3} = 667(p+1)\n$$\npairs of $(k, i)$ such that $ka_i$ is mediocre. By the **Pigeonhole Principle**, there exists some $k$ for which the set\n$$\nB = \\{a_i \\mid ka_i \\text{ is mediocre}\\}\n$$\nhas at least $668$ elements.\n\nWe now claim that this $B$ satisfies the desired properties. It suffices to show that $k$ times the sum of any two elements of $B$ is not mediocre and hence cannot equal $k$ times any element of $B$. To that end, note that $k$ times the sum of any two elements of $B$ cannot be mediocre because it is congruent modulo $p$ to some number in $[2(p+1)/3, 2(2p-1)/3]$ or, equivalently, to some number in $[0, (p-2)/3] \\cup [(2p+2)/3, p-1]$, which is a set containing no mediocre numbers. Thus, the set $B$ satisfies the desired properties."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-euler-s-totient-auto-0756",
+      "name": "Harvard-MIT Math Tournament #0i3o",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "φ (Euler's totient)",
+        "Prime numbers",
+        "Greatest common divisors (gcd)",
+        "Factorization techniques"
+      ],
+      "statement": "Problem:\nHow many integers between $1$ and $2000$ inclusive share no common factors with $2001$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nTwo integers are said to be relatively prime if they share no common factors, that is if there is no integer greater than $1$ that divides evenly into both of them. Note that $1$ is relatively prime to all integers. Let $\\varphi(n)$ be the number of integers less than $n$ that are relatively prime to $n$. Since $\\varphi(m n)=\\varphi(m) \\varphi(n)$ for $m$ and $n$ relatively prime, we have $\\varphi(2001)=\\varphi(3 \\cdot 23 \\cdot 29)=(3-1)(23-1)(29-1)=1232$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-euler-s-totient-auto-0842",
+      "name": "Harvard-MIT Math Tournament #0i62",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "φ (Euler's totient)"
+      ],
+      "statement": "Problem:\n\nTwo integers are relatively prime if they don't share any common factors, i.e. if their greatest common divisor is $1$. Define $\\varphi(n)$ as the number of positive integers that are less than $n$ and relatively prime to $n$. Define $\\varphi_{d}(n)$ as the number of positive integers that are less than $d n$ and relatively prime to $n$.\nWhat is the least $n$ such that $\\varphi_{x}(n)=64000$, where $x=\\varphi_{y}(n)$, where $y=\\varphi(n)$ ?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFor fixed $n$, the pattern of integers relatively prime to $n$ repeats every $n$ integers, so $\\varphi_{d}(n)=d \\varphi(n)$. Therefore the expression in the problem equals $\\varphi(n)^{3}$. The cube root of $64000$ is $40$. $\\varphi(p)=p-1$ for any prime $p$. Since $40$ is one less than a prime, the least $n$ such that $\\varphi(n)=40$ is $41$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-euler-s-totient-auto-0851",
+      "name": "Harvard-MIT Math Tournament #0i6b",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "φ (Euler's totient)"
+      ],
+      "statement": "Problem:\nGive the set of all positive integers $n$ such that $\\varphi(n) = 2002^{2} - 1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe empty set, $\\varnothing$. If $m$ is relatively prime to $n$ and $m < n$, then $n - m$ must likewise be relatively prime to $n$, and these are distinct for $n > 2$ since $n / 2, n$ are not relatively prime. Therefore, for all $n > 2$, $\\varphi(n)$ must be even. $2002^{2} - 1$ is odd, and $\\varphi(2) = 1 \\neq 2002^{2} - 1$, so no numbers $n$ fulfill the equation."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-euler-s-totient-auto-0852",
+      "name": "Harvard-MIT Math Tournament #0i6c",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "φ (Euler's totient)",
+        "Factorization techniques",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\n\nDefine $\\varphi^{k}(n)$ as the number of positive integers that are less than or equal to $n / k$ and relatively prime to $n$. Find $\\varphi^{2001}\\left(2002^{2}-1\\right)$. (Hint: $\\varphi(2003)=2002$.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n$\\varphi^{2001}\\left(2002^{2}-1\\right)=\\varphi^{2001}(2001 \\cdot 2003)=$ the number of $m$ that are relatively prime to both $2001$ and $2003$, where $m \\leq 2003$. Since $\\varphi(n)=n-1$ implies that $n$ is prime, we must only check for those $m$ relatively prime to $2001$, except for $2002$, which is relatively prime to $2002^{2}-1$. So $\\varphi^{2001}\\left(2002^{2}-1\\right)=\\varphi(2001)+1=\\varphi(3 \\cdot 23 \\cdot 29)+1=(3-1)(23-1)(29-1)+1=1233$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-euler-s-totient-auto-1059",
+      "name": "USA IMO #0ic3",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vectors",
+        "Convex hulls",
+        "φ (Euler's totient)",
+        "Greatest common divisors (gcd)"
+      ],
+      "statement": "A $2004 \\times 2004$ array of points is drawn. Find the largest integer $n$ such that it is possible to draw a convex $n$-sided polygon whose vertices lie on the points of the array.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "For a vector $v = (x, y)$, define $\\|v\\| = |x| + |y|$, the so-called taxicab distance (or taxicab norm). Embed the array of points in the plane such that they correspond to the lattice points in $\\{(x, y) : 1 \\le x, y \\le 2004\\}$.\n\nConsider a convex $n$-gon drawn in our square array, and imagine that we walk along the edges in a counterclockwise direction. Then we can orient each edge and obtain a set of $n$ nonzero vectors $S = \\{v_i = (x_i, y_i)\\}$, with integer coordinates, whose sum is $(0,0)$. $S$ has several further properties. First, no two vectors in $S$ are positive multiples of each other by convexity (if $i \\ne j$ and the directed edges $v_i$ and $v_j$ are parallel and pointing in the same direction, then our polygon cannot be strictly convex.) Second, the sum of the $x_i$ which are positive is at most $2003$, and the same is true for the sum of the $y_i > 0$, as well as the sums of the $|x_i|$ and $|y_i|$ for $x_i < 0$ and $y_i < 0$. This is true because all the vectors with, say, $x_i$ positive will correspond to adjacent edges (by convexity), and if one traces these edges in order on the polygon, one must start from a point within $\\{(x, y) : 1 \\le x, y \\le 2004\\}$ and finish at a point in that same region; therefore the total displacement in the $x$-dimension is bounded by $2003$. In particular, this implies that $\\sum \\|v_i\\| \\le 8012$. Third, given $S$ that satisfies the above properties, we can construct a convex polygon that fits within the bounds: since the polygon should be convex, we must place the vectors end to end ordered by the angle (measured counterclockwise) that they make with the positive $x$-axis, and the resulting polygon will fit within the array because of the given inequalities.\n\nWe now show that it is impossible to draw a $562$-gon in the array. We will prove that for every set $S$ of $562$ vectors such that no two are positive multiples of each other, $\\sum \\|v_i\\| > 8012$. We can even ignore the condition that $\\sum v_i = (0,0)$. Let us now try to minimize $\\sum \\|v_i\\|$. Since no two vectors in $S$ are positive multiples of each other, we may assume that for each $i$, $\\gcd(|x_i|, |y_i|) = 1$, or else we might as well scale that vector down by that gcd (it will only reduce $\\sum \\|v_i\\|$).\n\nNow:\n\n**Lemma** For any positive integer $k$, the maximum number of distinct $v_i = (x_i, y_i)$ that satisfy $\\|v_i\\| = k$ and $\\gcd(|x_i|, |y_i|) = 1$ is $4\\phi(k)$. Recall that $\\phi(k)$ is Euler's totient function, which counts the number of positive integers $z \\le k$ that satisfy $\\gcd(z, k) = 1$.\n\n*Proof:* For $k=1$, the lemma is trivial. For $k \\ge 2$, the gcd condition forces that neither of $x_i$ or $y_i$ can ever be $0$. So, it suffices to show that the number of $v_i$ with $x_i > 0$ and $y_i > 0$ is $\\phi(k)$, because there are exactly $4$ ways to choose pairs of signs, for the coordinates of each $v_i$. Well, since $\\|v_i\\| = k$, this means that $|x_i| + |y_i| = k$. Hence $\\gcd(|x_i|, |y_i|) = 1 \\Rightarrow \\gcd(|x_i|, k) = 1$. By definition of $\\phi(k)$, there are precisely $\\phi(k)$ ways to choose positive $x_i$ to satisfy this condition; each way yields exactly one positive choice for $y_i$, so we are done with the proof of this lemma. ■\n\nNow for $n = 562$, since $\\sum_{k=1}^{21} 4\\phi(k) = 560$, we minimize $\\sum \\|v_i\\|$ when we use all $560$ vectors with $\\|v_i\\| \\le 21$, and $2$ more vectors with $\\|v_i\\| = 22$. The value of this sum is $\\sum \\|v_i\\| \\ge \\sum_{k=1}^{21} 4k\\phi(k) + 2 \\cdot 22 = 8032 > 8012$, as was claimed. Thus $n \\le 561$.\n\nIndeed, we now construct a $561$-gon in the array by constructing a suitable set $S$. Start by setting $S$ to be the set of all $560$ integer vectors $(x_i, y_i)$ with norm at most $21$ and $\\gcd(|x_i|, |y_i|) = 1$. By symmetry, the vector sum of these $560$ vectors is $(0, 0)$. Also by symmetry, the sum of all of the positive $x_i$ is exactly $1/4$ of the sum of all of the taxicab norms, so it is $\\sum_{k=1}^{21} k\\phi(k) = 1997$. This is the span of the $560$-gon in the $x$-dimension. Similarly, that is also the span of the $560$-gon in the $y$-dimension.\n\nNext, remove from $S$ the vectors $(20, 1)$ and $(-11, 10)$, and insert the vectors $(5, 17)$, $(-17, -5)$, and $(21, -1)$. Now we have a $561$-gon. Since the vector sum of $(20, 1)$ and $(-11, 10)$ is equal to the vector sum of the $3$ new vectors, this preserves the fact that $\\sum v_i = (0, 0)$, so we can still have a closed, convex polygon. Let us see what has happened to the $x$-span and $y$-span: we removed $20$ from the sum of positive $x_i$, but added back $5$ and $21$. This is a net gain of $6$, so the sum of positive $x_i$ will increase from $1997$ to $2003$—this exactly matches the upper limit imposed by the second observation at the beginning of the proof. Similarly, the sum of positive $y_i$ will lose summands of $1$ and $10$ from the deletion, but it will gain $17$ from the insertion. This is also a net gain of $6$, so we also have $2003$ as the final sum of positive $y_i$. Since the vector sum of all $v_i$ is $(0, 0)$, similar results with $2003$ hold for the negative $x_i$ and $y_i$. By the third observation at the beginning of the proof, we are done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-euler-s-totient-auto-1395",
+      "name": "10th Annual Harvard-MIT Mathematics Tournament #0ilf",
+      "url": "https://usamoguide.com/",
+      "source": "10th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "φ (Euler's totient)",
+        "σ (sum of divisors)",
+        "τ (number of divisors)",
+        "Factorization techniques"
+      ],
+      "statement": "Problem:\n\nEvaluate the functions $\\phi(n)$, $\\sigma(n)$, and $\\tau(n)$ for $n=12$, $n=2007$, and $n=2^{2007}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFor $n=12=2^{2} \\cdot 3^{1}$,\n$$\n\\phi(12)=2(2-1)(3-1)=4, \\quad \\sigma(12)=(1+2+4)(1+3)=28, \\quad \\tau(12)=(2+1)(1+1)=6\n$$\n\nFor $n=2007=3^{2} \\cdot 223$,\n$$\n\\phi(2007)=3(3-1)(223-1)=1332, \\quad \\sigma(2007)=(1+3+9)(1+223)=2912, \\quad \\tau(2007)=(2+1)(1+1)=6\n$$\n\nFor $n=2^{2007}$,\n$$\n\\phi\\left(2^{2007}\\right)=2^{2006}, \\quad \\sigma\\left(2^{2007}\\right)=\\left(1+2+\\cdots+2^{2007}\\right)=2^{2008}-1, \\quad \\tau\\left(2^{2007}\\right)=2007+1=2008\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-euler-s-totient-auto-1407",
+      "name": "10th Annual Harvard-MIT Mathematics Tournament #0ilr",
+      "url": "https://usamoguide.com/",
+      "source": "10th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "φ (Euler's totient)",
+        "σ (sum of divisors)",
+        "Factorization techniques",
+        "Sums and products",
+        "Telescoping series"
+      ],
+      "statement": "Problem:\nFind all pairs $(n, k)$ of positive integers such that\n$$\nsigma(n) \\phi(n) = \\frac{n^{2}}{k}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $(1, 1)$.\n\nIt is clear that for a given integer $n$, there is at most one integer $k$ for which the equation holds. For $n=1$ this is $k=1$. But, for $n>1$, problem 1 asserts that $\\sigma(n) \\phi(n) \\leq n^{2}-1 < n^{2}$, so that $k \\geq 2$. We now claim that $2 > \\frac{n^{2}}{\\sigma(n) \\phi(n)}$. Write $n = p_{1}^{e_{1}} \\cdots p_{k}^{e_{k}}$, where the $p_{i}$ are distinct primes and $e_{i} \\geq 1$ for all $i$, and let $q_{1} < q_{2} < \\cdots$ be the primes in ascending order. Then\n$$\n\\begin{aligned}\n& \\frac{n^{2}}{\\sigma(n) \\phi(n)} = \\prod_{i=1}^{k} \\frac{p_{i}^{2 e_{i}}}{\\frac{p_{i}^{e_{i}+1}-1}{p_{i}-1} \\cdot (p_{i}-1) p_{i}^{e_{i}-1}} = \\prod_{i=1}^{k} \\frac{p_{i}^{2 e_{i}}}{p_{i}^{2 e_{i}} - p_{i}^{e_{i}-1}} \\\\\n& \\quad = \\prod_{i=1}^{k} \\frac{1}{1 - p_{i}^{-1-e_{i}}} \\leq \\prod_{i=1}^{k} \\frac{1}{1 - p_{i}^{-2}} < \\prod_{i=1}^{\\infty} \\frac{1}{1 - q_{i}^{-2}} \\\\\n& \\quad = \\prod_{i=1}^{\\infty} \\left( \\sum_{j=0}^{\\infty} \\frac{1}{q_{i}^{2j}} \\right ) = \\sum_{n=1}^{\\infty} \\frac{1}{n^{2}} \\\\\n& \\quad < 1 + \\sum_{n=2}^{\\infty} \\frac{1}{n^{2}-1} = 1 + \\frac{1}{2} \\left( \\left( \\frac{1}{1} - \\frac{1}{3} \\right ) + \\left( \\frac{1}{2} - \\frac{1}{4} \\right ) + \\left( \\frac{1}{3} - \\frac{1}{5} \\right ) + \\cdots \\right ) = \\frac{7}{4} < 2.\n\\end{aligned}\n$$\nIt follows that there can be no solutions to $k = \\frac{n^{2}}{\\sigma(n) \\phi(n)}$ other than $n = k = 1$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-euler-s-totient-auto-1425",
+      "name": "10th Annual Harvard-MIT Mathematics Tournament #0im9",
+      "url": "https://usamoguide.com/",
+      "source": "10th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "φ (Euler's totient)"
+      ],
+      "statement": "Problem:\n\nSolve for the positive integer(s) $n$ such that $\\phi\\left(n^{2}\\right)=1000 \\phi(n)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $1000$.\n\nThe unique solution is $n=1000$. For, $\\phi(p n)=p \\phi(n)$ for every prime $p$ dividing $n$, so that $\\phi\\left(n^{2}\\right)=n \\phi(n)$ for all positive integers $n$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-euler-s-totient-auto-1445",
+      "name": "10th Annual Harvard-MIT Mathematics Tournament #0imt",
+      "url": "https://usamoguide.com/",
+      "source": "10th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "φ (Euler's totient)",
+        "σ (sum of divisors)",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\nProve that for every integer $n$ greater than $1$,\n$$\n\\sigma(n) \\phi(n) \\leq n^{2}-1\n$$\nWhen does equality hold?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nNote that\n$$\n\\sigma(m n) \\phi(m n) = \\sigma(m) \\phi(m) \\sigma(n) \\phi(n) \\leq (m^{2}-1)(n^{2}-1) = (m n)^{2} - (m^{2} + n^{2} - 1) < (m n)^{2} - 1\n$$\nfor any pair of relatively prime positive integers $(m, n)$ other than $(1,1)$. Now, for $p$ a prime and $k$ a positive integer, $\\sigma\\left(p^{k}\\right) = 1 + p + \\cdots + p^{k} = \\frac{p^{k+1}-1}{p-1}$ and $\\phi\\left(p^{k}\\right) = p^{k} - \\frac{1}{p} \\cdot p^{k} = (p-1) p^{k-1}$. Thus,\n$$\n\\sigma\\left(p^{k}\\right) \\phi\\left(p^{k}\\right) = \\frac{p^{k+1}-1}{p-1} \\cdot (p-1) p^{k-1} = (p^{k+1}-1) p^{k-1} = p^{2k} - p^{k-1} \\leq p^{2k} - 1\n$$\nwith equality where $k=1$. It follows that equality holds in the given inequality if and only if $n$ is prime."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-euler-s-totient-auto-1457",
+      "name": "Team Selection Test #0in5",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Divisibility / Factorization",
+        "Fermat / Euler / Wilson theorems",
+        "Chinese remainder theorem",
+        "φ (Euler's totient)",
+        "Multiplicative order"
+      ],
+      "statement": "Determine whether or not there exist positive integers $a$ and $b$ such that $a$ does not divide $b^n - n$ for all positive integers $n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**Solution 1.** For all pairs of positive integers $a$ and $b$, we claim that there exist infinitely many $n$ such that $a$ divides $b^n - n$.\nWe establish our claim by strong induction on $a$. The base case of $a = 1$ holds trivially. Now, suppose that the claim holds for all $a < a_0$. Since $\\varphi(a) < a$, by the induction hypothesis and by Lemma 1, there are infinitely many $n$ such that\n$$\n\\varphi(a) \\mid (b^n - n) \\quad \\text{and} \\quad b^{n+\\varphi(a)} \\equiv b^n \\pmod{a}.\n$$\nFor each such $n$, set\n$$\nt = \\frac{b^n - n}{\\varphi(a)} \\quad \\text{and} \\quad n_1 = b^n = n + t\\varphi(a).\n$$\n\nIt follows that\n$$\nb^{n_1} - n_1 \\equiv b^{n+t\\varphi(a)} - (n+t\\varphi(a)) \\equiv b^n - n - t\\varphi(a) \\equiv 0 \\pmod{a}.\n$$\nThen, we see that $n_1$ satisfies the desired property. By the induction hypothesis, there are infinitely many $n_1 = b^n$ satisfying the conditions of the claim for $a$, completing the induction.\n\n\n**Solution 2.** We prove that no such $a, b$ exist by proving the following: for any $a, b$, there is an arithmetic progression $n \\equiv h \\pmod m$, with $m$ divisible only by primes less than or equal to the greatest prime factor of $a$, such that $b^n \\equiv n \\pmod a$ for all sufficiently large $n$ satisfying $n \\equiv h \\pmod m$.\nLet us induct on highest prime divisor of $a$. The result is trivial for $a = 1$. Let $p$ be a prime, and suppose that the result is true whenever all the prime divisors of $a$ are less than $p$. Now, suppose that $p$ is the greatest prime divisor of some $a$, and write $a = p^e a_1$, where $a_1$ has all prime factors less than $p$. By the induction hypothesis, there is an arithmetic progression $n \\equiv h_1 \\pmod{m_1}$, with $m_1$ divisible only by primes strictly less than $p$, such that for $n \\equiv h_1 \\pmod{m_1}$ sufficiently large, $b^n \\equiv n \\pmod{a_1}$. There is no harm in assuming that $p-1$ divides $m_1$. In this case, in this arithmetic progression, $b^n$ is eventually constant modulo $p$ due to the lemma. We can thus choose a congruence modulo $p$ so that for $n$ an appropriate residue class modulo $m_1p$, $b^n \\equiv n \\pmod{p}$. In this progression, $b^n$ is constant modulo $p^2$, so we can refine our choice of $n$ modulo $m_1p$ to a choice of $n$ modulo $m_1p^2$ to force $b^n \\equiv n \\pmod{p^2}$. We can then repeat the above process until we obtain $b^n \\equiv n \\pmod{p^e}$. Since we originally had $b^n \\equiv n \\pmod{a_1}$, combining the two congruences using the Chinese Remainder Theorem gives us $b^n \\equiv n \\pmod a$ for all sufficiently large $n$ in the congruence class generated at the last step. This completes the induction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-euler-s-totient-auto-1490",
+      "name": "10th Annual Harvard-MIT Mathematics Tournament #0io2",
+      "url": "https://usamoguide.com/",
+      "source": "10th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "φ (Euler's totient)"
+      ],
+      "statement": "Problem:\nShow that for positive integers $n$,\n$$\n\\sum_{d \\mid n} \\phi(d) = n\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nBoth sides are multiplicative functions of $n$, the right side trivially and the left because for relatively prime positive integers $n$ and $n'$, \n$$\n\\left(\\sum_{d \\mid n} \\phi(d)\\right)\\left(\\sum_{d' \\mid n'} \\phi(d')\\right) = \\sum_{d \\mid n,\\ d' \\mid n'} \\phi(d) \\phi(d'),\n$$\nand $\\phi(d) \\phi(d') = \\phi(dd')$. The identity is then easy to check; since $\\phi(p^k) = p^{k-1}(p-1)$ for positive integers $k$ and $\\phi(1) = 1$, we have\n$$\n\\phi(1) + \\phi(p) + \\cdots + \\phi(p^k) = 1 + (p-1) + (p^2 - p) + \\cdots + (p^k - p^{k-1}) = p^k,\n$$\nas desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-euler-s-totient-auto-1496",
+      "name": "10th Annual Harvard-MIT Mathematics Tournament #0io8",
+      "url": "https://usamoguide.com/",
+      "source": "10th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "φ (Euler's totient)",
+        "Möbius inversion"
+      ],
+      "statement": "Problem:\nShow that for positive integers $n$,\n$$\n\\sum_{d \\mid n} \\frac{\\mu(d)}{d} = \\frac{\\phi(n)}{n}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nOn the grounds of the previous problem, Möbius inversion with $f(k) = \\phi(k)$ and $g(k) = k$ gives:\n$$\n\\phi(n) = f(n) = \\sum_{d \\mid n} g(d) \\mu\\left(\\frac{n}{d}\\right) = \\sum_{d' \\mid n} g\\left(\\frac{n}{d'}\\right) \\mu(d') = \\sum_{d' \\mid n} \\frac{n}{d'} \\mu(d')\n$$\nDividing both sides by $n$ yields:\n$$\n\\frac{\\phi(n)}{n} = \\sum_{d' \\mid n} \\frac{\\mu(d')}{d'}\n$$\nAlternatively, one uses the convolution of the functions $f(k) = n$ and $g(k) = \\frac{\\mu(d)}{d}$. The strategy is the same as the previous convolution proof. For $n = p^{k}$ with $k$ a positive integer, we have $\\phi(n) = p^{k} - p^{k-1}$, while the series reduces to $p^{k} \\cdot \\mu(1) + p^{k} \\cdot \\mu(p) / p = p^{k} - p^{k-1}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-euler-s-totient-auto-1503",
+      "name": "10th Annual Harvard-MIT Mathematics Tournament #0iof",
+      "url": "https://usamoguide.com/",
+      "source": "10th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "φ (Euler's totient)",
+        "τ (number of divisors)",
+        "σ (sum of divisors)",
+        "Sums and products"
+      ],
+      "statement": "Problem:\nDetermine with proof, a simple closed form expression for\n$$\n\\sum_{d \\mid n} \\phi(d) \\tau\\left(\\frac{n}{d}\\right)\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe claim the series reduces to $\\sigma(n)$. The series counts the ordered triples $(d, x, y)$ with $d \\mid n;\\ x \\mid d;\\ 0 < y \\leq n/d;$ and $(y, n/d) = 1$. To see this, write\n$$\n\\sum_{d \\mid n} \\phi(d) \\tau\\left(\\frac{n}{d}\\right) = \\sum_{d' \\mid n} \\phi\\left(\\frac{n}{d'}\\right) \\tau\\left(d'\\right)\n$$\nso that for a given $d' \\mid n$ we may choose $x$ and $y$ as described above. On the other hand, we can count these triples by groups sharing a given $x$. Fixing $x$ as a divisor of $n$ fixes an integer $\\frac{n}{x}$. Then $d$ varies such that $\\frac{n}{d}$ is a divisor of $\\frac{n}{x}$. For each divisor $\\frac{n}{d}$ of $\\frac{n}{x}$ there are precisely $\\phi\\left(\\frac{n}{d}\\right)$ choices $y$, so that by the lemma from the previous problem, there are $\\frac{n}{x}$ triples $(d, x, y)$ for a given $x$. It follows that there are precisely $\\sigma(n)$ such triples $(d, x, y)$.\n\nAgain, an alternative is to use the multiplicativity of the convolution, although it is now a little more difficult. Write $n = p^{k}$ so that\n$$\n\\begin{aligned}\n\\sum_{d \\mid n} & \\phi(d) \\tau\\left(\\frac{n}{d}\\right) = \\sum_{m=0}^{k} \\phi\\left(p^{m}\\right) \\tau\\left(p^{k-m}\\right) = k+1 + \\sum_{m=1}^{k} p^{m-1}(p-1)(k-m+1) \\\\\n& = k+1 + \\left(\\sum_{m=1}^{k} p^{m}(k-m+1)\\right) - \\left(\\sum_{m=1}^{k} p^{m-1}(k-m+1)\\right) = k+1 + p^{k} - k + \\sum_{m'=1}^{k-1} p^{m'} \\\\\n& = 1 + p + \\cdots + p^{k} = \\sigma\\left(p^{k}\\right)\n\\end{aligned}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-euler-s-totient-auto-1514",
+      "name": "10th Annual Harvard-MIT Mathematics Tournament #0ioq",
+      "url": "https://usamoguide.com/",
+      "source": "10th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "φ (Euler's totient)",
+        "Induction / smoothing",
+        "Linear and quadratic inequalities"
+      ],
+      "statement": "Problem:\nFind all positive integers $n$ such that\n$$\n\\sum_{k=1}^{n} \\phi(k)=\\frac{3 n^{2}+5}{8}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $1$, $3$, $5$.\n\nWe contend that the proper relation is\n$$\n\\sum_{k=1}^{n} \\phi(k) \\leq \\frac{3 n^{2}+5}{8}\n$$\nLet $\\Phi(k)$ denote the left hand side of $(*)$. It is trivial to see that for $n \\leq 7$ the posed inequality holds, has equality where $n=1,3,5$, and holds strictly for $n=7$. Note that $\\phi(2 k) \\leq k$ and $\\phi(2 k+1) \\leq 2 k$, the former because $2,4, \\ldots, 2 k$ share a common divisor. It follows that $\\phi(2 k)+\\phi(2 k+1) \\leq 3 k$. Suppose for the sake of induction that $\\Phi(2 k-1)<\\frac{3(2 k-1)^{2}+5}{8}$. Then\n$$\n\\Phi(2 k+1)=\\Phi(2 k-1)+\\phi(2 k)+\\phi(2 k+1)<\\frac{3(2 k-1)^{2}+5}{8}+3 k=\\frac{3(2 k+1)^{2}+5}{8}\n$$\nTo complete the proof, it is enough to note that for a positive integer $k$,\n$$\n\\frac{3(2 k-1)^{2}+5}{8}+k<\\frac{3(2 k)^{2}+5}{8}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-euler-s-totient-auto-2165",
+      "name": "Harvard-MIT Mathematics Tournament #0j6t",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "φ (Euler's totient)",
+        "Greatest common divisors (gcd)"
+      ],
+      "statement": "Problem:\n\nLet $n$ be a positive integer, and let $a_{1}, a_{2}, \\ldots, a_{n}$ be a set of positive integers such that $a_{1}=2$ and $a_{m}=\\varphi\\left(a_{m+1}\\right)$ for all $1 \\leq m \\leq n-1$, where, for all positive integers $k$, $\\varphi(k)$ denotes the number of positive integers less than or equal to $k$ that are relatively prime to $k$. Prove that $a_{n} \\geq 2^{n-1}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe first note that $\\varphi(s)<s$ for all positive integers $s \\geq 2$, so $a_{m}>2$ for all $m>1$.\n\nFor integers $s>2$, let $A_{s}$ be the set of all positive integers $x \\leq s$ such that $\\gcd(s, x)=1$. Since $\\gcd(s, x)=\\gcd(s, s-x)$ for all $x$, if $a$ is a positive integer in $A_{s}$, so is $s-a$. Moreover, if $a$ is in $A_{s}$, $a$ and $s-a$ are different since $\\gcd\\left(s, \\frac{s}{2}\\right)=\\frac{s}{2}>1$, meaning $\\frac{s}{2}$ is not in $A_{s}$. Hence we may evenly pair up the elements of $A_{s}$ that sum to $s$, so $\\varphi(s)$, the number of elements of $A_{s}$, must be even. It follows that $a_{m}$ is even for all $m \\leq n-1$.\n\nIf $t>2$ is even, $A_{t}$ will not contain any even number, so $\\varphi(t) \\leq \\frac{t}{2}$. We may conclude that $a_{m} \\geq 2 a_{m-1}$ for all $m \\leq n-1$, so $a_{n} \\geq a_{n-1} \\geq 2^{n-2} a_{1}=2^{n-1}$, as desired.\n\nFinally, note that such a set exists for all $n$ by letting $a_{i}=2^{i}$ for all $i$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-euler-s-totient-auto-2214",
+      "name": "Harvard-MIT Mathematics Tournament #0j86",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "φ (Euler's totient)",
+        "Greatest common divisors (gcd)"
+      ],
+      "statement": "Problem:\n\nLet $n$ be a positive integer such that $n > 2$. Prove that $\\varphi(n)$ is even.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $A_{n}$ be the set of all positive integers $x \\leq n$ such that $\\operatorname{gcd}(n, x) = 1$. Since $\\operatorname{gcd}(n, x) = \\operatorname{gcd}(n, n - x)$ for all $x$, if $a$ is a positive integer in $A_{n}$, so is $n - a$. Moreover, if $a$ is in $A_{n}$, $a$ and $n - a$ are different since $\\operatorname{gcd}\\left(n, \\frac{n}{2}\\right) = \\frac{n}{2} > 1$, meaning $\\frac{n}{2}$ is not in $A_{n}$. Hence we may evenly pair up the elements of $A_{n}$ that sum to $n$, so $\\varphi(n)$, the number of elements of $A_{n}$, must be even, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-euler-s-totient-auto-2228",
+      "name": "Harvard-MIT Mathematics Tournament #0j8k",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "φ (Euler's totient)",
+        "Greatest common divisors (gcd)"
+      ],
+      "statement": "Problem:\n\nLet $n$ be an even positive integer. Prove that $\\varphi(n) \\leq \\frac{n}{2}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAgain, let $A_{n}$ be the set of all positive integers $x \\leq n$ such that $\\operatorname{gcd}(n, x)=1$. Since $n$ is even, no element of $A_{n}$ may be even, and, by definition, every element of $A_{n}$ must be at most $n$. It follows that $\\varphi(n)$, the number of elements of $A_{n}$, must be at most $\\frac{n}{2}$, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-euler-s-totient-auto-2258",
+      "name": "Harvard-MIT Mathematics Tournament #0j9e",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recursion, bijection",
+        "Enumeration with symmetry",
+        "Matchings, Marriage Lemma, Tutte's theorem",
+        "φ (Euler's totient)"
+      ],
+      "statement": "Problem:\n\nFor positive odd integer $n$, let $f(n)$ denote the number of matrices $A$ satisfying the following conditions:\n- $A$ is $n \\times n$.\n- Each row and column contains each of $1,2, \\ldots, n$ exactly once in some order.\n- $A^{T}=A$. (That is, the element in row $i$ and column $j$ is equal to the one in row $j$ and column $i$, for all $1 \\leq i, j \\leq n$.)\nProve that $f(n) \\geq \\frac{n!(n-1)!}{\\varphi(n)}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe first note that the main diagonal (the squares with row number equal to column number) is a permutation of $1,2, \\ldots, n$. This is because each number $i$ ($1 \\leq i \\leq n$) appears an even number of times off the main diagonal, so must appear an odd number of times on the main diagonal. Thus, we may assume that the main diagonal's values are $1,2, \\ldots, n$ in that order. Call any matrix satisfying this condition and the problem conditions good. Let $g(n)$ denote the number of good matrices. It now remains to show that $g(n) \\geq \\frac{(n-1)!}{\\varphi(n)}$.\n\nNow, consider a round-robin tournament with $n$ teams, labeled from $1$ through $n$, with the matches spread over $n$ days such that on day $i$, all teams except team $i$ play exactly one match (so there are $\\frac{n-1}{2}$ pairings), and at the end of $n$ days, each pair of teams has played exactly once. We consider two such tournaments distinct if there is some pairing of teams $i, j$ which occurs on different days in the tournaments. We claim that the tournaments are in bijection with the good matrices.\n\nProof of Claim: Given any good matrix $A$, we construct a tournament by making day $k$ have matches between team $i$ and $j$ for each $i, j$ such that $A_{i, j}=k$, besides $(i, j)=(k, k)$. Every pair will play some day, and since each column and row contains exactly one value of each number, no team will play more than once a day. Furthermore, given two distinct good matrices, there exists a value (off the main diagonal) on which they differ; this value corresponds to the same pair playing on different dates, so the corresponding tournaments must be distinct. For the other direction, take any tournament. Make a matrix $A$ with the main diagonal as $1,2, \\ldots, n$, and for each $k$, set $A_{i, j}=k$ for each $i, j$ such that teams $i, j$ play each other on day $k$. This gives a good matrix. Similarly, given any two distinct tournaments, there exists a team pair $i, j$ which play each other on different days; this corresponds to a differing value on the corresponding good matrices.\n\nIt now suffices to exhibit $\\frac{(n-1)!}{\\varphi(n)}$ distinct tournaments. (It may be helpful here to think of the days in the tournament as an unordered collection of sets of pairings, with the order implicitly imposed by the team not present in the set of pairings.) For our construction, consider a regular $n$-gon with center $O$. Label the points as $A_{1}, A_{2}, \\ldots, A_{n}$ as an arbitrary permutation (so there are $n!$ possible labelings). The team $k$ will be represented by $A_{k}$. For each $k$, consider the line $A_{k} O$. The remaining $n-1$ vertices can be paired into $\\frac{n-1}{2}$ groups which are perpendicular to this line; use these pairings for day $k$. Of course, this doesn't generate $n!$ distinct tournaments—but how many does it make?\n\nConsider any permutation of labels. Starting from an arbitrary point, let the points of the polygon be $A_{\\pi(1)}, A_{\\pi(2)}, \\ldots, A_{\\pi(n)}$ in clockwise order. Letting $\\pi(0)=\\pi(n)$ and $\\pi(n+1)=\\pi(1)$, we note that $\\pi(i-1)$ and $\\pi(i+1)$ play each other on day $\\pi(i)$. We then see that any other permutation of labels representing the same tournament must have $A_{\\pi(i-1)} A_{\\pi(i)}=A_{\\pi(i)} A_{\\pi(i+1)}$ for all $i$. Thus, if $A_{\\pi(1)}$ is $k$ vertices clockwise of $A_{\\pi(0)}$, then $A_{\\pi(2)}$ is $k$ vertices clockwise of $A_{\\pi(1)}$, and so on all the way up to $A_{\\pi(n-1)}$ being $k$ vertices clockwise of $A_{\\pi(n)}$. This is only possible if $k$ is relatively prime to $n$, so there are $\\varphi(n)$ choices of $k$. There are $n$ choices of the place to put $A_{\\pi(1)}$, giving $n \\varphi(n)$ choices of permutations meeting this condition. It is clear that each permutation meeting this condition provides the same tournament, so the $n!$ permutations can be partitioned into equivalence classes of size $n \\varphi(n)$ each. Thus, there are $\\frac{n!}{n \\varphi(n)}$ distinct equivalence classes, and we are done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-euler-s-totient-auto-2295",
+      "name": "15th Annual Harvard-MIT Mathematics Tournament #0jaf",
+      "url": "https://usamoguide.com/",
+      "source": "15th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Enumeration with symmetry",
+        "Permutations / basic group theory",
+        "Fermat / Euler / Wilson theorems",
+        "φ (Euler's totient)"
+      ],
+      "statement": "Problem:\nLet $S$ be the set $\\{1,2, \\ldots, 2012\\}$. A perfectutation is a bijective function $h$ from $S$ to itself such that there exists an $a \\in S$ such that $h(a) \\neq a$, and that for any pair of integers $a \\in S$ and $b \\in S$ such that $h(a) \\neq a, h(b) \\neq b$, there exists a positive integer $k$ such that $h^{k}(a)=b$. Let $n$ be the number of ordered pairs of perfectutations $(f, g)$ such that $f(g(i))=g(f(i))$ for all $i \\in S$, but $f \\neq g$. Find the remainder when $n$ is divided by 2011.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: 2\n\nNote that both $f$ and $g$, when written in cycle notation, must contain exactly one cycle that contains more than 1 element. Assume $f$ has $k$ fixed points, and that the other $2012-k$ elements form a cycle, (of which there are $(2011-k)!$ ways).\n\nThen note that if $f$ fixes $a$ then $f(g(a))=g(f(a))=g(a)$ implies $f$ fixes $g(a)$. So $g$ must send fixed points of $f$ to fixed points of $f$. It must, therefore, send non-fixed points to non-fixed points. This partitions $S$ into two sets, at least one of which must be fixed by $g$, since $g$ is a perfectutation.\n\nIf $g$ fixes all of the non-fixed points of $f$, then, since any function commutes with the identity, $g$ fixes some $m$ of the fixed points and cycles the rest in $(k-m-1)!$ ways. So there are $\\sum_{m=0}^{k-2}\\binom{k}{m}(k-m-1)!$ choices, which is $\\sum_{m=0}^{k-2} \\frac{k!}{(k-m) m!}$.\n\nIf $g$ fixes all of the fixed points of $f$, then order the non-fixed points of $f$ $a_{1}, a_{2}, \\ldots, a_{2012-k}$ such that $f\\left(a_{i}\\right)=a_{i+1}$. If $g\\left(a_{i}\\right)=a_{j}$ then $f\\left(g\\left(a_{i}\\right)\\right)=a_{j+1}$ thus $g\\left(a_{i+1}\\right)=a_{j+1}$. Therefore the choice of $g\\left(a_{1}\\right)$ uniquely determines $g\\left(a_{i}\\right)$ for the rest of the $i$, and $g\\left(a_{m}\\right)=a_{m+j-i}$. But $g$ has to be a perfectutation, so $g$ cycles through all the non-fixed points of $f$, which happens if and only if $j-i$ is relatively prime to $2012-k$. So there are $\\phi(2012-k)$ choices.\n\nTherefore for any $f$ there are $\\sum_{m=0}^{k-2} \\frac{k!}{(k-m) m!}+\\phi(2012-k)$ choices of $g$, but one of them will be $g=f$, which we cannot have by the problem statement. So there are $-1+\\sum_{m=0}^{k-2} \\frac{k!}{(k-m) m!}+\\phi(2012-k)$ options.\n\nNow note that a permutation can not fix all but one element. So\n$$\nn=\\sum_{k=0}^{2010}\\binom{2012}{k}(2011-k)!\\left(-1+\\sum_{m=0}^{k-2} \\frac{k!}{(k-m) m!}+\\phi(2012-k)\\right)\n$$\nModulo 2011 (which is prime), note that all terms in the summand except the one where $k=1$ vanish. Thus, $n \\equiv (2010)!(-1+(-1)) \\equiv 2 \\pmod{2011}$ by Wilson's Theorem."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-euler-s-totient-auto-2315",
+      "name": "15th Annual Harvard-MIT Mathematics Tournament #0jaz",
+      "url": "https://usamoguide.com/",
+      "source": "15th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "φ (Euler's totient)",
+        "Möbius inversion",
+        "Sums and products"
+      ],
+      "statement": "Problem:\nLet $N$ be the number of distinct roots of $\\prod_{k=1}^{2012}\\left(x^{k}-1\\right)$. Give lower and upper bounds $L$ and $U$ on $N$. If $0<L \\leq N \\leq U$, then your score will be $\\left\\lfloor\\frac{23}{(U / L)^{1.7}}\\right\\rfloor$. Otherwise, your score will be 0.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFor $x$ to be such a number is equivalent to $x$ being a $k^{\\text{th}}$ root of unity for some $k$ up to $2012$. For each $k$, there are $\\varphi(k)$ primitive $k^{\\text{th}}$ roots of unity, so the total number of roots is $\\sum_{k=1}^{2012} \\varphi(k)$.\n\nWe will give a good approximation of this number using well known facts about the Möbius function, defined by $\\mu(n)=\\left\\{\\begin{array}{ll}0 & \\text{ if } n \\text{ is not squarefree } \\\\ (-1)^{r} & \\text{ if } n \\text{ has } r \\text{ distinct prime factors }\\end{array}\\right.$. It turns out that if $f(n)=\\sum_{d \\mid n} g(d)$, then $g(n)=\\sum_{d \\mid n} \\mu(d) f\\left(\\frac{n}{d}\\right)$. Using this fact, since $n=\\sum_{d \\mid n} \\varphi(d)$, we have that $\\varphi(n)=\\sum_{d \\mid n} \\mu(d) \\frac{n}{d}$. Now we have reduced the problem to estimating $\\sum_{k=1}^{2012} \\sum_{d \\mid k} \\mu(d) \\frac{k}{d}$. Let $a=\\frac{k}{d}$, so we obtain $\\sum_{k=1}^{2012} \\sum_{d \\mid k} a \\mu(d)$.\n\nWe can interchange the order of summation by writing\n$$\n\\begin{aligned}\n\\sum_{d=1}^{2012} \\sum_{a=1}^{\\left\\lfloor\\frac{2012}{d}\\right\\rfloor} a \\mu(d) & \\approx \\sum_{d=1}^{2012} \\mu(d) \\frac{1}{2}\\left(\\left\\lfloor\\frac{2012}{d}\\right\\rfloor\\right)^{2} \\\\\n& \\approx \\sum_{d=1}^{2012} \\mu(d) \\frac{2012^{2}}{2 d^{2}} \\\\\n& =\\frac{2012^{2}}{2} \\sum_{d=1}^{2012} \\frac{\\mu(d)}{d^{2}} \\\\\n& \\approx \\frac{2012^{2}}{2} \\sum_{d=1}^{\\infty} \\frac{\\mu(d)}{d^{2}}\n\\end{aligned}\n$$\nThe Möbius function also satisfies the property that $\\sum_{d \\mid n} \\mu(d)=\\left\\{\\begin{array}{ll}1 & \\text{ if } n=1 \\\\ 0 & \\text{ otherwise }\\end{array}\\right.$, which can be seen as a special case of the theorem above (letting $f(n)=1, g(n)=\\left\\{\\begin{array}{ll}1 & \\text{ if } n=1 \\\\ 0 & \\text{ otherwise }\\end{array}\\right.$ ). We can then see that $\\left(\\sum_{d=1}^{\\infty} \\frac{\\mu(d)}{d^{2}}\\right)\\left(\\sum_{c=1}^{\\infty} \\frac{1}{c^{2}}\\right)=\\frac{1}{1^{2}}=1$, so $\\sum_{d=1}^{\\infty} \\frac{\\mu(d)}{d^{2}}=\\frac{6}{\\pi^{2}}$. Therefore, we have $\\sum_{k=1}^{2012} \\varphi(k) \\approx \\frac{3}{\\pi^{2}} \\cdot 2012^{2}=$ 1230488.266... 2012 is large enough that all of our approximations are pretty accurate and we should be comfortable perturbing this estimate by a small factor to give bounding values."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

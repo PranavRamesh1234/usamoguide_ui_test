@@ -1,0 +1,103 @@
+---
+id: linear-diophantine-equations
+title: Linear Diophantine Equations
+author: Mehul Biala
+description: Solving equations of the form ax + by = c using the Euclidean algorithm and Bezout's Identity.
+prerequisites: []
+---
+
+## Overview
+
+A Diophantine equation is an algebraic equation where we are strictly looking for *integer* solutions. The most fundamental type is the Linear Diophantine Equation, which takes the form $ax + by = c$, where $a, b, c$ are given integers, and $x, y$ are unknown integers.
+
+Geometrically, the equation $ax + by = c$ represents a line in the Cartesian plane. Solving the Diophantine equation means finding the exact points on this line where both the x-coordinate and y-coordinate are integers (often called lattice points). 
+
+## Key Ideas
+
+- **Existence of Solutions (Bézout's Identity):** The equation $ax + by = c$ has integer solutions if and only if the greatest common divisor $\gcd(a, b)$ divides $c$. If $\gcd(a, b) \nmid c$, no integer solutions exist.
+- **Finding a Base Solution:** If the numbers are small, guess and check. If they are large, use the Extended Euclidean Algorithm to work backward and find a base solution $(x_0, y_0)$.
+- **Generating the Infinite Solution Set:** Once you have one valid point $(x_0, y_0)$, you can find all other integer points on the line using the slope. The general solution is:
+  $$
+  x = x_0 + \frac{b}{\gcd(a, b)} \cdot k
+  $$
+  $$
+  y = y_0 - \frac{a}{\gcd(a, b)} \cdot k
+  $$
+  where $k$ is any integer. Notice how as $x$ steps forward by the reduced $b$ coefficient, $y$ must step backward by the reduced $a$ coefficient to keep the sum balanced.
+
+## Worked Examples
+
+### Example 1: Finding the General Solution
+
+Find all integer solutions to $12x + 15y = 39$.
+
+**1. Check for existence:**
+First, compute $\gcd(12, 15) = 3$. We check if $3 \mid 39$. Since $39 / 3 = 13$, integer solutions exist. 
+
+**2. Simplify the equation:**
+Divide the entire equation by the GCD to make the coefficients coprime:
+$$
+4x + 5y = 13
+$$
+
+**3. Find a base solution:**
+By inspection, $4(2) + 5(1) = 8 + 5 = 13$. So, $(x_0, y_0) = (2, 1)$ is a valid base solution. 
+
+**4. Write the general solution:**
+Using the simplified coefficients $a'=4$ and $b'=5$, we apply the general formula. As $x$ increases by $5$, $y$ must decrease by $4$:
+$$
+x = 2 + 5k
+$$
+$$
+y = 1 - 4k
+$$
+where $k \in \mathbb{Z}$.
+
+### Example 2: Recognizing When No Solutions Exist
+
+Does the equation $14x + 21y = 50$ have any integer solutions?
+
+**1. Check for existence:**
+Compute $\gcd(14, 21) = 7$. 
+We then check if $7 \mid 50$. Since $50$ is not a multiple of $7$, Bézout's Identity tells us that it is impossible to form the sum of $50$ using integer multiples of $14$ and $21$.
+**Conclusion:** There are no integer solutions.
+
+### Example 3: Word Problems and Real-World Constraints
+
+A farmer buys chickens for $3$ dollars each and pigs for $5$ dollars each. If he spends exactly $34$ dollars, what are all the possible combinations of chickens and pigs he could have bought?
+
+**1. Set up the equation:**
+Let $c$ be the number of chickens and $p$ be the number of pigs. 
+$$
+3c + 5p = 34
+$$
+Because he is buying physical animals, we have a real-world constraint: $c \ge 0$ and $p \ge 0$.
+
+**2. Isolate one variable:**
+It is usually easiest to isolate the variable with the smaller coefficient.
+$$
+3c = 34 - 5p \implies c = \frac{34 - 5p}{3}
+$$
+
+**3. Test valid inputs:**
+Since $c$ must be an integer, $34 - 5p$ must be a multiple of $3$. We test non-negative integers for $p$:
+- If $p = 0$: $c = 34 / 3$ (Not an integer)
+- If $p = 1$: $c = (34 - 5) / 3 = 29 / 3$ (Not an integer)
+- If $p = 2$: $c = (34 - 10) / 3 = 24 / 3 = 8$. **Valid solution: $(8, 2)$**
+- If $p = 3$: $c = (34 - 15) / 3 = 19 / 3$ (Not an integer)
+- If $p = 4$: $c = (34 - 20) / 3 = 14 / 3$ (Not an integer)
+- If $p = 5$: $c = (34 - 25) / 3 = 9 / 3 = 3$. **Valid solution: $(3, 5)$**
+- If $p = 6$: $c = (34 - 30) / 3 = 4 / 3$ (Not an integer)
+- If $p = 7$: $c = (34 - 35) / 3 = -1 / 3$ (We stop here because $c$ is now negative).
+
+**Conclusion:** The farmer could have bought 8 chickens and 2 pigs, or 3 chickens and 5 pigs.
+
+## Common Pitfalls
+
+- **Forgetting to divide by the GCD:** When writing the general solution, students often use the original coefficients (e.g., $+15k$ and $-12k$). You *must* divide $a$ and $b$ by $\gcd(a,b)$ to ensure you don't skip over valid integer points between your steps.
+- **Sign errors in the general solution:** Remember that one variable must increase while the other decreases to maintain the constant sum $c$.
+- **Ignoring constraints:** In word problems, variables often represent physical quantities that cannot be negative. Always bounds-check your general solution against $x \ge 0$ and $y \ge 0$ if the context demands it.
+
+## Practice Problems
+
+<Problems problems="practice" />

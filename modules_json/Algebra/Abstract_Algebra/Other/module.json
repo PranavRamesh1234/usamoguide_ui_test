@@ -1,0 +1,75 @@
+{
+  "MODULE_ID": "algebra-abstract-algebra-other",
+  "practice": [
+    {
+      "uniqueId": "algebra-abstract-algebra-other-auto-1123",
+      "name": "Harvard-MIT Mathematics Tournament #0idv",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other"
+      ],
+      "statement": "Problem:\n\nSuppose $S$ is a finite set with a binary operation $\\star$ - that is, for any elements $a, b$ of $S$, there is defined an element $a \\star b$ of $S$. It is given that $(a \\star b) \\star(a \\star b)=b \\star a$ for all $a, b \\in S$.\n\nProve that $a \\star b=b \\star a$ for all $a, b \\in S$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe have\n$$\n\\begin{aligned}\na \\star b & =(b \\star a) \\star(b \\star a) \\\\\n& =([a \\star b] \\star[a \\star b]) \\star([a \\star b] \\star[a \\star b]) \\\\\n& =[a \\star b] \\star[a \\star b] \\\\\n& =b \\star a .\n\\end{aligned}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-abstract-algebra-other-auto-2581",
+      "name": "IMO Team Selection Team Selection Test #0jid",
+      "url": "https://usamoguide.com/",
+      "source": "IMO Team Selection Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Permutations / basic group theory",
+        "Other",
+        "Recursion, bijection"
+      ],
+      "statement": "Given a set $S$ of $n$ variables, a binary operation $\\times$ on $S$ is called *simple* if it satisfies $(x \\times y) \\times z = x \\times (y \\times z)$ for all $x, y, z \\in S$ and $x \\times y \\in \\{x, y\\}$ for all $x, y \\in S$. Given a simple operation $\\times$ on $S$, any string of elements in $S$ can be reduced to a single element, such as $xyz \\rightarrow x \\times (y \\times z)$. A string of variables in $S$ is called *full* if it contains each variable in $S$ at least once, and two strings are *equivalent* if they evaluate to the same variable regardless of which simple $\\times$ is chosen. For example, $xxx$, $xx$, and $x$ are equivalent, but these are only full if $n = 1$. Suppose $T$ is a set of strings such that any full string is equivalent to exactly one element of $T$. Determine the number of elements of $T$.\n(This problem was suggested by John Berman.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**Solution 1.** The answer is $n!^2$.\nWe use $s_1 \\sim s_2$ to denote that strings $s_1$ and $s_2$ are equivalent. If $x_1x_2 \\cdots x_k$ is any string in $S$, we can see that\n$$\nx_1x_2\\cdots x_kx_1x_2\\cdots x_k = (x_1\\cdots x_k)(x_1\\cdots x_k) \\sim x_1\\cdots x_k\n$$\nbecause $xx \\in \\{x\\}$. But also, if $a_1a_2 \\cdots a_i, b_1b_2 \\cdots b_j$ are strings in $S$ and $x \\in S$, then\n$$\nxa_1a_2 \\cdots a_ixb_1b_2 \\cdots b_jx \\sim xa_1a_2 \\cdots a_ib_1b_2 \\cdots b_jx\n$$\nTo prove this, it suffices to show that $xaxbx \\sim xabx$. Suppose that for some $\\times$, these did not evaluate to the same element of $S$. Then $a \\times x = x$, since otherwise $x(a \\times x)bx = xabx$. Similarly, $x \\times b = x$. This means that\n$$\nxaxbx = x(a \\times x)bx = xxbx = x(x \\times b)x = xxx = x\n$$\nso by assumption $xabx \\neq x$. But if $xabx = a$, then in particular $xa = a$, $ab = a$, and $ax = a$ all must hold, the latter of which is a contradiction. Similarly if $xabx = b$ we reach a contradiction. Thus this equivalence holds.\nGiven any full string $w = x_1x_2 \\cdots x_k$, we claim that it is equivalent to some string consisting of two concatenated permutations of $S$, i.e. $\\sigma_1\\sigma_2$ where $\\sigma_1$ is a permutation of the $n$ variables of $S$ and $\\sigma_2$ is also. Note that $w \\sim ww = x_1x_2 \\cdots x_kx_1x_2 \\cdots x_k$. This string may be reduced by our second observation above so that in any case where an element $y$ appears more than two times, all but the outermost instances of $y$ are removed. Because $w$ was full, the new string $\\tilde{w} \\sim w$ will have each element of $S$ occurring exactly twice. But the first occurrences of each variable all occur in the first instance of $w$, and the last occurrences all occur in the second instance of $w$ (in $ww$), so $\\tilde{w}$ consists of two concatenated permutations of $S$, of which there are $n!^2$ possibilities.\nIt remains to show that two double-permutations $\\sigma_1\\sigma_2$ and $\\sigma'_1\\sigma'_2$ are not equivalent. Suppose otherwise. Without loss of generality we may assume that $\\sigma_1 \\neq \\sigma'_1$; otherwise we reverse the order of the operation $\\times$ found below. Choose two elements $a, b$ such that $a$ occurs before $b$ in $\\sigma_1$ but their order is reversed in $\\sigma'_1$. Then choose some operation $\\times$ such that for any $x, y \\in S$,\n$$\nx \\times y = \\begin{cases} y & \\text{if } x \\notin \\{a, b\\}, y \\in \\{a, b\\}, \\\\ x & \\text{otherwise.} \\end{cases}\n$$\nThis operation clearly satisfies $x \\times y \\in \\{x, y\\}$, and some easy casework on which of $x, y, z$ are in $\\{a, b\\}$ shows that $(x \\times y) \\times z = x \\times (y \\times z)$ for all $x, y, z \\in S$. Hence, the operation is simple. Furthermore $\\sigma_1\\sigma_2$ evaluates to $a$ under this operation, while $\\sigma'_1\\sigma'_2$ evaluates to $b$. We conclude that the two strings are not equivalent, finishing the solution.\n\n\n**Solution 2** (Based on an idea of Alex Zhai). Given an operation $\\times$, construct a complete directed graph $G(\\times)$ with $n$ vertices, each vertex corresponding to a variable of $S$. Construct an edge marked $L$ going from $u$ to $v$ if $u \\times v = u$, and an edge marked $R$ from $v$ to $u$ if $u \\times v = v$. In this way each pair of vertices will have two edges between them, either both going in the same direction or both having the same marking.\nSuppose we have an edge from $x$ to $y$ marked $a$ and an edge from $y$ to $z$ marked $b$. Through some simple casework on $a, b$ and use of the associative condition on $\\times$, we can verify this implies there is an edge from $x$ to $z$ marked $a$. Call this the *associativity condition* on $G(\\times)$.\nNow suppose two vertices $u, v$ are such that there are two edges from $u$ to $v$, one $L$ and one $R$. We claim this means there is no path from $v$ to $u$. Suppose that $v, w_1, w_2, \\dots, w_k, u$ were such a path. Then the associativity condition on $u, v, w_1$ means that $u$ has two edges marked $L$ and $R$ from $u$ to $w_1$. Through the same methods we can inductively show that the two edges between $u$ to $w_i$ are directed away from $u$ for all $i$. But we need an edge from $w_k$ to $u$, so this is a contradiction.\nConsider the strongly connected components of $G(\\times)$, meaning components such that a pair of vertices $u, v$ has a path from $u$ to $v$ and a path from $v$ to $u$ if and only if $u, v$ are in the same component. The above paragraph implies that for any $u, v$ in the same component, the two edges between $u, v$ go in opposite directions and have the same marking. The associativity condition implies the markings between all pairs of vertices in the same component are equal, so we can consider each component to be either $L$ as a whole or $R$ as a whole.\nLet $C_1$ be the component such that no other component has an edge going into $C_1$, and call this the top component of $G(\\times)$. Then by the way we have constructed the graph, any full expression evaluates to a variable corresponding to a vertex in $C_1$ under $\\times$. Since all the edges in $C_1$ are either $L$ or $R$, the value of the full expression is either the leftmost variable out of those appearing in $C_1$, or the rightmost variable. In this way, we have completely characterized how a full expression can be evaluated under a simple operation $\\times$: take a nonempty subset $T$ of the variables, then $\\times$ evaluates the expression to either the leftmost occurrence of a variable in $T$, or the rightmost occurrence of a variable in $T$.\nFrom here the problem is straightforward to finish. Given a full expression $w$, consider only the leftmost occurrence of each variable in $w$. This gives a permutation $\\sigma_L$ of the variables of $S$. Similarly construct $\\sigma_R$ from the rightmost occurrence of each variable in $w$. By our above characterization $w$ is equivalent to $\\sigma_L\\sigma_R$, and there are $n!^2$ ways to make a word from appending two permutations. Finally, suppose we have a different appending $\\sigma'_L\\sigma'_R$ (without loss of generality we may assume that $\\sigma_L \\neq \\sigma'_L$). We have some pair $a, b$ such that $a$ appears to the left of $b$ in $\\sigma_L$ but their order is reversed in $\\sigma'_L$. Then we can construct $\\times$ such that $a, b$ are the only two elements of the top component marked $L$ of $G(\\times)$. This operation gives $\\sigma_L\\sigma_R = a$ and $\\sigma'_L\\sigma'_R = b$, so the two are not equivalent."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-abstract-algebra-other-auto-2763",
+      "name": "HMMT February 2015 #0jnf",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2015",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Techniques: modulo, size analysis, order analysis, inequalities",
+        "Simple Equations",
+        "Other"
+      ],
+      "statement": "Problem:\nFind all ordered 4-tuples of integers $(a, b, c, d)$ (not necessarily distinct) satisfying the following system of equations:\n\n$$\n\\begin{aligned}\na^{2}-b^{2}-c^{2}-d^{2} & = c-b-2 \\\\\n2 a b & = a-d-32 \\\\\n2 a c & = 28-a-d \\\\\n2 a d & = b+c+31\n\\end{aligned}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nSolution 1. Subtract the second equation from the third to get $a(c-b+1)=30$. Add the second and third to get $2 a(b+c)=-4-2 d$. Substitute into the fourth to get\n$$\n2 a(2 a d-31)=-4-2 d \\Longleftrightarrow a(31-2 a d)=2+d \\Longleftrightarrow d=\\frac{31 a-2}{2 a^{2}+1}\n$$\nwhich in particular gives $a \\not \\equiv 1(\\bmod 3)$. Then plugging in a factor of 30 for $a$ gives us the system of equations $b+c=2 a d-31$ and $c-b+1=30 / a$ in $b, c$. Here, observe that $b+c$ is odd, so $c-b+1$ is even. Thus $a$ must be odd (and from earlier $a \\not \\equiv 1(\\bmod 3)$ ), so $a \\in\\{-1, \\pm 3,5, \\pm 15\\}$. Manually checking these, we see that the only possibilities we need to check are $(a, d)=(5,3),(-1,-11),(-3,-5)$, corresponding to $(b, c)=(-3,2),(11,-20),(5,-6)$. Then check the three candidates against first condition $a^{2}-b^{2}-c^{2}-d^{2}=c-b-2$ to find our only solution $(a, b, c, d)=(5,-3,2,3)$.\n\n\nSolution 2. Here's an alternative casework solution. From $2 a d=b+c+31$, we have that $b+c$ is odd. So, $b$ and $c$ has different parity. Thus, $b^{2}+c^{2} \\equiv 1(\\bmod 4)$. Plugging this into the first equation, we get that $a$ and $d$ also have the same parity.\nSo, $a^{2}-b^{2}-c^{2}-d^{2} \\equiv-1(\\bmod 4)$. Thus, $c-b-2 \\equiv-1(\\bmod 4)$. So, $c \\equiv b+1(\\bmod 4)$.\nFrom taking modulo $a$ in the second and third equation, we have $a \\mid d+32$ and $a \\mid 28-d$. So, $a \\mid 60$.\nNow, if $a$ is even, let $a=2 k$ and $d=2 m$. Plugging this in the second and third equation, we get $2 k c=14-k-m$ and $2 k b=k-m-16$. So, $k(c-b)=15-k$.\nWe can see that $k \\neq 0$. Therefore, $c-b=\\frac{15-k}{k}=\\frac{15}{k}-1$.\nBut $c-b \\equiv 1(\\bmod 4)$. So, $\\frac{15}{k}-1 \\equiv 1(\\bmod 4)$, or $\\frac{15}{k} \\equiv 2(\\bmod 4)$ which leads to a contradiction.\nSo, $a$ is odd. And we have $a \\mid 60$. So, $a \\mid 15$. This gives us 8 easy possibilities to check...\n\n\nSolution 3. The left hand sides clue us in to the fact that this problem is secretly about quaternions. Indeed, we see that letting $z=a+b i+c j+d k$ gives\n$$\n(z-i+j) z=-2-32 i+28 j+31 k\n$$\nTaking norms gives $N(z-i+j) N(z)=2^{2}+32^{2}+28^{2}+31^{2}=2773=47 \\cdot 59$. By the triangle inequality, $N(z), N(z-i+j)$ aren't too far apart, so they must be 47,59 (in some order).\nThus $z, z-i+j$ are Hurwitz primes. We rely on the following foundational lemma in quaternion number theory:\n\nLemma. Let $p \\in \\mathbb{Z}$ be an integer prime, and $A$ a Hurwitz quaternion. If $p \\mid N(A)$, then the $\\mathbb{H} A+\\mathbb{H} p$ (a left ideal, hence principal) has all element norms divisible by $p$, hence is nontrivial. (So it's either $\\mathbb{H} p$ or of the form $\\mathbb{H} P$ for some Hurwitz prime $P$.)\n\nIn our case, it will suffice to apply the lemma for $A=-2-32 i+28 j+31 k$ at primes $p=47$ and $q=59$ to get factorizations (unique up to suitable left/right unit multiplication) $A=Q P$ and $A=P' Q'$ (respectively), with $P, P'$ Hurwitz primes of norm $p$, and $Q, Q'$ Hurwitz primes of norm $q$. Indeed, these factorizations come from $\\mathbb{H} A+\\mathbb{H} p=\\mathbb{H} P$ and $\\mathbb{H} A+\\mathbb{H} q=\\mathbb{H} Q'$.\n\nWe compute by the Euclidean algorithm:\n$$\n\\begin{aligned}\n\\mathbb{H} A+\\mathbb{H}(47) & =\\mathbb{H}(-2-32 i+28 j+31 k)+\\mathbb{H}(47) \\\\\n& =\\mathbb{H}(-2+15 i-19 j-16 k)+\\mathbb{H}(47) \\\\\n& =[\\mathbb{H}(47 \\cdot 18)+\\mathbb{H}(47)(-2-15 i+19 j+16 k)] \\frac{-2+15 i-19 j-16 k}{47 \\cdot 18} \\\\\n& =[\\mathbb{H} 18+\\mathbb{H}(-2+3 i+j-2 k)] \\frac{-2+15 i-19 j-16 k}{18} \\\\\n& =\\mathbb{H}(-2+3 i+j-2 k) \\frac{-2+15 i-19 j-16 k}{18} \\\\\n& =\\mathbb{H} \\frac{-54-90 i+54 j-36 k}{18} \\\\\n& =\\mathbb{H}(-3-5 i+3 j-2 k) .\n\\end{aligned}\n$$\nThus, there's a unit $\\epsilon$ such that $P=\\epsilon(-3-5 i+3 j-2 k)$.\n\nSimilarly, to get $P'$, we compute\n$$\n\\begin{aligned}\nA \\mathbb{H}+47 \\mathbb{H} & =(-2-32 i+28 j+31 k) \\mathbb{H}+47 \\mathbb{H} \\\\\n& =(-2+15 i-19 j-16 k) \\mathbb{H}+47 \\mathbb{H} \\\\\n& =\\frac{-2+15 i-19 j-16 k}{47 \\cdot 18}[(47 \\cdot 18) \\mathbb{H}+47(-2-15 i+19 j+16 k) \\mathbb{H}] \\\\\n& =\\frac{-2+15 i-19 j-16 k}{18}[18 \\mathbb{H}+(-2+3 i+j-2 k) \\mathbb{H}] \\\\\n& =\\frac{-2+15 i-19 j-16 k}{18}(-2+3 i+j-2 k) \\mathbb{H} \\\\\n& =\\frac{-54+18 i+18 j+108 k}{18} \\mathbb{H} \\\\\n& =(-3+i+j+6 k) \\mathbb{H},\n\\end{aligned}\n$$\nso there's a unit $\\epsilon'$ with $P'=(-3+i+j+6 k) \\epsilon'$.\n\nFinally, we have either $z=\\epsilon(-3-5 i+3 j-2 k)$ for some $\\epsilon$, or $z-i+j=(-3+i+j+6 k) \\epsilon'$ for some $\\epsilon'$. Checking the $24+24$ cases (many of which don't have integer coefficients, and can be ruled out immediately) gives $z=i P=5-3 i+2 j+3 k$ as the only possibility."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

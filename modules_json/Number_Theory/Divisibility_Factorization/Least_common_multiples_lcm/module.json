@@ -1,0 +1,568 @@
+{
+  "MODULE_ID": "number-theory-divisibility-factorization-least-common-multiples-lcm",
+  "practice": [
+    {
+      "uniqueId": "number-theory-divisibility-factorization-least-common-multiples-lcm-auto-0096",
+      "name": "Berkeley Math Circle Take-Home Contest #2 #0hlc",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Take-Home Contest #2",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Least common multiples (lcm)",
+        "Coloring schemes, extremal arguments"
+      ],
+      "statement": "Problem:\n\nThe set of positive integers is partitioned into finitely many subsets. Show that some subset $S$ has the following property: for every positive integer $n$, $S$ contains infinitely many multiples of $n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet the subsets be $S_{1}, S_{2}, \\ldots, S_{k}$. Suppose the statement is false and seek a contradiction. Then for each $S_{i}$ there exists some $n_{i}$ such that $S_{i}$ contains only finitely many multiples of $n_{i}$. Let $n = n_{1} n_{2} \\cdots n_{k}$; then every multiple of $n$ is a multiple of each $n_{i}$ and so each $S_{i}$ can contain only finitely many multiples of $n$. But this means that the $k$ sets together contain only finitely many multiples of $n$, and since they partition the positive integers (which contain infinitely many multiples of $n$), we have our contradiction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-divisibility-factorization-least-common-multiples-lcm-auto-0391",
+      "name": "Berkeley Math Circle Monthly Contest 4 #0htj",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 4",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Greatest common divisors (gcd)",
+        "Least common multiples (lcm)",
+        "Invariants / monovariants"
+      ],
+      "statement": "Problem:\n\nSeveral positive integers are written on the blackboard. You can erase any two numbers and write their greatest common divisor (GCD) and least common multiple (LCM) instead. Prove that eventually the numbers will stop changing.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFirst of all, since\n$$\na \\cdot b = \\operatorname{gcd}(a, b) \\cdot \\operatorname{lcm}(a, b)\n$$\nfor all positive integers $a$ and $b$, the product of the numbers on the board does not change.\n\nSecond, we claim that at each step in which the numbers change, their sum increases. Suppose we pick two numbers $a$ and $b$ ($a \\leq b$) and replace them with $g = \\operatorname{gcd}(a, b)$ and $\\ell = \\operatorname{lcm}(a, b)$. If $g = a$, then $\\ell = b$ and the numbers do not change, so $g < a$ and therefore $g < b$. The change in the sum of the numbers is\n$$\n(g + \\ell) - (a + b) = \\frac{g^2 + g \\ell - g a - g b}{g} = \\frac{g^2 + a b - g a - g b}{g} = \\frac{(a - g)(b - g)}{g} > 0.\n$$\nSince each number on the blackboard cannot exceed the product of the numbers that were originally there, the sum cannot increase unboundedly, and thus the numbers must stop changing."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-divisibility-factorization-least-common-multiples-lcm-auto-0589",
+      "name": "Harvard-MIT Math Tournament #0hz1",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Least common multiples (lcm)",
+        "Factorization techniques"
+      ],
+      "statement": "Problem:\n\nMatt has somewhere between 1000 and 2000 pieces of paper he's trying to divide into piles of the same size (but not all in one pile or piles of one sheet each). He tries $2,3,4,5,6,7$, and $8$ piles but ends up with one sheet left over each time. How many piles does he need?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe number of sheets will leave a remainder of $1$ when divided by the least common multiple of $2,3,4,5,6,7$, and $8$, which is $8 \\cdot 3 \\cdot 5 \\cdot 7 = 840$. Since the number of sheets is between $1000$ and $2000$, the only possibility is $1681$. The number of piles must be a divisor of $1681 = 41^{2}$, hence it must be $41$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-divisibility-factorization-least-common-multiples-lcm-auto-0597",
+      "name": "Harvard-MIT Math Tournament #0hz9",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Least common multiples (lcm)",
+        "Factorization techniques"
+      ],
+      "statement": "Problem:\n\nMatt has somewhere between 1000 and 2000 pieces of paper he's trying to divide into piles of the same size (but not all in one pile or piles of one sheet each). He tries $2,3,4,5,6,7$, and $8$ piles but ends up with one sheet left over each time. How many piles does he need?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe number of sheets will leave a remainder of $1$ when divided by the least common multiple of $2,3,4,5,6,7$, and $8$, which is $8 \\cdot 3 \\cdot 5 \\cdot 7 = 840$. Since the number of sheets is between $1000$ and $2000$, the only possibility is $1681$. The number of piles must be a divisor of $1681 = 41^{2}$, hence it must be $41$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-divisibility-factorization-least-common-multiples-lcm-auto-1772",
+      "name": "Team Selection Test 2009 #0ivw",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test 2009",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial interpolation: Newton, Lagrange",
+        "Algebraic properties of binomial coefficients",
+        "Greatest common divisors (gcd)",
+        "Least common multiples (lcm)"
+      ],
+      "statement": "For each positive integer $n$, let $c(n)$ be the largest real number such that\n$$\nc(n) \\leq \\left| \\frac{f(a) - f(b)}{a - b} \\right|\n$$\nfor all triples $(f, a, b)$ such that\n* $f$ is a polynomial of degree $n$ taking integers to integers, and\n* $a, b$ are integers with $f(a) \\neq f(b)$.\n\nFind $c(n)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Let $L(n) = \\operatorname{lcm}(1, 2, \\dots, n)$. We claim that $c(n) = \\frac{1}{L(n)}$.\n\nFirst we show that this $c(n)$ is a lower bound. For any choice of $f(x)$ and $(a, b)$, we can translate $f(x)$ vertically so that $f(b) = 0$, and then translate $f(x)$ horizontally so that $b = 0$. We only deal with this case. An $n$th degree polynomial with a root at $0$ which takes integers to integers can be written as\n$$\nf(x) = \\sum_{i=1}^{n} a_i \\binom{x}{i},\n$$\nwhere the $a_i$ are integers. Using this form for $f(x)$, we calculate $\\frac{f(a)}{a}$ for some nonzero $a$:\n$$\n\\frac{f(a)}{a} = \\frac{1}{a} \\sum_{i=1}^{n} a_i \\binom{a}{i} = \\sum_{i=1}^{n} a_i \\cdot \\frac{\\binom{a}{i}}{a} = \\sum_{i=1}^{n} a_i \\binom{a-1}{i-1} \\cdot \\frac{1}{i}\n$$\nThe $i$th summand in this sum is $\\frac{1}{i}$ times the integer $a_i \\binom{a-1}{i-1}$. Since $\\frac{1}{i}$ is an integer multiple of $\\frac{1}{L(n)}$, each summand in the sum is an integer multiple of $\\frac{1}{L(n)}$, so does the $\\frac{f(a)}{a}$. Hence for $f(a) \\neq f(0) = 0$, we have that $\\left| \\frac{f(a)-f(0)}{a-0} \\right| = \\frac{k}{L(n)} \\ge \\frac{1}{L(n)}$; that is, $c(n)$ is a lower bound.\n\nSecond, we show that $c(n)$ is achievable, by finding certain $a_i$'s for $x = L(n)^2$ in\n$$\nf(x) = \\sum_{i=1}^{n} a_i \\binom{x}{i}.\n$$\nIf $p$ is any prime that divides $L(n)$, then there is some $i \\le n$ such that $p \\nmid \\frac{L(n)}{i}$, by the definition of the least common multiple. Thus\n$$\n\\gcd\\left(\\frac{L(n)}{1}, \\frac{L(n)}{2}, \\dots, \\frac{L(n)}{i}, \\dots, \\frac{L(n)}{n}\\right) = 1.\n$$\nLet $1 \\le i \\le n$. We consider\n$$\n\\binom{L(n)^2 - 1}{i - 1} = \\frac{(L(n)^2 - 1)(L(n)^2 - 2) \\cdots (L(n)^2 - (i - 1))}{1 \\cdot 2 \\cdots (i - 1)}.\n$$\nFor any prime divisor $p$ of $i$, the power of $p$ which divides $L(n)^2$ is always larger than the power of $p$ which divides $k$, for any $k \\le n$. Therefore the same number of factors of $p$ divide $L(n)^2-k$ and $k$. By matching these factors in the numerator and denominator, we find that $p$ does not divide $\\binom{L(n)^2-1}{i-1}$; that is, $\\gcd(i, \\binom{L(n)^2-1}{i-1}) = 1$ for $1 \\le i \\le n$. Therefore, we conclude that\n$$\n\\gcd\\left(\\frac{L(n)}{1} \\cdot \\binom{L(n)^2 - 1}{1 - 1}, \\dots, \\frac{L(n)}{i} \\cdot \\binom{L(n)^2 - 1}{i - 1}, \\dots, \\frac{L(n)}{n} \\cdot \\binom{L(n)^2 - 1}{n - 1}\\right) = 1.\n$$\nBy Bézout's lemma, there are integers $a_i$ such that\n$$\n\\sum_{i=1}^{n} a_i \\frac{L(n)}{i} \\binom{L(n)^2 - 1}{i - 1} = 1.\n$$\nIt follows that, for these $a_i$'s, we have\n$$\nf(L(n)^2) = \\sum_{i=1}^{n} a_i \\binom{L(n)^2}{i} = \\sum_{i=1}^{n} a_i \\cdot \\frac{L(n)^2}{i} \\cdot \\binom{L(n)^2 - 1}{i - 1} = L(n)\n$$\nor\n$$\n\\frac{f(L(n)^2)}{L(n)^2} = \\frac{1}{L(n)} = c(n)\n$$\ncompleting our proof.\n\n(Technically, we also need $a_n \\ne 0$ to ensure that the polynomial has degree equal to $n$. However, if $a_n = 0$, then choose some $i$ with $a_i \\ne 0$, and replace $a_n$ and $a_i$ by $a_n + \\binom{L(n)^2}{i}$ and $a_i - \\binom{L(n)^2}{n}$, respectively. Clearly, the resulting sequence $a'_i$ also satisfies $\\sum_{i=1}^n a_i \\binom{L(n)^2}{i} = L(n)$.)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-divisibility-factorization-least-common-multiples-lcm-auto-2269",
+      "name": "15th Annual Harvard-MIT Mathematics Tournament #0j9p",
+      "url": "https://usamoguide.com/",
+      "source": "15th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Least common multiples (lcm)",
+        "Factorization techniques",
+        "Modular Arithmetic"
+      ],
+      "statement": "Problem:\n\nNiffy's favorite number is a positive integer, and Stebbysaurus is trying to guess what it is. Niffy tells her that when expressed in decimal without any leading zeros, her favorite number satisfies the following:\n- Adding $1$ to the number results in an integer divisible by $210$.\n- The sum of the digits of the number is twice its number of digits.\n- The number has no more than $12$ digits.\n- The number alternates in even and odd digits.\n\nGiven this information, what are all possible values of Niffy's favorite number?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $1010309$\n\nNote that Niffy's favorite number must end in $9$, since adding $1$ makes it divisible by $10$. Also, the sum of the digits of Niffy's favorite number must be even (because it is equal to twice the number of digits) and congruent to $2$ modulo $3$ (because adding $1$ gives a multiple of $3$). Furthermore, the sum of digits can be at most $24$, because there are at most $12$ digits in Niffy's favorite number, and must be at least $9$, because the last digit is $9$. This gives the possible sums of digits $14$ and $20$. However, if the sum of the digits of the integer is $20$, there are $10$ digits, exactly $5$ of which are odd, giving an odd sum of digits, which is impossible. Thus, Niffy's favorite number is a $7$ digit number with sum of digits $14$.\n\nThe integers which we seek must be of the form $\\overline{A B C D E F 9}$, where $A, C, E$ are odd, $B, D, F$ are even, and $A+B+C+D+E+F=5$. Now, note that $\\{A, C, E\\}=\\{1,1,1\\}$ or $\\{1,1,3\\}$, and these correspond to $\\{B, D, F\\}=\\{0,0,2\\}$ and $\\{0,0,0\\}$, respectively. It suffices to determine which of these six integers are congruent to $-1 \\pmod{7}$, and we see that Niffy's favorite number must be $1010309$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-divisibility-factorization-least-common-multiples-lcm-auto-2643",
+      "name": "HMMT 2014 #0jk3",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2014",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Least common multiples (lcm)",
+        "Chinese remainder theorem"
+      ],
+      "statement": "Problem:\nLet $A=\\{a_{1}, a_{2}, \\ldots, a_{7}\\}$ be a set of distinct positive integers such that the mean of the elements of any nonempty subset of $A$ is an integer. Find the smallest possible value of the sum of the elements in $A$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $1267$\n\nFor $2 \\leq i \\leq 6$, we claim that $a_{1} \\equiv \\ldots \\equiv a_{7} \\pmod{i}$. This is because if we consider any $i-1$ of the $7$ numbers, the other $7-(i-1)=8-i$ of them must all be equal modulo $i$, because we want the sum of all subsets of size $i$ to be a multiple of $i$. However, $8-i \\geq 2$, and this argument applies to any $8-i$ of the $7$ integers, so in fact all of them must be equal modulo $i$.\n\nWe now have that all of the integers are equivalent modulo all of $2, \\ldots, 6$, so they are equivalent modulo $60$, their least common multiple. Therefore, if the smallest integer is $k$, then the other $6$ integers must be at least $k+60, k+60 \\cdot 2, \\ldots, k+60 \\cdot 6$. This means the sum is $7k+60 \\cdot 21 \\geq 7+60 \\cdot 21=1267$. $1267$ is achievable with $\\{1, 1+60, \\ldots, 1+60 \\cdot 6\\}$, so it is the answer."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-divisibility-factorization-least-common-multiples-lcm-auto-3015",
+      "name": "HMMT November 2016 #0juf",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2016",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cartesian coordinates",
+        "Translation",
+        "Least common multiples (lcm)"
+      ],
+      "statement": "Problem:\n\nA rectangular pool table has vertices at $(0,0)$, $(12,0)$, $(0,10)$, and $(12,10)$. There are pockets only in the four corners. A ball is hit from $(0,0)$ along the line $y=x$ and bounces off several walls before eventually entering a pocket. Find the number of walls that the ball bounces off of before entering a pocket.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nConsider the tiling of the plane with the $12 \\times 10$ rectangle to form a grid. Then the reflection of the ball off a wall is equivalent to traveling along the straight line $y=x$ into another $12 \\times 10$ rectangle. Hence we want to find the number of walls of the grid that the line $y=x$ hits before it reaches the first corner it hits, $(60,60)$.\n\nThe line $y=x$ hits each of the horizontal lines $y=10,20,30,40,50$ and each of the vertical lines $x=12,24,36,48$. This gives a total of 9 walls hit before entering a pocket."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-divisibility-factorization-least-common-multiples-lcm-auto-3188",
+      "name": "Berkeley Math Circle: Monthly Contest 5 #0jz8",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 5",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Least common multiples (lcm)",
+        "Floors and ceilings"
+      ],
+      "statement": "Problem:\nEach of the positive integers $a_{1}, a_{2}, \\ldots, a_{n}$ is less than $2016$, and the least common multiple of any two is greater than $2016$. Show that\n$$\n\\frac{1}{a_{1}}+\\cdots+\\frac{1}{a_{n}}<1+\\frac{n}{2016}.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nBy considering multiples of the $a_{i}$ which are less than $2016$ (these don't overlap by condition) we derive\n$$\n\\sum\\left\\lfloor\\frac{2016}{a_{i}}\\right\\rfloor \\leq 2016\n$$\nUpon using the fact that $\\lfloor x\\rfloor>x-1$, we then obtain\n$$\n\\sum\\left(\\frac{2016}{a_{i}}-1\\right)<2016 \\text{.}\n$$\nwhich rearranges to the desired conclusion."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-divisibility-factorization-least-common-multiples-lcm-auto-3293",
+      "name": "Berkeley Math Circle: Monthly Contest 1 #0k25",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Factorization techniques",
+        "Least common multiples (lcm)"
+      ],
+      "statement": "Problem:\n\nLet $n$ be an odd positive integer not divisible by $3$. Show that $n^{2}-1$ is divisible by $24$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe will show it is divisible by $8$ and $3$. Since the least common multiple of $8$ and $3$ is $24$, this implies the result.\n\nWe factor $n^{2}-1 = (n-1)(n+1)$.\n\nTo show divisibility by $8$, note that $n-1$ and $n+1$ are two consecutive even integers. Among any two consecutive even integers, one of them must be divisible by $4$; the other one is divisible by $2$ by definition, so their product is divisible by $8$.\n\nTo show divisibility by $3$, note that $\\{n-1, n, n+1\\}$ form three consecutive integers. Thus at least one of them is divisible by $3$. We assumed $n$ was not divisible by $3$, so it must be either $n-1$ or $n+1$, hence their product is divisible by $3$ as well."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-divisibility-factorization-least-common-multiples-lcm-auto-3448",
+      "name": "HMMT November 2019 #0k6g",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2019",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Least common multiples (lcm)",
+        "Techniques: modulo, size analysis, order analysis, inequalities"
+      ],
+      "statement": "Problem:\nLet $a$, $b$, $c$ be positive integers such that\n$$\n\\frac{a}{77} + \\frac{b}{91} + \\frac{c}{143} = 1\n$$\nWhat is the smallest possible value of $a + b + c$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe need $13a + 11b + 7c = 1001$, which implies $13(a + b + c - 77) = 2b + 6c$. Then $2b + 6c$ must be divisible by both $2$ and $13$, so it is minimized at $26$ (e.g. with $b = 10$, $c = 1$). This gives $a + b + c = 79$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-divisibility-factorization-least-common-multiples-lcm-auto-3523",
+      "name": "HMMT February 2019 Team Round #0k8j",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2019 Team Round",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Least common multiples (lcm)",
+        "Fermat / Euler / Wilson theorems",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\nFind all positive integers $n$ for which there do not exist $n$ consecutive composite positive integers less than $n!$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $1,2,3,4$\n\nFirst, note that clearly there are no composite positive integers less than $2!$, and no $3$ consecutive composite positive integers less than $3!$. The only composite integers less than $4!$ are\n$$\n4,6,8,9,10,12,14,15,16,18,20,21,22\n$$\nand it is easy to see that there are no $4$ consecutive composite positive integers among them. Therefore, all $n \\leq 4$ works.\n\nDefine $M=\\operatorname{lcm}(1,2, \\ldots, n+1)$. To see that there are no other such positive integers, we first show that for all $n \\geq 5$, $n!>M$. Let $k=\\left\\lfloor\\log_{2}(n+1)\\right\\rfloor$. Note that $v_{2}(M)=k$, while\n$$\nv_{2}((n+1)!)=\\sum_{i=1}^{k}\\left\\lfloor\\frac{n+1}{2^{i}}\\right\\rfloor \\geq \\sum_{i=1}^{k}\\left(\\frac{n+1}{2^{i}}-1\\right)=\\left(n+1-\\frac{n+1}{2^{k}}\\right)-k \\geq (n+1-2)-k=n-k-1.\n$$\nThis means that at least $(n-k-1)-k=n-2k-1$ powers of $2$ are lost when going from $(n+1)!$ to $M$. Since $M \\mid (n+1)!$, when $n-2k-1 \\geq k+1 \\Longleftrightarrow n \\geq 3k+2$, we have\n$$\nM \\leq \\frac{(n+1)!}{2^{k+1}} \\leq \\frac{(n+1)!}{2(n+1)}<n!\n$$\nas desired. Since $n \\geq 2^{k}-1$, we can rule out all $k$ such that $2^{k} \\geq 3k+3$, which happens when $k \\geq 4$ or $n \\geq 15$. Moreover, when $k=3$, we may also rule out all $n \\geq 3k+2=11$.\n\nWe thus need only check values of $n$ between $5$ and $10$:\n\n$n=5$: $n!=120$, $M=60$;\n\n$n=6$: $n!=720$, $M=420$;\n\n$n=7$: $n!=5040$, $M=840$;\n\n$n \\in \\{8,9,10\\}$: $n!\\geq 40320$, $M \\leq 27720$.\n\nIn all cases, $n!>M$, as desired.\n\nTo finish, note that $M-2, M-3, \\ldots, M-(n+1)$ are all composite (divisible by $2,3, \\ldots, n+1$ respectively), which gives the desired $n$ consecutive numbers. Therefore, all integers $n \\geq 5$ do not satisfy the problem condition, and we are done.\n\nSolution:\nHere is a different way to show that constructions exist for $n \\geq 5$. Note that when $n+1$ is not prime, the numbers $n!-2, n!-3, \\ldots, n!-(n+1)$ are all composite (the first $n-1$ are clearly composite, the last one is composite because $n+1 \\mid n!$ and $n!>2(n+1)$). Otherwise, if $n=p-1$ for prime $p \\geq 7$, then the numbers $(n-1)!,(n-1)!-1,(n-1)!-2, \\ldots,(n-1)!-(n-1)$ are all composite (the first one and the last $n-2$ are clearly composite since $(n-1)!>2(n-1)$, the second one is composite since $p \\mid (p-2)!-1=(n-1)!-1$ by Wilson's theorem)."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-divisibility-factorization-least-common-multiples-lcm-auto-3831",
+      "name": "HMMT Spring 2021 Guts Round #0kh3",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT Spring 2021 Guts Round",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Chinese remainder theorem",
+        "Least common multiples (lcm)"
+      ],
+      "statement": "Problem:\n\nFor each positive integer $1 \\leq m \\leq 10$, Krit chooses an integer $0 \\leq a_{m} < m$ uniformly at random. Let $p$ be the probability that there exists an integer $n$ for which $n \\equiv a_{m} \\pmod{m}$ for all $m$. If $p$ can be written as $\\frac{a}{b}$ for relatively prime positive integers $a$ and $b$, compute $100a + b$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nTuples of valid $a_{m}$ correspond with residues mod $\\operatorname{lcm}(1,2, \\ldots, 10)$, so the answer is\n$$\n\\frac{\\operatorname{lcm}(1,2, \\ldots, 10)}{10!} = \\frac{2^{3} \\cdot 3^{2} \\cdot 5 \\cdot 7}{2^{8} \\cdot 3^{4} \\cdot 5^{2} \\cdot 7} = \\frac{1}{1440}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-divisibility-factorization-least-common-multiples-lcm-auto-3932",
+      "name": "AMC 12 B #0kjw",
+      "url": "https://usamoguide.com/",
+      "source": "AMC 12 B",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Least common multiples (lcm)"
+      ],
+      "statement": "For $n$ a positive integer, let $R(n)$ be the sum of remainders when $n$ is divided by $2$, $3$, $4$, $5$, $6$, $7$, $8$, $9$, and $10$. For example, $R(15) = 1 + 0 + 3 + 0 + 3 + 1 + 7 + 6 + 5 = 26$. How many two-digit positive integers $n$ satisfy $R(n) = R(n + 1)$?\n\n(A) 0   (B) 1   (C) 2   (D) 3   (E) 4",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-divisibility-factorization-least-common-multiples-lcm-auto-3951",
+      "name": "Berkeley Math Circle: Monthly Contest 4 #0kkf",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 4",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Greatest common divisors (gcd)",
+        "Least common multiples (lcm)",
+        "Factorization techniques"
+      ],
+      "statement": "Problem:\nLet gcd mean the greatest common divisor of two numbers and lcm their least common multiple. Suppose the three numbers $A$, $B$, $C$ satisfy\n\n$$\n\\begin{array}{ll}\n\\operatorname{gcd}(A, B)=2, & \\operatorname{lcm}(A, B)=60 \\\\\n\\operatorname{gcd}(A, C)=3, & \\operatorname{lcm}(A, C)=42\n\\end{array}\n$$\n\nDetermine the three numbers.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFrom the given information, $A$ must be a multiple of $2$ and $3$, and thus a multiple of $\\operatorname{LCM}(2,3)=6$. It also must be a factor of $60$ and $42$, and thus a factor of $\\operatorname{GCD}(60,42)=6$. The only possibility is $A=6$.\n\nSince $\\operatorname{LCM}(A, B)$ is divisible by $5$ but $A$ is not, $B$ must be divisible by $5$. Similarly, since $\\operatorname{LCM}(A, B)$ is divisible by $2^{2}=4$ but $A$ is not, $B$ must also be a multiple of $4$ and thus a multiple of $20$. $B$ cannot be $60$ or we would have $\\operatorname{GCD}(A, B)=6$, thus $B=20$.\n\nFinally, since $\\operatorname{LCM}(A, C)$ is a multiple of $7$ but $A$ is not, $C$ must be divisible by $7$. Also, $C$ is divisible by $3$ since $\\operatorname{GCD}(A, C)=3$. Thus, $C$ is a multiple of $21$, and we cannot have $C=42$ or else $\\operatorname{GCD}(A, C)$ would be $6$. Thus, $C=21$, giving the solution $A=6$, $B=20$, $C=21$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-divisibility-factorization-least-common-multiples-lcm-auto-3953",
+      "name": "Berkeley Math Circle: Monthly Contest 5 #0kkh",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 5",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Least common multiples (lcm)"
+      ],
+      "statement": "Problem:\nShow that for any positive integers $a, b$, and $c$,\n$$\na b c \\operatorname{lcm}(a, b, c) \\geq \\operatorname{lcm}(b, c) \\operatorname{lcm}(c, a) \\operatorname{lcm}(a, b),\n$$\nwhere lcm denotes the least common multiple.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nIt suffices to show that the left hand side is a multiple of the right, i.e., that for any prime $p$, the exponent of $p$ in the prime factorization of the left hand side is at least that for the right.\nLet the exponent of $p$ in $a, b, c$ be $x, y, z$, respectively. WLOG, assume $x \\geq y \\geq z$. The exponent of $p$ in the left hand side is then $x+y+z+\\max (x, y, z)=2 x+y+z$, and that in the right is $\\max (y, z)+\\max (x, z)+\\max (x, y)=y+2 x$, so the claim follows."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-divisibility-factorization-least-common-multiples-lcm-auto-4036",
+      "name": "AMC 12 A #0kms",
+      "url": "https://usamoguide.com/",
+      "source": "AMC 12 A",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Least common multiples (lcm)",
+        "Prime numbers"
+      ],
+      "statement": "Let $M$ be the least common multiple of all the integers $10$ through $30$, inclusive. Let $N$ be the least common multiple of $32$, $33$, $34$, $35$, $36$, $37$, $38$, $39$, and $40$. What is the value of $\\frac{N}{M}$?\n\n(A) 1 (B) 2 (C) 37 (D) 74 (E) 2886",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-divisibility-factorization-least-common-multiples-lcm-auto-4047",
+      "name": "HMMT Spring 2021 #0kn3",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT Spring 2021",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Greatest common divisors (gcd)",
+        "Least common multiples (lcm)",
+        "Techniques: modulo, size analysis, order analysis, inequalities"
+      ],
+      "statement": "Problem:\n\nFor positive integers $a$ and $b$, let $M(a, b)=\\frac{\\operatorname{lcm}(a, b)}{\\operatorname{gcd}(a, b)}$, and for each positive integer $n \\geq 2$, define\n$$\nx_{n}=M(1, M(2, M(3, \\ldots, M(n-2, M(n-1, n)) \\ldots)))\n$$\nCompute the number of positive integers $n$ such that $2 \\leq n \\leq 2021$ and $5 x_{n}^{2}+5 x_{n+1}^{2}=26 x_{n} x_{n+1}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe desired condition is that $x_{n}=5 x_{n+1}$ or $x_{n+1}=5 x_{n}$.\n\nNote that for any prime $p$, we have $\\nu_{p}(M(a, b))=\\left|\\nu_{p}(a)-\\nu_{p}(b)\\right|$. Furthermore, $\\nu_{p}(M(a, b)) \\equiv \\nu_{p}(a)+\\nu_{p}(b) \\bmod 2$. So, we have that\n$$\n\\nu_{p}\\left(x_{n}\\right) \\equiv \\nu_{p}(1)+\\nu_{p}(2)+\\cdots+\\nu_{p}(n) \\bmod 2\n$$\nSubtracting gives that $\\nu_{p}\\left(x_{n+1}\\right)-\\nu_{p}\\left(x_{n}\\right) \\equiv \\nu_{p}(n+1) \\bmod 2$. In particular, for $p \\neq 5, \\nu_{p}(n+1)$ must be even, and $\\nu_{5}(n+1)$ must be odd. So $n+1$ must be a 5 times a perfect square. There are $\\left\\lfloor\\sqrt{\\frac{2021}{5}}\\right\\rfloor=20$ such values of $n$ in the interval [2,2021].\n\nNow we show that it is sufficient for $n+1$ to be 5 times a perfect square. The main claim is that if $B>0$ and a sequence $a_{1}, a_{2}, \\ldots, a_{B}$ of nonnegative real numbers satisfies $a_{n} \\leq B+\\sum_{i<n} a_{i}$ for all $1 \\leq n \\leq N$, then\n$$\n\\left|a_{1}-\\left|a_{2}-\\left|\\cdots-\\left|a_{N-1}-a_{N}\\right|\\right| \\cdots\\right|\\right| \\leq B\n$$\nThis can be proved by a straightforward induction on $N$. We then apply this claim, with $B=1$, to the sequence $a_{i}=\\nu_{p}(i)$; it is easy to verify that this sequence satisfies the condition. This gives\n$$\n\\nu_{p}\\left(x_{n}\\right)=\\left|\\nu_{p}(1)-\\left|\\nu_{p}(2)-\\left|\\cdots-\\left|\\nu_{p}(n-1)-\\nu_{p}(n)\\right|\\right| \\cdots\\right|\\right| \\leq 1\n$$\nso $\\nu_{p}\\left(x_{n}\\right)$ must be equal to $\\left(\\nu_{p}(1)+\\cdots+\\nu_{p}(n)\\right) \\bmod 2$. Now suppose $n+1=5 k^{2}$ for some $k$; then $\\nu_{p}(n+1) \\equiv 0 \\bmod 2$ for $p \\neq 5$ and $\\nu_{5}(n+1) \\equiv 1 \\bmod 2$. Therefore $\\nu_{p}\\left(x_{n+1}\\right)=\\nu_{p}\\left(x_{n}\\right)$ for $p \\neq 5$, and $\\nu_{5}\\left(x_{n+1}\\right)=\\left(\\nu_{5}\\left(x_{n}\\right)+1\\right) \\bmod 2$, and this implies $x_{n+1} / x_{n} \\in\\{1 / 5,5\\}$ as we wanted."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-divisibility-factorization-least-common-multiples-lcm-auto-4230",
+      "name": "HMMT November 2022 #0ks6",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2022",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Least common multiples (lcm)",
+        "Techniques: modulo, size analysis, order analysis, inequalities"
+      ],
+      "statement": "Problem:\nA triple of positive integers $(a, b, c)$ is tasty if $\\operatorname{lcm}(a, b, c) \\mid a+b+c-1$ and $a<b<c$. Find the sum of $a+b+c$ across all tasty triples.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe condition implies $c \\mid b+a-1$. WLOG assume $c>b>a$; since $b+a-1<2c$ we must have $b+a-1=c$. Substituting into $b \\mid a+c-1$ and $a \\mid c+b-1$ gives\n$$\n\\begin{aligned}\n& b \\mid 2a-2 \\\\\n& a \\mid 2b-2\n\\end{aligned}\n$$\nSince $2a-2<2b$ we must either have $a=1$ (implying $a=b$, bad) or $2a-2=b \\Longrightarrow a \\mid 4a-6 \\Longrightarrow a=2,3,6$. If $a=2$ then $b=2$. Otherwise, if $a=3$ we get $(3,4,6)$ and if $a=6$ we get $(6,10,15)$, so answer is $13+31=44$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-divisibility-factorization-least-common-multiples-lcm-auto-4236",
+      "name": "HMMT February 2022 #0ksc",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2022",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Greatest common divisors (gcd)",
+        "Least common multiples (lcm)",
+        "Prime numbers",
+        "Factorization techniques",
+        "τ (number of divisors)"
+      ],
+      "statement": "Problem:\nLet $f$ be a function from $\\{1,2, \\ldots, 22\\}$ to the positive integers such that $m n \\mid f(m)+f(n)$ for all $m, n \\in \\{1,2, \\ldots, 22\\}$. If $d$ is the number of positive divisors of $f(20)$, compute the minimum possible value of $d$.\nProposed by: Sheldon Kieren Tan",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $L=\\operatorname{lcm}(1,2, \\ldots, 22)$. We claim that the possible values of $f(20)$ are the multiples of $20 L$. If we can prove this, we will be done, since the minimum value of $d$ will be the number of divisors of $20 L=2^{6} \\cdot 3^{2} \\cdot 5^{2} \\cdot 7 \\cdot 11 \\cdot 13 \\cdot 17 \\cdot 19$, which has $7 \\cdot 3^{2} \\cdot 2^{5}=2016$ factors.\n\nFirst let's construct such an $f$. For any positive integer $a$, I claim that $f(n)=a L n$ works. Indeed, for any $m, n$, we find that $f(m)=a L m$ is divisible by $m n$, since $n \\mid L$. Thus the condition is satisfied.\n\nNow let's prove that $f(20)$ must be a multiple of $20 L$. Take any prime $p$, and let $q$ be the largest power of $p$ at most $22$. If $p \\neq 2$, we know that $q^{2} \\mid 2 f(q)$, meaning that $q^{2} \\mid f(q)$. Then, using the fact that $20 q \\mid f(q)+f(20)$, we find that $\\operatorname{gcd}\\left(20 q, q^{2}\\right) \\mid f(q), f(q)+f(20)$, implying that\n$$\n\\nu_{p}(f(20)) \\geq \\nu_{p}\\left(\\operatorname{gcd}\\left(20 q, q^{2}\\right)\\right)=\\nu_{p}(20 q)=\\nu_{p}(20 L)\n$$\nNow suppose $p=2$. Then $2^{8}=16^{2} \\mid 2 f(16)$, so $2^{7} \\mid f(16)$. Then, since $5 \\cdot 2^{6}=20 \\cdot 16 \\mid f(16)+f(20)$, we find that $2^{7} \\mid f(20)$. Since $7=\\nu_{2}(20 L)$, we are done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-divisibility-factorization-least-common-multiples-lcm-auto-4334",
+      "name": "HMMT February #0kv2",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Least common multiples (lcm)"
+      ],
+      "statement": "Problem:\nCompute the number of positive integers $n \\leq 1000$ such that $\\operatorname{lcm}(n, 9)$ is a perfect square. (Recall that lcm denotes the least common multiple.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nSuppose $n=3^{a} m$, where $3 \\nmid m$. Then\n$$\n\\operatorname{lcm}(n, 9)=3^{\\max (a, 2)} m\n$$\nIn order for this to be a square, we require $m$ to be a square, and $a$ to either be even or $1$. This means $n$ is either a square (if $a$ is even) or of the form $3 k^{2}$ where $3 \\nmid k$ (if $a=1$).\n\nThere are $31$ numbers of the first type, namely\n$$\n1^{2}, 2^{2}, 3^{2}, 4^{2}, \\ldots, 30^{2}, 31^{2}\n$$\nThere are $12$ numbers of the second type, namely\n$$\n3 \\cdot 1^{2}, 3 \\cdot 2^{2}, 3 \\cdot 4^{2}, 3 \\cdot 5^{2}, \\ldots, 3 \\cdot 16^{2}, 3 \\cdot 17^{2}\n$$\nOverall, there are $31+12=43$ such $n$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-divisibility-factorization-least-common-multiples-lcm-auto-4419",
+      "name": "HMMT November 2023 #0kxf",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2023",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Greatest common divisors (gcd)",
+        "Least common multiples (lcm)",
+        "Prime numbers",
+        "Factorization techniques"
+      ],
+      "statement": "Problem:\nSuppose $a$ and $b$ be positive integers not exceeding $100$ such that\n$$\na b = \\left(\\frac{\\operatorname{lcm}(a, b)}{\\operatorname{gcd}(a, b)}\\right)^2\n$$\nCompute the largest possible value of $a + b$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFor any prime $p$ and a positive integer $n$, let $\\nu_{p}(n)$ be the largest nonnegative integer $k$ for which $p^{k}$ divides $n$. Taking $\\nu_{p}$ on both sides of the given equation, we get\n$$\n\\nu_{p}(a) + \\nu_{p}(b) = 2 \\cdot \\left|\\nu_{p}(a) - \\nu_{p}(b)\\right|\n$$\nwhich means $\\frac{\\nu_{p}(a)}{\\nu_{p}(b)} \\in \\{3, \\frac{1}{3}\\}$ for all primes $p$. Using this with $a, b \\leq 100$, we get that\n\n- We must have $\\left(\\nu_{2}(a), \\nu_{2}(b)\\right) \\in \\{(0,0), (1,3), (3,1), (2,6), (6,2)\\}$ because $a$ and $b$ cannot be divisible by $2^{7}$.\n- We must have $\\left(\\nu_{3}(a), \\nu_{3}(b)\\right) \\in \\{(0,0), (1,3), (3,1)\\}$ because $a$ and $b$ cannot be divisible by $3^{6} > 100$.\n- $a$ and $b$ cannot be divisible by any prime $p \\geq 5$, because if not, then one of $a$ and $b$ must be divisible by $p^{3} \\geq 5^{3} > 100$.\n\nIf $\\left(\\nu_{2}(a), \\nu_{2}(b)\\right) = (2,6)$ (and similarly with $(6,2)$), then we must have $(a, b) = (4, 64)$, so the sum is $68$.\n\nIf $\\left(\\nu_{3}(a), \\nu_{3}(b)\\right) = (1,3)$ (and similarly with $(3,1)$), then we must have $\\nu_{2}(b) \\leq 1$ (otherwise, $b \\geq 2^{2} \\cdot 3^{3} > 100$). Hence, the optimal pair is $(a, b) = (2^{3} \\cdot 3^{1}, 2^{1} \\cdot 3^{3}) = (24, 54)$, so the sum is $24 + 54 = 78$.\n\nIf neither of the above happens, then $a + b \\leq 2^{1} + 2^{3} \\leq 10$, which is clearly not optimal.\n\nHence, the optimal pair is $(24, 54)$, and the answer is $78$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-divisibility-factorization-least-common-multiples-lcm-auto-4424",
+      "name": "HMMT February #0kxk",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Least common multiples (lcm)",
+        "Fractions"
+      ],
+      "statement": "Problem:\nIf $a$, $b$, $c$, and $d$ are pairwise distinct positive integers that satisfy $\\operatorname{lcm}(a, b, c, d) < 1000$ and $a + b = c + d$, compute the largest possible value of $a + b$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $a' = \\frac{\\operatorname{lcm}(a, b, c, d)}{a}$. Define $b'$, $c'$, and $d'$ similarly. We have that $a'$, $b'$, $c'$, and $d'$ are pairwise distinct positive integers that satisfy\n$$\n\\frac{1}{a'} + \\frac{1}{b'} = \\frac{1}{c'} + \\frac{1}{d'}\n$$\nLet $T$ be the above quantity. We have\n$$\na + b = T \\operatorname{lcm}(a, b, c, d)\n$$\nso we try to maximize $T$. Note that since $\\frac{1}{2} + \\frac{1}{3} < \\frac{1}{1}$, we cannot have any of $a'$, $b'$, $c'$, and $d'$ be $1$. At most one of them can be $2$, so at least one side of the equation must have both denominators at least $3$. Hence, the largest possible value of $T$ is\n$$\nT = \\frac{1}{3} + \\frac{1}{4} = \\frac{1}{2} + \\frac{1}{12} = \\frac{7}{12}\n$$\nand the second largest possible value of $T$ is\n$$\nT = \\frac{1}{3} + \\frac{1}{5} = \\frac{1}{2} + \\frac{1}{30} = \\frac{8}{15}.\n$$\nTaking $T = \\frac{7}{12}$ and $\\operatorname{lcm}(a, b, c, d) = 996 = 12 \\cdot 83$, we get $a + b = 581$. Since the next best value of $T$ gives $\\frac{8}{15} \\cdot 1000 < 534 < 581$, this is optimal."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-divisibility-factorization-least-common-multiples-lcm-auto-4587",
+      "name": "HMMT November 2024 #0l23",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2024",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Least common multiples (lcm)",
+        "Modular Arithmetic",
+        "QM-AM-GM-HM / Power Mean"
+      ],
+      "statement": "Problem:\n\nPositive integers $a$, $b$, and $c$ have the property that $\\operatorname{lcm}(a, b)$, $\\operatorname{lcm}(b, c)$, and $\\operatorname{lcm}(c, a)$ end in 4, 6, and 7, respectively, when written in base 10. Compute the minimum possible value of $a+b+c$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nNote that $a+b+c=28$ is achieved when $(a, b, c)=(19,6,3)$. To show we cannot do better, first observe we would need $a+c<27$ and $\\operatorname{lcm}(a, c) \\leq a c \\leq 13 \\cdot 13=169$, which is only possible when $\\operatorname{lcm}(a, c)$ is $7, 17, 57, 77$, or $117$. We do casework on each value:\n\n- $\\operatorname{lcm}(a, c)=7$. Then $a$ and $c$ are both $1$ or $7$, so $\\operatorname{lcm}(a, b)$ and $\\operatorname{lcm}(b, c)$ are both $b$ or $7b$. It is impossible for one of $b$ and $7b$ to end in $4$ and the other to end in $6$.\n\n- $\\operatorname{lcm}(a, c)=17$. The same argument as above proves this case is also impossible.\n\n- $\\operatorname{lcm}(a, c)=77$. Since the divisors of $77$ only end in $1$ and $7$, the same argument as above rules out this case.\n\n- $\\operatorname{lcm}(a, c)=57$. As $a+c<27$, we must have $\\{a, c\\}=\\{3,19\\}$. Then $b$ is even and less than $6$, so it's easy to verify there are no solutions here.\n\n- $\\operatorname{lcm}(a, c)=117$. As $a+c<27$, we must have $\\{a, c\\}=\\{9,13\\}$. Then $b$ is even and less than $6$, so it's easy to verify there are no solutions here.\n\nThis rules out all cases, so $28$ is optimal."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

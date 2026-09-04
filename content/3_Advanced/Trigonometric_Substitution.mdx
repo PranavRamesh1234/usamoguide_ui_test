@@ -1,0 +1,110 @@
+---
+id: trigonometric-substitution
+title: Trigonometric Substitution
+author: Pranav Ramesh
+description: A focused guide to trigonometric substitution — when to use it, the three common substitution forms, and four fully worked examples covering the standard integral types.
+prerequisites: ["integration-rules", "substitutions"]
+---
+
+## Overview
+
+We will explore fundamental integration rules used in calculus, and cover essential concepts such as the constant rule, exponential rule, power rule, and trigonometric rules. Each rule is illustrated with practical examples, helping readers gain confidence in integrating various functions. This document serves as a valuable reference for understanding and applying integration techniques.
+
+## 1. When to Use Trig Substitution
+
+Trig substitution is particularly useful when dealing with integrals containing the following types of expressions:
+
+- Quadratic expressions under a square root, e.g., $\sqrt{a^2 - x^2}$, $\sqrt{x^2 - a^2}$, $\sqrt{x^2 + a^2}$
+- Quadratic expressions with the form $a^2 - x^2$, $a^2 + x^2$, $x^2 - a^2$
+- Rational expressions with quadratic denominators
+
+## 2. Common Trigonometric Substitutions
+
+The choice of trigonometric substitution depends on the form of the integral. Here are the common substitutions:
+
+| Form | Substitution |
+|---|---|
+| $\sqrt{a^2 - x^2}$ | $x = a\sin\theta$ |
+| $\sqrt{x^2 - a^2}$ | $x = a\cos\theta$ |
+| $\sqrt{x^2 + a^2}$ | $x = a\tan\theta$ |
+| $a^2 - x^2$ | $x = a\sin\theta$ |
+| $a^2 + x^2$ | $x = a\tan\theta$ |
+| $x^2 - a^2$ | $x = a\sec\theta$ |
+| Rational expressions with quadratic denominators | Use appropriate substitution based on the form |
+
+## 3. Examples
+
+### Example 1
+
+Evaluate $\displaystyle\int \frac{1}{\sqrt{4 - x^2}}\,dx$
+
+**Solution:** Let $x = 2\sin\theta$, then $dx = 2\cos\theta\,d\theta$.
+
+$$
+\int \frac{1}{\sqrt{4 - x^2}}\,dx = \int \frac{1}{\sqrt{4 - (2\sin\theta)^2}} \cdot 2\cos\theta\,d\theta
+= \int \frac{1}{\sqrt{4 - 4\sin^2\theta}} \cdot 2\cos\theta\,d\theta
+$$
+
+$$
+= \int \frac{1}{\sqrt{4\cos^2\theta}} \cdot 2\cos\theta\,d\theta
+= \int \frac{1}{2}\,d\theta
+= \frac{\theta}{2} + C
+= \frac{\arcsin\!\left(\frac{x}{2}\right)}{2} + C
+$$
+
+### Example 2
+
+Evaluate $\displaystyle\int \frac{1}{\sqrt{x^2 - 1}}\,dx$
+
+**Solution:** Let $x = \sec\theta$, then $dx = \sec\theta\tan\theta\,d\theta$.
+
+$$
+\int \frac{1}{\sqrt{x^2 - 1}}\,dx = \int \frac{1}{\sqrt{\sec^2\theta - 1}} \cdot \sec\theta\tan\theta\,d\theta
+= \int \frac{1}{\sqrt{\tan^2\theta}} \cdot \sec\theta\tan\theta\,d\theta
+$$
+
+$$
+= \int \frac{1}{|\tan\theta|} \cdot \sec\theta\tan\theta\,d\theta
+= \int \sec\theta\,d\theta
+= \ln|\sec\theta + \tan\theta| + C
+= \ln\left|x + \sqrt{x^2 - 1}\right| + C
+$$
+
+### Example 3
+
+Evaluate $\displaystyle\int \frac{1}{x^2\sqrt{1 - x^2}}\,dx$
+
+**Solution:** Let $x = \sin\theta$, then $dx = \cos\theta\,d\theta$.
+
+$$
+\int \frac{1}{x^2\sqrt{1 - x^2}}\,dx = \int \frac{1}{(\sin\theta)^2\sqrt{1 - (\sin\theta)^2}} \cdot \cos\theta\,d\theta
+= \int \frac{1}{\sin^2\theta\cos\theta} \cdot \cos\theta\,d\theta
+$$
+
+$$
+= \int \frac{1}{\sin^2\theta}\,d\theta
+= \int \csc^2\theta\,d\theta
+= -\cot\theta + C
+= -\cot(\sin^{-1} x) + C
+$$
+
+### Example 4
+
+Evaluate $\displaystyle\int \frac{1}{\sqrt{x^2 + 9}}\,dx$
+
+**Solution:** Let $x = 3\tan\theta$, then $dx = 3\sec^2\theta\,d\theta$.
+
+$$
+\int \frac{1}{\sqrt{x^2 + 9}}\,dx = \int \frac{1}{\sqrt{(3\tan\theta)^2 + 9}} \cdot 3\sec^2\theta\,d\theta
+= \int \frac{1}{\sqrt{9\tan^2\theta + 9}} \cdot 3\sec^2\theta\,d\theta
+$$
+
+$$
+= \int \frac{1}{\sqrt{9(\tan^2\theta + 1)}} \cdot 3\sec^2\theta\,d\theta
+= \int \frac{1}{\sqrt{9\sec^2\theta}} \cdot 3\sec^2\theta\,d\theta
+= \int 1\,d\theta
+= \theta + C
+= \arctan\!\left(\frac{x}{3}\right) + C
+$$
+
+<Problems problems="practice" />

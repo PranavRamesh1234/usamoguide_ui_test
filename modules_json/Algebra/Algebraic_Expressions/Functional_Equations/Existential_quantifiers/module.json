@@ -1,0 +1,283 @@
+{
+  "MODULE_ID": "algebra-algebraic-expressions-functional-equations-existential-quantifiers",
+  "practice": [
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-existential-quantifiers-auto-0365",
+      "name": "Berkeley Math Circle Monthly Contest 3 #0hst",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 3",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Existential quantifiers"
+      ],
+      "statement": "Problem:\nLet $\\ominus$ be an operation on the set of real numbers such that\n$$\n(x \\ominus y)+(y \\ominus z)+(z \\ominus x)=0\n$$\nfor all real $x$, $y$, and $z$. Prove that there is a function $f: \\mathbb{R} \\rightarrow \\mathbb{R}$ such that\n$$\nx \\ominus y=f(x)-f(y)\n$$\nfor all real $x$ and $y$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFirst we plug in $x=y=z=0$ to get\n$$\n(0 \\ominus 0)+(0 \\ominus 0)+(0 \\ominus 0)=0\n$$\nthat is, $0 \\ominus 0=0$. Then we plug $y=z=0$, keeping $x$ undetermined, into the original equation to get\n$$\n(x \\ominus 0)+0+(0 \\ominus x)+0=0 .\n$$\nSo $0 \\ominus x=-(x \\ominus 0)$. Define $g(x)=x \\ominus 0$. Plugging $z=0$ into the original equation gives\n$$\n\\begin{aligned}\n(x \\ominus y)+(y \\ominus 0)+(0 \\ominus x) & =0 \\\\\n(x \\ominus y)+(y \\ominus 0)-(x \\ominus 0) & =0 \\\\\n(x \\ominus y) & =(x \\ominus 0)-(y \\ominus 0) \\\\\n& =g(x)-g(y)\n\\end{aligned}\n$$\nas desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-existential-quantifiers-auto-0432",
+      "name": "Berkeley Math Circle Monthly Contest 1 #0huo",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial operations",
+        "Existential quantifiers"
+      ],
+      "statement": "Problem:\nDetermine, with proof, whether there is a function $f(x, y)$ of two positive integers, taking positive integer values, such that\n- For each fixed $x$, $f(x, y)$ is a polynomial function of $y$;\n- For each fixed $y$, $f(x, y)$ is a polynomial function of $x$;\n- However, $f(x, y)$ does not equal any polynomial function of $x$ and $y$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe answer is yes. Consider the following expression:\n$$\nf(x, y) = 1 + (x-1)(y-1) + (x-1)(y-1)(x-2)(y-2) + (x-1)(y-1)(x-2)(y-2)(x-3)(y-3) + \\cdots.\n$$\nHere, although the sum appears to be infinite, if we fix a value $y = y_{0}$, all but the first $y_{0}$ terms contain the factor $(y - y_{0})$ and therefore equal $0$. Therefore $f(x, y_{0})$ is defined and indeed is a polynomial in $x$. (The initial term $1$ is merely to ensure that $f(x, y)$ is always positive.) Symmetrically, when $x$ is fixed, $f(x, y)$ becomes a polynomial in $y$.\n\nIt remains to prove that $f$ is not a polynomial in $x$ and $y$. If so, we can expand $f$ as a finite sum of terms $c x^{a} y^{b}$; let $a_{0}$ be the largest exponent $a$ occurring. Then, for every $y_{0}$, $f(x, y_{0})$ is a polynomial in $x$ of degree at most $a_{0}$. However, we see that $f(x, y_{0})$ is a polynomial in $x$ of degree $y_{0} - 1$. Taking $y_{0} = a_{0} + 2$ yields a contradiction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-existential-quantifiers-auto-1283",
+      "name": "Harvard-MIT Mathematics Tournament, Team Round B #0iib",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament, Team Round B",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Existential quantifiers"
+      ],
+      "statement": "Problem:\nLet $a, b, c, d$ be real numbers so that $c, d$ are not both $0$. Define the function\n$$\nm(x) = \\frac{a x + b}{c x + d}\n$$\non all real numbers $x$ except possibly $-d / c$, in the event that $c \\neq 0$. Suppose that the equation $x = m(m(x))$ has at least one solution that is not a solution of $x = m(x)$. Find all possible values of $a + d$. Prove that your answer is correct.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThat $0$ is a possible value of $a + d$ can be seen by taking $m(x) = -x$, i.e., $a = -d = 1$, $b = c = 0$. We will now show that $0$ is the only possible value of $a + d$.\n\nThe equation $x = m(m(x))$ implies\n$$\nx = \\frac{\\left(a^{2} + b c\\right) x + (a + d) b}{(a + d) c x + \\left(b c + d^{2}\\right)}\n$$\nwhich in turn implies\n$$\n(a + d)\\left[c x^{2} + (-a + d) x - b\\right] = 0\n$$\nSuppose for the sake of contradiction that $a + d \\neq 0$. Then the above equation would further imply\n$$\nc x^{2} + (-a + d) x - b = 0, \\quad x(c x + d) = a x + b,\n$$\nwhich would imply $x = m(x)$ for any $x$ except possibly $-d / c$. But of course $-d / c$ is not a root of $x = m(m(x))$ anyway, so in this case, all solutions of $x = m(m(x))$ are also solutions of $x = m(x)$, a contradiction. So our assumption was wrong, and in fact $a + d = 0$, as claimed."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-existential-quantifiers-auto-1411",
+      "name": "10th Annual Harvard-MIT Mathematics Tournament #0ilv",
+      "url": "https://usamoguide.com/",
+      "source": "10th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial operations",
+        "Existential quantifiers"
+      ],
+      "statement": "Problem:\nFind all nonconstant polynomials $P(x)$, with real coefficients and having only real zeros, such that $P(x+1) P\\left(x^{2}-x+1\\right)=P\\left(x^{3}+1\\right)$ for all real numbers $x$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $\\left\\{P(x)=x^{k} \\mid k \\in \\mathbb{Z}^{+}\\right\\}$.\n\nNote that if $P(\\alpha)=0$, then by setting $x=\\alpha-1$ in the given equation, we find $0=P\\left(x^{3}+1\\right)=P\\left(\\alpha^{3}-3 \\alpha^{2}+3 \\alpha\\right)$. Because $P$ is nonconstant, it has at least one zero. Because $P$ has finite degree, there exist minimal and maximal roots of $P$. Writing $\\alpha^{3}-3 \\alpha^{2}+3 \\alpha \\geq \\alpha \\Longleftrightarrow \\alpha(\\alpha-1)(\\alpha-2) \\geq 0$, we see that the largest zero of $P$ cannot exceed $2$. Likewise, the smallest zero cannot be negative, so all of the zeroes of $P$ lie in $[0,2]$. Moreover, if $\\alpha \\notin\\{0,1,2\\}$ is a zero of $P$, then $\\alpha' = \\alpha^{3}-3 \\alpha^{2}+3 \\alpha$ is another zero of $P$ that lies strictly between $\\alpha$ and $1$. Because $P$ has only finitely many zeroes, all of its zeroes must lie in $\\{0,1,2\\}$.\n\nNow write $P(x)=k x^{p}(x-1)^{q}(x-2)^{r}$ for nonnegative integers $p, q$ and $r$ having a positive sum. The given equation becomes\n$$\n\\begin{aligned}\n& k^{2}(x+1)^{p} x^{q}(x-1)^{r}\\left(x^{2}-x+1\\right)^{p}\\left(x^{2}-x\\right)^{q}\\left(x^{2}-x-1\\right)^{r} = P(x+1) P\\left(x^{2}-x+1\\right) \\\\\n& \\quad = P\\left(x^{3}+1\\right) = k\\left(x^{3}+1\\right)^{p} x^{3q}\\left(x^{3}-1\\right)^{r}\n\\end{aligned}\n$$\nFor the leading coefficients to agree, we require $k=k^{2}$. Because the leading coefficient is nonzero, $P$ must be monic. In $(*), r$ must be zero lest $P\\left(x^{3}+1\\right)=0$ have complex roots. Then $q$ must be zero as well. For, if $q$ is positive, then $P\\left(x^{2}-x+1\\right)=0$ has $1$ as a root while $P\\left(x^{3}+1\\right)$ does not. Finally, the remaining possibilities are $P(x)=x^{p}$ for $p$ an arbitrary positive integer. It is easily seen that these polynomials are satisfactory."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-existential-quantifiers-auto-1819",
+      "name": "IMO 2009 #0ix7",
+      "url": "https://usamoguide.com/",
+      "source": "IMO 2009",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Injectivity / surjectivity",
+        "Existential quantifiers",
+        "Triangle inequalities",
+        "Coloring schemes, extremal arguments"
+      ],
+      "statement": "Determine all functions $f$ from the set of positive integers to the set of positive integers such that, for all positive integers $a$ and $b$, there exists a non-degenerate triangle with sides of lengths $a$, $f(b)$ and $f(b+f(a)-1)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "If $f(b+v_2) = f(b)-1$, then setting $a=2$ and $b = b+v_2$ in the given condition leads to the triangular triple $\\{2, f(b+v_2) = f(b)-1, f(b+2v_2)\\}$. By the triangle inequality and (c), the only possible value of $f(b+2v_2)$ is $f(b)-2$. Likewise, we can deduce that $f(b+3v_2) = f(b)-3$, and so on. But this impossible, because $f$ takes values in the set of positive integers.\nWe conclude that $f(b + v_2) = f(b) + 1$. By a simple induction, we have $f(b + kv_2) = f(b) + k$ for positive integers $k$. In particular, setting $b = 1$ yields\n$$\nf(1) = 1, \\quad f(1+v_2) = 2, \\quad f(1+2v_2) = 3, \\quad \\dots, \\quad f(1+kv_2) = 1+k, \\dots \\quad (1)\n$$\nSetting $k = v_2$ in (1) gives\n$$\nf(1 + v_2^2) = 1 + v_2.\n$$\nBy (b), we conclude that $1+v_2^2 = f(f(1+v_2^2)) = f(1+v_2) = 2$, implying that $v_2 = 1$. Substituting $v_2 = 1$ in (1) leads to the solution $f(x) = x$.\n\nWe start with a lemma that is slightly stronger than Freiman's theorem. Part of this lemma could be very helpful in certain proofs of USAMO 2009 problem 2 and IMO 2000 problem 1.\n\n**Lemma 1.** Let $A, B$ be finite nonempty subsets of $\\mathbb{Z}$. Then the set $A+B = \\{a+b : a \\in A, b \\in B\\}$ has cardinality at least $|A| + |B| - 1$. Equality holds if and only if either $A$ and $B$ are arithmetic progressions with equal difference or at least one of $|A|$ or $|B|$ is equal to 1. (Here $|S|$ denotes the number of elements in $S$.)\n\n*Proof.* Let $A = \\{a_1 < a_2 < \\dots < a_{|A|}\\}$ and $B = \\{b_1 < b_2 < \\dots < b_{|B|}\\}$. The following $|A| + |B| - 1$ distinct elements, arranged in increasing order, are in $A+B$:\n$$\na_1 + b_1 < \\dots < a_1 + b_{|B|} < a_2 + b_{|B|} < \\dots < a_{|A|+|B|}.\n$$\nTherefore $|A+B| \\ge |A| + |B| - 1$, establishing the inequality.\n\nNext we consider the equality case. Let $c_i$ denote the value of the $i^{\\text{th}}$ element in the above list. Assume that $|A+B| = |A| + |B| - 1$ and $|A|, |B| > 1$. For any $1 < i \\le |A|$ and $1 < j \\le |B|$, consider the following list of $|A| + |B| - 1$ distinct elements in $A+B$:\n$$\n\\underbrace{a_1 + b_1 < \\dots < a_1 + b_{j-1}}_{j-1 \\text{ elements}} < \\underbrace{a_2 + b_{j-1} < \\dots < a_i + b_{j-1}}_{i-1 \\text{ elements}} < \\underbrace{a_i + b_j < \\dots < a_i + b_{|B|}}_{|B|-j+1 \\text{ elements}} < \\underbrace{a_{i+1} + b_{|B|} < \\dots < a_{|A|} + b_{|B|}}_{|A|-i \\text{ elements}}.\n$$\nThis list must be the same as before. Therefore $a_i+b_{j-1} = c_{i+j-2}$. Likewise $a_{i-1}+b_j = c_{i+j-2}$. Therefore $a_i + b_{j-1} = a_{i-1} + b_j$ and $a_i - a_{i-1} = b_j - b_{j-1}$. Hence, both $A$ and $B$ are arithmetic progressions with the same common difference. $\\square$\n\nNow we can complete our proof in a few steps.\n\n(d) For a positive integer $n$, let $I_n = \\{1, 2, \\dots, n\\}$, $\\mathcal{A}_n = \\{f(i) : i \\in I_n\\}$. Because $f(f(n)) = n$, the given condition implies the more symmetric fact that $\\{a, b, f(f(a) + f(b) - 1)\\}$ is triangular. Hence if $a, b \\in I_n$, then $f(f(a) + f(b) - 1) \\le 2n - 1$.\n\n(e) Combining (c) and (d), we conclude that $|\\{f(a) + f(b) - 1 : a, b \\in I_n\\}| \\le 2n - 1$; that is,\n$$\n|\\mathcal{A}_n + \\mathcal{A}_m| = |\\{f(a) + f(b) : a, b \\in I_n\\}| = |\\{f(a) + f(b) - 1 : a, b \\in I_n\\}| \\le 2n - 1 = 2|\\mathcal{A}_n| - 1.\n$$\n\n(f) By the lemma and (e), we deduce that $\\mathcal{A}_n$ is an $n$-element set with its elements forming an arithmetic progression starting with $f(1) = 1$.\n\n(g) Consider the elements in $\\mathcal{A}_n$ and $\\mathcal{A}_{n+1}$. Clearly, $\\mathcal{A}_n \\subset \\mathcal{A}_{n+1}$ and $\\mathcal{A}_{n+1}$ has one additional element. If $n \\ge 3$, this additional element must be at one of the ends of the arithmetic sequence formed by the elements in $\\mathcal{A}_n$. But both sets have minimum value $f(1) = 1$. Hence this new element must be at the upper end. We conclude that $f$ is linear except possibly for $f(2)$ and $f(3)$.\n\n(h) Note that (b) also implies that $f$ is surjective. Combining with (c), we know that $f$ is bijective. By (g), we must have $f(n) = n$ for $n \\ge 4$.\n\n(g) For $a = 2$ and large $b$, $\\{2, b, f(2)+b-1\\}$ is triangular if and only if $f(2)+b-1 < 2+b$, implying that $f(2) = 2$. Likewise, or using injectivity, we have $f(3) = 3$, completing our proof."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-existential-quantifiers-auto-2047",
+      "name": "Harvard-MIT Mathematics Tournament #0j3j",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Invariants / monovariants",
+        "Games / greedy algorithms",
+        "Existential quantifiers"
+      ],
+      "statement": "Problem:\nA knight moves on a two-dimensional grid. From any square, it can move 2 units in one axis-parallel direction, then move 1 unit in an orthogonal direction, the way a regular knight moves in a game of chess. The knight starts at the origin. As it moves, it keeps track of a number $t$, which is initially $0$. When the knight lands at the point $(a, b)$, the number is changed from $x$ to $a x + b$.\n\nShow that, for any integers $a$ and $b$, it is possible for the knight to land at the points $(1, a)$ and $(-1, a)$ with $t$ equal to $b$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFor convenience, we will refer to $(a, b)$ as $[a x + b]$, the function it represents. This will make it easier to follow the trajectory of $t$ over a given sequence of moves.\n\nSuppose we start at $[x+1]$ with $t=a$. Taking the path $[x+1] \\rightarrow [-x] \\rightarrow [x-1] \\rightarrow [-x] \\rightarrow [x+1]$ will yield $t=a+2$. So we can go from $t=a$ to $t=a+2$ at $[x+1]$.\n\nWe can also move until we get to $[-3]$, then go $[-3] \\rightarrow [x-1]$ to end up with $t=-4$ at $[x-1]$. But going $[x-1] \\rightarrow [3x] \\rightarrow [x-1]$ means we can go from $t=a$ to $t=3a-1$ at $x-1$. Since we can start with $t=-4$, this means we can therefore get arbitrarily small even and odd numbers at $[x-1]$, hence also $[3x]$, hence also at $[x+1]$.\n\nThis implies we can get any value of $t$ we want at $[x+1]$, so we can also get any value of $t$ we want at $[-x], [x-1], [-x-2], [x-3]$, etc., as well as $[-x+2], [x+3], [-x+4], [x+5]$, etc. We can do a similar thing starting at $[-x+1]$ to get from $t=a$ to $t=a+2$, and use the $[-x-1] \\rightarrow [-3x] \\rightarrow [-x-1]$ loop to get arbitrarily small integers of both parities. So we can get any value of $t$ we want at all points of the form $[\\pm x + k]$ for any integer $k$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-existential-quantifiers-auto-2120",
+      "name": "Harvard-MIT Mathematics Tournament #0j5k",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Existential quantifiers"
+      ],
+      "statement": "Problem:\nLet $f:(0,1) \\rightarrow (0,1)$ be a differentiable function with a continuous derivative such that for every positive integer $n$ and odd positive integer $a < 2^{n}$, there exists an odd positive integer $b < 2^{n}$ such that $f\\left(\\frac{a}{2^{n}}\\right) = \\frac{b}{2^{n}}$. Determine the set of possible values of $f^{\\prime}\\left(\\frac{1}{2}\\right)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $\\{-1,1\\}$\n\nThe key step is to notice that for such a function $f$, $f^{\\prime}(x) \\neq 0$ for any $x$.\n\nAssume, for sake of contradiction, that there exists $0 < y < 1$ such that $f^{\\prime}(y) = 0$. Since $f^{\\prime}$ is a continuous function, there is some small interval $(c, d)$ containing $y$ such that $|f^{\\prime}(x)| \\leq \\frac{1}{2}$ for all $x \\in (c, d)$. Now there exists some $n, a$ such that $\\frac{a}{2^{n}}, \\frac{a+1}{2^{n}}$ are both in the interval $(c, d)$. From the definition,\n$$\n\\frac{f\\left(\\frac{a+1}{2^{n}}\\right) - f\\left(\\frac{a}{2^{n}}\\right)}{\\frac{a+1}{2^{n}} - \\frac{a}{2^{n}}} = 2^{n}\\left(\\frac{b'}{2^{n}} - \\frac{b}{2^{n}}\\right) = b' - b\n$$\nwhere $b, b'$ are integers; one is odd, and one is even. So $b' - b$ is an odd integer. Since $f$ is differentiable, by the mean value theorem there exists a point where $f^{\\prime} = b' - b$. But this point is in the interval $(c, d)$, and $|b' - b| > \\frac{1}{2}$. This contradicts the assumption that $|f^{\\prime}(x)| \\leq \\frac{1}{2}$ for all $x \\in (c, d)$.\n\nSince $f^{\\prime}(x) \\neq 0$, and $f^{\\prime}$ is a continuous function, $f^{\\prime}$ is either always positive or always negative. So $f$ is either increasing or decreasing. $f\\left(\\frac{1}{2}\\right) = \\frac{1}{2}$ always. If $f$ is increasing, it follows that $f\\left(\\frac{1}{4}\\right) = \\frac{1}{4}$, $f\\left(\\frac{3}{4}\\right) = \\frac{3}{4}$, and we can show by induction that indeed $f\\left(\\frac{a}{2^{n}}\\right) = \\frac{a}{2^{n}}$ for all integers $a, n$. Since numbers of this form are dense in the interval $(0,1)$, and $f$ is a continuous function, $f(x) = x$ for all $x$.\n\nIt can be similarly shown that if $f$ is decreasing, $f(x) = 1 - x$ for all $x$. So the only possible values of $f^{\\prime}\\left(\\frac{1}{2}\\right)$ are $-1, 1$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-existential-quantifiers-auto-2440",
+      "name": "RMM #0jeg",
+      "url": "https://usamoguide.com/",
+      "source": "RMM",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Existential quantifiers",
+        "Injectivity / surjectivity",
+        "Floors and ceilings",
+        "Other"
+      ],
+      "statement": "Does there exist a pair $(g, h)$ of functions $g, h : \\mathbb{R} \\to \\mathbb{R}$ such that the only function $f : \\mathbb{R} \\to \\mathbb{R}$ satisfying $f(g(x)) = g(f(x))$ and $f(h(x)) = h(f(x))$ for all $x \\in \\mathbb{R}$ is the identity function $f(x) = x$?\n(This problem was suggested by Alexander Betts from the United Kingdom.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**Solution 1.** We claim that $g(x) = 2x$, $h(x) = \\lfloor x \\rfloor - 1$ works. We must show that $f(x) = x$ is the only solution to the system of equations\n$$\n2f(x) = f(2x)\n$$\n$$\nf(\\lfloor x \\rfloor - 1) = \\lfloor f(x) \\rfloor - 1.\n$$\nfor $f(x)$. First, note that $2f(0) = f(0)$, so $f(0) = 0$. Also, if $n$ is an integer, then $f(n) = \\lfloor f(n+1) \\rfloor - 1$, so $f(n)$ is an integer. Therefore, we obtain that\n$$\nf(n) = \\lfloor f(n + 1) \\rfloor - 1 = f(n + 1) - 1,\n$$\nwhich together with $f(0) = 0$ gives $f(n) = n$ for all integers $n$.\nNow, assume that there is some $x$ with $f(x) \\neq x$. Note that if $\\lfloor a \\rfloor = \\lfloor b \\rfloor$, then by using the second equation for $a$ and $b$ we get $\\lfloor f(a) \\rfloor = \\lfloor f(b) \\rfloor$. Now let $f(x) = x + \\epsilon$, where $|\\epsilon| > 1/2^k$ for a large enough integer $k$. Then, we obtain $f(2^k x) = 2^k x + 2^k \\epsilon$ by the first equation. But then because $\\lfloor 2^k x \\rfloor = \\lfloor 2^k x \\rfloor$, we have $\\lfloor 2^k x \\rfloor = \\lfloor 2^k x + 2^k \\epsilon \\rfloor$. But $\\lfloor 2^k \\epsilon \\rfloor > 1$, a contradiction. We conclude that $f(x) = x$ as desired.\n\n\n**Solution 2.** The answer is yes. Let\n$$\ng(x) = \\begin{cases} x + 1 & \\text{if } \\{x\\} < \\frac{1}{2} \\\\ x + \\frac{1}{2} & \\text{if } \\{x\\} \\ge \\frac{1}{2}, \\end{cases}\n$$\nand\n$$\nh(x) = \\sqrt{2} g \\left( \\frac{x}{\\sqrt{2}} \\right),\n$$\nwhere $\\{x\\}$ denotes the fractional part of $x$. By Kronecker's theorem, if $x$ is irrational and $n$ ranges over the positive integers, then $\\{nx\\}$ is dense in the unit interval. Observe that if $x$ is in the range of $g$, then $g(x) = x + 1$, and, if $x$ is in the range of $h$, then $h(x) = x + \\sqrt{2}$. We now make the following observations.\n\na. If $x$ is in the range of $g$, then so is $f(x)$, because then $x = g(x_0)$ for some $x_0$ and $f(x) = f(g(x_0)) = g(f(x_0))$ by the given condition.\n\nb. If $x$ is in the range of $g$, then $f(x+1) = f(g(x)) = g(f(x)) = f(x)+1$, so $f(x+n) = f(x)+n$ for all positive integers $n$.\n\nSimilarly, we notice that\n\nc. If $x$ is in the range of $h$, then so is $f(x)$.\n\nd. If $x$ is in the range of $h$, then $f(x+m\\sqrt{2}) = f(x) + m\\sqrt{2}$ for all positive integers $m$.\n\nWe now show by contradiction that $f(x) = x$. Assume that there exist $a \\neq b$ such that $f(a) = b$. We divide into two cases.\n\n**Case 1:** Suppose that $a$ is in the range of both $g$ and $h$. Then so is $b$ and $f(a+n) = b+n$ for all positive integers $n$. Since $a$ and $b$ are in the range of $h$ we have\n$$\n\\left\\{ \\frac{a}{\\sqrt{2}} \\right\\}, \\left\\{ \\frac{b}{\\sqrt{2}} \\right\\} < \\frac{1}{2}.\n$$\nBy Kronecker's theorem, we can find a positive integer $n$ such that $\\left\\{ \\frac{n}{\\sqrt{2}} \\right\\}$ is in one of the intervals\n$$\n\\left[ \\frac{1}{2} - \\left\\{ \\frac{b}{\\sqrt{2}} \\right\\} , \\frac{1}{2} - \\left\\{ \\frac{a}{\\sqrt{2}} \\right\\} \\right) \\text{ or } \\left[ 1 - \\left\\{ \\frac{a}{\\sqrt{2}} \\right\\} , 1 - \\left\\{ \\frac{b}{\\sqrt{2}} \\right\\} \\right)\n$$\nunless $\\frac{a-b}{\\sqrt{2}}$ is an integer. In the first situation, we would have $\\left\\{ \\frac{a+n}{\\sqrt{2}} \\right\\} < \\frac{1}{2}$ and $\\left\\{ \\frac{b+n}{\\sqrt{2}} \\right\\} \\geq \\frac{1}{2}$, so $a+n$ is in the range of $h$ while $b+n$ is not. But $b+n = f(a+n)$, which contradicts (c).\n\nSimilarly by Kronecker's theorem, we obtain that there exists a positive integer $m$ such that $\\{a+m\\sqrt{2}\\} < \\frac{1}{2}$ and $\\{b+m\\sqrt{2}\\} \\geq \\frac{1}{2}$, which violates (a) because $f(a+m\\sqrt{2}) = b+m\\sqrt{2}$ for all $m$, unless $a-b$ is an integer. Thus, both $a-b$ and $\\frac{a-b}{\\sqrt{2}}$ should be integers, which is clearly impossible.\n\n**Case 2:** Suppose that $a$ is in the range of $g$ but not in the range of $h$. Then $f(a+n) = b+n$ for all positive integers $n$. By Kronecker's theorem, there exists an $n$ such that $\\{\\frac{n}{\\sqrt{2}}\\}$ is in the interval\n$$\n\\left( 1 - \\left\\{ \\frac{a}{\\sqrt{2}} \\right\\} , \\frac{3}{2} - \\left\\{ \\frac{a}{\\sqrt{2}} \\right\\} \\right),\n$$\nso $\\{\\frac{a+n}{\\sqrt{2}}\\} < \\frac{1}{2}$ and $a+n$ is in the range of $h$. We can then use $a+n$ as our $a$ in Case 1 to rule out this case. The case where $a$ is in the range of $h$ but not $g$ is similar.\n\n**Case 3:** Suppose finally that $a$ is in the range of neither $g$ nor $h$. We have $f(g(a)) = g(a) = a + \\frac{1}{2}$ and $f(g(a)) = g(f(a)) = f(a) + 1$, hence $f(a) + \\frac{1}{2}$. Since $f(a) \\neq a$, we have $f(a) = a - \\frac{1}{2}$. But we also have $f(h(a)) = h(a) = a + \\frac{\\sqrt{2}}{2}$ and $f(h(a)) = h(f(a)) = f(a) + \\sqrt{2}$, which implies $f(a) + \\frac{\\sqrt{2}}{2}$. We conclude that $f(a) = a - \\frac{\\sqrt{2}}{2}$. We thus obtained a contradiction that rules out this case as well.\n\nWe have thus obtained a contradiction in each case, and hence $f(a)$ is always equal to $a$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-existential-quantifiers-auto-2879",
+      "name": "HMMT November 2015 #0jqn",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2015",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Existential quantifiers"
+      ],
+      "statement": "Problem:\n\nConsider all functions $f: \\mathbb{Z} \\rightarrow \\mathbb{Z}$ satisfying\n$$\nf(f(x)+2x+20)=15\n$$\nCall an integer $n$ good if $f(n)$ can take any integer value. In other words, if we fix $n$, for any integer $m$, there exists a function $f$ such that $f(n)=m$. Find the sum of all good integers $x$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $-35$\n\nFor almost all integers $x$, $f(x) \\neq -x-20$. If $f(x) = -x-20$, then\n$$\nf(-x-20+2x+20) = 15 \\Longrightarrow -x-20 = 15 \\Longrightarrow x = -35\n$$\nNow it suffices to prove that the $f(-35)$ can take any value.\n$f(-35) = 15$ in the function $f(x) \\equiv 15$. Otherwise, set $f(-35) = c$, and $f(x) = 15$ for all other $x$. It is easy to check that these functions all work."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-existential-quantifiers-auto-4599",
+      "name": "25th Bay Area Mathematical Olympiad #0l2f",
+      "url": "https://usamoguide.com/",
+      "source": "25th Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial operations",
+        "Existential quantifiers"
+      ],
+      "statement": "Problem:\nFind all polynomials $f$ that satisfy the equation\n$$\n\\frac{f(3x)}{f(x)} = \\frac{729(x-3)}{x-243}\n$$\nfor infinitely many real values of $x$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe above equation holds for infinitely many $x$ if and only if\n$$\n(x-243) f(3x) = 729(x-3) f(x)\n$$\nfor all $x \\in \\mathbb{C}$, because $(x-243) f(3x) - 729(x-3) f(x)$ is a polynomial, which has infinitely many zeroes if and only if it is identically $0$.\n\nWe now plug in different values to find various zeroes of $f$:\n$$\n\\begin{aligned}\nx=3 & \\Longrightarrow f(9)=0 \\\\\nx=9 & \\Longrightarrow f(27)=0 \\\\\nx=27 & \\Longrightarrow f(81)=0 \\\\\nx=81 & \\Longrightarrow f(243)=0\n\\end{aligned}\n$$\nWe may write $f(x) = (x-243)(x-81)(x-27)(x-9) p(x)$ for some polynomial $p(x)$. We want to solve\n$$\n\\begin{aligned}\n& (x-243)(3x-243)(3x-81)(3x-27)(3x-9) p(3x) \\\\\n& \\quad = 729(x-3)(x-243)(x-81)(x-27)(x-9) p(x).\n\\end{aligned}\n$$\nDividing out common factors from both sides, we get $p(3x) = 9 p(x)$, so the polynomial $p$ is homogeneous of degree $2$. Therefore $p(x) = a x^{2}$ and thus $f(x) = a(x-243)(x-81)(x-27)(x-9)x^{2}$, where $a \\in \\mathbb{C}$ is arbitrary.\n\n\nAlternative solution:\nAs above, we wish to find polynomials $f$ such that\n$$\n(x-243) f(3x) = 729(x-3) f(x).\n$$\nSuppose $f$ is such a polynomial and let $Z$ be its multiset of zeroes.\nBoth $(x-243) f(3x)$ and $729(x-3) f(x)$ have the same multiset of zeroes, i.e. $\\{243\\} \\cup \\frac{1}{3} Z = \\{3\\} \\cup Z$ or $\\{729\\} \\cup Z = \\{9\\} \\cup 3Z$. Thus\n$$\n\\begin{aligned}\n9 \\in Z & \\Rightarrow 27 \\in 3Z \\\\\n& \\Rightarrow 27 \\in Z \\\\\n& \\Rightarrow 81 \\in 3Z \\\\\n& \\Rightarrow 81 \\in Z \\\\\n& \\Rightarrow 243 \\in 3Z \\\\\n& \\Rightarrow 243 \\in Z\n\\end{aligned}\n$$\nLet $Y$ be the unique multiset with $Z = \\{9,27,81,243\\} \\cup Y$. This gives\n$$\n\\{9,27,81,243,729\\} \\cup Y = \\{9,27,81,243,729\\} \\cup 3Y\n$$\nso $Y \\subset \\mathbb{C}$ is a finite multiset, invariant under multiplication by $3$. It follows that $Y = \\{0,0,\\ldots,0\\}$ with some multiplicity $k$. Hence\n$$\nf(x) = a x^{k}(x-9)(x-27)(x-81)(x-243)\n$$\nfor some constant $a \\in \\mathbb{C}$. Plugging this back into the original equation, we see that $k=2$ and that $a \\in \\mathbb{C}$ can be arbitrary."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-existential-quantifiers-auto-4784",
+      "name": "16th United States of America Junior Mathematical Olympiad #0l7k",
+      "url": "https://usamoguide.com/",
+      "source": "16th United States of America Junior Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Injectivity / surjectivity",
+        "Existential quantifiers"
+      ],
+      "statement": "Let $\\mathbb{Z}$ be the set of integers, and let $f: \\mathbb{Z} \\to \\mathbb{Z}$ be a function. Prove that there are infinitely many integers $c$ such that the function $g: \\mathbb{Z} \\to \\mathbb{Z}$ defined by $g(x) = f(x) + c x$ is not bijective.\n\n*Note*: A function $g: \\mathbb{Z} \\to \\mathbb{Z}$ is *bijective* if for every integer $b$, there exists exactly one integer $a$ such that $g(a) = b$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-existential-quantifiers-auto-4799",
+      "name": "USA TST Selection Test for 67th IMO and 15th EGMO #0l7z",
+      "url": "https://usamoguide.com/",
+      "source": "USA TST Selection Test for 67th IMO and 15th EGMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Existential quantifiers"
+      ],
+      "statement": "Let $f: \\mathbb{R} \\to \\mathbb{Z}$ be a function satisfying\n$$\nf(x - y) - 2f(x) + f(x + y) \\geq -1\n$$\nfor all $x, y \\in \\mathbb{R}$. Find all possible values of the set $\\{f(x) \\mid x \\in \\mathbb{R}\\}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

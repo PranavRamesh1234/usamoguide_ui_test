@@ -1,0 +1,115 @@
+---
+id: counting-fundamentals
+title: Counting Fundamentals
+author: USAMO Guide Team
+description: Rule of product, basic permutations and combinations, and careful casework.
+prerequisites: []
+---
+
+## Overview
+
+Counting problems reward clear structure. Break a task into steps, multiply
+choices, and use symmetry to simplify. Most AMC-level counting reduces to
+deciding whether order matters, whether repetition is allowed, and whether
+cases overlap.
+
+## Core Tools
+
+### Rule of Product
+
+If a process has $a$ choices for step 1 and $b$ choices for step 2, then there
+are $ab$ total outcomes. Multiply when steps are independent.
+
+### Factorials
+
+$n!$ counts the number of ways to arrange $n$ distinct objects in order.
+Special cases: $0! = 1$, $1! = 1$.
+
+### Permutations vs. Combinations
+
+- Permutations (order matters): $P(n,r) = \frac{n!}{(n-r)!}$.
+- Combinations (order does not matter): $\binom{n}{r} = \frac{n!}{r!(n-r)!}$.
+- Connection: $P(n,r) = r!\binom{n}{r}$.
+
+### Subsets
+
+The number of subsets of an $n$-element set is $2^n$. Nonempty subsets: $2^n-1$.
+
+### Complementary Counting
+
+When the direct count is messy, count the total and subtract the undesired:
+
+$$
+\text{Desired} = \text{Total} - \text{Undesired}.
+$$
+
+### Casework
+
+Split the problem into disjoint cases that cover all possibilities, solve each
+case, then sum. Casework is often the fastest way to avoid overcounting.
+
+## Key Ideas
+
+- Decide early: order vs. no order, repetition vs. no repetition.
+- Use $P(n,r)$ for ordered selections, $\binom{n}{r}$ for unordered.
+- If a restriction is "at least" or "not equal", try the complement.
+- Casework must be disjoint; if it is not, use inclusion-exclusion.
+
+## Worked Example
+
+How many 3-digit numbers have strictly increasing digits?
+
+Choose any 3 distinct digits from $\{0,1,2,\ldots,9\}$. There are
+$\binom{10}{3}$ choices. Each choice determines exactly one increasing number,
+but we must exclude those with a leading $0$. If $0$ is included, the number
+starts with $0$ and is not 3-digit. The number of invalid choices is
+$\binom{9}{2}$. So the answer is $\binom{10}{3} - \binom{9}{2} = 120 - 36 = 84$.
+
+## More Examples
+
+### Example 1: Permutations
+
+How many 4-character PINs can be made using digits $0$--$9$ if repetition is
+allowed?
+
+Each position has 10 choices, so the answer is $10^4 = 10000$.
+
+### Example 2: Combinations with a Restriction
+
+From 8 students, choose 4 for a committee if two rivals cannot both serve.
+
+All committees: $\binom{8}{4} = 70$. Committees with both rivals: fix them and
+choose 2 from the remaining 6, giving $\binom{6}{2} = 15$. So the answer is
+$70 - 15 = 55$.
+
+### Example 3: Casework
+
+How many two-digit numbers have digit product a perfect square?
+
+Let the digits be $a$ and $b$. Squares among digits are $0,1,4,9$. Check cases:
+
+- $b=0$ gives 9 numbers ($10,20,\ldots,90$).
+- $b=1,4,9$ each give $a\in\{1,4,9\}$, so 3 each.
+- Other digits give no solutions.
+
+Total: $9+3+3+3=18$.
+
+## Common Pitfalls
+
+- Double-counting when order does not matter.
+- Ignoring leading-zero restrictions.
+- Using permutations when combinations are needed.
+- Casework with overlapping cases.
+- Using complement counting without a clear total.
+- Mixing up identical objects with distinct ones.
+
+## Strategy Checklist
+
+- What is the sample space? How many total outcomes?
+- Does order matter? Does repetition matter?
+- Is complement or casework faster?
+- Are the cases disjoint?
+
+## Practice Problems
+
+<Problems problems="practice" />

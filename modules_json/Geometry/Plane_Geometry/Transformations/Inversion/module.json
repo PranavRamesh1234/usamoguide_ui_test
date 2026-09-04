@@ -1,0 +1,1101 @@
+{
+  "MODULE_ID": "geometry-plane-geometry-transformations-inversion",
+  "practice": [
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-0720",
+      "name": "Berkeley Math Circle #0i2o",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inversion",
+        "Constructions and loci",
+        "Angle chasing"
+      ],
+      "statement": "Problem:\nGiven a line segment $A B$, construct a segment half as long as $A B$ using only a compass. Construct a segment one-third as long as $A B$ using only a compass.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFirst, we provide (part of) an algorithm for circular inversion. Suppose we are given point $O$ and a circle centered at $O$ of some radius $r$. If $P$ is a point outside the circle, we wish to construct point $Q$ on ray $O P$, satisfying $O P \\cdot O Q = r^{2}$. Let the circle centered at $P$, with radius $O P$, intersect the given circle centered at $O$ at points $X$ and $Y$. Then let the circle with center $X$, radius $r$ (which is constructible since $r = O X$), and the circle with center $Y$, radius $r$, intersect at $O$ and $Q$. We claim this point $Q$ is what we want. Indeed, it is clear from symmetry that $O P$ is the perpendicular bisector of $X Y$. Since $X Q = r = Y Q$, $Q$ lies on this bisector as well—that is, on line $O P$. Moreover, let $H$ denote the intersection of $X Y$ with $O P$; then $P H < P X = P O \\Rightarrow H$ lies on ray $O P$, and, since $Q$ is the reflection of $O$ across $X Y$, $Q$ will lie on the opposite side of $H$ from $O$. This shows that $Q$ lies on ray $O P$, not just on line $O P$. Finally, observe that $P X = P O$ and $X O = X Q \\Rightarrow \\angle O X P = \\angle P O X = \\angle Q O X = \\angle X Q O$, so, by equal angles, $\\triangle P O X \\sim \\triangle X Q O$. Thus, $O P / O X = Q X / Q O \\Rightarrow O P \\cdot O Q = O X \\cdot Q X = r^{2}$, as needed.\n\nNow that this is done, we return to the original problem. By scaling, assume $A B = 1$. By drawing circles centered at $A$ and $B$ of radius $1$, and letting $C$ be one of their intersection points, we obtain an equilateral $\\triangle A B C$. Similarly, we successively construct equilateral triangles $B C D$, $B D E$ (with $D \\neq A$, $E \\neq C$). We have $\\angle A B E = \\angle A B C + \\angle C B D + \\angle D B E = 3(\\pi / 3) = \\pi$, so $A, B, E$ are collinear, and $A E = A B + B E = 2$. Then, since we have drawn the circle with center $A$ and radius $1$, we can invert $E$ across it according to the paragraph above, obtaining $F$ such that $A F = 1 / 2$. In fact, $F$ lies on the given segment $A B$, so the segment $A F$ is fully drawn.\n\nSimilarly, to construct a segment of length $1 / 3$, let $A B$ be given; extend $A B$ to $E$ as above so that $B E = 1$, and then repeat the process, extending $B E$ to $G$ so that $E G = 1$. Then $A G = 3$, and inverting $G$ across our circle (center $A$, radius $1$) will give what we need."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-0745",
+      "name": "USA IMO #0i3d",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Quadrilaterals with perpendicular diagonals",
+        "Inversion",
+        "Angle chasing",
+        "Trigonometry",
+        "QM-AM-GM-HM / Power Mean"
+      ],
+      "statement": "Let $ABCD$ be a convex quadrilateral such that $\\angle ABC = \\angle ADC = 135^\\circ$ and\n$$\nAC^2 \\cdot BD^2 = 2AB \\cdot BC \\cdot CD \\cdot DA.\n$$\nProve that the diagonals of quadrilateral $ABCD$ are perpendicular.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**First Solution.**\n![](attached_image_1.png)\nLet $\\alpha$ be the angle formed by diagonals $AC$ and $BD$, where $0^\\circ < \\alpha \\le 90^\\circ$. We calculate the area of quadrilateral $ABCD$ in two ways. We obtain\n$$\n[ABCD] = \\frac{1}{2}(AC \\cdot BD \\sin \\alpha)\n$$\nand\n$$\n\\begin{align*} \n[ABCD] &= [ABC] + [CDA] \\\\ \n&= \\frac{1}{2}(AB \\cdot BC \\sin 135^\\circ) + \\frac{1}{2}(CD \\cdot DA \\sin 135^\\circ) \\\\ \n&= \\frac{1}{2\\sqrt{2}}(AB \\cdot BC + CD \\cdot DA). \n\\end{align*}\n$$\nCombining the above two equations yields\n$$\nAC^2 \\cdot BD^2 \\sin^2 \\alpha = \\frac{1}{2}(AB \\cdot BC + CD \\cdot DA)^2.\n$$\nFor real numbers $a$ and $b$, $(a + b)^2 \\ge 4ab$, hence\n$$\nAC^2 \\cdot BD^2 \\sin^2 \\alpha \\ge 2AB \\cdot BC \\cdot CD \\cdot DA.\n$$\nIt follows that $\\sin^2 \\alpha \\ge 1$. Therefore, $\\sin \\alpha = 1$ and $\\alpha = 90^\\circ$, as desired.\n\n\n**Second Solution.**\n![](attached_image_2.png)\nConsider an **inversion** of center $B$ and radius $1$. Let $A', C', D'$ denote the images of $A, C, D$ under the inversion, respectively. Then $\\angle A'D'B = \\angle BAD$ and $\\angle BD'C' = \\angle DCB$. It follows that\n$$\n\\angle A'D'C' = \\angle BAD + \\angle BCD = 360^\\{\\circ\\} - 2 \\cdot 135^\\{\\circ\\} = 90^\\{\\circ\\}.\n$$\nApplying the **Inversive Distance Formula** we obtain\n$$\nA'C' = \\frac{AC}{AB \\cdot BC}, \\quad C'D' = \\frac{CD}{BD \\cdot BC}, \\quad D'A' = \\frac{DA}{AB \\cdot BD}.\n$$\nApplying the **Pythagorean Theorem** to right triangle $A'C'D'$ yields\n$$\n\\left( \\frac{AC}{AB \\cdot BC} \\right)^2 = \\left( \\frac{CD}{BD \\cdot BC} \\right)^2 + \\left( \\frac{DA}{AB \\cdot BD} \\right)^2,\n$$\nor\n$$\n(AC \\cdot BD)^2 = (AB \\cdot CD)^2 + (BC \\cdot DA)^2.\n$$\nRewriting this as\n$$\n(AB \\cdot CD - BC \\cdot DA)^2 = 0,\n$$\nwe have $AB \\cdot CD = BC \\cdot DA$; that is, $AB/BC = AD/CD$. Because $\\angle ABC = \\angle CDA$, it follows that triangles $ABC$ and $ADC$ are similar. These two triangle share the corresponding side $AC$, so they are congruent. This implies that $ABCD$ is a **kite** with segment $AC$ as its symmetry axis. Therefore, $AC \\perp BD$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-1452",
+      "name": "Harvard-MIT Mathematics Tournament #0in0",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inversion",
+        "Triangle centers: centroid, incenter, circumcenter, Euler line, nine-point circle",
+        "Tangents"
+      ],
+      "statement": "Problem:\n\nTriangle $A B C$ has $A B=4$, $B C=6$, and $A C=5$. Let $O$ denote the circumcenter of $A B C$. The circle $\\Gamma$ is tangent to and surrounds the circumcircles of triangles $A O B$, $B O C$, and $A O C$. Determine the diameter of $\\Gamma$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nDenote by $\\omega$, $\\Gamma_{1}$, $\\Gamma_{2}$, and $\\Gamma_{3}$ the circumcenters of triangles $A B C$, $B O C$, $C O A$, and $A O B$, respectively. An inversion about $\\omega$ interchanges $\\Gamma_{1}$ and line $B C$, $\\Gamma_{2}$ and line $C A$, and $\\Gamma_{3}$ and line $A B$. This inversion also preserves tangency between generalized circles, so the image of $\\Gamma$ is a circle tangent to $A B$, $B C$, and $C A$. It is the incircle of $A B C$ because it is closer to $O$ than these lines and $A B C$ is acute.\n\nNow we run a few standard calculations. Where $s$, $r$, and $R$ denote the semiperimeter, inradius, and circumradius of $A B C$, respectively, we have the following:\n$$\n\\begin{aligned}\n& [A B C]=\\sqrt{s(s-a)(s-b)(s-c)}=\\frac{15 \\sqrt{7}}{4} \\\\\n& r=[A B C] / s=\\sqrt{7} / 2 \\\\\n& R=\\frac{a b c}{4[A B C]}=\\frac{8}{\\sqrt{7}} \\\\\n& O I^{2}=R(R-2 r)=\\frac{8}{7}\n\\end{aligned}\n$$\nLet $O I$ intersect the incircle of $A B C$ at $P$ and $Q$, with $I$ between $P$ and $O$. Then $O P=r+O I$ and $O Q=r-O I$, and $\\overline{P Q}$ is a diameter. Under the inversion, $P$ and $Q$ map to $P^{\\prime}$ and $Q^{\\prime}$ respectively. Because $P$, $I$, $O$, and $Q$ are collinear in that order, $P^{\\prime}$ and $Q^{\\prime}$ are diametrically opposed on $\\Gamma$. It follows that the diameter of $\\Gamma$ is\n$$\nP^{\\prime} Q^{\\prime}=O P^{\\prime}+O Q^{\\prime}=\\frac{R^{2}}{O P}+\\frac{R^{2}}{O Q}=R^{2}\\left(\\frac{1}{r+O I}+\\frac{1}{r-O I}\\right)=\\frac{2 r R^{2}}{r^{2}-O I^{2}}.\n$$\nWe plug in the values found above to arrive at $\\frac{256 \\sqrt{7}}{17}$.\n\n![](attached_image_1.png)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-1479",
+      "name": "USAMO #0inr",
+      "url": "https://usamoguide.com/",
+      "source": "USAMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Tangents",
+        "Inversion",
+        "Triangle trigonometry",
+        "Optimization in geometry",
+        "Angle chasing",
+        "Distance chasing",
+        "QM-AM-GM-HM / Power Mean"
+      ],
+      "statement": "Let $ABC$ be an acute triangle with $\\omega, \\Omega$, and $R$ being its incircle, circumcircle, and circumradius, respectively. Circle $\\omega_A$ is tangent internally to $\\Omega$ at $A$ and tangent externally to $\\omega$. Circle $\\Omega_A$ is tangent internally to $\\Omega$ at $A$ and tangent internally to $\\omega$. Let $P_A$ and $Q_A$ denote the centers of $\\omega_A$ and $\\Omega_A$, respectively. Define points $P_B, Q_B, P_C, Q_C$ analogously. Prove that\n$$\n8P_AQ_A \\cdot P_BQ_B \\cdot P_CQ_C \\le R^3,\n$$\nwith equality if and only if triangle $ABC$ is equilateral.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Let the incircle touch the sides $AB, BC$, and $CA$ at $C_1, A_1$, and $B_1$, respectively. Set $AB = c, BC = a, CA = b$. By equal tangents, we may assume that $AB_1 = AC_1 = x$, $BC_1 = BA_1 = y$, and $CA_1 = CB_1 = z$. Then $a = y + z, b = z + x, c = x + y$. By the AM-GM inequality, we have $a \\ge 2\\sqrt{yz}$, $b \\ge 2\\sqrt{zx}$, and $c \\ge 2\\sqrt{xy}$. Multiplying the last three inequalities yields\n$$\nabc \\ge 8xyz, \\tag{†}\n$$\nwith equality if and only if $x = y = z$; that is, triangle $ABC$ is equilateral.\nLet $k$ denote the area of triangle $ABC$. By the Extended Law of Sines, $c = 2R \\sin \\angle C$. Hence\n$$\nk = \\frac{ab \\sin \\angle C}{2} = \\frac{abc}{4R} \\quad \\text{or} \\quad R = \\frac{abc}{4k}. \\tag{‡}\n$$\nWe are going to show that\n$$\nP_A Q_A = \\frac{xa^2}{4k}. \\tag{*}\n$$\nIn exactly the same way, we can also establish its cyclic analogous forms\n$$\nP_B Q_B = \\frac{yb^2}{4k} \\quad \\text{and} \\quad P_C Q_C = \\frac{zc^2}{4k}.\n$$\nMultiplying the last three equations together gives\n$$\nP_A Q_A \\cdot P_B Q_B \\cdot P_C Q_C = \\frac{xyz a^2 b^2 c^2}{64k^3}.\n$$\nFurther considering (†) and (‡), we have\n$$\n8P_A Q_A \\cdot P_B Q_B \\cdot P_C Q_C = \\frac{8xyz a^2 b^2 c^2}{64k^3} \\le \\frac{a^3 b^3 c^3}{64k^3} = R^3,\n$$\nwith equality if and only if triangle $ABC$ is equilateral.\nHence it suffices to show (*). Let $r, r_A, r'_A$ denote the radii of $\\omega, \\omega_A, \\Omega_A$, respectively. We consider the inversion $I$ with center $A$ and radius $x$. Clearly, $I(B_1) = B_1$, $I(C_1) = C_1$, and $I(\\omega) = \\omega$. Let ray $AO$ intersect $\\omega_A$ and $\\Omega_A$ at $S$ and $T$, respectively. It is not difficult to see that $AT > AS$, because $\\omega$ is tangent to $\\omega_A$ and $\\Omega_A$ externally and internally, respectively. Set $S_1 = I(S)$ and $T_1 = I(T)$. Let $\\ell$ denote the line tangent to $\\Omega$ at $A$. Then the image of $\\omega_A$ (under the inversion) is the line (denoted by $\\ell_1$) passing through $S_1$ and parallel to $\\ell$, and the image of $\\Omega_A$ is the line (denoted by $\\ell_2$) passing through $T_1$ and parallel to $\\ell$. Furthermore, since $\\omega$ is tangent to both $\\omega_A$ and $\\Omega_A$, $\\ell_1$ and $\\ell_2$ are also tangent to the image of $\\omega$, which is $\\omega$ itself. Thus the distance between these two lines is $2r$; that is, $S_1T_1 = 2r$. Hence we can consider the following configuration. (The darkened circle is $\\omega_A$, and its image is the darkened line $\\ell_1$.)\n\n![](attached_image_1.png)\n\nBy the definition of inversion, we have $AS_1 \\cdot AS = AT_1 \\cdot AT = x^2$. Note that $AS = 2r_A$, $AT = 2r'_A$, and $S_1T_1 = 2r$. We have\n$$\nr_A = \\frac{x^2}{2AS_1}. \\quad \\text{and} \\quad r'_A = \\frac{x^2}{2AT_1} = \\frac{x^2}{2(AS_1 - 2r)}.\n$$\nHence\n$$\nP_A Q_A = AQ_A - AP_A = r'_A - r_A = \\frac{x^2}{2} \\left( \\frac{1}{AS_1 - 2r} + \\frac{1}{AS_1} \\right).\n$$\nLet $H_A$ be the foot of the perpendicular from $A$ to side $BC$. It is well known that $\\angle BAS_1 = \\angle BAO = 90^\\circ - \\angle C = \\angle CAH_A$. Since ray $AI$ bisects $\\angle BAC$, it follows that rays $AS_1$ and $AH_A$ are symmetric with respect to ray $AI$. Further note that both line $l_1$ (passing through $S_1$) and line $BC$ (passing through $H_A$) are tangent to $\\omega$. We conclude that $AS_1 = AH_A$. In light of this observation and using the fact $2k = AH_A \\cdot BC = (AB + BC + CA)r$, we can compute $P_A Q_A$ as follows:\n$$\n\\begin{aligned}\nP_A Q_A &= \\frac{x^2}{2} \\left( \\frac{1}{AH_A - 2r} - \\frac{1}{AH_A} \\right) = \\frac{x^2}{4k} \\left( \\frac{2k}{AH_A - 2r} - \\frac{2k}{AH_A} \\right) \\\\\n&= \\frac{x^2}{4k} \\left( \\frac{1}{\\frac{1}{BC} - \\frac{2}{AB+BC+CA}} - BC \\right) = \\frac{x^2}{4k} \\left( \\frac{1}{\\frac{1}{y+z} - \\frac{1}{x+y+z}} - (y+z) \\right) \\\\\n&= \\frac{x^2}{4k} \\left( \\frac{(y+z)(x+y+z)}{x} - (y+z) \\right) \\\\\n&= \\frac{x(y+z)^2}{4k} = \\frac{xa^2}{4k},\n\\end{aligned}\n$$\nestablishing (*). Our proof is complete."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-1562",
+      "name": "USAMO #0iq2",
+      "url": "https://usamoguide.com/",
+      "source": "USAMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Triangle trigonometry",
+        "Cyclic quadrilaterals",
+        "Inversion",
+        "Spiral similarity",
+        "Homothety",
+        "Rotation",
+        "Complex numbers in geometry",
+        "Angle chasing"
+      ],
+      "statement": "Let $ABC$ be an acute, scalene triangle, and let $M$, $N$, and $P$ be the midpoints of $\\overline{BC}$, $\\overline{CA}$, and $\\overline{AB}$, respectively. Let the perpendicular bisectors of $\\overline{AB}$ and $\\overline{AC}$ intersect ray $AM$ in points $D$ and $E$ respectively, and let lines $BD$ and $CE$ intersect in point $F$, inside of triangle $ABC$. Prove that points $A$, $N$, $F$, and $P$ all lie on one circle.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Assume without loss of generality that $AB > AC$, and we consider the configuration shown below. Our proof can be modified for other configurations.\nLet $O$ be the circumcenter of triangle $ABC$. Point $D$ lies on $PO$, which is the perpendicular bisector of segment $AB$. Thus, $ABO$ is an isosceles triangle with $AD = BD$. Likewise, $AEC$ is isosceles with $AE = EC$. Set $x = \\angle ABD = \\angle BAD$ and $y = \\angle CAE = \\angle ACE$. (Hence $x + y = \\angle BAC$.)\nApplying the law of sines to triangles $ABM$ and $ACM$ gives\n$$\n\\frac{BM}{\\sin x} = \\frac{AB}{\\sin \\angle BMA} \\quad \\text{and} \\quad \\frac{CM}{\\sin y} = \\frac{AC}{\\sin \\angle CMA}.\n$$\nDividing the two equations yields\n$$\n\\frac{BM}{CM} \\cdot \\frac{\\sin y}{\\sin x} = \\frac{AB}{AC} \\cdot \\frac{\\sin \\angle BMA}{\\sin \\angle CMA} = \\frac{AC}{AB},\n$$\nsince $\\sin \\angle BMA = \\sin \\angle CMA$ (as they are supplementary angles). Therefore,\n$$\nBM = MC \\quad \\text{if and only if} \\quad \\frac{\\sin x}{\\sin y} = \\frac{AC}{AB}. \\qquad (*)\n$$\nApplying the law of sines to triangles $ABF$ and $ACF$ gives\n$$\n\\frac{AF}{\\sin x} = \\frac{AB}{\\sin \\angle AFB} \\quad \\text{and} \\quad \\frac{AF}{\\sin y} = \\frac{AC}{\\sin \\angle AFC}.\n$$\nDividing these two equations and noting (*) yields\n$$\n\\frac{\\sin y}{\\sin x} = \\frac{AB}{AC} \\cdot \\frac{\\sin \\angle AFB}{\\sin \\angle AFC} \\quad \\text{or} \\quad \\sin \\angle AFB = \\sin \\angle AFC.\n$$\nSince $\\angle ADF$ is an exterior angle of triangle $ABO$, $\\angle EDF = 2x$. Likewise, $\\angle DEF = 2y$. Thus $\\angle EFD = 180^\\circ - 2x - 2y = 180^\\circ - 2\\angle BAC$. Hence $\\angle BFC = 2\\angle BAC$ (and so $BOFC$ is cyclic), implying that $\\angle AFB + \\angle AFC = 360^\\circ - 2\\angle BAC > 180^\\circ$ (since $\\angle BAC < 90^\\circ$). We must have $\\angle AFB = \\angle AFC = 180^\\circ - \\angle BAC$. Since $BOFC$ is cyclic and $BOC$ is isosceles with vertex angle $BOC = 2\\angle BAC$, $\\angle OFB = \\angle OCB = 90^\\circ - \\angle BAC$. Therefore,\n$$\n\\angle AFO = \\angle AFB - \\angle OFB = 180^\\circ - \\angle BAC - (90^\\circ - \\angle BAC) = 90^\\circ.\n$$\nSince $\\angle APO = \\angle AFO = \\angle ANO = 90^\\circ$, points $A$, $P$, $O$, $F$, $N$ lie on a circle.\n\n\nSolution 2:\n\nWe maintain the notations in the first proof. Let $R$ denote the intersection of lines $MP$ and $CE$. Let $\\omega$ denote the circumcircle of $APON$. We claim that $R$ lies on $\\omega$. Note that $AEC$ is isosceles, so that $MER$ is also isosceles, and so $ARMC$ is an isosceles trapezoid, hence cyclic. Since $PN \\parallel MC$, $ARPN$ is also cyclic.\nAs in the above proof, we can show that $BFOC$ is cyclic. Then $\\angle RFO = \\angle OBC = 90^\\circ - \\angle A$. Moreover, $\\angle RAO = \\angle RAC - \\angle OAC = \\angle C - (90^\\circ - \\angle B) = 90^\\circ - \\angle A$. Thus $AROF$ is cyclic, so that $ARPOFN$ is cyclic.\n\n\nSolution 3:\n\nWe maintain the notations in the first proof. Assume without loss of generality that $AB > AC$, and we consider the configuration shown below. Our proof can be modified for other configurations.\nSince $\\angle OPB = \\angle OMB = \\angle OMC = \\angle ONC = 90^\\circ$, $BPOM$ and $CNOM$ are cyclic. Let ray $AM$ meet the circumcircles of $BPOM$ and $CNOM$ at $X$ and $Y$ (different from $M$), respectively. We have\n$$\n\\angle OXY = \\angle OXM = \\angle OBM = \\angle OBC = \\angle BCO = \\angle MCO = \\angle MYO = \\angle XYO;\n$$\nthat is, triangle $OXY$ is similar to triangle $OBC$. and the rotation centered at $O$ that takes one to the other. In particular, $\\angle XOY = \\angle BAC$. Note also that $APON$ is cyclic, implying that $\\angle NOD = \\angle PAN = \\angle BAC$. Hence, $\\angle XOY = 2\\angle NOD$. Combining the facts that $OX = OY$ and $\\angle XOY = 2\\angle NOD$, we conclude that the image of $X$ under the reflection through line $OD$ (denoted by $R_{OP}$) is the same as that of $Y$ under the reflection through line $ON$ (denoted by $R_{ON}$). Let $F_1$ denote this common image. Note that the image of line $AYE$ under $R_{ON}$ is line $CF_1E$, and the image of line $ADX$ under $R_{OP}$ is line $BDF_1$. Therefore, $F_1$ lies on lines $CE$ and $BD$; that is, $F_1 = F$.\nOn the other hand, since $X$ lies on the circumcircle of $MBPO$, $F = F_1$ must lie on its image under $R_{OP}$, which is the circumcircle of $NAPO$.\n\n\nSolution 4:\n\nInvert the figure about a circle centered at $A$, and let $I_X$ denote the image of the point $X$ under this inversion. Find point $G$ so that $AI_B I_G I_C$ is a parallelogram and let $I_Z$ denote the center of this parallelogram. Note that triangle $BAC$ is similar to triangle $I_C AI_B$ and triangles $BAD$ and $I_D AI_B$. Because $M$ is the midpoint of $AB$ and $I_Z$ is the midpoint of $I_B I_C$, we also have the similarity between the triangles $BAM$ and $I_C AI_Z$. Thus\n$$\n\\angle AI_G I_B = \\angle I_G AI_C = \\angle ZAI_C = \\angle MAB = \\angle DAB = \\angle DBA = \\angle AI_D I_B.\n$$\nHence quadrilateral $AI_BI_DI_G$ is cyclic and, by a similar argument, quadrilateral $AI_CI_EI_G$ is also cyclic. Because the images under the inversion of lines $BDF$ and $CFE$ are circles that intersect in $A$ and $I_F$, it follows that $I_G = I_F$; that is, $G = F$.\nNext note that $I_B, I_Z$, and $I_C$ are collinear and are the images of $I_P, I_F$ (or $I_G$), and $I_N$, respectively, under a homothety centered at $A$ and with ratio $1/2$. It follows that $I_P, I_F$ and $I_N$ are collinear, and then that the points $A, P, F$ and $N$ lie on a circle.\n\n\nSolution 5:\n\nLet $A$ be the origin and denote the complex number of each point by the corresponding lowercase letter. Note that $2n = c$ and $2p = b$. Define point $F_2$ such that\n$$\nf_2 = \\frac{2np}{m} = \\frac{cp}{m} = \\frac{bn}{m};\n$$\nthat is\n$$\n\\frac{f_2}{c} = \\frac{p}{m} \\quad \\text{and} \\quad \\frac{f_2}{b} = \\frac{n}{m}. \\qquad (**)\n$$\nThe first equation in $(**)$ implies that triangles $AF_2C$ and $APM$ are similar (and have the same orientation). Hence\n$$\n\\angle ACF_2 = \\angle AMP = \\angle MAC = \\angle EAC = \\angle ECA;\n$$\nthat is, $F_2$ lies on line $EC$. Similarly, the second equation in $(**)$ shows that $F_2$ lies on line $BD$. Thus, $F_2$ lies on both $BD$ and $CE$; that is, $F_2 = F$.\nWe have established the similarity between triangle $AFC$ (which is $AF_2C$) and triangle $APM$. Thus, triangle $ACM$ is similar to triangle $AFP$ (because of spiral similarities about $A$). Hence $\\angle AFP = \\angle ACM = \\angle ANP$, implying that $ANFP$ is cyclic."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-1661",
+      "name": "Bay Area Mathematical Olympiad #0ist",
+      "url": "https://usamoguide.com/",
+      "source": "Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inversion"
+      ],
+      "statement": "Problem:\n\nPoint $D$ lies inside the triangle $ABC$. If $A_1$, $B_1$, and $C_1$ are the second intersection points of the lines $AD$, $BD$, and $CD$ with the circles circumscribed about $\\triangle BDC$, $\\triangle CDA$, and $\\triangle ADB$, prove that\n$$\n\\frac{AD}{AA_1} + \\frac{BD}{BB_1} + \\frac{CD}{CC_1} = 1\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $k$ be the circle with center $D$ and radius $1$. Consider the inversion with respect to the circle $k$ and denote by $A^*$, $B^*$, $C^*$, $A_1^*$, $B_1^*$, and $C_1^*$ the images of $A$, $B$, $C$, $A_1$, $B_1$, and $C_1$, respectively.\n\n![](attached_image_1.png)\n\nThe point $C_1^*$ belongs to the line $A^* B^*$, because the circumcircle of $\\triangle ADB$ is mapped to a line. Similarly, $B_1^* \\in B^* C^*$ and $A_1^* \\in A^* B^*$. $D$ belongs to the line $A^* A_1^*$ and $AD = \\frac{1}{A^* D}$. Using similar reasoning we get that $D$ is the intersection of $A^* A_1^*$, $B^* B_1^*$, and $C^* C_1^*$ and the desired equality now becomes equivalent to\n$$\n\\frac{A_1^* D}{A^* A_1^*} + \\frac{B_1^* D}{B^* B_1^*} + \\frac{C_1^* D}{C^* C_1^*} = 1\n$$\nNotice that $\\frac{A_1^* D}{A^* A_1^*} = \\frac{S_{\\triangle B^* C^* D}}{S_{\\triangle B^* C^* A^*}}$. Analogous relations for the remaining two fractions on the left-hand side further transform our claim to:\n$$\n\\frac{S_{\\triangle B^* C^* D}}{S_{\\triangle A^* B^* C^*}} + \\frac{S_{\\triangle C^* A^* D}}{S_{\\triangle A^* B^* C^*}} + \\frac{S_{\\triangle A^* B^* D}}{S_{\\triangle A^* B^* C^*}} = 1\n$$\nwhich is obviously true."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-2209",
+      "name": "13th Bay Area Mathematical Olympiad #0j81",
+      "url": "https://usamoguide.com/",
+      "source": "13th Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inversion",
+        "Angle chasing",
+        "Distance chasing"
+      ],
+      "statement": "Problem:\n\nThree circles $k_{1}$, $k_{2}$, and $k_{3}$ intersect in point $O$. Let $A$, $B$, and $C$ be the second intersection points (other than $O$) of $k_{2}$ and $k_{3}$, $k_{1}$ and $k_{3}$, and $k_{1}$ and $k_{2}$, respectively. Assume that $O$ lies inside of the triangle $ABC$. Let lines $AO$, $BO$, and $CO$ intersect circles $k_{1}$, $k_{2}$, and $k_{3}$ for a second time at points $A'$, $B'$, and $C'$, respectively. If $|XY|$ denotes the length of segment $XY$, prove that\n$$\n\\frac{|AO|}{|AA'|} + \\frac{|BO|}{|BB'|} + \\frac{|CO|}{|CC'|} = 1\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nIn this solution we will use a method called Inversion in the Plane.\nWe invert with respect to point $O$ with an arbitrary radius $r$. We will label the images of objects (points, circles, lines, segments) under this inversion by putting a bar over them. By properties of inversion, the three given circles through $O$ will invert to three lines not through $O$. For instance, circle $k_{1}$ will invert to a line $\\overline{k_{1}}$ through points $\\bar{B}$, $\\bar{C}$, and $\\overline{A'}$, and similarly for circles $k_{2}$ and $k_{3}$. On the other hand, the original line $AOA'$ will invert to itself (as it passes through the center of inversion $O$); now, points $A$ and $A'$ will move to, perhaps different, points $\\bar{A}$ and $\\overline{A'}$ on this same line, while point $O$ will stay where it is (we shall not apply inversion here to the center of inversion $O$). Analogous situations occur for lines $BOB'$ and $COC'$.\n\n![](attached_image_1.png)\nDiagram before inversion\n![](attached_image_2.png)\nDiagram after inversion, with perpendiculars to $\\overline{BC}$\n\nWe are ready to describe the new inverted picture. Point $O$ is inside triangle $\\overline{ABC}$. Three points $\\overline{A'}$, $\\overline{B'}$, and $\\overline{C'}$ are chosen on the triangle's sides $\\overline{BC}$, $\\overline{CA}$, and $\\overline{AB}$, respectively, so that the three segments $\\overline{AA'}$, $\\overline{BB'}$, and $\\overline{CC'}$ all intersect in point $O$ (such segments are called cevians in $\\triangle \\overline{ABC}$). Two distance formulas relating new to old distances under inversion tell us:\n$$\n|AO| = \\frac{r^2}{|O\\bar{A}|}, \\text{ and } |AA'| = \\frac{r^2 \\cdot |\\overline{AA'}|}{|O\\bar{A}| \\cdot |O\\overline{A'}|}\n$$\nDividing these two expressions and canceling $r^2$ and $|O\\bar{A}|$ re-expresses one of the desired ratios completely in terms of the new inverted picture:\n$$\n\\frac{|AO|}{|AA'|} = \\frac{|O\\overline{A'}|}{|\\overline{AA'}|}\n$$\nNow drop perpendiculars $OH_1$ and $\\bar{A}H_2$ to side $\\overline{BC}$ as shown in the inverted picture, and call their lengths $h_1$ and $h_2$. This creates two similar triangles: $\\triangle O\\overline{A'}H_1 \\sim \\triangle \\overline{AA'}H_2$: they share an angle and have another right angle each. Hence, the ratios of corresponding sides are equal:\n$$\n\\frac{|O\\overline{A'}|}{|\\overline{AA'}|} = \\frac{|OH_1|}{|\\bar{A}H_2|} = \\frac{h_1}{h_2} = \\frac{h_1 \\cdot |\\overline{BC}|/2}{h_2 \\cdot |\\overline{BC}|/2} = \\frac{S_{\\triangle O\\overline{BC}}}{S_{\\triangle \\overline{ABC}}}\n$$\nwhere $h_1$ and $h_2$ are the lengths of the drawn altitudes $OH_1$ and $\\bar{A}H_2$ in $\\triangle O\\overline{BC}$ and $\\triangle \\overline{ABC}$, respectively. Along the way, we multiplied by $|\\overline{BC}|/2$ to recreate the standard formulas for the areas of $O\\overline{BC}$ and $\\triangle \\overline{ABC}$, and denoted correspondingly those areas by $S_{\\triangle}$ in the last ratio.\n\nOf course, we can repeat the above discussion for the other two ratios $\\frac{|BO|}{|BB'|}$ and $\\frac{|CO|}{|CC'|}$, and end up rewriting the desired sum in a completely different way:\n$$\n\\frac{|AO|}{|AA'|} + \\frac{|BO|}{|BB'|} + \\frac{|CO|}{|CC'|} = \\frac{S_{\\triangle O\\overline{BC}}}{S_{\\triangle \\overline{ABC}}} + \\frac{S_{\\triangle O\\overline{CA}}}{S_{\\triangle \\overline{ABC}}} + \\frac{S_{\\triangle O\\overline{AB}}}{S_{\\triangle \\overline{ABC}}} = \\frac{S_{\\triangle O\\overline{BC}} + S_{\\triangle O\\overline{CA}} + S_{\\triangle O\\overline{AB}}}{S_{\\triangle \\overline{ABC}}} = \\frac{S_{\\triangle \\overline{ABC}}}{S_{\\triangle \\overline{ABC}}} = 1\n$$\nHere we used the fact that $O$ is inside $\\triangle \\overline{ABC}$ so that the three triangles with vertex $O$, $\\triangle O\\overline{BC}$, $\\triangle O\\overline{CA}$, and $\\triangle O\\overline{AB}$, make up the whole big $\\triangle \\overline{ABC}$, and hence their areas add up to the area of this big triangle."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-2296",
+      "name": "15th Annual Harvard-MIT Mathematics Tournament #0jag",
+      "url": "https://usamoguide.com/",
+      "source": "15th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers in geometry",
+        "Inversion",
+        "Sums and products"
+      ],
+      "statement": "Problem:\n\nAlice is sitting in a teacup ride with infinitely many layers of spinning disks. The largest disk has radius $5$. Each succeeding disk has its center attached to a point on the circumference of the previous disk and has a radius equal to $2/3$ of the previous disk. Each disk spins around its center (relative to the disk it is attached to) at a rate of $\\pi/6$ radians per second. Initially, at $t=0$, the centers of the disks are aligned on a single line, going outward. Alice is sitting at the limit point of all these disks. After $12$ seconds, what is the length of the trajectory that Alice has traced out?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $18\\pi$\n\nSuppose the center of the largest teacup is at the origin in the complex plane, and let $z = \\frac{2}{3} e^{\\pi i t / 6}$. The center of the second disk is at $5 e^{\\pi i t / 6}$ at time $t$; that is, $\\frac{15}{2} z$. Then the center of the third disk relative to the center of the second disk is at $\\frac{15}{2} z^{2}$, and so on. Summing up a geometric series, we get that Alice's position is\n$$\n\\begin{aligned}\n\\frac{15}{2}\\left(z+z^{2}+z^{3}+\\cdots\\right) & = \\frac{15}{2}\\left(\\frac{z}{1-z}\\right) \\\\\n\\end{aligned}\n$$\nSo Alice's position is $\\frac{15}{2} \\cdot \\frac{z}{1-z}$.\n\nNow, after $12$ seconds, $z$ has made a full circle in the complex plane centered at $0$ and of radius $2/3$. Thus $1-z$ is a circle centered at $1$ of radius $2/3$.\n\nSo $1-z$ traces a circle, and now we need to find the path that $\\frac{1}{1-z}$ traces. In the complex plane, taking the reciprocal corresponds to a reflection about the real axis followed by a geometric inversion about the unit circle centered at $0$. It is well known that geometric inversion maps circles not passing through the center of the inversion to circles.\n\nNow, the circle traced by $1-z$ contains the points $1-2/3=1/3$, and $1+2/3=5/3$. Therefore the circle $\\frac{1}{1-z}$ contains the points $3$ and $3/5$, with the center lying halfway between. So the radius of the circle is\n$$\n\\frac{1}{2}\\left(3-\\frac{3}{5}\\right) = \\frac{6}{5}\n$$\nand so the perimeter is $2\\pi (6/5) = 12\\pi/5$. Scaling by $15/2$ gives an answer of\n$$\n\\frac{15}{2}\\left(\\frac{12\\pi}{5}\\right) = 18\\pi\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-2816",
+      "name": "HMMT February #0jow",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Inversion",
+        "Tangents",
+        "Angle chasing",
+        "Triangle trigonometry"
+      ],
+      "statement": "Problem:\n\nLet $ABC$ be a triangle whose incircle has center $I$ and is tangent to $\\overline{BC}$, $\\overline{CA}$, $\\overline{AB}$, at $D, E, F$. Denote by $X$ the midpoint of major arc $\\widehat{BAC}$ of the circumcircle of $ABC$. Suppose $P$ is a point on line $XI$ such that $\\overline{DP} \\perp \\overline{EF}$.\nGiven that $AB=14$, $AC=15$, and $BC=13$, compute $DP$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n$\\boxed{\\dfrac{4 \\sqrt{5}}{5}}$\n\nLet $H$ be the orthocenter of triangle $DEF$. We claim that $P$ is the midpoint of $\\overline{DH}$. Indeed, consider an inversion at the incircle of $ABC$, denoting the inverse of a point with an asterisk. It maps $ABC$ to the nine-point circle of $\\triangle DEF$. According to $\\angle IAX = 90^\\circ$, we have $\\angle A^* X^* I = 90^\\circ$. Hence line $XI$ passes through the point diametrically opposite to $A^*$, which is the midpoint of $\\overline{DH}$, as claimed.\n\nThe rest is a straightforward computation. The inradius of $\\triangle ABC$ is $r = 4$. The length of $EF$ is given by $EF = 2 \\dfrac{AF \\cdot r}{AI} = \\dfrac{16}{\\sqrt{5}}$. Then,\n$$\nDP^2 = \\left(\\frac{1}{2} DH\\right)^2 = \\frac{1}{4}\\left(4r^2 - EF^2\\right) = 4^2 - \\frac{64}{5} = \\frac{16}{5}\n$$\nHence $DP = \\dfrac{4 \\sqrt{5}}{5}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-2932",
+      "name": "HMMT February 2016 #0js4",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2016",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Napoleon and Fermat points",
+        "Inversion",
+        "Triangle trigonometry",
+        "Angle chasing"
+      ],
+      "statement": "Problem:\nLet $a$, $b$ and $c$ be positive real numbers such that\n$$\n\\begin{aligned}\na^{2}+a b+b^{2} & =9 \\\\\nb^{2}+b c+c^{2} & =52 \\\\\nc^{2}+c a+a^{2} & =49\n\\end{aligned}\n$$\nCompute the value of $\\frac{49 b^{2}-33 b c+9 c^{2}}{a^{2}}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nConsider a triangle $A B C$ with Fermat point $P$ such that $A P=a$, $B P=b$, $C P=c$. Then\n$$\nA B^{2}=A P^{2}+B P^{2}-2 A P \\cdot B P \\cos \\left(120^{\\circ}\\right)\n$$\nby the Law of Cosines, which becomes\n$$\nA B^{2}=a^{2}+a b+b^{2}\n$$\nand hence $A B=3$. Similarly, $B C=\\sqrt{52}$ and $A C=7$.\nFurthermore, we have\n$$\n\\begin{aligned}\nB C^{2}=52 & =A B^{2}+B C^{2}-2 A B \\cdot B C \\cos \\angle B A C \\\\\n& =3^{2}+7^{2}-2 \\cdot 3 \\cdot 7 \\cos \\angle B A C \\\\\n& =58-42 \\cos \\angle B A C\n\\end{aligned}\n$$\nAnd so $\\cos \\angle B A C=\\frac{1}{7}$.\nInvert about $A$ with arbitrary radius $r$. Let $B'$, $P'$, $C'$ be the images of $B$, $P$, $C$ respectively. Since $\\angle A P B=\\angle A B' P'=120^{\\circ}$ and $\\angle A P C=\\angle A C' P'=120^{\\circ}$, we note that $\\angle B' P' C'=120^{\\circ}-\\angle B A C$, and so\n$$\n\\begin{aligned}\n\\cos \\angle B' P' C' & =\\cos \\left(120^{\\circ}-\\angle B A C\\right) \\\\\n& =\\cos 120^{\\circ} \\cos \\angle B A C-\\sin 120^{\\circ} \\sin \\angle B A C \\\\\n& =-\\frac{1}{2}\\left(\\frac{1}{7}\\right)+\\frac{\\sqrt{3}}{2}\\left(\\frac{4 \\sqrt{3}}{7}\\right) \\\\\n& =\\frac{11}{14}\n\\end{aligned}\n$$\nFurthermore, using the well-known result\n$$\nB' C'=\\frac{r^{2} B C}{A B \\cdot A C}\n$$\nfor an inversion about $A$, we have\n$$\n\\begin{aligned}\nB' P' & =\\frac{B P r^{2}}{A B \\cdot A P} \\\\\n& =\\frac{b r^{2}}{a \\cdot 3} \\\\\n& =\\frac{b r^{2}}{3 a}\n\\end{aligned}\n$$\nand similarly $P' C'=\\frac{c r^{2}}{7 a}$, $B' C'=\\frac{r^{2} \\sqrt{52}}{21}$. Applying the Law of Cosines to $B' P' C'$ gives us\n$$\n\\begin{aligned}\nB' C'^{2} & =B' P'^{2}+P' C'^{2}-2 B' P' \\cdot P' C' \\cos \\left(120^{\\circ}-\\angle B A C\\right) \\\\\n\\Longrightarrow \\frac{52 r^{4}}{21^{2}} & =\\frac{b^{2} r^{4}}{9 a^{2}}+\\frac{c^{2} r^{4}}{49 a^{2}}-\\frac{11 b c r^{4}}{147 a^{2}} \\\\\n\\Longrightarrow \\frac{52}{21^{2}} & =\\frac{b^{2}}{9 a^{2}}+\\frac{c^{2}}{49 a^{2}}-\\frac{11 b c}{147 a^{2}} \\\\\n\\Longrightarrow \\frac{52}{21^{2}} & =\\frac{49 b^{2}-33 b c+9 c^{2}}{21^{2} a^{2}}\n\\end{aligned}\n$$\nand so $\\frac{49 b^{2}-33 b c+9 c^{2}}{a^{2}}=52$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-3089",
+      "name": "February 2017 #0jwh",
+      "url": "https://usamoguide.com/",
+      "source": "February 2017",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inscribed/circumscribed quadrilaterals",
+        "Inversion"
+      ],
+      "statement": "Problem:\n\nLet $ABCD$ be a quadrilateral with an inscribed circle $\\omega$. Let $I$ be the center of $\\omega$ and let $IA = 12$, $IB = 16$, $IC = 14$, and $ID = 11$. Let $M$ be the midpoint of segment $AC$. Compute $\\frac{IM}{IN}$, where $N$ is the midpoint of segment $BD$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet points $W, X, Y, Z$ be the tangency points between $\\omega$ and lines $AB, BC, CD, DA$ respectively. Now invert about $\\omega$. Then $A'$, $B'$, $C'$, $D'$ are the midpoints of segments $ZW, WX, XY, YZ$ respectively. Thus by Varignon's Theorem $A'B'C'D'$ is a parallelogram. Then the midpoints of segments $A'C'$ and $B'D'$ coincide at a point $P$. Note that figure $IA'PC'$ is similar to figure $ICMA$ with similitude ratio $\\frac{r^2}{IA \\cdot IC}$ where $r$ is the radius of $\\omega$. Similarly, figure $IB'PD'$ is similar to figure $IDMB$ with similitude ratio $\\frac{r^2}{IB \\cdot ID}$. Therefore\n$$\nIP = \\frac{r^2}{IA \\cdot IC} \\cdot IM = \\frac{r^2}{IB \\cdot ID} \\cdot IN\n$$\nwhich yields\n$$\n\\frac{IM}{IN} = \\frac{IA \\cdot IC}{IB \\cdot ID} = \\frac{12 \\cdot 14}{16 \\cdot 11} = \\frac{21}{22}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-3606",
+      "name": "USA IMO TST #0kau",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO TST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Tangents",
+        "Inversion",
+        "Homothety",
+        "Miquel point",
+        "Brocard point, symmedians",
+        "Isogonal/isotomic conjugates, barycentric coordinates",
+        "Angle chasing"
+      ],
+      "statement": "Let $ABC$ be a triangle and let $M$ and $N$ denote the midpoints of $\\overline{AB}$ and $\\overline{AC}$, respectively. Let $X$ be a point such that $\\overline{AX}$ is tangent to the circumcircle of triangle $ABC$. Denote by $\\omega_B$ the circle through $M$ and $B$ tangent to $\\overline{MX}$, and by $\\omega_C$ the circle through $N$ and $C$ tangent to $\\overline{NX}$. Show that $\\omega_B$ and $\\omega_C$ intersect on line $BC$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**First solution using symmedians (Merlijn Staps)** Let $\\overline{XY}$ be the other tangent from $X$ to $(AMN)$.\n**Claim.** Line $\\overline{XM}$ is tangent to $(BMY)$; hence $Y$ lies on $\\omega_B$.\n![](attached_image_1.png)\n*Proof.* Let $Z$ be the midpoint of $\\overline{AY}$. Then $\\overline{MX}$ is the $M$-symmedian in triangle $AMY$. Since $\\overline{MZ} \\parallel \\overline{BY}$, it follows that $\\angle AMX = \\angle ZMY = \\angle BYM$. We conclude that $\\overline{XM}$ is tangent to the circumcircle of triangle $BMY$. $\\square$\n\nSimilarly, $\\omega_C$ is the circumcircle of triangle $CNY$. As $AMYN$ is cyclic too, it follows that $\\omega_B$ and $\\omega_C$ intersect on $\\overline{BC}$, by Miquel's theorem.\n\n\n**Second solution (Jetze Zoethout)** Let $\\omega_B$ intersect $\\overline{BC}$ again at $S$ and let $\\overline{MS}$ intersect $\\overline{AC}$ again at $Y$. Angle chasing gives $\\angle XMY = \\angle XMS = \\angle MBS = \\angle ABC = \\angle XAC = \\angle XAY$, so $Y$ is on the circumcircle of triangle $AMX$. Furthermore, from $\\angle XMY = \\angle ABC$ and $\\angle ACB = \\angle XAB = \\angle XYM$ it follows that $\\triangle ABC \\sim \\triangle XMY$ and from $\\angle XAY = \\angle MBS$ and $\\angle YXA = \\angle YMA = \\angle BMS$ it follows that $\\triangle AXY \\sim \\triangle BMS$.\n---\n![](attached_image_2.png)\nWe now find\n$$\n\\frac{AN}{AX} = \\frac{AN/BM}{AX/BM} = \\frac{AC/AB}{MS/XY} = \\frac{AB/AB}{MS/XM} = \\frac{XM}{MS},\n$$\nwhich together with $\\angle XMS = \\angle XAN$ yields $\\triangle XMS \\sim \\triangle XAN$. From $\\angle XSY = \\angle XSM = \\angle XNA = \\angle XNY$ we now have that $S$ is on the circumcircle of triangle $XNY$. Finally, we have $\\angle XNS = \\angle XYS = \\angle XYM = \\angle ACB = \\angle NCS$ so $\\overline{XN}$ is tangent to the circle through $C, N$, and $S$, as desired.\n\n\n**Third solution by moving points method** Fix triangle $ABC$ and animate $X$ along the tangent at $A$. We let $D$ denote the second intersection point of $\\omega_C$ with line $\\overline{BC}$.\n**Claim.** The composed map $X \\mapsto D$ is a fractional linear transformation (i.e. a projective map) in terms of a real coordinate on line $\\overline{AA}, \\overline{BC}$.\n*Proof*. Let $\\ell$ denote the perpendicular bisector of $\\overline{CN}$, also equipped with a real coordinate. We let $P$ denote the intersection of $\\overline{XM}$ with $\\ell$, $S$ the circumcenter of $\\triangle CMD$. Let $T$ denote the midpoint of $\\overline{BD}$.\nWe claim that the composed map\n$$\n\\overline{AA} \\rightarrow \\ell \\rightarrow \\ell \\rightarrow \\overline{BC} \\rightarrow \\overline{BC}\n$$\nby $X \\mapsto P \\mapsto S \\mapsto T \\mapsto D$\nis projective, by showing each individual map is projective.\n![](attached_image_3.png)\n* The map $X \\mapsto P$ is projective since it is a perspectivity through $N$ from $\\overline{AA}$ to $\\ell$.\n* The map $P \\mapsto S$ is projective since it is equivalent to a negative inversion on $\\ell$ at the midpoint of $\\overline{NC}$ with radius $\\frac{1}{2}NC$. (Note $\\angle PNS = 90^\\circ$ is fixed.)\n* The map $S \\mapsto T$ is projective since it is a perspectivity $\\ell \\to \\overline{BC}$ through the point at infinity perpendicular to $\\overline{BC}$ (in fact, it is linear).\n* The map $T \\mapsto D$ is projective (in fact, linear) since it is a homothety through $C$ with fixed ratio 2.\nThus the composed map is projective as well. $\\square$\n\nSimilarly, if we define $D'$ so that $\\overline{XM}$ is tangent to $(BMD')$, the map $X \\mapsto D'$ is projective as well. We aim to show $D = D'$, and since the maps correspond to fractional linear transformations in projective coordinates, it suffices to verify it for three distinct choices of $X$. We do so:\n* If $X = \\overline{AA} \\cap \\overline{MN}$, then $D$ and $D'$ satisfy $MB = MD'$, $NC = ND$. This means they are the feet of the $A$-altitude on $\\overline{BC}$.\n* As $X$ approaches $A$ the points $D$ and $D'$ approach the infinity point along $\\overline{BC}$.\n* If $X$ is a point at infinity along $\\overline{AA}$, then $D$ and $D'$ coincide with the midpoint of $\\overline{BC}$.\nThis completes the solution.\n\n\n**Fourth solution by isogonal conjugates (Anant Mudgal)** Let $Y$ be the isogonal conjugate of $X$ in $\\triangle AMN$ and $Z$ be the reflection of $Y$ in $\\overline{MN}$. As $\\overline{AX}$ is tangent to the circumcircle of $\\triangle AMN$, it follows that $\\overline{AY} \\parallel \\overline{MN}$. Thus $Z$ lies on $\\overline{BC}$ since $\\overline{MN}$ bisects the strip made by $\\overline{AY}$ and $\\overline{BC}$.\n![](attached_image_4.png)\nFinally,\n$$\n\\angle ZMX = \\angle ZMN + \\angle NMX = \\angle NMY + \\angle YMA = \\angle NMA = \\angle ZBM\n$$\nso $\\overline{XM}$ is tangent to the circumcircle of $\\triangle ZMB$, hence $Z$ lies on $\\omega_B$. Similarly, $Z$ lies on $\\omega_C$ and we're done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-3611",
+      "name": "USA IMO TST #0kaz",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO TST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Spiral similarity",
+        "Radical axis theorem",
+        "Miquel point",
+        "Pappus theorem",
+        "Angle chasing",
+        "Inversion",
+        "Cyclic quadrilaterals",
+        "Tangents"
+      ],
+      "statement": "Let $ABC$ be a triangle with incenter $I$, and let $D$ be a point on line $BC$ satisfying $\\angle AID = 90^\\circ$. Let the excircle of triangle $ABC$ opposite the vertex $A$ be tangent to $\\overline{BC}$ at point $A_1$. Define points $B_1$ on $\\overline{CA}$ and $C_1$ on $\\overline{AB}$ analogously, using the excircles opposite $B$ and $C$, respectively.\nProve that if quadrilateral $AB_1A_1C_1$ is cyclic, then $\\overline{AD}$ is tangent to the circumcircle of $\\triangle DB_1C_1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**First solution using spiral similarity (Ankan Bhattacharya)** First, we prove the part of the problem which does not depend on the condition $AB_1A_1C_1$ is cyclic.\n\n**Lemma**\nLet $ABC$ be a triangle and define $I, D, B_1, C_1$ as in the problem. Moreover, let $M$ denote the midpoint of $\\overline{AD}$. Then $\\overline{AD}$ is tangent to $(AB_1C_1)$, and moreover $\\overline{B_1C_1} \\parallel \\overline{IM}$.\n\n*Proof*. Let $E$ and $F$ be the tangency points of the incircle. Denote by $Z$ the Miquel point of $BFEC$, i.e. the second intersection of the circle with diameter $\\overline{AI}$ and the circumcircle. Note that $A, Z, D$ are collinear, by radical axis on $(ABC), (AFIE), (BIC)$.\n\n![](attached_image_1.png)\n\nThen the spiral similarity gives us\n$$\n\\frac{ZF}{ZE} = \\frac{BF}{CE} = \\frac{AC_1}{AB_1}\n$$\nwhich together with $\\angle FZE = \\angle FAE = \\angle BAC$ implies that $\\triangle ZFE$ and $\\triangle AC_1B_1$ are (directly) similar. (See IMO Shortlist 2006 G9 for a similar application of spiral similarity.)\n\nNow the remainder of the proof is just angle chasing. First, since\n$$\n\\angle DAC_1 = \\angle ZAF = \\angle ZEF = \\angle AB_1C_1\n$$\nwe have $\\overline{AD}$ is tangent to $(AB_1C_1)$. Moreover, to see that $\\overline{IM} \\parallel \\overline{B_1C_1}$, write\n$$\n\\begin{aligned}\n\\angle(\\overline{AI}, \\overline{B_1C_1}) &= \\angle IAC + \\angle AB_1C_1 = \\angle BAI + \\angle ZEF = \\angle FAI + \\angle ZAF \\\\\n&= \\angle ZAI = \\angle MAI = \\angle AIM\n\\end{aligned}\n$$\nthe last step since $\\triangle AID$ is right with hypotenuse $\\overline{AD}$, and median $\\overline{IM}$. $\\square$\n\nNow we return to the present problem with the additional condition.\n\n![](attached_image_2.png)\n\n**Claim.** Given the condition, we actually have $\\angle AB_1A_1 = \\angle AC_1A_1 = 90^\\circ$.\n\n*Proof.* Let $I_A, I_B$ and $I_C$ be the excenters of $\\triangle ABC$. Then the perpendiculars to $\\overline{BC}$, $\\overline{CA}$, $\\overline{AB}$ from $A_1, B_1, C_1$ respectively meet at the so-called Bevan point $V$ (which is the circumcenter of $\\triangle I_A I_B I_C$).\n\nNow $\\triangle AB_1C_1$ has circumdiameter $\\overline{AV}$. We are given $A_1$ lies on this circle, so if $V \\neq A_1$ then $\\overline{AA_1} \\perp \\overline{A_1V}$. But $\\overline{A_1V} \\perp \\overline{BC}$ by definition, which would imply $\\overline{AA_1} \\parallel \\overline{BC}$, which is absurd. $\\square$\n\n**Claim.** Given the condition the points $B_1, I, C_1$ are collinear (hence with $M$).\n\n*Proof.* By Pappus theorem on $\\overline{IB}A_1I_C$ and $\\overline{BA_1C}$ after the previous claim. $\\square$\n\nTo finish, since $\\overline{DMA}$ was tangent to the circumcircle of $\\triangle AB_1C_1$, we have $MD^2 = MA^2 = MC_1 \\cdot MB_1$, implying the required tangency.\n\n**Second solution by inversion and mixtilinears (Anant Mudgal)** As in the end of the preceding solution, we have $\\angle AB_1A_1 = \\angle AC_1A_1 = 90^\\circ$ and $I \\in \\overline{B_1C_1}$. Let $M$ be the midpoint of minor arc $BC$ and $N$ be the midpoint of arc $\\widehat{BAC}$. Let $L$ be the intouch point on $\\overline{BC}$. Let $O$ be the circumcenter of $\\triangle ABC$. Let $K = \\overline{AI} \\cap \\overline{BC}$.\n\n![](attached_image_3.png)\n\n**Claim.** We have $\\angle(\\overline{AI}, \\overline{B_1C_1}) = \\angle IAD$.\n\n*Proof.* Let $Z$ lie on $(ABC)$ with $\\angle AZI = 90^\\circ$. By radical axis theorem on $(AIZ), (BIC)$, and $(ABC)$, we conclude that $D$ lies on $\\overline{AZ}$. Let $\\overline{NI}$ meet $(ABC)$ again at $T \\neq N$.\n\nInversion in $(BIC)$ maps $\\overline{AI}$ to $\\overline{KI}$ and $(ABC)$ to $\\overline{BC}$. Thus, $Z$ maps to $L$, so $Z, L, M$ are collinear. Since $BL = CV$ and $OI = OV$, we see that $MLIN$ is a trapezoid with $\\overline{IL} \\parallel \\overline{MN}$. Thus, $\\overline{ZT} \\parallel \\overline{MN}$.\n\nIt is known that $\\overline{AT}$ and $\\overline{AA_1}$ are isogonal in angle $BAC$. Since $\\overline{AV}$ is a circumdiameter in $(AB_1C_1)$, so $\\overline{AT} \\perp \\overline{B_1C_1}$. So $\\angle ZAI = \\angle NMT = 90^\\circ - \\angle TAI = \\angle(\\overline{AI}, \\overline{B_1C_1})$. $\\square$\n\nLet $X$ be the midpoint of $\\overline{AD}$ and $G$ be the reflection of $I$ in $X$. Since $AIDG$ is a rectangle, we have $\\angle AIG = \\angle ZAI = \\angle (AI, \\overline{B_1C_1})$, by the previous claim. So $\\overline{IG}$ coincides with $\\overline{B_1C_1}$. Now $AI$ bisects $\\angle B_1AC_1$ and $\\angle IAG = 90^\\circ$, so $(\\overline{IG}; \\overline{B_1C_1}) = -1$.\n\nSince $\\angle IDG = 90^\\circ$, we see that $\\overline{DI}$ and $\\overline{DG}$ are bisectors of angle $B_1DC_1$. Now $\\angle XDI = \\angle XID \\implies \\angle XDC_1 = \\angle XID - \\angle IDB_1 = \\angle DB_1C_1$, so $\\overline{XD}$ is tangent to $(DB_1C_1)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-3616",
+      "name": "USA TSTST #0kb4",
+      "url": "https://usamoguide.com/",
+      "source": "USA TSTST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Tangents",
+        "Radical axis theorem",
+        "Miquel point",
+        "Simson line",
+        "Spiral similarity",
+        "Inversion",
+        "Homothety",
+        "Complex numbers in geometry",
+        "Trigonometry",
+        "Isogonal/isotomic conjugates, barycentric coordinates",
+        "Angle chasing"
+      ],
+      "statement": "Let $\\triangle ABC$ be an acute triangle with orthocenter $H$ and circumcircle $\\Gamma$. A line through $H$ intersects segments $AB$ and $AC$ at $E$ and $F$, respectively. Let $K$ be the circumcenter of $\\triangle AEF$, and suppose line $AK$ intersects $\\Gamma$ again at a point $D$. Prove that line $HK$ and the line through $D$ perpendicular to $\\overline{BC}$ meet on $\\Gamma$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "We present several solutions.\n\n**First solution (Andrew Gu)** We begin with the following two observations.\n\n**Claim** — Point $K$ lies on the radical axis of $(BEH)$ and $(CFH)$.\n*Proof.* Actually we claim $\\overline{KE}$ and $\\overline{KF}$ are tangents. Indeed,\n$$\n\\angle HEK = 90^\\circ - \\angle EAF = 90^\\circ - \\angle BAC = \\angle HBE\n$$\nimplying the result. Since $KE = KF$, this implies the result. $\\square$\n\n**Claim** — The second intersection $M$ of $(BEH)$ and $(CFH)$ lies on $\\Gamma$.\n*Proof.* By Miquel's theorem on $\\triangle AEF$ with $H \\in \\overline{EF}$, $B \\in \\overline{AE}$, $C \\in \\overline{AF}$. $\\square$\n\n![](attached_image_1.png)\n\nIn particular, $M, H, K$ are collinear. Let $X$ be on $\\Gamma$ with $\\overline{DX} \\perp \\overline{BC}$; we then wish to show $X$ lies on the line $MHK$ we found. This is angle chasing: compute\n$$\n\\begin{aligned} \\angle XMB &= \\angle XDB = 90^\\circ - \\angle DBC = 90^\\circ - \\angle DAC \\\\ &= 90^\\circ - \\angle KAF = \\angle FEA = \\angle HEB = \\angle HMB \\end{aligned}\n$$\nas needed.\n\n\n**Second solution (Ankan Bhattacharya)** We let $D'$ be the second intersection of $\\overline{EF}$ with (BHC) and redefine D as the reflection of $D'$ across $\\overline{BC}$. We will first prove that this point D coincides with the point D given in the problem statement. The idea is that:\n\n**Claim** — A is the D-excenter of $\\triangle DEF$.\n*Proof.* We contend $BED'D$ is cyclic. This follows by angle chasing:\n$$\n\\begin{aligned}\n\\angle D'DB &= \\angle BD'D = \\angle D'BC + 90^\\circ = \\angle D'HC + 90^\\circ \\\\\n&= \\angle D'HC + \\angle (HC, AB) = \\angle (D'H, AB) = \\angle D'EB.\n\\end{aligned}\n$$\nNow as $BD = BD'$, we obtain $\\overline{BEA}$ externally bisects $\\angle DED' \\cong \\angle DEF$. Likewise $\\overline{FA}$ externally bisects $\\angle DFE$, so A is the D-excenter of $\\triangle DEF$. $\\square$\n\nHence, by the so-called “Fact 5”, point K lies on $\\overline{DA}$, so this point D is the one given in the problem statement.\n\n![](attached_image_2.png)\n\nNow choose point X on (ABC) satisfying $\\overline{DX} \\perp \\overline{BC}$.\n\n**Claim** — Point K lies on line HX.\n*Proof.* Clearly $AHD'X$ is a parallelogram. By Ptolemy on $DEKF$,\n$$\n\\frac{KD}{KA} = \\frac{KD}{KE} = \\frac{DE + DF}{EF}.\n$$\nOn the other hand, if we let $r_D$ denote the D-exradius of $\\triangle DEF$ then\n$$\n\\frac{XD}{XD'} = \\frac{[DEX] + [DFX]}{[XEF]} = \\frac{[DEX] + [DFX]}{[AEF]} = \\frac{DE \\cdot r_D + DF \\cdot r_D}{EF \\cdot r_D} = \\frac{DE + DF}{EF}.\n$$\nThus\n$$\n[AKX] = \\frac{KA}{KD} \\cdot [DKX] = \\frac{KA}{KD} \\cdot \\frac{XD}{XD'} \\cdot [KD'X] = [D'KX].\n$$\nThis is sufficient to prove K lies on $\\overline{HX}$. $\\square$\n\nThe solution is complete: X is the desired concurrency point.\n\n\n**Third solution (Nikolai Beluhov, unedited)** We are going to prove the following:\nLet $ABC$ be a triangle with orthocenter $H$ and circumcircle $\\Gamma$. Let $D$ be any point on arc $BC$ of $\\Gamma$ that does not contain $A$. Let $J$ lie on $\\Gamma$ so that line $DJ$ is perpendicular to $BC$. Let lines $AD$ and $HJ$ meet at $K$. Let $L$ be such that $K$ is the midpoint of segment $AL$. Let $E$ and $F$ be the projections of $L$ onto lines $AB$ and $AC$, respectively. Then $H$ lies on line $EF$.\nThis is the converse of the problem statement; clearly, if we prove this, then all is well. Let lines $BC$ and $DJ$ meet at $M$.\n\n**Claim** — Point $L$ lies on $HM$.\n*Proof.* Let $G$ be the midpoint of segment $AH$, let $O$ be the circumcenter of triangle $ABC$, and let $N$ be the projection of $O$ onto line $DJ$. Then $N$ is the midpoint of segment $DJ$, so $K$ lies on $GN$. Also $GH$ equals the distance from $O$ to line $BC$, which equals $MN$; thus $GN$ is parallel to $HM$. It follows that $GK$ is parallel to both $HL$ and $HM$. $\\square$\n\nLet $P$ and $Q$ be the projections of $D$ onto lines $AB$ and $AC$, respectively. Let $\\ell$, the line through $P, M, Q$ be the Simson line of $D$ with respect to triangle $ABC$. Suppose $\\ell$ meets line $AH$ at $R$.\n\n**Claim** — We have $DM = HR$.\n*Proof.* This is a known property of the Simson line $\\ell$ (that $DMHR$ is in fact a parallelogram as $\\ell$ bisects $\\overline{HD}$). $\\square$\n\n**Claim** — Figures $ALEFH$ and $ADPQR$ are homothetic with center $A$.\n*Proof.* All that we need to do to establish this is to verify that $AL : LD = AH : HR$. This is true by $AL : LD = AH : DM = AH : HR$. $\\square$\n\nBy the final claim, since $R$ lies on line $PQ$, we get that $H$ lies on line $EF$. This completes the solution.\n\n\n**Fourth solution, complex numbers with spiral similarity (Evan Chen)** First if $\\overline{AD} \\perp \\overline{BC}$ there is nothing to prove, so we assume this is not the case. Let $W$ be the antipode of $D$. Let $S$ denote the second intersection of $(AEF)$ and $(ABC)$. Consider the spiral similarity sending $\\triangle SEF$ to $\\triangle SBC$:\n* It maps $H$ to a point $G$ on line $BC$,\n* It maps $K$ to $O$.\n* It maps the $A$-antipode of $\\triangle AEF$ to $D$.\n* Hence (by previous two observations) it maps $A$ to $W$.\n* Also, the image of line $AD$ is line $WO$, which does not coincide with line $BC$ (as $O$ does not lie on line $BC$).\n\nTherefore, $K$ is the unique point on line $\\overline{AD}$ for one can get a direct similarity\n$$\n\\triangle AKH \\sim \\triangle WOG \\quad (\\heartsuit)\n$$\nfor some point $G$ lying on line $\\overline{BC}$.\n\n![](attached_image_3.png)\n\nOn the other hand, let us re-define $K$ as $\\overline{XH} \\cap \\overline{AD}$. We will show that the corresponding $G$ making $(\\heartsuit)$ true lies on line $BC$.\nWe apply complex numbers with $\\Gamma$ the unit circle, with $a, b, c, d$ taking their usual meanings, $H = a+b+c$, $X = -bc/d$, and $W = -d$. Then point $K$ is supposed to satisfy\n$$\n\\begin{aligned}\nk + a\\bar{d}k &= a + d \\\\\n\\frac{k + \\frac{bc}{d}}{a + b + c + \\frac{bc}{d}} &= \\frac{\\bar{k} + \\frac{d}{bc}}{\\frac{1}{a} + \\frac{1}{b} + \\frac{1}{c} + \\frac{d}{bc}} \\\\\n\\iff \\frac{\\frac{1}{a} + \\frac{1}{b} + \\frac{1}{c} + \\frac{d}{bc}}{a + b + c + \\frac{bc}{d}} ( k + \\frac{bc}{d} ) &= \\bar{k} + \\frac{d}{bc}\n\\end{aligned}\n$$\nAdding $ad$ times the last line to the first line and cancelling $a\\bar{d}k$ now gives\n$$\n\\left( a d \\cdot \\frac{\\frac{1}{a} + \\frac{1}{b} + \\frac{1}{c} + \\frac{d}{bc}}{a + b + c + \\frac{bc}{d}} + 1 \\right) k = a + d + \\frac{a d^2}{bc} - a b c \\cdot \\frac{\\frac{1}{a} + \\frac{1}{b} + \\frac{1}{c} + \\frac{d}{bc}}{a + b + c + \\frac{bc}{d}}\n$$\nor\n$$\n\\left( a d \\left( \\frac{1}{a} + \\frac{1}{b} + \\frac{1}{c} + \\frac{d}{bc} \\right) + a + b + c + \\frac{bc}{d} \\right) k = \\left( a + b + c + \\frac{bc}{d} \\right) \\left( a + d + \\frac{a d^2}{bc} \\right) - a b c \\cdot \\left( \\frac{1}{a} + \\frac{1}{b} + \\frac{1}{c} + \\frac{d}{bc} \\right).\n$$\nWe begin by simplifying the coefficient of $k$:\n$$\n\\begin{aligned}\na d \\left( \\frac{1}{a} + \\frac{1}{b} + \\frac{1}{c} + \\frac{d}{bc} \\right) + a + b + c + \\frac{bc}{d} &= a + b + c + d + \\frac{bc}{d} + \\frac{ad}{b} + \\frac{ad}{c} + \\frac{ad^2}{bc} \\\\\n&= a + \\frac{bc}{d} + \\left( 1 + \\frac{ad}{bc} \\right) (b + c + d) \\\\\n&= \\frac{ad + bc}{bcd} [bc + d(b + c + d)] \\\\\n&= \\frac{(ad + bc)(d + b)(d + c)}{bcd}.\n\\end{aligned}\n$$\n\nMeanwhile, the right-hand side expands to\n$$\n\\begin{align*}\n\\text{RHS} &= \\left(a+b+c+\\frac{bc}{d}\\right)\\left(a+d+\\frac{ad^2}{bc}\\right) - abc \\cdot \\left(\\frac{1}{a}+\\frac{1}{b}+\\frac{1}{c}+\\frac{d}{bc}\\right) \\\\\n&= \\left(a^2+ab+ac+\\frac{abc}{d}\\right) + (da+db+dc+bc) \\\\\n&\\quad + \\left(\\frac{a^2d^2}{bc}+\\frac{ad^2}{c}+\\frac{ad^2}{b}+ad\\right) - (ab+bc+ca+ad) \\\\\n&= a^2+d(a+b+c) + \\frac{abc}{d} + \\frac{a^2d^2}{bc} + \\frac{ad^2}{b} + \\frac{ad^2}{c} \\\\\n&= a^2 + \\frac{abc}{d} + d(a+b+c) \\cdot \\frac{ad+bc}{bc} \\\\\n&= \\frac{ad+bc}{bcd} \\left[abc+d^2(a+b+c)\\right].\n\\end{align*}\n$$\nTherefore, we get\n$$\nk = \\frac{abc + d^2(a + b + c)}{(d + b)(d + c)}.\n$$\nIn particular,\n$$\n\\begin{align*}\nk - a &= \\frac{abc + d^2(a + b + c) - a(d + b)(d + c)}{(d + b)(d + c)} \\\\\n&= \\frac{d^2(b + c) - da(b + c)}{(d + b)(d + c)} = \\frac{d(b + c)(d - a)}{(d + b)(d + c)}.\n\\end{align*}\n$$\nNow the corresponding point $G$ obeying $(\\heartsuit)$ satisfies\n$$\n\\begin{align*}\n\\frac{g - (-d)}{0 - (-d)} &= \\frac{(a + b + c) - a}{k - a} \\\\\n\\implies g &= -d + \\frac{d(b + c)}{k - a} \\\\\n&= -d + \\frac{(d + b)(d + c)}{d - a} = \\frac{db + dc + bc + ad}{d - a}. \\\\\n\\implies bc\\bar{g} &= \\frac{bc \\cdot \\frac{ac+ab+ad+bc}{abcd}}{\\frac{a-d}{ad}} = -\\frac{ab + ac + ad + bc}{d - a}. \\\\\n\\implies g + bc\\bar{g} &= \\frac{(d - a)(b + c)}{d - a} = b + c.\n\\end{align*}\n$$\nHence $G$ lies on $BC$ and this completes the proof.\n\n\n**Fifth solution by trigonometry (Ivan Borsenco, unedited)** Let $\\angle E = B - \\theta$ and $\\angle F = C - \\theta$. Denote by $H_a$ the intersection of $AH$ with $\\Gamma$ and by $D'$ the intersection of the line passing through $D$ and perpendicular to $BC$ with $EF$.\nBy angle-chasing, we get $\\angle BAH = 90^\\circ - B$, $\\angle AHE = \\angle H_aHD' = 90^\\circ + \\theta$. On the other hand, $\\angle ADH_a = \\angle ACH_a = 90^\\circ - B + C$, $\\angle AKB = 2(C+\\theta)$, $\\angle H_aAK = \\angle HAK = \\angle EAK - \\angle EAH = 90^\\circ - (C+\\theta) - (90^\\circ - B) = B - C - \\theta$, and therefore $\\angle AH_aD = 90^\\circ + \\theta$. Hence $HH_aDD'$ is an isosceles trapezoid. Point $D'$ is the reflection of $D$ in $BC$, which implies that quadrilateral $BHD'C$ is cyclic, because $\\angle BHC = \\angle BD'C = 180^\\circ - A$.\nChoose point $X$ on $\\Gamma$ satisfying $DX \\perp BC$. Note that $AH_aDX$ is an isosceles trapezoid. Hence $\\angle HAX = 90^\\circ + \\theta$ and $\\angle KAX = \\angle HAX - \\angle HAK = 90^\\circ - (B-C-2\\theta)$. Denote\n\nby $R$ and $R'$ the circumradii of triangles $ABC$ and $AEF$, respectively. It follows that $AH = 2R \\cos A$, $AK = R'$, $AX = DH_a = 2R \\sin(B - C - \\theta)$.\nIn order to show that points $H$, $K$, and $X$ are collinear, we will show that $[HAX] = [HAK] + [KAX]$, which is equivalent to\n$$\nAH \\cdot AX \\cdot \\sin(\\angle HAX) = AK [AH \\cdot \\sin(\\angle HAK) + AX \\cdot \\sin(\\angle KAX)].\n$$\nUsing the Law of Sines in triangles $AEH$ and $AFH$, we get\n$$\nEF = EH + HF = AH \\cdot \\frac{\\cos B}{\\sin(B - \\theta)} + AH \\cdot \\frac{\\cos C}{\\sin(C + \\theta)}.\n$$\nyielding\n$$\n\\begin{aligned}\n2R' \\sin A &= \\frac{2R \\cos A}{\\sin(B - \\theta) \\sin(C + \\theta)} (\\cos B \\sin(C + \\theta) + \\cos C \\sin(B - \\theta)) \\\\\n&= \\frac{2R \\cos A}{\\sin(B - \\theta) \\sin(C + \\theta)} \\cdot \\cos \\theta \\cdot \\sin(B + C).\n\\end{aligned}\n$$\nUsing the fact that $2 \\sin(B - \\theta) \\sin(C + \\theta) = \\cos((B - \\theta) - (C + \\theta)) - \\cos((B - \\theta) + (C + \\theta))$, we conclude that\n$$\nR' = 2R \\cdot \\frac{\\cos A \\cos \\theta}{\\cos(B - C - 2\\theta) + \\cos A}.\n$$\nDenote by $\\varphi = B - C - 2\\theta$, then\n$$\nAH = 2R \\cos A, \\quad AK = 2R \\cdot \\frac{\\cos A \\cos \\theta}{\\cos \\varphi + \\cos A}, \\quad AX = 2R \\sin(\\varphi + \\theta),\n$$\nand\n$$\n\\angle HAK = \\varphi + \\theta, \\quad \\angle KAX = 90^\\circ - \\varphi, \\quad \\angle HAX = 90^\\circ + \\theta.\n$$\nReturning back to proving the identity for areas, we have to show that\n$$\n\\cos A \\cdot \\sin(\\varphi + \\theta) \\cdot \\cos \\theta = \\frac{\\cos A \\cos \\theta}{\\cos \\varphi + \\cos A} \\cdot [\\cos A \\cdot \\sin(\\varphi + \\theta) + \\sin(\\varphi + \\theta) \\cdot \\cos \\varphi],\n$$\nwhich is clearly true.\n\n\n**Sixth solution by moving points (Anant Mudgal, unedited)** The meat of this solution is the following claim.\n\n**Claim** — In triangle $AEF$, with circumcenter $K$ point $H$ lies on $\\overline{EF}$, points $B$ and $C$ lie on lines $\\overline{AE}$ and $\\overline{AF}$ respectively, such that $\\overline{BH} \\perp \\overline{AF}$ and $\\overline{CH} \\perp \\overline{AE}$. Line $\\overline{AK}$ meets $\\odot(KEF)$ again at point $D$. Then $ABCD$ is cyclic and reflection of $D$ in $\\overline{BC}$ lies on $\\overline{EF}$.\n*Proof*. Move $H$ along $\\overline{EF}$ and note that $B \\mapsto H$ and $H \\mapsto C$ are linear maps, hence $B \\mapsto C$ is also linear. Suppose $\\odot(DAB)$ meets line $\\overline{AF}$ at $C'$. Then we need to show that $C = C'$. Since, by spiral similarity, $B \\mapsto C'$ is linear; we need to check this for two choices of $H$.\n* $H = E$. Then $B = E$ and we need to show that if $\\odot(AED)$ meets $\\overline{AF}$ at $F'$, then $\\angle AEF' = 90^\\circ$. Apply inversion at $A$ of radius $\\sqrt{AE \\cdot AF}$ followed by reflection in the bisector of angle $EAF$. Suppose $X \\mapsto X^*$ under this transformation. Then $E^* = F, F^* = E$ and $D^*$ is the orthocenter of $\\triangle AEF$, so $(F')^* = \\overline{FD^*} \\cap \\overline{AE}$ hence $\\angle A(F')^*F = 90^\\circ$ so $\\angle AEF' = 90^\\circ$, and we're done.\n* $H = F$. Same proof as above works.\nFinally, moving $H$, since $\\triangle DBC$ has fixed shape, so the locus of the reflection of $D$ in $\\overline{BC}$ is a line.\n* For $H = E$, we need to show that $\\angle AED = 180^\\circ - \\angle AEF$ since $\\angle FEF' = 90^\\circ - \\angle AEF$; this follows since $\\angle AED = \\angle AD^*F$ and $D^*$ is the orthocenter of $\\triangle AEF$.\n* Similarly, $H = F$ case holds.\nThe lemma is proved. $\\square$\n\nNow we go back to the original problem. Let $L$ be the reflection of $A$ in $K$ and $N = \\overline{EF} \\cap \\overline{AK}$, then, by our lemma, we have $(AL; ND) = -1$.\nSuppose $P$ lies on $\\overline{EF}$ such that $\\overline{DP} \\perp \\overline{BC}$ and $\\overline{DP}$ meets $\\overline{BC}$ at $S$ and $\\Gamma$ again at $Q$. Reflect $Q$ in $S$ to get $R$. By the lemma, $S$ is the midpoint of $\\overline{DP}$. Let $S' = \\overline{HL} \\cap \\overline{DP}$ and $Q' = \\overline{HK} \\cap \\overline{DP}$.\nObserve that $-1 = (AL; ND) \\stackrel{H}{=} (\\infty s', PD)$, so clearly, $\\overline{HL}$ bisects $\\overline{DP}$, so $H, L, S$ are collinear. Finally, since $\\overline{AK} \\parallel \\overline{RH}$ so $-1 = (AL; K\\infty) \\stackrel{H}{=} (\\infty S; Q'R)$ so $\\overline{HK}$ passes through $Q$, as desired.\n\n\n**Seventh solution using brutal force (Zack Chroman)** We state the converse of the problem as follows:\nTake a point $D$ on $\\Gamma$, and let $G \\in \\Gamma$ such that $\\overline{DG} \\perp \\overline{BC}$. Then define $K$ to lie on $\\overline{GH}$, $\\overline{AD}$, and take $L \\in \\overline{AD}$ such that $K$ is the midpoint of $\\overline{AL}$. Then if we define $E$ and $F$ as the projections of $L$ onto $\\overline{AB}$ and $\\overline{AC}$ we want to show that $E, H, F$ are collinear.\nIt's clear that solving this problem will solve the original. In fact we will show later that each line $EF$ through $H$ corresponds bijectively to the point $D$.\nWe work in the real projective plane $\\mathbb{RP}^2$, and animate $D$ on $\\Gamma$. The point $D$ has projective coordinates which are each quadratic polynomials in a real parameter $t$, and moves projectively on $(ABC)$. We will state and prove some quick facts about animation. First, define the **degree** of a moving point $(P(t) : Q(t) : R(t))$ to be the max degree of $P, Q, R$. Similarly we define the degree of a moving line $P(t)x + Q(t)y + R(t)z = 0$ in the same way.\n\n**Lemma**\nSuppose points $A, B$ have degree $d_1, d_2$, and there are $k$ values of $t$ for which $A = B$. Then line $AB$ has degree at most $d_1 + d_2 - k$. Similarly, if lines $l_1, l_2$ have degrees $d_1, d_2$, and there are $k$ values of $t$ for which $l_1 = l_2$, then the intersection $l_1 \\cap l_2$ has degree at most $d_1 + d_2 - k$.\n*Proof.* We show the first statement; the second follows from point-line duality. Note that the line through the points $A = (P_1(t) : Q_1(t) : R_1(t))$ and $B = (P_2(t) : Q_2(t) : R_2(t))$ is given by cross product $A \\times B$; that is, the line\n$$\n(Q_1R_2 - Q_2R_1)x + (R_1P_2 - R_2P_1)y + (P_1Q_2 - P_2Q_1)z = 0.\n$$\nClearly $A$ and $B$ lie on this line, so it is line $AB$. Then for every value $t_0$ for which $A = B$, $(t - t_0)$ factors out of each term. So the degree of the line is at most $d_1 + d_2 - k$. $\\square$\n\nNow, note that $G$ is projective in $D$ since it's a projection through the point at infinity on line $AH$. Now by the lemma, line $HG$ has degree at most 2, and line $AD$ has degree at most 1.\nSo by the lemma again, the point $K$ has degree at most 3. However, note that when $D$ lies on line $AH$, we have $G = A$, so lines $HG$ and $AD$ are the same. It follows that the point $K$ actually has degree at most 2, thus so does $L$.\nLet $P_C$ be the point at infinity on the line perpendicular to $AC$, and similarly $P_B$. Then\n$$\nF = \\overline{AC} \\cap \\overline{P_C L}, \\quad E = \\overline{AB} \\cap \\overline{P_B L},\n$$\nso $E$ and $F$ have degree at most 2, since lines $AB$ and $AC$ are fixed and $\\deg(P_B L) \\le \\deg(P_B) + \\deg(L) = 2$. In fact, note that if we can show that $P_B, P_C$ lie on the locus of $L$, we'll show that $E$ and $F$ move with degree 1 (i.e. projectively) by the lemma again. To show that, we consider the case where $L$ and $K$ lie at infinity; that is, $\\overline{HG} \\parallel \\overline{AD}$. In this case, $ADGH$ is a parallelogram as $AH \\parallel DG$. Clearly $G = B$ and $G = C$ work; when $G = B$, $D$ is the antipode of $C$ in $\\Gamma$.\nThen, when $G = B$, we have $K = L$ is the point at infinity on line $\\overline{GH} \\equiv \\overline{BH}$. This point is $P_C$, so we get that $E, F$ are projective.\nSo it suffices to verify the problem for three distinct choices of $D$.\n* If $D = A$, then line $GH$ is line $AH$, and $L = \\overline{AD} \\cap \\overline{AH} = A$. So $E = F = A$ and the statement is true.\n* If $D = B$, $G$ is the antipode of $C$ on $\\Gamma$. Then $K = \\overline{HG} \\cap \\overline{AD}$ is the midpoint of $\\overline{AB}$, so $L = B$. Then $E = B$ and $F$ is the projection of $B$ onto $AC$, so $E, H, F$ collinear.\n* We finish similarly when $D = C$.\nThus since the maps $D \\mapsto E$ and $D \\mapsto F$ are collinear, the map $E \\mapsto F$ is projective as well. Since $E, H, F$ are collinear for three values of $E$, they are in general. Moreover, since $D \\to E$ is bijective, any line through $H$ will correspond to some $D$, so we've solved the original problem as well.\n\n\n**Eight solution by author using circumhyperbolas (Gunmay Handa, unedited)** Let $P$ be an arbitrary point on $\\odot(ABC)$ with $N$ as the midpoint of $\\overline{HP}$, and define $\\mathcal{H}_P = ABCHP$ as the rectangular circumhyperbola with center $N$ passing through the aforementioned points. Moreover, define $D' \\in \\odot(ABC)$ with $\\overline{PD'} \\perp \\overline{BC}$ and $P \\neq D'$; observe that the line $\\ell_P$ through $O$ perpendicular to $\\overline{AD'}$ is the isogonal conjugate of $\\mathcal{H}_P$ with respect to $\\odot(ABC)$, and so if we define $U$ and $V$ as the intersections of $\\ell_P$ with $\\overline{AB}$ and $\\overline{AC}$, respectively, then $N$ belongs to the pedal circles $\\omega_U$ and $\\omega_V$ of $U$ and $V$ with respect to $\\triangle ABC$.\nLet $\\triangle RST$ be the orthic triangle of $\\triangle ABC$ and $M$ be the midpoint of $\\overline{AH}$; angle chasing establishes that if $\\{Q, N\\} = \\omega_U \\cap \\omega_V$, then $Q \\in \\odot(ABC)$, and moreover $H \\in \\overline{QN}$ since it has equal power with respect to these circles. Suppose the line through $H$ parallel to $\\overline{AP}$ intersects $\\overline{AB}$ and $\\overline{AC}$ at $E'$ and $F'$, respectively, and observe that $\\overline{E'F'}$ is antiparallel to $\\overline{UV}$ in $\\angle A$. If $K'$ is the orthocenter of $\\triangle AUV$, then $K' \\in \\overline{QN}$ by radical axes, and moreover $K' \\in \\odot(UD'V)$ since $D'$ is the reflection of $A$ across $\\overline{UV}$. Further angle chasing establishes $Q \\in \\odot(UD'V)$; we now claim that $E', F' \\in \\odot(UD'V)$ as well. Suppose the line through $N$ parallel to $\\overline{AP}$ intersects $\\overline{AB}$ at $W$, so that since $\\triangle AST \\cup \\overline{MW} \\sim \\triangle ABC \\cup \\overline{OV}$, we have that $AK' \\cdot AD'/2 = AW \\cdot AU = AE'/2 \\cdot AU$, and so $E', F' \\in \\odot(UD'V)$ as well. Finally, since $\\angle EUK = \\angle FVK = 90^\\circ - \\angle A$, we know\n\nthat $\\overline{DK}$ bisects $\\angle EDF$, which implies that $K'$ is the circumcenter of $\\odot(AE'F')$ since $\\overline{AK'} \\perp \\overline{UV}$ and lines $E'F'$ and $UV$ are isogonal in $\\angle A$, which finishes the problem."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-3620",
+      "name": "USA TSTST #0kb8",
+      "url": "https://usamoguide.com/",
+      "source": "USA TSTST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Tangents",
+        "Radical axis theorem",
+        "Inversion",
+        "Concurrency and Collinearity",
+        "Trigonometry",
+        "Angle chasing"
+      ],
+      "statement": "Let $ABC$ be a triangle with incenter $I$. Points $K$ and $L$ are chosen on segment $BC$ such that the incircles of $\\triangle ABK$ and $\\triangle ABL$ are tangent at $P$, and the incircles of $\\triangle ACK$ and $\\triangle ACL$ are tangent at $Q$. Prove that $IP = IQ$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Let $I_B, J_B, I_C, J_C$ be the incenters of $\\triangle ABK$, $\\triangle ABL$, $\\triangle ACK$, $\\triangle ACL$ respectively.\n\n![](attached_image_1.png)\n\nWe begin with the following claim which does not depend on the existence of tangency points $P$ and $Q$.\n**Claim** — Lines $BC$, $I_BJ_C$, $J_BI_CI_C$ meet at a point $R$ (possibly at infinity).\n*Proof*. Note that\n$$\n(BI; I_BJ_B) = \\frac{\\sin \\angle I_BAB}{\\sin \\angle I_BAI} \\div \\frac{\\sin \\angle J_BAB}{\\sin \\angle J_BAI} = \\frac{\\sin \\frac{1}{2}\\angle BAK}{\\sin \\frac{1}{2}\\angle CAK} \\div \\frac{\\sin \\frac{1}{2}\\angle BAL}{\\sin \\frac{1}{2}\\angle CAL}.\n$$\nSimilarly\n$$\n(CI; J_CI_CI_C) = \\frac{\\sin \\angle J_CAC}{\\sin \\angle J_CAI} \\div \\frac{\\sin \\angle I_CAC}{\\sin \\angle I_CAI} = \\frac{\\sin \\frac{1}{2}\\angle CAL}{\\sin \\frac{1}{2}\\angle BAL} \\div \\frac{\\sin \\frac{1}{2}\\angle CAK}{\\sin \\frac{1}{2}\\angle BAK}.\n$$\nThus the cross ratios are equal. Therefore, the concurrence follows from the so-called *prism lemma* on $\\overline{IBI_BJ_B}$ and $\\overline{ICJ_CI_CI_C}$. $\\square$\n\n**Claim** — Line $PQ$ also passes through $R$.\n*Proof*. Note $(BP; I_BJ_B) = -1 = (CQ; J_CI_CI_C)$, so the conclusion again follows by prism lemma. $\\square$\n\nAs above, the lines $BC$, $I_B J_C$, $J_B I_C$ meet at some point $R$ (possibly at infinity). Let $\\omega_1, \\omega_2, \\omega_3, \\omega_4$ be the incircles of $\\triangle ABK$, $\\triangle ACL$, $\\triangle ABL$, and $\\triangle ACK$.\n**Claim** — There exists an inversion $\\iota$ at $R$ swapping $\\{\\omega_1, \\omega_2\\}$ and $\\{\\omega_3, \\omega_4\\}$.\n*Proof*. Consider the inversion at $R$ swapping $\\omega_1$ and $\\omega_2$. Since $\\omega_1$ and $\\omega_3$ are tangent, the image of $\\omega_3$ is tangent to $\\omega_2$ and is also tangent to $BC$. The circle $\\omega_4$ is on the correct side of $\\omega_3$ to be this image. $\\square$\n**Claim** — Circles $\\omega_1, \\omega_2, \\omega_3, \\omega_4$ share a common radical center.\n*Proof*. Let $\\Omega$ be the circle with center $R$ fixed under $\\iota$, and let $k$ be the circle through $P$ centered at the radical center of $\\Omega$, $\\omega_1, \\omega_3$.\nThen $k$ is actually orthogonal to $\\Omega$, $\\omega_1, \\omega_3$, so $k$ is fixed under $\\iota$ and $k$ is also orthogonal to $\\omega_2$ and $\\omega_4$. Thus the center of $k$ is the desired radical center. $\\square$\nThe desired statement immediately follows. Indeed, letting $S$ be the radical center, it follows that $\\overline{SP}$ and $\\overline{SQ}$ are the common internal tangents to $\\{\\omega_1, \\omega_3\\}$ and $\\{\\omega_2, \\omega_4\\}$.\nSince $S$ is the radical center, $SP = SQ$. In light of $\\angle SPI = \\angle SQI = 90^\\circ$, it follows that $IP = IQ$, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-3632",
+      "name": "HMMT February #0kbk",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inversion",
+        "Homothety",
+        "Tangents",
+        "φ (Euler's totient)"
+      ],
+      "statement": "Problem:\n\nLet $\\Gamma$ be a circle of radius $1$ centered at $O$. A circle $\\Omega$ is said to be friendly if there exist distinct circles $\\omega_{1}, \\omega_{2}, \\ldots, \\omega_{2020}$, such that for all $1 \\leq i \\leq 2020$, $\\omega_{i}$ is tangent to $\\Gamma$, $\\Omega$, and $\\omega_{i+1}$. (Here, $\\omega_{2021}=\\omega_{1}$.) For each point $P$ in the plane, let $f(P)$ denote the sum of the areas of all friendly circles centered at $P$. If $A$ and $B$ are points such that $OA=\\frac{1}{2}$ and $OB=\\frac{1}{3}$, determine $f(A)-f(B)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $P$ satisfy $OP = x$. (For now, we focus on $f(P)$ and ignore the $A$ and $B$ from the problem statement.) The key idea is that if we invert at some point along $OP$ such that the images of $\\Gamma$ and $\\Omega$ are concentric, then $\\omega_{i}$ still exist. Suppose that this inversion fixes $\\Gamma$ and takes $\\Omega$ to $\\Omega'$ of radius $r$ (and $X$ to $X'$ in general). If the inversion is centered at a point $Q$ along ray $OP$ such that $OQ = d$, then the radius of inversion is $\\sqrt{d^2-1}$. Let the diameter of $\\Omega$ meet $OQ$ at $A$ and $B$ with $A$ closer to $Q$ than $B$. Then, $(AB; PP_{\\infty}) = -1$ inverts to $(A'B'; P'Q) = -1$, where $P_{\\infty}$ is the point at infinity along line $OP$, so $P'$ is the inverse of $Q$ in $\\Omega'$. We can compute $OP' = \\frac{r^2}{d}$ so $P'Q = d - \\frac{r^2}{d}$ and $PQ = \\frac{d^2-1}{d-\\frac{r^2}{d}}$. Thus, we get the equation $\\frac{d^2-1}{d-\\frac{r^2}{d}} + x = d$, which rearranges to $\\frac{1-r^2}{d^2-r^2} d = x$, or $d^2 - x^{-1}(1-r^2)d - r^2 = 0$.\n\nNow, we note that the radius of $\\Omega$ is\n\n$$\n\\frac{1}{2} AB = \\frac{1}{2}\\left(\\frac{d^2-1}{d-r} - \\frac{d^2-1}{d+r}\\right) = \\frac{r(d^2-1)}{d^2-r^2} = r\\left(1 + \\frac{r^2-1}{d^2-r^2}\\right) = r\\left(1 - \\frac{x}{d}\\right)\n$$\n\nThe quadratic formula gives us that $d = \\frac{(1-r^2) \\pm \\sqrt{r^4 - (2-4x^2)r^2 + 1}}{2x}$, so $\\frac{x}{d} = -\\frac{1-r^2 \\pm \\sqrt{r^4 - (2-4x^2)r^2 + 1}}{2r^2}$, which means that the radius of $\\Omega$ is\n\n$$\n\\frac{r^2+1 \\pm \\sqrt{r^4 - (2-4x^2)r^2 + 1}}{2r} = \\frac{r + \\frac{1}{r} \\pm \\sqrt{r^2 + \\frac{1}{r^2} - 2 + 4x^2}}{2}\n$$\n\nNote that if $r$ gives a valid chain of 2020 circles, so will $\\frac{1}{r}$ by homothety/inversion. Thus, we can think of each pair of $r, \\frac{1}{r}$ as giving rise to two possible values of the radius of $\\Omega$, which are $\\frac{r + \\frac{1}{r} \\pm \\sqrt{r^2 + \\frac{1}{r^2} - 1}}{2}$. This means that the pairs have the same sum of radii as the circles centered at $O$, and the product of the radii is $1-x^2$. (A simpler way to see this is to note that inversion at $P$ with radius $\\sqrt{1-x^2}$ swaps the two circles.)\n\nFrom this, it follows that the difference between the sum of the areas for each pair is $2\\pi\\left(\\frac{1}{2^2} - \\frac{1}{3^2}\\right) = \\frac{5}{18}\\pi$. There are $\\frac{\\varphi(2020)}{2} = 400$ such pairs, which can be explicitly computed as $\\frac{1-\\sin\\frac{\\pi k}{2020}}{1+\\sin\\frac{\\pi k}{2020}}, \\frac{1+\\sin\\frac{\\pi k}{2020}}{1-\\sin\\frac{\\pi k}{2020}}$ for positive integers $k < 1010$ relatively prime to $2020$.\n\nThus, the answer is $\\frac{1000}{9}\\pi$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-3766",
+      "name": "HMMT February 2020 #0kfa",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2020",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cyclic quadrilaterals",
+        "Spiral similarity",
+        "Inversion",
+        "Isogonal/isotomic conjugates, barycentric coordinates",
+        "Polar triangles, harmonic conjugates",
+        "Angle chasing",
+        "Triangle trigonometry"
+      ],
+      "statement": "Problem:\n\nLet $ABC$ be a scalene triangle with angle bisectors $AD$, $BE$, and $CF$ so that $D$, $E$, and $F$ lie on segments $BC$, $CA$, and $AB$ respectively. Let $M$ and $N$ be the midpoints of $BC$ and $EF$ respectively. Prove that line $AN$ and the line through $M$ parallel to $AD$ intersect on the circumcircle of $ABC$ if and only if $DE = DF$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n![](attached_image_1.png)\n\nLet $X, Y$ be on $AB, AC$ such that $CX \\parallel BE$ and $BY \\parallel CF$. Then $BX = BC = CY$. Let $Z$ be the midpoint of $XY$. Then $\\overrightarrow{MZ} = \\frac{1}{2}(\\overrightarrow{BX} + \\overrightarrow{CY})$, which bisects the angle between $BX$ and $CY$ because they have the same length. Therefore $MZ \\parallel AD$. Furthermore, by similar triangles we have\n$$\nAE \\cdot AX = AB \\cdot AC = AF \\cdot AY\n$$\nThis rearranges to $\\frac{AE}{AF} = \\frac{AY}{AX}$, so $EF \\parallel XY$. Therefore $Z$ is the intersection of the lines in the problem statement. Then\n$$\n\\frac{\\sin \\angle BZX}{\\sin \\angle CZY} = \\frac{BX \\frac{\\sin \\angle ZBX}{XZ}}{CY \\frac{\\sin \\angle ZCY}{YZ}} = 1\n$$\niff $Z \\in (ABC)$, so $XY$ is the external angle bisector of $\\angle BZC$ iff $Z \\in (ABC)$. Thus if $P = AD \\cap XY$, $P \\in (ABC)$ if $Z \\in (ABC)$. Additionally the spiral similarity from $BX$ to $CY$ gives $L_A Z \\perp XY$ where $L_A$ is the midpoint of $\\operatorname{arc} BAC$, so if $P \\in (ABC)$ then $Z$ must be on $(ABC)$ because $\\angle L_A ZP = 90^\\circ$. Therefore $Z \\in (ABC)$ iff $P \\in (ABC)$.\nFrom the previous length computation, we know that an inversion at $A$ with radius $\\sqrt{AB \\cdot AC}$ composed with reflection about $AD$ will send $X$ and $Y$ to $E$ and $F$. We have $P \\in (ABC)$ iff its image under the inversion is $D$, but since $P$ was defined as $AD \\cap XY$ this is true iff $(AEDF)$ is cyclic. Since $ABC$ is scalene and $AE \\neq AF$, this is true iff $DE = DF$.\n\nSolution:\n\n![](attached_image_2.png)\n\nLet $L_A$ be the midpoint of arc $BAC$ and let $M_A$ be diametrically opposite $L_A$. Let $EF$, $AL_A$, and $BC$ meet at $T$ so $\\angle DAT = 90^\\circ$; note that $DE = DF$ iff $DN \\perp EF$, which is equivalent to $(TAND)$ being cyclic. Let $AN \\cap (ABC) = X$ and $XM \\cap (ABC) = Y$, and let $Y'$ be the reflection of $Y$ over $L_A M_A$ with similarly $X'$ the reflection of $X$ over $L_A M_A$. We wish to show $N \\in (TAND)$ iff $XY \\parallel AM_A$.\nWe claim $AY' \\parallel EF$. By projecting $-1 = (B, C; M, \\infty) \\stackrel{X}{=} (B, C; Y, X')$ and reflecting over $L_A M_A$, we find $(X, Y'; B, C) = -1$. Then projecting through $A$ gives $(N, AY' \\cap EF; F, E) = -1$, and since $N$ is the midpoint of $EF$ we find $AY' \\parallel EF$.\nNow $(TAND)$ cyclic iff $\\measuredangle DAN = \\measuredangle DTN$, and $\\measuredangle DTN = \\measuredangle YY'A$ by the parallel lines. But we have $\\measuredangle DAN = \\measuredangle M_A AX$, so $\\operatorname{arcs} M_A X$ and $YA$ are equal iff $(TAND)$ is cyclic. Thus $XY \\parallel AM_A$ iff $DE = DF$ as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-3770",
+      "name": "HMMT February #0kfe",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inversion",
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Distance chasing"
+      ],
+      "statement": "Problem:\n\nLet $ABC$ be an acute triangle with circumcircle $\\Gamma$. Let the internal angle bisector of $\\angle BAC$ intersect $BC$ and $\\Gamma$ at $E$ and $N$, respectively. Let $A'$ be the antipode of $A$ on $\\Gamma$ and let $V$ be the point where $AA'$ intersects $BC$. Given that $EV=6$, $VA'=7$, and $A'N=9$, compute the radius of $\\Gamma$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $H_a$ be the foot of the altitude from $A$ to $BC$. Since $AE$ bisects $\\angle H_a AV$, by the angle bisector theorem $\\frac{AH_a}{H_aE}=\\frac{AV}{VE}$. Note that $\\triangle AH_aE \\sim \\triangle ANA'$ are similar right triangles, so $\\frac{AN}{NA'}=\\frac{AH_a}{H_aE}$.\n\nLet $R$ be the radius of $\\Gamma$. We know that $AA'=2R$, so $AN=\\sqrt{AA'^2-NA'^2}=\\sqrt{4R^2-81}$ and $AV=AA'-VA'=2R-7$. Therefore\n\n$$\n\\frac{\\sqrt{4R^2-81}}{9}=\\frac{AN}{NA'}=\\frac{AH_a}{H_aE}=\\frac{AV}{VE}=\\frac{2R-7}{6}\n$$\n\nThe resulting quadratic equation is\n\n$$\n0=9(2R-7)^2-4\\left(4R^2-81\\right)=20R^2-252R+765=(2R-15)(10R-51)\n$$\n\nWe are given that $ABC$ is acute so $VA'<R$. Therefore $R=\\frac{15}{2}$.\n\n![](attached_image_1.png)\n\nSolution:\n\nLet $\\Psi$ denote inversion about $A$ with radius $\\sqrt{AB \\cdot AC}$ composed with reflection about $AE$. Note that $\\Psi$ swaps the pairs $\\{B, C\\},\\{E, N\\}$, and $\\{H_a, A'\\}$. Let $K=\\Psi(V)$, which is also the second intersection of $AH_a$ with $\\Gamma$. Since $AE$ bisects $\\angle KAA'$, we have $NK=NA'=9$. By the inversion distance formula,\n\n$$\nNK=\\frac{AB \\cdot AC \\cdot VE}{AE \\cdot AV}=\\frac{AE \\cdot AN \\cdot VE}{AE \\cdot AV}=\\frac{AN \\cdot VE}{AV}\n$$\n\nThis leads to the same equation as the previous solution.\n\nWe are given that $ABC$ is acute so $VA'<R$. Therefore $R=\\frac{15}{2}$.\n\n![](attached_image_2.png)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-3779",
+      "name": "HMMT February #0kfn",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Tangents",
+        "Inversion",
+        "Ceva's theorem",
+        "Polar triangles, harmonic conjugates",
+        "Isogonal/isotomic conjugates, barycentric coordinates",
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle"
+      ],
+      "statement": "Problem:\n\nCircles $\\omega_{a}, \\omega_{b}, \\omega_{c}$ have centers $A, B, C$, respectively and are pairwise externally tangent at points $D, E, F$ (with $D \\in BC, E \\in CA, F \\in AB$). Lines $BE$ and $CF$ meet at $T$. Given that $\\omega_{a}$ has radius $341$, there exists a line $\\ell$ tangent to all three circles, and there exists a circle of radius $49$ tangent to all three circles, compute the distance from $T$ to $\\ell$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe will use the following notation: let $\\omega$ be the circle of radius $49$ tangent to each of $\\omega_{a}, \\omega_{b}, \\omega_{c}$. Let $\\omega_{a}, \\omega_{b}, \\omega_{c}$ have radii $r_{a}, r_{b}, r_{c}$ respectively. Let $\\gamma$ be the incircle of $ABC$, with center $I$ and radius $r$. Note that $DEF$ is the intouch triangle of $ABC$ and $\\gamma$ is orthogonal to $\\omega_{a}, \\omega_{b}, \\omega_{c}$ (i.e. $ID, IE, IF$ are the common internal tangents). Since $AD, BE, CF$ are concurrent at $T$, we have $K = AB \\cap DE$ satisfies $(A, B; F, K) = -1$, so $K$ is the external center of homothety of $\\omega_{a}$ and $\\omega_{b}$. In particular, $K$ lies on $\\ell$. Similarly, $BC \\cap EF$ also lies on $\\ell$, so $\\ell$ is the polar of $T$ to $\\gamma$. Hence $IT \\perp \\ell$ so if $L$ is the foot from $I$ to $\\ell$, we have $IT \\cdot IL = r^{2}$.\n\nAn inversion about $\\gamma$ preserves $\\omega_{a}, \\omega_{b}, \\omega_{c}$ and sends $\\ell$ to the circle with diameter $IT$. Since inversion preserves tangency, the circle with diameter $IT$ must be $\\omega$. Therefore $IT = 98$ by the condition of the problem statement. Letting $a, b, c$ be the radii of $\\omega_{a}, \\omega_{b}, \\omega_{c}$ respectively and invoking Heron's formula as well as $A = r s$ for triangle $ABC$, we see that $\\gamma$ has radius\n\n$$\nr = \\sqrt{\\frac{r_{a} r_{b} r_{c}}{r_{a} + r_{b} + r_{c}}}.\n$$\n\nWe will compute this quantity using Descartes' theorem. Note that there are two circles tangent to $\\omega_{a}$, $\\omega_{b}, \\omega_{c}$, one with radius $IT/2$ and one with radius $\\infty$. By Descartes' circle theorem, we have (where $k_{a} := 1/a$ is the curvature)\n\n$$\nk_{a} + k_{b} + k_{c} + 2 \\sqrt{k_{a} k_{b} + k_{b} k_{c} + k_{a} k_{c}} = \\frac{1}{IT/2}\n$$\n\nand\n\n$$\nk_{a} + k_{b} + k_{c} - 2 \\sqrt{k_{a} k_{b} + k_{b} k_{c} + k_{c} k_{a}} = 0\n$$\n\nwhich implies\n\n$$\n\\sqrt{\\frac{r_{a} + r_{b} + r_{c}}{r_{a} r_{b} r_{c}}} = \\sqrt{k_{a} k_{b} + k_{b} k_{c} + k_{c} k_{a}} = \\frac{1}{2 IT}.\n$$\n\nTherefore $r = 2 IT$, which means $IL = \\frac{r^{2}}{IT} = 4 IT$ and $TL = 3 IT = 294$.\n\n![](attached_image_1.png)\n\nSolution:\n\nUsing the same notation as the previous solution, note that the point $T$ can be expressed with un-normalized barycentric coordinates\n\n$$\n\\left(\\frac{1}{r_{a}} : \\frac{1}{r_{b}} : \\frac{1}{r_{c}}\\right)\n$$\n\nwith respect to $ABC$ because $T$ is the Gergonne point of triangle $ABC$. The distance from $T$ to $\\ell$ can be expressed as a weighted average of the distances from each of the points $A, B, C$, which is\n\n$$\n\\frac{1 / r_{a}}{1 / r_{a} + 1 / r_{b} + 1 / r_{c}} \\cdot r_{a} + \\frac{1 / r_{b}}{1 / r_{a} + 1 / r_{b} + 1 / r_{c}} \\cdot r_{b} + \\frac{1 / r_{c}}{1 / r_{a} + 1 / r_{b} + 1 / r_{c}} \\cdot r_{c} = \\frac{3}{1 / r_{a} + 1 / r_{b} + 1 / r_{c}}.\n$$\n\nNote that there are two circles tangent to $\\omega_{a}, \\omega_{b}, \\omega_{c}$, one with radius $49$ and one with radius $\\infty$. By Descartes' circle theorem, we have (where $k_{a} := 1 / r_{a}$ is the curvature)\n\n$$\nk_{a} + k_{b} + k_{c} + 2 \\sqrt{k_{a} k_{b} + k_{b} k_{c} + k_{a} k_{c}} = \\frac{1}{49}\n$$\n\nand\n\n$$\nk_{a} + k_{b} + k_{c} - 2 \\sqrt{k_{a} k_{b} + k_{b} k_{c} + k_{c} k_{a}} = 0\n$$\n\nso $k_{a} + k_{b} + k_{c} = 1 / 98$. The distance from $T$ to $\\ell$ is then $3 \\cdot 98 = 294$.\n\nSolution:\n\nAs in the first solution, we deduce that $IT$ is a diameter of $\\omega$, with $T$ being the point on $\\omega$ closest to $\\ell$. By Steiner's porism, we can hold $\\omega$ and $\\ell$ fixed while making $\\omega_{c}$ into a line parallel to $\\ell$, resulting in the following figure:\n\n![](attached_image_2.png)\n\nLet $R$ be the common radius of $\\omega_{a}$ and $\\omega_{b}$ and $r$ be the radius of $\\omega$. Notice that $ABDE$ is a rectangle with center $T$, so $R = AE = 2 IT = 4r$. The distance from $T$ to $\\ell$ is $IL - IT = 2R - 2r = 6r = 294$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-3785",
+      "name": "USA IMO TST #0kft",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO TST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Tangents",
+        "Radical axis theorem",
+        "Inversion",
+        "Angle chasing",
+        "Triangle trigonometry",
+        "Constructions and loci",
+        "Polar triangles, harmonic conjugates"
+      ],
+      "statement": "Two circles $\\Gamma_1$ and $\\Gamma_2$ have common external tangents $l_1$ and $l_2$ meeting at $T$. Suppose $l_1$ touches $\\Gamma_1$ at $A$ and $l_2$ touches $\\Gamma_2$ at $B$. A circle $\\Omega$ through $A$ and $B$ intersects $\\Gamma_1$ again at $C$ and $\\Gamma_2$ again at $D$, such that quadrilateral $ABCD$ is convex.\nSuppose lines $AC$ and $BD$ meet at point $X$, while lines $AD$ and $BC$ meet at point $Y$. Show that $T$, $X$, $Y$ are collinear.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**First solution, elementary (original)** We have $\\triangle YAC \\sim \\triangle YBD$, from which it follows\n$$\n\\frac{d(Y, AC)}{d(Y, BD)} = \\frac{AC}{BD}.\n$$\nMoreover, if we denote by $r_1$ and $r_2$ the radii of $\\Gamma_1$ and $\\Gamma_2$, then\n$$\n\\frac{d(T, AC)}{d(T, BD)} = \\frac{TA \\sin \\angle (AC, l_1)}{TB \\sin \\angle (BD, l_2)} = \\frac{2 r_1 \\sin \\angle (AC, l_1)}{2 r_2 \\sin \\angle (BD, l_2)} = \\frac{AC}{BD}\n$$\nthe last step by the law of sines.\n![](attached_image_1.png)\nThis solves the problem up to configuration issues: we claim that $Y$ and $T$ both lie inside $\\angle AXB \\equiv \\angle CXD$. WLOG $TA < TB$.\n* The former is since $Y$ lies outside segments $BC$ and $AD$, since we assumed $ABCD$ was convex.\n* For the latter, we note that $X$ lies inside both $\\Gamma_1$ and $\\Gamma_2$ in fact on the radical axis of the two circles (since $X$ was an interior point of both chords $AC$ and $BD$). In particular, $X$ is contained inside $\\angle ATB$, and moreover $\\angle ATB < 90^\\circ$, and this is enough to imply the result.\n\n\n**Second solution, invasive** This is based on the solution posted by kapilpavase on AoPS. Consider the inversion at $T$ swapping $\\Gamma_1$ and $\\Gamma_2$; we let it send $A$ to $E$, $B$ to $F$, $C$ to $V$, $D$ to $W$, as shown. Draw circles $ADWE$ and $BCVF$.\n![](attached_image_2.png)\n**Claim** — Points $T$ and $Y$ lie on the radical axis of $(ADE)$ and $(BCF)$.\n*Proof*. Because $TF \\cdot TB = TA \\cdot TE$ and $YA \\cdot YD = YC \\cdot YB$.\n**Claim** — Point $X$ has equal power to $(ADE)$ and $(BCF)$.\n*Proof*. Since $TV \\cdot TC = TA \\cdot TE$, quadrilateral $VCEA$ is cyclic too, so by radical axis with $\\Gamma_1$ and $\\Gamma_2$ we find $X$ lies on $VE$. Similarly, $X$ lies on $FW$. Thus, $X$ is the center of negative inversion between $(ADE)$ and $(BCF)$.\nBut since $AE = BF$ and moreover\n$$\n\\begin{aligned} \\angle BCF + \\angle ADE &= (\\angle BCA + \\angle ACF) + (\\angle ADB + \\angle BDE) \\\\ &= (\\angle BCA + \\angle ADB) + (\\angle ACF + \\angle BDE) = 0 + 0 = 0 \\end{aligned}\n$$\nwe conclude that $(ADE)$ and $(BCF)$ are congruent. As $X$ was the center of negative inversion between them, we're done.\n\n\n**Third solution, projective (Nikolai Beluhov)** We start with some definitions. Let $\\ell_1$ touch $\\Gamma_2$ at $E$, $\\ell_2$ touch $\\Gamma_1$ at $F$, $K = \\ell_1 \\cap \\overline{BD}$, $L = \\ell_2 \\cap \\overline{AC}$, line $FX$ meet $\\Gamma_1$ again at $M$, line $EX$ meet $\\Gamma_2$ again at $N$, and lines $AB$, $AD$, and $BC$ meet line $TX$ at $Z$, $Y_1$, and $Y_2$. Thus the desired statement is equivalent to $Y_1 = Y_2$.\n**Claim** — $(EB; ND)_{\\Gamma_2} = (FA; MC)_{\\Gamma_1}$.\n*Proof*. Note that $AX \\cdot XC = BX \\cdot XD = EX \\cdot XN$, so $AECN$ is cyclic. Likewise $BFDM$ is cyclic.\nConsider the inversion with center $T$ which swaps $\\Gamma_1$ and $\\Gamma_2$; it also swaps the pairs $\\{A, E\\}$ and $\\{B, F\\}$. Since $AECN$ is cyclic, $C$ is on $\\Gamma_1$, and $N$ is on $\\Gamma_2$, it also swaps $\\{C, N\\}$; similarly it swaps $\\{D, M\\}$.\nThus $(EB; ND)_{\\Gamma_2} = (AF; CM)_{\\Gamma_1} = (FA; MC)_{\\Gamma_1}$ as desired. $\\square$\nWith this claim, the remainder of the proof is chasing cross-ratios:\n$$\n(TZ; XY_1) \\stackrel{A}{=} (KB; XD) \\stackrel{E}{=} (EB; ND)_{\\Gamma_2} = (FA; MC)_{\\Gamma_1} \\stackrel{F}{=} (LA; XC) \\stackrel{B}{=} (TZ; XY_2)\n$$\nimplies $Y_1 = Y_2$ as desired.\n\n\n**Fourth solution by untethered moving points** Fix $\\ell_1, \\ell_2, T$, $\\Gamma_1$ and $\\Gamma_2$, and let $\\Gamma_1$ and $\\Gamma_2$ meet at $U$ and $V$. By the radical axis theorem, $X$ lies on $UV$.\nThus we instead $X$ as a variable point on line $UV$ and let $C = AX \\cap \\Gamma_1$, $D = BX \\cap \\Gamma_2$. By definition, $X$ has degree 1 and $T$ has degree 0.\nWe apply **Zack's lemma** to untethered point $Y$. Note that $C$ and $D$ move projectively on conics, and therefore have degree 2. Then, lines $AD$ and $BC$ each have degree at most $\\deg(A) + \\deg(D) = 0 + 2 = 2$, and so their intersection $Y$ has degree at most $2 + 2 = 4$. But when $X \\in AB$, the lines $AD$ and $BC$ are the same, so Zack's lemma implies that\n$$\n\\deg Y \\leq 4 - 1 = 3.\n$$\nThus the assertion that $T, X, Y$ are collinear (which for example can be seen as a certain vanishing determinant) is a statement of degree at most $0 + 1 + 3 = 4$. Thus it suffices to find 5 values of $X$ (other than $X \\in AB$, which we used already). This is remarkably easy:\n1.\nWhen $X = U$ or $X = V$, then $X = C = D = Y$ and the statement is obvious\n2.\nWhen $X \\in \\ell_1$, say, then $A = C$ and so $Y$ lies on $AC = \\ell_1$ as well. The case $X \\in \\ell_2$ is symmetric.\n3.\nFinally, take $X$ at infinity along $UV$. Then $C$ and $D$ are the other tangency points of the circles with $\\ell_1, \\ell_2$, and so $AC = \\ell_1, BD = \\ell_2$, so $Y = T$.\nThis finishes the problem."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-3788",
+      "name": "USA IMO TST #0kfw",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO TST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inversion",
+        "Homothety",
+        "Isogonal/isotomic conjugates, barycentric coordinates",
+        "Tangents",
+        "Angle chasing",
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Constructions and loci"
+      ],
+      "statement": "Let $P_1P_2 \\cdots P_{100}$ be a cyclic 100-gon, and let $P_i = P_{i+100}$ for all $i$. Define $Q_i$ as the intersection of diagonals $\\overline{P_{i-2}P_{i+1}}$ and $\\overline{P_{i-1}P_{i+2}}$ for all integers $i$.\nSuppose there exists a point $P$ satisfying $\\overline{PP_i} \\perp \\overline{P_{i-1}P_{i+1}}$ for all integers $i$. Prove that the points $Q_1, Q_2, \\dots, Q_{100}$ are concyclic.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "We show two solutions.\n\n**Solution to proposed problem** We let $\\overline{PP_2}$ and $\\overline{P_1P_3}$ intersect (perpendicularly) at point $K_2$, and define $K_\\bullet$ cyclically.\n\n![](attached_image_1.png)\n\n**Claim** — The points $K_\\bullet$ are concyclic say with circumcircle $\\gamma$.\n\n*Proof*. Note that $PP_1 \\times PK_1 = PP_2 \\times PK_2 = \\dots$ so the result follows by inversion at $P$. $\\square$\n\nLet $E_i$ be the second intersection of line $\\overline{P_{i-1}K_iP_{i+1}}$ with $\\gamma$; then it follows that the perpendiculars to $\\overline{P_{i-1}P_{i+1}}$ at $E_i$ all concur at a point $E$, which is the reflection of $P$ across the center of $\\gamma$.\n\nWe let $H_2 = \\overline{P_1P_3} \\cap \\overline{P_2P_4}$ denote the orthocenter of $\\triangle PP_2P_3$ and define $H_\\bullet$ cyclically.\n\n**Claim** — We have\n$$\n\\overline{EH_2} \\perp \\overline{P_1P_4} \\parallel \\overline{K_2K_3} \\text{ and } \\overline{PH_2} \\perp \\overline{E_2E_3} \\parallel \\overline{P_2P_3}.\n$$\n*Proof*. Both parallelisms follow by Reim's theorem through $\\angle E_2H_2E_3 = \\angle K_2H_2K_3$, So we need to show the perpendicularities.\nNote that $\\overline{H_2P}$ and $\\overline{H_2E}$ are respectively circum-diameters of $\\triangle H_2K_2K_3$ and $\\triangle H_2E_2E_3$.\nAs $\\overline{K_2K_3}$ and $\\overline{E_2E_3}$ are anti-parallel, it follows $\\overline{H_2P}$ and $\\overline{H_2E}$ are isogonal and we derive both perpendicularities. $\\square$\n\n**Claim** — The points $E, Q_3, E_3$ are collinear.\n\n*Proof.* We use the previous claim. The parallelisms imply that\n$$\n\\frac{E_3 H_2}{E_3 P_2} = \\frac{E_2 H_2}{E_2 P_3} = \\frac{E_4 H_3}{E_4 P_3} = \\frac{E_3 H_3}{E_3 P_4}.\n$$\nNow consider a homothety centered at $E_3$ sending $H_2$ to $P_2$ and $H_3$ to $P_4$. Then it should send the orthocenter of $\\triangle EH_2H_3$ to $Q_3$, proving the result. $\\square$\n\nFrom all this it follows that $\\triangle EQ_2Q_3 \\sim \\triangle PK_2K_3$ as the opposite sides are all parallel.\nRepeating this we actually find a homothety of 100-gons\n$$\nQ_1 Q_2 Q_3 \\cdots \\sim K_1 K_2 K_3 \\cdots\n$$\nand that concludes the proof.\n\n\n**Solution to generalization (Nikolai Beluhov)** We are going to need some well-known lemmas.\n\n**Lemma**\nSuppose that $ABCD$ is inscribed in a circle $\\Gamma$. Let the tangents to $\\Gamma$ at $A$ and $B$ meet at $E$, let the tangents to $\\Gamma$ at $C$ and $D$ meet at $F$, and let diagonals $AC$ and $BD$ meet at $P$. Then points $E, F$, and $P$ are collinear.\n\n*Proof.* Let the circle of center E and radius EA = EB meet lines AC and BD for the second time at points U and V. By a simple angle chase, triangles EUV and FCD are homothetic. $\\Box$\n\n**Lemma**\nSuppose that points X and Y are isogonal conjugates in polygon $A = A_1A_2...A_n$. (This means that lines $A_iX$ and $A_iY$ are symmetric with respect to the interior angle bisector of $\\angle A_{i-1}A_iA_{i+1}$ for all $i$, where $A_{n+j} \\equiv A_j$ for all $j$.) Then the 2n projections of X and Y on the sides of $A$ are concyclic.\n\n*Proof.* By a simple angle chase, for all $i$ we have that the four projections on sides $A_{i-1}A_i$ and $A_iA_{i+1}$ are concyclic. Say that they lie on circle $\\Gamma_i$. Consider the midpoint $M$ of segment $XY$. For every side $s$ of $A$, we have that $M$ is equidistant from the projections of $X$ and $Y$ on $s$. Therefore, $M$ is the center of $\\Gamma_i$ for all $i$, and thus all of the $\\Gamma_i$ coincide. $\\Box$\n\n**Lemma**\nLet $\\Gamma'$ and $\\Gamma''$ be two circles and let $r$ be some fixed real number. Then the locus of points $X$ such that $\\text{Pow}(X, \\Gamma')$: $\\text{Pow}(X, \\Gamma'') = r$ is concyclic.\n\n*Proof.* This is a classical result in circle geometry. A full proof is given, for example, in item 115 of Roger Johnson's *Advanced Euclidean Geometry*. $\\Box$\n\nWe are ready to solve the problem. Let $\\mathcal{P}$ be our polygon, let $O$ be its the circumcenter, and let $\\Gamma$ be its circumcircle.\nFix any index $i$. In triangle $P_{i-1}P_iP_{i+1}$, we have that line $P_iP$ contains the altitude through $P_i$ and line $P_iO$ contains the circumradius through $P_i$. Therefore, these two lines are symmetric with respect to the interior angle bisector of $\\angle P_{i-1}P_iP_{i+1}$.\nThus points $P$ and $O$ are isogonal conjugates in $\\mathcal{P}$. By Lemma 2, it follows that the projections of $O$ onto the sides of $\\mathcal{P}$ are concyclic. In other words, the midpoints of the sides of $\\mathcal{P}$ lie on some circle $\\omega$.\n\nLet $M_i$ be the midpoint of segment $P_iP_{i+1}$ and let the tangents to $\\Gamma$ at points $P_i$ and $P_{i+1}$ meet at $T_i$. Since inversion with respect to $\\Gamma$ swaps $M_i$ and $T_i$ for all $i$, and also since all of the $M_i$ lie on the same circle $\\omega$, we obtain that all of the $T_i$ lie on the same circle $\\Omega$.\n\nAgain, fix any index $i$. By Lemma 1 applied to cyclic quadrilateral $P_{i-2}P_{i-1}P_{i+1}P_{i+2}$, we have that point $Q_i$ lies on line $T_{i-2}T_{i+1}$. Similarly, point $Q_{i+1}$ lies on line $T_{i-1}T_{i+2}$.\n\nDefine\n$$\nf_i = \\frac{\\mathrm{Pow}(Q_i, \\Gamma)}{\\mathrm{Pow}(Q_i, \\Omega)}.\n$$\n\n**Claim** — We have $f_i = f_{i+1}$ for all $i$.\n\n*Proof*. Note that\n$$\n\\begin{aligned}\n\\mathrm{Pow}(Q_i, \\Gamma) &= Q_i P_{i-1} \\cdot Q_i P_{i+2} \\\\\n\\mathrm{Pow}(Q_{i+1}, \\Gamma) &= Q_{i+1} P_{i-1} \\cdot Q_{i+1} P_{i+2} \\\\\n\\mathrm{Pow}(Q_i, \\Omega) &= Q_i T_{i-2} \\cdot Q_i T_{i+1} \\\\\n\\mathrm{Pow}(Q_{i+1}, \\Omega) &= Q_{i+1} T_{i-1} \\cdot Q_{i+1} T_{i+2}.\n\\end{aligned}\n$$\n\nConsider cyclic quadrilateral $T_{i-2}T_{i-1}T_{i+1}T_{i+2}$. Since $\\Gamma$ touches its opposite sides $T_{i-2}T_{i-1}$ and $T_{i+1}T_{i+2}$ at points $P_{i-1}$ and $P_{i+2}$, we have that line $P_{i-1}P_{i+2}$ makes equal angles with these opposite sides. From here, a simple angle chase shows that triangles $P_{i-1}Q_iT_{i-2}$ and $P_{i+2}Q_{i+1}T_{i+2}$ are similar. Thus\n$$\n\\frac{Q_i P_{i-1}}{Q_i T_{i-2}} = \\frac{Q_{i+1} P_{i+2}}{Q_{i+1} T_{i+2}}.\n$$\nSimilarly,\n$$\n\\frac{Q_i P_{i+2}}{Q_i T_{i+1}} = \\frac{Q_{i+1} P_{i-1}}{Q_{i+1} T_{i-1}}.\n$$\nFrom these, the desired identity $f_i = f_{i+1}$ follows. $\\square$\n\nTherefore, the power ratio $f_i$ is the same for all $i$. By Lemma 3 for circles $\\Gamma$ and $\\Omega$, the solution is complete."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-3790",
+      "name": "USA TSTST #0kfy",
+      "url": "https://usamoguide.com/",
+      "source": "USA TSTST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Inversion",
+        "Spiral similarity",
+        "Miquel point",
+        "Brocard point, symmedians",
+        "Polar triangles, harmonic conjugates",
+        "Circle of Apollonius",
+        "Angle chasing"
+      ],
+      "statement": "Let $ABC$ be a scalene triangle with incenter $I$. The incircle of $ABC$ touches $BC$, $CA$, $AB$ at points $D$, $E$, $F$, respectively. Let $P$ be the foot of the altitude from $D$ to $EF$, and let $M$ be the midpoint of $BC$. The rays $AP$ and $IP$ intersect the circumcircle of triangle $ABC$ again at points $G$ and $Q$, respectively. Show that the incenter of triangle $GQM$ coincides with $D$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Refer to the figure below.\n![](attached_image_1.png)\n\n**Claim** — The point $Q$ is the Miquel point of $BFEC$. Also, $\\overline{QD}$ bisects $\\angle BQC$.\n*Proof*. Inversion around the incircle maps line $EF$ to $(AIEF)$ and the nine-point circle of $\\triangle DEF$ to the circumcircle of $\\triangle ABC$ (as the midpoint of $EF$ maps to $A$, etc.). This implies $P$ maps to $Q$; that is, $Q$ coincides with the second intersection of $(AFIE)$ with $(ABC)$. This is the claimed Miquel point.\nThe spiral similarity mentioned then gives $\\frac{QB}{BF} = \\frac{QC}{CE}$, so $\\overline{QD}$ bisects $\\angle BQC$. $\\square$\n\n**Claim** — We have $(QG; BC) = -1$, so in particular $\\overline{GD}$ bisects $\\angle BGC$.\n*Proof*. Note that\n$$\n-1 = (AI; EF) \\stackrel{Q}{=} (\\overline{AQ} \\cap \\overline{EF}, P; E, F) \\stackrel{A}{=} (QG; BC).\n$$\nThe last statement follows from Apollonian circle, or more bluntly $\\frac{GB}{GC} = \\frac{QB}{QC} = \\frac{BD}{DC}$. $\\square$\n\nHence $\\overline{QD}$ and $\\overline{GD}$ are angle bisectors of $\\angle BQC$ and $\\angle BGC$. However, $\\overline{QM}$ and $\\overline{QG}$ are isogonal in $\\angle BQC$ (as median and symmedian), and similarly for $\\angle BGC$, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-3964",
+      "name": "HMMT Spring 2021 Guts Round #0kks",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT Spring 2021 Guts Round",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inversion",
+        "Angle chasing",
+        "Distance chasing",
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Cyclic quadrilaterals",
+        "Tangents"
+      ],
+      "statement": "Problem:\n\nLet acute triangle $A B C$ have circumcenter $O$, and let $M$ be the midpoint of $B C$. Let $P$ be the unique point such that $\\angle B A P = \\angle C A M$, $\\angle C A P = \\angle B A M$, and $\\angle A P O = 90^\\circ$. If $A O = 53$, $O M = 28$, and $A M = 75$, compute the perimeter of $\\triangle B P C$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe point $P$ has many well-known properties, including the property that $\\angle B A P = \\angle A C P$ and $\\angle C A P = \\angle B A P$. We prove this for completeness.\n\nInvert at $A$ with radius $\\sqrt{A B \\cdot A C}$ and reflect about the $A$-angle bisector. Let $P'$ be the image of $P$. The angle conditions translate to\n- $P'$ lies on line $A M$\n- $P'$ lies on the line parallel to $B C$ that passes through the reflection of $A$ about $B C$ (since $P$ lies on the circle with diameter $\\overline{A O}$)\n\nIn other words, $P'$ is the reflection of $A$ about $M$. Then $B P' \\parallel A C$ and $C P' \\parallel A B$, so the circumcircles of $\\triangle A B P$ and $\\triangle A C P$ are tangent to $A C$ and $A B$, respectively. This gives the desired result.\n\nExtend $B P$ and $C P$ to meet the circumcircle of $\\triangle A B C$ again at $B'$ and $C'$, respectively. Then $\\angle C' B A = \\angle A C P = \\angle B A P$, so $B C' \\parallel A P$. Similarly, $C B' \\parallel A P$, so $B C B' C'$ is an isosceles trapezoid. In particular, this means $B' P = C P$, so $B P + P C = B B'$. Now observe that $\\angle A B P = \\angle C A P = \\angle B A M$, so if $A M$ meets the circumcircle of $\\triangle A B C$ again at $A'$, then $A A' = B B'$. Thus the perimeter of $\\triangle B P C$ is $B P + P C + B C = B B' + B C = A A' + B C$.\n\nNow we compute. We have\n$$\nB C = 2 \\sqrt{A O^2 - O M^2} = 2 \\sqrt{81 \\cdot 25} = 90\n$$\nand Power of a Point gives\n$$\nM A' = \\frac{B M^2}{A M} = \\frac{45^2}{75} = 27\n$$\nThus $A A' + B C = 75 + 27 + 90 = 192$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-4055",
+      "name": "HMMT Spring 2021 Team Round #0knb",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT Spring 2021 Team Round",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Inversion",
+        "Homothety",
+        "Isogonal/isotomic conjugates, barycentric coordinates",
+        "Angle chasing",
+        "Tangents"
+      ],
+      "statement": "Problem:\n\nLet scalene triangle $A B C$ have circumcenter $O$ and incenter $I$. Its incircle $\\omega$ is tangent to sides $B C, C A$, and $A B$ at $D, E$, and $F$, respectively. Let $P$ be the foot of the altitude from $D$ to $E F$, and let line $D P$ intersect $\\omega$ again at $Q \\neq D$. The line $O I$ intersects the altitude from $A$ to $B C$ at $T$. Given that $O I \\parallel B C$, show that $P Q = P T$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $H$ be the orthocenter of $\\triangle D E F$. We first claim that $O, I, H$ are collinear. We present two proofs.\n\nProof 1. Invert about $\\omega$. Circle $(A B C)$ inverts to a circle with center on $O I$, but $A, B, C$ invert to the midpoints of $E F, F D, D E$, respectively, so the nine-point center of $\\triangle D E F$ is on $O I$. As this center is the midpoint of $I H$, we get that $H, I, O$ are collinear.\n\nProof 2. Let $Q_{A}, Q_{B}, Q_{C}$ be the second intersections of the $D$-, $E$-, and $F$-altitudes, respectively, in $\\triangle D E F$ with $\\omega$. We claim $\\triangle Q_{A} Q_{B} Q_{C}$ is homothetic with $\\triangle A B C$. Indeed, as $Q_{B}$ is the reflection of $H$ over $D F$ and $Q_{C}$ is the reflection of $H$ over $D E$, $D Q_{B} = D Q_{C}$, so the perpendicular bisector of $Q_{B} Q_{C}$ is line $I D$. As $I D \\perp B C$, $Q_{B} Q_{C} \\parallel B C$, whence the homothety follows. This homothety takes the incircle to the circumcircle, so it is centered on line $O I$. However, it also takes the incenter $H$ of $Q_{A} Q_{B} Q_{C}$ to the incenter $I$ of $A B C$, so it is centered on line $I H$. So, $O, I, H$ are collinear.\n\nAs $P$ is the midpoint of $Q H$, it suffices to show that $P$ is on the circle with diameter $Q H$, or that $\\angle Q T H = 90^{\\circ}$. As $A T \\perp \\overline{T H} = \\overline{I O}$, it suffices to show that $Q$ is on line $A T$. We also present two proofs of this.\n\nProof 1. Let $D'$ be the antipode of $D$, and let $A D'$ intersect $B C$ at $X$. As $X$ is the $A$-extouch point, the midpoint $M$ of $D X$ is also the midpoint of $B C$. We have\n$$\n\\frac{O M}{M X} = \\frac{I D}{\\frac{D X}{2}} = \\frac{D D'}{D X}\n$$\nand $\\angle O M X = \\angle D' D X = 90^{\\circ}$, so $D', O, X$ are collinear, so $D'$ is on line $A O$. As $Q D' \\parallel E F$, $A Q$ and $A D'$ are isogonal in $\\angle B A C$, so $A Q$ and $A O$ are isogonal, which means $Q$ is on the $A$-altitude, finishing the proof.\n\nProof 2. Let $\\Gamma$ denote the circumcircle of $\\triangle A B C$, and let $M$ be the midpoint of arc $B C$ on $\\Gamma$ not containing $A$.\n\nLemma. The intersection $T'$ of $M D$ and the $A$-altitude to $B C$ is on the line through $I$ parallel to $B C$.\n\nProof. Let $D' = M A \\cap B C$. As $\\angle D' B M = \\angle C B M = \\angle C A M = \\angle M A B$, $\\triangle D' B M \\sim \\triangle B A M$, and\n$$\nM I^{2} = M B^{2} = M D' \\cdot M A\n$$\nSince $A T' \\parallel I D$, we have\n$$\n\\frac{M T'}{M D} = \\frac{M A}{M I} = \\frac{M I}{M D'}\n$$\nso $I T' \\parallel D D'$, finishing the proof.\n\nBy the above lemma, $T$ is on $M D$. Consider a homothety centered at $T$ that takes $D$ to $M$. It takes $\\omega$ to a circle centered on line $I T$ that is tangent to $\\Gamma$ at $M$; since $O$ is on line $I T$ this circle must be $\\Gamma$ itself. So, $T$ is the exsimilicenter of $\\Gamma$ and $\\omega$. By Proof 2 above, $T$ is the center of the homothety which sends $Q_{A} Q_{B} Q_{C}$ to $A B C$, so $T, Q = Q_{A}$, and $A$ are collinear, finishing the proof."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-4097",
+      "name": "HMMT February 2022 #0koh",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2022",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Tangents",
+        "Radical axis theorem",
+        "Miquel point",
+        "Inversion",
+        "Cyclic quadrilaterals"
+      ],
+      "statement": "Problem:\n\nSuppose $\\omega$ is a circle centered at $O$ with radius $8$. Let $AC$ and $BD$ be perpendicular chords of $\\omega$. Let $P$ be a point inside quadrilateral $ABCD$ such that the circumcircles of triangles $ABP$ and $CDP$ are tangent, and the circumcircles of triangles $ADP$ and $BCP$ are tangent. If $AC=2\\sqrt{61}$ and $BD=6\\sqrt{7}$, then $OP$ can be expressed as $\\sqrt{a}-\\sqrt{b}$ for positive integers $a$ and $b$. Compute $100a+b$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $X = AC \\cap BD$, $Q = AB \\cap CD$ and $R = BC \\cap AD$. Since $QA \\cdot QB = QC \\cdot QD$, $Q$ is on the radical axis of $(ABP)$ and $(CDP)$, so $Q$ lies on the common tangent at $P$. Thus, $QP^{2} = QA \\cdot QB$. Similarly, $RA \\cdot RC = RP^{2}$. Let $M$ be the Miquel point of quadrilateral $ABCD$: in particular, $M = OX \\cap QR$ is the foot from $O$ to $QR$. By properties of the Miquel point, $ABMR$ and $ACMQ$ are cyclic. Thus,\n$$\n\\begin{aligned}\nQP^{2} & = QA \\cdot QB \\\\\nRP^{2} & = RA \\cdot RC \\\\\nQP^{2} + RP^{2} & = QM \\cdot QR + RM \\cdot RQ = (QR + RM) QR = QR^{2}\n\\end{aligned}\n$$\nAs a result, $\\angle QPR = 90^{\\circ}$.\n\nNow, let $P'$ be the inverse of $P$ with respect to $\\omega$. Note that by properties of inversion, $(ABP')$ and $(CDP')$ are tangent, and $(ACP')$ and $(BDP')$ are also tangent.\n\nBut now,\n$$\n\\begin{aligned}\nQP^{2} = QP'^{2} & = QA \\cdot QB \\\\\nRP^{2} = RP'^{2} & = RA \\cdot RC \\\\\nQP^{2} + RP^{2} = QP'^{2} + RP'^{2} & = QR^{2}.\n\\end{aligned}\n$$\nThus, $PQ P'R$ is a cyclic kite, so $P$ and $P'$ are reflections of each other across $QR$. In particular, since $O, P, P'$ are collinear, then $M$ lies on line $OPP'$.\n\nWe can now compute $OP$ by using the fact that $OP + \\frac{r^{2}}{OP} = 2OM = \\frac{2r^{2}}{OX}$, where $r = 8$. Since $OX$ can be computed to equal $2$ quite easily, then $OP + \\frac{64}{OP} = 64$, or $OP^{2} - 64OP + 64 = 0$. Solving this yields $OP = 32 \\pm 8\\sqrt{15}$, and because $P$ is inside the circle, $OP = 32 - 8\\sqrt{15} = \\sqrt{1024} - \\sqrt{960}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-4242",
+      "name": "HMMT February 2022 #0ksi",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2022",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vieta's formulas",
+        "Inversion",
+        "Complex numbers in geometry"
+      ],
+      "statement": "Problem:\n\nLet $P(x) = x^{4} + a x^{3} + b x^{2} + x$ be a polynomial with four distinct roots that lie on a circle in the complex plane. Prove that $a b \\neq 9$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nIf either $a = 0$ the problem statement is clearly true. Thus, assume that $a \\neq 0$. Let the roots be $0, z_{1}, z_{2}, z_{3}$, and let the circle through these points be $C$. Note that we have\n$$\n\\begin{aligned}\n& \\frac{3}{z_{1} + z_{2} + z_{3}} = -\\frac{3}{a} \\\\\n& \\frac{\\frac{1}{z_{1}} + \\frac{1}{z_{2}} + \\frac{1}{z_{3}}}{3} = -\\frac{b}{3}\n\\end{aligned}\n$$\nNote that the map $z \\rightarrow \\frac{1}{z}$ maps $C$ to some line $L$. Thus, the second equation represents the average of three points on $L$, which must be a point on $L$, while the second equation represents the reciprocal of the centroid of $z_{1}, z_{2}, z_{3}$. Since this centroid doesn't lie on $C$, we must have its reciprocal doesn't lie on $L$. Thus, we have\n$$\n-\\frac{3}{a} \\neq -\\frac{b}{3} \\Longrightarrow a b \\neq 9\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-4280",
+      "name": "HMMT November 2022 #0ktk",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2022",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Circle of Apollonius",
+        "Tangents",
+        "Inversion",
+        "Distance chasing"
+      ],
+      "statement": "Problem:\n\nAlice and Bob play the following \"point guessing game.\" First, Alice marks an equilateral triangle $A B C$ and a point $D$ on segment $B C$ satisfying $B D=3$ and $C D=5$. Then, Alice chooses a point $P$ on line $A D$ and challenges Bob to mark a point $Q \\neq P$ on line $A D$ such that $\\frac{B Q}{Q C}=\\frac{B P}{P C}$. Alice wins if and only if Bob is unable to choose such a point. If Alice wins, what are the possible values of $\\frac{B P}{P C}$ for the $P$ she chose?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFirst, if $P=A$ then clearly Bob cannot choose a $Q$. So we can have $B P: P C=1$.\n\nOtherwise, we need $A P$ to be tangent to the Apollonius Circle. The key claim is that $A B=A C=A P$. To see why, simply note that since $B$ and $C$ are inverses with respect to the Apollonius Circle, we get that $\\odot(A, A B)$ and the Apollonius Circle are orthogonal. This gives the claim.\n\nFinding answer is easy. Let $M$ be the midpoint of $B C$, and let $T$ be the center of that Apollonius Circle. We easily compute $A D=7$, so we have two cases.\n\n- If $P$ lies on $\\overrightarrow{A D}$, then $D P=1$. Since $\\triangle D P T \\sim \\triangle A D M$, we get that $T D=7$. Thus, $\\frac{B P}{P C}=\\sqrt{\\frac{B T}{T C}}=\\sqrt{\\frac{4}{12}}=\\frac{1}{\\sqrt{3}}$.\n\n- Now, note that the two ratios must have product $B D / D C=3 / 5$ by the Ratio lemma. So the other ratio must be $\\frac{3 \\sqrt{3}}{5}$.\n\nTherefore, the solution set is $\\left\\{\\frac{1}{\\sqrt{3}}, 1, \\frac{3 \\sqrt{3}}{5}\\right\\}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-4283",
+      "name": "HMMT February 2022 #0ktn",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2022",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Tangents",
+        "Radical axis theorem",
+        "Inversion",
+        "Homothety",
+        "Menelaus' theorem"
+      ],
+      "statement": "Problem:\nLet $\\Gamma_{1}$ and $\\Gamma_{2}$ be two circles externally tangent to each other at $N$ that are both internally tangent to $\\Gamma$ at points $U$ and $V$, respectively. A common external tangent of $\\Gamma_{1}$ and $\\Gamma_{2}$ is tangent to $\\Gamma_{1}$ and $\\Gamma_{2}$ at $P$ and $Q$, respectively, and intersects $\\Gamma$ at points $X$ and $Y$. Let $M$ be the midpoint of the arc $\\widehat{X Y}$ that does not contain $U$ and $V$. Let $Z$ be on $\\Gamma$ such that $M Z \\perp N Z$, and suppose the circumcircles of $Q V Z$ and $P U Z$ intersect at $T \\neq Z$. Find, with proof, the value of $T U+T V$, in terms of $R, r_{1}$, and $r_{2}$, the radii of $\\Gamma, \\Gamma_{1}$, and $\\Gamma_{2}$, respectively.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nBy Archimedes lemma, we have $M, Q, V$ are collinear and $M, P, U$ are collinear as well. Note that inversion at $M$ with radius $M X$ shows that $P Q U V$ is cyclic. Thus, we have $M P \\cdot M U = M Q \\cdot M V$, so $M$ lies on the radical axis of $(P U Z)$ and $(Q V Z)$, thus $T$ must lie on the line $M Z$. Thus, we have $M Z \\cdot M T = M Q \\cdot M V = M N^{2}$, which implies triangles $M Z N$ and $M N T$ are similar. Thus, we have $N T \\perp M N$. However, since the line through $O_{1}$ and $O_{2}$ passes through $N$ and is perpendicular to $M N$, we have $T$ lies on line $O_{1} O_{2}$. Additionally, since $M Z \\cdot M T = M N^{2} = M X^{2}$, inversion at $M$ with radius $M X$ swaps $Z$ and $T$, and since $(M X Y)$ maps to line $X Y$, this means $T$ also lies on $X Y$.\n\nTherefore, $T$ is the intersection of $P Q$ and $O_{1} O_{2}$, and thus by Monge's Theorem, we must have $T$ lies on $U V$.\n\nNow, to finish, we will consider triangle $O U V$. Since $O_{1} O_{2} T$ is a line that cuts this triangle, by Menelaus, we have\n$$\n\\frac{O O_{1}}{O_{1} U} \\cdot \\frac{U T}{V T} \\cdot \\frac{V O_{2}}{O_{2} O} = 1\n$$\nUsing the values of the radii, this simplifies to\n$$\n\\frac{R - r_{1}}{r_{1}} \\cdot \\frac{U T}{V T} \\cdot \\frac{r_{2}}{R - r_{2}} = 1 \\Longrightarrow \\frac{U T}{V T} = \\frac{r_{1}(R - r_{2})}{r_{2}(R - r_{1})}\n$$\nNow, note that\n$$\nT U \\cdot T V = T P \\cdot T Q = \\frac{4 r_{1}^{2} r_{2}^{2}}{(r_{1} - r_{2})^{2}}\n$$\nNow, let $T U = r_{1}(R - r_{2}) k$ and $T V = r_{2}(R - r_{1}) k$. Plugging this into the above equation gives\n$$\nr_{1} r_{2} (R - r_{1})(R - r_{2}) k^{2} = \\frac{4 (r_{1} r_{2})^{2}}{(r_{1} - r_{2})^{2}}\n$$\nSolving gives\n$$\nk = \\frac{2 \\sqrt{r_{1} r_{2}}}{|r_{1} - r_{2}| \\sqrt{(R - r_{1})(R - r_{2})}}\n$$\nTo finish, note that\n$$\nT U + T V = k (R r_{1} + R r_{2} - 2 r_{1} r_{2}) = \\frac{2 (R r_{1} + R r_{2} - 2 r_{1} r_{2}) \\sqrt{r_{1} r_{2}}}{|r_{1} - r_{2}| \\sqrt{(R - r_{1})(R - r_{2})}}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-4303",
+      "name": "HMMT February #0ku7",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Inversion",
+        "Distance chasing"
+      ],
+      "statement": "Problem:\n\nTriangle $ABC$ has incenter $I$. Let $D$ be the foot of the perpendicular from $A$ to side $BC$. Let $X$ be a point such that segment $AX$ is a diameter of the circumcircle of triangle $ABC$. Given that $ID = 2$, $IA = 3$, and $IX = 4$, compute the inradius of triangle $ABC$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $R$ and $r$ be the circumradius and inradius of $ABC$, let $AI$ meet the circumcircle of $ABC$ again at $M$, and let $J$ be the $A$-excenter. We can show that $\\triangle AID \\sim \\triangle AXJ$ (e.g. by $\\sqrt{bc}$ inversion), and since $M$ is the midpoint of $IJ$ and $\\angle AMX = 90^\\circ$, $IX = XJ$. Thus, we have\n$$\n\\frac{2R}{IX} = \\frac{XA}{XJ} = \\frac{IA}{ID},\n$$\nso $R = \\frac{IX \\cdot IA}{2 ID} = 3$. But we also know\n$$\nR^2 - 2Rr = IO^2 = \\frac{2 IX^2 + 2 IA^2 - AX^2}{4}.\n$$\nThus, we have\n$$\nr = \\frac{1}{2R} \\left(R^2 - \\frac{2 IX^2 + 2 IA^2 - 4R^2}{4}\\right) = \\frac{11}{12}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-4364",
+      "name": "HMIC 2023 #0kvw",
+      "url": "https://usamoguide.com/",
+      "source": "HMIC 2023",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Tangents",
+        "Inversion",
+        "Cartesian coordinates",
+        "Angle chasing"
+      ],
+      "statement": "Problem:\n\nTriangle $A B C$ has incircle $\\omega$ and $A$-excircle $\\omega_{A}$. Circle $\\gamma_{B}$ passes through $B$ and is externally tangent to $\\omega$ and $\\omega_{A}$. Circle $\\gamma_{C}$ passes through $C$ and is externally tangent to $\\omega$ and $\\omega_{A}$. If $\\gamma_{B}$ intersects line $B C$ again at $D$, and $\\gamma_{C}$ intersects line $B C$ again at $E$, prove that $B D=E C$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $\\overline{B C}$ touch the incircle at $X$ and the $A$-excircle at $Y$. Since $B X=C Y$, it suffices to show that $B P \\cdot B C=B X \\cdot B Y$ by symmetry.\n\n![](attached_image_1.png)\n\nThe inversion centered at $B$ with radius $\\sqrt{B X \\cdot B Y}$\n- fixes lines $\\overline{A B}$ and $\\overline{B C}$,\n- swaps $X$ and $Y$,\n- sends the incircle to a circle $\\Gamma_{1}$ tangent to $\\overline{A B}$ and tangent to $\\overline{B C}$ at $Y$,\n- sends the $A$-excircle to a circle $\\Gamma_{2}$ tangent to $\\overline{A B}$ and tangent to $\\overline{B C}$ at $X$, and\n- sends the circle through $B$ tangent to the incircle and $A$-excircle to a common tangent $\\ell$ of $\\Gamma_{1}$ and $\\Gamma_{2}$.\nNow, $C \\in \\ell$ since $\\ell$ must intersect $\\overline{B C}$ at a point $C^{\\prime}$ satisfying $B X=C^{\\prime} Y$, so the inversion maps $P$ to $C$, as desired.\n\nSolution:\n\nHere is another solution based on inversion at $B$. First we will need a lemma.\n\nLemma: Let $A, B, C, D$ lie on a circle, with $A C$ a diameter of this circle. Say $E$ and $F$ are the feet of the altitudes from $A$ and $C$ to $B D$, respectively. Then $A B E$ is similar to $B C F$, and $B E=D F$.\n\nProof. The former is due to angle chasing, the latter is because the midpoint of $A C$ is the circumcenter of $(A B C D)$ and hence equidistant from $B$ and $D$.\n\nNow, let $X$ be the $A$-intouch point, and $Y$ the $A$-extouch point. The key identity now is that $B D \\cdot B C = B X \\cdot B Y$. Paired with the symmetric statement this now solves the problem.\n\n![](attached_image_2.png)\n\nTo prove the statement, invert about $B$ with radius $\\sqrt{B X \\cdot B Y}$. $\\gamma_{B}$ is sent to the line (not $A B$) tangent to the images of the incircle and $A$-excircle; it suffices to prove that this line passes through $C$. Now, say the centers of these images are $I^{\\prime}$ and $I_{A}^{\\prime}$. It suffices to prove that $\\angle I^{\\prime} C I_{A}^{\\prime}=90^{\\circ}$, or in other words $B I^{\\prime} C I_{A}^{\\prime}$ is cyclic. Now, evidently $\\triangle I^{\\prime} Y B \\sim \\triangle I X B$ and $\\triangle I_{A}^{\\prime} X B \\sim \\triangle I_{A} Y B$. Moreover $B X=C Y$. Hence by the lemma above, $I_{A}^{\\prime}$ shares two of the same properties as the antipode of $I^{\\prime}$ on $\\left(B I^{\\prime} C\\right)$, so thus they're in fact the same point. So $\\left(B I^{\\prime} C I_{A}^{\\prime}\\right)$ is cyclic, and so the claim and hence the problem are proved.\n\nSolution:\n\nHere is a length bashing solution.\n\nLet $\\gamma_{B}$ intersect $A B$ again at $P$. Then, notice that $\\omega_{A}$ is the mixtilinear excircle of $\\triangle B D P$, so an inversion around $B$ with radius $\\sqrt{B D \\cdot B P}$ followed by reflection across the angle bisector of $\\angle D B P$ sends $\\omega_{A}$ to the incircle of $\\triangle B D P$. Therefore, under inversion, the corresponding tangent points must be swapped, giving\n$$\n(s-c)\\left(\\frac{B D+B P-D P}{2}\\right)=B D \\cdot B P \\Longrightarrow B D+B P-D P=\\frac{2(B D \\cdot B P)}{s-c}\n$$\nSimilarly, notice that under the $\\sqrt{B D \\cdot B P}$-inversion, $\\omega$ maps to the $D$-excircle, so\n$$\n(s-b)\\left(\\frac{B P+D P-B D}{2}\\right)=B D \\cdot B P \\Longrightarrow B P+D P-B D=\\frac{2(B D \\cdot B P)}{s-b}\n$$\nAdding these two equations together, we find that\n$$\n2 B P=2(B D \\cdot B P)\\left(\\frac{1}{s-b}+\\frac{1}{s-c}\\right) \\Longrightarrow \\frac{1}{B D}=\\frac{1}{s-b}+\\frac{1}{s-c}\n$$\nAnalogously, we have $\\frac{1}{C E}=\\frac{1}{s-b}+\\frac{1}{s-c}$, so we are done.\n\nSolution:\n\nOnce again, it suffices by symmetry to show $B P \\cdot B C=B X \\cdot B Y$, or equivalently\n$B P=\\frac{B X \\cdot B Y}{B X+B Y}$. We use Cartesian coordinates, taking $B$ to be the origin and line $B C$ to be the $x$-axis, with $I$ above the $x$-axis and $I_{A}$ below it. Let $I=(t, r)$ and $I_{A}=\\left(u,-r_{A}\\right)$ (so $t=B X$ and $u=B Y$). Since $B I \\perp B I_{A}$, we have $t u=r r_{A}$. Let $\\gamma_{B}$ have center $(x, y)$ and radius $z$. Note that $P=(2 x, 0)$. Now we have that\n$$\n\\begin{aligned}\nx^{2}+y^{2} & =z^{2} \\\\\n(x-t)^{2}+(y-r)^{2} & =(z+r)^{2} \\\\\n(x-u)^{2}+(y+r_{A})^{2} & =(z+r_{A})^{2} .\n\\end{aligned}\n$$\nSubtracting the first equation from the second yields $-2 x t+t^{2}=2 r(y+z)$, and subtracting the first equation from the third yields $-2 x u+u^{2}=2 r_{A}(z-y)$. Now, multiplying these equations together gives\n$$\nt u(-2 x+t)(-2 x+u)=4 r r_{A}\\left(z^{2}-y^{2}\\right)=4 r r_{A} x^{2}\n$$\nDividing by $t u=r r_{A} \\neq 0$ yields that $4 x^{2}-2 x(t+u)+t u=(-2 x+t)(-2 x+u)=4 x^{2}$, so $B P=2 x=\\frac{t u}{t+u}=\\frac{B X \\cdot B Y}{B X+B Y}$, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-4404",
+      "name": "USA TSTST #0kx0",
+      "url": "https://usamoguide.com/",
+      "source": "USA TSTST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Inversion",
+        "Complex numbers in geometry",
+        "Angle chasing"
+      ],
+      "statement": "Let $ABC$ be a scalene triangle and let $P$ and $Q$ be two distinct points in its interior. Suppose that the angle bisectors of $\\angle PAQ$, $\\angle PBQ$, and $\\angle PCQ$ are the altitudes of triangle $ABC$. Prove that the midpoint of $\\overline{PQ}$ lies on the Euler line of $ABC$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Let $H$ be the orthocenter of $ABC$, and construct $P'$ using the following claim.\n\n**Claim** — There is a point $P'$ for which\n$$\n\\angle APH + \\angle AP'H = \\angle BPH + \\angle BP'H = \\angle CPH + \\angle CP'H = 0.\n$$\n\n*Proof*. After inversion at $H$, this is equivalent to the fact that $P$'s image has an isogonal conjugate in $ABC$'s image. $\\square$\n\nNow, let $X$, $Y$, and $Z$ be the reflections of $P$ over $\\overline{AH}$, $\\overline{BH}$, and $\\overline{CH}$ respectively. Additionally, let $Q'$ be the image of $Q$ under inversion about $(PXYZ)$.\n\n![](attached_image_1.png)\n\n**Claim** — $ABCP' \\sim XYZQ'$.\n\n*Proof*. Since\n$$\n\\angle YXZ = \\angle YPZ = \\angle (\\overline{BH}, \\overline{CH}) = -\\angle BAC\n$$\nand cyclic variants, triangles $ABC$ and $XYZ$ are similar. Additionally,\n$$\n\\angle HQ'X = -\\angle HXQ = -\\angle HXA = \\angle HPA = -\\angle HP'A\n$$\nand cyclic variants, so summing in pairs gives $\\angle YQ'Z = -\\angle BP'C$ and cyclic variants; this implies the similarity. $\\square$\n\n**Claim** — $Q'$ lies on the Euler line of triangle $XYZ$.\n\n*Proof*. Let $O$ be the circumcenter of $ABC$ so that $ABCOP' \\sim XYZHQ'$. Then $\\angle HP'A = -\\angle HQ'X = \\angle OP'A$, so $P'$ lies on $\\overline{OH}$. By the similarity, $Q'$ must lie on the Euler line of $XYZ$. $\\square$\n\nTo finish the problem, let $G_1$ be the centroid of $ABC$ and $G_2$ be the centroid of $XYZ$. Then with signed areas,\n$$\n\\begin{aligned}\n[G_1HP] + [G_1HQ] &= \\frac{[AHP] + [BHP] + [CHP]}{3} + \\frac{[AHQ] + [BHQ] + [CHQ]}{3} \\\\\n&= \\frac{[AHQ] - [AHX] + [BHQ] - [BHY] + [CHQ] - [CHZ]}{3} \\\\\n&= \\frac{[HQX] + [HQY] + [HQZ]}{3} \\\\\n&= [QG_2H] \\\\\n&= 0\n\\end{aligned}\n$$\n\nwhere the last line follows from the last claim. Therefore $\\overline{G_1H}$ bisects $\\overline{PQ}$, as desired.\n\n**Remark.** This solution characterizes the set of all points $P$ for which such a point $Q$ exists. It is the image of the Euler line under the mapping described in the first claim.\n\nLet $(ABC)$ be the unit circle in the complex plane, and let $A = a$, $B = b$, $C = c$ such that $|a| = |b| = |c| = 1$. Let $P = p$ and $Q = q$, and $O = 0$ and $H = h = a + b + c$ be the circumcenter and orthocenter of $ABC$ respectively.\n\nThe first step is to translate the given geometric conditions into a single usable equation:\n\n**Claim** — We have the equation\n$$\n(p+q) \\sum_{\\text{cyc}} a^3(b^2-c^2) = (\\bar{p}+\\bar{q})abc \\sum_{\\text{cyc}} (bc(b^2-c^2)). \\quad (1)\n$$\n\n*Proof*. The condition that the altitude $\\overline{AH}$ bisects $\\angle PAQ$ is equivalent to\n$$\n\\begin{aligned}\n\\frac{(p-a)(q-a)}{(h-a)^2} &= \\frac{(p-a)(q-a)}{(b+c)^2} \\in \\mathbb{R} \\\\\n\\implies \\frac{(p-a)(q-a)}{(b+c)^2} &= \\overline{\\left(\\frac{(p-a)(q-a)}{(b+c)^2}\\right)} = \\frac{(a\\bar{p}-1)(a\\bar{q}-1)b^2c^2}{(b+c)^2a^2} \\\\\n\\implies a^2(p-a)(q-a) &= b^2c^2(a\\bar{p}-1)(a\\bar{q}-1) \\\\\n\\implies a^2pq - a^2b^2c^2\\overline{p\\bar{q}} + (a^4 - b^2c^2) &= a^3(p+q) - ab^2c^2(\\bar{p}+\\bar{q}).\n\\end{aligned}\n$$\n\nWriting the symmetric conditions that $\\overline{BH}$ and $\\overline{CH}$ bisect $\\angle PBQ$ and $\\angle PCQ$ gives three equations:\n$$\n\\begin{aligned}\na^2pq - a^2b^2c^2\\overline{p\\bar{q}} + (a^4 - b^2c^2) &= a^3(p+q) - ab^2c^2(\\bar{p}+\\bar{q}) \\\\\nb^2pq - a^2b^2c^2\\overline{p\\bar{q}} + (b^4 - c^2a^2) &= b^3(p+q) - bc^2a^2(\\bar{p}+\\bar{q}) \\\\\nc^2pq - a^2b^2c^2\\overline{pq} + (c^4 - a^2b^2) &= c^3(p+q) - ca^2b^2(\\overline{p} + \\overline{q}).\n\\end{aligned}\n$$\n\nNow, sum $(b^2 - c^2)$ times the first equation, $(c^2 - a^2)$ times the second equation, and $(a^2 - b^2)$ times the third equation. On the left side, the coefficients of $pq$ and $\\overline{pq}$ are 0. Additionally, the coefficient of 1 (the parenthesized terms on the left sides of each equation) sum to 0, since\n$$\n\\sum_{\\text{cyc}} (a^4 - b^2c^2)(b^2 - c^2) = \\sum_{\\text{cyc}} (a^4b^2 - b^4c^2 - a^4c^2 + c^4b^2).\n$$\nThis gives (1) as desired.\n\nWe can then factor (1):\n\n**Claim** — The left-hand side of (1) factors as\n$$\n-(p+q)(a-b)(b-c)(c-a)(ab+bc+ca)\n$$\nwhile the right-hand side factors as\n$$\n-(\\bar{p} + \\bar{q})(a - b)(b - c)(c - a)(a + b + c).\n$$\n\n*Proof*. This can of course be verified by direct expansion, but here is a slightly more economic indirect proof.\nConsider the cyclic sum on the left as a polynomial in $a$, $b$, and $c$. If $a = b$, then it simplifies as $a^3(a^2 - c^2) + a^3(c^2 - a^2) + c^3(a^2 - a^2) = 0$, so $a - b$ divides this polynomial. Similarly, $a - c$ and $b - c$ divide it, so it can be written as $f(a, b, c)(a - b)(b - c)(c - a)$ for some symmetric quadratic polynomial $f$, and thus it is some linear combination of $a^2 + b^2 + c^2$ and $ab + bc + ca$. When $a = 0$, the whole expression is $b^2c^2(b - c)$, so $f(0, b, c) = -bc$, which implies that $f(a, b, c) = -(ab + bc + ca)$.\nSimilarly, consider the cyclic sum on the right as a polynomial in $a$, $b$, and $c$. If $a = b$, then it simplifies as $ac(a^2 - c^2) + ca(c^2 - a^2) + a^2(a^2 - a^2) = 0$, so $a - b$ divides this polynomial. Similarly, $a - c$ and $b - c$ divide it, so it can be written as $g(a, b, c)(a - b)(b - c)(c - a)$ where $g$ is a symmetric linear polynomial; hence, it is a scalar multiple of $a+b+c$. When $a = 0$, the whole expression is $bc(b^2 - c^2)$, so $g(0, b, c) = -b-c$, which implies that $g(a, b, c) = -(a + b + c)$. $\\square$\n\nSince $A$, $B$, and $C$ are distinct, we may divide by $(a-b)(b-c)(c-a)$ to obtain\n$$\n(p+q)(ab+bc+ca) = (\\bar{p}+\\bar{q})abc(a+b+c) \\implies (p+q)\\bar{h} = (\\bar{p}+\\bar{q})h.\n$$\n\nThis implies that $\\frac{p+q}{h-0}$ is real, so the midpoint of $\\overline{PQ}$ lies on line $\\overline{OH}$.\n\nWe use complex numbers as in the previous solution. The angle conditions imply that $\\frac{(a-p)(a-q)}{(b-c)^2}$, $\\frac{(b-p)(b-q)}{(c-a)^2}$, and $\\frac{(c-p)(c-q)}{(a-b)^2}$ are real numbers. Take a linear combination of these with real coefficients $X$, $Y$, and $Z$ to be determined; after expansion, we obtain\n$$\n\\left[ \\frac{X}{(b-c)^2} + \\frac{Y}{(c-a)^2} + \\frac{Z}{(a-b)^2} \\right] pq - \\left[ \\frac{aX}{(b-c)^2} + \\frac{bY}{(c-a)^2} + \\frac{cZ}{(a-b)^2} \\right] (p+q)\n$$\n$$\n+ \\left[ \\frac{a^2 X}{(b-c)^2} + \\frac{b^2 Y}{(c-a)^2} + \\frac{c^2 Z}{(a-b)^2} \\right]\n$$\nwhich is a real number. To get something about the midpoint of $PQ$, the $pq$ coefficient should be zero, which motivates the following lemma.\n\n**Lemma**\nThere exist real $X$, $Y$, $Z$ for which\n$$\n\\frac{X}{(b-c)^2} + \\frac{Y}{(c-a)^2} + \\frac{Z}{(a-b)^2} = 0 \\text{ and}\n$$\n$$\n\\frac{aX}{(b-c)^2} + \\frac{bY}{(c-a)^2} + \\frac{cZ}{(a-b)^2} \\neq 0.\n$$\n\n*Proof.* Since $\\mathbb{C}$ is a 2-dimensional vector space over $\\mathbb{R}$, there exist real $X$, $Y$, $Z$ such that $(X, Y, Z) \\neq (0, 0, 0)$ and the first condition holds. Suppose for the sake of contradiction that $\\frac{aX}{(b-c)^2} + \\frac{bY}{(c-a)^2} + \\frac{cZ}{(a-b)^2} = 0$. Then\n$$\n\\begin{align*} & \\frac{(b-a)Y}{(c-a)^2} + \\frac{(c-a)Z}{(a-b)^2} \\\\\n&= \\frac{aX}{(b-c)^2} + \\frac{bY}{(c-a)^2} + \\frac{cZ}{(a-b)^2} - a \\left( \\frac{X}{(b-c)^2} + \\frac{Y}{(c-a)^2} + \\frac{Z}{(a-b)^2} \\right) \\\\\n&= 0. \\end{align*}\n$$\nWe can easily check that $(Y, Z) = (0, 0)$ is impossible, therefore $\\frac{(b-a)^3}{(c-a)^3} = -\\frac{Z}{Y}$ is real. This means $\\angle BAC = 60^\\circ$ or $120^\\circ$. By symmetry, the same is true of $\\angle CBA$ and $\\angle ACB$. This is impossible because $ABC$ is scalene. $\\square$\n\nWith the choice of $X$, $Y$, $Z$ as in the lemma, there exist complex numbers $\\alpha$ and $\\beta$, depending only on $a$, $b$, and $c$, such that $\\alpha \\neq 0$ and $\\alpha(p+q) + \\beta$ is real. Therefore the midpoint of $PQ$, which corresponds to $\\frac{p+q}{2}$, lies on a fixed line. It remains to show that this line is the Euler line. First, choose $P = Q$ to be the orthocenter to show that the orthocenter lies on the line. Secondly, choose $P$ and $Q$ to be the foci of the Steiner circumellipse to show that the centroid lies on the line. (By some ellipse properties, the external angle bisector of $\\angle PAQ$ is the tangent to the circumellipse at $A$, which is the line through $A$ parallel to $BC$. Therefore these points are valid.) Therefore the fixed line of the midpoint is the Euler line.\n\n**Remark.** This solution does not require fixing the origin of the complex plane or setting $(ABC)$ to be the unit circle."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-4445",
+      "name": "HMMT February #0ky5",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Inversion",
+        "Polar triangles, harmonic conjugates"
+      ],
+      "statement": "Problem:\n\nPoint $Y$ lies on line segment $X Z$ such that $X Y=5$ and $Y Z=3$. Point $G$ lies on line $X Z$ such that there exists a triangle $A B C$ with centroid $G$ such that $X$ lies on line $B C$, $Y$ lies on line $A C$, and $Z$ lies on line $A B$. Compute the largest possible value of $X G$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe key claim is that we must have $\\frac{1}{X G}+\\frac{1}{Y G}+\\frac{1}{Z G}=0$ (in directed lengths).\n\nWe present three proofs of this fact.\n\nProof 1: By a suitable affine transformation, we can assume without loss of generality that $A B C$ is equilateral. Now perform an inversion about $G$ with radius $G A=G B=G C$. Then the images of $X, Y, Z$ (call them $X', Y', Z'$) lie on $(G B C), (G A C), (G A B)$, so they are the feet of the perpendiculars from $A_1, B_1, C_1$ to line $X Y Z$, where $A_1, B_1, C_1$ are the respective antipodes of $G$ on $(G B C), (G A C), (G A B)$. But now $A_1 B_1 C_1$ is an equilateral triangle with medial triangle $A B C$, so its centroid is $G$. Now the centroid of (degenerate) triangle $X' Y' Z'$ is the foot of the perpendicular of the centroid of $A_1 B_1 C_1$ onto the line, so it is $G$. Thus $X' G + Y' G + Z' G = 0$, which yields the desired claim.\n\nProof 2: Let $W$ be the point on line $X Y Z$ such that $W G = 2 G X$ (in directed lengths). Now note that $(Y, Z ; G, W)$ is a harmonic bundle, since projecting it through $A$ onto $B C$ gives $(B, C ; M_{B C}, \\infty_{B C})$. By harmonic bundle properties, this yields that $\\frac{1}{Y G} + \\frac{1}{Z G} = \\frac{2}{W G}$ (in directed lengths), which gives the desired.\n\nProof 3: Let $P \\neq G$ be an arbitrary point on the line $X Y Z$. Now, in directed lengths and signed areas, $\\frac{G P}{G X} = \\frac{[G B P]}{[G B X]} = \\frac{[G C P]}{[G C X]}$, so $\\frac{G P}{G X} = \\frac{[G B P] - [G C P]}{[G B X] - [G C X]} = \\frac{[G B P] - [G C P]}{[G B C]} = \\frac{3([G B P] - [G C P])}{[A B C]}$. Writing analogous equations for $\\frac{G P}{G Y}$ and $\\frac{G P}{G Z}$ and summing yields $\\frac{G P}{G X} + \\frac{G P}{G Y} + \\frac{G P}{G Z} = 0$, giving the desired.\n\nWith this lemma, we may now set $X G = g$ and know that\n$$\n\\frac{1}{g} + \\frac{1}{g-5} + \\frac{1}{g-8} = 0\n$$\nSolving the quadratic gives the solutions $g = 2$ and $g = \\frac{20}{3}$; the latter hence gives the maximum (it is not difficult to construct an example for which $X G$ is indeed $20/3$)."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-4556",
+      "name": "HMMT February 2024 Guts Round #0l18",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2024 Guts Round",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inversion",
+        "Cartesian coordinates",
+        "Tangents"
+      ],
+      "statement": "Problem:\nA circle is tangent to both branches of the hyperbola $x^{2}-20 y^{2}=24$ as well as the $x$-axis. Compute the area of this circle.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n![](attached_image_1.png)\nInvert about the unit circle centered at the origin. $\\omega$ turns into a horizontal line, and the hyperbola turns into the following:\n$$\n\\begin{aligned}\n\\frac{x^{2}}{\\left(x^{2}+y^{2}\\right)^{2}}-\\frac{20 y^{2}}{\\left(x^{2}+y^{2}\\right)^{2}}=24 & \\Longrightarrow x^{2}-20 y^{2}=24\\left(x^{2}+y^{2}\\right)^{2} . \\\\\n& \\Longrightarrow 24 x^{4}+\\left(48 y^{2}-1\\right) x^{2}+24 y^{4}+20 y^{2}=0 \\\\\n& \\Longrightarrow\\left(48 y^{2}-1\\right)^{2} \\geq 4(24)\\left(24 y^{4}+20 y^{2}\\right) \\\\\n& \\Longrightarrow 1-96 y^{2} \\geq 1920 y^{2} \\\\\n& \\Longrightarrow y \\leq \\sqrt{1 / 2016} .\n\\end{aligned}\n$$\nThis means that the horizontal line in question is $y=\\sqrt{1 / 2016}$. This means that the diameter of the circle is the reciprocal of the distance between the point and line, which is $\\sqrt{2016}$, so the radius is $\\sqrt{504}$, and the answer is $504 \\pi$.\n\nSolution:\nLet $a$ be the $y$-coordinate of both tangency points to the hyperbola. Then, the equation of the circle must be in the form\n$$\nx^{2}-20 y^{2}+c(y-a)^{2}=24 .\n$$\nComparing the $y^{2}$-coefficient, we see that $c=21$. Moreover, we need it to pass through $(0,0)$, so $21 a^{2}=24$. Thus, the equation of the circle is\n$$\nx^{2}+y^{2}-42 a y+21 a^{2}=24 \\Longrightarrow x^{2}+(y-21 a)^{2}=(21 a)^{2},\n$$\nso the radius is $21 a$, and the area is $\\left(441 a^{2}\\right) \\pi=504 \\pi$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-4618",
+      "name": "HMIC 2024 #0l2y",
+      "url": "https://usamoguide.com/",
+      "source": "HMIC 2024",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Brocard point, symmedians",
+        "Polar triangles, harmonic conjugates",
+        "Radical axis theorem",
+        "Tangents",
+        "Inversion",
+        "Triangle trigonometry",
+        "Constructions and loci"
+      ],
+      "statement": "Problem:\n\nLet $ABC$ be an acute, scalene triangle with circumcenter $O$ and symmedian point $K$. Let $X$ be the point on the circumcircle of triangle $BOC$ such that $\\angle AXO = 90^{\\circ}$. Assume that $X \\neq K$. The hyperbola passing through $B, C, O, K$, and $X$ intersects the circumcircle of triangle $ABC$ at points $U$ and $V$, distinct from $B$ and $C$. Prove that $UV$ is the perpendicular bisector of $AX$.\n\nThe symmedian point of triangle $ABC$ is the intersection of the reflections of $B$-median and $C$-median across the angle bisectors of $\\angle ABC$ and $\\angle ACB$, respectively.\n\n![](attached_image_1.png)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $\\mathcal{H}$ denote the hyperbola, and also recall a well-known fact that $A, K, X$ are collinear. This solution is split into two independent parts.\n\nProof of $\\boldsymbol{U} \\boldsymbol{V} \\perp \\boldsymbol{AX}$.\n\nLet $T = OX \\cap BC$, and let $OX$ intersect $\\odot(ABC)$ at points $Y, Z$. Then, we apply Desargues Involution Theorem (DIT) on $BCUV$ and line $OX$. We get an involution that\n- swaps $T$ and $UV \\cap OX$;\n- swaps $BU \\cap OX$ and $CV \\cap OX$;\n- swaps $BV \\cap OX$ and $CU \\cap OX$;\n- from conic $\\odot(ABCUV)$, swaps $Y$ and $Z$;\n- from conic $\\mathcal{H}$, swaps $O$ and $X$.\n\nThus, we get an involution swapping $(O, X)$ and $(Y, Z)$, and $(T, UV \\cap OX)$. Now, notice that since $B, O, X, C$ are concyclic, we have $TY \\cdot TZ = TB \\cdot TC = TO \\cdot TX$, so this involution is an inversion at $T$. Thus, it maps $T$ to $\\infty_{OX}$. Hence, $U, V, \\infty_{OX}$ are collinear, implying that $UV \\perp AX$.\n\nProof of $\\boldsymbol{U} \\boldsymbol{V}$ bisects $\\boldsymbol{AX}$.\n\nLet $M$ be the midpoint of $AX$. Let $AX$ intersect $BC$ at $D$ and $\\odot(ABC)$ at $P$. We apply Desargues Involution Theorem (DIT) on $BCUV$ and line $AX$. We get an involution that\n- swaps $D$ and $UV \\cap OX$;\n- swaps $BU \\cap AX$ and $CV \\cap AX$;\n- swaps $BV \\cap AX$ and $CU \\cap AX$;\n- from conic $\\odot(ABCUV)$, swaps $A$ and $P$;\n- from conic $\\mathcal{H}$, swaps $K$ and $X$.\n\nThus, we have an involution swapping $(A, P)$ and $(K, X)$, and we want to show that it swaps $(D, M)$, or equivalently\n$$\n(A, X ; M, P) = (P, K ; D, A)\n$$\nThe left hand side is $\\frac{AM}{XM} / \\frac{AP}{XP} = -2$. To show that $(P, K ; D, A) = -2$, we take any projective transformation that fixes $\\odot(ABC)$ and sends $\\triangle ABC$ to an equilateral triangle. This transformation preserves $BB \\cap CC, CC \\cap AA$, and $AA \\cap BB$, so it preserves symmedians. The result then become evident.\n\nSolution:\n\nLet $AK$ meet $BC$ at $Z$, and redefine $U, V$ to be the intersections of perpendicular bisector of $AX$ and $\\odot(ABC)$. We will use the following properties of $X$ :\n- $X$ lies on $AK$\n- $\\triangle BXA \\sim \\triangle AXC$ with ratio $c : b$\n- $\\angle BXA = \\angle ACX = 180^{\\circ} - A$.\n\nConsider the quadratic function\n$$\nf(P) = \\frac{\\operatorname{Pow}_{\\odot(ABC)}(P)}{\\operatorname{Pow}_{\\odot(ABC)}(O)} - \\frac{d(P, BC) d(P, UV)}{d(O, BC) d(O, UV)}\n$$\nIt is clear (say, in coordinates) that $f$ is the equation of a conic passing through $B, C, U, V$, and $O$. Hence, it suffices to show $f(X) = 0$ and $f(K) = 0$.\n\nSince $OX \\parallel UV$, we have\n$$\nf(X) = \\frac{\\operatorname{Pow}_{\\odot(ABC)}(X)}{\\operatorname{Pow}_{\\odot(ABC)}(O)} - \\frac{d(X, BC)}{d(O, BC)}\n$$\nThe RHS above is a circle (in coordinates) and is 0 when $X \\in \\{O, B, C\\}$, and is hence 0 for any $X$ on $(BOC)$. Thus, $f(X) = 0$.\n\nTo show that $f(K) = 0$, consider the function $f(P)$ for a variable point $P$ on line $AKXZ$. We claim that\n$$\nf(P) = \\frac{PX \\cdot PK}{AX \\cdot AK} f(A)\n$$\nafter which the result follows from taking $P = K$. The LHS and RHS are quadratic functions that agree at $A$ and $X$. It remains to check that they agree at one more point - we will take $P = Z$. We compute\n$$\n\\begin{aligned}\nf(Z) & = \\frac{BZ \\cdot CZ}{R^{2}} = \\frac{a^{2} b^{2} c^{2}}{(b^{2} + c^{2})^{2}} \\cdot \\frac{1}{R^{2}} \\\\\nf(A) & = -\\frac{d(A, BC)}{d(O, BC)} \\cdot \\frac{d(A, UV)}{d(O, UV)} = \\frac{d(A, BC)}{d(O, BC)} = \\frac{bc}{2R^{2} \\cos A} \\\\\n\\frac{ZK}{AK} & = \\frac{b^{2} + c^{2}}{a^{2}} \\\\\n\\frac{ZX}{AX} & = \\frac{[XBC]}{[XABC]} = \\frac{XB \\cdot XC \\sin(2A)}{XB \\cdot XA \\sin(A) + XA \\cdot XC \\sin(A)} = \\frac{2bc \\cos A}{b^{2} + c^{2}},\n\\end{aligned}\n$$\nand the desired result follows.\n\nSolution:\n\nWe prove the following main claim.\n\nClaim. Let $P$ be a point on $AX$, and let the conic through $B, C, O, X, P$ meet $(ABC)$ again at $U', V'$. Then $U'V'$ passes through a fixed point, and the map $P \\mapsto U'V' \\cap AX$ is projective.\n\nProof. Take a projective transformation sending $B, C$ to the circle points. Then the new problem is the following: We have points $A, X, O$, a fixed circle $\\Omega$ passing through $A$, and a point $P$ on $AX$. Let $(POX)$ meet $\\Omega$ at $U', V'$. Then $U'V'$ passes through a fixed point and $P \\mapsto U'V' \\cap AX$ is projective. First, if we take two points $P_1, P_2$, by radical axis on $\\left(P_1OX\\right), \\left(P_2OX\\right)$, and $\\Omega$, $U_1'V_1', U_2'V_2'$, and $OX$ concur. Thus, $U'V'$ meets $OX$ at a fixed point. Let this point be $Q$. Now let $O_1$ be the center of $\\Omega$ and $O_P$ the center of $(POX)$. $O_P$ moves linearly w.r.t. $P$, so $P \\mapsto O_1O_P$ is projective. Then $U'V'$ is the line through $Q$ perpendicular to $O_1O_P$, and hence also moves projectively. Finally, intersecting $U'V'$ with $AX$ is projective, so the entire map $P \\mapsto U'V' \\cap AX$ is projective, as desired.\n\nWe now return to the original problem. Let the tangents to $(ABC)$ at $B, C$ meet at $T$. It is well-known that $A, X, K, T$ are collinear, and $B, O, C, X, T$ are concyclic. We now consider the following cases:\n- $P = AX \\cap BC$ : The conic $(BCOXP)$ degenerates to the two lines $OX, BC$, so $U'V' = OX$, and $U'V' \\cap AX = X$. Thus, $AX \\cap BC \\mapsto X$.\n- $P = T$ : The conic $(BCOXT)$ is just the circle $(BOC)$. Then $(BOC)$ meets $(ABC)$ again at the circle points, so $U'V'$ is the line at infinity, and $T \\mapsto (AX)_\\infty$.\n- $P = A$ : In this case, $A = U'$ or $V'$, so $U'V' \\cap AX = A$ and $A \\mapsto A$.\n\nFrom the first two cases, we see that the fixed point $U'V'$ passes through is $(OX)_\\infty$ i.e. $U'V'$ is always parallel to $OX$. Now note that the cross-ratio $(A, AX \\cap BC ; K, T) = -1$, and hence if $K \\mapsto f(K)$, we have $\\left(A, X ; f(K), (AX)_\\infty\\right) = -1$. Thus, $f(K)$ must be the midpoint of $AX$, and $UV$ is the line through $f(K)$ parallel to $OX$ i.e. the perpendicular bisector of $AX$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-4642",
+      "name": "HMMT February 2024 #0l3m",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2024",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Coaxal circles",
+        "Radical axis theorem",
+        "Inversion",
+        "Trigonometry",
+        "Complex numbers in geometry",
+        "Triangle trigonometry"
+      ],
+      "statement": "Problem:\nLet $A B C D E F$ be a regular hexagon with $P$ as a point in its interior. Prove that of the three values $\\tan \\angle A P D$, $\\tan \\angle B P E$, and $\\tan \\angle C P F$, two of them sum to the third one.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n![](attached_image_1.png)\nWLOG let the side length of the hexagon be 1. Let $O$ be the center of the hexagon. Consider drawing in the circles $(A P D)$, $(B P E)$, and $(C P F)$. Note that $O$ lies on the radical axis of all three circles, since $A O \\cdot O D = B O \\cdot O E = C O \\cdot O F$. Since $P$ also lies on the radical axis, all three circles are coaxial.\nLet $X$, $Y$, and $Z$ be the centers of $(A P D)$, $(B P E)$, and $(C P F)$, respectively. Since the circles are coaxial, $X$, $Y$, and $Z$ are collinear. WLOG $Y$ lies on segment $X Z$. Note that $X O \\perp A D$, $Y O \\perp B E \\Longrightarrow \\angle X O Y = 60^\\circ$. Similarly, we have $\\angle Y O Z = 60^\\circ$. Now, inverting at $O$ and using van Schooten's Theorem gives that $1 / O Y = 1 / O X + 1 / O Z$.\nFurthermore, we have\n$$\n\\angle A P D = 180^\\circ - \\frac{1}{2} \\angle A X D = 180^\\circ - \\angle A X O \\Longrightarrow \\tan \\angle A P D = -\\tan \\angle A X O = -\\frac{A O}{O X} = -\\frac{1}{O X}\n$$\nSimilarly, we have $\\tan \\angle B P E = -\\frac{1}{O Y}$ and $\\tan \\angle C P F = -\\frac{1}{O Z}$. Therefore, two of these tangent values sum to the third, as desired.\n\nSolution:\nFirstly, note that $A D$, $B E$, and $C F$ are diameters of the circle $(A B C D E F)$, so the angles $\\angle A P D$, $\\angle B P E$, $\\angle C P F$ are all obtuse. Therefore, the desired tangents are well-defined.\nWLOG let the side length of the hexagon be 1. Let $O$ be the center of the hexagon, and let $O P = x$. Finally, let $\\angle A O P = \\theta$.\nNow, by Law of Cosines, we have $A P = \\sqrt{x^{2} + 1 - 2x \\cos \\theta}$ and $D P = \\sqrt{x^{2} + 1 + 2x \\cos \\theta}$. Now, by Law of Cosines again we have\n$$\n\\begin{gathered}\n\\cos \\angle A P D = \\frac{2(x^{2} + 1) - 4}{2 \\sqrt{(x^{2} + 1)^{2} - 4x^{2} \\cos^{2} \\theta}} = \\frac{x^{2} - 1}{\\sqrt{(1 - x^{2})^{2} + 4x^{2} \\sin^{2} \\theta}} \\\\\n\\Longrightarrow \\tan \\angle A P D = \\frac{2x|\\sin \\theta|}{x^{2} - 1}.\n\\end{gathered}\n$$\nSimilarly, $\\angle (B E, O P)$ and $\\angle (C F, O P)$ are $\\theta + 60^\\circ$ and $\\theta + 120^\\circ$, respectively (here we are using directed angles). Therefore, the desired three values are\n$$\n\\{\\tan \\angle A P D, \\tan \\angle B P E, \\tan \\angle C P F\\} = \\left\\{\\frac{2x|\\sin \\theta|}{x^{2} - 1}, \\frac{2x|\\sin(\\theta + 60^\\circ)|}{x^{2} - 1}, \\frac{2x|\\sin(\\theta + 120^\\circ)|}{x^{2} - 1}\\right\\}.\n$$\nWe can scale down the tangent values by $\\frac{2x}{x^{2} - 1}$ to get $\\{|\\sin \\theta|, |\\sin(\\theta + 60^\\circ)|, |\\sin(\\theta + 120^\\circ)|\\}$. Now, consider an equilateral triangle with vertices at the third roots of unity rotated by $\\theta$ degrees counterclockwise. The three values represent the distances from the three vertices to the real axis. Since the centroid of this triangle is the origin (lying on the real axis), two of these quantities must sum to the third, as desired.\n\nSolution:\nWe will show either the three sum to 0 or two of them sum to the third one; since they're all negative, the former case is actually impossible.\nLet $(A B C D E F)$ be the unit circle, with $a = 1$, $b = \\omega$, and so on, where $\\omega = e^{\\pi i / 3}$. Then $\\angle A P D$ is the argument of\n$$\n\\frac{1 - p}{\\omega^{3} - p} = \\frac{(1 - p)(\\omega^{3} - \\bar{p})}{(\\omega^{3} - p)(\\omega^{3} - \\bar{p})} = \\frac{\\omega^{3} - \\bar{p} - \\omega^{3} p + |p|^{2}}{1 + |p|^{2} - \\omega^{3} p - \\omega^{3} \\bar{p}}\n$$\nThen $\\tan \\angle A P D$ is the imaginary part divided by the real part of this, which is\n$$\n-\\frac{1}{i} \\cdot \\frac{\\bar{p} - p}{|p|^{2} - 1} = c \\cdot \\operatorname{dist}(P, A D)\n$$\nfor some constant $c$. (Note that $\\tan A P D$ might actually be the negative of this, depending on direction; this is why we added the remark at the beginning about them possibly summing to 0.)\nSimilarly, $\\tan \\angle B P E = c \\cdot \\operatorname{dist}(P, B E)$ and $\\tan \\angle C P F = c \\cdot \\operatorname{dist}(P, C F)$. It suffices to show that two $\\operatorname{dist}(P, A D)$, $\\operatorname{dist}(P, B E)$, and $\\operatorname{dist}(P, C F)$ sum to the third. However, this is easy; without loss of generality let $P$ be inside $O A B$, and let the hexagon have side length 1. Then\n$$\n\\operatorname{dist}(P, A D) + \\operatorname{dist}(P, B E) = \\frac{\\sqrt{3}}{2} - \\operatorname{dist}(P, A B) = \\operatorname{dist}(P, C F)\n$$\nas desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-4653",
+      "name": "HMMT February 2024 #0l3x",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2024",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Radical axis theorem",
+        "Inversion",
+        "Angle chasing",
+        "Isogonal/isotomic conjugates, barycentric coordinates",
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle"
+      ],
+      "statement": "Problem:\nLet $P$ be a point in the interior of quadrilateral $ABCD$ such that the circumcircles of triangles $PDA$, $PAB$, and $PBC$ are pairwise distinct but congruent. Let the lines $AD$ and $BC$ meet at $X$. If $O$ is the circumcenter of triangle $XCD$, prove that $OP \\perp AB$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n![](attached_image_1.png)\nBecause the circles have equal radii, $\\angle PDA=\\angle ABP$, so if $(PDA)$ intersects line $AB$ again at a point $B'$, then we have $\\angle PB'B=\\angle PBB'$, which means $PB=PB'$, similarly for the second intersection of $(PCB)$ with $AB$, $A'$; thus, $(PDA)$ and $(PCB)$ are congruent mirror images across the $P$-altitude, as they are $\\left(PAB'\\right)$ and $\\left(PBA'\\right)$, respectively.\n\nConsider $C'$, the reflection of $C$ across the $P$-altitude. We want to prove that $C'$ lies on $(XCD)$, as then the circumcenter of $(XCD)$ will lie on the perpendicular bisector of $CC'$. Because of our earlier observation, $C', D, P, A$ are concyclic.\n\nWe present two approaches to finishing the angle chase from here:\n\n- Add point $C''$, the intersection of $CC'$ with $(XDA)$. Because $AB$ is parallel to the line between the centers, and so is $C''C$, then $ABCC''$ is a parallelogram; thus,\n$$\n\\angle C'DA=\\angle C'C''A=\\angle C'CB=\\angle C'CX\n$$\n\n- Add point $B'$, the reflection of $B$ over the $P$-altitude. Note that $B'$ lies on $(XDA)$; in particular, $C'CB B'$ is an isosceles trapezoid, as $C'B'$ is the reflection of $CB$ over the $P$-altitude of $\\triangle PAB$. Thus,\n$$\n\\angle C'DA=180-\\angle C'B'A=180-\\angle C'B'B=\\angle C'CB=\\angle C'CX\n$$\n\nSolution:\n![](attached_image_2.png)\nInvert about $P$. Because the circles $(PDA),(PAB),(PBC)$ all have equal radii and pass through $P$, the resulting lines $D'A', A'B', B'C'$ are equal distances away from $P$; letting $H'$ be the intersection of lines $D'A'$ and $B'C'$, it follows that $P$ is an incenter or excenter of $\\triangle A'B'H'$. Also, in the original diagram, the $P$-altitude of $\\triangle PAB$ includes the second intersection of the circles $(PDA)$ and $(PCB)$ (as in the first solution); thus this $P$-altitude inverts to line $PH'$. Finally, $X'$ is the intersection of $\\left(PD'A'\\right)$ and $\\left(PB'C'\\right)$.\n\nNote that the center of $(XCD)$ lies on the $P$-altitude of $PAB$ iff the inverse of the center of $\\left(X'C'D'\\right)$ does. Thus we want to show that the center of $\\left(X'C'D'\\right)$ lies on $H'P$. Let $D''$ be the second intersection of $X'C'D'$ with $B'H'$. Then\n$$\n\\begin{aligned}\n\\measuredangle\\left(D'D'', H'P\\right) & =\\measuredangle D'D''H'+\\measuredangle D''H'P \\\\\n& =\\measuredangle D'X'C'+\\measuredangle B'H'P \\\\\n& =\\measuredangle D'X'P+\\measuredangle PX'C'+\\measuredangle PH'A' \\\\\n& =\\measuredangle D'A'P+\\measuredangle PB'C'+\\measuredangle PH'A' \\\\\n& =\\measuredangle PA'B'+\\measuredangle PB'H'+\\measuredangle PH'A' \\\\\n& =90^\\circ\n\\end{aligned}\n$$\n(where the last step follows from the fact that $P$ is an incenter or excenter of $\\triangle A'B'H'$ ), and\n$$\n\\begin{aligned}\n\\measuredangle H'D'D'' & =180^\\circ-\\measuredangle D''H'D'-\\measuredangle D'D''H' \\\\\n& =180^\\circ-\\measuredangle D''H'P-\\left(\\measuredangle D''H'P+\\measuredangle D'D''H'\\right) \\\\\n& =90^\\circ-\\measuredangle D''H'P \\\\\n& =\\measuredangle D'D''H',\n\\end{aligned}\n$$\nso $\\triangle H'D'D''$ is isosceles, and thus $H'P$ is the perpendicular bisector of $D'D''$. Thus the center of $\\left(X'C'D'D''\\right)$ lies on $H'P$, which means we're done.\n\nSolution:\n![](attached_image_3.png)\nLet $A'$ be the other intersection of line $PA$ with $(PDX)$ and $B'$ be the other intersection of $PB$ with $(PCX)$. Consider circles $\\left(PA'B'\\right)$ and $(XCD)$. Note that $A$ and $B$ have equal power with respect to both circles, because of $\\left(PDA'X\\right)$ and $\\left(PCB'X\\right)$. Thus, $AB$ is the radical axis of the two circles. However,\n$$\n\\measuredangle PA'X=\\measuredangle PDX=\\measuredangle PDA=\\measuredangle ABP\n$$\nand\n$$\n\\measuredangle XB'P=\\measuredangle XCP=\\measuredangle BCP=\\measuredangle PAB\n$$\nwhere the last step follows from the fact that the circles have equal radii. Because $\\measuredangle B'PA'=\\measuredangle BPA$, it follows that $A', X, B'$ are collinear, and in fact $\\triangle PAB \\sim \\triangle PB'A'$. In particular, this means that the $P$-altitude of $\\triangle PAB$ passes through the circumcenter of $\\triangle PB'A'$, as the circumcenter and orthocenter are isogonal conjugates. Thus, as the circumcenter of $PA'B'$ lies on the $P$-altitude, and the line between the centers of $\\left(PA'B'\\right)$ and $(XCD)$ must be perpendicular to their radical axis $AB$, then the circumcenter of $(XCD)$ must lie on the $P$-altitude as well, completing the proof."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-4669",
+      "name": "HMMT November #0l4d",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cyclic quadrilaterals",
+        "Miquel point",
+        "Inversion",
+        "Angle chasing",
+        "Triangle trigonometry"
+      ],
+      "statement": "Problem:\nLet $ABCDEF$ be a regular hexagon with center $O$ and side length $1$. Point $X$ is placed in the interior of the hexagon such that $\\angle BXC = \\angle AXE = 90^\\circ$. Compute all possible values of $OX$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n![](attached_image_1.png)\nPoint $X$ is the intersection of circles with diameter $AE$ and $BC$. Thus, there are two possible intersection points. Since $AC \\perp BE$, the first point, $X_1$, is the intersection of $AC$ and $BE$, from which we can see $OX_1 = \\frac{1}{2}$ as our first answer. Let $X_2$ be the other intersection point.\n\nLet $M$ be the midpoint of $BC$ and $N$ be the midpoint of $AE$. Then $MX_2 = NO = \\frac{1}{2}$ and $MO = NX_2 = \\frac{\\sqrt{3}}{2}$, so $OX_2MN$ is an isosceles trapezoid. By law of cosine on $\\triangle OMN$, we have\n$$\n\\begin{aligned}\nMN & = \\sqrt{OM^2 + ON^2 - 2 \\cdot OM \\cdot ON \\cos 150^\\circ} \\\\\n& = \\sqrt{\\left(\\frac{\\sqrt{3}}{2}\\right)^2 + \\left(\\frac{1}{2}\\right)^2 + 2 \\cdot \\frac{\\sqrt{3}}{2} \\cdot \\frac{1}{2} \\cdot \\frac{\\sqrt{3}}{2}} = \\frac{\\sqrt{7}}{2}\n\\end{aligned}\n$$\nMoreover, by Ptolemy's theorem,\n$$\nOX_2 \\cdot MN = MO^2 - NO^2 = \\frac{1}{2}\n$$\nCombining the previous two equations gives $OX_2 = \\frac{\\sqrt{7}}{7}$.\n\nSolution:\nRecall the first paragraph of the previous solution that $X_1 = AC \\cap BE$ is the first point. Thus, the second point $X_2$ is the Miquel point of cyclic quadrilateral $ACBE$.\n\nBy a well-known property of Miquel point, if $Y = AB \\cap CE$, then $Y$ and $X_2$ are inverses with respect to the circumcircle of $ABCDEF$. Thus, $OX_2 \\cdot OY = 1$.\n\nOne can compute $OY$ as follows: from triangle $BCY$, we get that $BY = BC / \\sin 30^\\circ = 2$. Thus, by power of point,\n$$\nOY^2 - 1^2 = YB \\cdot YA = 2 \\cdot 3 = 6 \\Longrightarrow OY = \\sqrt{7}\n$$\nimplying $OX_2 = \\frac{\\sqrt{7}}{7}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-4727",
+      "name": "TST2025 #0l5z",
+      "url": "https://usamoguide.com/",
+      "source": "TST2025",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inversion",
+        "Isogonal/isotomic conjugates, barycentric coordinates",
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Angle chasing",
+        "Rotation"
+      ],
+      "statement": "Let $A_1A_2\\cdots A_{2025}$ be a convex 2025-gon, and let $A_i = A_{i+2025}$ for all integers $i$. Distinct points $P$ and $Q$ lie in its interior such that $\\angle A_{i-1}A_iP = \\angle QA_iA_{i+1}$ for all $i$. Define points $P_i^j$ and $Q_i^j$ for integers $i$ and positive integers $j$ as follows:\n* For all $i$, $P_i^1 = Q_i^1 = A_i$.\n* For all $i$ and $j$, $P_i^{j+1}$ and $Q_i^{j+1}$ are the circumcenters of $PP_i^jP_{i+1}^j$ and $QQ_i^jQ_{i+1}^j$, respectively.\nLet $\\mathcal{P}$ and $\\mathcal{Q}$ be the polygons $P_1^{2025}P_2^{2025}\\cdots P_{2025}^{2025}$ and $Q_1^{2025}Q_2^{2025}\\cdots Q_{2025}^{2025}$, respectively.\n(a) Prove that $\\mathcal{P}$ and $\\mathcal{Q}$ are cyclic.\n(b) Let $O_P$ and $O_Q$ be the circumcenters of $\\mathcal{P}$ and $\\mathcal{Q}$, respectively. Assuming that $O_P \\neq O_Q$, show that $O_P O_Q$ is parallel to $PQ$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-4732",
+      "name": "HMMT February 2025 #0l64",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2025",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Radical axis theorem",
+        "Inversion",
+        "Polar triangles, harmonic conjugates",
+        "Angle chasing"
+      ],
+      "statement": "Problem:\n\nLet $\\omega_{1}$ and $\\omega_{2}$ be two circles intersecting at distinct points $A$ and $B$. Point $X$ varies along $\\omega_{1}$, and point $Y$ on $\\omega_{2}$ is chosen such that $AB$ bisects the angle $\\angle XAY$. Prove that as $X$ varies along $\\omega_{1}$, the circumcenter of $\\triangle AXY$ (if it exists) varies along a fixed line.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n![](attached_image_1.png)\n\nLet $O_{1}$, $O_{2}$, and $O$ be the centers of $\\omega_{1}$, $\\omega_{2}$, and the circumcircle of $\\triangle AXY$, respectively.\nWe claim that triangle $O O_{1}O_{2}$ is isosceles with $O O_{1} = O O_{2}$, and thus in particular $O$ always lies on the perpendicular bisector of $O_{1}O_{2}$.\n\nTo this end, observe that $O O_{1} \\perp A X$ and $O_{1}O_{2} \\perp A B$, so $\\angle O O_{1}O_{2} = \\angle X A B$. Analogously, $\\angle O O_{2}O_{1} = \\angle Y A B$. So indeed $O O_{1}O_{2}$ is isosceles, and we are done.\n\nSolution:\n\n![](attached_image_2.png)\n\nLet $A^{\\prime}$ be the $A$-antipode in circle $(A X Y)$. It suffices to show that $A^{\\prime}$ lies on a fixed line. We will show that this line is one that is parallel to $A B$.\nLet $M$ be the second intersection of line $A B$ with circle $(A X Y)$, and let $N$ be the antipode of $M$ on this circle. Since $A M A^{\\prime}N$ is a rectangle with $N$ lying on the line through $A$ perpendicular to $A B$, it suffices to show that $N$ is fixed (independent of $X$ and $Y$).\nTo this end, take an inversion at $A$ with arbitrary radius, denoting images with $\\bullet \\mapsto \\bullet^{*}$.\nObserve that $X^{*}$ and $Y^{*}$ lie on the fixed lines $\\ell_{1} = \\omega_{1}^{*}$ and $\\ell_{2} = \\omega_{2}^{*}$. Let $\\ell$ be the line through $A$ perpendicular to $A B^{*}$, and suppose that $\\ell_{1}$ and $\\ell_{2}$ intersect $\\ell$ at $P$ and $Q$, respectively.\nSince $\\angle X A B = \\angle B A Y$, we have $\\angle X^{*}A B^{*} = \\angle B^{*}A Y^{*}$. Circles $\\omega_{1}$, $\\omega_{2}$, and $(A X Y)$ are mapped to lines $B^{*}X^{*}$, $B^{*}Y^{*}$, and $X^{*}Y^{*}$. As $A N \\perp A B$, it follows that $N^{*}$ is the intersection of $X^{*}Y^{*}$ and $\\ell$.\nFinally, observe that $(N^{*},A;P,Q)\\stackrel {B^{*}}{=}(N^{*},M^{*};X,Y)$ is a harmonic bundle, as $A M^{*}$ bisects $\\angle X^{*}A Y^{*}$ and $\\angle M^{*}A N^{*} = 90^{\\circ}$. Since $A$, $P$, and $Q$ are fixed, so is $N^{*}$. Thus $N$ is fixed, and $O$ lies on the perpendicular bisector of $A N$, which is also fixed."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-4736",
+      "name": "HMMT February #0l68",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inversion",
+        "Cartesian coordinates",
+        "Tangents"
+      ],
+      "statement": "Problem:\nThere exists a unique circle that is both tangent to the parabola $y = x^{2}$ at two points and tangent to the curve $x = \\sqrt{\\frac{y^{3}}{1 - y}}$. Compute the radius of this circle.\n\nProposed by: Karthik Venkata Vedula",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n![](attached_image_1.png)\n\nWe can square both sides of the second curve to get $x^{2} = \\frac{y^{3}}{1 - y}$, which further rearranges to\n$$\n\\frac{x^{2}}{(x^{2} + y^{2})^{2}} = \\frac{y}{x^{2} + y^{2}}.\n$$\nThis relation implies that curves $y = x^{2}$ and $x^{2} = \\frac{y^{3}}{1 - y}$ map to each other under inversion about the unit circle $x^{2} + y^{2} = 1$. Therefore, the unique circle we seek must be invariant under inversion about $x^{2} + y^{2} = 1$.\n\nSince the circle is tangent to $y = x^{2}$, we know that the circle is of the form\n$$\nx^{2} + (y - y_{0})^{2} = r^{2}.\n$$\nWe know that the length of the tangent from $(0,0)$ to this circle is $1$. Since the distance from $(0,0)$ to the center of the circle is $y_{0}$, using the Pythagorean Theorem gives $r^{2} + 1 = y_{0}^{2}$.\n\nBecause the parabola $y = x^{2}$ is tangent to this circle at two distinct points, the equation $x^{2} + (x^{2} - y_{0})^{2} = r^{2} = y_{0}^{2} - 1$ must have two double roots. Therefore,\n$$\nx^{2} + (x^{2} - y_{0})^{2} - (y_{0}^{2} - 1) = x^{4} - (2y_{0} - 1)x^{2} + 1\n$$\nmust be a perfect square, so $2y_{0} - 1 = 2 \\implies y_{0} = \\frac{3}{2}$.\n\nThis means $r^{2} = y_{0}^{2} - 1 = \\frac{5}{4}$, so the radius of the circle is $\\left[\\frac{\\sqrt{5}}{2}\\right]$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-4753",
+      "name": "HMMT February 2025 #0l6p",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2025",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Cyclic quadrilaterals",
+        "Inversion",
+        "Isogonal/isotomic conjugates, barycentric coordinates",
+        "Angle chasing"
+      ],
+      "statement": "Problem:\n\nLet $\\triangle ABC$ be an acute triangle with orthocenter $H$. Points $E$ and $F$ are on segments $\\overline{AC}$ and $\\overline{AB}$, respectively, such that $\\angle EHF = 90^\\circ$. Let $X$ be the foot of the altitude from $H$ to $\\overline{EF}$. Prove that $\\angle BXC = 90^\\circ$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n![](attached_image_1.png)\n\nWe use $\\angle$ to denote directed angles. Let $Y$ and $Z$ be the feet of the altitudes from $B$ and $C$ to $AC$ and $AB$, respectively. Then $\\angle HZF = \\angle HXF = 90^\\circ$, so $HZFX$ is cyclic. Similarly, $HYEX$ is cyclic. Therefore,\n\n$$\n\\angle BYX = \\angle HYX = \\angle HEX = \\angle FHX = \\angle FZX = \\angle BZX.\n$$\nHence, $BZXY$ is cyclic. A symmetric argument shows $C$ lies on this circle as well. It follows that $\\angle BXC = \\angle BYC = 90^\\circ$, as desired.\n\nSolution:\n\nLet $T$ be the foot of altitude from $A$ to $BC$. For any point $X$, let $X'$ denote the image of $X$ under the negative inversion at $H$ with radius $\\sqrt{HA \\cdot HT}$. Then $B'$ and $C'$ are the feet of the altitudes from $B$ and $C$ to sides $AC$ and $AB$, respectively.\n\nClaim 1. $\\angle BX'C = 90^\\circ$.\n\nProof. Because $HX \\perp EF$ and $HE \\perp HF$, the quadrilateral $HE'X'F'$ is a rectangle. Note that $\\angle BE'H = \\angle EB'H = 90^\\circ$ and $\\angle X'E'H = 90^\\circ$. Consequently, $X', B$, and $E'$ are collinear. Similarly, $X', C$, and $F'$ are collinear. Then, $\\angle BX'C = \\angle E'X'F' = 90^\\circ$, as desired. $\\square$\n\nFrom the claim, $X'$ lies on the circle with diameter $BC$ (which $B'$ and $C'$ also lie on). Since this circle is invariant under the inversion, $X$ lies on the circle with diameter $BC$ as well, and $\\angle BXC = 90^\\circ$.\n\n![](attached_image_2.png)\n\nSolution:\n\nWe begin by proving the following lemma.\n\nLemma 2. Let $ABCD$ be a quadrilateral and $P$ be a point such that $\\angle APB + \\angle CPD = 180^\\circ$. Then, the feet of the altitudes from $P$ to each side of $ABCD$ are concyclic.\n\nProof. Let $P_A, P_B, P_C, P_D$ be the feet of the altitudes from $P$ to $AB$, $BC$, $CD$, and $DA$ respectively. Note that quadrilateral $P_AP P_BB$ is cyclic. By angle chasing,\n\n$$\n\\angle P_D P_A P_B + \\angle P_B P_C P_D = \\angle P_D P_A P + \\angle P P_A P_B + \\angle P_B P_C P + \\angle P P_C P_D \\\\\n\\qquad = \\angle P_D A P + \\angle P B P_B + \\angle P_B C P + \\angle P D P_D \\\\\n\\qquad = (180^\\circ - \\angle APD) + (180^\\circ - \\angle BPC) \\\\\n\\qquad = \\angle BPA + \\angle DPC \\\\\n\\qquad = 180^\\circ.\n$$\nTherefore, $P_A P_B P_C P_D$ is cyclic as desired.\n\n![](attached_image_3.png)\n\nLet $P_{\\infty}$ be the point at infinity on line $AC$. Let $Y$ and $Z$ be the feet of the altitudes from $H$ to $AB$ and $AC$, respectively. Note that $\\angle EHF + \\angle BHP_{\\infty} = 90^\\circ + 90^\\circ = 180^\\circ$. Thus, the feet of the altitudes from $H$ to $EF$, $EB$, $BP_{\\infty}$, and $CP_{\\infty}$ are concyclic. In other words, $XYZB$ is cyclic. Since $BCYZ$ is a cyclic quadrilateral, we conclude $X$ lies on this circle, giving us that $\\angle BXC = 90^\\circ$ as desired.\n\nRemark. Here's another way to prove the lemma.\n\nIt is well known that, with the provided condition, there is a point $P'$ that is the isogonal conjugate of $P$ with respect to quadrilateral $ABCD$. Let $P_A$, $P_B$, $P_C$, and $P_D$ be the feet of the altitudes from $P$ to $AB$, $BC$, $CD$, and $DA$, respectively, and let $Q$ be the foot of the altitude from $P'$ to $AB$. Because $P$ and $P'$ are isogonal conjugates with respect to the triangle formed by lines $AB$, $BC$, and $CD$, we have $P_A P_B P_C Q$ is cyclic. Similarly, because $P$ and $P'$ are also isogonal conjugate with respect to the triangle formed by lines $DA$, $AB$, and $BC$, we have $P_D P_A P_B Q$ is cyclic. Consequently, $P_A P_B P_C P_D$ is cyclic as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-inversion-auto-4788",
+      "name": "16th United States of America Junior Mathematical Olympiad #0l7o",
+      "url": "https://usamoguide.com/",
+      "source": "16th United States of America Junior Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Tangents",
+        "Radical axis theorem",
+        "Inversion",
+        "Angle chasing",
+        "Cartesian coordinates"
+      ],
+      "statement": "Let $H$ be the orthocenter of acute triangle $ABC$, let $F$ be the foot of the altitude from $C$ to $AB$, and let $P$ be the reflection of $H$ across $BC$. Suppose that the circumcircle of triangle $AFP$ intersects line $BC$ at two distinct points $X$ and $Y$. Prove that $C$ is the midpoint of $XY$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

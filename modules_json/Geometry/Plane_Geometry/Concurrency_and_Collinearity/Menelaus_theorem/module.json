@@ -1,0 +1,481 @@
+{
+  "MODULE_ID": "geometry-plane-geometry-concurrency-and-collinearity-menelaus-theorem",
+  "practice": [
+    {
+      "uniqueId": "geometry-plane-geometry-concurrency-and-collinearity-menelaus-theorem-auto-0689",
+      "name": "USA IMO #0i1t",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Homothety",
+        "Tangents",
+        "Menelaus' theorem",
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle"
+      ],
+      "statement": "Let $\\triangle ABC$ be a triangle and let $\\omega$ be its incircle. Denote by $D_1$ and $E_1$ the points where $\\omega$ is tangent to sides $BC$ and $AC$, respectively. Denote by $D_2$ and $E_2$ the points on sides $BC$ and $AC$, respectively, such that $CD_2 = BD_1$ and $CE_2 = AE_1$, and denote by $P$ the point of intersection of segments $AD_2$ and $BE_2$. Circle $\\omega$ intersects segment $AD_2$ at two points, the closer of which to the vertex $A$ is denoted by $Q$. Prove that $AQ = D_2P$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**First Solution.** The key observation is the following Lemma.\n**Lemma.** *Segment* $D_1Q$ *is a diameter of circle* $\\omega$.\n*Proof.* Let $I$ be the center of circle $\\omega$, that is, $I$ is the incenter of triangle $ABC$. Extend segment $D_1I$ through $I$ to intersect circle $\\omega$ again at $Q'$, and extend segment $AQ'$ through $Q'$ to intersect segment $BC$ at $D'$. We show that $D_2 = D'$, which in turn implies that $Q = Q'$, that is, $D_1Q$ is a diameter of $\\omega$.\n![](attached_image_1.png)\nLet $\\ell$ be the line tangent to circle $\\omega$ at $Q'$, and let $\\ell$ intersect segments $AB$ and $AC$ at $B_1$ and $C_1$, respectively. Then $\\omega$ is an **excircle** of triangle $AB_1C_1$. Let $\\mathbf{H}_1$ denote the **dilation** with center $A$ and ratio $AD'/AQ'$. Since $\\ell \\perp D_1Q'$ and $BC \\perp D_1Q$, $\\ell \\parallel BC$. Hence, $AB/AB_1 = AC/AC_1 = AD'/AQ'$. Thus, $\\mathbf{H}_1(Q') = D'$, $\\mathbf{H}_1(B_1) = B$, and $\\mathbf{H}_1(C_1) = C$. It also follows that the excircle $\\Omega$ of triangle $ABC$ opposite vertex $A$ is tangent to side $BC$ at $D'$.\n\nIt is well known that\n$$\nCD_1 = \\frac{1}{2}(BC + CA - AB). \\qquad (1)\n$$\nWe compute $BD'$. Let $X$ and $Y$ denote the points of tangency of circle $\\Omega$ with rays $AB$ and $AC$, respectively. Then by equal tangents, $AX = AY$, $BD' = BX$, and $D'C = YC$. Hence,\n$$\n\\begin{align*}\nAX &= AY = \\frac{1}{2}(AX + AY) \\\\\n&= \\frac{1}{2}(AB + BX + YC + CA) \\\\\n&= \\frac{1}{2}(AB + BC + CA).\n\\end{align*}\n$$\nIt follows that\n$$\nBD' = BX = AX - AB = \\frac{1}{2}(BC + CA - AB). \\qquad (2)\n$$\nCombining (1) and (2) yields $BD' = CD_1$. Thus,\n$$\nBD_2 = BD_1 - D_2D_1 = D_2C - D_2D_1 = D_1C = BD',\n$$\nthat is, $D' = D_2$, as desired. ■\n\nNow we prove our main result. Let $M_1$ and $M_2$ be the midpoints of segments $BC$ and $CA$, respectively. Then $M_1$ is also the midpoint of segment $D_1D_2$, from which it follows that $IM_1$ is a midline of triangle $D_1QD_2$. Hence,\n$$\nQD_2 = 2IM_1 \\qquad (3)\n$$\nand $AD_2 \\parallel M_1I$. Similarly, we can prove that $BE_2 \\parallel M_2I$.\n![](attached_image_2.png)\nLet $G$ be the centroid of triangle $ABC$. Thus, segments $AM_1$ and $BM_2$ intersect at $G$. Define transformation $\\mathbf{H}_2$ as the dilation with center $G$ and ratio $-1/2$. Then $\\mathbf{H}_2(A) = M_1$ and $\\mathbf{H}_2(B) = M_2$. Under the dilation, parallel lines go to parallel lines and the intersection of two lines goes to the intersection of their images. Since $AD_2 \\parallel M_1I$ and $BE_2 \\parallel M_2I$, $\\mathbf{H}$ maps lines $AD_2$ and $BE_2$ to lines $M_1I$ and $M_2I$, respectively. It also follows that $\\mathbf{H}_2(P) = I$ and that\n$$\n\\frac{IM_1}{AP} = \\frac{GM_1}{AG} = \\frac{1}{2}\n$$\nor\n$$\nAP = 2IM_1. \\qquad (4)\n$$\nCombining (3) and (4) yields\n$$\nAQ = AP - QP = 2IM_1 - QP = QD_2 - QP = PD_2,\n$$\nas desired.\n\n\n**Second Solution.** From the Lemma, we have\n$$\n\\frac{AQ}{AD_2} = \\frac{r}{r_a},\n$$\nwhere $r$ and $r_a$ are the radii of circles $\\omega$ and $\\Omega$, respectively. Note that\n$$\nr(AB + BC + CA) = 2[ABC]\n$$\nand that\n$$\n\\begin{aligned} r_a(AB + AC - BC) &= 2[I_aAB] + 2[I_aAC] - 2[I_aBC] \\\\\n&= 2[I_aBAC] - 2[I_aBC] = 2[ABC], \\end{aligned}\n$$\nwhere $I_a$ is the center of $\\Omega$ and $[\\mathcal{R}]$ is the area of region $\\mathcal{R}$. Thus,\n$$\n\\frac{AQ}{AD_2} = \\frac{AB + AC - BC}{AB + BC + CA}. \\qquad (5)\n$$\n![](attached_image_3.png)\nApplying **Menelaus's Theorem** to triangle $AD_2C$ and line $BE_2$ gives\n$$\n\\frac{AP}{PD_2} \\cdot \\frac{D_2B}{BC} \\cdot \\frac{CE_2}{E_2A} = 1,\n$$\nor\n$$\n\\frac{AP}{PD_2} = \\frac{BC \\cdot E_2A}{D_2B \\cdot CE_2} = \\frac{BC \\cdot CE_1}{CD_1 \\cdot AE_1} \\\\\n= \\frac{BC}{AE_1} = \\frac{2BC}{AB + AC - BC}.\n$$\nHence,\n$$\n\\frac{AD_2}{PD_2} = 1 + \\frac{AP}{PD_2} = \\frac{AB + AC + BC}{AB + AC - BC},\n$$\nor\n$$\n\\frac{PD_2}{AD_2} = \\frac{AB + AC - BC}{AB + AC + BC}. \\qquad (6)\n$$\nThe desired result now follows from (5) and (6)."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-concurrency-and-collinearity-menelaus-theorem-auto-0854",
+      "name": "Harvard-MIT Math Tournament #0i6e",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Menelaus' theorem"
+      ],
+      "statement": "Problem:\n\n$ABC$ is a triangle with points $E, F$ on sides $AC, AB$, respectively. Suppose that $BE, CF$ intersect at $X$. It is given that $AF / FB = (AE / EC)^2$ and that $X$ is the midpoint of $BE$. Find the ratio $CX / XF$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $x = AE / EC$. By Menelaus's theorem applied to triangle $ABE$ and line $CXF$,\n$$\n1 = \\frac{AF}{FB} \\cdot \\frac{BX}{XE} \\cdot \\frac{EC}{CA} = \\frac{x^2}{x+1}.\n$$\nThus, $x^2 = x + 1$, and $x$ must be positive, so $x = (1 + \\sqrt{5}) / 2$.\n\nNow apply Menelaus to triangle $ACF$ and line $BXE$, obtaining\n$$\n1 = \\frac{AE}{EC} \\cdot \\frac{CX}{XF} \\cdot \\frac{FB}{BA} = \\frac{CX}{XF} \\cdot \\frac{x}{x^2 + 1},\n$$\nso $CX / XF = (x^2 + 1) / x = (2x^2 - x) / x = 2x - 1 = \\sqrt{5}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-concurrency-and-collinearity-menelaus-theorem-auto-0906",
+      "name": "Harvard-MIT Mathematics Tournament #0i7u",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cyclic quadrilaterals",
+        "Menelaus' theorem",
+        "Angle chasing"
+      ],
+      "statement": "Problem:\n\nConvex quadrilateral $M A T H$ is given with $H M / M T = 3 / 4$, and $\\angle A T M = \\angle M A T = \\angle A H M = 60^{\\circ}$. $N$ is the midpoint of $M A$, and $O$ is a point on $T H$ such that lines $M T$, $A H$, $N O$ are concurrent. Find the ratio $H O / O T$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n$\\triangle M A T$ is equilateral, so $H M / A T = H M / M T = 3 / 4$. Also, $\\angle A H M = \\angle A T M$, so the quadrilateral is cyclic. Now, let $P$ be the intersection of $M T$, $A H$, $N O$. Extend $M H$ and $N O$ to intersect at point $Q$. Then by Menelaus's theorem, applied to triangle $A H M$ and line $Q N P$, we have\n$$\n\\frac{H Q}{Q M} \\cdot \\frac{M N}{N A} \\cdot \\frac{A P}{P H} = 1\n$$\nwhile applying the same theorem to triangle $T H M$ and line $Q P O$ gives\n$$\n\\frac{H Q}{Q M} \\cdot \\frac{M P}{P T} \\cdot \\frac{T O}{O H} = 1\n$$\nCombining gives $H O / O T = (M P / P T) \\cdot (A N / N M) \\cdot (H P / P A) = (M P / P A) \\cdot (H P / P T)$ (because $A N / N M = 1$). But since $M A T H$ is cyclic, $\\triangle A P T \\sim \\triangle M P H$, so $M P / P A = H P / P T = H M / A T = 3 / 4$, and the answer is $(3 / 4)^2 = 9 / 16$. (See figure.)\n\n![](attached_image_1.png)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-concurrency-and-collinearity-menelaus-theorem-auto-1078",
+      "name": "USA IMO #0icm",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Radical axis theorem",
+        "Cyclic quadrilaterals",
+        "Menelaus' theorem",
+        "Angle chasing",
+        "Constructions and loci"
+      ],
+      "statement": "Let $\\triangle ABC$ be a triangle and let $D$ be a point in its interior. Construct a circle $\\omega_1$ passing through $B$ and $D$ and a circle $\\omega_2$ passing through $C$ and $D$ such that the point of intersection of $\\omega_1$ and $\\omega_2$ other than $D$ lies on line $AD$. Denote by $E$ and $F$ the points where $\\omega_1$ and $\\omega_2$ intersect side $BC$, respectively, and by $X$ and $Y$ the intersections of lines $DF$, $AB$ and $DE$, $AC$, respectively. Prove that $XY \\parallel BC$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**First Solution:** Let circles $\\omega_1$ and $\\omega_2$ meet again at $R$ (other than $D$), and let $\\omega_1$ and $\\omega_2$ intersect again with segments $AB$ and $AC$, respectively, at $P$ and $Q$ (other than $B$ and $C$). By the **Power of a Point Theorem**, we have $AP \\cdot AB = AR \\cdot AD = AQ \\cdot AC$; that is, points $A, R$, and $D$ lie on the **radical axis** of the circles $\\omega_1$ and $\\omega_2$. Therefore, points $B, C, Q$, and $P$ lie on a circle. Consequently, $\\angle AQP = \\angle ABC$. To prove that $XY \\parallel BC$, it suffices to show that $\\angle AXY = \\angle ABC$, or $\\angle AQP = \\angle ABC = \\angle AXY$; that is, to prove that $P, Q, Y$, and $X$ lie on a circle.\n\nBecause $BCQP$ is cyclic, $\\angle AQP = \\angle ABC$. Because $BDRP$ is cyclic, $\\angle PDY = \\angle PBE = \\angle ABC$. Hence $\\angle AQP = \\angle PDY$, implying that $P, Q, Y$ and $D$ lie on a circle. Similarly, we can show that $P, Q, D$, and $X$ lie on a circle. We conclude that $P, Q, Y, D$, and $X$ all lie on the circumcircle of triangle $PQD$, completing the proof.\n\n\n**Second Solution:** It suffices to show that\n$$\n\\frac{AX}{XB} = \\frac{AY}{YC}. \\qquad (*)\n$$\nLet line $AD$ and segment $BC$ meet at $G$. Applying **Menelaus's Theorem** to triangle $ABG$ and line $XF$, triangle $ACG$ and line $YE$ gives\n$$\n\\frac{AX \\cdot BF \\cdot GD}{XB \\cdot FG \\cdot DA} = 1 \\text{ and } \\frac{AY \\cdot CE \\cdot GD}{YC \\cdot EG \\cdot DA} = 1.\n$$\nHence\n$$\n\\frac{AX \\cdot BF}{XB \\cdot FG} = \\frac{AY \\cdot CE}{YC \\cdot EG}.\n$$\nBy the equation (*), it suffices to show that\n$$\n\\frac{BF}{FG} = \\frac{CE}{EG},\n$$\nor $EG \\cdot BF = CE \\cdot FG$. By the Power of a point Theorem, we have $EG \\cdot BG = GD \\cdot GR = GF \\cdot GC$, implying that\n$$\n\\begin{aligned}\nEG \\cdot BF &= EG(BG + GF) = EG \\cdot BG + EG \\cdot GF \\\\\n&= GF \\cdot GC + EG \\cdot GF = GF(GC + GE) \\\\\n&= CE \\cdot FG,\n\\end{aligned}\n$$\nas desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-concurrency-and-collinearity-menelaus-theorem-auto-1314",
+      "name": "Bay Area Mathematical Olympiad #0ij6",
+      "url": "https://usamoguide.com/",
+      "source": "Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Menelaus' theorem",
+        "Homothety",
+        "Angle chasing",
+        "Constructions and loci"
+      ],
+      "statement": "Problem:\n\nIn triangle $A B C$, choose point $A_{1}$ on side $B C$, point $B_{1}$ on side $C A$, and point $C_{1}$ on side $A B$ in such a way that the three segments $A A_{1}$, $B B_{1}$, and $C C_{1}$ intersect in one point $P$. Prove that $P$ is the centroid of triangle $A B C$ if and only if $P$ is the centroid of triangle $A_{1} B_{1} C_{1}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAssume first that $P$ is the centroid of $\\triangle A B C$. This means that $A A_{1}$, $B B_{1}$ and $C C_{1}$ are the medians of $\\triangle A B C$, and hence $A_{1}$, $B_{1}$ and $C_{1}$ are the midpoints of $B C$, $C A$ and $A B$, respectively. As a midsegment of $\\triangle A B C$, segment $B_{1} A_{1}$ is parallel to $A B$, and similarly, $C_{1} A_{1}$ is parallel to $A C$. In the parallelogram $A C_{1} A_{1} B_{1}$, the diagonals $A A_{1}$ and $B_{1} C_{1}$ bisect each other. In particular, $A A_{1}$ contains the median of $\\triangle A_{1} B_{1} C_{1}$ passing through vertex $A_{1}$. Similarly, $B B_{1}$, respectively $C C_{1}$, contains the median of $\\triangle A_{1} B_{1} C_{1}$ passing through vertex $B_{1}$, respectively $C_{1}$. Since $A A_{1}$, $B B_{1}$ and $C C_{1}$ intersect in $P$ and they are extensions of the three medians of $\\triangle A B C$, by definition, $P$ is also the centroid of $\\triangle A_{1} B_{1} C_{1}$, and we are done with this part.\n\n![](attached_image_1.png)\n\nFor the other part of the problem, assume that $P$ is the centroid of $\\triangle A_{1} B_{1} C_{1}$. We construct $\\triangle A^{\\prime} B^{\\prime} C^{\\prime}$ in the following way. Draw a line through $A_{1}$ parallel to $B_{1} C_{1}$, another line through $B_{1}$ parallel to $C_{1} A_{1}$, and a third line through $C_{1}$ parallel to $A_{1} B_{1}$. Let the three lines intersect pairwise in points $A^{\\prime}$, $B^{\\prime}$ and $C^{\\prime}$ so that $A_{1}$ lies on $B^{\\prime} C^{\\prime}$, $B_{1}$ lies on $C^{\\prime} A^{\\prime}$, and $C_{1}$ lies on $A^{\\prime} B^{\\prime}$. From parallelograms $B^{\\prime} A_{1} B_{1} C_{1}$ and $C^{\\prime} B_{1} C_{1} A_{1}$, it follows that $C^{\\prime} A_{1}=B_{1} C_{1}=B^{\\prime} A_{1}$, i.e. $A_{1}$ is the midpoint of $B^{\\prime} C^{\\prime}$. Similarly, $B_{1}$ and $C_{1}$ are the midpoints of $C^{\\prime} A^{\\prime}$ and $A^{\\prime} B^{\\prime}$, respectively. Further, from the same parallelograms follows, for instance, that $C^{\\prime} C_{1}$ bisects $A_{1} B_{1}$, and hence $C^{\\prime} C_{1}$ contains the median of $\\triangle A_{1} B_{1} C_{1}$ and therefore it passes through point $P$. Similarly, $B^{\\prime} B_{1}$ and $A^{\\prime} A_{1}$ pass through $P$. Thus, $A^{\\prime} A_{1}$, $B^{\\prime} B_{1}$ and $C^{\\prime} C_{1}$ intersect in point $P$, and are the medians in $\\triangle A^{\\prime} B^{\\prime} C^{\\prime}$. Hence $P$ is the centroid of $\\triangle A^{\\prime} B^{\\prime} C^{\\prime}$ too. (Note that $\\triangle A^{\\prime} B^{\\prime} C^{\\prime}$ could be alternatively constructed as the image of $\\triangle A_{1} B_{1} C_{1}$ via a homothety with center $P$ and ratio 1:2, following the famous fact that every centroid divides the medians in ratio 2:1 counted from the vertices.)\n\nIt remains to show that $\\triangle A^{\\prime} B^{\\prime} C^{\\prime}$ coincides with $\\triangle A B C$. By contradiction, suppose that they are not the same triangle. Without loss of generality, we may assume that point $A$ is different from point $A^{\\prime}$. By hypothesis and construction, both $A$ and $A^{\\prime}$ lie on line $A_{1} P$, and similarly both $B$ and $B^{\\prime}$ lie on line $B_{1} P$, and both $C$ and $C^{\\prime}$ lie on line $C_{1} P$. Since $A$ and $A^{\\prime}$ are different, it is not hard to see that there are only two possibilities for their relative positions: $A^{\\prime}$ is between $A$ and $P$, or $A$ is between $A^{\\prime}$ and $P$. In the first case, $A$ is outside of $\\triangle A^{\\prime} B^{\\prime} C^{\\prime}$, while in the second case, $A$ is inside $\\triangle A^{\\prime} B^{\\prime} C^{\\prime}$. If we are in the first case, drawing line $A C_{1}$ to intersect $B^{\\prime} B_{1}$ in $B$ places $B$ inside $\\triangle A^{\\prime} B^{\\prime} C^{\\prime}$; then drawing line $B A_{1}$ to intersect $C^{\\prime} C_{1}$ in $C$ places $C$ outside $\\triangle A^{\\prime} B^{\\prime} C^{\\prime}$. Thus, $\\triangle A P C$ properly contains $\\triangle A^{\\prime} P C^{\\prime}$, and hence $B_{1}$ is inside $\\triangle A P C$; well, this certainly doesn't make sense since $B_{1}$ is supposed to lie on side $A C$ by hypothesis. This contradiction eliminates the first case mentioned above.\nThe second case ($A$ between $A^{\\prime}$ and $P$) is treated similarly and leads to point $B_{1}$ being outside $\\triangle A P C$, while it is supposed to lie on side $A C$: again a contradiction.\n\nThis exhausts all possible situations and implies that the initial assumption of $A$ and $A^{\\prime}$ being different is false. But if $A=A^{\\prime}$, one quickly discovers that $B$ and $B^{\\prime}$ must also coincide, as well as $C$ and $C^{\\prime}$. In conclusion, $\\triangle A B C$ is $\\triangle A^{\\prime} B^{\\prime} C^{\\prime}$ constructed earlier, and hence $\\triangle A B C$'s centroid is already shown to be point $P$. This concludes the proof.\n\nSolution:\n\nThe first part of the problem: \"if $P$ is the centroid of $\\triangle A B C$ then $P$ is also the centroid of $\\triangle A_{1} B_{1} C_{1}$\", is shown the way same as in Solution 1.\n\nFor the second part, suppose that $P$ is the centroid of $\\triangle A_{1} B_{1} C_{1}$. Denote by $A_{2}$, $B_{2}$ and $C_{2}$ the midpoints of the corresponding sides of $\\triangle A_{1} B_{1} C_{1}$ so that $A$, $A_{2}$, $P$, $A_{1}$ are collinear, etc. We shall use the following:\n\n[Part of] Menelaus Theorem. Given $\\triangle X Y Z$, let line $l$ intersect line $X Y$ in point $L$, line $Y Z$ in point $M$, and line $Z X$ in point $N$. ($L$, $M$ and $N$ can each be inside or outside of the corresponding side of $\\triangle X Y Z$.) Then\n$$\n\\frac{X L}{L Y} \\cdot \\frac{Y M}{M Z} \\cdot \\frac{Z N}{N X}=1\n$$\n\n![](attached_image_2.png)\n\nApply Menelaus Theorem to $\\triangle B_{1} C_{1} B$ and line $A A_{2} P$:\n$$\n\\frac{C_{1} A}{A B} \\cdot \\frac{B P}{P B_{1}} \\cdot \\frac{B_{1} A_{2}}{A_{2} C_{1}}=1\n$$\n\nSince $B_{1} A_{2}=A_{2} C_{1}$, we obtain\n$$\n\\frac{C_{1} A}{A B}=\\frac{P B_{1}}{B P}\n$$\n\nUsing now $\\triangle B_{1} A_{1} B$ and line $C C_{2} P$, we similarly obtain\n$$\n\\frac{A_{1} C}{C B}=\\frac{P B_{1}}{B P}\n$$\n\nEquating (1) and (2) yields:\n$$\n\\frac{C_{1} A}{A B}=\\frac{A_{1} C}{C B} \\Rightarrow 1-\\frac{C_{1} A}{A B}=1-\\frac{A_{1} C}{C B} \\Rightarrow \\frac{A B-C_{1} A}{A B}=\\frac{C B-A_{1} C}{C B} \\Rightarrow \\frac{C_{1} B}{A B}=\\frac{A_{1} B}{C B}.\n$$\n\nThe last equality, and the fact that $\\triangle C_{1} B A_{1}$ and $\\triangle A B C$ share the same angle $\\angle B$, shows that these two triangles are similar, from which we can conclude that $C_{1} A_{1}$ is parallel to $A C$. Applying similar arguments, one shows that $A_{1} B_{1}$ is parallel to $B A$, and $B_{1} C_{1}$ is parallel to $C B$. Now we are in a situation identical to the construction of $\\triangle A^{\\prime} B^{\\prime} C^{\\prime}$ in Solution 1, where we easily showed that $P$ is the centroid of $\\triangle A^{\\prime} B^{\\prime} C^{\\prime}$, and hence in our present situation, $P$ is the centroid of $\\triangle A B C$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-concurrency-and-collinearity-menelaus-theorem-auto-1340",
+      "name": "Harvard-MIT Mathematics Tournament #0ijw",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Menelaus' theorem",
+        "Radical axis theorem",
+        "Angle chasing",
+        "Distance chasing"
+      ],
+      "statement": "Problem:\nLet $\\Gamma$ denote the circumcircle of triangle $A B C$. Point $D$ is on $\\overline{A B}$ such that $\\overline{C D}$ bisects $\\angle A C B$. Points $P$ and $Q$ are on $\\Gamma$ such that $\\overline{P Q}$ passes through $D$ and is perpendicular to $\\overline{C D}$. Compute $P Q$, given that $B C=20$, $C A=80$, $A B=65$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nSuppose that $P$ lies between $A$ and $B$ and $Q$ lies between $A$ and $C$, and let line $P Q$ intersect lines $A C$ and $B C$ at $E$ and $F$ respectively. As usual, we write $a$, $b$, $c$ for the lengths of $B C$, $C A$, $A B$.\n\nBy the angle bisector theorem, $A D / D B = A C / C B$ so that $A D = \\frac{b c}{a+b}$ and $B D = \\frac{a c}{a+b}$.\n\nNow by Stewart's theorem,\n$$\nc \\cdot C D^{2} + \\left(\\frac{a c}{a+b}\\right)\\left(\\frac{b c}{a+b}\\right) c = \\frac{a^{2} b c}{a+b} + \\frac{a b^{2} c}{a+b}\n$$\nfrom which\n$$\nC D^{2} = \\frac{a b \\left((a+b)^{2} - c^{2}\\right)}{(a+b)^{2}}\n$$\n\nNow observe that triangles $C D E$ and $C D F$ are congruent, so $E D = D F$.\n\nBy Menelaus' theorem,\n$$\n\\frac{C A}{A E} \\cdot \\frac{E D}{D F} \\cdot \\frac{F B}{B C} = 1\n$$\nso that\n$$\n\\frac{C A}{B C} = \\frac{A E}{F B}\n$$\nSince $C F = C E$ while $b > a$, it follows that $A E = \\frac{b(b-a)}{a+b}$ so that $E C = \\frac{2 a b}{a+b}$.\n\nFinally,\n$$\nD E = \\sqrt{C E^{2} - C D^{2}} = \\frac{\\sqrt{a b \\left(c^{2} - (a-b)^{2}\\right)}}{a+b}\n$$\n\nPlugging in $a=20$, $b=80$, $c=65$, we see that $A E = 48$, $E C = 32$, $D E = 10$ as well as $A D = 52$, $B D = 13$.\n\nNow let $P D = x$, $Q E = y$. By power of a point about $D$ and $E$, we have $x(y+10) = 676$ and $y(x+10) = 1536$. Subtracting one from the other, we see that $y = x + 86$. Therefore,\n$$\nx^{2} + 96 x - 676 = 0\n$$\nfrom which\n$$\nx = -48 + 2 \\sqrt{745}\n$$\nFinally,\n$$\nP Q = x + y + 10 = 4 \\sqrt{745}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-concurrency-and-collinearity-menelaus-theorem-auto-1432",
+      "name": "Harvard-MIT Mathematics Tournament #0img",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Menelaus' theorem",
+        "Angle chasing"
+      ],
+      "statement": "Problem:\n\nIn triangle $ABC$, $\\angle ABC$ is obtuse. Point $D$ lies on side $AC$ such that $\\angle ABD$ is right, and point $E$ lies on side $AC$ between $A$ and $D$ such that $BD$ bisects $\\angle EBC$. Find $CE$, given that $AC = 35$, $BC = 7$, and $BE = 5$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: 10. Reflect $A$ and $E$ over $BD$ to $A'$ and $E'$ respectively. Note that the angle conditions show that $A'$ and $E'$ lie on $AB$ and $BC$ respectively. $B$ is the midpoint of segment $AA'$, and $CE' = BC - BE' = 2$. Menelaus' theorem now gives\n$$\n\\frac{CD}{DA} \\cdot \\frac{AA'}{A'B} \\cdot \\frac{BE'}{E'C} = 1\n$$\nfrom which $DA = 5 CD$ or $CD = AC / 6$. By the angle bisector theorem, $DE = 5 CD / 7$, so that $CE = 12 CD / 7 = 10$.\n\n![](attached_image_1.png)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-concurrency-and-collinearity-menelaus-theorem-auto-1450",
+      "name": "Harvard-MIT Mathematics Tournament #0imy",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cyclic quadrilaterals",
+        "Menelaus' theorem",
+        "Angle chasing"
+      ],
+      "statement": "Problem:\n\n$ABCD$ is a cyclic quadrilateral in which $AB = 3$, $BC = 5$, $CD = 6$, and $AD = 10$. $M$, $I$, and $T$ are the feet of the perpendiculars from $D$ to lines $AB$, $AC$, and $BC$ respectively. Determine the value of $MI / IT$.\n\n![](attached_image_1.png)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $\\frac{25}{9}$. Quadrilaterals $AMID$ and $DICT$ are cyclic, having right angles $\\angle AMD$, $\\angle AID$, and $\\angle CID$, $\\angle CTD$ respectively. We see that $M$, $I$, and $T$ are collinear. For, $m \\angle MID = \\pi - m \\angle DAM = \\pi - m \\angle DAB = m \\angle BCD = \\pi - m \\angle DCT = \\pi - m \\angle DIT$. Therefore, Menelaus' theorem applied to triangle $MTB$ and line $ICA$ gives\n$$\n\\frac{MI}{IT} \\cdot \\frac{TC}{CB} \\cdot \\frac{BA}{AM} = 1\n$$\nOn the other hand, triangle $ADM$ is similar to triangle $CDT$ since $\\angle AMD \\cong \\angle CTD$ and $\\angle DAM \\cong \\angle DCT$ and thus $AM / CT = AD / CD$. It follows that\n$$\n\\frac{MI}{IT} = \\frac{BC \\cdot AM}{AB \\cdot CT} = \\frac{BC \\cdot AD}{AB \\cdot CD} = \\frac{5 \\cdot 10}{3 \\cdot 6} = \\frac{25}{9}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-concurrency-and-collinearity-menelaus-theorem-auto-1456",
+      "name": "Harvard-MIT Mathematics Tournament #0in4",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Triangle trigonometry",
+        "Tangents",
+        "Cyclic quadrilaterals",
+        "Menelaus' theorem",
+        "Homothety",
+        "Angle chasing"
+      ],
+      "statement": "Problem:\n\nLet $\\omega$ denote the incircle of triangle $ABC$. The segments $BC$, $CA$, and $AB$ are tangent to $\\omega$ at $D$, $E$, and $F$, respectively. Point $P$ lies on $EF$ such that segment $PD$ is perpendicular to $BC$. The line $AP$ intersects $BC$ at $Q$. The circles $\\omega_1$ and $\\omega_2$ pass through $B$ and $C$, respectively, and are tangent to $AQ$ at $Q$; the former meets $AB$ again at $X$, and the latter meets $AC$ again at $Y$. The line $XY$ intersects $BC$ at $Z$. Given that $AB=15$, $BC=14$, and $CA=13$, find $\\lfloor XZ \\cdot YZ\\rfloor$.\n\n![](attached_image_1.png)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: 101. Construct $D'$ diametrically opposed to $D$, so that $\\angle DFD'$ and $\\angle DED'$ are right, and note that $P$ lies on $DD'$. By standard angle chasing, $m \\angle FDD' = \\beta$ (half angle $B$) and $m \\angle D'DE = \\gamma$. Thus, $m \\angle DD'F = 90^\\circ - \\beta$ and $m \\angle ED'D = 90^\\circ - \\gamma$. Then by the law of sines, $DE : ED' : D'F : FD = \\cos(\\gamma) : \\sin(\\gamma) : \\sin(\\beta) : \\sin(\\gamma)$. Now using $\\triangle DEP \\sim \\triangle FD'P$ and $\\triangle DFP \\sim \\triangle ED'P$, we have\n$$\n\\frac{EP}{PF} = \\frac{ED \\cdot ED'}{FD \\cdot FD'} = \\frac{\\sin(\\gamma) \\cos(\\gamma)}{\\sin(\\beta) \\sin(\\beta)} = \\frac{c}{b}\n$$\nLet the dilation centered at $A$ sending $E$ to $C$ map $P$ and $F$ to $P'$ and $F'$, respectively. Note that $AF' = AC$ as $AE$ and $AF$ are equal tangents, and $CP' : P'F' = EP : PF = c : b$ by similarity. Then by Menelaus' theorem,\n$$\n1 = \\frac{BQ}{QC} \\cdot \\frac{CP'}{P'F'} \\cdot \\frac{F'A}{AB} = \\frac{BQ}{QC} \\cdot \\frac{c}{b} \\cdot \\frac{b}{c}\n$$\nso that $BQ = QC$ and $AQ$ is actually a median. So, $AQ^2 = \\frac{1}{4}(2b^2 + 2c^2 - a^2) = 148$. Now by Power of a Point, $AB \\cdot AX = AQ^2 = AC \\cdot AY$, so $AX = 148/15$ and $AY = 148/13$. Moreover, $B X C Y$ is cyclic as $\\triangle ABC \\sim \\triangle AYX$. Thus, $XZ \\cdot YZ = BZ \\cdot CZ$, and it suffices to compute $BZ / CZ$. Menelaus once more gives\n$$\n1 = \\frac{BZ}{ZC} \\cdot \\frac{CY}{YA} \\cdot \\frac{AX}{XB}\n$$\nwhence, $BZ / CZ = (AY / AX)(BX / CY) = (15/13)((77 \\cdot 13)/(21 \\cdot 15)) = 11/3$. We write $CZ = 3d$ and $BZ = 11d$. Because $AX < AB$ and $AY < AC$, $Z$ does not lie on segment $BC$. Given the configuration information, $BC = 8d = 14$, so $d = 7/4$, and finally $\\lfloor BZ \\cdot CZ \\rfloor = \\left\\lfloor 33d^2 \\right\\rfloor = \\left\\lfloor \\frac{1617}{16} \\right\\rfloor = 101$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-concurrency-and-collinearity-menelaus-theorem-auto-1585",
+      "name": "Harvard-MIT Mathematics Tournament #0iqp",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Menelaus' theorem",
+        "Optimization in geometry",
+        "Triangle trigonometry"
+      ],
+      "statement": "Problem:\nSuppose that $A B C$ is an isosceles triangle with $A B = A C$. Let $P$ be the point on side $A C$ so that $A P = 2 C P$. Given that $B P = 1$, determine the maximum possible area of $A B C$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $\\sqrt{\\frac{9}{10}}$\n\nLet $Q$ be the point on $A B$ so that $A Q = 2 B Q$, and let $X$ be the intersection of $B P$ and $C Q$. The key observation is that, as we will show, $B X$ and $C X$ are fixed lengths, and the ratio of areas $[A B C] / [B C X]$ is constant. So, to maximize $[A B C]$, it is equivalent to maximize $[B C X]$.\n\nUsing Menelaus' theorem on $A B P$, we have\n$$\n\\frac{B X \\cdot P C \\cdot A Q}{X P \\cdot C A \\cdot Q B} = 1\n$$\nSince $P C / C A = 1 / 3$ and $A Q / Q B = 2$, we get $B X / X P = 3 / 2$. It follows that $B X = 3 / 5$. By symmetry, $C X = 3 / 5$.\n\nAlso, we have\n$$\n[A B C] = 3 [B P C] = 3 \\cdot \\frac{5}{3} [B X C] = 5 [B X C]\n$$\nNote that $[B X C]$ is maximized when $\\angle B X C = 90^\\circ$ (one can check that this configuration is indeed possible). Thus, the maximum value of $[B X C]$ is $\\frac{1}{2} B X \\cdot C X = \\frac{1}{2} \\left(\\frac{3}{5}\\right)^2 = \\frac{9}{50}$. It follows that the maximum value of $[A B C]$ is $\\frac{9}{10}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-concurrency-and-collinearity-menelaus-theorem-auto-1711",
+      "name": "Harvard-MIT Mathematics Tournament #0iu7",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Tangents",
+        "Menelaus' theorem",
+        "Distance chasing"
+      ],
+      "statement": "Problem:\n\nPoints $A$ and $B$ lie on circle $\\omega$. Point $P$ lies on the extension of segment $A B$ past $B$. Line $\\ell$ passes through $P$ and is tangent to $\\omega$. The tangents to $\\omega$ at points $A$ and $B$ intersect $\\ell$ at points $D$ and $C$ respectively. Given that $A B=7$, $B C=2$, and $A D=3$, compute $B P$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSay that $\\ell$ is tangent to $\\omega$ at point $T$. Observing equal tangents, write\n\n$$\nC D = C T + D T = B C + A D = 5.\n$$\n\nLet the tangents to $\\omega$ at $A$ and $B$ intersect each other at $Q$. Working from Menelaus applied to triangle $C D Q$ and line $A B$ gives\n$$\n\\begin{aligned}\n-1 & = \\frac{D A}{A Q} \\cdot \\frac{Q B}{B C} \\cdot \\frac{C P}{P D} \\\\\n& = \\frac{D A}{B C} \\cdot \\frac{C P}{P C + C D} \\\\\n& = \\frac{3}{2} \\cdot \\frac{C P}{P C + 5},\n\\end{aligned}\n$$\nfrom which $P C = 10$. By power of a point, $P T^{2} = A P \\cdot B P$, or $12^{2} = B P \\cdot (B P + 7)$, from which $B P = 9$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-concurrency-and-collinearity-menelaus-theorem-auto-2063",
+      "name": "Team Selection Test #0j3z",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Ceva's theorem",
+        "Menelaus' theorem",
+        "Cyclic quadrilaterals",
+        "Triangle trigonometry",
+        "Homothety",
+        "Polar triangles, harmonic conjugates",
+        "Angle chasing"
+      ],
+      "statement": "In an acute scalene triangle $ABC$, points $D$, $E$, $F$ lie on sides $BC$, $CA$, $AB$, respectively, such that $AD \\perp BC$, $BE \\perp CA$, $CF \\perp AB$. Altitudes $AD$, $BE$, $CF$ meet at orthocenter $H$. Points $P$ and $Q$ lie on segment $EF$ such that $AP \\perp EF$ and $HQ \\perp EF$. Lines $DP$ and $QH$ intersect at point $R$. Compute $HQ/HR$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "$$\n\\frac{HQ}{PA} = \\frac{HS}{AS} \\quad \\text{and} \\quad \\frac{RH}{PA} = \\frac{HD}{AD}.\n$$\nIt suffices to show that\n$$\n\\frac{HS}{AS} = \\frac{HD}{AD}, \\qquad (29)\n$$\nwhich we remark is equivalent to showing that $(A, H)$ and $(S, D)$ are harmonic conjugates. Applying Ceva's theorem to triangle $AHC$ and cevians $AD$, $BE$, and $CF$ gives\n$$\n\\frac{AE}{EC} \\cdot \\frac{CF}{FH} \\cdot \\frac{HD}{DA} = 1.\n$$\nApplying Menelaus's theorem to triangle $ACH$ and line $ESF$ yields\n$$\n\\frac{AE}{EC} \\cdot \\frac{CF}{FH} \\cdot \\frac{HS}{SA} = 1.\n$$\nEquating the left-hand sides of the last two equations gives (29), completing the proof.\n\nConsider the diagram shown above. We present another proof of (29). Let $\\angle ABC = B$ and $\\angle ACB = C$. In right triangles $BHD$ and $ABD$, we have $HD/BD = \\tan \\angle HBD = \\cot C$ and $AD/BD = \\tan B$. Dividing the last two equations gives\n$$\n\\frac{HD}{AD} = \\frac{\\cot C}{\\tan B} = \\cot B \\cot C. \\qquad (30)\n$$\nApplying the Law of Sines in triangles *EHS* and *AFS* gives\n$$\n\\frac{HS}{HE} = \\frac{\\sin \\angle SEH}{\\sin \\angle HSE} \\quad \\text{and} \\quad \\frac{AS}{AF} = \\frac{\\sin \\angle AFE}{\\sin \\angle ASF}.\n$$\nDividing the last two equations yields\n$$\n\\frac{HS}{AS} = \\frac{HE}{AF} \\cdot \\frac{\\sin \\angle SEH}{\\sin \\angle AFE}. \\qquad (31)\n$$\nBecause $\\angle BEC = \\angle CFB = 90^\\circ$, $BCEF$ is cyclic, from which it follows that $\\angle SEH = \\angle FEB = \\angle FCB = 90^\\circ - B$ and $\\angle AFE = \\angle ECB = C$. Substituting the last two equations into (31) yields\n$$\n\\frac{HS}{AS} = \\frac{HE}{AF} \\cdot \\frac{\\cos B}{\\sin C}. \\qquad (32)\n$$\nIt is clear that right triangles *CHE* and *CAF* are similar to each other. Hence\n$$\n\\frac{HE}{AF} = \\frac{CE}{CF} = \\frac{BC \\cos C}{BC} \\sin B = \\frac{\\cos C}{\\sin B}.\n$$\nSubstituting the last equation into (32) gives\n$$\n\\frac{HS}{AS} = \\frac{HE}{AF} \\cdot \\frac{\\cos B}{\\sin C} = \\frac{\\cos C}{\\sin B} \\cdot \\frac{\\cos B}{\\sin C} = \\cot B \\cot C.\n$$\nCombining the last equation with (30) gives (29), and we are done.\n\nConsider the diagram shown above. Because $\\angle HFB + \\angle HDB = 180^\\circ$, $BDHF$ is cyclic, from which it follows that $\\angle HDF = \\angle HBF$. Likewise, $\\angle EDH = \\angle ECH$. Because $\\angle BFC = \\angle BEC = 90^\\circ$, $BCEF$ is cyclic, from which it follows that $\\angle EBF = \\angle ECF$. Therefore, we have $\\angle HDF = \\angle HBF = \\angle EBF = \\angle ECF = \\angle ECH = \\angle EDH$; that is, $DH$ bisects $\\angle FDE$. Likewise, $FH$ bisects $\\angle EFD$ and $EH$ bisects $\\angle DEF$. Hence $H$ is the incenter of triangle $DEF$. Let $\\omega$ denote the incircle of triangle $DEF$.\nBecause $\\angle AE \\perp EH$ and $EH$ is the interior bisector of $\\angle DEF$, $AE$ is the exterior bisector of $\\angle DEF$. Likewise, $AF$ is the exterior bisector of $\\angle EFD$. Consequently, $A$ is the excenter (opposite $D$) of triangle $DEF$. Let $\\Omega$ denote the excircle of triangle $DEF$ centered at $A$.\nConsider the dilation centered at $D$ sending $\\omega$ to $\\Omega$. Because $HQ \\parallel AP$, line $QH$ is sent to line $AP$. Let $R_1$ be the point on $\\omega$ diametrically opposite $Q$ (so $QH = HR$ and $Q, H, R_1$ are collinear). Then, we see that $R_1$ is sent to $P$ by this dilation. In particular, $D, R_1, P$ are collinear. Hence, $R_1$ is the intersection of lines $DP$ and $QH$, so $R = R_1$. We therefore have that $RH = R_1H = QH$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-concurrency-and-collinearity-menelaus-theorem-auto-2329",
+      "name": "USAMO #0jbd",
+      "url": "https://usamoguide.com/",
+      "source": "USAMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Menelaus' theorem",
+        "Complex numbers in geometry",
+        "Triangle trigonometry",
+        "Angle chasing"
+      ],
+      "statement": "Let $P$ be a point in the plane of $ABC$, and $\\gamma$ a line passing through $P$. Let $A'$, $B'$, $C'$ be the points where the reflections of lines $PA$, $PB$, $PC$ with respect to $\\gamma$ intersect lines $BC$, $AC$, $AB$, respectively. Prove that $A'$, $B'$, $C'$ are collinear.\n\n![](attached_image_1.png)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "There are several possible configurations depending on the location of $P$ and the orientation of $\\gamma$. We will consider the configuration above but will use directed lengths and angles so our arguments apply to all diagram configurations. By the law of sines on triangles $A_1PB$ and $A_1CP$, we have\n$$\nBP \\cdot \\frac{\\sin \\angle A_1 PB}{BA_1} = \\sin \\angle BA_1 P = \\sin \\angle PA_1 C = CP \\cdot \\frac{\\sin \\angle CPA_1}{CA_1}.\n$$\nRearranging and considering the two other analogous equalities yields\n$$\n\\frac{BA_1}{A_1C} = -\\frac{BP \\sin \\angle A_1 PB}{CP \\sin \\angle CPA_1}, \\quad \\frac{CB_1}{B_1A} = -\\frac{AP \\sin \\angle C_1 PA}{BP \\sin \\angle BPC_1}, \\quad \\text{and} \\quad \\frac{AC_1}{C_1B} = -\\frac{CP \\sin \\angle B_1 PC}{AP \\sin \\angle APB_1}. \\quad (10)\n$$\nNow, observe that $\\angle CPA_1$ and $\\angle C_1PA$ are angles between lines which are reflections of each other, meaning that they are either equal or supplementary. In either case, applying analogous arguments, we obtain\n$$\n\\sin \\angle C_1 PA = \\sin \\angle CPA_1, \\quad \\sin \\angle A_1 PB = \\sin \\angle APB_1, \\quad \\text{and} \\quad \\sin \\angle B_1 PC = \\sin \\angle BPC_1.\n$$\nHence, we may multiply the ratios in (10) to obtain\n$$\n\\frac{BA_1}{A_1C} \\cdot \\frac{CB_1}{B_1A} \\cdot \\frac{AC_1}{C_1B} = -1,\n$$\nshowing that $A_1$, $B_1$, and $C_1$ are collinear by Menelaus' theorem.\n\nPut the points on the complex plane and denote the complex number representing a point by the corresponding lowercase letter. Place $P$ at the origin and let $\\gamma$ be the real line, so that reflection about $\\gamma$ is given by complex conjugation. Now, because $A_1$ lies on $BC$, we have\n$$\n\\frac{a_1 - b}{b - c} = \\frac{\\bar{a}_1 - \\bar{b}}{\\bar{b} - \\bar{c}},\n$$\nwhile the fact that it lies on the reflection of $AP$ implies that it is proportional to $\\bar{a}$, meaning that $\\frac{a_1}{\\bar{a}} = \\frac{\\bar{a}_1}{\\bar{a}}$. Substituting into the previous equation and solving for $a_1$ yields\n$$\na_1 = \\frac{\\bar{a}\\bar{b}c - \\bar{b}\\bar{c}a}{\\bar{a}(\\bar{b}\\bar{c} - \\bar{c}) - a(b - c)}.\n$$\nNow, because $A_1$ lies on $BC$, we may compute\n$$\n\\frac{BA_1}{A_1C} = \\frac{b - a_1}{a_1 - c} = \\frac{\\bar{a}b(\\bar{b} - \\bar{c}) - ab(b - c) - \\bar{a}(\\bar{b}c - \\bar{c}b)}{\\bar{a}(\\bar{b}c - \\bar{c}b) - \\bar{a}c(\\bar{b} - \\bar{c}) + ac(b - c)} = \\frac{(\\bar{a}\\bar{b} - ab)(b - c)}{(\\bar{a}c - ac)(c - b)}.\n$$\nMultiplying this with the analogous expressions for $\\frac{CB_1}{B_1A}$ and $\\frac{AC_1}{C_1B}$, we obtain\n$$\n\\frac{BA_1}{A_1C} \\cdot \\frac{CB_1}{B_1A} \\cdot \\frac{AC_1}{C_1B} = -1,\n$$\nagain yielding the conclusion by Menelaus' theorem."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-concurrency-and-collinearity-menelaus-theorem-auto-2336",
+      "name": "USAMO #0jbk",
+      "url": "https://usamoguide.com/",
+      "source": "USAMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Menelaus' theorem",
+        "Triangle trigonometry",
+        "Angle chasing"
+      ],
+      "statement": "Let $P$ be a point in the plane of $ABC$, and $\\gamma$ a line passing through $P$. Let $A'$, $B'$, $C'$ be the points where the reflections of lines $PA$, $PB$, $PC$ with respect to $\\gamma$ intersect lines $BC$, $AC$, $AB$, respectively. Prove that $A'$, $B'$, $C'$ are collinear.\n\n![](attached_image_1.png)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "There are several possible configurations depending on the location of $P$ and the orientation of $\\gamma$. We will consider the configuration above but will use directed lengths and angles so our arguments apply to all diagram configurations. By the law of sines on triangles $A_1PB$ and $A_1CP$, we have\n$$\nBP \\cdot \\frac{\\sin \\angle A_1 PB}{BA_1} = \\sin \\angle BA_1 P = \\sin \\angle PA_1 C = CP \\cdot \\frac{\\sin \\angle CPA_1}{CA_1}.\n$$\nRearranging and considering the two other analogous equalities yields\n$$\n\\frac{BA_1}{A_1C} = -\\frac{BP \\sin \\angle A_1 PB}{CP \\sin \\angle CPA_1}, \\quad \\frac{CB_1}{B_1A} = -\\frac{AP \\sin \\angle C_1 PA}{BP \\sin \\angle BPC_1}, \\quad \\text{and} \\quad \\frac{AC_1}{C_1B} = -\\frac{CP \\sin \\angle B_1 PC}{AP \\sin \\angle APB_1}. \\quad (9)\n$$\n\nNow, observe that $\\angle CPA_1$ and $\\angle C_1PA$ are angles between lines which are reflections of each other, meaning that they are either equal or supplementary. In either case, applying analogous arguments, we obtain\n$$\n\\sin \\angle C_1 PA = \\sin \\angle CPA_1, \\quad \\sin \\angle A_1 PB = \\sin \\angle APB_1, \\quad \\text{and} \\quad \\sin \\angle B_1 PC = \\sin \\angle BPC_1.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-concurrency-and-collinearity-menelaus-theorem-auto-2679",
+      "name": "HMMT November 2014 #0jl3",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2014",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Ceva's theorem",
+        "Menelaus' theorem",
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle"
+      ],
+      "statement": "Problem:\nPick a subset of at least four of the following geometric theorems, order them from earliest to latest by publication date, and write down their labels (a single capital letter) in that order. If a theorem was discovered multiple times, use the publication date corresponding to the geometer for which the theorem is named.\n\nC. (Ceva) Three cevians $AD$, $BE$, $CF$ of a triangle $ABC$ are concurrent if and only if $\\frac{BD}{DC} \\frac{CE}{EA} \\frac{AF}{FB}=1$.\n\nE. (Euler) In a triangle $ABC$ with incenter $I$ and circumcenter $O$, we have $IO^{2}=R(R-2r)$, where $r$ is the inradius and $R$ is the circumradius of $ABC$.\n\nH. (Heron) The area of a triangle $ABC$ is $\\sqrt{s(s-a)(s-b)(s-c)}$, where $s=\\frac{1}{2}(a+b+c)$.\n\nM. (Menelaus) If $D, E, F$ lie on lines $BC, CA, AB$, then they are collinear if and only if $\\frac{BD}{DC} \\frac{CE}{EA} \\frac{AF}{FB}=-1$, where the ratios are directed.\n\nP. (Pascal) Intersections of opposite sides of cyclic hexagons are collinear.\n\nS. (Stewart) Let $ABC$ be a triangle and $D$ a point on $BC$. Set $m=BD, n=CD, d=AD$. Then $man+dad=bmb+cnc$.\n\nV. (Varignon) The midpoints of the sides of any quadrilateral are the vertices of a parallelogram.\n\nIf your answer is a list of $4 \\leq N \\leq 7$ labels in a correct order, your score will be $(N-2)(N-3)$. Otherwise, your score will be zero.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: HMPCVSE The publication dates were as follows.\n- Heron: 60 AD, in his book Metrica.\n- Menelaus: We could not find the exact date the theorem was published in his book Spherics, but because Menelaus lived from 70 AD to around 130 AD, this is the correct placement.\n- Pascal: 1640 AD, when he was just 17 years old. He wrote of the theorem in a note one year before that.\n- Ceva: 1678 AD, in his work De lineis rectis. But it was already known at least as early as the 11th century.\n- Varignon: 1731 AD.\n- Stewart: 1746 AD.\n- Euler: 1764 AD, despite already being published in 1746."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-concurrency-and-collinearity-menelaus-theorem-auto-2989",
+      "name": "HMMT November 2016 #0jtp",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2016",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangles",
+        "Menelaus' theorem",
+        "Isogonal/isotomic conjugates, barycentric coordinates",
+        "Constructions and loci"
+      ],
+      "statement": "Problem:\n\nThe three points $A$, $B$, $C$ form a triangle. $AB = 4$, $BC = 5$, $AC = 6$. Let the angle bisector of $\\angle A$ intersect side $BC$ at $D$. Let the foot of the perpendicular from $B$ to the angle bisector of $\\angle A$ be $E$. Let the line through $E$ parallel to $AC$ meet $BC$ at $F$. Compute $DF$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $\\frac{1}{2}$\n\nSince $AD$ bisects $\\angle A$, by the angle bisector theorem $\\frac{AB}{BD} = \\frac{AC}{CD}$, so $BD = 2$ and $CD = 3$.\n\nExtend $BE$ to hit $AC$ at $X$. Since $AE$ is the perpendicular bisector of $BX$, $AX = 4$.\n\nSince $B$, $E$, $X$ are collinear, applying Menelaus' Theorem to the triangle $ADC$, we have\n$$\n\\frac{AE}{ED} \\cdot \\frac{DB}{BC} \\cdot \\frac{CX}{XA} = 1\n$$\nThis implies that $\\frac{AE}{ED} = 5$, and since $EF \\parallel AC$, $\\frac{DF}{DC} = \\frac{DE}{DA}$, so $DF = \\frac{DC}{6} = \\frac{1}{2}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-concurrency-and-collinearity-menelaus-theorem-auto-3049",
+      "name": "Berkeley Math Circle: Monthly Contest 1 #0jvd",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cyclic quadrilaterals",
+        "Ceva's theorem",
+        "Menelaus' theorem",
+        "Tangents",
+        "Polar triangles, harmonic conjugates"
+      ],
+      "statement": "Problem:\n\nLet $ABCD$ be a convex quadrilateral. Assume that the incircle of triangle $ABD$ is tangent to $\\overline{AB}$, $\\overline{AD}$, $\\overline{BD}$ at points $W$, $Z$, $K$. Also assume that the incircle of triangle $CBD$ is tangent to $\\overline{CB}$, $\\overline{CD}$, $\\overline{BD}$ at points $X$, $Y$, $K$. Prove that quadrilateral $WXYZ$ is cyclic.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFrom the concurrence of the Gergonne point, it follows that lines $WZ$, $XY$, and $BD$ concur at the harmonic conjugate $T$ of $K$ with respect to $\\overline{BC}$. (One can also see the concurrence directly by applying Ceva and Menelaus.) Then $TK^2 = TW \\cdot TZ = TX \\cdot TY$, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-concurrency-and-collinearity-menelaus-theorem-auto-4283",
+      "name": "HMMT February 2022 #0ktn",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2022",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Tangents",
+        "Radical axis theorem",
+        "Inversion",
+        "Homothety",
+        "Menelaus' theorem"
+      ],
+      "statement": "Problem:\nLet $\\Gamma_{1}$ and $\\Gamma_{2}$ be two circles externally tangent to each other at $N$ that are both internally tangent to $\\Gamma$ at points $U$ and $V$, respectively. A common external tangent of $\\Gamma_{1}$ and $\\Gamma_{2}$ is tangent to $\\Gamma_{1}$ and $\\Gamma_{2}$ at $P$ and $Q$, respectively, and intersects $\\Gamma$ at points $X$ and $Y$. Let $M$ be the midpoint of the arc $\\widehat{X Y}$ that does not contain $U$ and $V$. Let $Z$ be on $\\Gamma$ such that $M Z \\perp N Z$, and suppose the circumcircles of $Q V Z$ and $P U Z$ intersect at $T \\neq Z$. Find, with proof, the value of $T U+T V$, in terms of $R, r_{1}$, and $r_{2}$, the radii of $\\Gamma, \\Gamma_{1}$, and $\\Gamma_{2}$, respectively.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nBy Archimedes lemma, we have $M, Q, V$ are collinear and $M, P, U$ are collinear as well. Note that inversion at $M$ with radius $M X$ shows that $P Q U V$ is cyclic. Thus, we have $M P \\cdot M U = M Q \\cdot M V$, so $M$ lies on the radical axis of $(P U Z)$ and $(Q V Z)$, thus $T$ must lie on the line $M Z$. Thus, we have $M Z \\cdot M T = M Q \\cdot M V = M N^{2}$, which implies triangles $M Z N$ and $M N T$ are similar. Thus, we have $N T \\perp M N$. However, since the line through $O_{1}$ and $O_{2}$ passes through $N$ and is perpendicular to $M N$, we have $T$ lies on line $O_{1} O_{2}$. Additionally, since $M Z \\cdot M T = M N^{2} = M X^{2}$, inversion at $M$ with radius $M X$ swaps $Z$ and $T$, and since $(M X Y)$ maps to line $X Y$, this means $T$ also lies on $X Y$.\n\nTherefore, $T$ is the intersection of $P Q$ and $O_{1} O_{2}$, and thus by Monge's Theorem, we must have $T$ lies on $U V$.\n\nNow, to finish, we will consider triangle $O U V$. Since $O_{1} O_{2} T$ is a line that cuts this triangle, by Menelaus, we have\n$$\n\\frac{O O_{1}}{O_{1} U} \\cdot \\frac{U T}{V T} \\cdot \\frac{V O_{2}}{O_{2} O} = 1\n$$\nUsing the values of the radii, this simplifies to\n$$\n\\frac{R - r_{1}}{r_{1}} \\cdot \\frac{U T}{V T} \\cdot \\frac{r_{2}}{R - r_{2}} = 1 \\Longrightarrow \\frac{U T}{V T} = \\frac{r_{1}(R - r_{2})}{r_{2}(R - r_{1})}\n$$\nNow, note that\n$$\nT U \\cdot T V = T P \\cdot T Q = \\frac{4 r_{1}^{2} r_{2}^{2}}{(r_{1} - r_{2})^{2}}\n$$\nNow, let $T U = r_{1}(R - r_{2}) k$ and $T V = r_{2}(R - r_{1}) k$. Plugging this into the above equation gives\n$$\nr_{1} r_{2} (R - r_{1})(R - r_{2}) k^{2} = \\frac{4 (r_{1} r_{2})^{2}}{(r_{1} - r_{2})^{2}}\n$$\nSolving gives\n$$\nk = \\frac{2 \\sqrt{r_{1} r_{2}}}{|r_{1} - r_{2}| \\sqrt{(R - r_{1})(R - r_{2})}}\n$$\nTo finish, note that\n$$\nT U + T V = k (R r_{1} + R r_{2} - 2 r_{1} r_{2}) = \\frac{2 (R r_{1} + R r_{2} - 2 r_{1} r_{2}) \\sqrt{r_{1} r_{2}}}{|r_{1} - r_{2}| \\sqrt{(R - r_{1})(R - r_{2})}}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-concurrency-and-collinearity-menelaus-theorem-auto-4769",
+      "name": "HMMT February 2025 #0l75",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2025",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Homothety",
+        "Ceva's theorem",
+        "Menelaus' theorem",
+        "Cyclic quadrilaterals",
+        "Isogonal/isotomic conjugates, barycentric coordinates"
+      ],
+      "statement": "Problem:\n\nPoint $P$ is inside triangle $\\triangle ABC$ such that $\\angle ABP = \\angle ACP$. Given that $AB = 6$, $AC = 8$, $BC = 7$, and $\\frac{BP}{PC} = \\frac{1}{2}$, compute $\\frac{|BPC|}{|ABC|}$.\n\n(Here, $[XYZ]$ denotes the area of $\\triangle XYZ$.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n![](attached_image_1.png)\nLet the internal and external bisectors of $\\angle BAC$ meet $BC$ at $D$ and $E$. Similarly, let the internal and external bisectors of $\\angle BPC$ meet $BC$ at $D'$ and $E'$. The angle condition implies that $AD\\parallel PD'$ and $AE\\parallel PE'$. Thus, triangles $ADE$ and $PD'E'$ are homothetic. Hence, the requested ratio is $\\frac{DE}{D'E'}$. Repeated applications of the angle bisector theorem yield\n\n$$\nBD = 7 \\cdot \\frac{6}{6 + 8} = 3,\n$$\n$$\nBE = 7 \\cdot \\frac{6}{8 - 6} = 21,\n$$\n$$\nBD' = 7 \\cdot \\frac{1}{1 + 2} = \\frac{7}{3},\n$$\n$$\nBE' = 7 \\cdot \\frac{1}{2 - 1} = 7,\n$$\nso $DE = 24$ and $D'E' = 28 / 3$. Hence, the answer is $\\frac{28 / 3}{24} = \\left[\\frac{7}{18}\\right]$.\n\n\nSolution 2:\n\n![](attached_image_2.png)\nLet $D = AP\\cap BC$, $E = BP\\cap AC$ and $F = CP\\cap AB$. Then, $BCEF$ is cyclic, so by Power of a Point, $\\frac{AE}{AF} = \\frac{AB}{AC} = \\frac{3}{4}$. Let $AE = 3x$ and $AF = 4x$. Then,\n\n$$\n\\triangle PFB \\sim \\triangle PEC \\Longrightarrow \\frac{BF}{CE} = \\frac{BP}{CP} \\Longrightarrow \\frac{6 - 4x}{8 - 3x} = \\frac{1}{2}.\n$$\nSolving for $x$ gives $x = \\frac{4}{5}$, so we get that $AF = \\frac{16}{5}$, $FB = \\frac{14}{5}$, $AE = \\frac{12}{5}$, and $EC = \\frac{40}{5}$. By Ceva's theorem on $\\triangle ABC$ and point $P$, we have\n\n$$\n\\frac{BD}{DC} = \\frac{AE}{EC} \\cdot \\frac{BF}{FA} = \\frac{AE}{AF} \\cdot \\frac{BF}{CE} = \\frac{3}{4} \\cdot \\frac{1}{2} = \\frac{3}{8}.\n$$\nFinally, by Menelaus's theorem on $\\triangle ADC$ and line $BE$, we get that\n\n$$\n\\frac{AP}{PD} = \\frac{CB}{BD} \\cdot \\frac{AE}{EC} = \\frac{11}{3} \\cdot \\frac{12}{28} = \\frac{11}{7},\n$$\nwhich implies that $\\frac{|BPC|}{|ABC|} = \\left[\\frac{7}{18}\\right]$\n\n\nSolution 3:\n\nWe use barycentric coordinates with respect to $\\triangle ABC$. From $\\angle ABP = \\angle ACP$, we get\n\n$$\n\\frac{|ABP|}{|ACP|} = \\frac{AB \\cdot BP}{AC \\cdot CP} = \\frac{3}{8},\n$$\nso $P$ has coordinate $(- :8:3)$. Let $Q$ be the isogonal conjugate of $P$, so $Q$ lies on the perpendicular bisector of $BC$. By Steiner ratio theorem, $Q$ has coordinate $(- :8^2 / 8:6^2 / 3) = (- :8:12) = (- :2:3)$. Let the coordinate be $(t:2:3)$ for some real number $t$. Then, recall the equation for the perpendicular bisector (from Corollary 6 of https://web.evanchem.cc/handouts/bary/bary-full.pdf):\n\n$$\na^2(z - y) + x(c^2 - b^2) = 0\n$$\n$$\n\\Rightarrow 7^2(3 - 2) + t(6^2 - 8^2) = 0,\n$$\nso $t = \\frac{7^2(3 - 2)}{8^2 - 6^2} = \\frac{7}{4}$. Hence, point $Q$ has coordinates $(7:8:12)$, so point $P$ has coordinates $(7^2 / 7:8^2 / 8:6^2 / 12) = (7:8:3)$. Therefore, $|BPC| / |ABC| = \\left[\\frac{7}{18}\\right]$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

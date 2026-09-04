@@ -1,0 +1,266 @@
+---
+id: proportionality-thales
+title: Basic Proportionality Theorem (Thales Theorem)
+author: Neronvain
+description: Use parallel lines in triangles to establish proportional segments, relate areas, and solve geometry problems.
+prerequisites: []
+---
+
+## Overview
+
+The Basic Proportionality Theorem (BPT), also called the Side Splitter
+Theorem or Thales' Theorem, describes what happens when a line parallel to
+one side of a triangle cuts through the other two sides. It produces
+proportional segments, and recognising this setup is one of the most common
+moves in competition geometry.
+
+## Theorem Statement
+
+In triangle $ABC$, suppose a line parallel to $BC$ intersects $AB$ at $D$
+and $AC$ at $E$. Then
+
+$$
+\frac{AD}{DB} = \frac{AE}{EC}.
+$$
+
+In words, a line parallel to one side of a triangle divides the other two sides in the same ratio.
+
+## Equivalent Forms
+
+Starting from $\frac{AD}{DB} = \frac{AE}{EC}$, simple algebra gives several
+useful restatements. If we set the common ratio equal to $k$, so that
+$AD = k(DB)$ and $AE = k(EC)$, then:
+
+$$
+\frac{AD}{AB} = \frac{AE}{AC} = \frac{DE}{BC} = \frac{k}{k+1}.
+$$
+
+The last equality ($DE/BC$) follows because triangle $ADE$ is similar to
+triangle $ABC$ with ratio $k/(k+1)$.
+
+A particularly clean version, if $DE \parallel BC$, then
+
+$$
+\frac{AD}{AB} = \frac{AE}{AC} = \frac{DE}{BC}.
+$$
+
+This form is often the fastest to apply in contest problems.
+
+## Why It Works
+
+The standard proof uses areas.
+
+Given $DE \parallel BC$ in triangle $ABC$, with $D$ on $AB$ and $E$ on $AC$.
+
+Construct $DM \perp AC$ and $EN \perp AB$.
+
+Consider triangles $ADE$ and $DBE$, which share the same height $EN$ from
+$E$ to line $AB$
+
+$$
+\frac{\text{Area}(\triangle ADE)}{\text{Area}(\triangle DBE)}
+= \frac{\frac{1}{2}(AD)(EN)}{\frac{1}{2}(DB)(EN)}
+= \frac{AD}{DB}.
+$$
+
+Similarly, triangles $ADE$ and $DEC$ share the same height $DM$ from $D$ to
+line $AC$
+
+$$
+\frac{\text{Area}(\triangle ADE)}{\text{Area}(\triangle DEC)}
+= \frac{AE}{EC}.
+$$
+
+Now, since $DE \parallel BC$, triangles $DBE$ and $DEC$ sit on the same base
+$DE$ and between the same pair of parallel lines $DE$ and $BC$. Therefore
+they have equal area
+
+$$
+\text{Area}(\triangle DBE) = \text{Area}(\triangle DEC).
+$$
+
+Combining everything:
+
+$$
+\frac{AD}{DB}
+= \frac{\text{Area}(\triangle ADE)}{\text{Area}(\triangle DBE)}
+= \frac{\text{Area}(\triangle ADE)}{\text{Area}(\triangle DEC)}
+= \frac{AE}{EC}.
+$$
+
+## The Converse
+
+The converse of BPT is just as useful
+
+If $D$ lies on $AB$ and $E$ lies on $AC$ such that
+
+$$
+\frac{AD}{DB} = \frac{AE}{EC},
+$$
+
+then $DE \parallel BC$.
+
+In contest problems, this is often how you prove two lines are parallel, show that a transversal cuts two sides of a triangle proportionally.
+
+## Connection to Similar Triangles
+
+BPT and triangle similarity are quite linked
+
+If $DE \parallel BC$ in triangle $ABC$, then triangle $ADE$ is similar to
+triangle $ABC$ (by AA similarity, since $\angle ADE = \angle ABC$ and
+$\angle AED = \angle ACB$ from the parallel lines).
+
+The ratio of similarity is $AD/AB = AE/AC = DE/BC$.
+
+This means
+- All corresponding lengths scale by the same factor.
+- Areas scale by the square of that factor.
+
+## Special Case: The Midpoint Theorem
+
+When the parallel line passes through the midpoints of two sides, BPT gives
+a ratio of $1{:}1$, and we get the Midpoint Theorem
+
+The segment joining the midpoints of two sides of a triangle is parallel to
+the third side and equal to half its length.
+
+If $D$ and $E$ are midpoints of $AB$ and $AC$ respectively, then
+$DE \parallel BC$ and $DE = \frac{1}{2} BC$.
+
+## Trapezoid Diagonals
+
+BPT extends naturally to trapezoids. In trapezoid $ABCD$ with $AB \parallel CD$, the diagonals $AC$ and $BD$ intersect at a point $P$ such that
+
+$$
+\frac{AP}{PC} = \frac{BP}{PD} = \frac{AB}{CD}.
+$$
+
+This follows by applying BPT (or similar triangles) to the triangles formed
+by the diagonals.
+
+## Parallel Lines Cut by Transversals
+
+A useful generalisation, if three or more parallel lines are cut by two
+transversals, the ratios of corresponding segments on the two transversals
+are equal.
+
+Given parallel lines $\ell_1, \ell_2, \ell_3$ cutting transversals $t$ and $s$
+at points $A, B, C$ and $D, E, F$ respectively
+
+$$
+\frac{AB}{BC} = \frac{DE}{EF}.
+$$
+
+This reduces to BPT by connecting two points to form a triangle and
+applying the theorem inside it.
+
+## Worked Examples
+
+### Example 1
+
+> In triangle $ABC$, point $D$ lies on $AB$ and point $E$ lies on $AC$ such
+> that $DE \parallel BC$. If $AD = 3$, $DB = 5$, and $AE = 4.5$, find $EC$.
+
+By BPT,
+
+$$
+\frac{AD}{DB} = \frac{AE}{EC}.
+$$
+
+Substituting:
+
+$$
+\frac{3}{5} = \frac{4.5}{EC}.
+$$
+
+Cross multiplying: $3(EC) = 5(4.5) = 22.5$, so $EC = 7.5$.
+
+### Example 2
+
+> In triangle $PQR$, points $S$ and $T$ lie on $PQ$ and $PR$ such that
+> $ST \parallel QR$. If $PS = 6$, $PQ = 10$, and $QR = 15$, find $ST$.
+
+Since $ST \parallel QR$, triangle $PST$ is similar to triangle $PQR$ with
+ratio
+
+$$
+\frac{PS}{PQ} = \frac{6}{10} = \frac{3}{5}.
+$$
+
+Therefore
+
+$$
+ST = \frac{3}{5}(QR) = \frac{3}{5}(15) = 9.
+$$
+
+### Example 3 (Area Ratios)
+
+> In triangle $ABC$ with area $40$, a line parallel to $BC$ meets $AB$ at $D$
+> and $AC$ at $E$ such that $AD/AB = 2/5$. Find the area of trapezoid $BCED$.
+
+Since $DE \parallel BC$ and the ratio of similarity is $2/5$, the area of
+triangle $ADE$ is
+
+$$
+\left(\frac{2}{5}\right)^2 (40) = \frac{4}{25}(40) = \frac{160}{25} = 6.4.
+$$
+
+The area of trapezoid $BCED$ is $40 - 6.4 = 33.6$.
+
+### Example 4 (2018 AMC 10A Problem 9)
+
+> All of the triangles in the diagram are similar to isosceles triangle $ABC$
+> with $AB = AC$. Each of the $7$ smallest triangles has area $1$, and
+> $\triangle ABC$ has area $40$. What is the area of trapezoid $DBCE$?
+
+The $7$ small triangles along the base of the upper region have total area
+$7$, but the triangle $ADE$ sitting above the trapezoid also includes a
+larger similar triangle above the row of $7$. By looking at the structure, the
+base of $ADE$ is $4$ times the base of each small triangle, so
+
+$$
+\frac{\text{Area}(\triangle ADE)}{\text{Area}(\text{small } \triangle)} = 4^2 = 16.
+$$
+
+Since each small triangle has area $1$, the area of $\triangle ADE$ is $16$.
+
+Therefore the area of trapezoid $DBCE = 40 - 16 = 24$.
+
+## Key Contest Insight
+
+The most common contest pattern is:
+1. Spot a line parallel to one side of a triangle (or construct one).
+2. Apply BPT to get proportional segments.
+3. Use the resulting similar triangles for lengths, areas, or angle chasing.
+
+Area ratios are very useful, if two similar figures have side ratio
+$k$, their area ratio is $k^2$. Many problems that seem to require
+coordinates or trigonometry become short once you identify the parallel line
+and apply BPT.
+
+## Strategy Tips
+- Whenever you see a trapezoid in a contest problem, look for similar
+  triangles formed by extending the non parallel sides until they meet.
+  BPT often applies in the resulting triangle.
+- If a problem gives you parallel lines and asks for a ratio, BPT is almost
+  certainly the intended tool.
+- When multiple parallel lines appear, apply BPT repeatedly or use the
+  transversal generalisation.
+- The converse is useful for proving parallelism, if you can show two
+  segments divide two sides of a triangle proportionally, the segments are
+  parallel to the third side.
+
+## Common Pitfalls
+- Confusing which segments are in the ratio. The theorem says
+  $AD/DB = AE/EC$, not $AD/AB = AE/EC$ (though the latter is also true,
+  it is a different ratio).
+- Forgetting that BPT requires the line to be parallel to a side. Without
+  parallelism, the segments are not proportional.
+- Applying the area squared rule ($k^2$) to lengths instead of areas, or
+  vice versa.
+- Missing that the converse can be used to establish parallelism when the
+  problem does not state it directly.
+
+## Practice Problems
+
+<Problems problems="practice" />

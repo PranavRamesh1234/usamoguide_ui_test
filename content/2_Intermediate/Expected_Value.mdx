@@ -1,0 +1,247 @@
+---
+id: expected-value
+title: Expected Value
+author: Aaron He
+description: An introduction to solving expected value problems
+prerequisites: [intro-probability]
+---
+
+## Overview
+A *random variable* is defined as a number whose value is determined by a random process, like a die roll. The *expected value* of a random variable is a fancy way of saying its average value.
+
+Let $P(e)$ be the probability of event $e$ happening. If we have a random variable $X$ with outcomes $x_1, x_2, \ldots, x_n$ occurring with probabilities $p_1, p_2, \ldots, p_n$, then the expected value is the weighted average
+
+$$
+E[X] = x_1p_1+x_2p_2+\cdot\cdot\cdot+x_np_n.
+$$
+
+From this definition we clearly have:
+
+1. $E[X+c]=E[X]+c$
+2. $E[cX] = cE[X]$
+
+for some constant $c$.
+
+There are also two other very important, but a bit less obvious, facts about expected value.
+1. If $X, Y$ are two *independent* random variables, then $E[XY] = E[X]E[Y]$.
+2. *Linearity of Expectation*: If $X,Y$ are two random variables, then $E[X+Y]=E[X]+E[Y]$. This is true *regardless* of whether or not $X,Y$ are independent. **This is arguably the most important property of expected value.**
+### A Simple Example
+In a dice roll, the possible outcomes are $1,2,3,4,5,6$ and the probability of each is $\frac{1}{6}$, so the expected value is
+
+$$
+\frac{1}{6}\cdot1+\frac{1}{6}\cdot2+\frac{1}{6}\cdot3+\frac{1}{6}\cdot4+\frac{1}{6}\cdot5+\frac{1}{6}\cdot6 = 3.5
+$$
+The expected sum of two dice rolls is $3.5+3.5=7$.
+The expected product of two dice rolls is $3.5\times3.5=12.25$, as the dice rolls are independent.
+
+### Worked Example #1
+
+Suppose there are $n$ people, each of whom has a name tag. The name tags are shuffled, and each person is randomly given a name tag. What is the expected number of people who received their own name tag?
+
+**Solution**
+
+Label the people $1,2,\dots,n$. Define the indicator variable $X_i$ to be $1$ if person $i$ receives their own name tag and $0$ otherwise. Then
+
+$X = X_1 + X_2 + \cdot\cdot\cdot + X_n$
+
+represents the total number of people who receive their own name tag.
+
+Using indicator variables is powerful because it turns counting problems into expectation problems.
+
+For each $i$,
+
+$E[X_i] = \frac{1}{n}$.
+
+Hence,
+
+$E[X] = E[X_1] + E[X_2] + \cdot\cdot\cdot + E[X_n]$
+
+$= n \cdot \frac{1}{n} = \boxed{1}$.
+
+### Worked Example #2 (2021 Fall AMC 10B #16)
+
+Five balls are arranged around a circle. Chris chooses two adjacent balls at random and swaps them. Then Silva does the same independently. What is the expected number of balls that occupy their original positions after both swaps?
+
+**Solution**
+
+Label the balls $1,2,3,4,5$. Define $X_i$ to be $1$ if ball $i$ is in its original position after both swaps, and $0$ otherwise. Then
+
+$X = X_1 + X_2 + X_3 + X_4 + X_5$.
+
+Consider a fixed ball. It is not touched by a swap with probability $\frac{3}{5}$. Thus the probability it is untouched in both steps is $\left(\frac{3}{5}\right)^2$.
+
+Additionally, there is a chance it is swapped and then swapped back. This occurs with probability $\frac{2}{5} \cdot \frac{1}{5}$.
+
+So,
+
+$E[X_i] = \left(\frac{3}{5}\right)^2 + \frac{2}{5}\cdot\frac{1}{5} = \frac{11}{25}$.
+
+Hence,
+
+$E[X] = 5 \cdot \frac{11}{25} = \boxed{2.2}$.
+
+### Worked Example #3 (2021 Fall AMC 12B #23)
+
+What is the average number of pairs of consecutive integers in a randomly selected subset of $5$ distinct integers chosen from ${1,2,3,\dots,30}$?
+
+**Solution**
+
+There are $29$ consecutive pairs:
+
+$p_1={1,2}, p_2={2,3}, \dots, p_{29}={29,30}$.
+
+Define $X_i$ to be $1$ if both numbers in pair $p_i$ are in the chosen subset, and $0$ otherwise.
+
+Then
+
+$X = X_1 + X_2 + \cdot\cdot\cdot + X_{29}$.
+
+For a fixed pair $p_i$, the number of subsets containing it is $\binom{28}{3}$ out of $\binom{30}{5}$ total subsets. Thus,
+
+$E[X_i] = \frac{\binom{28}{3}}{\binom{30}{5}} = \frac{1}{29}\cdot\frac{2}{3}$.
+
+Hence,
+
+$E[X] = 29 \cdot \frac{1}{29}\cdot\frac{2}{3} = \boxed{\frac{2}{3}}$.
+
+Expected value allows complicated counting problems to be reduced to simple probability computations.
+
+### Worked Example #4
+
+An Alien starts at square $1$ on a normal number line. Every millisecond, he moves either $1$ step to the right with probability of $\frac{1}{2}$ OR $3$ steps to the right with probability of $\frac{1}{2}$. Now, after $20$ moves, we let $X$ denote his current position. What is $E[X]$?
+
+**Solution**
+
+First, define $X_i$ as the distance the Alien moved on step $i$. Then, we have that
+
+$X = 1 + X_1 + X_2 + \cdot\cdot\cdot + X_{20}$.
+
+Next, for each step,
+
+$E[X_i] = \frac{1}{2}(1) + \frac{1}{2}(3) = 2$.
+
+And so, we get the answer from here,
+
+$E[X] = 1 + 20 \cdot 2 = \boxed{41}$.
+
+### Worked Example #5
+
+A peculiar and very skibidi magician has $12$ skibidi cubes. Each skibidi cube is RED with probability of $\frac{1}{3}$, BLUE with probability of $\frac{1}{2}$, and GREEN otherwise. Red gives $5$ skibidi points, blue gives $-2$ skibidi points, and green gives $0$ skibidi points. If S is the total score, find $E[S]$.
+
+**Solution**
+
+First, we define $X_i$ to be the score from skibidi cube $i$. Then, we have that
+
+$S = X_1 + X_2 + \cdot\cdot\cdot + X_{12}$.
+
+Now, notice that for one cube, we have
+
+$E[X_i] = 5\left(\frac{1}{3}\right) - 2\left(\frac{1}{2}\right) + 0\left(\frac{1}{6}\right)$
+
+$= \frac{5}{3} - 1 = \frac{2}{3}$.
+
+So, as a result,
+
+$E[S] = 12 \cdot \frac{2}{3} = \boxed{8}$.
+
+### Worked Example #6
+
+An skibidi integer is chosen uniformly and randomly from ${1,2,\dots,100}$. If $X$ is the number of divisors of the integer, your job is to find $E[X]$.
+
+**Solution**
+
+To start off, like usual, we will define some variables. Here, we will define $I_k$ to be $1$ IF $k$ divides the integer that was chosen, and $0$ otherwise. Then we have that
+
+$X = I_1 + I_2 + \cdot\cdot\cdot + I_{100}$.
+
+By using the powerful linearity of expectation, we obtain,
+
+$E[X] = \sum_{k=1}^{100} E[I_k]$.
+
+From here, notice that for fixed $k$, the probability that it divides a random integer is simply
+
+$E[I_k] = \frac{\left\lfloor \frac{100}{k} \right\rfloor}{100}$.
+
+Thus, we have
+
+$E[X] = \frac{1}{100} \sum_{k=1}^{100} \left\lfloor \frac{100}{k} \right\rfloor$.
+
+Now, this sum equals $482$, so we can get our answer easily from here
+
+$E[X] = \frac{482}{100} = \frac{241}{50}$.
+
+### Worked Example #7
+
+Eight extremely skibidi, extraterrestrial players each play one very skibidi game against EVERY other player. Each skibidi player independently gets a skibidi toy with probability $\frac{1}{4}$. If $X$ is the number of games where BOTH players have skibidi toys, your goal is to find $E[X]$.
+
+**Solution**
+
+First, notice that there are simply $\binom{8}{2}=28$ games. Next, we will define $I_g$ to be $1$ IF both players in game $g$ have skibidi toys, and $0$ otherwise.
+
+Then, from here, it is easy to see that
+
+$X = \sum I_g$.
+
+So, for ANY game,
+
+$P(\text{both have skibidi toys}) = \left(\frac{1}{4}\right)^2 = \frac{1}{16}$.
+
+So, as result, we get
+
+$E[I_g] = \frac{1}{16}$.
+
+And thus, the ansewr follows:
+
+$E[X] = 28 \cdot \frac{1}{16} = \boxed{\frac{7}{4}}$.
+
+### Worked Example #8 (Challenge: It requires a bit of calculus!)
+
+A fair (not skibidi) coin is flipped UNTIL the first tails appears. If tails appears on flip $n$, the payout is $n^2$. If $X$ is the payout, your job is to find $E[X]$.
+
+**Solution**
+
+First, realize that the probability that the first tails occurs on flip $n$ is simply
+
+$\left(\frac{1}{2}\right)^n$.
+
+As a result, we have that,
+
+$E[X] = \sum_{n=1}^{\infty} n^2 \left(\frac{1}{2}\right)^n$.
+
+Then, using a identity which can be proven from taking a geometric series and differentiating it, we get
+
+$\sum_{n=1}^{\infty} n^2 x^n = \frac{x(x+1)}{(1-x)^3}$,
+
+ and substitute $x=\frac{1}{2}$:
+
+$E[X] = \frac{\frac{1}{2}\cdot\frac{3}{2}}{\left(\frac{1}{2}\right)^3} = \frac{3/4}{1/8} = 6$.
+
+Therefore, the expected payout is $\boxed{6}$!
+
+
+
+<!-- probably too hard for intermediate level
+## Worked Example #3 (1991 Canada MO #2)
+Let $n$ be a fixed positive integer. Find the sum of all positive integers with the following property:
+In base 2, it has exactly $2n$ digits consisting of $n$ ones and $n$ zeros. (The first digit cannot be 0.)
+### Solution
+The expected value of the first digit is clearly 1. The expected value of all subsequent digits is $\frac{n-1}{2n-1}$, since excluding the first digit there are $n-1$ ones and $2n-1$ zeros.
+
+Hence the expected value of one such number is
+$$
+2^{n-1} + (2^{n-2}+2^{n-3}+\cdots+2^1+2^0)\frac{n-1}{2n-1}
+$$
+$$
+=2^{n-1}+(2^{n-1}-1)\frac{n-1}{2n-1}
+$$
+
+There are $\binom{2n-1}{n-1}$ such numbers, so the sum of all such numbers is
+$$
+\binom{2n-1}{n-1}(2^{n-1}+(2^{n-1}-1)\frac{n-1}{2n-1})
+$$
+$$=\boxed{(2^{2n-1}-1)\tbinom{2n-2}{n}+2^{2n-1}\tbinom{2n-1}{n}}$$ -->
+
+
+## Practice Problems
+
+<Problems problems="practice" />

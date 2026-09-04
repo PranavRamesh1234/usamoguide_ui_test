@@ -1,0 +1,520 @@
+{
+  "MODULE_ID": "discrete-mathematics-combinatorics",
+  "practice": [
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-auto-0031",
+      "name": "Berkeley Math Circle: Monthly Contest 8 #0hjj",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 8",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorics"
+      ],
+      "statement": "Problem:\n\nSuppose you have an unlimited number pennies, nickels, dimes, and quarters. Determine the number of ways to make 30 cents using these coins.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe use cases to organize our work, based first on the number of quarters and then the number of dimes. First note that the number of quarters must be $0$ or $1$, since $2$ quarters would be too much. This gives $2$ cases:\n\n- $1$ quarter: There are $2$ possibilities: a quarter and a nickel or a quarter and $5$ pennies.\n\n- $0$ quarters: If we don't use quarters, we can use at most $2$ dimes, so we can make $3$ subcases based on the number of dimes:\n\n  - $2$ dimes: We need to make $10$ cents more using nickels or pennies. We could use $0$, $1$, or $2$ nickels, so there are $3$ possibilities.\n\n  - $1$ dime: We need to make $20$ cents more using nickels or pennies. We could use $0$, $1$, $2$, $3$, or $4$ nickels, so there are $5$ possibilities.\n\n  - $0$ dimes: We need to make $30$ cents more using nickels and pennies. We could use $0$, $1$, $2$, $3$, $4$, $5$, or $6$ nickels, so there are $7$ possibilities.\n\nPutting this together, we get a total of $2+3+5+7=17$ possibilities."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-auto-0179",
+      "name": "MathNet #0hnn",
+      "url": "https://usamoguide.com/",
+      "source": "MathNet",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorics"
+      ],
+      "statement": "Problem:\n\nHow many different combinations of 4 marbles can be made from 5 indistinguishable red marbles, 4 indistinguishable blue marbles, and 2 indistinguishable black marbles?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n$5 + 4 + 3 = 12$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-auto-0850",
+      "name": "Harvard-MIT Math Tournament #0i6a",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorics"
+      ],
+      "statement": "Problem:\n\nDetermine the number of subsets $S$ of $\\{1,2,3, \\ldots, 10\\}$ with the following property: there exist integers $a < b < c$ with $a \\in S$, $b \\notin S$, $c \\in S$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThere are $2^{10} = 1024$ subsets of $\\{1,2, \\ldots, 10\\}$ altogether. Any subset without the specified property must be either the empty set or a block of consecutive integers. To specify a block of consecutive integers, we either have just one element (10 choices) or a pair of distinct endpoints $\\left(\\binom{10}{2} = 45\\right.$ choices$)$. So the number of sets with our property is $1024 - (1 + 10 + 45) = 968$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-auto-1045",
+      "name": "Harvard-MIT Mathematics Tournament #0ibp",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorics"
+      ],
+      "statement": "Problem:\n\nHow many ways can you mark 8 squares of an $8 \\times 8$ chessboard so that no two marked squares are in the same row or column, and none of the four corner squares is marked? (Rotations and reflections are considered different.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nIn the top row, you can mark any of the 6 squares that is not a corner. In the bottom row, you can then mark any of the 5 squares that is not a corner and not in the same column as the square just marked. Then, in the second row, you have 6 choices for a square not in the same column as either of the two squares already marked; then there are 5 choices remaining for the third row, and so on down to 1 for the seventh row, in which you make the last mark. Thus, altogether, there are $6 \\cdot 5 \\cdot (6 \\cdot 5 \\cdots 1) = 30 \\cdot 6! = 30 \\cdot 720 = 21600$ possible sets of squares."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-auto-1098",
+      "name": "Harvard-MIT Mathematics Tournament #0id6",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorics"
+      ],
+      "statement": "Problem:\n\nAugustin has six $1 \\times 2 \\times \\pi$ bricks. He stacks them, one on top of another, to form a tower six bricks high. Each brick can be in any orientation so long as it rests flat on top of the next brick below it (or on the floor). How many distinct heights of towers can he make?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nIf there are $k$ bricks which are placed so that they contribute either $1$ or $2$ height, then the height of these $k$ bricks can be any integer from $k$ to $2k$. Furthermore, towers with different values of $k$ cannot have the same height. Thus, for each $k$ there are $k+1$ possible tower heights, and since $k$ is any integer from $0$ to $6$, there are $1+2+3+4+5+6+7=28$ possible heights."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-auto-1360",
+      "name": "Harvard-MIT Mathematics Tournament #0ikg",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorics",
+        "Factorization techniques"
+      ],
+      "statement": "Problem:\n\nFor how many ordered triplets $(a, b, c)$ of positive integers less than $10$ is the product $a \\times b \\times c$ divisible by $20$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nOne number must be $5$. The other two must have a product divisible by $4$. Either both are even, or one is divisible by $4$ and the other is odd. In the former case, there are $48 = 3 \\times 4 \\times 4$ possibilities: $3$ positions for the $5$, and any of $4$ even numbers to fill the other two. In the latter case, there are $54 = 3 \\times 2 \\times 9$ possibilities: $3$ positions and $2$ choices for the multiple of $4$, and $9$ ways to fill the other two positions using at least one $5$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-auto-1510",
+      "name": "$10^{\\text {th }}$ Annual Harvard-MIT Mathematics Tournament #0iom",
+      "url": "https://usamoguide.com/",
+      "source": "$10^{\\text {th }}$ Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorics"
+      ],
+      "statement": "Problem:\n\nI have four distinct rings that I want to wear on my right hand (five distinct fingers). One of these rings is a Canadian ring that must be worn on a finger by itself, the rest I can arrange however I want. If I have two or more rings on the same finger, then I consider different orders of rings along the same finger to be different arrangements. How many different ways can I wear the rings on my fingers?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $600$. First we pick the finger for the Canadian ring. This gives a multiplicative factor of $5$. For distributing the remaining $3$ rings among $4$ fingers, they can either be all on the same finger ($4 \\cdot 3!$ ways), all on different fingers ($\\binom{4}{3} \\cdot 3!$ ways), or two on one finger and one on another ($4 \\cdot \\binom{3}{2} \\cdot 2! \\cdot 3$ ways). Therefore, I have $5 \\cdot (24 + 24 + 72) = 600$ choices."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-auto-1797",
+      "name": "12th Annual Harvard-MIT Mathematics Tournament #0iwl",
+      "url": "https://usamoguide.com/",
+      "source": "12th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Circles",
+        "Cartesian coordinates",
+        "Combinatorics"
+      ],
+      "statement": "Problem:\n\nDescartes's Blackjack: How many integer lattice points (points of the form $(m, n)$ for integers $m$ and $n$) lie inside or on the boundary of the disk of radius $2009$ centered at the origin?\n\nIf your answer is higher than the correct answer, you will receive $0$ points. If your answer is $d$ less than the correct answer, your score on this problem will be the larger of $0$ and $25 - \\lfloor d / 10 \\rfloor$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-auto-1876",
+      "name": "Harvard-MIT Mathematics Tournament #0iys",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Enumeration with symmetry",
+        "Combinatorics"
+      ],
+      "statement": "Problem:\n\nHow many sequences of 5 positive integers $(a, b, c, d, e)$ satisfy $a b c d e \\leq a+b+c+d+e \\leq 10$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe count based on how many $1$'s the sequence contains.\n\nIf $a = b = c = d = e = 1$ then this gives us $1$ possibility.\n\nIf $a = b = c = d = 1$ and $e \\neq 1$, $e$ can be $2, 3, 4, 5, 6$. Each such sequence $(1,1,1,1,e)$ can be arranged in $5$ different ways, for a total of $5 \\cdot 5 = 25$ ways in this case.\n\nIf three of the numbers are $1$, the last two can be $(2,2), (3,3), (2,3), (2,4)$, or $(2,5)$. Counting ordering, this gives a total of $2 \\cdot 10 + 3 \\cdot 20 = 80$ possibilities.\n\nIf two of the numbers are $1$, the other three must be equal to $2$ for the product to be under $10$, and this yields $10$ more possibilities.\n\nThus there are $1 + 25 + 80 + 10 = 116$ such sequences."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-auto-1877",
+      "name": "Harvard-MIT Mathematics Tournament #0iyt",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorics"
+      ],
+      "statement": "Problem:\nHow many functions $f:\\{1,2,3,4,5\\} \\rightarrow \\{1,2,3,4,5\\}$ satisfy $f(f(x))=f(x)$ for all $x \\in \\{1,2,3,4,5\\}$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nA fixed point of a function $f$ is an element $a$ such that $f(a)=a$. The condition is equivalent to the property that $f$ maps every number to a fixed point. Counting by the number of fixed points of $f$, the total number of such functions is\n\n$$\n\\begin{aligned}\n\\sum_{k=1}^{5}\\binom{5}{k} k^{5-k} & =1 \\cdot\\left(0^{5}+5^{0}\\right)+5 \\cdot\\left(1^{4}+4^{1}\\right)+10 \\cdot\\left(2^{3}+3^{2}\\right) \\\\\n& =1+25+10 \\cdot 17 \\\\\n& =196\n\\end{aligned}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-auto-1933",
+      "name": "Harvard-MIT November Tournament #0j0d",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorics"
+      ],
+      "statement": "Problem:\n\nHow many sequences $a_{1}, a_{2}, \\ldots, a_{8}$ of zeroes and ones have $a_{1} a_{2} + a_{2} a_{3} + \\cdots + a_{7} a_{8} = 5$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFirst, note that we have seven terms in the left hand side, and each term can be either $0$ or $1$, so we must have five terms equal to $1$ and two terms equal to $0$. Thus, for $n \\in \\{1,2, \\ldots, 8\\}$, at least one of the $a_{n}$ must be equal to $0$. If we can find $i, j \\in \\{2,3, \\ldots, 7\\}$ such that $a_{i} = a_{j} = 0$ and $i < j$, then the terms $a_{i-1} a_{i}$, $a_{i} a_{i+1}$, and $a_{j} a_{j+1}$ will all be equal to $0$. We did not count any term twice because $i-1 < i < j$, so we would have three terms equal to $0$, which cannot happen because we can have only two. Thus, we can find at most one $n \\in \\{2,3, \\ldots, 7\\}$ such that $a_{n} = 0$. We will do casework on which $n$ in this range have $a_{n} = 0$.\n\nIf $n \\in \\{3,4,5,6\\}$, then we know that the terms $a_{n-1} a_{n} = a_{n} a_{n+1} = 0$, so all other terms must be $1$, so $a_{1} a_{2} = a_{2} a_{3} = \\ldots = a_{n-2} a_{n-1} = 1$ and $a_{n+1} a_{n+2} = \\ldots = a_{7} a_{8} = 1$. Because every $a_{i}$ appears in one of these equations for $i \\neq n$, then we must have $a_{i} = 1$ for all $i \\neq n$, so we have $1$ possibility for each choice of $n$ and thus $4$ possibilities total for this case.\n\nIf $n = 2$, then again we have $a_{1} a_{2} = a_{2} a_{3} = 0$, so we must have $a_{3} a_{4} = a_{4} a_{5} = \\ldots = a_{7} a_{8} = 1$, so $a_{3} = a_{4} = \\ldots = a_{8} = 1$. However, this time $a_{1}$ is not fixed, and we see that regardless of our choice of $a_{1}$ the sum will still be equal to $5$. Thus, since there are $2$ choices for $a_{1}$, then there are $2$ possibilities total for this case. The case where $n = 7$ is analogous, with $a_{8}$ having $2$ possibilities, so we have another $2$ possibilities.\n\nFinally, if $a_{n} = 1$ for $n \\in \\{2,3, \\ldots, 7\\}$, then we will have $a_{2} a_{3} = a_{3} a_{4} = \\ldots = a_{6} a_{7} = 1$. We already have five terms equal to $1$, so the remaining two terms $a_{1} a_{2}$ and $a_{7} a_{8}$ must be $0$. Since $a_{2} = 1$, then we must have $a_{1} = 0$, and since $a_{7} = 1$ then $a_{8} = 0$. Thus, there is only $1$ possibility for this case.\n\nSumming, we have $4 + 2 + 2 + 1 = 9$ total sequences."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-auto-1944",
+      "name": "13th Annual Harvard-MIT Mathematics Tournament #0j0o",
+      "url": "https://usamoguide.com/",
+      "source": "13th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorics"
+      ],
+      "statement": "Problem:\nHow many functions $f:\\{1,2,3,4,5\\} \\rightarrow \\{1,2,3,4,5\\}$ have the property that $f(\\{1,2,3\\})$ and $f(f(\\{1,2,3\\}))$ are disjoint?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $f(\\{1,2,3\\})$ be $A$. Then $A \\cap f(A) = \\emptyset$, so $A$ must be a subset of $\\{4,5\\}$.\n\nIf $A = \\{4,5\\}$, there are $2^3 - 2$ ways to assign each element in $\\{1,2,3\\}$ to a value in $\\{4,5\\}$, and $9$ ways to assign each element of $\\{4,5\\}$ to a value in $\\{1,2,3\\}$, for a total of $54$ choices of $f$.\n\nIf $A = \\{4\\}$, there is $1$ possible value for each element of $\\{1,2,3\\}$, $4$ ways to assign $\\{4\\}$ with a value from $\\{1,2,3,5\\}$, and $5$ ways to assign a value to $\\{5\\}$.\n\nSimilarly, if $A = \\{5\\}$, there are $4 \\cdot 5 = 20$ choices for $f$.\n\nIn total, there are $54 + 20 \\cdot 2 = 94$ possible functions."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-auto-1980",
+      "name": "Harvard-MIT November Tournament #0j1o",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorics"
+      ],
+      "statement": "Problem:\nA mathematician $M'$ is called a descendent of mathematician $M$ if there is a sequence of mathematicians $M = M_1, M_2, \\ldots, M_k = M'$ such that $M_i$ was $M_{i+1}$'s doctoral advisor for all $i$. Estimate the number of descendents that the mathematician who has had the largest number of descendents has had, according to the Mathematical Genealogy Project. Note that the Mathematical Genealogy Project has records dating back to the 1300s. If the correct answer is $X$ and you write down $A$, your team will receive $\\max \\left(25-\\left\\lfloor\\frac{|X-A|}{100}\\right\\rfloor, 0\\right)$ points, where $\\lfloor x\\rfloor$ is the largest integer less than or equal to $x$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: 82310\n\nFirst let's estimate how many \"generations\" of mathematicians there have been since 1300. If we suppose that a mathematician gets his PhD around age 30 and becomes a PhD advisor around age 60, then we'll get a generation length of approximately 30 years. However, not all mathematicians will train more than one PhD. Let's say that only $40\\%$ of mathematicians train at least 2 PhDs. Then effectively we have only $40\\%$ of the generations, or in other words each effective generation takes 75 years. Then we have $\\frac{22}{3}$ branching generations. If we assume that all of these only train 2 PhDs, then we get an answer of $2^{\\frac{22}{3}} \\approx 1625$. But we can ensure that our chain has at least a single person who trained 100 PhDs (this is approximately the largest number of advisees for a single mathematician), allowing us to change one factor of 2 into a factor of 100. That gives us an answer of $1625 \\cdot 50 = 81250$, which is very close to the actual value of 82310."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-auto-2167",
+      "name": "Harvard-MIT November Tournament #0j6v",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorics"
+      ],
+      "statement": "Problem:\n\nAlberto, Bernardo, and Carlos are collectively listening to three different songs. Each is simultaneously listening to exactly two songs, and each song is being listened to by exactly two people. In how many ways can this occur?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $6$\n\nWe have $\\binom{3}{2} = 3$ choices for the songs that Alberto is listening to. Then, Bernardo and Carlos must both be listening to the third song. Thus, there are $2$ choices for the song that Bernardo shares with Alberto. From here, we see that the songs that everyone is listening to are forced. Thus, there are a total of $3 \\times 2 = 6$ ways for the three to be listening to songs."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-auto-2232",
+      "name": "Harvard-MIT November Tournament #0j8o",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Modular Arithmetic",
+        "Combinatorics"
+      ],
+      "statement": "Problem:\nFind the number of integers $x$ such that the following three conditions all hold:\n- $x$ is a multiple of $5$\n- $121 < x < 1331$\n- When $x$ is written as an integer in base $11$ with no leading $0$s (i.e. no $0$s at the very left), its rightmost digit is strictly greater than its leftmost digit.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe will work in base $11$, so let $x = \\overline{def}_{11}$ such that $d > 0$. Then, based on the first two conditions, we aim to find multiples of $5$ between $100_{11}$ and $1000_{11}$. We note that\n$$\n\\overline{def}_{11} = 11^2 \\cdot d + 11 \\cdot e + f \\equiv d + e + f \\pmod{5}\n$$\nHence, $x$ is a multiple of $5$ if and only if the sum of its digits is a multiple of $5$. Thus, we wish to find triples $(d, e, f)$ with elements in $0, 1, 2, \\ldots, 9, 10$ such that $d + e + f \\equiv 0 \\pmod{5}$ and $0 < d < f$.\n\nNote that if we choose $d$ and $f$ such that $d < f$, there is exactly one value of $e$ modulo $5$ that would make $d + e + f \\equiv 0 \\pmod{5}$. Once this value of $e$ is fixed, then there are two possibilities for $e$ unless $e \\equiv 0 \\pmod{5}$, in which case there are three possibilities. Thus, our answer is twice the number of ways to choose $d$ and $f$ such that $0 < d < f$ plus the number of ways to choose $d$ and $f$ such that $d + f \\equiv 0 \\pmod{5}$ and $0 < d < f$ (to account for the extra choice for the value of $e$).\n\nNote that the number of ways to choose $0 < d < f$ is just $\\binom{10}{2}$ since any choice of two digits yields exactly one way to order them. The number of ways to choose $d + f \\equiv 0 \\pmod{5}$ and $0 < d < f$ can be found by listing: $(d, f) = (1,4), (1,9), (2,3), (2,8), (3,7), (4,6), (5,10), (6,9), (7,8)$, for $9$ such pairings.\n\nHence, the total is $2 \\binom{10}{2} + 9 = 99$ possibilities for $x$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-auto-2624",
+      "name": "HMMT 2014 #0jjk",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2014",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorics"
+      ],
+      "statement": "Problem:\n\nThere are 10 people who want to choose a committee of 5 people among them. They do this by first electing a set of $1, 2, 3$, or $4$ committee leaders, who then choose among the remaining people to complete the 5-person committee. In how many ways can the committee be formed, assuming that people are distinguishable? (Two committees that have the same members but different sets of leaders are considered to be distinct.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThere are $\\binom{10}{5}$ ways to choose the 5-person committee. After choosing the committee, there are $2^{5} - 2 = 30$ ways to choose the leaders (since any nonempty proper subset of the 5 can be the set of leaders, i.e., any subset except the empty set and the full set). So the answer is $30 \\cdot \\binom{10}{5} = 7560$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-auto-3082",
+      "name": "HMMT November 2017 #0jwa",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2017",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Determinants",
+        "Vectors",
+        "Combinatorics"
+      ],
+      "statement": "Problem:\n\nTwo ordered pairs $(a, b)$ and $(c, d)$, where $a, b, c, d$ are real numbers, form a basis of the coordinate plane if $a d \\neq b c$. Determine the number of ordered quadruples $(a, b, c, d)$ of integers between $1$ and $3$ inclusive for which $(a, b)$ and $(c, d)$ form a basis for the coordinate plane.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAny pair of distinct points will form a basis except when $(a, b)$ and $(c, d)$ are both from $\\{(1,1),(2,2),(3,3)\\}$, so the answer is $9 \\cdot 8 - 3 \\cdot 2 = 66$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-auto-3327",
+      "name": "HMMT November 2018 #0k33",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2018",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorics"
+      ],
+      "statement": "Problem:\n\nAn $n \\times m$ maze is an $n \\times m$ grid in which each cell is one of two things: a wall, or a blank. A maze is solvable if there exists a sequence of adjacent blank cells from the top left cell to the bottom right cell going through no walls. (In particular, the top left and bottom right cells must both be blank.) Determine the number of solvable $2 \\times 2$ mazes.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: 3\n\nWe must have both top-left and bottom-right cells blank, and we cannot have both top-right and bottom-left cells with walls. As long as those conditions are satisfied, the maze is solvable, so the answer is 3."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-auto-3352",
+      "name": "HMMT November 2018 #0k3s",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2018",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorics",
+        "Other"
+      ],
+      "statement": "Problem:\n\nFind the number of eight-digit positive integers that are multiples of $9$ and have all distinct digits.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nNote that $0+1+\\cdots+9=45$. Consider the two unused digits, which must then add up to $9$. If it's $0$ and $9$, there are $8 \\cdot 7!$ ways to finish; otherwise, each of the other four pairs give $7 \\cdot 7!$ ways to finish, since $0$ cannot be the first digit. This gives a total of $36 \\cdot 7! = 181440$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-auto-3459",
+      "name": "Berkeley Math Circle: Monthly Contest 4 #0k6r",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 4",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorics"
+      ],
+      "statement": "Problem:\n\nOn a certain block, there are five houses in a line, which are to be painted red or green. If no two houses next to each other can be red, how many ways can you paint the houses?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe break this into cases based on how many houses are red:\n\nCase 1: No houses are red. There is only one way to do this, since all the houses must be green.\n\nCase 2: One red house. There are $5$ ways to choose the red house, and all the rest must be green.\n\nCase 3: Two red houses. We consider where the first red house is. If it is the first house on the block, then there are $3$ choices for where the second red house is (the $3$rd, $4$th, or $5$th house), if it is the $2$nd house then there are $2$ choices (the $4$th or $5$th house), and if it is the $3$rd house there is only one choice (the $5$th house). Thus, there are $3+2+1=6$ options in this case.\n\nCase 4: Three red houses. The only option is the $1$st, $3$rd, and $5$th houses red and the other green.\n\nAdding these together, we get $1+5+6+1=13$ ways total."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-auto-4182",
+      "name": "HMMT November 2022 #0kqu",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2022",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorics"
+      ],
+      "statement": "Problem:\nFind the number of ordered pairs $(A, B)$ such that the following conditions hold:\n- $A$ and $B$ are disjoint subsets of $\\{1,2, \\ldots, 50\\}$.\n- $|A|=|B|=25$\n- The median of $B$ is 1 more than the median of $A$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe median of both sets, which we will call $a$ and $b$ respectively, are more than exactly 12 of the members in their own set. Since $a$ and $b$ are consecutive, they must also be higher than the lower half of the other set and lower than the higher half of the other set, meaning that they are both higher than exactly 24 numbers in $\\{1,2, \\ldots, 50\\}-\\{a, b\\}$. Thus, $a=25$ and $b=26$.\n\nThe 24 lower numbers can be divided into the two groups (with 12 in each group) in $\\binom{24}{12}$ ways. Similarly, the 24 higher numbers can be divided into the two groups in $\\binom{24}{12}$ ways. Thus, the answer is $\\binom{24}{12}^{2}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-auto-4327",
+      "name": "HMMT February 2023 #0kuv",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2023",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorics"
+      ],
+      "statement": "Problem:\n\nCompute the number of ways to tile a $3 \\times 5$ rectangle with one $1 \\times 1$ tile, one $1 \\times 2$ tile, one $1 \\times 3$ tile, one $1 \\times 4$ tile, and one $1 \\times 5$ tile. (The tiles can be rotated, and tilings that differ by rotation or reflection are considered distinct.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nOur strategy is to first place the $1 \\times 5$ and the $1 \\times 4$ tiles since their size restricts their location. We have three cases:\n\n- Case 1: first row. There are 4 ways to place the $1 \\times 4$ tile. There is an empty cell next to the $1 \\times 4$ tile, which can either be occupied by the $1 \\times 1$ tile or the $1 \\times 2$ tile (see diagram). In both cases, there are 2 ways to place the remaining two tiles, so this gives $4 \\cdot 2 \\cdot 2=16$ ways.\n\n![](attached_image_1.png)\n\n- Case 2: middle row. There are 4 ways to place the $1 \\times 4$ tile, and the $1 \\times 1$ tile must go next to it. There are 2 ways to place the remaining two tiles, so this gives $4 \\cdot 2=8$ ways.\n\n- Case 3: bottom row. This is the same as Case 1 up to rotation, so there are also 16 ways to place the tiles here.\n\nIn total, we have $16+8+16=40$ ways to place the tiles."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-auto-4698",
+      "name": "HMMT February #0l56",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Modular Arithmetic",
+        "Combinatorics"
+      ],
+      "statement": "Problem:\nA number is upwards if its digits in base 10 are nondecreasing when read from left to right. Compute the number of positive integers less than $10^{6}$ that are both upwards and multiples of 11.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFor a number $d_{5}d_{4}d_{3}d_{2}d_{1}d_{0}$ (allowing leading 0s) to be upwards and a multiple of 11, we must have\n$$d_{5} \\leq d_{4} \\leq d_{3} \\leq d_{2} \\leq d_{1} \\leq d_{0},$$\n$$d_{0} - d_{1} + d_{2} - d_{3} + d_{4} - d_{5} \\equiv 0 \\pmod{11}.$$ \nNote that $d_{0} - d_{1}$, $d_{2} - d_{3}$, and $d_{4} - d_{5}$ are all nonnegative. Thus,\n$$0 \\leq (d_{0} - d_{1}) + (d_{2} - d_{3}) + (d_{4} - d_{5})$$\n$$\\leq (d_{0} - d_{1}) + (d_{1} - d_{2}) + (d_{2} - d_{3}) + (d_{3} - d_{4}) + (d_{4} - d_{5})$$\n$$= d_{0} - d_{5}$$\n$$\\leq 9.$$ \nTherefore,\n$$(d_{0} - d_{1}) + (d_{2} - d_{3}) + (d_{4} - d_{5}) = 0,$$\nwhich can only occur when $d_{0} = d_{1}$, $d_{2} = d_{3}$, and $d_{4} = d_{5}$, i.e. the number is of the form $aabbcc$. We can easily verify that all numbers of the form $aabbcc$ for digits $a \\leq b \\leq c$ satisfy our conditions, so we simply have to count them.\nThere are $\\binom{12}{3} = 220$ such triples of digits $(a,b,c)$. However, one of these triples is $(0,0,0)$, which corresponds to the number 0. Thus our answer is $220 - 1 = 219$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

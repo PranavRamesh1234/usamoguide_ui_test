@@ -1,0 +1,927 @@
+{
+  "MODULE_ID": "statistics-probability-counting-methods-combinations",
+  "practice": [
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-0041",
+      "name": "Berkeley Math Circle: Monthly Contest 4 #0hjt",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 4",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinations",
+        "Permutations"
+      ],
+      "statement": "Problem:\nOn an $6 \\times 6$ chessboard, we randomly place counters on three different squares. What is the probability that no two counters are in the same row or column?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe number of ways to pick three squares is $\\binom{36}{3}$.\nWe now count the number of ways to pick three squares with no two in the same row or column. One can select three distinct rows, in $\\binom{6}{3}$ ways, that we will place the counters in. Afterwards, there are $6$ ways to pick the column for the first row, $5$ to pick the column in the second row, and $4$ for the final row.\nSo the answer is\n$$\n\\frac{\\binom{6}{3} \\cdot 6 \\cdot 5 \\cdot 4}{\\binom{36}{3}} = \\frac{20 \\cdot 6 \\cdot 5 \\cdot 4}{36 \\cdot 35 \\cdot 34 / 6} = \\frac{40}{119}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-0042",
+      "name": "Berkeley Math Circle: Monthly Contest 6 #0hju",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinations",
+        "Other"
+      ],
+      "statement": "Problem:\nTen fair coins are flipped. Given that there are at least nine heads, what is the probability that all the coins show heads?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe answer is $\\frac{1}{11}$. Among the $2^{10} = 1024$ sequences of heads and tails, note that\n- There is only $1$ which is all heads, and\n- There are $10$ sequences which have exactly one tails.\nSo there are $11$ possible sequences with at least nine heads, only one of which is all heads. Hence the answer is $\\frac{1}{11}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-0127",
+      "name": "Berkeley Math Circle Monthly Contest 1 #0hm7",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Permutations",
+        "Combinations"
+      ],
+      "statement": "Problem:\n\nIn how many different ways one can place 3 rooks on the cells of $6 \\times 2006$ chessboard such that they don't attack each other?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nIn order not to attack each other, the rooks cannot share a row or a column. Since there are 6 columns in total, we have 20 possibilities for choosing 3 columns in which we will place our rooks. After choosing the columns, we will place our rooks one by one in these columns. The first rook can be placed in 2006 different ways. The second one, however, can't be placed in the row that contains the first rook. Hence there are 2005 possibilities for the second rook. Similarly, the third rook can be placed in 2004 different ways. In total, there are $20 \\cdot 2006 \\cdot 2005 \\cdot 2004$ ways to place 3 rooks in $6 \\times 2006$ chessboard so that they don't attack each other."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-0533",
+      "name": "Berkeley Math Circle: Monthly Contest 6 #0hxh",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other",
+        "Combinations"
+      ],
+      "statement": "Problem:\n\nIn the game Pogémon, Pogé Balls contain Pichagus with a $50\\%$ chance and otherwise contain nothing. The new Pogémon universe started with one Pichagu and has existed for five hours. Every hour, every Pichagu at the time opened a new Pogé Ball.\n\na) What is the expected number of Pichagus created in the last hour?\n\nb) Every two currently existing Pichagus will now battle each other. What is the expected number of battles?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\na) Every hour, the expected number of Pichagus increases $50\\%$. Thus, the expected number of Pichagus after $4$ hours is $\\left(\\frac{3}{2}\\right)^{4}$. Each of these Pichagus has a $50\\%$ chance of creating a new Pichagu in the last hour, so the answer is $\\frac{1}{2}\\left(\\frac{3}{2}\\right)^{4}=\\frac{81}{32}=2.53125$.\n\nb) We show via induction that the answer for $n$ hours is $E(n):=\\left(\\frac{3}{2}\\right)^{2 n-1}-\\left(\\frac{3}{2}\\right)^{n-1}$. This is clearly true for $n=0$; no battles would happen at that point.\n\nNow we show that this is true for $n+1$ given that it's true for $n$. After one hour, there are two cases: either there is one Pichagu or there are two.\n\nIn the first case, the expected value is just $E(n)$ as there are $n$ hours left.\n\nOtherwise, say that the Pichagus are divided into two \"factions\": the Pichagus that descend from the original Pichagu and the ones that descend from the second one. Each faction has an expected value of $E(n)$ internal battles (battles between two members of the faction). Additionally, as in part (a), each faction has an expected value of $\\left(\\frac{3}{2}\\right)^{n}$ members, so there will be an expected value of $\\left(\\left(\\frac{3}{2}\\right)^{n}\\right)^{2}$ battles between factions. Thus in this case there will be an expected value of $2 E(n)+\\left(\\frac{3}{2}\\right)^{2 n}$ battles.\n\nCombining the cases we have\n$$\n\\begin{aligned}\nE(n+1) & =\\frac{1}{2} E(n)+\\frac{1}{2}\\left(2 E(n)+\\left(\\frac{3}{2}\\right)^{2 n}\\right) \\\\\n& =\\frac{1}{2}\\left(\\frac{3}{2}\\right)^{2 n}+\\frac{3}{2} E(n) \\\\\n& =\\frac{3}{4}\\left(\\frac{3}{2}\\right)^{2 n-1}+\\frac{3}{2}\\left(\\left(\\frac{3}{2}\\right)^{2 n-1}-\\left(\\frac{3}{2}\\right)^{n-1}\\right) \\\\\n& =\\left(\\frac{3}{2}\\right)^{2 n+1}-\\left(\\frac{3}{2}\\right)^{n},\n\\end{aligned}\n$$\nas desired. Plugging in $n=5$ gives $\\left(\\frac{3}{2}\\right)^{9}-\\left(\\frac{3}{2}\\right)^{4}=\\frac{3^{9}-2^{5} \\cdot 3^{4}}{2^{9}}=\\frac{17091}{512}=$ $33.380859375$ ."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-0741",
+      "name": "Harvard-MIT Math Tournament #0i39",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other",
+        "Combinations"
+      ],
+      "statement": "Problem:\n\nThere are two red, two black, two white, and a positive but unknown number of blue socks in a drawer. It is empirically determined that if two socks are taken from the drawer without replacement, the probability they are of the same color is $\\frac{1}{5}$. How many blue socks are there in the drawer?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet the number of blue socks be $x > 0$. Then the probability of drawing a red sock from the drawer is $\\frac{2}{6 + x}$ and the probability of drawing a second red sock from the drawer is $\\frac{1}{6 + x - 1} = \\frac{1}{5 + x}$, so the probability of drawing two red socks from the drawer without replacement is $\\frac{2}{(6 + x)(5 + x)}$. This is the same as the probability of drawing two black socks from the drawer and the same as the probability of drawing two white socks from the drawer. The probability of drawing two blue socks from the drawer, similarly, is $\\frac{x(x - 1)}{(6 + x)(5 + x)}$.\n\nThus the probability of drawing two socks of the same color is the sum of the probabilities of drawing two red, two black, two white, and two blue socks from the drawer:\n\n$$\n3 \\cdot \\frac{2}{(6 + x)(5 + x)} + \\frac{x(x - 1)}{(6 + x)(5 + x)} = \\frac{x^2 - x + 6}{(6 + x)(5 + x)} = \\frac{1}{5}.\n$$\n\nCross-multiplying and distributing gives $5x^2 - 5x + 30 = x^2 + 11x + 30$, so $4x^2 - 16x = 0$, and $x = 0$ or $4$. But since $x > 0$, there are $4$ blue socks."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-1103",
+      "name": "Harvard-MIT Mathematics Tournament #0idb",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinations"
+      ],
+      "statement": "Problem:\nA best-of-9 series is to be played between two teams; that is, the first team to win $5$ games is the winner. The Mathletes have a chance of $2/3$ of winning any given game. What is the probability that exactly $7$ games will need to be played to determine a winner?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nIf the Mathletes are to win, they must win exactly $5$ out of the $7$ games. One of the $5$ games they win must be the $7$th game, because otherwise they would win the tournament before $7$ games are completed. Thus, in the first $6$ games, the Mathletes must win $4$ games and lose $2$. The probability of this happening and the Mathletes winning the last game is\n$$\n\\left[\\binom{6}{2} \\cdot\\left(\\frac{2}{3}\\right)^{4} \\cdot\\left(\\frac{1}{3}\\right)^{2}\\right] \\cdot\\left(\\frac{2}{3}\\right) .\n$$\nLikewise, the probability of the other team winning on the $7$th game is\n$$\n\\left[\\binom{6}{2} \\cdot\\left(\\frac{1}{3}\\right)^{4} \\cdot\\left(\\frac{2}{3}\\right)^{2}\\right] \\cdot\\left(\\frac{1}{3}\\right)\n$$\nSumming these values, we obtain $160/729 + 20/729 = 20/81$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-1222",
+      "name": "Harvard-MIT Mathematics Tournament #0igm",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinations"
+      ],
+      "statement": "Problem:\n\nIn an election, there are two candidates, $A$ and $B$, who each have $5$ supporters. Each supporter, independent of other supporters, has a $\\frac{1}{2}$ probability of voting for his or her candidate and a $\\frac{1}{2}$ probability of being lazy and not voting. What is the probability of a tie (which includes the case in which no one votes)?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe probability that exactly $k$ supporters of $A$ vote and exactly $k$ supporters of $B$ vote is $\\binom{5}{k}^2 \\cdot \\frac{1}{2^{10}}$. Summing over $k$ from $0$ to $5$ gives\n$$\n\\left(\\frac{1}{2^{10}}\\right)(1+25+100+100+25+1)=\\frac{252}{1024}=\\frac{63}{256}.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-1322",
+      "name": "Harvard-MIT Mathematics Tournament #0ije",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinations"
+      ],
+      "statement": "Problem:\nIn bridge, a standard 52-card deck is dealt in the usual way to 4 players. By convention, each hand is assigned a number of \"points\" based on the formula\n$$\n4 \\times (\\# \\{ A \\text{'s} \\}) + 3 \\times (\\# \\{ K \\text{'s} \\}) + 2 \\times (\\# \\{ Q \\text{'s} \\}) + 1 \\times (\\# \\{ J \\text{'s} \\})\n$$\nGiven that a particular hand has exactly 4 cards that are A, K, Q, or J, find the probability that its point value is 13 or higher.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nObviously, we can ignore the cards lower than $J$. Simply enumerate the ways to get at least 13 points: $AAAA$ (1), $AAAK$ (16), $AAAQ$ (16), $AAAJ$ (16), $AAKK$ (36), $AAKQ$ (96), $AKKK$ (16). The numbers in parentheses represent the number of ways to choose the suits, given the choices for the values. We see that there are a total of $1 + 16 + 16 + 16 + 36 + 96 + 16 = 197$ ways to get at least 13. There are a total of $\\binom{16}{4} = 1820$ possible ways to choose 4 cards from the 16 total $A$'s, $K$'s, $Q$'s, and $J$'s. Hence the answer is $\\frac{197}{1820}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-1447",
+      "name": "Harvard-MIT Mathematics Tournament #0imv",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Permutations",
+        "Combinations"
+      ],
+      "statement": "Problem:\n\nFive people are crowding into a booth against a wall at a noisy restaurant. If at most three can fit on one side, how many seating arrangements accommodate them all?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $240$. Three people will sit on one side and two sit on the other, giving a factor of two. Then there are $5!$ ways to permute the people."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-1460",
+      "name": "Harvard-MIT Mathematics Tournament #0in8",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinations"
+      ],
+      "statement": "Problem:\n\nThomas and Michael are just two people in a large pool of well qualified candidates for appointment to a problem writing committee for a prestigious college math contest. It is 40 times more likely that both will serve if the size of the committee is increased from its traditional 3 members to a whopping $n$ members. Determine $n$. (Each person in the pool is equally likely to be chosen.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: 16. Suppose there are $k$ candidates. Then the probability that both serve on a 3 membered committee is $(k-2)/\\binom{k}{3}$, and the odds that both serve on an $n$ membered committee are $\\binom{k-2}{n-2}/\\binom{k}{n}$. The ratio of the latter to the former is\n$$\n\\frac{\\binom{k}{3}\\binom{k-2}{n-2}}{(k-2)\\binom{k}{n}} = \\frac{k!(k-2)!1!(k-3)!n!(k-n)!}{k!(k-2)!(n-2)!(k-n)!3!(k-3)!} = \\frac{n \\cdot (n-1)}{3!}\n$$\nSolving $n \\cdot (n-1) = 240$ produces $n = 16, -15$, and we discard the latter."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-1717",
+      "name": "12th Annual Harvard-MIT Mathematics Tournament #0iud",
+      "url": "https://usamoguide.com/",
+      "source": "12th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinations"
+      ],
+      "statement": "Problem:\n\nThere are $2008$ distinct points on a circle. If you connect two of these points to form a line and then connect another two points (distinct from the first two) to form another line, what is the probability that the two lines intersect inside the circle?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nGiven four of these points, there are $3$ ways in which to connect two of them and then connect the other two, and of these possibilities exactly one will intersect inside the circle. Thus $1 / 3$ of all the ways to connect two lines and then connect two others have an intersection point inside the circle."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-1735",
+      "name": "Harvard-MIT November Tournament #0iuv",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Permutations",
+        "Combinations"
+      ],
+      "statement": "Problem:\n\nYou are trapped in ancient Japan, and a giant enemy crab is approaching! You must defeat it by cutting off its two claws and six legs and attacking its weak point for massive damage. You cannot cut off any of its claws until you cut off at least three of its legs, and you cannot attack its weak point until you have cut off all of its claws and legs. In how many ways can you defeat the giant enemy crab? (Note that the legs are distinguishable, as are the claws.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $14400$\n\nThe answer is given by $6!\\,2!\\binom{5}{2}$, because we can cut off the claws and legs in any order and there are $\\binom{5}{2}$ ways to decide when to cut off the two claws (since we can do it at any time among the last 5 cuts)."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-1887",
+      "name": "Harvard-MIT November Tournament #0iz3",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinations"
+      ],
+      "statement": "Problem:\n\nJacob flips five coins, exactly three of which land heads. What is the probability that the first two are both heads?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe can associate with each sequence of coin flips a unique word where $H$ represents heads, and $T$ represents tails. For example, the word $HHTTH$ would correspond to the coin flip sequence where the first two flips were heads, the next two were tails, and the last was heads. We are given that exactly three of the five coin flips came up heads, so our word must be some rearrangement of $HHHTT$. To calculate the total number of possibilities, any rearrangement corresponds to a choice of three spots to place the $H$ flips, so there are $\\binom{5}{3} = 10$ possibilities.\n\nIf the first two flips are both heads, then we can only rearrange the last three $HTT$ flips, which corresponds to choosing one spot for the remaining $H$. This can be done in $\\binom{3}{1} = 3$ ways. Finally, the probability is the quotient of these two, so we get the answer of $\\frac{3}{10}$.\n\nAlternatively, since the total number of possibilities is small, we can write out all rearrangements: $HHHTT$, $HHTHT$, $HHTTH$, $HTHHT$, $HTHTH$, $HTTHH$, $THHHT$, $THHTH$, $THTHH$, $TTHHH$. Of these ten, only in the first three do we flip heads the first two times, so we get the same answer of $\\frac{3}{10}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-1978",
+      "name": "13th Annual Harvard-MIT Mathematics Tournament #0j1m",
+      "url": "https://usamoguide.com/",
+      "source": "13th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinations",
+        "Other"
+      ],
+      "statement": "Problem:\n\n3000 people each go into one of three rooms randomly. What is the most likely value for the maximum number of people in any of the rooms? Your score for this problem will be 0 if you write down a number less than or equal to 1000. Otherwise, it will be $25-27 \\frac{|A-C|}{\\min (A, C)-1000}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: 1019\n\nTo get a rough approximation, we can use the fact that a sum of identical random variables converges to a Gaussian distribution in this case with a mean of $1000$ and a variance of $3000 \\cdot \\frac{2}{9} = 667$. Since $\\sqrt{667} \\approx 26$, $1026$ is a good guess, as Gaussians tend to differ from their mean by approximately their variance.\n\nThe actual answer was computed with the following python program:\n\n```\nfacts = [0]*3001\nfacts[0]=1\nfor a in range(1,3001):\n    facts[a]=a*facts[a-1]\ndef binom(n,k):\n    return facts[n]/(facts[k]*facts[n-k])\nmaxes = [0]*3001\nM = 1075\nfor a in range(0,3001):\n    for b in range(0,3001-a):\n        c = 3000-a-b\n        m = max(a,max(b,c))\n        if m < M:\n            maxes[m] += facts[3000]/(facts[a]*facts[b]*facts[c])\nbest = 1000\nfor a in range(1000,1050):\n    if maxes[best] <= maxes[a]:\n        best = a\nprint(best)\n```\n\nWe can use arguments involving the Chernoff bound to show that the answer is necessarily less than $1075$. Alternately, if we wanted to be really careful, we could just set $M=3001$, but then we'd have to wait a while for the script to finish."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-2021",
+      "name": "Harvard-MIT November Tournament #0j2t",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinations"
+      ],
+      "statement": "Problem:\nHow many ordered pairs $(S, T)$ of subsets of $\\{1,2,3,4,5,6,7,8,9,10\\}$ are there whose union contains exactly three elements?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet the three elements in the union be $a$, $b$, and $c$. We know that $a$ can be only in $S$, only in $T$, or both, so there are 3 possibilities for placing it. (Recall that $S=\\{a\\}$, $T=\\{b, c\\}$ is different from $S=\\{b, c\\}$, $T=\\{a\\}$ because $S$ and $T$ are an ordered pair.) Likewise for $b$ and $c$. The other 7 elements are in neither $S$ nor $T$, so there is only 1 possibility for placing them. This gives $3^{3}=27$ ways to pick $S$ and $T$ once you've picked the union. There are $\\binom{10}{3}=120$ ways to pick the elements in the union, so we have $120 \\times 27=3240$ ways total."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-2045",
+      "name": "Harvard-MIT November Tournament #0j3h",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinations",
+        "Other"
+      ],
+      "statement": "Problem:\n\nAllison has a coin which comes up heads $\\frac{2}{3}$ of the time. She flips it 5 times. What is the probability that she sees more heads than tails?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe probability of flipping more heads than tails is the probability of flipping 3 heads, 4 heads, or 5 heads. Since 5 flips will give $n$ heads with probability $\\binom{5}{n}\\left(\\frac{2}{3}\\right)^{n}\\left(\\frac{1}{3}\\right)^{5-n}$, our answer is\n\n$\\binom{5}{3}\\left(\\frac{2}{3}\\right)^{3}\\left(\\frac{1}{3}\\right)^{2} + \\binom{5}{4}\\left(\\frac{2}{3}\\right)^{4}\\left(\\frac{1}{3}\\right)^{1} + \\binom{5}{5}\\left(\\frac{2}{3}\\right)^{5}\\left(\\frac{1}{3}\\right)^{0} = \\frac{64}{81}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-2142",
+      "name": "Harvard-MIT November Tournament #0j66",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinations",
+        "Other"
+      ],
+      "statement": "Problem:\n\nThe UEFA Champions League playoffs is a 16-team soccer tournament in which Spanish teams always win against non-Spanish teams. In each of 4 rounds, each remaining team is randomly paired against one other team; the winner advances to the next round, and the loser is permanently knocked out of the tournament. If 3 of the 16 teams are Spanish, what is the probability that there are 2 Spanish teams in the final round?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe note that the probability there are not two Spanish teams in the final two is the probability that the 3 of them have already competed against each other in previous rounds. Note that the random pairings in each round is equivalent, by the final round, to dividing the 16 into two groups of 8 and taking a winner from each. Now, letting the Spanish teams be $A$, $B$, and $C$, once we fix the group in which $A$ is contained, the probability that $B$ is contained in this group as well is $\\frac{7}{15}$. Likewise, the probability that $C$ will be in the same group as $A$ and $B$ is now $\\frac{6}{14}$. Our answer is thus\n$$\n1 - \\left(\\frac{7}{15}\\right)\\left(\\frac{6}{14}\\right) = \\frac{4}{5}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-2328",
+      "name": "HMMT November 2012 #0jbc",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2012",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinations"
+      ],
+      "statement": "Problem:\n\nIf you roll four fair 6-sided dice, what is the probability that at least three of them will show the same value?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe have two cases: either three of the dice show one value and the last shows a different value, or all four dice show the same value.\n\nIn the first case, there are six choices for the value of the dice which are the same and $\\binom{4}{3}$ choices for which dice show that value. Then there are 5 choices for the last die. In total, there are $6 \\binom{4}{3} \\times 5 = 120$ possibilities.\n\nFor the second case, there are 6 values that all dice can show. Consequently, the overall probability is\n\n$$\n\\frac{120 + 6}{6^4} = \\frac{126}{6^4} = \\frac{7}{72}.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-2366",
+      "name": "HMMT November 2012 #0jce",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2012",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinations",
+        "Other"
+      ],
+      "statement": "Problem:\n\nThe game of rock-scissors is played just like rock-paper-scissors, except that neither player is allowed to play paper. You play against a poorly-designed computer program that plays rock with $50\\%$ probability and scissors with $50\\%$ probability. If you play optimally against the computer, find the probability that after 8 games you have won at least 4.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $\\frac{163}{256}$\n\nSince rock will always win against scissors, the optimum strategy is for you to always play rock; then, you win a game if and only if the computer plays scissors. Let $p_{n}$ be the probability that the computer plays scissors $n$ times; we want $p_{0}+p_{1}+p_{2}+p_{3}+p_{4}$. Note that by symmetry, $p_{n}=p_{8-n}$ for $n=0,1, \\ldots, 8$, and because $p_{0}+p_{1}+\\cdots+p_{8}=1$, $p_{0}+\\cdots+p_{3}=p_{5}+\\cdots+p_{8}=\\left(1-p_{4}\\right) / 2$. Our answer will thus be $\\left(1+p_{4}\\right) / 2$.\n\nIf the computer is to play scissors exactly 4 times, there are $\\binom{8}{4}$ ways in which it can do so, compared to $2^{8}$ possible combinations of eight plays. Thus, $p_{4}=\\binom{8}{4} / 2^{8}=35 / 128$. Our answer is thus $\\frac{1+\\frac{35}{128}}{2}=\\frac{163}{256}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-2503",
+      "name": "HMMT 2013 #0jg7",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2013",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinations"
+      ],
+      "statement": "Problem:\n\nSpencer is making burritos, each of which consists of one wrap and one filling. He has enough filling for up to four beef burritos and three chicken burritos. However, he only has five wraps for the burritos; in how many orders can he make exactly five burritos?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSpencer's burrito-making can include either $3$, $2$, or $1$ chicken burrito; consequently, he has $\\binom{5}{3} + \\binom{5}{2} + \\binom{5}{1} = 25$ orders in which he can make burritos."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-2510",
+      "name": "HMMT November 2013 #0jge",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2013",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinations"
+      ],
+      "statement": "Problem:\n\nA 50-card deck consists of 4 cards labeled \"$i$\" for $i = 1, 2, \\ldots, 12$ and 2 cards labeled \"13\". If Bob randomly chooses 2 cards from the deck without replacement, what is the probability that his 2 cards have the same label?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAll pairs of distinct cards (where we distinguish cards even with the same label) are equally likely. There are $\\binom{2}{2} + 12 \\binom{4}{2} = 73$ pairs of cards with the same label and $\\binom{50}{2} = 100 \\cdot \\frac{49}{4} = 1225$ pairs of cards overall, so the desired probability is $\\frac{73}{1225}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-2593",
+      "name": "HMMT 2014 #0jip",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2014",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinations"
+      ],
+      "statement": "Problem:\n\nThere are 100 students who want to sign up for the class Introduction to Acting. There are three class sections for Introduction to Acting, each of which will fit exactly 20 students. The 100 students, including Alex and Zhu, are put in a lottery, and 60 of them are randomly selected to fill up the classes. What is the probability that Alex and Zhu end up getting into the same section for the class?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $\\frac{19}{165}$\n\nThere is a $\\frac{60}{100} = \\frac{3}{5}$ chance that Alex is in the class. If Alex is in the class, the probability that Zhu is in his section is $\\frac{19}{99}$. So the answer is $\\frac{3}{5} \\cdot \\frac{19}{99} = \\frac{19}{165}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-2655",
+      "name": "HMMT 2014 #0jkf",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2014",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinations"
+      ],
+      "statement": "Problem:\n\nBob writes a random string of 5 letters, where each letter is either $A$, $B$, $C$, or $D$. The letter in each position is independently chosen, and each of the letters $A$, $B$, $C$, $D$ is chosen with equal probability. Given that there are at least two $A$'s in the string, find the probability that there are at least three $A$'s in the string.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThere are $\\binom{5}{2} 3^{3} = 270$ strings with $2$ $A$'s. There are $\\binom{5}{3} 3^{2} = 90$ strings with $3$ $A$'s.\nThere are $\\binom{5}{4} 3^{1} = 15$ strings with $4$ $A$'s. There is $\\binom{5}{5} 3^{0} = 1$ string with $5$ $A$'s.\n\nThe desired probability is $\\frac{90+15+1}{270+90+15+1} = \\frac{53}{188}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-2794",
+      "name": "HMMT February 2015 #0joa",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2015",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinations"
+      ],
+      "statement": "Problem:\n\nVictor has a drawer with 6 socks of 3 different types: 2 complex socks, 2 synthetic socks, and 2 trigonometric socks. He repeatedly draws 2 socks at a time from the drawer at random, and stops if the socks are of the same type. However, Victor is \"synthetic-complex type-blind\", so he also stops if he sees a synthetic and a complex sock.\nWhat is the probability that Victor stops with 2 socks of the same type? Assume Victor returns both socks to the drawer after each step.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet the socks be $C_1$, $C_2$, $S_1$, $S_2$, $T_1$, $T_2$, where $C$, $S$ and $T$ stand for complex, synthetic and trigonometric respectively. The possible stopping points consist of three pairs of socks of the same type plus four different complex-synthetic $(C$-$S)$ pairs, for a total of $7$. So the answer is $\\frac{3}{7}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-2964",
+      "name": "Berkeley Math Circle: Monthly Contest 1 #0jt0",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinations"
+      ],
+      "statement": "Problem:\n\nVictor has four red socks, two blue socks, and two green socks in a drawer. He randomly picks two of the socks from the drawer, and is happy to see that they are a matching pair. What is the probability the pair was red?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThere are $\\binom{4}{2} = 6$ possible red pairs, and then $\\binom{2}{2} = 1$ blue pair, and finally $\\binom{2}{2} = 1$ green pair.\n\nSo there were a total of $6 + 1 + 1 = 8$ possible pairs, of which there were $6$ red ones. So the answer is $\\frac{3}{4}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-3071",
+      "name": "HMMT February #0jvz",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinations"
+      ],
+      "statement": "Problem:\n\nVictor has a drawer with two red socks, two green socks, two blue socks, two magenta socks, two lavender socks, two neon socks, two mauve socks, two wisteria socks, and 2000 copper socks, for a total of 2016 socks. He repeatedly draws two socks at a time from the drawer at random, and stops if the socks are of the same color. However, Victor is red-green colorblind, so he also stops if he sees a red and green sock.\nWhat is the probability that Victor stops with two socks of the same color? Assume Victor returns both socks to the drawer at each step.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThere are $\\binom{2000}{2} + 8\\binom{2}{2} = 1999008$ ways to get socks which are matching colors, and four extra ways to get a red-green pair, hence the answer."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-3365",
+      "name": "HMMT November 2018 #0k45",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2018",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinations"
+      ],
+      "statement": "Problem:\n\nJerry has ten distinguishable coins, each of which currently has heads facing up. He chooses one coin and flips it over, so it now has tails facing up. Then he picks another coin (possibly the same one as before) and flips it over. How many configurations of heads and tails are possible after these two flips?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe have two cases:\n\nCase 1: Jerry picks the same coin twice. Then, the first time he flips the coin, it becomes tails, and then the second time, it becomes heads again, giving us the original state of all heads.\n\nCase 2: Jerry picks two different coins. In this case, there are two coins with tails face up, and the rest are heads face up. There are $\\binom{10}{2} = \\frac{10 \\cdot 9}{2} = 45$ ways to pick which two coins have tails.\n\nAdding up the possibilities from both cases, we have a total of $1 + 45 = 46$ possible configurations."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-3421",
+      "name": "Berkeley Math Circle #0k5p",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Permutations",
+        "Combinations"
+      ],
+      "statement": "Problem:\n\nHow many ways are there to place three rooks on an $8 \\times 8$ chessboard such that the rooks are in different columns and different rows?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThere are $\\binom{8}{3}$ ways to pick which three of the eight columns we wish to pick the rooks in. Once the set of three columns is fixed, then we have eight choices for where to pick the rook in the leftmost column, then seven choices for where to pick the rook in the middle column, and finally six choices for where to pick the rook in the rightmost column. Thus, the answer is\n$$\n\\binom{8}{3} \\cdot 8 \\cdot 7 \\cdot 6 = 18816.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-3462",
+      "name": "HMMT February 2019 #0k6u",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2019",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinations"
+      ],
+      "statement": "Problem:\n\nYour math friend Steven rolls five fair icosahedral dice (each of which is labelled $1,2, \\ldots, 20$ on its sides). He conceals the results but tells you that at least half of the rolls are $20$. Suspicious, you examine the first two dice and find that they show $20$ and $19$ in that order. Assuming that Steven is truthful, what is the probability that all three remaining concealed dice show $20$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe given information is equivalent to the first two dice being $20$ and $19$ and there being at least two $20$'s among the last three dice. Thus, we need to find the probability that given at least two of the last three dice are $20$'s, all three are.\n\nSince there is only one way to get all three $20$'s and $3 \\cdot 19 = 57$ ways to get exactly two $20$'s, the probability is $\\frac{1}{1+57} = \\frac{1}{58}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-3684",
+      "name": "HMMO 2020 #0kd0",
+      "url": "https://usamoguide.com/",
+      "source": "HMMO 2020",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinations"
+      ],
+      "statement": "Problem:\n\nTwo players play a game where they are each given 10 indistinguishable units that must be distributed across three locations. (Units cannot be split.) At each location, a player wins at that location if the number of units they placed there is at least 2 more than the units of the other player. If both players distribute their units randomly (i.e. there is an equal probability of them distributing their units for any attainable distribution across the 3 locations), the probability that at least one location is won by one of the players can be expressed as $\\frac{a}{b}$, where $a, b$ are relatively prime positive integers. Compute $100 a+b$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nBy stars and bars, the total number of distributions is $\\binom{12}{2}^2 = 66^2$.\n\nIf no locations are won, either both distributions are identical or the difference between the two is $(1,0,-1)$, in some order.\n\nThe first case has 66 possibilities.\n\nIf the difference is $(1,0,-1)$, we can construct all such possibilities by choosing nonnegative integers $a, b, c$ that sum to 9, and having the two players choose $(a+1, b, c)$ and $(a, b, c+1)$. This can be done in $\\binom{11}{2} = 55$ ways. In total, the second case has $6 \\cdot 55 = 5 \\cdot 66$ possibilities.\n\nThus the probability that no locations are won is $\\frac{6 \\cdot 66}{66^2} = \\frac{1}{11}$, meaning that the answer is $\\frac{10}{11}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-3840",
+      "name": "AMC 10 A #0khc",
+      "url": "https://usamoguide.com/",
+      "source": "AMC 10 A",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinations"
+      ],
+      "statement": "Each of 6 balls is randomly and independently painted either black or white with equal probability. What is the probability that every ball is different in color from more than half of the other 5 balls?\n(A) $\\frac{1}{64}$ (B) $\\frac{1}{6}$ (C) $\\frac{1}{4}$ (D) $\\frac{5}{16}$ (E) $\\frac{1}{2}$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-3872",
+      "name": "AMC 12 A #0ki8",
+      "url": "https://usamoguide.com/",
+      "source": "AMC 12 A",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinations"
+      ],
+      "statement": "Each of 20 balls is tossed independently and at random into one of 5 bins. Let $p$ be the probability that some bin ends up with 3 balls, another with 5 balls, and the other three with 4 balls each. Let $q$ be the probability that every bin ends up with 4 balls. What is $\\frac{p}{q}$?\n(A) 1 (B) 4 (C) 8 (D) 12 (E) 16",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Let us first compute $q$.\n\n$q$ is the probability that each bin gets exactly 4 balls when 20 balls are tossed into 5 bins.\n\nThe total number of ways to assign 20 balls to 5 bins is $5^{20}$.\n\nThe number of ways to assign 4 balls to each bin is:\n- First, choose which 4 balls go into bin 1: $\\binom{20}{4}$\n- Then, which 4 of the remaining 16 go into bin 2: $\\binom{16}{4}$\n- Then, which 4 of the remaining 12 go into bin 3: $\\binom{12}{4}$\n- Then, which 4 of the remaining 8 go into bin 4: $\\binom{8}{4}$\n- The last 4 go into bin 5.\n\nSo, the number of ways is:\n$$\n\\binom{20}{4} \\binom{16}{4} \\binom{12}{4} \\binom{8}{4}\n$$\n\nTherefore,\n$$\nq = \\frac{\\binom{20}{4} \\binom{16}{4} \\binom{12}{4} \\binom{8}{4}}{5^{20}}\n$$\n\nNow, compute $p$.\n\n$p$ is the probability that one bin has 3 balls, one has 5 balls, and the other three have 4 balls each.\n\nFirst, choose which bin gets 3 balls: 5 choices.\nThen, which bin gets 5 balls: 4 choices.\nThe other three bins get 4 balls each.\n\nNow, assign the balls:\n- Choose 3 balls to go into the '3' bin: $\\binom{20}{3}$\n- Choose 5 balls from the remaining 17 to go into the '5' bin: $\\binom{17}{5}$\n- Choose 4 balls from the remaining 12 to go into the first '4' bin: $\\binom{12}{4}$\n- Choose 4 balls from the remaining 8 to go into the second '4' bin: $\\binom{8}{4}$\n- The last 4 go into the last '4' bin.\n\nSo, the number of ways is:\n$$\n5 \\times 4 \\times \\binom{20}{3} \\binom{17}{5} \\binom{12}{4} \\binom{8}{4}\n$$\n\nTherefore,\n$$\np = \\frac{5 \\times 4 \\times \\binom{20}{3} \\binom{17}{5} \\binom{12}{4} \\binom{8}{4}}{5^{20}}\n$$\n\nNow, compute $\\frac{p}{q}$:\n\n$$\n\\frac{p}{q} = \\frac{5 \\times 4 \\times \\binom{20}{3} \\binom{17}{5} \\binom{12}{4} \\binom{8}{4}}{\\binom{20}{4} \\binom{16}{4} \\binom{12}{4} \\binom{8}{4}}\n$$\n\n$\\binom{12}{4}$ and $\\binom{8}{4}$ cancel.\n\nSo,\n$$\n\\frac{p}{q} = 20 \\cdot \\frac{\\binom{20}{3} \\binom{17}{5}}{\\binom{20}{4} \\binom{16}{4}}\n$$\n\nNow, recall $\\binom{n}{k} = \\frac{n!}{k!(n-k)!}$.\n\nCompute $\\binom{20}{3} = \\frac{20!}{3!17!}$\n$\\binom{17}{5} = \\frac{17!}{5!12!}$\n$\\binom{20}{4} = \\frac{20!}{4!16!}$\n$\\binom{16}{4} = \\frac{16!}{4!12!}$\n\nSo,\n$$\n\\frac{p}{q} = 20 \\cdot \\frac{\\frac{20!}{3!17!} \\cdot \\frac{17!}{5!12!}}{\\frac{20!}{4!16!} \\cdot \\frac{16!}{4!12!}}\n$$\n\nSimplify numerator:\n$\\frac{20!}{3!17!} \\cdot \\frac{17!}{5!12!} = \\frac{20!}{3!17!} \\cdot \\frac{17!}{5!12!} = \\frac{20!}{3!5!12!}$\n\nDenominator:\n$\\frac{20!}{4!16!} \\cdot \\frac{16!}{4!12!} = \\frac{20!}{4!16!} \\cdot \\frac{16!}{4!12!} = \\frac{20!}{4!4!12!}$\n\nSo,\n$$\n\\frac{p}{q} = 20 \\cdot \\frac{\\frac{20!}{3!5!12!}}{\\frac{20!}{4!4!12!}} = 20 \\cdot \\frac{4!4!12!}{3!5!12!}\n$$\n$12!$ cancels.\n\n$4! = 24$, $3! = 6$, $5! = 120$\n\nSo,\n$$\n\\frac{p}{q} = 20 \\cdot \\frac{24 \\times 24}{6 \\times 120} = 20 \\cdot \\frac{576}{720} = 20 \\cdot \\frac{4}{5} = 16\n$$\n\n**Answer:** $\\boxed{16}$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-4130",
+      "name": "2022 AIME II #0kpe",
+      "url": "https://usamoguide.com/",
+      "source": "2022 AIME II",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other",
+        "Combinations"
+      ],
+      "statement": "Azar, Carl, Jon, and Sergey are the four players left in a singles tennis tournament. They are randomly assigned opponents in the semifinal matches, and the winners of those matches play each other in the final match to determine the winner of the tournament. When Azar plays Carl, Azar will win the match with probability $\\frac{2}{3}$. When either Azar or Carl plays either Jon or Sergey, Azar or Carl will win the match with probability $\\frac{3}{4}$. Assume that outcomes of different matches are independent. The probability that Carl will win the tournament is $\\frac{p}{q}$, where $p$ and $q$ are relatively prime positive integers. Find $p+q$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "There are two cases, depending on whether Azar and Carl meet in the semifinals. If they do, which occurs with probability $\\frac{1}{3}$, Carl will win the tournament if and only if he beats Azar and goes on to beat the winner of the other semifinal match, which occurs with probability $\\frac{1}{3} \\cdot \\frac{3}{4} = \\frac{1}{4}$. If they do not, which occurs with probability $\\frac{2}{3}$, Carl must beat Jon or Sergey in the semifinal match, which occurs with probability $\\frac{3}{4}$, and go on to win the final match. If Azar wins her semifinal match, which occurs with probability $\\frac{3}{4}$, Carl must beat Azar, which occurs with probability $\\frac{1}{3}$. If Azar loses her semifinal match, which occurs with probability $\\frac{1}{4}$, Carl must beat Azar's opponent, which occurs with probability $\\frac{3}{4}$. Thus Carl will win the tournament with probability\n$$\n\\frac{1}{3} \\cdot \\frac{1}{4} + \\frac{2}{3} \\cdot \\frac{3}{4} \\cdot \\left( \\frac{3}{4} \\cdot \\frac{1}{3} + \\frac{1}{4} \\cdot \\frac{3}{4} \\right) = \\frac{29}{96}.\n$$\nThe requested sum is $29 + 96 = 125$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-4172",
+      "name": "HMMT February #0kqk",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinations",
+        "Other"
+      ],
+      "statement": "Problem:\n\nHerbert rolls $6$ fair standard dice and computes the product of all of his rolls. If the probability that the product is prime can be expressed as $\\frac{a}{b}$ for relatively prime positive integers $a$ and $b$, compute $100a + b$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe only way this can happen is if $5$ of the dice roll $1$ and the last die rolls a prime number $(2, 3, \\text{ or } 5)$. There are $6$ ways to choose the die that rolls the prime, and $3$ ways to choose the prime. Thus, the probability is $\\frac{3 \\cdot 6}{6^{6}} = \\frac{1}{2592}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-4258",
+      "name": "HMMT February #0ksy",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinations",
+        "Other"
+      ],
+      "statement": "Problem:\nA jar contains 8 red balls and 2 blue balls. Every minute, a ball is randomly removed. The probability that there exists a time during this process where there are more blue balls than red balls in the jar can be expressed as $\\frac{a}{b}$ for relatively prime integers $a$ and $b$. Compute $100 a+b$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nOne can show that the condition in the problem is satisfied if and only if the last ball drawn is blue (which happens with probability $\\frac{1}{5}$), or the blue balls are drawn second-to-last and third-to-last (which happens with probability $\\frac{1}{\\binom{10}{2}} = \\frac{1}{45}$). Thus the total probability is $\\frac{10}{45} = \\frac{2}{9}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-4308",
+      "name": "HMMT November 2023 #0kuc",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2023",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinations",
+        "Other"
+      ],
+      "statement": "Problem:\nA jar contains $97$ marbles that are either red, green, or blue. Neil draws two marbles from the jar without replacement and notes that the probability that they would be the same color is $\\frac{5}{12}$. After Neil puts his marbles back, Jerry draws two marbles from the jar with replacement. Compute the probability that the marbles that Jerry draws are the same color.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nNote that $\\frac{5}{12} = \\frac{40 \\cdot 97}{97 \\cdot 96}$. Of all of the original ways we could've drawn marbles, we are adding $97$ ways, namely drawing the same marble twice, all of which work. Thus, the answer is\n$$\n\\frac{40 \\cdot 97 + 97}{97 \\cdot 96 + 97} = \\frac{41}{97}\n$$\n\nSolution:\nLet there be $a$, $b$, and $c$ marbles of each type. We know $a + b + c = 97$ and\n$$\n\\frac{a^{2} - a + b^{2} - b + c^{2} - c}{97 \\cdot 96} = \\frac{a^{2} + b^{2} + c^{2} - 97}{97 \\cdot 96} = \\frac{5}{12} = \\frac{40}{96}\n$$\nThis means $a^{2} + b^{2} + c^{2} = 41 \\cdot 97$. Then the probability Bob's marbles are the same color is\n$$\n\\frac{a^{2} + b^{2} + c^{2}}{97^{2}} = \\frac{41}{97}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-4413",
+      "name": "HMMT November 2023 #0kx9",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2023",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinations"
+      ],
+      "statement": "Problem:\nThere are five people in a room. They each simultaneously pick two of the other people in the room independently and uniformly at random and point at them. Compute the probability that there exists a group of three people such that each of them is pointing at the other two in the group.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe desired probability is the number of ways to pick the two isolated people times the probability that the remaining three point at each other. So,\n$$\nP = \\binom{5}{2} \\cdot \\left(\\frac{\\binom{2}{2}}{\\binom{4}{2}}\\right)^3 = 10 \\cdot \\left(\\frac{1}{6}\\right)^3 = \\frac{5}{108}\n$$\nis the desired probability."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-4498",
+      "name": "AMC 12 A #0kzm",
+      "url": "https://usamoguide.com/",
+      "source": "AMC 12 A",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinations",
+        "Permutations"
+      ],
+      "statement": "A set of 12 tokens—3 red, 2 white, 1 blue, and 6 black—is to be distributed at random to 3 game players, 4 tokens per player. The probability that some player gets all the red tokens, another player gets all the white tokens, and the remaining player gets the blue token can be written as $\\frac{m}{n}$, where $m$ and $n$ are relatively prime positive integers. What is $m + n$?\n(A) 387 (B) 388 (C) 389 (D) 390 (E) 391",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "The situation can be modeled by arranging the 12 tokens in a row, with the first player receiving the first 4 tokens, the second player receiving the next 4 tokens, and the third player receiving the last 4 tokens. There are $\\frac{12!}{3! \\cdot 2! \\cdot 1! \\cdot 6!}$ such arrangements. The given conditions are satisfied if and only if the red tokens appear among the first 4 positions, the white tokens appear among the next 4 positions, and the blue token appears among the last 4 positions, or some permutation of the groups of 4. There are $\\binom{4}{3} \\cdot \\binom{4}{2} \\cdot \\binom{4}{1} \\cdot 3!$ ways for this to happen. The required probability is therefore\n$$\n\\frac{4 \\cdot 6 \\cdot 4 \\cdot 6 \\cdot 3! \\cdot 2! \\cdot 1! \\cdot 6!}{12!} = \\frac{4}{385},\n$$\nand the requested sum is $4 + 385 = 389$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-4504",
+      "name": "AMC 10 B #0kzs",
+      "url": "https://usamoguide.com/",
+      "source": "AMC 10 B",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Permutations",
+        "Combinations"
+      ],
+      "statement": "In a race among 5 snails, there is at most one tie, but that tie can involve any number of snails. For example, the result of the race might be that Dazzler is first; Abby, Cyrus, and Elroy are tied for second; and Bruna is fifth. How many different results of the race are possible?\n(A) 180 (B) 361 (C) 420 (D) 431 (E) 720",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "If there are no ties, then there are $5!$ possible race results. Suppose $k$ of the 5 snails are tied, where $2 \\le k \\le 5$. There are $\\binom{5}{k}$ ways to choose the snails that are tied, and then considering those snails as a group, there are $6-k$ entrants and therefore $(6-k)!$ orders of finish. The number of possible results is thus\n$$\n5! + \\binom{5}{2} \\cdot 4! + \\binom{5}{3} \\cdot 3! + \\binom{5}{4} \\cdot 2! + \\binom{5}{5} \\cdot 1! = 120 + 240 + 60 + 10 + 1 = 431.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-4559",
+      "name": "2024 AMC 12 B #0l1b",
+      "url": "https://usamoguide.com/",
+      "source": "2024 AMC 12 B",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinations",
+        "Other"
+      ],
+      "statement": "Pablo will decorate each of 6 identical white balls with either a striped or a dotted pattern, using either red or blue paint. He will decide on the color and pattern for each ball by flipping a fair coin for each of the 12 decisions he must make. After the paint dries, he will place the 6 balls in an urn. Frida will randomly select one ball from the urn and note its color and pattern. The events “the ball Frida selects is red” and “the ball Frida selects is striped” may or may not be independent, depending on the outcome of Pablo’s coin flips. The probability that these two events are independent can be written as $\\frac{m}{n}$, where $m$ and $n$ are relatively prime positive integers. What is $m$? (Recall that two events $A$ and $B$ are independent if $P(A \\text{ and } B) = P(A) \\cdot P(B)$.)\n(A) 243 (B) 245 (C) 247 (D) 249 (E) 251",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "There are $4^6$ ways to paint the balls, each equally likely. It remains to count the number of paintings for which the two given events are independent.\n\n* If all the balls are red, then $P(\\text{red}) = 1$ and the events are independent regardless of $P(\\text{striped})$. The same reasoning applies if all the balls are blue. This accounts for $2 \\cdot 2^6 = 128$ paintings.\n\n* If 5 of the balls are red and $s$ balls are striped, then\n$$\nP(\\text{red}) \\cdot P(\\text{striped}) = \\frac{5}{6} \\cdot \\frac{s}{6}.\n$$\nOn the other hand $P$(red and striped) is one of the fractions $\\frac{0}{6}$, $\\frac{1}{6}$, $\\frac{2}{6}$, $\\frac{3}{6}$, $\\frac{4}{6}$, or $\\frac{5}{6}$, depending on how many red balls are striped. These are equal if and only if $s = 0$ or $s = 6$. There are $2 \\cdot \\binom{6}{5} = 12$ ways for this to happen. A similar argument handles the case in which 5 balls are blue, giving 24 paintings in all.\n\n* Suppose 4 balls are red. In order for the two given events to be independent, the fraction of red balls that are striped must equal the fraction of blue balls that are striped. This happens when all the balls are striped, or none of them are striped, or 2 of the red balls and 1 of the blue balls are striped. There are $\\binom{4}{2} \\cdot \\binom{2}{1} = 12$ ways to choose the patterns in the last case, so this accounts for $\\binom{6}{4} \\cdot (1 + 1 + 12) = 210$ situations. There are another 210 for which 2 balls are red.\n\n* Suppose 3 balls are red. Again, in order for the two given events to be independent, the fraction of red balls that are striped must equal the fraction of blue balls that are striped. This happens when $s$ red balls are striped and $s$ blue balls are striped, where $s \\in \\{0, 1, 2, 3\\}$. The calculation in this case is\n$$\n\\binom{6}{3} \\left( \\binom{3}{0}^2 + \\binom{3}{1}^2 + \\binom{3}{2}^2 + \\binom{3}{3}^2 \\right) = 20 \\cdot 20 = 400.\n$$\n\nIn all there are $128 + 24 + 210 + 210 + 400 = 972$ cases in which the color and the pattern of the drawn ball are independent, so the required probability is\n$$\n\\frac{972}{2^{12}} = \\frac{243}{1024},\n$$\nand the requested numerator is 243."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "statistics-probability-counting-methods-combinations-auto-4726",
+      "name": "AIME I #0l5y",
+      "url": "https://usamoguide.com/",
+      "source": "AIME I",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Permutations",
+        "Combinations"
+      ],
+      "statement": "The 9 members of a baseball team went to an ice-cream parlor after their game. Each player had a single-scoop cone of chocolate, vanilla, or strawberry ice cream. At least one player chose each flavor, and the number of players who chose chocolate was greater than the number of players who chose vanilla, which was greater than the number of players who chose strawberry. Let $N$ be the number of different assignments of flavors to players that meet these conditions. Find the remainder when $N$ is divided by 1000.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "The only triples of numbers of choices of chocolate, vanilla, and strawberry, in that order, that meet the given conditions are $(6, 2, 1)$, $(5, 3, 1)$, and $(4, 3, 2)$. Using the formula for the number of permutations with repetitions gives\n$$\n\\begin{aligned}\nN &= \\frac{9!}{6!2!1!} + \\frac{9!}{5!3!1!} + \\frac{9!}{4!3!2!} \\\\\n&= \\frac{9 \\cdot 8 \\cdot 7}{2} + \\frac{9 \\cdot 8 \\cdot 7 \\cdot 6}{6} + \\frac{9 \\cdot 8 \\cdot 7 \\cdot 6 \\cdot 5}{6 \\cdot 2} \\\\\n&= 9 \\cdot 4 \\cdot 7 \\cdot (1 + 2 + 5) = 36 \\cdot 56 = 2016\n\\end{aligned}\n$$\nassignments. The requested remainder is 16."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

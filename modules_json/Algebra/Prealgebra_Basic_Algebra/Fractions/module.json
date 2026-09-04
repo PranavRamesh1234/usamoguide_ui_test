@@ -1,0 +1,1233 @@
+{
+  "MODULE_ID": "algebra-prealgebra-basic-algebra-fractions",
+  "practice": [
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-0010",
+      "name": "Berkeley Math Circle Monthly Contest 8 #0hiy",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 8",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fractions",
+        "Recurrence relations"
+      ],
+      "statement": "Problem:\n\nDefine\n$$\nA = 1 + \\frac{1}{2 + \\frac{1}{3 + \\frac{1}{4 + \\ddots_{+} \\frac{1}{2006 + \\frac{1}{2007}}}}} \\text{ and } B = 1 + \\frac{1}{2 + \\frac{1}{3 + \\frac{1}{4 + \\ddots + \\frac{1}{2005 + \\frac{1}{2006}}}}}\n$$\nWhich of the two numbers is greater, $A$ or $B$? Explain your answer!",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe will determine the sign of $A - B$. If that number happens to be positive then $A > B$, otherwise $A < B$. For each $n$ such that $1 \\leq n \\leq 2005$, let us define\n$$\nA_{n} = n + \\frac{1}{n+1 + \\frac{1}{n+2 + \\frac{1}{n+3 + \\ddots' + \\frac{1}{2006 + \\frac{1}{2007}}}}} \\quad B_{n} = n + \\frac{1}{n+1 + \\frac{1}{n+2 + \\frac{1}{n+3 + \\cdots + \\frac{1}{2005 + \\frac{1}{2006}}}}}\n$$\nThen $A_{1} = A$, $B_{1} = B$ and we always have that $A_{i} - B_{i}$ and $A_{i+1} - B_{i+1}$ have different signs. Indeed, since $A_{i} = i + \\frac{1}{A_{i+1}}$ and $B_{i} = i + \\frac{1}{B_{i+1}}$ we have $A_{i} - B_{i} = \\frac{B_{i+1} - A_{i+1}}{A_{i+1} B_{i+1}}$. Therefore if $A_{i} - B_{i} > 0$ then $B_{i+1} - A_{i+1} > 0$ and vice versa. Thus $A_{1} - B_{1}$, $A_{3} - B_{3}$, $\\ldots$, $A_{2005} - B_{2005}$ have the same signs. From\n$$\nA_{2005} - B_{2005} = \\left(2005 + \\frac{1}{2006 + \\frac{1}{2007}}\\right) - \\left(2005 + \\frac{1}{2006}\\right) < 0\n$$\nwe get $A < B$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-0070",
+      "name": "Berkeley Math Circle Monthly Contest 1 #0hkm",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fractions",
+        "Linear and quadratic inequalities"
+      ],
+      "statement": "Problem:\nFind, with proof, all ways to write $1$ as a sum of three fractions, each with numerator $1$ and positive integer denominator. (The order of the fractions is irrelevant, so for instance $\\frac{1}{2}+\\frac{1}{4}+\\frac{1}{4}$ is the same as $\\frac{1}{4}+\\frac{1}{4}+\\frac{1}{2}$.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThere are three solutions:\n$$\n1 = \\frac{1}{3} + \\frac{1}{3} + \\frac{1}{3} = \\frac{1}{2} + \\frac{1}{4} + \\frac{1}{4} = \\frac{1}{2} + \\frac{1}{3} + \\frac{1}{6}\n$$\nNow we must prove that these are the only solutions. If the fraction $1/2$ appears in the expression, the remaining fractions must add to $1/2$, so one of them is greater than or equal to $1/4$. If this fraction is $1/3$, we get the solution $1/2 + 1/3 + 1/6$, and if this fraction is $1/4$, we get the solution $1/2 + 1/4 + 1/4$. Thus, if the fraction $1/2$ is used, we cannot get any new solutions.\nIf the fraction $1/2$ does NOT appear in the expression, then all three fractions are at most $1/3$. Then their sum will certainly be less than $1$ unless they are all equal to $1/3$. Thus in this case, we only get the third solution, $1/3 + 1/3 + 1/3$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-0188",
+      "name": "Berkeley Math Circle #0hnw",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fractions",
+        "Other"
+      ],
+      "statement": "Problem:\n\nFor any positive integer $n \\geq 3$, show that you can write $1$ as a sum of $n$ fractions with numerator $1$ and different denominators.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFor $n=3$, we can write\n$$\n1 = \\frac{1}{2} + \\frac{1}{3} + \\frac{1}{6}.\n$$\nFor $n=4$, we can write\n$$\n1 = \\frac{1}{2} + \\frac{1}{3} + \\frac{1}{9} + \\frac{1}{18}.\n$$\nWe claim that we can continue this pattern by breaking the smallest fraction into two smaller fractions, such that the smallest fraction always has even denominator. We can show this inductively. Assume this is true for some $n$, where the smallest fraction is $\\frac{1}{2m}$. Then we can break the $\\frac{1}{2m}$ into\n$$\n\\frac{1}{2m} = \\frac{1}{3m} + \\frac{1}{6m}\n$$\nwhich creates a sum of $n+1$ distinct fractions with numerator $1$, and the largest denominator is still even. This completes our induction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-0202",
+      "name": "Berkeley Math Circle Monthly Contest 2 #0hoa",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 2",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fractions",
+        "Polynomial operations"
+      ],
+      "statement": "Problem:\n\n$$\n\\frac{a}{b} \\quad \\text{ and } \\quad \\frac{c}{d}\n$$\nare called approximately equal if $a, b, c, d$ are positive integers and\n$$\n\\frac{a}{b}-\\frac{c}{d}=\\frac{1}{b d}\n$$\nProve that given two approximately equal fractions, we can multiply the four numerators and denominators by the same positive integer and then add or subtract 1 from each of them so that the resulting fractions are equal.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nGiven the approximately equal fractions\n$$\n\\frac{a}{b} \\text{ and } \\frac{c}{d}\n$$\nwe multiply the four terms by $a+b+c+d$ to get\n$$\n\\frac{a^{2}+a b+a c+a d}{a b+b^{2}+b c+b d} \\quad \\text{ and } \\quad \\frac{a c+b c+c^{2}+c d}{a d+b d+c d+d^{2}}\n$$\nWe then adjust each member by 1 by changing the $a d$ terms to $b c$ and vice versa. The resulting fractions can be factorized:\n$$\n\\begin{aligned}\n& \\frac{a^{2}+a b+a c+b c}{a b+b^{2}+a d+b d} \\quad \\text{ and } \\quad \\frac{a c+a d+c^{2}+c d}{b c+b d+c d+d^{2}} \\\\\n& \\frac{(a+c)(a+b)}{(b+d)(a+b)} \\quad \\text{ and } \\quad \\frac{(a+c)(c+d)}{(b+d)(c+d)} \\text{. }\n\\end{aligned}\n$$\nThe last pair of fractions are visibly equal."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-0259",
+      "name": "Berkeley Math Circle: Monthly Contest 7 #0hpv",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 7",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fractions"
+      ],
+      "statement": "Problem:\n\nThere are $m$ friends with $n$ cupcakes each weighing 1 ounce. They wish to split the cupcakes equally by dividing each cupcake into some number of parts, and allocating some parts to each person.\n\na) Assume $m=3$ and $n=5$. Show that they may divide the cupcakes with all pieces being larger than $\\frac{1}{3}$ ounces.\n\nb) Assume $m=5$ and $n=3$. Show that they may divide the cupcakes with all pieces being larger than $\\frac{1}{5}$ ounces.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\na.\nEach person needs $\\frac{5}{3} = \\frac{20}{12}$ of a cupcake. If they cut four of the cupcakes into $\\frac{5}{12}$ and $\\frac{7}{12}$ and the last cupcake in half, then one person can take the four $\\frac{5}{12}$ pieces, giving them\n$$\n4 \\cdot \\frac{5}{12} = \\frac{20}{12}\n$$\nand the other two can each take two $\\frac{7}{12}$ pieces and one $\\frac{1}{2} = \\frac{6}{12}$ piece, giving them as well\n$$\n\\frac{7}{12} + \\frac{7}{12} + \\frac{6}{12} = \\frac{20}{12}\n$$\nAll pieces are larger than $\\frac{1}{3}$ ounces.\n\nb.\nEach person needs $\\frac{3}{5} = \\frac{12}{20}$ of a cupcake. We can divide two of the cupcakes into $\\frac{6}{20}$, $\\frac{7}{20}$ and $\\frac{7}{20}$ pieces and the last cupcake into four $\\frac{1}{4} = \\frac{5}{20}$ pieces. Then four of the people can get one $\\frac{7}{20}$ piece and one $\\frac{5}{20}$ piece and the fifth person can get the two $\\frac{6}{20}$ pieces.\n\nAll pieces are larger than $\\frac{1}{5}$ ounces."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-0305",
+      "name": "Berkeley Math Circle Monthly Contest 6 #0hr5",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fractions",
+        "Simple Equations",
+        "Polynomial operations"
+      ],
+      "statement": "Problem:\nLet $x$, $y$, $z$, and $u$ be real numbers satisfying the equation\n$$\n\\frac{x-y}{x+y}+\\frac{y-z}{y+z}+\\frac{z-u}{z+u}+\\frac{u-x}{u+x}=0\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Suppose that $x$, $y$, and $z$ are rational (i.e. each is the quotient of two integers) and distinct. Prove that $u$ is rational as well.\n\nLet us begin by combining the fractions in pairs.\n$$\n\\begin{aligned}\n0 & =\\left(\\frac{x-y}{x+y}+\\frac{y-z}{y+z}\\right)+\\left(\\frac{z-u}{z+u}+\\frac{u-x}{u+x}\\right) \\\\\n& =\\frac{(x-y)(y+z)+(x+y)(y-z)}{(x+y)(y+z)}+\\frac{(z-u)(u+x)+(z+u)(u-x)}{(z+u)(u+x)}\n\\end{aligned}\n$$\nAfter expanding the numerators and collecting like terms, we get\n$$\n\\begin{aligned}\n0 & =\\frac{2 x y-2 y z}{(x+y)(y+z)}+\\frac{2 z u-2 u x}{(z+u)(u+x)} \\\\\n& =2(x-z)\\left[\\frac{y}{(x+y)(y+z)}-\\frac{u}{(z+u)(u+x)}\\right] .\n\\end{aligned}\n$$\nBecause $x \\neq z$, we can divide out $2(x-z)$ to get\n$$\n\\begin{aligned}\n0 & =\\frac{y}{(x+y)(y+z)}-\\frac{u}{(x+u)(u+z)} \\\\\n& =\\frac{y(x+u)(u+z)-u(x+y)(y+z)}{(x+y)(y+z)(x+u)(u+z)} .\n\\end{aligned}\n$$\nWe now expand the numerator and get, after canceling some terms,\n$$\n\\begin{aligned}\n0 & =u^{2} y-u y^{2}+x y z-u x z \\\\\n& =u y(u-y)+x z(y-u) .\n\\end{aligned}\n$$\nIf $u=y$, then we are done since $y$ is rational. Assuming $u \\neq y$, we divide through by $(u-y)$ to get $0=u y-x z$. Solving for $u$, we get $u=x z / y$ which is rational given that $x$, $y$, and $z$ are."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-0360",
+      "name": "MathNet #0hso",
+      "url": "https://usamoguide.com/",
+      "source": "MathNet",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fractions"
+      ],
+      "statement": "Problem:\nIf $\\frac{1}{9}$ of $60$ is $5$, what is $\\frac{1}{20}$ of $80$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution: In base 15, 6."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-0561",
+      "name": "HMMT 1998 #0hy9",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 1998",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Linear and quadratic inequalities",
+        "Fractions"
+      ],
+      "statement": "Problem:\nFind the set of solutions for $x$ in the inequality $\\frac{x+1}{x+2} > \\frac{3x+4}{2x+9}$ when $x \\neq -2$, $x \\neq \\frac{9}{2}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThere are 3 possible cases of $x$:\n\n1) $-\\frac{9}{2} < x$\n\n2) $\\frac{9}{2} \\leq x \\leq -2$\n\n3) $-2 < x$\n\nFor the cases (1) and (3), $x+2$ and $2x+9$ are both positive or negative, so the following operation can be carried out without changing the inequality sign:\n$$\n\\begin{aligned}\n\\frac{x+1}{x+2} &> \\frac{3x+4}{2x+9} \\\\\n\\Rightarrow 2x^{2} + 11x + 9 &> 3x^{2} + 10x + 8 \\\\\n\\Rightarrow 0 &> x^{2} - x - 1\n\\end{aligned}\n$$\nThe inequality holds for all $\\frac{1-\\sqrt{5}}{2} < x < \\frac{1+\\sqrt{5}}{2}$. The initial conditions were $-\\frac{9}{2} < x$ or $-2 < x$. The intersection of these three conditions occurs when $\\frac{1-\\sqrt{5}}{2} < x < \\frac{1+\\sqrt{5}}{2}$.\n\nCase (2) is $\\frac{9}{2} \\leq x \\leq -2$. For all $x$ satisfying these conditions, $x+2 < 0$ and $2x+9 > 0$. Then the following operations will change the direction of the inequality:\n$$\n\\begin{aligned}\n\\frac{x+1}{x+2} &> \\frac{3x+4}{2x+9} \\\\\n\\Rightarrow 2x^{2} + 11x + 9 &< 3x^{2} + 10x + 8 \\\\\n\\Rightarrow 0 &< x^{2} - x - 1\n\\end{aligned}\n$$\nThe inequality holds for all $x < \\frac{1-\\sqrt{5}}{2}$ and $\\frac{1+\\sqrt{5}}{2} < x$. The initial condition was $-\\frac{9}{2} \\leq x \\leq -2$. Hence the intersection of these conditions yields all $x$ such that $-\\frac{9}{2} \\leq x \\leq -2$.\n\nThen all possible cases of $x$ are $-\\frac{9}{2} \\leq x \\leq -2 \\cup \\frac{1-\\sqrt{5}}{2} < x < \\frac{1+\\sqrt{5}}{2}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-0709",
+      "name": "Harvard-MIT Math Tournament #0i2d",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Decimals",
+        "Fractions",
+        "Recurrence relations"
+      ],
+      "statement": "Problem:\nWhat is the 18th digit after the decimal point of $\\frac{10000}{9899}$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n$\\frac{10000}{9899}$ satisfies $100(x-1) = 1.01 x$, so each pair of adjacent digits is generated by adding the previous two pairs of digits. So the decimal is $1.01020305081321345590\\ldots$, and the 18th digit is $5$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-0716",
+      "name": "Harvard-MIT Math Tournament #0i2k",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Simple Equations",
+        "Fractions"
+      ],
+      "statement": "Problem:\n\nSome students are taking a math contest, in which each student takes one of four tests. One third of the students take one test, one fourth take another test, one fifth take the next test, and $26$ students take the last test. How many students are taking the contest in total?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nCall the total number of students $n$. We know\n$$\n n = \\frac{n}{3} + \\frac{n}{4} + \\frac{n}{5} + 26\n$$\nso $n = 120$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-0811",
+      "name": "Harvard-MIT Math Tournament #0i57",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Simple Equations",
+        "Fractions"
+      ],
+      "statement": "Problem:\nReal numbers $a, b, c$ satisfy the equations $a+b+c=26,\\ 1/a+1/b+1/c=28$. Find the value of\n\n$$\n\\frac{a}{b}+\\frac{b}{c}+\\frac{c}{a}+\\frac{a}{c}+\\frac{c}{b}+\\frac{b}{a} .\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nMultiplying the two given equations gives\n\n$$\n\\frac{a}{a}+\\frac{a}{b}+\\frac{a}{c}+\\frac{b}{a}+\\frac{b}{b}+\\frac{b}{c}+\\frac{c}{a}+\\frac{c}{b}+\\frac{c}{c}=26 \\cdot 28=728,\n$$\n\nand subtracting $3$ from both sides gives the answer, $725$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-0933",
+      "name": "Harvard-MIT Mathematics Tournament #0i8l",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Greatest common divisors (gcd)",
+        "Fractions"
+      ],
+      "statement": "Problem:\n\nThe rational numbers $x$ and $y$, when written in lowest terms, have denominators $60$ and $70$, respectively. What is the smallest possible denominator of $x+y$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWrite $x + y = \\dfrac{a}{60} + \\dfrac{b}{70} = \\dfrac{7a + 6b}{420}$. Since $a$ is relatively prime to $60$ and $b$ is relatively prime to $70$, it follows that none of the primes $2, 3, 7$ can divide $7a + 6b$, so we won't be able to cancel any of these factors in the denominator. Thus, after reducing to lowest terms, the denominator will still be at least $2^{2} \\cdot 3 \\cdot 7 = 84$ (the product of the powers of $2, 3$, and $7$ dividing $420$). On the other hand, $84$ is achievable, by taking (e.g.) $\\dfrac{1}{60} + \\dfrac{3}{70} = \\dfrac{25}{420} = \\dfrac{5}{84}$. So $84$ is the answer."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-0963",
+      "name": "Harvard-MIT Mathematics Tournament #0i9f",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other",
+        "Fractions",
+        "Decimals"
+      ],
+      "statement": "Problem:\nSimplify: $2 \\sqrt{1.5+\\sqrt{2}}-(1.5+\\sqrt{2})$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe given expression equals $\\sqrt{6+4 \\sqrt{2}}-(1.5+\\sqrt{2}) = \\sqrt{6+2 \\sqrt{8}}-(1.5+\\sqrt{2})$.\n\nBut on inspection, we see that $(\\sqrt{2}+\\sqrt{4})^{2} = 6+2 \\sqrt{8}$, so the answer is $(\\sqrt{2}+\\sqrt{4})-(1.5+\\sqrt{2}) = 2-3/2 = 1/2$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-1047",
+      "name": "Harvard-MIT Mathematics Tournament #0ibr",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fractions"
+      ],
+      "statement": "Problem:\n\nTwo positive rational numbers $x$ and $y$, when written in lowest terms, have the property that the sum of their numerators is $9$ and the sum of their denominators is $10$. What is the largest possible value of $x + y$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFor fixed denominators $a < b$ (with sum $10$), we maximize the sum of the fractions by giving the smaller denominator as large a numerator as possible: $8/a + 1/b$. Then, if $a \\geq 2$, this quantity is at most $8/2 + 1/1 = 5$, which is clearly smaller than the sum we get by setting $a = 1$, namely $8/1 + 1/9 = 73/9$. So this is the answer."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-1223",
+      "name": "Harvard-MIT Mathematics Tournament #0ign",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fractions",
+        "Other"
+      ],
+      "statement": "Problem:\nLet $m \\circ n = \\dfrac{m+n}{mn+4}$. Compute $((\\cdots((2005 \\circ 2004) \\circ 2003) \\circ \\cdots \\circ 1) \\circ 0)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nNote that $m \\circ 2 = \\dfrac{m+2}{2m+4} = \\dfrac{1}{2}$, so the quantity we wish to find is just $\\left(\\dfrac{1}{2} \\circ 1\\right) \\circ 0 = \\dfrac{1}{3} \\circ 0 = \\dfrac{1}{12}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-1397",
+      "name": "Harvard-MIT Mathematics Tournament #0ilh",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Integers",
+        "Fractions"
+      ],
+      "statement": "Problem:\n\nCompute\n$$\n\\left\\lfloor\\frac{2007!+2004!}{2006!+2005!}\\right\\rfloor\n$$\n(Note that $\\lfloor x\\rfloor$ denotes the greatest integer less than or equal to $x$.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $2006$. We have\n$$\n\\left\\lfloor\\frac{2007!+2004!}{2006!+2005!}\\right\\rfloor = \\left\\lfloor\\frac{\\left(2007 \\cdot 2006 + \\frac{1}{2005}\\right) \\cdot 2005!}{(2006+1) \\cdot 2005!}\\right\\rfloor = \\left\\lfloor\\frac{2007 \\cdot 2006 + \\frac{1}{2005}}{2007}\\right\\rfloor = \\left\\lfloor 2006 + \\frac{1}{2005 \\cdot 2007}\\right\\rfloor\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-1449",
+      "name": "Harvard-MIT Mathematics Tournament #0imx",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fractions",
+        "Simple Equations"
+      ],
+      "statement": "Problem:\n\nThree real numbers $x$, $y$, and $z$ are such that $(x+4)/2 = (y+9)/(z-3) = (x+5)/(z-5)$. Determine the value of $x/y$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $1/2$. Because the first and third fractions are equal, adding their numerators and denominators produces another fraction equal to the others: $((x+4)+(x+5))/(2+(z-5)) = (2x+9)/(z-3)$. Then $y+9 = 2x+9$, etc."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-1553",
+      "name": "1st Annual Harvard-MIT November Tournament #0ipt",
+      "url": "https://usamoguide.com/",
+      "source": "1st Annual Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fractions",
+        "Linear and quadratic inequalities"
+      ],
+      "statement": "Problem:\nIf $p$ and $q$ are positive integers and $\\frac{2008}{2009} < \\frac{p}{q} < \\frac{2009}{2010}$, what is the minimum value of $p$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $4017$\n\nBy multiplying out the fraction inequalities, we find that $2008q + 1 \\leq 2009p$ and $2010p + \\leq 2009q$. Adding $2009$ times the first inequality to $2008$ times the second, we find that $2008 \\cdot 2009q + 4017 \\leq 2008 \\cdot 2009q + p$, or $p \\geq 4017$. This minimum is attained when $\\frac{p}{q} = \\frac{4017}{4019}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-1564",
+      "name": "Harvard-MIT November Tournament #0iq4",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fractions"
+      ],
+      "statement": "Problem:\nExplain how any unit fraction $\\frac{1}{n}$ can be decomposed into other unit fractions.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n$\\frac{1}{n} = \\frac{1}{2n} + \\frac{1}{3n} + \\frac{1}{6n}$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-1608",
+      "name": "Harvard-MIT November Tournament #0irc",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Prime numbers",
+        "Greatest common divisors (gcd)",
+        "Fractions"
+      ],
+      "statement": "Problem:\nLet $p$ be a prime. Given a sequence of positive integers $b_{1}$ through $b_{n}$, exactly one of which is divisible by $p$, show that when\n$$\n\\frac{1}{b_{1}}+\\frac{1}{b_{2}}+\\ldots+\\frac{1}{b_{n}}\n$$\nis written as a fraction in lowest terms, then its denominator is divisible by $p$. Use this fact to explain why no prime $p$ is ever juicy.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe can assume that $b_{n}$ is the term divisible by $p$ (i.e. $b_{n}=k p$) since the order of addition doesn't matter. We can then write\n$$\n\\frac{1}{b_{1}}+\\frac{1}{b_{2}}+\\ldots+\\frac{1}{b_{n-1}}=\\frac{a}{b}\n$$\nwhere $b$ is not divisible by $p$ (since none of the $b_{i}$ are). But then\n$$\n\\frac{a}{b}+\\frac{1}{k p}=\\frac{k p a+b}{k p b}.\n$$\nSince $b$ is not divisible by $p$, $k p a + b$ is not divisible by $p$, so we cannot remove the factor of $p$ from the denominator. In particular, $p$ cannot be juicy as $1$ can be written as $\\frac{1}{1}$, which has a denominator not divisible by $p$, whereas being juicy means we have a sum $\\frac{1}{b_{1}}+\\ldots+\\frac{1}{b_{n}}=1$, where $b_{1}<b_{2}<\\ldots<b_{n}=p$, and so in particular none of the $b_{i}$ with $i<n$ are divisible by $p$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-1609",
+      "name": "Harvard-MIT November Tournament #0ird",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fractions",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\n\na. Write $1$ as a sum of $4$ distinct unit fractions.\n\nb. Write $1$ as a sum of $5$ distinct unit fractions.\n\nc. Show that, for any integer $k > 3$, $1$ can be decomposed into $k$ unit fractions.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\na.\n$1 = \\frac{1}{2} + \\frac{1}{3} + \\frac{1}{7} + \\frac{1}{42}$\n\nb.\n$1 = \\frac{1}{2} + \\frac{1}{3} + \\frac{1}{7} + \\frac{1}{43} + \\frac{1}{43 \\cdot 42}$\n\nc.\nIf we can do it for $k$ fractions, simply replace the last one (say $\\frac{1}{n}$) with $\\frac{1}{n+1} + \\frac{1}{n(n+1)}$. Then we can do it for $k+1$ fractions. So, since we can do it for $k=4$, we can do it for any $k > 3$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-1642",
+      "name": "Harvard-MIT November Tournament #0isa",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fractions",
+        "Linear and quadratic inequalities"
+      ],
+      "statement": "Problem:\n\nSay that $\\frac{a}{b}$ is a positive rational number in simplest form, with $a \\neq 1$. Further, say that $n$ is an integer such that:\n$$\n\\frac{1}{n}>\\frac{a}{b}>\\frac{1}{n+1}\n$$\nShow that when $\\frac{a}{b}-\\frac{1}{n+1}$ is written in simplest form, its numerator is smaller than $a$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n$\\frac{a}{b}-\\frac{1}{n+1}=\\frac{a(n+1)-b}{b(n+1)}$. Therefore, when we write it in simplest form, its numerator will be at most $a(n+1)-b$. We claim that $a(n+1)-b<a$. Indeed, this is the same as $a n-b<0 \\Longleftrightarrow a n<b \\Longleftrightarrow \\frac{b}{a}>n$, which is given."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-1705",
+      "name": "Harvard-MIT November Tournament #0iu1",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fractions"
+      ],
+      "statement": "Problem:\n\nIf $f(x) = \\frac{x}{x+1}$, what is $f(f(f(f(2009))))$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe have $f(x) = \\frac{x}{x+1}$.\n\nFirst, compute $f(f(x))$:\n\n$$\nf(f(x)) = f\\left(\\frac{x}{x+1}\\right) = \\frac{\\frac{x}{x+1}}{\\frac{x}{x+1} + 1} = \\frac{\\frac{x}{x+1}}{\\frac{x + x+1}{x+1}} = \\frac{\\frac{x}{x+1}}{\\frac{2x+1}{x+1}} = \\frac{x}{2x+1}\n$$\n\nNow, compute $f(f(f(x)))$:\n\n$$\nf(f(f(x))) = f\\left(\\frac{x}{2x+1}\\right) = \\frac{\\frac{x}{2x+1}}{\\frac{x}{2x+1} + 1} = \\frac{\\frac{x}{2x+1}}{\\frac{x + 2x+1}{2x+1}} = \\frac{\\frac{x}{2x+1}}{\\frac{3x+1}{2x+1}} = \\frac{x}{3x+1}\n$$\n\nNow, compute $f(f(f(f(x))))$:\n\n$$\nf(f(f(f(x)))) = f\\left(\\frac{x}{3x+1}\\right) = \\frac{\\frac{x}{3x+1}}{\\frac{x}{3x+1} + 1} = \\frac{\\frac{x}{3x+1}}{\\frac{x + 3x+1}{3x+1}} = \\frac{\\frac{x}{3x+1}}{\\frac{4x+1}{3x+1}} = \\frac{x}{4x+1}\n$$\n\nTherefore,\n\n$$\nf(f(f(f(2009)))) = \\frac{2009}{4 \\times 2009 + 1} = \\frac{2009}{8037}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-1888",
+      "name": "13th Annual Harvard-MIT Mathematics Tournament #0iz4",
+      "url": "https://usamoguide.com/",
+      "source": "13th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Integers",
+        "Fractions"
+      ],
+      "statement": "Problem:\n\nIf $A = 10^{9} - 987654321$ and $B = \\frac{123456789 + 1}{10}$, what is the value of $\\sqrt{A B}$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $12345679$\n\nBoth $A$ and $B$ equal $12345679$, so $\\sqrt{A B} = 12345679$ as well."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-1924",
+      "name": "13th Annual Harvard-MIT Mathematics Tournament #0j04",
+      "url": "https://usamoguide.com/",
+      "source": "13th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other",
+        "Games / greedy algorithms",
+        "Fractions"
+      ],
+      "statement": "Problem:\n\nThe rank of a rational number $q$ is the unique $k$ for which $q = \\frac{1}{a_{1}} + \\cdots + \\frac{1}{a_{k}}$, where each $a_{i}$ is the smallest positive integer such that $q \\geq \\frac{1}{a_{1}} + \\cdots + \\frac{1}{a_{i}}$. Let $q$ be the largest rational number less than $\\frac{1}{4}$ with rank $3$, and suppose the expression for $q$ is $\\frac{1}{a_{1}} + \\frac{1}{a_{2}} + \\frac{1}{a_{3}}$. Find the ordered triple $\\left(a_{1}, a_{2}, a_{3}\\right)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $(5,21,421)$\n\nSuppose that $A$ and $B$ were rational numbers of rank $3$ less than $\\frac{1}{4}$, and let $a_{1}, a_{2}, a_{3}, b_{1}, b_{2}, b_{3}$ be positive integers so that $A = \\frac{1}{a_{1}} + \\frac{1}{a_{2}} + \\frac{1}{a_{3}}$ and $B = \\frac{1}{b_{1}} + \\frac{1}{b_{2}} + \\frac{1}{b_{3}}$ are the expressions for $A$ and $B$ as stated in the problem. If $b_{1} < a_{1}$ then $A < \\frac{1}{a_{1}-1} \\leq \\frac{1}{b_{1}} < B$. In other words, of all the rationals less than $\\frac{1}{4}$ with rank $3$, those that have $a_{1} = 5$ are greater than those that have $a_{1} = 6,7,8, \\ldots$\n\nTherefore we can \"build\" $q$ greedily, adding the largest unit fraction that keeps $q$ less than $\\frac{1}{4}$:\n\n$\\frac{1}{5}$ is the largest unit fraction less than $\\frac{1}{4}$, hence $a_{1} = 5$;\n\n$\\frac{1}{21}$ is the largest unit fraction less than $\\frac{1}{4} - \\frac{1}{5}$, hence $a_{2} = 21$;\n\n$\\frac{1}{421}$ is the largest unit fraction less than $\\frac{1}{4} - \\frac{1}{5} - \\frac{1}{21}$, hence $a_{3} = 421$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-2498",
+      "name": "Bay Area Mathematical Olympiad #0jg2",
+      "url": "https://usamoguide.com/",
+      "source": "Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fractions",
+        "Simple Equations",
+        "Sums and products"
+      ],
+      "statement": "Problem:\nFor a positive integer $n > 2$, consider the $n-1$ fractions\n$$\n\\frac{2}{1}, \\frac{3}{2}, \\cdots, \\frac{n}{n-1}\n$$\nThe product of these fractions equals $n$, but if you reciprocate (i.e. turn upside down) some of the fractions, the product will change. Can you make the product equal $1$? Find all values of $n$ for which this is possible and prove that you have found them all.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe will show that this is possible exactly when $n$ is a perfect square larger than $1$. Suppose that we can reciprocate some of the fractions so that the resulting product is $1$. Let $r$ represent the product of the fractions that we will reciprocate and $t$ represent the product of the fractions that we will leave alone. Then $r \\cdot t = n$ while $\\frac{1}{r} \\cdot t = 1$. Multiplying these equations shows that $n = t^{2}$, so $n$ is the square of a rational number, which means that it has to be a perfect square.\n\nNow suppose that $n = a^{2}$ is a perfect square. Then we can reciprocate the first $a-1$ terms of the product to obtain\n$$\n\\left(\\frac{1}{2}\\right) \\cdots \\left(\\frac{a-1}{a}\\right) \\left(\\frac{a+1}{a}\\right) \\cdots \\left(\\frac{a^{2}}{a^{2}-1}\\right) = \\frac{1}{a} \\cdot \\frac{a^{2}}{a} = 1\n$$\ndemonstrating that modifying the product as desired is indeed possible for any perfect square."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-2725",
+      "name": "HMMT November 2014 #0jmd",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2014",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fractions",
+        "Simple Equations"
+      ],
+      "statement": "Problem:\nLet $a, b, c, x$ be reals with $(a+b)(b+c)(c+a) \\neq 0$ that satisfy\n$$\n\\frac{a^{2}}{a+b}=\\frac{a^{2}}{a+c}+20, \\quad \\frac{b^{2}}{b+c}=\\frac{b^{2}}{b+a}+14, \\quad \\text{ and } \\quad \\frac{c^{2}}{c+a}=\\frac{c^{2}}{c+b}+x\n$$\n\nCompute $x$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $-34$ Note that\n$$\n\\begin{aligned}\n\\frac{a^{2}}{a+b}+\\frac{b^{2}}{b+c}+\\frac{c^{2}}{c+a}-\\frac{a^{2}}{c+a}-\\frac{b^{2}}{a+b}-\\frac{c^{2}}{b+c} & =\\frac{a^{2}-b^{2}}{a+b}+\\frac{b^{2}-c^{2}}{b+c}+\\frac{c^{2}-a^{2}}{c+a} \\\\\n& =(a-b)+(b-c)+(c-a) \\\\\n& =0\n\\end{aligned}\n$$\nThus, when we sum up all the given equations, we get that $20+14+x=0$. Therefore, $x=-34$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-2755",
+      "name": "Berkeley Math Circle: Monthly Contest 5 #0jn7",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 5",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fractions"
+      ],
+      "statement": "Problem:\n\nLet $A$, $B$, $C$ be points in a line on this order, with $AB = BC$. A car travels from $A$ to $B$ at $40$ kilometers per hour and then from $B$ to $C$ at $60$ kilometers per hour, without stopping in between. What is the overall speed of the trip from $A$ to $C$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $d = AB = BC$. Then the total time taken is $\\frac{d}{40} + \\frac{d}{60}$, and the total distance is $2d$. Hence the overall speed is\n$$\n\\frac{2d}{\\frac{d}{40} + \\frac{d}{60}} = \\frac{2}{\\frac{1}{40} + \\frac{1}{60}} = 48\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-2826",
+      "name": "Berkeley Math Circle: Monthly Contest 5 #0jp6",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 5",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cartesian coordinates",
+        "Fractions"
+      ],
+      "statement": "Problem:\nA line in the Cartesian plane is called stable if it passes through at least two points $(x, y)$ such that $x$ and $y$ are rational numbers. Prove or disprove: every point lies on some stable line.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe assertion is false: we will show that the point $(\\sqrt{2}, \\sqrt{3})$ does not lie on a stable line.\n\nNote that the slope of any stable line must be a rational number. Now assume for contradiction that $(a, b)$ lies on a stable line through $(\\sqrt{2}, \\sqrt{3})$, where $a$ and $b$ are both rational. Then $\\frac{\\sqrt{2}-a}{\\sqrt{3}-b}=m$ for some rational number $m$, which leads us to\n$$\nm b - a = m \\sqrt{3} - \\sqrt{2}.\n$$\nSince $\\sqrt{2}$ is not rational, we must have $m=0$. Then, squaring both sides gives\n$$\n(m b - a)^2 = \\left(3 m^2 + 2\\right) - 2 m \\sqrt{6}.\n$$\nSince $m \\neq 0$ this implies $\\sqrt{6}$ is irrational, which is a contradiction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-2910",
+      "name": "HMMT November 2015 #0jri",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2015",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Greatest common divisors (gcd)",
+        "Inverses mod n",
+        "Fractions",
+        "Sums and products",
+        "Telescoping series"
+      ],
+      "statement": "Problem:\n\nRosencrantz plays $n \\leq 2015$ games of question, and ends up with a win rate (i.e. $\\frac{\\# \\text{ of games won }}{\\# \\text{ of games played }}$) of $k$. Guildenstern has also played several games, and has a win rate less than $k$. He realizes that if, after playing some more games, his win rate becomes higher than $k$, then there must have been some point in time when Rosencrantz and Guildenstern had the exact same win-rate. Find the product of all possible values of $k$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $\\frac{1}{2015}$\n\nWrite $k=\\frac{m}{n}$, for relatively prime integers $m, n$. For the property not to hold, there must exist integers $a$ and $b$ for which\n$$\n\\frac{a}{b}<\\frac{m}{n}<\\frac{a+1}{b+1}\n$$\n(i.e. at some point, Guildenstern must \"jump over\" $k$ with a single win)\n$$\n\\Longleftrightarrow a n+n-m>b m>a n\n$$\nhence there must exist a multiple of $m$ strictly between $a n$ and $a n+n-m$.\n\nIf $n-m=1$, then the property holds as there is no integer between $a n$ and $a n+n-m=a n+1$. We now show that if $n-m \\neq 1$, then the property does not hold. By Bzout's Theorem, as $n$ and $m$ are relatively prime, there exist $a$ and $x$ such that $a n=m x-1$, where $0<a<m$. Then $a n+n-m \\geq a n+2=m x+1$, so $b=x$ satisfies the conditions. As a result, the only possible $k$ are those in the form $\\frac{n}{n+1}$.\n\nWe know that Rosencrantz played at most 2015 games, so the largest non-perfect winrate he could possibly have is $\\frac{2014}{2015}$. Therefore, $k \\in\\left\\{\\frac{1}{2}, \\frac{2}{3}, \\ldots, \\frac{2014}{2015}\\right\\}$, the product of which is $\\frac{1}{2015}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-2916",
+      "name": "BAMO #0jro",
+      "url": "https://usamoguide.com/",
+      "source": "BAMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Sums and products",
+        "Linear and quadratic inequalities",
+        "Fractions"
+      ],
+      "statement": "Problem:\nWhich number is larger, $A$ or $B$, where\n$$\nA=\\frac{1}{2015}\\left(1+\\frac{1}{2}+\\frac{1}{3}+\\cdots+\\frac{1}{2015}\\right) \\quad \\text{and} \\quad B=\\frac{1}{2016}\\left(1+\\frac{1}{2}+\\frac{1}{3}+\\cdots+\\frac{1}{2016}\\right) ?\n$$\nProve that your answer is correct.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe claim that:\n$$\nA=\\frac{1}{2015}\\left(1+\\frac{1}{2}+\\frac{1}{3}+\\cdots+\\frac{1}{2015}\\right)>B=\\frac{1}{2016}\\left(1+\\frac{1}{2}+\\frac{1}{3}+\\cdots+\\frac{1}{2016}\\right) .\n$$\nTo prove this, let $S=1+\\frac{1}{2}+\\frac{1}{3}+\\cdots+\\frac{1}{2015}$. Then $A=\\frac{1}{2015} S$ and $B=\\frac{1}{2016}\\left(S+\\frac{1}{2016}\\right)$.\nThus, our proposed inequality can be written as:\n$$\n\\frac{1}{2015} S \\stackrel{?}{>} \\frac{1}{2016}\\left(S+\\frac{1}{2016}\\right)\n$$\nAfter multiplying both sides by $2015 \\cdot 2016$ to clear some of the denominators, the proposed inequality becomes equivalent to:\n$$\n2016 S \\stackrel{?}{>} 2015 S+\\frac{2015}{2016}\n$$\nwhich, after subtracting $2015 S$ from both sides, is equivalent in turn to:\n$$\nS \\stackrel{?}{>} \\frac{2015}{2016}\n$$\nBut $S>1$, so it follows that $S>\\frac{2015}{2016}$, establishing the last inequality and thereby proving all of the previous inequalities. In particular, the proposed original inequality is correct:\n$$\nA=\\frac{1}{2015}\\left(1+\\frac{1}{2}+\\frac{1}{3}+\\cdots+\\frac{1}{2015}\\right)>B=\\frac{1}{2016}\\left(1+\\frac{1}{2}+\\frac{1}{3}+\\cdots+\\frac{1}{2016}\\right) .\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-2997",
+      "name": "HMMT November #0jtx",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Integers",
+        "Fractions"
+      ],
+      "statement": "Problem:\nEvaluate $\\frac{2016!^{2}}{2015!2017!}$. Here $n!$ denotes $1 \\times 2 \\times \\cdots \\times n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n$\\frac{2016!^{2}}{2015!2017!} = \\frac{2016!}{2015!} \\cdot \\frac{2016!}{2017!} = \\frac{2016}{1} \\cdot \\frac{1}{2017} = \\frac{2016}{2017}$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-3085",
+      "name": "HMIC #0jwd",
+      "url": "https://usamoguide.com/",
+      "source": "HMIC",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Games / greedy algorithms",
+        "Coloring schemes, extremal arguments",
+        "Fractions",
+        "Linear and quadratic inequalities"
+      ],
+      "statement": "Problem:\n\nKevin and Yang are playing a game. Yang has $2017 + \\binom{2017}{2}$ cards with their front sides face down on the table. The cards are constructed as follows:\n- For each $1 \\leq n \\leq 2017$, there is a blue card with $n$ written on the back, and a fraction $\\frac{a_{n}}{b_{n}}$ written on the front, where $\\operatorname{gcd}\\left(a_{n}, b_{n}\\right) = 1$ and $a_{n}, b_{n} > 0$.\n- For each $1 \\leq i < j \\leq 2017$, there is a red card with $(i, j)$ written on the back, and a fraction $\\frac{a_{i} + a_{j}}{b_{i} + b_{j}}$ written on the front.\nIt is given no two cards have equal fractions. In a turn Kevin can pick any two cards and Yang tells Kevin which card has the larger fraction on the front. Show that, in fewer than 10000 turns, Kevin can determine which red card has the largest fraction out of all of the red cards.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe will provide an algorithm to determine which red card has the highest value in $2016 + 2015$ turns.\n\nWe start with a lemma: If the blue card with the largest fraction is labeled $k$ and the red card with the largest fraction is labeled $(i, j)$, then $i = k$ or $j = k$.\n\nTo prove this lemma, we assume for contradiction that $i \\neq k$ and $j \\neq k$. Assume without loss of generality that $\\frac{a_{i}}{b_{i}} > \\frac{a_{j}}{b_{j}}$. Then\n$$\n\\frac{a_{i} + a_{k}}{b_{i} + b_{k}} - \\frac{a_{i} + a_{j}}{b_{i} + b_{j}} = \\frac{(a_{i} + a_{k})(b_{i} + b_{j}) - (a_{i} + a_{j})(b_{i} + b_{k})}{(b_{i} + b_{k})(b_{i} + b_{j})}\n$$\n$$\n= \\frac{a_{k} b_{i} + a_{i} b_{j} + a_{k} b_{j} - a_{i} b_{k} - a_{j} b_{i} - a_{j} b_{k}}{(b_{i} + b_{k})(b_{i} + b_{j})}\n$$\nHowever, we know since $\\frac{a_{k}}{b_{k}} > \\frac{a_{i}}{b_{i}} > \\frac{a_{j}}{b_{j}}$, we have that $a_{k} b_{i} - a_{i} b_{k} > 0$, $a_{k} b_{j} - a_{j} b_{k} > 0$, $a_{i} b_{j} - a_{j} b_{i} > 0$, so\n$$\n\\frac{a_{i} + a_{k}}{b_{i} + b_{k}} - \\frac{a_{i} + a_{j}}{b_{i} + b_{j}} > 0\n$$\n\nNow, we can first find the blue card with the maximum fraction in 2016 turns. Afterwards, we know $k$, so we only need to consider pairs $(i, j)$ with $i = k$ or $j = k$. There are only 2016 of these pairs, so we can find the maximum of these in 2015 turns. By the lemma, the maximum of the cards with $i = k$ or $j = k$ is the same as the global maximum of all the red cards.\n\nTherefore we have provided an algorithm to determine the $(i, j)$ with the maximum fraction in $2016 + 2015$ turns."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-3096",
+      "name": "HMMT November #0jwo",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Simple Equations",
+        "Fractions"
+      ],
+      "statement": "Problem:\nCompute $\\frac{x}{w}$ if $w \\neq 0$ and $\\frac{x+6y-3z}{-3x+4w}=\\frac{-2y+z}{x-w}=\\frac{2}{3}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe have $x+6y-3z=\\frac{2}{3}(-3x+4w)$ and $-2y+z=\\frac{2}{3}(x-w)$, so\n$$\n\\frac{x}{w}=\\frac{(x+6y-3z)+3(-2y+z)}{(-3x+4w)+3(x-w)}=\\frac{\\frac{2}{3}(-3x+4w)+3 \\cdot \\frac{2}{3}(x-w)}{(-3x+4w)+3(x-w)}=\\frac{\\frac{2}{3}[(-3x+4w)+3(x-w)]}{(-3x+4w)+3(x-w)}=\\frac{2}{3}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-3119",
+      "name": "Berkeley Math Circle: Monthly Contest 5 #0jxb",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 5",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fractions"
+      ],
+      "statement": "Problem:\n\nAn iguana writes the number $1$ on the blackboard. Every minute afterwards, if the number $x$ is written, the iguana erases it and either writes $\\frac{1}{x}$ or $x+1$. Can the iguana eventually write the number $\\frac{20}{17}$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nYes. First, the iguana writes\n$$\n1 \\rightarrow 2 \\rightarrow \\frac{1}{2} \\rightarrow \\frac{3}{2} \\rightarrow \\frac{2}{3}\n$$\nThen, the iguana adds $1$ to arrive at $\\frac{17}{3}$. Finally, finish with\n$$\n\\frac{17}{3} \\rightarrow \\frac{3}{17} \\rightarrow \\frac{20}{17} .\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-3351",
+      "name": "HMMT November 2018 #0k3r",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2018",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fractions",
+        "Simple Equations"
+      ],
+      "statement": "Problem:\nLet $a, b, c, n$ be positive real numbers such that $\\frac{a+b}{a}=3$, $\\frac{b+c}{b}=4$, and $\\frac{c+a}{c}=n$. Find $n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $\\frac{7}{6}$\nWe have\n$$\n1=\\frac{b}{a} \\cdot \\frac{c}{b} \\cdot \\frac{a}{c}=(3-1)(4-1)(n-1) .\n$$\nSolving for $n$ yields $n=\\frac{7}{6}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-3360",
+      "name": "Berkeley Math Circle: Monthly Contest 1 #0k40",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fractions",
+        "Other"
+      ],
+      "statement": "Problem:\nLet $a$, $b$, $c$ be positive real numbers such that $a b c = 1$. Simplify\n$$\n\\frac{1}{1+a+ab} + \\frac{1}{1+b+bc} + \\frac{1}{1+c+ca}.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe may let $a = y/x$, $b = z/y$, $c = x/z$ for some real numbers $x$, $y$, $z$. Then\n$$\n\\begin{aligned}\n\\frac{1}{1+a+ab} + \\frac{1}{1+b+bc} + \\frac{1}{1+c+ca} & = \\frac{1}{1 + y/x + z/x} + \\frac{1}{1 + z/y + x/y} + \\frac{1}{1 + x/z + y/z} \\\\\n& = \\frac{x}{x + y + z} + \\frac{y}{x + y + z} + \\frac{z}{x + y + z} \\\\\n& = 1.\n\\end{aligned}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-3420",
+      "name": "HMMT November 2019 #0k5o",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2019",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fractions",
+        "Linear and quadratic inequalities"
+      ],
+      "statement": "Problem:\n\nEach person in Cambridge drinks a (possibly different) 12 ounce mixture of water and apple juice, where each drink has a positive amount of both liquids. Marc McGovern, the mayor of Cambridge, drinks $\\frac{1}{6}$ of the total amount of water drunk and $\\frac{1}{8}$ of the total amount of apple juice drunk. How many people are in Cambridge?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe total amount of liquid drunk must be more than 6 times the amount that Marc drinks but less than 8 times the amount that Marc drinks. Therefore, the number of people in Cambridge is more than 6 but less than 8, so it must be 7."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-3422",
+      "name": "HMMT November 2019 #0k5q",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2019",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Simple Equations",
+        "Fractions"
+      ],
+      "statement": "Problem:\n\nFor breakfast, Mihir always eats a bowl of Lucky Charms cereal, which consists of oat pieces and marshmallow pieces. He defines the luckiness of a bowl of cereal to be the ratio of the number of marshmallow pieces to the total number of pieces. One day, Mihir notices that his breakfast cereal has exactly $90$ oat pieces and $9$ marshmallow pieces, and exclaims, \"This is such an unlucky bowl!\" How many marshmallow pieces does Mihir need to add to his bowl to double its luckiness?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $x$ be the number of marshmallows to add. We are given that\n$$\n2 \\cdot \\frac{9}{99} = \\frac{9 + x}{99 + x}\n$$\nRearranging this gives\n$$\n2(99 + x) = 11(9 + x)\n$$\nThus $9x = 99$ and $x = 11$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-3596",
+      "name": "Bay Area Mathematical Olympiad #0kak",
+      "url": "https://usamoguide.com/",
+      "source": "Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fractions",
+        "Integers",
+        "Linear and quadratic inequalities"
+      ],
+      "statement": "Problem:\nLet $a$ and $b$ be positive whole numbers such that $\\frac{4.5}{11} < \\frac{a}{b} < \\frac{5}{11}$. Find the fraction $\\frac{a}{b}$ for which the sum $a+b$ is as small as possible. Justify your answer.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nBy multiplying numerators and denominators by $7$, we can rewrite the inequalities as follows:\n$$\n\\frac{7 \\cdot 4.5}{7 \\cdot 11} < \\frac{a}{b} < \\frac{7 \\cdot 5}{7 \\cdot 11} \\Rightarrow \\frac{31.5}{77} < \\frac{a}{b} < \\frac{35}{77}\n$$\nWe now see that the fraction $\\frac{a}{b} = \\frac{33}{77}$ works: $\\frac{31.5}{77} < \\frac{33}{77} < \\frac{35}{77}$. The fraction reduces to $\\frac{a}{b} = \\frac{3}{7}$, and its sum $a+b$ is $3+7=10$.\n\nBut is this the minimal possible sum $a+b$? To show that no other fraction with a smaller $a$ works, we multiply the inequalities by $11b$ and solve for $b$:\n$$\n4.5b < 11a < 5b \\Rightarrow \\frac{11a}{5} < b < \\frac{11a}{4.5}.\n$$\nNow, if $a=1$ we obtain $\\frac{11}{5} < b < \\frac{11}{4.5}$. However, $2 < \\frac{11}{5}$ and $\\frac{11}{4.5} < 3$ (why?), so $b$ is now squeezed between $2$ and $3$: $2 < b < 3$, which is nonsense since $b$ is a whole number. We analogously eliminate the case when $a=2$ by arriving at an impossible situation for the whole number $b$:\n$$\n\\frac{11 \\cdot 2}{5} < b < \\frac{11 \\cdot 2}{4.5} \\Rightarrow 4 < \\frac{22}{5} < b < \\frac{22}{4.5} < 5 \\Rightarrow 4 < b < 5, \\text{ a contradiction! }\n$$\nThus, $a \\neq 1$ and $a \\neq 2$, but $a=3$ is possible, with $b=7$. Moreover,\n$$\n\\frac{a}{b} < \\frac{5}{11} < \\frac{5}{10} = \\frac{1}{2} \\Rightarrow 2a < b\n$$\nThus, when $a=3$, $b>6$, i.e., $b=7$ is the smallest possible denominator for $a=3$, yielding the sum $a+b=3+7=10$.\n\nFinally, if $a \\geq 4$, $a+b > a+2a = 3a \\geq 3 \\cdot 4 = 12 > 10$. Thus, $a$ cannot be $4$ or more and yield the smallest possible sum.\n\nWe conclude that the fraction $\\frac{3}{7}$ fits the two inequalities and has the smallest sum of numerator and denominator."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-3743",
+      "name": "Berkeley Math Circle: Monthly Contest 4 #0ken",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 4",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Sums and products",
+        "Games / greedy algorithms",
+        "Fractions",
+        "Other"
+      ],
+      "statement": "Problem:\n\nDetermine, with proof, whether or not there exist distinct positive integers $a_{1}, a_{2}, \\ldots, a_{n}$ such that\n$$\n\\frac{1}{a_{1}} + \\frac{1}{a_{2}} + \\cdots + \\frac{1}{a_{n}} = 2019.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nYes, the decomposition exists.\nRecall that the harmonic series diverges. We first take the largest partial sum of the harmonic series that is smaller than $2019$, subtract it from $2019$ to get a \"remainder\" $r$. We then use the greedy algorithm to pick the rest of the unit fractions: pick the largest integer $n$ with $1 / n \\leq r$, and replace $r$ with $r - 1 / n$. It is not hard to see the integers chosen at each step increase.\n\nThe main observation is that as we whittle away at the remainder $r$, the numerator of the remainder decreases at every step. Therefore this process must eventually terminate, and it can only terminate when $r = 0$, as needed."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-3798",
+      "name": "AMC 10 A #0kg6",
+      "url": "https://usamoguide.com/",
+      "source": "AMC 10 A",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Integers",
+        "Fractions"
+      ],
+      "statement": "What is the value of $\\frac{(2112-2021)^2}{169}$?\n(A) 7   (B) 21   (C) 49   (D) 64   (E) 91",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nObserve that $2112 - 2021 = 91 = 7 \\cdot 13$ and that $169 = 13^2$. Thus\n$$\n\\frac{(2112 - 2021)^2}{169} = \\frac{(7 \\cdot 13)^2}{13^2} = 7^2 = 49.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-3945",
+      "name": "AMC 12 A #0kk9",
+      "url": "https://usamoguide.com/",
+      "source": "AMC 12 A",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fractions"
+      ],
+      "statement": "Mr. Lopez has a choice of two routes to get to work. Route A is 6 miles long, and his average speed along this route is 30 miles per hour. Route B is 5 miles long, and his average speed along this route is 40 miles per hour, except for a $\\frac{1}{2}$-mile stretch in a school zone where his average speed is 20 miles per hour. By how many minutes is Route B quicker than Route A?\n(A) $2\\frac{3}{4}$ (B) $3\\frac{3}{4}$ (C) $4\\frac{1}{2}$ (D) $5\\frac{1}{2}$ (E) $6\\frac{3}{4}$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-3947",
+      "name": "Fall 2021 AMC 10 B #0kkb",
+      "url": "https://usamoguide.com/",
+      "source": "Fall 2021 AMC 10 B",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fractions",
+        "Greatest common divisors (gcd)",
+        "Polynomial operations"
+      ],
+      "statement": "The expression $\\frac{2021}{2020} - \\frac{2020}{2021}$ is equal to the fraction $\\frac{p}{q}$ in which $p$ and $q$ are positive integers whose greatest common divisor is 1. What is $p$?\n(A) 1 (B) 9 (C) 2020 (D) 2021 (E) 4041",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "The given expression equals\n$$\n\\frac{2021}{2020} - \\frac{2020}{2021} = \\frac{2021^2 - 2020^2}{2020 \\cdot 2021}\n$$\n\n\\begin{aligned}\n&= \\frac{(2021 + 2020)(2021 - 2020)}{2020 \\cdot 2021} \\\\\n&= \\frac{4041}{2020 \\cdot 2021}.\n\\end{aligned}\n$$\nBecause $4041 - 2 \\cdot 2020 = 1$, it follows that $4041$ and $2020$ cannot have a common divisor greater than $1$. Similarly, because $4041 - 2 \\cdot 2021 = -1$, it follows that $4041$ and $2021$ cannot have a common divisor greater than $1$. Hence $\\frac{4041}{2020 \\cdot 2021}$ is in simplest terms, and the requested numerator is $4041$.\n\nLet $n = 2020$. Then the given fraction equals\n$$\n\\begin{aligned}\n\\frac{n+1}{n} - \\frac{n}{n+1} &= \\frac{(n+1)^2}{n(n+1)} - \\frac{n^2}{n(n+1)} \\\\\n&= \\frac{n^2 + 2n + 1}{n(n+1)} - \\frac{n^2}{n(n+1)} \\\\\n&= \\frac{2n + 1}{n(n+1)}.\n\\end{aligned}\n$$\nNote that if $d$ is a divisor of both $a$ and $a+b$, then $d$ is also a divisor of their difference, $b$. Because $n$ and $n+1$ have no common divisors greater than $1$, it follows that $2n+1$ can have no common divisors greater than $1$ with either $n$ or $n+1$. Thus $p = 2n + 1 = 4041$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-3990",
+      "name": "AMC 12 B #0kli",
+      "url": "https://usamoguide.com/",
+      "source": "AMC 12 B",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fractions"
+      ],
+      "statement": "Call a fraction $\\frac{a}{b}$, not necessarily in simplest form, *special* if $a$ and $b$ are positive integers whose sum is $15$. How many distinct integers can be written as the sum of two, not necessarily different, special fractions?\n(A) 9 (B) 10 (C) 11 (D) 12 (E) 13",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-4025",
+      "name": "HMMT November 2021 #0kmh",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2021",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fractions",
+        "Greatest common divisors (gcd)"
+      ],
+      "statement": "Problem:\n\nLet $n$ be the answer to this problem. Box $B$ initially contains $n$ balls, and Box $A$ contains half as many balls as Box $B$. After 80 balls are moved from Box $A$ to Box $B$, the ratio of balls in Box $A$ to Box $B$ is now $\\frac{p}{q}$, where $p, q$ are positive integers with $\\operatorname{gcd}(p, q)=1$. Find $100 p+q$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nOriginally, box $A$ has $n / 2$ balls and $B$ has $n$ balls. After moving, box $A$ has $n / 2-80$ balls and $B$ has $n+80$ balls. The answer to the problem is thus\n$$\n\\frac{100(n / 2-80)+(n+80)}{\\operatorname{gcd}(n / 2-80, n+80)}=\\frac{51 n-80 \\cdot 99}{\\operatorname{gcd}(n / 2-80, n+80)} \\stackrel{?}{=} n\n$$\nWrite $d=\\operatorname{gcd}(n / 2-80, n+80)=\\operatorname{gcd}(n / 2-80,240)$. Then the problem is equivalent $n d=51 n-80 \\cdot 99$ or $(51-d) n=80 \\cdot 99$, with $d \\mid 240$.\nLet's try to solve this. Either $51-d$ or $n$ must be divisible by 5. In the latter case, where $n$ is divisible by 5, we see that $d$ must be as well. Therefore $d$ is either 0 or $1 \\bmod 5$.\nIf $n$ is divisible by 4, then we know that $d$ is even and thus $51-d$ is odd. Therefore, since $16 \\mid 80 \\cdot 99$, $n$ must be divisible by 16, meaning that $d$ is divisible by 8. Alternatively, if $n$ is not divisible by 4, then since $16 \\mid 80 \\cdot 99,51-d$ must be divisible by 8, meaning that $d$ is $3 \\bmod 8$. Therefore $d$ is either 0 or $3 \\bmod 8$.\nPutting these results together, we find that $d$ must either be $0,11,16$, or $35 \\bmod 40$. Since $d$ is a divisor of 240 and less than 51, we conclude that $d$ is either 16 or 40. If $d=16$, then $51-d=35$, which does not divide $80 \\cdot 99$. If $d=40$, then we get $n=720$, which ends up working."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-4048",
+      "name": "2021 AMC 10 B Fall #0kn4",
+      "url": "https://usamoguide.com/",
+      "source": "2021 AMC 10 B Fall",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fractions"
+      ],
+      "statement": "The knights in a certain kingdom come in two colors: $\\frac{2}{7}$ of them are red, and the rest are blue. Furthermore, $\\frac{1}{6}$ of the knights are magical, and the fraction of red knights who are magical is 2 times the fraction of blue knights who are magical. What fraction of red knights are magical?\n(A) $\\frac{2}{9}$ (B) $\\frac{3}{13}$ (C) $\\frac{7}{27}$ (D) $\\frac{2}{7}$ (E) $\\frac{1}{3}$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-4073",
+      "name": "AIME II #0knt",
+      "url": "https://usamoguide.com/",
+      "source": "AIME II",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fractions",
+        "Integers"
+      ],
+      "statement": "Adults made up $\\frac{5}{12}$ of the crowd of people at a concert. After a bus carrying 50 more people arrived, adults made up $\\frac{11}{25}$ of the people at the concert. Find the minimum number of adults who could have been at the concert after the bus arrived.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-4089",
+      "name": "Berkeley Math Circle: Monthly Contest 4 #0ko9",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 4",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fractions",
+        "Integers"
+      ],
+      "statement": "Problem:\n\nAerith bakes some cookies. On the first day, she gives away 1 cookie and then $1/8$ of the remaining cookies; on the second day, she gives away 2 cookies and then $1/8$ of the remaining cookies, and so on. On the 7th day, she gives away 7 cookies and then there are none left. How many cookies did she bake?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe number of cookies is $49$.\n\nWorking backwards, on the 6th day, $1/8$ of the remaining cookies must have been $1$ cookie (since there were $7$ left after that), so there were $6+1+7=14$ cookies at the start of the day. Similarly, since on the 5th day there were $14$ cookies left, the $1/7$ of the remaining cookies given away was $2$ cookies, so there were $5+2+14=21$ cookies to start with.\n\nContinuing, at the start of the 4th day, there were $4+3+21=28$, on the third day, there were $3+4+28=35$, on the second day there were $2+5+35=42$, and on the first day, there were $1+6+42=49$ cookies to start."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-4111",
+      "name": "2022 AIME I #0kov",
+      "url": "https://usamoguide.com/",
+      "source": "2022 AIME I",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fractions",
+        "Decimals",
+        "Greatest common divisors (gcd)",
+        "φ (Euler's totient)",
+        "Inclusion-exclusion"
+      ],
+      "statement": "Let $S$ be the set of all rational numbers that can be expressed as a repeating decimal in the form $0.abcd$, where at least one of the digits $a, b, c$, or $d$ is nonzero. Let $N$ be the number of distinct numerators obtained when numbers in $S$ are written as fractions in lowest terms. For example, both $4$ and $410$ are counted among the distinct numerators for numbers in $S$ because $0.\\overline{3636} = \\frac{4}{11}$ and $0.\\overline{1230} = \\frac{410}{3333}$. Find the remainder when $N$ is divided by 1000.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-4424",
+      "name": "HMMT February #0kxk",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Least common multiples (lcm)",
+        "Fractions"
+      ],
+      "statement": "Problem:\nIf $a$, $b$, $c$, and $d$ are pairwise distinct positive integers that satisfy $\\operatorname{lcm}(a, b, c, d) < 1000$ and $a + b = c + d$, compute the largest possible value of $a + b$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $a' = \\frac{\\operatorname{lcm}(a, b, c, d)}{a}$. Define $b'$, $c'$, and $d'$ similarly. We have that $a'$, $b'$, $c'$, and $d'$ are pairwise distinct positive integers that satisfy\n$$\n\\frac{1}{a'} + \\frac{1}{b'} = \\frac{1}{c'} + \\frac{1}{d'}\n$$\nLet $T$ be the above quantity. We have\n$$\na + b = T \\operatorname{lcm}(a, b, c, d)\n$$\nso we try to maximize $T$. Note that since $\\frac{1}{2} + \\frac{1}{3} < \\frac{1}{1}$, we cannot have any of $a'$, $b'$, $c'$, and $d'$ be $1$. At most one of them can be $2$, so at least one side of the equation must have both denominators at least $3$. Hence, the largest possible value of $T$ is\n$$\nT = \\frac{1}{3} + \\frac{1}{4} = \\frac{1}{2} + \\frac{1}{12} = \\frac{7}{12}\n$$\nand the second largest possible value of $T$ is\n$$\nT = \\frac{1}{3} + \\frac{1}{5} = \\frac{1}{2} + \\frac{1}{30} = \\frac{8}{15}.\n$$\nTaking $T = \\frac{7}{12}$ and $\\operatorname{lcm}(a, b, c, d) = 996 = 12 \\cdot 83$, we get $a + b = 581$. Since the next best value of $T$ gives $\\frac{8}{15} \\cdot 1000 < 534 < 581$, this is optimal."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-4552",
+      "name": "2024 AMC 12 B #0l14",
+      "url": "https://usamoguide.com/",
+      "source": "2024 AMC 12 B",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Triangle inequalities",
+        "Fractions"
+      ],
+      "statement": "What is the number of ordered triples $(a, b, c)$ of positive integers, with $a \\le b \\le c \\le 9$, such that there exists a (non-degenerate) triangle $\\triangle ABC$ with an integer inradius for which $a, b$, and $c$ are the lengths of the altitudes from $A$ to $\\overline{BC}$, $B$ to $\\overline{AC}$, and $C$ to $\\overline{AB}$, respectively? (Recall that the inradius of a triangle is the radius of the largest possible circle that can be inscribed in the triangle.)\n\n(A) 2 (B) 3 (C) 4 (D) 5 (E) 6",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Let $x, y$, and $z$ be the lengths of $\\overline{BC}$, $\\overline{AC}$, and $\\overline{AB}$, respectively. Let $r$ be the inradius of $\\triangle ABC$. Then\n$$\n\\text{Area}(\\triangle ABC) = \\frac{1}{2}xa = \\frac{1}{2}yb = \\frac{1}{2}zc = \\frac{1}{2}(x + y + z)r.\n$$\nTherefore $x = \\frac{2\\text{Area}(\\triangle ABC)}{a}$, $y = \\frac{2\\text{Area}(\\triangle ABC)}{b}$, and $z = \\frac{2\\text{Area}(\\triangle ABC)}{c}$, so\n$$\n\\text{Area}(\\triangle ABC) = \\frac{1}{2} \\left( \\frac{2\\text{Area}(\\triangle ABC)}{a} + \\frac{2\\text{Area}(\\triangle ABC)}{b} + \\frac{2\\text{Area}(\\triangle ABC)}{c} \\right) r.\n$$\n\nDividing by Area($\\triangle ABC$) gives $(\\frac{1}{a} + \\frac{1}{b} + \\frac{1}{c})r = 1$, so\n$$\n\\frac{1}{a} + \\frac{1}{b} + \\frac{1}{c} = \\frac{1}{r}.\n$$\nBecause $a, b, c \\le 9$, it follows that\n$$\n\\frac{1}{r} = \\frac{1}{a} + \\frac{1}{b} + \\frac{1}{c} \\ge \\frac{1}{9} + \\frac{1}{9} + \\frac{1}{9} = \\frac{1}{3},\n$$\nimplying $r \\le 3$. It is then possible to find the solutions $(a, b, c)$ by examining cases based on the value of $r$.\n* If $r = 1$, then, because $a \\le b \\le c$, either $a = 2$ or $a = 3$. If $a = 2$, then $\\frac{1}{b} + \\frac{1}{c} = \\frac{1}{2}$. Then, because $b \\le c$, either $b = 3$ or $b = 4$. If $b = 3$, then $c = 6$; and if $b = 4$, then $c = 4$. If $a = 3$, then it must be that $b = c = 3$. So the solutions in this case are $(2, 3, 6)$, $(2, 4, 4)$, and $(3, 3, 3)$.\n* If $r = 2$, then, because $a \\le b \\le c$, it follows that $a = 3, a = 4, a = 5$, or $a = 6$. If $a = 3$, then $\\frac{1}{b} + \\frac{1}{c} = \\frac{1}{6}$, which has no solutions because $\\frac{1}{9} + \\frac{1}{9} > \\frac{1}{6}$. If $a = 4$, then $\\frac{1}{b} + \\frac{1}{c} = \\frac{1}{4}$. In this case, $b = c = 8$ is the only solution. If $a = 5$, then $\\frac{1}{b} + \\frac{1}{c} = \\frac{3}{10}$, which gives no solutions. If $a = 6$, then it follows that $b = c = 6$. So the solutions in this case are $(4, 8, 8)$ and $(6, 6, 6)$.\n* If $r = 3$, then $(a, b, c) = (9, 9, 9)$ is the only solution because if $a < 9$, then $c > 9$.\nFinally, the altitude lengths must be checked to ensure that these lengths give dimensions for a valid triangle. In the $(2, 3, 6)$ case, the side lengths of the triangles become $(3t, 2t, t)$ for some $t$, which does not form a triangle. In the $(2, 4, 4)$ and $(4, 8, 8)$ cases, the side lengths of the triangles become $(2t, t, t)$ for some $t$, which again does not form a triangle. The rest of the cases, namely $(3, 3, 3)$, $(6, 6, 6)$, and $(9, 9, 9)$, do produce valid triangles because if all of the altitudes have length $h$, then it is possible to form an equilateral triangle with side length $\\frac{2\\sqrt{3}}{3}h$. Thus there are 3 ordered triples satisfying the given conditions."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-prealgebra-basic-algebra-fractions-auto-4714",
+      "name": "HMMT February #0l5m",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fractions"
+      ],
+      "statement": "Problem:\nCompute\n$$\n\\frac{20 + \\frac{1}{25 - \\frac{1}{20}}}{25 + \\frac{1}{20 - \\frac{1}{25}}}.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe can use the fact that\n$$\nx + \\frac{1}{y - \\frac{1}{x}} = x + \\frac{x}{xy - 1} = \\frac{x^2 y}{xy - 1}.\n$$\nLetting $x = 20$, $y = 25$ and vice versa in the above expression, we get\n$$\n\\frac{x + \\frac{1}{y - \\frac{1}{x}}}{y + \\frac{1}{x - \\frac{1}{y}}} = \\frac{x^2 y}{x y^2} = \\frac{x}{y} = \\left[\\frac{4}{5}\\right].\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

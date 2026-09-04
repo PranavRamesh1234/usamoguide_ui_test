@@ -1,0 +1,631 @@
+{
+  "MODULE_ID": "complex-geometry",
+  "practice": [
+    {
+      "uniqueId": "geometry-plane-geometry-analytic-coordinate-methods-complex-numbers-in-geometry-auto-0671",
+      "name": "Berkeley Math Circle #0i1b",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers in geometry",
+        "Rotation"
+      ],
+      "statement": "Problem:\n\nLet $O$ be the center of a circle $k$. Points $A, B, C, D, E, F$ on $k$ are chosen such that the triangles $OAB$, $OCD$, $OEF$ are equilateral. Let $L, M, N$ be the midpoints of $BC$, $DE$, $FA$ respectively. Prove that triangle $LMN$ also is equilateral.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe simplest way to do this is using complex numbers. Let $\\omega = (-1 + i \\sqrt{3}) / 2$, a cube root of unity, and we have $1 + \\omega = -\\omega^{2}$. Then a triangle $XYZ$ is equilateral (with vertices labeled in counterclockwise order) iff segment $ZX$ is the rotation image of $YZ$ through angle $2\\pi/3$; representing the points by their values in the complex plane, this says $X - Z = \\omega(Z - Y)$ or, equivalently, $X + \\omega Y + \\omega^{2} Z = 0$. In particular, when $Y = 0$, we get $X = -\\omega^{2} Z$.\n\nNow, position the given points so that $O$ is at the origin; then the given yields $B = -\\omega^{2} A$, $D = -\\omega^{2} C$, $F = -\\omega^{2} E$. Also, clearly $K = (B + C)/2$, $L = (D + E)/2$, $M = (F + A)/2$. Thus\n$$\nK + \\omega L + \\omega^{2} M = \\left(\\omega^{2} A + B + C + \\omega D + \\omega E + \\omega^{2} F\\right)/2 = \\left(\\omega^{2} A - \\omega^{2} A + C - C + \\omega E - \\omega E\\right)/2 = 0\n$$\ngiving what we need."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-analytic-coordinate-methods-complex-numbers-in-geometry-auto-0728",
+      "name": "USA IMO #0i2w",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle trigonometry",
+        "Angle chasing",
+        "Cyclic quadrilaterals",
+        "Trigonometry",
+        "Complex numbers in geometry"
+      ],
+      "statement": "In a triangle $ABC$, let segment $AP$ bisect $\\angle BAC$, with $P$ on side $BC$, and let segment $BQ$ bisect $\\angle ABC$, with $Q$ on side $CA$. It is known that $\\angle BAC = 60^\\circ$ and that $AB + BP = AQ + QB$. What are the possible angles of triangle $ABC$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**First Solution.** (by Reid Barton and Gabriel Carroll) Extend segment $AB$ through $B$ to $R$ so that $BR = BP$, and construct $S$ on ray $AQ$ so that $AS = AR$.\n\n![](attached_image_1.png)\n\n**Lemma 1.** Points $B$, $P$, $S$ are collinear, and consequently, $S$ coincides with $C$.\n\n*Proof.* Because $BR = BP$, triangle $BPR$ is isosceles with base angles\n$$\n\\angle BRP = \\angle RPB = (180^\\circ - \\angle PBR)/2 = x = \\angle QBP. \\quad (2)\n$$\nNote that $AS = AR$ and $\\angle RAS = \\angle BAC = 60^\\circ$, implying that triangle $ARS$ is equilateral. Since line $AP$ bisects $\\angle RAS$, $R$ and $S$ are symmetric with respect to line $AP$. Thus,\n$$\nPR = PS \\qquad (3)\n$$\nand $\\angle ARP = \\angle PSA$, or $\\angle BRP = \\angle PSQ$. By (2), we have\n$$\n\\angle QBP = \\angle BRP = \\angle PSQ. \\qquad (4)\n$$\n\nBecause $AQ + QS = AB + BR = AB + BP = AQ + QB$, $QS = QB$. Hence, triangle $BQS$ is isosceles with\n$$\n\\angle BSQ = \\angle QBS. \\qquad (5)\n$$\n\nNow, assume to the contrary that triangle $BPS$ is nondegenerate. Then either $AC < AS$, as in the first diagram below, or $AC > AS$, as in the second diagram.\n\n![](attached_image_2.png)\n![](attached_image_3.png)\n\nIn either diagram, combining (4) and (5) gives\n$$\n\\angle PBS = |\\angle QBP - \\angle QBS| = |\\angle PSQ - \\angle BSQ| = \\angle PSB,\n$$\nthat is, triangle $PBS$ is isosceles with $PB = PS$. By (3), it follows that $PB = PS = PR$. Hence, triangle $BPR$ is equilateral. But then $\\angle ABC = 180^\\circ - \\angle CBR = 120^\\circ$, and by (1), $y = 0^\\circ$, which is absurd. Therefore, our assumption was wrong and $B, P, S$ are collinear. Consequently, $S = C$. ■\n\n---\n\n**Second Solution.** (By Zhiqiang Zhang, China) Construct $R$ on ray $AB$ beyond $B$ such that $BR = BP$, and construct $S$ on ray $AQ$ beyond $Q$ such that $QS = QB$. Let lines $BS$ and $AP$ intersect at $D$. Note that $AR = AB + BP = AQ + QB = AS$. Then both triangles $BPR$ and $BQS$ are isosceles with\n$$\n\\angle BRP = \\angle RPB = \\frac{\\angle ABC}{2} = x = \\angle QBP \\qquad (6)\n$$\nand\n$$\n\\angle QBS = \\angle BSQ = \\frac{\\angle BQA}{2} = \\frac{180^\\circ - 60^\\circ - x}{2} = 60^\\circ - \\frac{x}{2}. \\quad (7)\n$$\n\nBecause $y > 0^\\circ$, equation (1) implies $x < 60^\\circ$. Because $AR = AS$ and $\\angle RAS = 60^\\circ$, we also have that $60^\\circ = \\angle ARS = \\angle BRS$. Using these relations as well as (6), we find that $\\angle BRP = x < 60^\\circ = \\angle BRS$, implying that $P$ is inside triangle $ARS$. We now consider two cases.\n\ni. $C = S$. Since $BQ = QC$, $y = \\angle BCQ = \\angle QBC = x$, so by (1), $\\angle ABC = 80^\\circ$ and $\\angle BCA = 40^\\circ$. We need to check whether such a triangle has the desired properties. Setting $x = y$, in isosceles triangle $BPR$ we have $\\angle BRP = \\angle BPR = x$. Hence, $\\angle ARP = \\angle BRP = x = y = \\angle PCA$. This equality, along with the equations $\\angle PAR = \\angle CAP$ and $AP = AP$, implies that triangles $APD$ and $APC$ are congruent. Thus, $AR = AC$, or $AB + BP = AQ + BQ$. Therefore, $\\angle ABC = 80^\\circ$, $\\angle BCA = 40^\\circ$, and $\\angle CAB = 60^\\circ$ are possible angles of triangle $ABC$.\n\nii. $C \\neq S$.\n\n![](attached_image_4.png)\n\nSince $AR = AS$ and $AP$ is the angle bisector of angles $RAS$ and $BAC$, $R$ and $S$ are symmetric with respect to line $AP$, and $\\angle BRD = \\angle DSQ$. By (7), we have\n$$\n\\angle BRD = \\angle DSQ = \\angle BSQ = \\angle QBS = \\angle QBD. \\quad (8)\n$$\nBy subtraction, from (6) and (8) we obtain\n$$\n\\begin{aligned}\n\\angle PRD &= \\angle BRD - \\angle BRP \\\\\n&= \\angle QBD - \\angle QBP = \\angle PBD.\n\\end{aligned}\n$$\nBecause $P, D$ are on the same side of line $BR$ (specifically, between rays $AR$ and $CS$), quadrilateral $BPDR$ must be cyclic. Hence, $\\angle BRD = \\angle BPA$. Because angle $BPA$ is an exterior angle of triangle $APC$, by using (1), we have $\\angle BPA = 30^\\circ + y = 150^\\circ - 2x$. On the other hand, by (8) and (7), $\\angle BRD = \\angle DSQ = \\angle BSQ =$\n$$\n60^\\circ - \\frac{x}{2}.\n$$\nNow the relation $\\angle BRD = \\angle BPA$ reads\n$$\n150^\\circ - 2x = 60^\\circ - \\frac{x}{2},\n$$\nor $x = 60^\\circ$. But then $y = 0^\\circ$, which is impossible. Thus, there is no solution under the assumption $C \\neq S$.\n\n---\n\n**Third Solution.** (By Liang Xiao, China) Construct $R$ on ray $AB$ beyond $B$ such that $BR = BP$ and $S$ on ray $AQ$ beyond $Q$ such that $QS = QB$. Note that $AR = AB + BP = AQ + QB = AS$ and hence, because $\\angle SAR = 60^\\circ$, triangle $ARS$ is equilateral. Now we calculate a few angles:\n$$\n\\begin{aligned}\n\\angle BPA &= 150^\\circ - 2x, \\\\\n\\angle BQA &= 120^\\circ - x, \\\\\n\\angle BSQ &= \\angle QBS = \\frac{\\angle BQA}{2} = 60^\\circ - \\frac{x}{2}, \\\\\n\\angle ABS &= \\angle ABQ + \\angle QBS = 60^\\circ + \\frac{x}{2}, \\\\\n\\angle RSB &= 60^\\circ - \\angle BSQ = \\frac{x}{2}, \\\\\n\\angle SBR &= 180^\\circ - \\angle ABS = 120^\\circ - \\frac{x}{2}.\n\\end{aligned}\n$$\nNoting that $BR = BP$ and $AS = RS$, we apply the **Law of Sines** to triangles $BRS$, $ABP$, and $ABS$ to obtain\n$$\n\\begin{aligned}\n\\frac{\\sin \\angle RSB}{\\sin \\angle SBR} &= \\frac{BR}{RS} = \\frac{BP}{AS} = \\frac{BP}{AB} \\cdot \\frac{AB}{AS} \\\\\n&= \\frac{\\sin \\angle PAB}{\\sin \\angle BPA} \\cdot \\frac{\\sin \\angle BSA}{\\sin \\angle ABS}.\n\\end{aligned}\n$$\nWriting these angles in terms of $x$, we have\n$$\n\\frac{\\sin\\left(\\frac{x}{2}\\right)}{\\sin\\left(120^\\circ - \\frac{x}{2}\\right)} = \\frac{\\sin 30^\\circ}{\\sin(150^\\circ - 2x)} \\cdot \\frac{\\sin\\left(60^\\circ - \\frac{x}{2}\\right)}{\\sin\\left(60^\\circ + \\frac{x}{2}\\right)}.\n$$\nNow, $x = (120^\\circ - y)/2 < 60^\\circ$ and hence $\\sin(120^\\circ - \\frac{x}{2}) = \\sin(60^\\circ + \\frac{x}{2}) \\neq 0$. Cancelling the common terms and clearing the denominators of the above equation, we obtain\n$$\n2 \\sin \\left( \\frac{x}{2} \\right) \\sin(30^\\circ + 2x) = \\cos \\left( 30^\\circ + \\frac{x}{2} \\right).\n$$\nUsing the **Product-to-sum formulas** gives\n$$\n\\cos \\left( 30^\\circ + \\frac{3x}{2} \\right) - \\cos \\left( 30^\\circ + \\frac{5x}{2} \\right) = \\cos \\left( 30^\\circ + \\frac{x}{2} \\right),\n$$\nor\n$$\n\\cos \\left( 30^\\circ + \\frac{3x}{2} \\right) = \\cos \\left( 30^\\circ + \\frac{5x}{2} \\right) + \\cos \\left( 30^\\circ + \\frac{x}{2} \\right).\n$$\nApplying the **Sum-to-product formulas** yields\n$$\n\\cos \\left( 30^\\circ + \\frac{3x}{2} \\right) = 2 \\cos \\left( 30^\\circ + \\frac{3x}{2} \\right) \\cos x.\n$$\nHence, either $\\cos x = \\frac{1}{2}$ or $\\cos(30^\\circ + \\frac{3x}{2}) = 0$. The first case is impossible because $0^\\circ < x < 60^\\circ$. In the second, $0^\\circ < 30^\\circ + \\frac{3x}{2} < 120^\\circ$, implying that $30^\\circ + \\frac{3x}{2} = 90^\\circ$ and $x = 40^\\circ$. Consequently, it is easy to check that $\\angle ABS = \\angle ABC = 80^\\circ$ and $S = C$. Therefore, $\\angle ABC = 80^\\circ$, $\\angle BCA = 40^\\circ$, and $\\angle CAB = 60^\\circ$.\n\n---\n\n**Fourth Solution.** (By Hui Zheng, China) Applying the Law of Sines to triangles $ABP$ and $ABQ$ yields\n$$\n\\frac{AB + BP}{AB} = 1 + \\frac{\\sin 30^\\circ}{\\sin(2x + 30^\\circ)}\n$$\nand\n$$\n\\frac{AQ + QB}{AB} = \\frac{\\sin x + \\sin 60^\\circ}{\\sin(x + 60^\\circ)}.\n$$\nThus, the condition $AB + BP = AQ + BQ$ implies that\n$$\n1 + \\frac{\\sin 30^\\circ}{\\sin(2x + 30^\\circ)} = \\frac{\\sin x + \\sin 60^\\circ}{\\sin(x + 60^\\circ)}, \\quad (12)\n$$\nor\n$$\n\\frac{\\sin(x + 60^\\circ)}{2 \\sin(2x + 30^\\circ)} = \\sin x + \\sin 60^\\circ - \\sin(x + 60^\\circ).\n$$\nBy (1), $y > 0^\\circ$ and $0^\\circ < x < 60^\\circ$. Applying the Difference-to-product formulas twice yields\n$$\n\\begin{aligned}\n\\frac{\\sin(x + 60^\\circ)}{2 \\sin(2x + 30^\\circ)} &= \\sin 60^\\circ - [\\sin(x + 60^\\circ) - \\sin x] \\\\\n&= \\sin 60^\\circ - 2 \\sin 30^\\circ \\cos(x + 30^\\circ) \\\\\n&= \\sin 60^\\circ - \\sin(60^\\circ - x) \\\\\n&= 2 \\sin \\frac{x}{2} \\cos \\left(60 - \\frac{x}{2}\\right).\n\\end{aligned}\n$$\nBy the **Double-angle formulas**, the numerator on the left-hand side is\n$$\n\\sin(x + 60^\\circ) = \\sin(120^\\circ - x) = 2 \\sin\\left(60^\\circ - \\frac{x}{2}\\right) \\cos\\left(60^\\circ - \\frac{x}{2}\\right).\n$$\nPlugging in this expression and then dividing by $\\cos(60^\\circ - \\frac{x}{2})$ — which is nonzero because $0^\\circ < x < 60^\\circ$ — we find that\n$$\n\\frac{\\sin(60^\\circ - \\frac{x}{2})}{\\sin(2x + 30^\\circ)} = 2 \\sin(\\frac{x}{2}).\n$$\nClearing the denominator and applying the Product-to-sum formulas, the last equation becomes\n$$\n\\begin{aligned}\n\\sin\\left(60^\\circ - \\frac{x}{2}\\right) &= 2 \\sin\\left(\\frac{x}{2}\\right) \\sin(2x + 30^\\circ) \\\\\n&= 2 \\sin\\left(\\frac{x}{2}\\right) \\cos(2x - 60^\\circ) \\\\\n&= \\sin\\left(\\frac{5x}{2} - 60^\\circ\\right) + \\sin\\left(60^\\circ - \\frac{3x}{2}\\right),\n\\end{aligned}\n$$\nor\n$$\n\\begin{aligned}\n\\sin\\left(60 - \\frac{3x}{2}\\right) &= \\sin\\left(60^\\circ - \\frac{x}{2}\\right) - \\sin\\left(\\frac{5x}{2} - 60^\\circ\\right) \\\\\n&= 2 \\sin\\left(60^\\circ - \\frac{3x}{2}\\right) \\cos x\n\\end{aligned}\n$$\nby applying the Difference-to-product formulas. Hence,\n$$\n\\sin(60^\\circ - \\frac{3x}{2}) = 0 \\quad \\text{or} \\quad \\cos x = \\frac{1}{2}.\n$$\nThe only solution to either equation in the range $0^\\circ < x < 60^\\circ$ is $x = 40^\\circ$. Thus, $\\angle ABC = 80^\\circ$, $\\angle BCA = 40^\\circ$, and $\\angle CAB = 60^\\circ$.\n\n---\n\n**Fifth Solution.** (By Kiran Kedlaya) We use complex numbers in this solution. Rewrite (12) as\n$$\n1 + \\frac{1}{2\\cos(2x - 60^\\circ)} - \\frac{\\sin x + \\sin 60^\\circ}{\\sin(x + 60^\\circ)} = 0. \\quad (13)\n$$\nSet $z = \\cos x + i \\sin x$ and $\\omega = e^{2\\pi i/6} = \\cos 60^\\circ + i \\sin 60^\\circ$. Because $0^\\circ < x < 60^\\circ$, we know that $-1, 1 \\neq z\\omega$. Now, $\\bar{z} = \\frac{1}{z}$ and $\\bar{\\omega} = \\frac{1}{\\omega}$. Also,\n$$\n\\omega^3 = -1 \\quad \\text{and} \\quad \\omega - \\omega^2 = 1. \\quad (14)\n$$\nIt follows that $2i \\sin x = z - \\bar{z} = z - \\frac{1}{z}$, $2i \\sin 60^\\circ = \\omega - \\frac{1}{\\omega}$, $2i \\sin(x + 60^\\circ) = z\\omega - \\frac{1}{z\\omega}$, and $2 \\cos(2x - 60^\\circ) = \\frac{z^2}{\\omega} + \\frac{\\omega}{z^2}$. We rewrite (13) in terms of $z$:\n$$\n1 + \\frac{1}{\\frac{z^2}{\\omega} + \\frac{\\omega}{z^2}} - \\frac{z - \\frac{1}{z} + \\omega - \\frac{1}{\\omega}}{z\\omega - \\frac{1}{z\\omega}} = 0. \\quad (15)\n$$\nThe second term on the left-hand side of (15) is $\\frac{z^2\\omega}{z^4+\\omega^2}$ and the third term simplifies to\n$$\n\\frac{(z + \\omega) - \\frac{z+\\omega}{z\\omega}}{\\frac{(zw)^2-1}{z\\omega}} = \\frac{(z + \\omega)(z\\omega - 1)}{(z\\omega + 1)(z\\omega - 1)} = \\frac{z + \\omega}{z\\omega + 1}.\n$$\nThus, (15) simplifies to\n$$\n1 + \\frac{z^2\\omega}{z^4 + \\omega^2} - \\frac{z + \\omega}{z\\omega + 1} = 0.\n$$\nClearing the denominators in this equations yields\n$$\n(z^4 + \\omega^2)(z\\omega + 1) + z^2\\omega(z\\omega + 1) - (z + \\omega)(z^4 + \\omega^2) = 0.\n$$\nIf $x \\approx 60^\\circ$, then triangles $ABQ$ and $PBQ$ are approximately equilateral and $AB + BP \\approx AQ + QB$. Thus, we suspect that $z = \\omega$ is a solution\n\n---\n\nof the above equation. With this in mind, we factor (14) as follows:\n$$\n\\begin{align*}\n0 &= (z^4 + \\omega^2)(z\\omega + 1) + z^2\\omega(z\\omega + 1) - (z + \\omega)(z^4 + \\omega^2) \\\\\n&= z^5\\omega + z\\omega^3 + z^4 + \\omega^2 + z^3\\omega^2 + z^2\\omega - z^5 - z\\omega^2 - z^4\\omega - \\omega^3 \\\\\n&= (\\omega - 1)z^5 + (1 - \\omega)z^4 + \\omega^2 z^3 + \\omega z^2 + (\\omega^3 - \\omega^2)z + (\\omega^2 - \\omega^3) \\\\\n&= \\omega^2 z^5 - \\omega^2 z^4 + \\omega^2 z^3 + \\omega z^2 - \\omega z + \\omega \\\\\n&= \\omega^2 z^3 (z^2 - z + 1) + \\omega (z^2 - z + 1) \\\\\n&= \\omega^2 (z^3 - \\omega^2) (z^2 - z + 1).\n\\end{align*}\n$$\nHence, $z^3 = \\omega^2 = \\cos 120^\\circ + i \\sin 120^\\circ$, so $z = \\cos 40^\\circ + i \\sin 40^\\circ$, $\\cos 160^\\circ + i \\sin 160^\\circ$, or $\\cos 280^\\circ + i \\sin 280^\\circ$. yielding $x = 40^\\circ, 160^\\circ$, or $280^\\circ$. The only value in the range $(0^\\circ, 60^\\circ)$ is $x = 40^\\circ$, so $\\angle ABC = 80^\\circ$, $\\angle BCA = 40^\\circ$, and $\\angle CAB = 60^\\circ$.\n\n---\n\n**Sixth Solution.** (By Belur Jana Venkatachala, India) Let $a = BC$, $b = CA$, $c = AB$, and $2s = a + b + c$. By the **Angle Bisector Theorem**, we obtain\n$$\nBP = \\frac{ca}{b+c} \\quad \\text{and} \\quad AQ = \\frac{cb}{c+a}. \\qquad (16)\n$$\n**Lemma 2.** We have\n$$\nBQ = \\frac{2ca}{c+a} \\sqrt{\\frac{s(s-b)}{ca}}.\n$$\n*Proof.* Let $[R]$ denote the area of region $R$. Then,\n$$\n\\begin{align*}\n2ac \\sin x \\cos x &= ac \\sin 2x = 2[ABC] = 2[ABQ] + 2[QBC] \\\\\n&= c \\cdot BQ \\sin x + a \\cdot BQ \\sin x \\\\\n&= BQ \\cdot (a+c) \\sin x,\n\\end{align*}\n$$\nor\n$$\nBQ = \\frac{2ac}{a+c} \\cos x. \\qquad (17)\n$$\nBy the **Law of Cosines**, we obtain\n$$\n\\cos 2x = \\cos \\angle ABC = \\frac{a^2 + c^2 - b^2}{2ac}.\n$$\nApplying the Double-angle formulas yields\n$$\n\\begin{aligned}\n2 \\cos^2 x &= \\cos 2x + 1 = \\frac{a^2 + c^2 - b^2}{2ac} + 1 \\\\\n&= \\frac{(a^2 + 2ac + c^2) - b^2}{2ac} = \\frac{(a+c)^2 - b^2}{2ac} \\\\\n&= \\frac{(a+c+b)(a+c-b)}{2ac} = \\frac{2s(s-b)}{ac},\n\\end{aligned}\n$$\nor $\\cos x = \\sqrt{\\frac{s(s-b)}{ac}}$. Substituting this into (17) yields the desired result. (The result also follows directly from the Angle Bisector Theorem and the **Stewart's Theorem**.) ■\n\nBy lemma 2, the given condition reads\n$$\nc + \\frac{ca}{b+c} = \\frac{cb}{c+a} + \\frac{2ca}{c+a} \\sqrt{\\frac{s(s-b)}{ca}},\n$$\nor\n$$\n\\frac{a+b+c}{b+c} = \\frac{b}{a+c} + \\frac{2a}{c+a} \\sqrt{\\frac{s(s-b)}{ca}}.\n$$\nClearing the denominators yields\n$$\n(a+b+c)(c+a)\\sqrt{c} = b(b+c)\\sqrt{c} + 2\\sqrt{a}(b+c)\\sqrt{s(s-b)}. \\quad (18)\n$$\nSince\n$$\n\\begin{aligned}\n(a+b+c)(c+a) - b(b+c) &= (a+b+c)(c+a) - b(a+b+c) + ab \\\\\n&= (a+b+c)(a+c-b) + ab \\\\\n&= 4s(s-b) + ab,\n\\end{aligned}\n$$\n(18) can be rewritten as\n$$\n4\\sqrt{cs(s-b)} + ab\\sqrt{c} = 2\\sqrt{a}(b+c)\\sqrt{s(s-b)}.\n$$\nTaking $t = \\sqrt{s(s-b)}$, we obtain a quadratic in $t$:\n$$\n4\\sqrt{ct^2 - 2\\sqrt{a}(b+c)t + ab\\sqrt{c}} = 0,\n$$\nor $(2t - \\sqrt{ac})(2\\sqrt{ct} - \\sqrt{ab}) = 0$. Thus,\n$$\nt = \\frac{\\sqrt{ac}}{2} \\quad \\text{or} \\quad t = \\frac{\\sqrt{ab}}{2\\sqrt{c}}.\n$$\nIf $t = \\frac{\\sqrt{ac}}{2}$, then $s(s-b) = \\frac{ac}{4}$, leading to\n$$\n\\frac{(a+c+b)(a+c-b)}{4} = \\frac{(a+c)^2 - b^2}{4} = \\frac{ac}{4},\n$$\nor $a^2 + ac + c^2 = b^2$. This equation and the Law of Cosines imply that $\\angle ABC = 120^\\circ$, which is absurd.\n\nIf $t = \\frac{\\sqrt{ab}}{2\\sqrt{c}}$, then $s(s-b) = \\frac{ab^2}{4c}$, leading to\n$$\n(a+c)^2 - b^2 = \\frac{ab^2}{c}.\n$$\nHence,\n$$\n(a+c)^2 = \\frac{(a+c)b^2}{c},\n$$\nor\n$$\n\\frac{c}{b} = \\frac{cb}{a+c} \\cdot \\frac{1}{c}.\n$$\nBy the second part of (16), the last equation is\n$$\n\\frac{AB}{AC} = \\frac{AQ}{AB},\n$$\nwhich, along with $\\angle BAC = \\angle QAB$, implies that triangles $ABQ$ and $ACB$ are similar. Hence, $\\angle ACB = \\angle ABQ = \\angle BQC$, that is, $\\angle ABC = 80^\\circ$, $\\angle BCA = 40^\\circ$, and $\\angle CAB = 60^\\circ$.\n\n---\n\nTherefore, $\\angle ABC = 80^\\circ$, $\\angle BCA = 40^\\circ$, and $\\angle CAB = 60^\\circ$ is the only solution."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-analytic-coordinate-methods-complex-numbers-in-geometry-auto-1137",
+      "name": "Harvard-MIT Mathematics Tournament #0ie9",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers in geometry",
+        "Vectors",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\n\nLet $x$, $y$, and $z$ be three roots of unity. Prove that $x + y + z$ is also a root of unity if and only if $x + y = 0$, $y + z = 0$, or $z + x = 0$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAgain, we consider the geometric picture. Arrange the vectors $x$, $y$, $z$, and $-x-y-z$ so as to form a quadrilateral. If they are all roots of unity, they form a quadrilateral all of whose side lengths are $1$. If the quadrilateral is degenerate, then two of the vectors sum to $0$, which implies the result. But even if it is not degenerate, the quadrilateral must be a rhombus, and since opposite sides of a rhombus are parallel, this again implies that two of the four roots of unity sum to $0$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-analytic-coordinate-methods-complex-numbers-in-geometry-auto-1142",
+      "name": "Harvard-MIT Mathematics Tournament #0iee",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers in geometry",
+        "Roots of unity",
+        "Counting two ways"
+      ],
+      "statement": "Problem:\nLet $P$ be a regular $k$-gon inscribed in a circle of radius $1$. Find the sum of the squares of the lengths of all the sides and diagonals of $P$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nPlace the vertices of $P$ at the $k$th roots of unity, $1, \\omega, \\omega^{2}, \\ldots, \\omega^{k-1}$. We will first calculate the sum of the squares of the lengths of the sides and diagonals that contain the vertex $1$. This is\n$$\n\\begin{aligned}\n\\sum_{i=0}^{k-1} \\left|1-\\omega^{i}\\right|^{2} & = \\sum_{i=0}^{k-1} \\left(1-\\omega^{i}\\right)\\left(1-\\bar{\\omega}^{i}\\right) \\\\\n& = \\sum_{i=0}^{k-1} \\left(2-\\omega^{i}-\\bar{\\omega}^{i}\\right) \\\\\n& = 2k - 2 \\sum_{i=0}^{k-1} \\omega^{i} \\\\\n& = 2k\n\\end{aligned}\n$$\nusing the fact that $1+\\omega+\\cdots+\\omega^{k-1}=0$. Now, by symmetry, this is the sum of the squares of the lengths of the sides and diagonals emanating from any vertex. Since there are $k$ vertices and each segment has two endpoints, the total sum is $2k \\cdot k / 2 = k^{2}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-analytic-coordinate-methods-complex-numbers-in-geometry-auto-1199",
+      "name": "Harvard-MIT Mathematics Tournament #0ifz",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers in geometry",
+        "Trigonometry"
+      ],
+      "statement": "Problem:\nHow many regions of the plane are bounded by the graph of\n$$\nx^{6}-x^{5}+3 x^{4} y^{2}+10 x^{3} y^{2}+3 x^{2} y^{4}-5 x y^{4}+y^{6}=0 ?\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution: 5\nThe left-hand side decomposes as\n$$\n\\left(x^{6}+3 x^{4} y^{2}+3 x^{2} y^{4}+y^{6}\\right)-\\left(x^{5}-10 x^{3} y^{2}+5 x y^{4}\\right)=\\left(x^{2}+y^{2}\\right)^{3}-\\left(x^{5}-10 x^{3} y^{2}+5 x y^{4}\\right) .\n$$\nNow, note that\n$$\n(x+i y)^{5}=x^{5}+5 i x^{4} y-10 x^{3} y^{2}-10 i x^{2} y^{3}+5 x y^{4}+i y^{5}\n$$\nso that our function is just $\\left(x^{2}+y^{2}\\right)^{3}-\\Re\\left((x+i y)^{5}\\right)$. Switching to polar coordinates, this is $r^{6}-Re\\left(r^{5}(\\cos \\theta+i \\sin \\theta)^{5}\\right)=r^{6}-r^{5} \\cos 5 \\theta$ by de Moivre's rule. The graph of our function is then the graph of $r^{6}-r^{5} \\cos 5 \\theta=0$, or, more suitably, of $r=\\cos 5 \\theta$. This is a five-petal rose, so the answer is 5 .\n![](attached_image_1.png)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-analytic-coordinate-methods-complex-numbers-in-geometry-auto-1243",
+      "name": "Harvard-MIT Mathematics Tournament #0ih7",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers",
+        "Roots of unity",
+        "Complex numbers in geometry"
+      ],
+      "statement": "Problem:\n\nA $k$th root of unity is any complex number $\\omega$ such that $\\omega^{k}=1$.\n\nLet $x$ and $y$ be two $k$th roots of unity. Prove that $(x+y)^{k}$ is real.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nNote that\n$$\n\\begin{aligned}\n(x+y)^{k} & = \\sum_{i=0}^{k} \\binom{k}{i} x^{i} y^{k-i} \\\\\n& = \\frac{1}{2} \\sum_{i=0}^{k} \\binom{k}{i} \\left(x^{i} y^{k-i} + x^{k-i} y^{i}\\right)\n\\end{aligned}\n$$\nby pairing the $i$th and $(k-i)$th terms. But $x^{k-i} y^{i} = \\left(x^{i} y^{k-i}\\right)^{-1}$ since $x$ and $y$ are $k$th roots of unity. Moreover, since $x$ and $y$ have absolute value $1$, so does $x^{i} y^{k-i}$, so $x^{k-i} y^{i}$ is in fact its complex conjugate. It follows that their sum is real, thus so is $(x+y)^{k}$.\n\nThis can also be shown geometrically. The argument of $x$ (the angle between the vector $x$ and the positive $x$-axis) is an integer multiple of $\\frac{2 \\pi}{k}$, as is the argument of $y$. Since $x+y$ bisects the angle between $x$ and $y$, its argument is an integer multiple of $\\frac{\\pi}{k}$. Multiplying this angle by $k$ gives a multiple of $\\pi$, so $(x+y)^{k}$ is real."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-analytic-coordinate-methods-complex-numbers-in-geometry-auto-1245",
+      "name": "Harvard-MIT Mathematics Tournament #0ih9",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers in geometry",
+        "Roots of unity",
+        "Optimization in geometry"
+      ],
+      "statement": "Problem:\nLet $A_{1} A_{2} \\ldots A_{k}$ be a regular $k$-gon inscribed in a circle of radius $1$, and let $P$ be a point lying on or inside the circumcircle. Find the maximum possible value of $\\left(PA_{1}\\right)\\left(PA_{2}\\right) \\cdots\\left(PA_{k}\\right)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nPlace the vertices at the $k$th roots of unity, $1, \\omega, \\ldots, \\omega^{k-1}$, and place $P$ at some complex number $p$. Then\n$$\n\\begin{aligned}\n\\left(\\left(PA_{1}\\right)\\left(PA_{2}\\right) \\cdots\\left(PA_{k}\\right)\\right)^{2} & = \\prod_{i=0}^{k-1}\\left|p-\\omega^{i}\\right|^{2} \\\\\n& = \\left|p^{k}-1\\right|^{2},\n\\end{aligned}\n$$\nsince $x^{k}-1=(x-1)(x-\\omega) \\cdots\\left(x-\\omega^{k-1}\\right)$. This is maximized when $p^{k}$ is as far as possible from $1$, which occurs when $p^{k}=-1$. Therefore, the maximum possible value of $\\left(PA_{1}\\right)\\left(PA_{2}\\right) \\cdots\\left(PA_{k}\\right)$ is $2$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-analytic-coordinate-methods-complex-numbers-in-geometry-auto-1253",
+      "name": "Harvard-MIT Mathematics Tournament #0ihh",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers in geometry",
+        "Vectors",
+        "Roots of unity"
+      ],
+      "statement": "Problem:\n\nLet $x$ and $y$ be two distinct roots of unity. Prove that $x+y$ is also a root of unity if and only if $\\frac{y}{x}$ is a cube root of unity.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThis is easiest to see geometrically. The vectors corresponding to $x$, $y$, and $-x-y$ sum to $0$, so they form a triangle. In order for them all to be roots of unity, they must all have length one, so the triangle must be equilateral. Therefore the angle between $x$ and $y$ is $\\pm \\frac{2 \\pi}{3}$, that is, $\\frac{y}{x}$ is a cube root of unity."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-analytic-coordinate-methods-complex-numbers-in-geometry-auto-1355",
+      "name": "Team Selection Test #0ikb",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cyclic quadrilaterals",
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Triangle trigonometry",
+        "Rotation",
+        "Translation",
+        "Complex numbers in geometry",
+        "Trigonometry",
+        "Angle chasing"
+      ],
+      "statement": "Let $ABC$ be a triangle. Triangles $PAB$ and $QAC$ are constructed outside of triangle $ABC$ such that $AP = AB$ and $AQ = AC$ and $\\angle BAP = \\angle CAQ$. Segments $BQ$ and $CP$ meet at $R$. Let $O$ be the circumcenter of triangle $BCR$. Prove that $AO \\perp PQ$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**Note:** We present five different approaches. The first three synthetic solutions are all based on the following simple observation.\nWe first note that $APBR$ and $AQCR$ are cyclic quadrilaterals. It is easy to see that triangles $APC$ and $ABQ$ are congruent to each other, implying that $\\angle APR = \\angle APC = \\angle ABQ = \\angle ABR$. Thus, $APBR$ is a cyclic quadrilateral. Likewise, we can show that $AQCR$ is also cyclic.\n\n![](attached_image_1.png)\n\nLet $\\angle PAB = 2x$. Then in isosceles triangle $APB$, $\\angle APB = 90^\\circ - x$. In cyclic quadrilateral $APBR$, $\\angle ARB = 180^\\circ - \\angle APB = 90^\\circ + x$. Likewise, $\\angle ARC = 90^\\circ + x$. Hence $\\angle BRC = 360^\\circ - \\angle ARB - \\angle ARC = 180^\\circ - 2x$. It follows that $\\angle BOC = 4x$.\n\n**First Solution:** Reflect $C$ across line $AQ$ to $D$. Then $\\angle BAD = 4x + \\angle BAC = \\angle BAQ$. It is easy to see that triangles $BAD$ and $PAQ$ are congruent, implying that $\\angle ADB = \\angle AQP = y$.\n\n![](attached_image_2.png)\n\nNote also that $CAD$ and $COB$ are two isosceles triangles with the same vertex angle, and so they are similar to each other. It follows that triangle $CAO$ and $CBD$ are similar by SAS (side-angle-side), implying that $\\angle CAO = \\angle CDB = z$.\n\nThe angle formed by lines $AO$ and $PQ$ is equal to\n$$\n180^\\circ - \\angle OAQ - \\angle AQP = 180^\\circ - \\angle OAC - \\angle CAQ - \\angle AQP = 180^\\circ - z - 2x - y.\n$$\n\nSince $AQ$ is perpendicular to the base $CD$ in isosceles triangle $ACD$, we have\n$$\n90^\\circ = \\angle QAD + \\angle CDA = \\angle QAD + \\angle ADB + \\angle BDC = 2x + y + z.\n$$\nCombining the last two equations yields that fact the angle formed by lines $AO$ and $PQ$ is equal to $90^\\circ$; that is, $AO \\perp PQ$.\n\n\n**Second Solution:** We maintain the same notations as in the first solution. Let $M$ be the midpoint of arc $\\widehat{BC}$ on the circumcircle of triangle $BOC$. Then $BM = CM$. Since triangles $APC$ and $ABQ$ are congruent, $PC = BQ$. Since $BRMC$ is cyclic, $\\angle PCM = \\angle RCM = \\angle RBM = \\angle QBM$. Hence triangles $BMQ$ and $CMP$ are congruent by SAS. It follows triangles $MPQ$ and $MBC$ are similar. Since $\\angle BOC = 4x$, $\\angle MBC = \\angle MCB = x$, and so $\\angle MPQ = x$.\n\n![](attached_image_3.png)\n\nNote that both triangles $PAB$ and $MOB$ are isosceles triangles with vertex angle $2x$; that is, they are similar to each other. Hence triangles $BMP$ and $BOA$ are also similar by SAS, implying that $\\angle OAB = MPB = s$. We also note that in isosceles triangle $APB$,\n$$\n90^\\circ = \\angle APB + \\angle PAB/2 = \\angle APQ + \\angle QPM + \\angle MPB + \\angle PAB/2 = \\angle APQ + 2x + s.\n$$\nPutting the above together, we conclude that\n$$\n\\angle PAO + \\angle APQ = \\angle PAB + \\angle BAO + \\angle APQ = 2x + s + \\angle APQ = 90^\\circ,\n$$\nthat is $AO \\perp PQ$.\n\n\n**Third Solution:** We consider two rotations:\n$\\mathbf{R}_1$: a counterclockwise $2x$ (degree) rotation centered at $A$,\n$\\mathbf{R}_2$: a clockwise $4x$ (degree) rotation centered at $O$.\nLet $\\mathbf{T}$ denote the composition $\\mathbf{R}_1\\mathbf{R}_2\\mathbf{R}_1$. Then $\\mathbf{T}$ is a counterclockwise $2x - 4x + 2x = 0^\\circ$ rotation; that is, $\\mathbf{T}$ is translation. Note that\n$$\n\\mathbf{T}(P) = \\mathbf{R}_1(\\mathbf{R}_2(\\mathbf{R}_1(P))) = \\mathbf{R}_1(\\mathbf{R}_2(B)) = \\mathbf{R}_1(C) = Q,\n$$\nor, $\\mathbf{T}$ is the vector translation $\\overrightarrow{PQ}$.\nLet $A_1 = \\mathbf{R}_2(A)$ and $A_2 = \\mathbf{R}_1(A_1)$. Then $\\mathbf{T}(A) = A_2$; that is, $\\overrightarrow{AA_2} = \\overrightarrow{PQ}$, or $AA_2 \\parallel PQ$.\nBy the definitions of $\\mathbf{R}_2$ and $\\mathbf{R}_1$, we know that triangles $OAA_1$ and $A_1AA_2$ are isosceles triangles with respect vertex angles $\\angle AOA_1 = 4x$ and $\\angle A_1AA_2 = 2x^\\circ$. It is routine to compute that $\\angle OAA_2 = 90^\\circ$; that $AO \\perp AA_2$, or $AO \\perp PQ$.\n\n\n**Fourth Solution:** (By Ian Le) In this solutions, let each lowercase letter denote the number assigned to the point labeled with the corresponding uppercase letter. We further assume that $A$ is origin; that is, let $a = 0$. Let $\\omega = e^{2xi}$ (or $\\omega = \\cos(2x) + i\\sin(2x)$, and $\\omega^{-1} = \\cos(2x) - i\\sin(2x)$). Then because $O$ lies on the perpendicular bisector of $BC$ and $\\angle BOC = 4x$,\n$$\no = c + \\frac{(b-c)i}{2\\omega \\sin(2x)} = c + \\frac{bi}{2\\omega \\sin(2x)} - \\frac{ci}{2\\omega \\sin(2x)}.\n$$\nNote that\n$$\nc - \\frac{ci}{2\\omega \\sin(2x)} = c + \\frac{c\\omega^{-1}}{2i \\sin(2x)} = \\frac{c(\\omega^{-1} + 2i \\sin(2x))}{2i \\sin(2x)} = \\frac{c\\omega}{2i \\sin(2x)},\n$$\nCombining the last two equations gives\n$$\no = \\frac{bi}{2\\omega \\sin(2x)} + \\frac{c\\omega}{2i \\sin(2x)} = -\\frac{b}{2i\\omega \\sin(2x)} + \\frac{c\\omega}{2i \\sin(2x)} = \\frac{1}{2i \\sin(2x)} \\left( c\\omega - \\frac{b}{\\omega} \\right).\n$$\nNow we note that $p = \\frac{b}{\\omega}$ and $q = c\\omega$. Consequently, we obtain\n$$\n\\frac{q-p}{o-a} = 2i \\sin(2x),\n$$\nwhich is clearly a pure imaginary number; that is, $OA \\perp PQ$.\n\n\n**Fifth Solution:** (By Lan Le) In this solutions, we set $BC = a$, $AB = c$, $CA = b$, $A = \\angle BAC$, $B = \\angle ABC$, and $C = \\angle BCA$. We use the fact that\n$$\nOA \\perp PQ \\text{ if and only if } AP^2 - AQ^2 = OP^2 - OQ^2.\n$$\nClearly $AP^2 - AQ^2 = c^2 - b^2$. It remains to show that\n$$\nOP^2 - OQ^2 = c^2 - b^2. \\qquad (*)\n$$\nIn isosceles triangles APB and BOC, $BP = 2c \\sin x$ and $BO = \\frac{a}{2 \\sin(2x)}$. Note that $\\angle PBA + \\angle ABC + \\angle CBO = 90^\\circ - x + B + 90^\\circ - 2x = 180^\\circ + B - 3x$. Applying the **law of cosines** to triangle PBO yields\n$$\nOP^2 = 4c^2 \\sin^2 x + \\frac{a^2}{4 \\sin^2(2x)} + \\frac{ac \\cos(B - 3x)}{\\cos x}.\n$$\nIn exactly the same way, we can show that\n$$\nOQ^2 = 4b^2 \\sin^2 x + \\frac{a^2}{4 \\sin^2(2x)} + \\frac{ab \\cos(C - 3x)}{\\cos x}.\n$$\nHence\n$$\nOP^2 - OQ^2 = 4(c^2 - b^2) \\sin^2 x + \\frac{a}{\\cos x} (c \\cos(B - 3x) - b \\cos(C - 3x)). \\quad (\\dagger)\n$$\nUsing **Addition and Subtraction formulas** and the **law of sines** (more precisely, $c \\sin B = b \\sin C$), we have\n$$\n\\begin{aligned} & c \\cos(B - 3x) - b \\cos(C - 3x) \\\\ = & c \\cos(3x) \\cos B + c \\sin(3x) \\sin B - b \\cos(3x) \\cos C - b \\sin(3x) \\sin C \\\\ = & \\cos(3x)(c \\cos B - b \\cos C). \\end{aligned}\n$$\nSubstituting the last equation into $(\\dagger)$ gives\n$$\nOP^2 - OQ^2 = 4(c^2 - b^2) \\sin^2 x + \\frac{\\cos 3x}{\\cos x} (ac \\cos B - ab \\cos C).\n$$\nNote that\n$$\nac \\cos B - ab \\cos C = c(a \\cos B + b \\cos A) - b(a \\cos C + c \\cos A) = c^2 - b^2.\n$$\nCombining the last equations gives\n$$\nOP^2 - OQ^2 = (c^2 - b^2) \\left( 4 \\sin^2 x + \\frac{\\cos 3x}{\\cos x} \\right).\n$$\nBy the **Triple-angle formulas**, we have $\\cos 3x = 4 \\cos^3 x - 3 \\cos x$, and so\n$$\nOP^2 - OQ^2 = (c^2 - b^2)(4 \\sin^2 x + 4 \\cos^2 x - 3) = c^2 - b^2,\n$$\nwhich is $(*)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-analytic-coordinate-methods-complex-numbers-in-geometry-auto-1356",
+      "name": "USAMO #0ikc",
+      "url": "https://usamoguide.com/",
+      "source": "USAMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Spiral similarity",
+        "Complex numbers in geometry",
+        "Angle chasing",
+        "Cyclic quadrilaterals",
+        "Miquel point"
+      ],
+      "statement": "Let $ABCD$ be a quadrilateral, and let $E$ and $F$ be points on sides $AD$ and $BC$, respectively, such that $AE/ED = BF/FC$. Ray $FE$ meets rays $BA$ and $CD$ at $S$ and $T$, respectively. Prove that the circumcircles of triangles $SAE$, $SBF$, $TCF$, and $TDE$ pass through a common point.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Let $P$ be the second intersection of the circumcircles of triangles $TCF$ and $TDE$. Because the quadrilateral $PEDT$ is cyclic, $\\angle PET = \\angle PDT$, or\n$$\n\\angle PEF = \\angle PDC. \\quad (*)\n$$\nBecause the quadrilateral $PFCT$ is cyclic,\n$$\n\\angle PFE = \\angle PFT = \\angle PCT = \\angle PCD. \\quad (**)\n$$\nBy equations (*) and (**), it follows that triangle $PEF$ is similar to triangle $PDC$. Hence $\\angle FPE = \\angle CPD$ and $PF/PE = PC/PD$. Note also that $\\angle FPC = \\angle FPE + \\angle EPC = \\angle CPD + \\angle EPC = \\angle EPD$. Thus, triangle $EPD$ is similar to triangle $FPC$. Another way to say this is that there is a spiral similarity centered at $P$ that sends triangle $PFE$ to triangle $PCD$, which implies that there is also a spiral similarity, centered at $P$, that sends triangle $PFC$ to triangle $PED$, and vice versa. In terms of complex numbers, this amounts to saying that\n$$\n\\frac{D-P}{E-P} = \\frac{C-P}{F-P} \\implies \\frac{E-P}{F-P} = \\frac{D-P}{C-P}.\n$$\n![](attached_image_1.png)\nBecause $AE/ED = BF/FC$, points $A$ and $B$ are obtained by extending corresponding segments of two similar triangles $PED$ and $PFC$, namely, $DE$ and $CF$, by the identical proportion. We conclude that triangle $PDA$ is similar to triangle $PCB$, implying that triangle $PAE$ is similar to triangle $PBF$. Therefore, as shown before, we can establish the similarity between triangles $PBA$ and $PFE$, implying that\n$$\n\\angle PBS = \\angle PBA = \\angle PFE = \\angle PFS \\quad \\text{and} \\quad \\angle PAB = \\angle PEF.\n$$\n\nWe will give a solution using complex coordinates. The first step is the following lemma.\n\n**Lemma** Suppose $s$ and $t$ are real numbers and $x$, $y$ and $z$ are complex. The circle in the complex plane passing through $x$, $x + ty$ and $x + (s + t)z$ also passes through the point $x + syz/(y - z)$, independent of $t$.\n\n*Proof:* Four points $z_1, z_2, z_3$ and $z_4$ in the complex plane lie on a circle if and only if the cross-ratio\n$$\ncr(z_1, z_2, z_3, z_4) = \\frac{(z_1 - z_3)(z_2 - z_4)}{(z_1 - z_4)(z_2 - z_3)}\n$$\nis real. Since we compute\n$$\ncr(x, x + ty, x + (s + t)z, x + syz/(y - z)) = \\frac{s + t}{s}\n$$\nthe given points are on a circle.\n\nLay down complex coordinates with $S = 0$ and $E$ and $F$ on the positive real axis. Then there are real $r_1, r_2$ and $R$ with $B = r_1A$, $F = r_2E$ and $D = E + R(A - E)$ and hence $AE/ED = BF/FC$ gives\n$$\nC = F + R(B - F) = r_2(1 - R)E + r_1RA.\n$$\nThe line $CD$ consists of all points of the form $sC + (1-s)D$ for real $s$. Since $T$ lies on this line and has zero imaginary part, we see from $\\text{Im}(sC + (1-s)D) = (sr_1R + (1-s)R)\\text{Im}(A)$ that it corresponds to $s = -1/(r_1 - 1)$. Thus\n$$\nT = \\frac{r_1D - C}{r_1 - 1} = \\frac{(r_2 - r_1)(R - 1)E}{r_1 - 1}.\n$$\nApply the lemma with $x = E$, $y = A - E$, $z = (r_2 - r_1)E/(r_1 - 1)$, and $s = (r_2 - 1)(r_1 - r_2)$. Setting $t = 1$ gives\n$$\n(x, x + y, x + (s + 1)z) = (E, A, S = 0)\n$$\nand setting $t = R$ gives\n$$\n(x, x + Ry, x + (s + R)z) = (E, D, T).\n$$\nTherefore the circumcircles to $SAE$ and $TDE$ meet at\n$$\nx + \\frac{syz}{y - z} = \\frac{AE(r_1 - r_2)}{(1 - r_1)E - (1 - r_2)A} = \\frac{AF - BE}{A + F - B - E}.\n$$\nThis last expression is invariant under simultaneously interchanging $A$ and $B$ and interchanging $E$ and $F$. Therefore it is also the intersection of the circumcircles of $SBF$ and $TCF$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-analytic-coordinate-methods-complex-numbers-in-geometry-auto-1562",
+      "name": "USAMO #0iq2",
+      "url": "https://usamoguide.com/",
+      "source": "USAMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Triangle trigonometry",
+        "Cyclic quadrilaterals",
+        "Inversion",
+        "Spiral similarity",
+        "Homothety",
+        "Rotation",
+        "Complex numbers in geometry",
+        "Angle chasing"
+      ],
+      "statement": "Let $ABC$ be an acute, scalene triangle, and let $M$, $N$, and $P$ be the midpoints of $\\overline{BC}$, $\\overline{CA}$, and $\\overline{AB}$, respectively. Let the perpendicular bisectors of $\\overline{AB}$ and $\\overline{AC}$ intersect ray $AM$ in points $D$ and $E$ respectively, and let lines $BD$ and $CE$ intersect in point $F$, inside of triangle $ABC$. Prove that points $A$, $N$, $F$, and $P$ all lie on one circle.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Assume without loss of generality that $AB > AC$, and we consider the configuration shown below. Our proof can be modified for other configurations.\nLet $O$ be the circumcenter of triangle $ABC$. Point $D$ lies on $PO$, which is the perpendicular bisector of segment $AB$. Thus, $ABO$ is an isosceles triangle with $AD = BD$. Likewise, $AEC$ is isosceles with $AE = EC$. Set $x = \\angle ABD = \\angle BAD$ and $y = \\angle CAE = \\angle ACE$. (Hence $x + y = \\angle BAC$.)\nApplying the law of sines to triangles $ABM$ and $ACM$ gives\n$$\n\\frac{BM}{\\sin x} = \\frac{AB}{\\sin \\angle BMA} \\quad \\text{and} \\quad \\frac{CM}{\\sin y} = \\frac{AC}{\\sin \\angle CMA}.\n$$\nDividing the two equations yields\n$$\n\\frac{BM}{CM} \\cdot \\frac{\\sin y}{\\sin x} = \\frac{AB}{AC} \\cdot \\frac{\\sin \\angle BMA}{\\sin \\angle CMA} = \\frac{AC}{AB},\n$$\nsince $\\sin \\angle BMA = \\sin \\angle CMA$ (as they are supplementary angles). Therefore,\n$$\nBM = MC \\quad \\text{if and only if} \\quad \\frac{\\sin x}{\\sin y} = \\frac{AC}{AB}. \\qquad (*)\n$$\nApplying the law of sines to triangles $ABF$ and $ACF$ gives\n$$\n\\frac{AF}{\\sin x} = \\frac{AB}{\\sin \\angle AFB} \\quad \\text{and} \\quad \\frac{AF}{\\sin y} = \\frac{AC}{\\sin \\angle AFC}.\n$$\nDividing these two equations and noting (*) yields\n$$\n\\frac{\\sin y}{\\sin x} = \\frac{AB}{AC} \\cdot \\frac{\\sin \\angle AFB}{\\sin \\angle AFC} \\quad \\text{or} \\quad \\sin \\angle AFB = \\sin \\angle AFC.\n$$\nSince $\\angle ADF$ is an exterior angle of triangle $ABO$, $\\angle EDF = 2x$. Likewise, $\\angle DEF = 2y$. Thus $\\angle EFD = 180^\\circ - 2x - 2y = 180^\\circ - 2\\angle BAC$. Hence $\\angle BFC = 2\\angle BAC$ (and so $BOFC$ is cyclic), implying that $\\angle AFB + \\angle AFC = 360^\\circ - 2\\angle BAC > 180^\\circ$ (since $\\angle BAC < 90^\\circ$). We must have $\\angle AFB = \\angle AFC = 180^\\circ - \\angle BAC$. Since $BOFC$ is cyclic and $BOC$ is isosceles with vertex angle $BOC = 2\\angle BAC$, $\\angle OFB = \\angle OCB = 90^\\circ - \\angle BAC$. Therefore,\n$$\n\\angle AFO = \\angle AFB - \\angle OFB = 180^\\circ - \\angle BAC - (90^\\circ - \\angle BAC) = 90^\\circ.\n$$\nSince $\\angle APO = \\angle AFO = \\angle ANO = 90^\\circ$, points $A$, $P$, $O$, $F$, $N$ lie on a circle.\n\n\nSolution 2:\n\nWe maintain the notations in the first proof. Let $R$ denote the intersection of lines $MP$ and $CE$. Let $\\omega$ denote the circumcircle of $APON$. We claim that $R$ lies on $\\omega$. Note that $AEC$ is isosceles, so that $MER$ is also isosceles, and so $ARMC$ is an isosceles trapezoid, hence cyclic. Since $PN \\parallel MC$, $ARPN$ is also cyclic.\nAs in the above proof, we can show that $BFOC$ is cyclic. Then $\\angle RFO = \\angle OBC = 90^\\circ - \\angle A$. Moreover, $\\angle RAO = \\angle RAC - \\angle OAC = \\angle C - (90^\\circ - \\angle B) = 90^\\circ - \\angle A$. Thus $AROF$ is cyclic, so that $ARPOFN$ is cyclic.\n\n\nSolution 3:\n\nWe maintain the notations in the first proof. Assume without loss of generality that $AB > AC$, and we consider the configuration shown below. Our proof can be modified for other configurations.\nSince $\\angle OPB = \\angle OMB = \\angle OMC = \\angle ONC = 90^\\circ$, $BPOM$ and $CNOM$ are cyclic. Let ray $AM$ meet the circumcircles of $BPOM$ and $CNOM$ at $X$ and $Y$ (different from $M$), respectively. We have\n$$\n\\angle OXY = \\angle OXM = \\angle OBM = \\angle OBC = \\angle BCO = \\angle MCO = \\angle MYO = \\angle XYO;\n$$\nthat is, triangle $OXY$ is similar to triangle $OBC$. and the rotation centered at $O$ that takes one to the other. In particular, $\\angle XOY = \\angle BAC$. Note also that $APON$ is cyclic, implying that $\\angle NOD = \\angle PAN = \\angle BAC$. Hence, $\\angle XOY = 2\\angle NOD$. Combining the facts that $OX = OY$ and $\\angle XOY = 2\\angle NOD$, we conclude that the image of $X$ under the reflection through line $OD$ (denoted by $R_{OP}$) is the same as that of $Y$ under the reflection through line $ON$ (denoted by $R_{ON}$). Let $F_1$ denote this common image. Note that the image of line $AYE$ under $R_{ON}$ is line $CF_1E$, and the image of line $ADX$ under $R_{OP}$ is line $BDF_1$. Therefore, $F_1$ lies on lines $CE$ and $BD$; that is, $F_1 = F$.\nOn the other hand, since $X$ lies on the circumcircle of $MBPO$, $F = F_1$ must lie on its image under $R_{OP}$, which is the circumcircle of $NAPO$.\n\n\nSolution 4:\n\nInvert the figure about a circle centered at $A$, and let $I_X$ denote the image of the point $X$ under this inversion. Find point $G$ so that $AI_B I_G I_C$ is a parallelogram and let $I_Z$ denote the center of this parallelogram. Note that triangle $BAC$ is similar to triangle $I_C AI_B$ and triangles $BAD$ and $I_D AI_B$. Because $M$ is the midpoint of $AB$ and $I_Z$ is the midpoint of $I_B I_C$, we also have the similarity between the triangles $BAM$ and $I_C AI_Z$. Thus\n$$\n\\angle AI_G I_B = \\angle I_G AI_C = \\angle ZAI_C = \\angle MAB = \\angle DAB = \\angle DBA = \\angle AI_D I_B.\n$$\nHence quadrilateral $AI_BI_DI_G$ is cyclic and, by a similar argument, quadrilateral $AI_CI_EI_G$ is also cyclic. Because the images under the inversion of lines $BDF$ and $CFE$ are circles that intersect in $A$ and $I_F$, it follows that $I_G = I_F$; that is, $G = F$.\nNext note that $I_B, I_Z$, and $I_C$ are collinear and are the images of $I_P, I_F$ (or $I_G$), and $I_N$, respectively, under a homothety centered at $A$ and with ratio $1/2$. It follows that $I_P, I_F$ and $I_N$ are collinear, and then that the points $A, P, F$ and $N$ lie on a circle.\n\n\nSolution 5:\n\nLet $A$ be the origin and denote the complex number of each point by the corresponding lowercase letter. Note that $2n = c$ and $2p = b$. Define point $F_2$ such that\n$$\nf_2 = \\frac{2np}{m} = \\frac{cp}{m} = \\frac{bn}{m};\n$$\nthat is\n$$\n\\frac{f_2}{c} = \\frac{p}{m} \\quad \\text{and} \\quad \\frac{f_2}{b} = \\frac{n}{m}. \\qquad (**)\n$$\nThe first equation in $(**)$ implies that triangles $AF_2C$ and $APM$ are similar (and have the same orientation). Hence\n$$\n\\angle ACF_2 = \\angle AMP = \\angle MAC = \\angle EAC = \\angle ECA;\n$$\nthat is, $F_2$ lies on line $EC$. Similarly, the second equation in $(**)$ shows that $F_2$ lies on line $BD$. Thus, $F_2$ lies on both $BD$ and $CE$; that is, $F_2 = F$.\nWe have established the similarity between triangle $AFC$ (which is $AF_2C$) and triangle $APM$. Thus, triangle $ACM$ is similar to triangle $AFP$ (because of spiral similarities about $A$). Hence $\\angle AFP = \\angle ACM = \\angle ANP$, implying that $ANFP$ is cyclic."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-analytic-coordinate-methods-complex-numbers-in-geometry-auto-1760",
+      "name": "12th Annual Harvard-MIT Mathematics Tournament #0ivk",
+      "url": "https://usamoguide.com/",
+      "source": "12th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers in geometry",
+        "Trigonometry",
+        "Triangle trigonometry",
+        "Roots of unity"
+      ],
+      "statement": "Problem:\n\nThe roots of $z^{6}+z^{4}+z^{2}+1=0$ are the vertices of a convex polygon in the complex plane. Find the sum of the squares of the side lengths of the polygon.\n\nAnswer: $12-4 \\sqrt{2}$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFactoring the polynomial as $(z^{4}+1)(z^{2}+1)=0$, we find that the 6 roots are $e^{ \\pm i \\pi / 4}$, $e^{ \\pm i \\pi / 2}$, $e^{ \\pm i 3 \\pi / 4}$. The calculation then follows from the Law of Cosines or the distance formula."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-analytic-coordinate-methods-complex-numbers-in-geometry-auto-1917",
+      "name": "13th Annual Harvard-MIT Mathematics Tournament #0izx",
+      "url": "https://usamoguide.com/",
+      "source": "13th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Rotation",
+        "Translation",
+        "Complex numbers in geometry",
+        "Trigonometry",
+        "Constructions and loci"
+      ],
+      "statement": "Problem:\n\nAn ant starts at the origin, facing in the positive $x$-direction. Each second, it moves 1 unit forward, then turns counterclockwise by $\\sin^{-1}\\left(\\frac{3}{5}\\right)$ degrees. What is the least upper bound on the distance between the ant and the origin? (The least upper bound is the smallest real number $r$ that is at least as big as every distance that the ant ever is from the origin.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $\\sqrt{10}$\n\nWe claim that the points the ant visits lie on a circle of radius $\\frac{\\sqrt{10}}{2}$. We show this by saying that the ant stays a constant distance $\\frac{\\sqrt{10}}{2}$ from the point $\\left(\\frac{1}{2}, \\frac{3}{2}\\right)$.\n\nSuppose the ant moves on a plane $P$. Consider a transformation of the plane $P'$ such that after the first move, the ant is at the origin of $P'$ and facing in the direction of the $x'$ axis (on $P'$). The transformation to get from $P$ to $P'$ can be gotten by rotating $P$ about the origin counterclockwise through an angle $\\sin^{-1}\\left(\\frac{3}{5}\\right)$ and then translating it 1 unit to the right. Observe that the point $\\left(\\frac{1}{2}, \\frac{3}{2}\\right)$ is fixed under this transformation, which can be shown through the expression $\\left(\\frac{1}{2}+\\frac{3}{2} i\\right)\\left(\\frac{4}{5}+\\frac{3}{5} i\\right)+1=\\frac{1}{2}+\\frac{3}{2} i$. It follows that at every point the ant stops, it will always be the same distance from $\\left(\\frac{1}{2}, \\frac{3}{2}\\right)$. Since it starts at $(0,0)$, this fixed distance is $\\frac{\\sqrt{10}}{2}$.\n\n![](attached_image_1.png)\n\nSince $\\sin^{-1}\\left(\\frac{3}{5}\\right)$ is not a rational multiple of $\\pi$, the points the ant stops at form a dense subset of the circle in question. As a result, the least upper bound on the distance between the ant and the origin is the diameter of the circle, which is $\\sqrt{10}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-analytic-coordinate-methods-complex-numbers-in-geometry-auto-2134",
+      "name": "Harvard-MIT Mathematics Tournament #0j5y",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers",
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Complex numbers in geometry"
+      ],
+      "statement": "Problem:\n\nLet $a$, $b$, and $c$ be complex numbers such that $|a|=|b|=|c|=|a+b+c|=1$. If $|a-b|=|a-c|$ and $b \\neq c$, evaluate $|a+b||a+c|$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSince $|a|=1$, $a$ cannot be $0$. Let $u=\\frac{b}{a}$ and $v=\\frac{c}{a}$. Dividing the given equations by $|a|=1$ gives $|u|=|v|=|1+u+v|=1$ and $|1-u|=|1-v|$. The goal is to prove that $|1+u||1+v|=2$.\n\nBy squaring $|1-u|=|1-v|$, we get $(1-u) \\overline{(1-u)}=(1-v) \\overline{(1-v)}$, and thus $1-u-\\bar{u}+|u|^{2}=1-v-\\bar{v}+|v|^{2}$, or $u+\\bar{u}=v+\\bar{v}$. This implies $\\operatorname{Re}(u)=\\operatorname{Re}(v)$. Since $u$ and $v$ are on the unit circle in the complex plane, $u$ is equal to either $v$ or $\\bar{v}$. However, $b \\neq c$ implies $u \\neq v$, so $u=\\bar{v}$.\n\nTherefore, $1=|1+u+\\bar{u}|=|1+2 \\operatorname{Re}(u)|$. Since $\\operatorname{Re}(u)$ is real, we either have $\\operatorname{Re}(u)=0$ or $\\operatorname{Re}(u)=-1$. The first case gives $u= \\pm i$ and $|1+u||1+v|=|1+i||1-i|=2$, as desired. It remains only to note that $\\operatorname{Re}(u)=-1$ is in fact impossible because $u$ is of norm 1 and $u=-1$ would imply $u=\\bar{u}=v$.\n\nSolution:\n\nLet $a$, $b$, and $c$ be the vertices of a triangle inscribed in the unit circle in the complex plane. Since the complex coordinate of the circumcenter is $0$ and the complex coordinate of the centroid is $\\frac{a+b+c}{3}$, it follows from well-known facts about the Euler line that the complex coordinate of the orthocenter is $a+b+c$. Hence the orthocenter lies on the unit circle as well. It is not possible for the orthocenter to be among the three vertices of the triangle, for, if it were, two opposite angles of the convex cyclic quadrilateral formed by the three vertices and the orthocenter would each measure greater than $90$ degrees. It follows that the triangle is right. However, since $|a-b|=|a-c|$, the right angle cannot occur at $b$ or $c$, so it must occur at $a$, and the desired conclusion follows immediately."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-analytic-coordinate-methods-complex-numbers-in-geometry-auto-2296",
+      "name": "15th Annual Harvard-MIT Mathematics Tournament #0jag",
+      "url": "https://usamoguide.com/",
+      "source": "15th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers in geometry",
+        "Inversion",
+        "Sums and products"
+      ],
+      "statement": "Problem:\n\nAlice is sitting in a teacup ride with infinitely many layers of spinning disks. The largest disk has radius $5$. Each succeeding disk has its center attached to a point on the circumference of the previous disk and has a radius equal to $2/3$ of the previous disk. Each disk spins around its center (relative to the disk it is attached to) at a rate of $\\pi/6$ radians per second. Initially, at $t=0$, the centers of the disks are aligned on a single line, going outward. Alice is sitting at the limit point of all these disks. After $12$ seconds, what is the length of the trajectory that Alice has traced out?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $18\\pi$\n\nSuppose the center of the largest teacup is at the origin in the complex plane, and let $z = \\frac{2}{3} e^{\\pi i t / 6}$. The center of the second disk is at $5 e^{\\pi i t / 6}$ at time $t$; that is, $\\frac{15}{2} z$. Then the center of the third disk relative to the center of the second disk is at $\\frac{15}{2} z^{2}$, and so on. Summing up a geometric series, we get that Alice's position is\n$$\n\\begin{aligned}\n\\frac{15}{2}\\left(z+z^{2}+z^{3}+\\cdots\\right) & = \\frac{15}{2}\\left(\\frac{z}{1-z}\\right) \\\\\n\\end{aligned}\n$$\nSo Alice's position is $\\frac{15}{2} \\cdot \\frac{z}{1-z}$.\n\nNow, after $12$ seconds, $z$ has made a full circle in the complex plane centered at $0$ and of radius $2/3$. Thus $1-z$ is a circle centered at $1$ of radius $2/3$.\n\nSo $1-z$ traces a circle, and now we need to find the path that $\\frac{1}{1-z}$ traces. In the complex plane, taking the reciprocal corresponds to a reflection about the real axis followed by a geometric inversion about the unit circle centered at $0$. It is well known that geometric inversion maps circles not passing through the center of the inversion to circles.\n\nNow, the circle traced by $1-z$ contains the points $1-2/3=1/3$, and $1+2/3=5/3$. Therefore the circle $\\frac{1}{1-z}$ contains the points $3$ and $3/5$, with the center lying halfway between. So the radius of the circle is\n$$\n\\frac{1}{2}\\left(3-\\frac{3}{5}\\right) = \\frac{6}{5}\n$$\nand so the perimeter is $2\\pi (6/5) = 12\\pi/5$. Scaling by $15/2$ gives an answer of\n$$\n\\frac{15}{2}\\left(\\frac{12\\pi}{5}\\right) = 18\\pi\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-analytic-coordinate-methods-complex-numbers-in-geometry-auto-2327",
+      "name": "Harvard-MIT Mathematics Tournament #0jbb",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers in geometry",
+        "Trigonometry",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\n\nDuring the weekends, Eli delivers milk in the complex plane. On Saturday, he begins at $z$ and delivers milk to houses located at $z^{3}, z^{5}, z^{7}, \\ldots, z^{2013}$, in that order; on Sunday, he begins at $1$ and delivers milk to houses located at $z^{2}, z^{4}, z^{6}, \\ldots, z^{2012}$, in that order. Eli always walks directly (in a straight line) between two houses. If the distance he must travel from his starting point to the last house is $\\sqrt{2012}$ on both days, find the real part of $z^{2}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $\\frac{1005}{1006}$\n\nNote that the distance between two points in the complex plane, $m$ and $n$, is $|m-n|$. We have that\n$$\n\\sum_{k=1}^{1006}\\left|z^{2 k+1}-z^{2 k-1}\\right|=\\sum_{k=1}^{1006}\\left|z^{2 k}-z^{2 k-2}\\right|=\\sqrt{2012}\n$$\nHowever, noting that\n$$\n|z| \\cdot \\sum_{k=1}^{1006}\\left|z^{2 k}-z^{2 k-2}\\right|=\\sum_{k=1}^{1006}\\left|z^{2 k+1}-z^{2 k-1}\\right|\n$$\nwe must have $|z|=1$. Then, since Eli travels a distance of $\\sqrt{2012}$ on each day, we have\n$$\n\\begin{aligned}\n\\sum_{k=1}^{1006}\\left|z^{2 k}-z^{2 k-2}\\right|= & \\left|z^{2}-1\\right| \\cdot \\sum_{k=1}^{1006}\\left|z^{2 k-2}\\right|=\\left|z^{2}-1\\right| \\cdot \\sum_{k=1}^{1006}|z|^{2 k-2} \\\\\n& =1006\\left|z^{2}-1\\right|=\\sqrt{2012}\n\\end{aligned}\n$$\nso $\\left|z^{2}-1\\right|=\\frac{\\sqrt{2012}}{1006}$. Since $|z|=1$, we can write $z=\\cos (\\theta)+i \\sin (\\theta)$ and then $z^{2}=\\cos (2 \\theta)+i \\sin (2 \\theta)$. Hence,\n$$\n\\left|z^{2}-1\\right|=\\sqrt{(\\cos (2 \\theta)-1)^{2}+\\sin ^{2}(2 \\theta)}=\\sqrt{2-2 \\cos (2 \\theta)}=\\frac{\\sqrt{2012}}{1006}\n$$\nso $2-2 \\cos (2 \\theta)=\\frac{2}{1006}$. The real part of $z^{2}, \\cos (2 \\theta)$, is thus $\\frac{1005}{1006}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-analytic-coordinate-methods-complex-numbers-in-geometry-auto-2329",
+      "name": "USAMO #0jbd",
+      "url": "https://usamoguide.com/",
+      "source": "USAMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Menelaus' theorem",
+        "Complex numbers in geometry",
+        "Triangle trigonometry",
+        "Angle chasing"
+      ],
+      "statement": "Let $P$ be a point in the plane of $ABC$, and $\\gamma$ a line passing through $P$. Let $A'$, $B'$, $C'$ be the points where the reflections of lines $PA$, $PB$, $PC$ with respect to $\\gamma$ intersect lines $BC$, $AC$, $AB$, respectively. Prove that $A'$, $B'$, $C'$ are collinear.\n\n![](attached_image_1.png)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "There are several possible configurations depending on the location of $P$ and the orientation of $\\gamma$. We will consider the configuration above but will use directed lengths and angles so our arguments apply to all diagram configurations. By the law of sines on triangles $A_1PB$ and $A_1CP$, we have\n$$\nBP \\cdot \\frac{\\sin \\angle A_1 PB}{BA_1} = \\sin \\angle BA_1 P = \\sin \\angle PA_1 C = CP \\cdot \\frac{\\sin \\angle CPA_1}{CA_1}.\n$$\nRearranging and considering the two other analogous equalities yields\n$$\n\\frac{BA_1}{A_1C} = -\\frac{BP \\sin \\angle A_1 PB}{CP \\sin \\angle CPA_1}, \\quad \\frac{CB_1}{B_1A} = -\\frac{AP \\sin \\angle C_1 PA}{BP \\sin \\angle BPC_1}, \\quad \\text{and} \\quad \\frac{AC_1}{C_1B} = -\\frac{CP \\sin \\angle B_1 PC}{AP \\sin \\angle APB_1}. \\quad (10)\n$$\nNow, observe that $\\angle CPA_1$ and $\\angle C_1PA$ are angles between lines which are reflections of each other, meaning that they are either equal or supplementary. In either case, applying analogous arguments, we obtain\n$$\n\\sin \\angle C_1 PA = \\sin \\angle CPA_1, \\quad \\sin \\angle A_1 PB = \\sin \\angle APB_1, \\quad \\text{and} \\quad \\sin \\angle B_1 PC = \\sin \\angle BPC_1.\n$$\nHence, we may multiply the ratios in (10) to obtain\n$$\n\\frac{BA_1}{A_1C} \\cdot \\frac{CB_1}{B_1A} \\cdot \\frac{AC_1}{C_1B} = -1,\n$$\nshowing that $A_1$, $B_1$, and $C_1$ are collinear by Menelaus' theorem.\n\nPut the points on the complex plane and denote the complex number representing a point by the corresponding lowercase letter. Place $P$ at the origin and let $\\gamma$ be the real line, so that reflection about $\\gamma$ is given by complex conjugation. Now, because $A_1$ lies on $BC$, we have\n$$\n\\frac{a_1 - b}{b - c} = \\frac{\\bar{a}_1 - \\bar{b}}{\\bar{b} - \\bar{c}},\n$$\nwhile the fact that it lies on the reflection of $AP$ implies that it is proportional to $\\bar{a}$, meaning that $\\frac{a_1}{\\bar{a}} = \\frac{\\bar{a}_1}{\\bar{a}}$. Substituting into the previous equation and solving for $a_1$ yields\n$$\na_1 = \\frac{\\bar{a}\\bar{b}c - \\bar{b}\\bar{c}a}{\\bar{a}(\\bar{b}\\bar{c} - \\bar{c}) - a(b - c)}.\n$$\nNow, because $A_1$ lies on $BC$, we may compute\n$$\n\\frac{BA_1}{A_1C} = \\frac{b - a_1}{a_1 - c} = \\frac{\\bar{a}b(\\bar{b} - \\bar{c}) - ab(b - c) - \\bar{a}(\\bar{b}c - \\bar{c}b)}{\\bar{a}(\\bar{b}c - \\bar{c}b) - \\bar{a}c(\\bar{b} - \\bar{c}) + ac(b - c)} = \\frac{(\\bar{a}\\bar{b} - ab)(b - c)}{(\\bar{a}c - ac)(c - b)}.\n$$\nMultiplying this with the analogous expressions for $\\frac{CB_1}{B_1A}$ and $\\frac{AC_1}{C_1B}$, we obtain\n$$\n\\frac{BA_1}{A_1C} \\cdot \\frac{CB_1}{B_1A} \\cdot \\frac{AC_1}{C_1B} = -1,\n$$\nagain yielding the conclusion by Menelaus' theorem."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-analytic-coordinate-methods-complex-numbers-in-geometry-auto-2488",
+      "name": "HMMT 2013 #0jfs",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2013",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers in geometry",
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle"
+      ],
+      "statement": "Problem:\n\nLet $ABCD$ be a quadrilateral inscribed in a unit circle with center $O$. Suppose that $\\angle AOB = \\angle COD = 135^{\\circ}$, $BC = 1$. Let $B'$ and $C'$ be the reflections of $A$ across $BO$ and $CO$ respectively. Let $H_1$ and $H_2$ be the orthocenters of $AB'C'$ and $BCD$, respectively. If $M$ is the midpoint of $OH_1$, and $O'$ is the reflection of $O$ about the midpoint of $MH_2$, compute $OO'$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $B$ have coordinate $b$ and $C$ have coordinate $c$. We obtain easily that $B'$ is $b^2$, $C'$ is $c^2$, and $D$ is $bc$. Therefore, $H_1$ is $1 + b^2 + c^2$ and $H_2$ is $b + c + bc$ (we have used the fact that for triangles on the unit circle, their orthocenter is the sum of the vertices).\n\nFinally, we have that $M$ is $\\frac{1}{2}(1 + b^2 + c^2)$, so the reflection of $O$ about the midpoint of $MH_2$ is $\\frac{1}{2}(1 + b^2 + c^2 + 2b + 2c + 2bc) = \\frac{1}{2}(b + c + 1)^2$, so we just seek $\\frac{1}{2}|b + c + 1|^2$.\n\nBut we know that $b = \\operatorname{cis} 135^{\\circ}$ and $c = \\operatorname{cis} 195^{\\circ}$, so we obtain that this value is $\\frac{1}{4}(8 - \\sqrt{6} - 3\\sqrt{2})$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-analytic-coordinate-methods-complex-numbers-in-geometry-auto-2524",
+      "name": "Berkeley Math Circle #0jgs",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers in geometry",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\n\na. Prove that there are $2012$ points on the unit circle such that the distance between any two of them is rational.\n\nb. Does there exist an infinite set of points on the unit circle such that the distance between any two of them is rational?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe answer to part (b) is yes.\nFor brevity, we use the notation of complex numbers. For any integers $x$ and $y$, not both zero, let $z = x + y i$ and\n$$\nP(z) = \\frac{z^{2}}{\\bar{z}^{2}}\n$$\nClearly, $|P(z)| = 1$ so $P(z)$ is a point on the unit circle. We claim that for any $z_{1} = x_{1} + y_{1}$ and $z_{2} = x_{2} + y_{2}$, the distance between $P(z_{1})$ and $P(z_{2})$ is rational. We compute:\n$$\n\\begin{aligned}\n\\left|P(z_{1}) - P(z_{2})\\right|^{2} & = \\left(P(z_{1}) - P(z_{2})\\right)\\left(\\overline{P(z_{1})} - \\overline{P(z_{2})}\\right) \\\\\n& = \\left(\\frac{z_{1}^{2}}{\\bar{z}_{1}^{2}} - \\frac{z_{2}^{2}}{\\bar{z}_{2}^{2}}\\right)\\left(\\frac{\\bar{z}_{1}^{2}}{z_{1}^{2}} - \\frac{\\bar{z}_{2}^{2}}{z_{2}^{2}}\\right) \\\\\n& = -\\frac{z_{1}^{2} \\bar{z}_{2}^{2}}{\\bar{z}_{1}^{2} z_{2}^{2}} + 2 - \\frac{\\bar{z}_{1}^{2} z_{2}^{2}}{z_{1}^{2} \\bar{z}_{2}^{2}} \\\\\n& = -\\left(\\frac{z_{1} \\bar{z}_{2}}{\\bar{z}_{1} z_{2}} - \\frac{\\bar{z}_{1} z_{2}}{z_{1} \\bar{z}_{2}}\\right)^{2}\n\\end{aligned}\n$$\nThe expression in parentheses is purely imaginary (being the difference of a complex number and its conjugate). Its imaginary part is rational since the components of $z_{1}$ and $z_{2}$ are rational. We conclude that $\\left|P(z_{1}) - P(z_{2})\\right|$ is rational.\nTo finish the proof, it suffices to show that $P(z)$ takes on infinitely many values. It is not hard to check that the choices $z = 1 + i, 1 + 2i, 1 + 3i, \\ldots$ all give distinct values of $P(z)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-analytic-coordinate-methods-complex-numbers-in-geometry-auto-2589",
+      "name": "IMO Team Selection Team Selection Test #0jil",
+      "url": "https://usamoguide.com/",
+      "source": "IMO Team Selection Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Simson line",
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Homothety",
+        "Rotation",
+        "Cyclic quadrilaterals",
+        "Complex numbers in geometry",
+        "Angle chasing"
+      ],
+      "statement": "Let $ABC$ be a triangle and $D, E, F$ be the midpoints of arcs $BC, CA, AB$ on the circumcircle. Line $l_a$ passes through the feet of the perpendiculars from $A$ to $DB$ and $DC$. Line $m_a$ passes through the feet of the perpendiculars from $D$ to $AB$ and $AC$. Let $A_1$ denote the intersection of lines $l_a$ and $m_a$. Define points $B_1$ and $C_1$ similarly. Prove that triangles $DEF$ and $A_1B_1C_1$ are similar to each other.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "We prove the following stronger statement: $A_1, B_1, C_1$ are midpoints of segments $HD, DE, HF$, respectively, where $H$ is the orthocenter of triangle $ABC$. Therefore, there is a dilation centered at $H$ with magnitude 2 sending triangle $A_1B_1C_1$ to $DEF$. (For readers familiar with the nine-point circle of a triangle, this stronger statement shows that $A_1, B_1, C_1$ lie on the nine-point circle of triangle $ABC$. Furthermore, the statement remains true if $D, E, F$ are arbitrarily chosen points on arcs $\\widehat{BC}, \\widehat{CA}, \\widehat{AB}$. We leave it to the reader to show this more general result.)\n\nWe give two solutions; in each, let $X$ and $Y$ denote the feet of the perpendiculars from $D$ to lines $AB$ and $AC$ respectively. Let $P$ and $Q$ denote the feet of the perpendiculars from $A$ to lines $DB$ and $DC$ respectively. Then $A_1$ is the intersection of line $XY$ (or $m_a$) and line $PQ$ (or $l_a$). Let $H_a$ be the foot of the perpendicular from $A$ to line $BC$. Let $M$ be the midpoint of side $BC$. Extend segment $AH_a$ to meet the circumcircle of triangle $ABC$ at $G_a$. We also set $B = \\angle ABC, C = \\angle BCA$, and $A = \\angle CAB$.\n\n**Solution 1.**\n\nWe consider the left-hand side configuration shown below. (Our proof can be easily modified for other configurations.) Let $H$ denote the intersection of lines $DA_1$ and $AH_a$. By symmetry, it suffices to show that $A_1$ is the midpoint of segment $DH$ and $H$ is the orthocenter of triangle $ABC$.\n\nNote that points $X, Y, M$ are collinear – they lie on the Simson line from $D$ with respect to triangle $ABC$. Indeed, because $\\angle BXD = \\angle BMD = 90^\\circ$, $BXMD$ is cyclic, implying that\n$$\n\\angle XMB = \\angle XDB = 90^\\circ - \\angle XBD = 90^\\circ - \\angle ABD = 90^\\circ - \\left(B + \\frac{A}{2}\\right) = \\frac{C-B}{2}. \\quad (16)\n$$\nBecause $\\angle DMC = \\angle DYC = 90^\\circ$, $BMCY$ is cyclic, implying that\n$$\n\\angle CMY = \\angle CDY = 90^\\circ - \\angle DCY = 90^\\circ - \\angle ABD = \\frac{C-B}{2}, \\quad (17)\n$$\nwhere the third equality holds because $ABDC$ is cyclic. By (16) and (17), we know that $\\angle XMB = \\angle CMY$; that is, $X, M, Y$ are collinear. In exactly the same way, we know that $P, H_a, Q$ are collinear (on the Simson line from $A$ with respect to triangle $BCD$) by establishing\n$$\n\\angle BH_a P = \\angle QH_a C = \\frac{C - B}{2} \\quad (18)\n$$\nFurthermore, by (17) and (18), we conclude that $MA_1H_a$ is an isosceles triangle with $MA_1 = A_1H_a$. Let $N$ denote the intersection of lines $MD$ and $PA$. Then in right triangle $MNH_1$, we must have $MA_1 = NA_1 = A_1H_a$. Thus triangles $DNA_1$ and $HA_1H_a$ are congruent to each other (by SAS, since $DM \\parallel HH_a$ and $NA_1 = A_1H_a$). In particular, $A_1$ is the midpoint of $AH$.\n\nThat is, $A_1H_a \\parallel DG_a$. Because $A_1$ is the midpoint of side $DH$ of triangle $DHG_a$ and $A_1H_a \\parallel DG_a$, $H_a$ must be the midpoint of segment $HG_a$. Consequently, line $BH$ is the reflection of line $BG_a$ across line $BC$, from which it follows that\n$$\n\\angle HBC = \\angle G_a BC = \\frac{\\widehat{G_aC}}{2} = \\angle G_a AC = \\angle H_a AC = 90^\\circ - C.\n$$\nTherefore, $\\angle HBC + C = 90^\\circ$ or $BH \\perp CA$; that is, $H$ is the orthocenter of triangle $ABC$ (as $AH \\perp BC$).\n\n![](attached_image_1.png)\n\n**Solution 2**\n\n(based on work by Thomas Swayze). Our goal will be to prove that $A_1$ is the midpoint of $HD$, where $H$ is the orthocenter of triangle $ABC$, from which the result follows immediately. Let $M$ be the midpoint of $HD$. Set up a system of complex numbers (equivalently, vectors) having the circumcircle of triangle $ABC$ as the unit circle. Then, if $A, B, C, D$ have coordinates $a, b, c, d$, then $H$ has coordinate $a+b+c$ and thus $M$ has coordinate $\\frac{a+b+c+d}{2}$. The symmetry of this expression in $a, b, c$, and $d$ implies that $M$ is also the midpoint of $AH_A, BH_B$, and $CH_C$, where $H_A, H_B$, and $H_C$ are the respective orthocenters of triangles $BCD, CDA$, and $DAB$. We now disregard the condition that $D$ is the midpoint of arc $BC$ and complete the problem using two symmetric applications of the following lemma.\n\n**Lemma 1.**\n\nLet $ABDC$ be a cyclic quadrilateral and $M$ the common midpoint of $AH_A, BH_B, CH_C$, and $DH_D$, where $H_A, H_B, H_C$, and $H_D$ are the respective orthocenters of triangles $BCD, CDA, DAB$, and $ABC$. Then the Simson line of $A$ with respect to triangle $BCD$ passes through $M$.\n\n*Proof.* By definition, the Simson line passes through the feet $P, Q, X$ of the perpendiculars from $A$ to $BD, DC$, and $CB$. But $AH_C DH_B$ is also a cyclic quadrilateral since $\\angle AH_C D = 180^\\circ - \\angle ABD = \\angle ACD = 180^\\circ - \\angle AH_B D$, and the Simson line of $D$ with respect to triangle $H_B AH_C$ also passes through $P$ and $Q$ as well as the foot $Y$ of the perpendicular from $D$ to $H_B H_C$. We conclude by noting that $X$ and $Y$ are the feet of corresponding altitudes of triangles $ABC$ and $H_A H_B H_C$, which are congruent through a half-turn about $M$; hence $M$ is the midpoint of $XY$ and thus lies on line $PQ$. $\\square$\n\nBy the lemma, $M$ lies on both of the Simson lines $l_a, m_a$ of the problem and thus coincides with $A_1$. Applying this result to the three sides of $\\triangle ABC$ yields that triangles $A_1B_1C_1$ and $DEF$ are homothetic with ratio 2 about $H$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-analytic-coordinate-methods-complex-numbers-in-geometry-auto-2694",
+      "name": "HMMT 2014 #0jli",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2014",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers",
+        "Complex numbers in geometry",
+        "Constructions and loci"
+      ],
+      "statement": "Problem:\n\nProve that there exists a nonzero complex number $c$ and a real number $d$ such that\n\n$$\n\\left|\\left|\\frac{1}{1+z+z^{2}}\\right|-\\left|\\frac{1}{1+z+z^{2}}-c\\right| \\right|=d\n$$\n\nfor all $z$ with $|z|=1$ and $1+z+z^{2} \\neq 0$. (Here, $|z|$ denotes the absolute value of the complex number $z$, so that $|a+b i|=\\sqrt{a^{2}+b^{2}}$ for real numbers $a, b$.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $f(z) = \\left|\\frac{1}{1+z+z^{2}}\\right|$. Parametrize $z = e^{i t} = \\cos t + i \\sin t$ and let $g(t) = f\\left(e^{i t}\\right)$, $0 \\leq t < 2\\pi$. Writing out $\\frac{1}{1+z+z^{2}}$ in terms of $t$ and simplifying, we find that $g(t) = \\frac{\\cos t - i \\sin t}{1 + 2 \\cos t}$. Letting $x(t) = \\Re(g(t))$ and $y(t) = \\Im(g(t))$ (the real and imaginary parts of $g(t)$, respectively), what we wish to prove is equivalent to showing that $\\{(x(t), y(t)) \\mid 0 \\leq t < 2\\pi\\}$ is a hyperbola with one focus at $(0,0)$.\n\nHowever\n\n$$\n9\\left(x(t)-\\frac{2}{3}\\right)^{2}-3 y(t)^{2}=1\n$$\n\nholds for all $t$, so from this equation we find that the locus of points $(x(t), y(t))$ is a hyperbola, with center $\\left(\\frac{2}{3}, 0\\right)$ and focal length $\\frac{2}{3}$, so the foci are at $(0,0)$ and $\\left(\\frac{4}{3}, 0\\right)$. Hence $c = \\frac{4}{3}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-analytic-coordinate-methods-complex-numbers-in-geometry-auto-2744",
+      "name": "IMO Team Selection Team Selection Test #0jmw",
+      "url": "https://usamoguide.com/",
+      "source": "IMO Team Selection Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Rotation",
+        "Complex numbers in geometry",
+        "Polynomials",
+        "Polynomials mod p"
+      ],
+      "statement": "Let $r$ be a rational number in the interval $[-1, 1]$, and let $\\theta = \\cos^{-1} r$. Call a subset $S$ of the plane good if $S$ is unchanged upon rotation by $\\theta$ around any point of $S$ (in both clockwise and counterclockwise directions). Determine all values of $r$ satisfying the following property: The midpoint of any two points in a good set also lies in the set.\n\n(This problem was suggested by Ricky Liu.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "We claim the answer is $r = 1 - \\frac{1}{4k}$ for all positive integers $k$.\n\nSuppose $A$ and $B$ are points in $S$. Place $A$ and $B$ on the complex plane such that $A = 0$ and $B = 1$, and let $\\omega = \\cos\\theta + i\\sin\\theta = r + i\\sqrt{1-r^2}$. We claim that any good set containing $A$ and $B$ contains the good set $T$ of numbers of the form $f(\\omega)$, where $f(x)$ is a Laurent polynomial—that is, $x^n f(x)$ is a polynomial for some (possibly negative) integer $n$—with integer coefficients, and $f(1) = 0$ or $1$.\n\nWe first show that $T$ is good. Indeed, for any $p \\in T$, the rotation $R_p$ about $p$ by $\\theta$ sends $z \\mapsto R_p(z) = (z-p)\\omega + p$. If $p = f(\\omega)$ and $z = g(\\omega) \\in T$, then $h(x) = (g(x)-f(x)) \\cdot x + f(x)$ satisfies $R_p(z) = h(\\omega)$ and $h(1) = g(1) = 0$ or $1$, so $R_p(z) \\in T$. Similarly, $R_p^{-1}(z) = (z-p) \\cdot \\omega^{-1} + p \\in T$, so $T$ is good.\n\nNext we show that any good set $S$ containing $0$ and $1$ contains all of $T$. Let $f(x)$ be any Laurent polynomial with integer coefficients with $f(1) = 0$ or $1$. We will show that $f(\\omega) \\in S$. We induct on the sum $s$ of the absolute value of the coefficients of $f(x)$. The case $s=0$ is trivial. For $s=1$, $f(\\omega)$ must be a power of $\\omega$, which is of the form $R_0^k(1) \\in S$. For $s \\ge 2$, $f(x)$ must have at least one positive and one negative coefficient, so write $f(x) = x^a - x^b + g(x)$, where the sum of the absolute values of the coefficients of $g(x)$ is $s-2$. Since $g(1) = f(1)$, $g(\\omega) \\in S$ by induction. Then\n$$\nx^{-a}f(x) = (x^{-b}g(x) - 1) \\cdot x^{b-a} + 1,\n$$\nso $f(\\omega) = R_0^a \\circ R_1^{b-a} \\circ R_0^{-b}(g(\\omega)) \\in S$, completing the induction.\n\nIt follows that $r$ satisfies the desired condition if and only if we can write $\\frac{1}{2} = f(\\omega) \\in T$. Then there is a polynomial $g(x) = x^n(2f(x)-1)$, all but one of whose coefficients are even, that has $\\omega$ as a root. If $r = \\pm 1$, so $\\omega = \\pm 1$, this is clearly impossible. Otherwise, let $r = \\frac{a}{b}$ with $a$ and $b$ relatively prime. Then the minimal polynomial $p(x)$ of $\\omega$ over the integers is $bx^2 - 2ax + b$ if $b$ is odd and $\\frac{b}{2}x^2 - ax + \\frac{b}{2}$ if $b$ is even. This minimal polynomial must divide $g(x)$. But since $g(x)$ is congruent to a power of $x$ modulo 2, $p(x)$ must also be congruent to a power of $x$ modulo 2. The only possibility is for $b$ to be a multiple of 4 (and $a$ to be odd).\n\nFinally, since $g(1) = 2f(1) - 1 = \\pm 1$ and $p(1) | g(1)$, we must have that $p(1) = \\pm 1$ as well. Since $p(1) = \\frac{b}{2} - a + \\frac{b}{2} = b - a$, we must have $b = a \\pm 1$. Since $|r| \\le 1$, $|a| \\le |b|$. We find then that the only possibilities are $r = 1 - \\frac{1}{4k}$, where we can let $a = 4k-1$ and $b = 4k$, so $p(1) = 1$. Then letting $f(x) = \\frac{1}{2}(x^{-1}p(x) + 1) = kx - (2k-1) + kx^{-1}$, we find that $f(1) = 1$, so $\\frac{1}{2} = f(\\omega) \\in T$, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-analytic-coordinate-methods-complex-numbers-in-geometry-auto-2926",
+      "name": "HMMT February 2016 #0jry",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2016",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers in geometry",
+        "Triangle trigonometry"
+      ],
+      "statement": "Problem:\n\nLet $z$ be a complex number such that $|z|=1$ and $|z-1.45|=1.05$. Compute the real part of $z$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFrom the problem, let $A$ denote the point $z$ on the unit circle, $B$ denote the point $1.45$ on the real axis, and $O$ the origin. Let $A H$ be the height of the triangle $O A H$ and $H$ lies on the segment $O B$. The real part of $z$ is $O H$. Now we have $O A = 1$, $O B = 1.45$, and $A B = 1.05$. Thus\n$$\nO H = O A \\cos \\angle A O B = \\cos \\angle A O B = \\frac{1^2 + 1.45^2 - 1.05^2}{2 \\cdot 1 \\cdot 1.45} = \\frac{20}{29}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-analytic-coordinate-methods-complex-numbers-in-geometry-auto-2994",
+      "name": "HMMT February 2016 #0jtu",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2016",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Cyclic quadrilaterals",
+        "Radical axis theorem",
+        "Tangents",
+        "Complex numbers in geometry",
+        "Trigonometry",
+        "Triangle trigonometry",
+        "Angle chasing"
+      ],
+      "statement": "Problem:\n\nLet $ABC$ be an acute triangle with incenter $I$ and circumcenter $O$. Assume that $\\angle OIA = 90^\\circ$. Given that $AI = 97$ and $BC = 144$, compute the area of $\\triangle ABC$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe present five different solutions and outline a sixth and seventh one. In what follows, let $a = BC$, $b = CA$, $c = AB$ as usual, and denote by $r$ and $R$ the inradius and circumradius. Let $s = \\frac{1}{2}(a + b + c)$. In the first five solutions we will only prove that\n$$\n\\angle AIO = 90^\\circ \\Longrightarrow b + c = 2a\n$$\nLet us see how this solves the problem. This lemma implies that $s = 216$. If we let $E$ be the foot of $I$ on $AB$, then $AE = s - BC = 72$, consequently the inradius is $r = \\sqrt{97^2 - 72^2} = 65$. Finally, the area is $sr = 216 \\cdot 65 = 14040$.\n\nFirst Solution.\nSince $OI \\perp DA$, $AI = DI$. Now, it is a well-known fact that $DI = DB = DC$ (this is occasionally called \"Fact 5\"). Then by Ptolemy's Theorem,\n$$\nDB \\cdot AC + DC \\cdot AB = DA \\cdot BC \\Longrightarrow AC + AB = 2BC\n$$\n\nSecond Solution.\nAs before note that $I$ is the midpoint of $AD$. Let $M$ and $N$ be the midpoints of $AB$ and $AC$, and let the reflection of $M$ across $BI$ be $P$; thus $BM = BP$. Also, $MI = PI$, but we know $MI = NI$ as $I$ lies on the circumcircle of triangle $AMN$. Consequently, we get $PI = NI$; moreover by angle chasing we have\n$$\n\\angle INC = \\angle AMI = 180^\\circ - \\angle BPI = \\angle IPC\n$$\nThus triangles $INC$ and $PIC$ are congruent ($CI$ is a bisector) so we deduce $PC = NC$. Thus,\n$$\nBC = BP + PC = BM + CN = \\frac{1}{2}(AB + AC)\n$$\n\nThird Solution.\nWe appeal to Euler's Theorem, which states that $IO^2 = R(R - 2r)$.\nThus by the Pythagorean Theorem on $\\triangle AIO$ (or by Power of a Point) we may write\n$$\n(s - a)^2 + r^2 = AI^2 = R^2 - IO^2 = 2Rr = \\frac{abc}{2s}\n$$\nwith the same notations as before. Thus, we derive that\n$$\n\\begin{aligned}\nabc & = 2s\\left((s - a)^2 + r^2\\right) \\\\\n& = 2(s - a)(s(s - a) + (s - b)(s - c)) \\\\\n& = \\frac{1}{2}(s - a)\\left((b + c)^2 - a^2 + a^2 - (b - c)^2\\right) \\\\\n& = 2bc(s - a)\n\\end{aligned}\n$$\nFrom this we deduce that $2a = b + c$, and we can proceed as in the previous solution.\n\nFourth Solution.\nFrom Fact 5 again ($DB = DI = DC$), drop perpendicular from $I$ to $AB$ at $E$; call $M$ the midpoint of $BC$. Then, by $AAS$ congruency on $AIE$ and $CDM$, we immediately get that $CM = AE$. As $AE = \\frac{1}{2}(AB + AC - BC)$, this gives the desired conclusion.\n\nFifth Solution.\nThis solution avoids angle-chasing and using the fact that $BI$ and $CI$ are angle bisectors. Recall the perpendicularity lemma, where\n$$\nWX \\perp YZ \\Longleftrightarrow WY^2 - WZ^2 = XY^2 - XZ^2\n$$\nLet $B'$ be on the extension of ray $CA$ such that $AB' = AB$. Of course, as in the proof of the angle bisector theorem, $BB' \\parallel AI$, meaning that $BB' \\perp IO$. Let $I'$ be the reflection of $I$ across $A$; of course, $I'$ is then the incenter of triangle $AB'C'$. Now, we have $B'I^2 - BI^2 = B'O^2 - BO^2$ by the perpendicularity and by power of a point $B'O^2 - BO^2 = B'A \\cdot B'C$. Moreover $BI^2 + B'I^2 = BI^2 + BI'^2 = 2BA^2 + 2AI^2$ by the median formula. Subtracting, we get $BI^2 = AI^2 + \\frac{1}{2}(AB)(AB - AC)$. We have a similar expression for $CI$, and subtracting the two results in $BI^2 - CI^2 = \\frac{1}{2}(AB^2 - AC^2)$. Finally,\n$$\nBI^2 - CI^2 = \\frac{1}{4}\\left[(BC + AB - AC)^2 - (BC - AB + AC)^2\\right]\n$$\nfrom which again, the result $2BC = AB + AC$ follows.\n\nSixth Solution, outline.\nUse complex numbers, setting $I = ab + bc + ca$, $A = -a^2$, etc. on the unit circle (scale the picture to fit in a unit circle; we calculate scaling factor later). Set $a = 1$, and let $u = b + c$ and $v = bc$. Write every condition in terms of $u$ and $v$, and the area in terms of $u$ and $v$ too. There should be two equations relating $u$ and $v$: $2u + v + 1 = 0$ and $u^2 = \\left(\\frac{130}{97}\\right)^2 v$ from the right angle and the 144 to 97 ratio, respectively. The square area can be computed in terms of $u$ and $v$, because the area itself is antisymmetric so squaring it suffices. Use the first condition to homogenize (not coincidentally the factor $(1 - b^2)(1 - c^2) = (1 + bc)^2 - (b + c)^2 = (1 + v)^2 - u^2$ from the area homogenizes perfectly... because $AB \\cdot AC = AI \\cdot AI_A$, where $I_A$ is the $A$-excenter, and of course the way the problem is set up $AI_A = 3AI$), and then we find the area of the scaled down version. To find the scaling factor simply determine $|b - c|$ by squaring it, writing in terms again of $u$ and $v$, and comparing this to the value of 144.\n\nSeventh Solution, outline.\nTrigonometric solutions are also possible. One can write everything in terms of the angles and solve the equations; for instance, the $\\angle AIO = 90^\\circ$ condition can be rewritten as $\\frac{1}{2} \\cos \\frac{B - C}{2} = 2 \\sin \\frac{B}{2} \\sin \\frac{C}{2}$ and the 97 to 144 ratio condition can be rewritten as $\\frac{2 \\sin \\frac{B}{2} 2 \\sin \\frac{C}{2}}{\\sin A} = \\frac{97}{144}$. The first equation implies $\\sin \\frac{A}{2} = 2 \\sin \\frac{B}{2} \\sin \\frac{C}{2}$, which we can plug into the second equation to get $\\cos \\frac{A}{2}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-analytic-coordinate-methods-complex-numbers-in-geometry-auto-3039",
+      "name": "HMMT November 2016 #0jv3",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2016",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers in geometry",
+        "Trigonometry",
+        "Triangle trigonometry",
+        "Polynomial operations",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\n\nLet $P_{1}, P_{2}, \\ldots, P_{6}$ be points in the complex plane, which are also roots of the equation $x^{6}+6 x^{3}-216=0$. Given that $P_{1} P_{2} P_{3} P_{4} P_{5} P_{6}$ is a convex hexagon, determine the area of this hexagon.\n\nProposed by: Eshaan Nichani",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $9 \\sqrt{3}$\n\nFactor $x^{6}+6 x^{3}-216=\\left(x^{3}-12\\right)\\left(x^{3}+18\\right)$. This gives us 6 points equally spaced in terms of their angles from the origin, alternating in magnitude between $\\sqrt[3]{12}$ and $\\sqrt[3]{18}$. This means our hexagon is composed of 6 triangles, each with sides of length $\\sqrt[3]{12}$ and $\\sqrt[3]{18}$ and with a 60 degree angle in between them. This yields the area of each triangle as $\\frac{3 \\sqrt{3}}{2}$, so the total area of the hexagon is $9 \\sqrt{3}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

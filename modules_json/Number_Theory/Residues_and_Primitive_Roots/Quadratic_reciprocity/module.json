@@ -1,0 +1,107 @@
+{
+  "MODULE_ID": "number-theory-residues-and-primitive-roots-quadratic-reciprocity",
+  "practice": [
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-quadratic-reciprocity-auto-3711",
+      "name": "HMMT February 2020 #0kdr",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2020",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Quadratic residues",
+        "Quadratic reciprocity"
+      ],
+      "statement": "Problem:\n\nFor odd primes $p$, let $f(p)$ denote the smallest positive integer $a$ for which there does not exist an integer $n$ satisfying $p \\mid n^{2}-a$. Estimate $N$, the sum of $f(p)^{2}$ over the first $10^{5}$ odd primes $p$.\n\nAn estimate of $E>0$ will receive $\\left\\lfloor 22 \\min (N / E, E / N)^{3}\\right\\rfloor$ points.\n\nProposed by: Michael Ren",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nOf course, there is no such thing as a uniform random prime. More rigorously, for any $n$, the joint distributions of $\\left(\\frac{p_{1}}{q}\\right), \\ldots, \\left(\\frac{p_{n}}{q}\\right)$ where $q$ is a uniform random prime less than $N$ converges in distribution to $n$ independent coin flips between 1 and -1 as $N \\rightarrow \\infty$. For ease of explanation, we won't adopt this more formal view, but it is possible to make the following argument rigorous by looking at primes $q<N$ and sending $N \\rightarrow \\infty$. Given any $n$, the residue of $q \\bmod n$ is uniform over the $\\varphi(n)$ residues $\\bmod n$ that are relatively prime to $n$. By quadratic reciprocity, conditioned on either $q \\equiv 1(\\bmod 4)$ or $q \\equiv 3(\\bmod 4)$, exactly half of the nonzero residues $\\bmod p_{n}$ satisfy $\\left(\\frac{p_{n}}{q}\\right)=1$ and exactly half satisfy $\\left(\\frac{p_{n}}{q}\\right)=-1$ for odd $p_{n}$ (the case of $p_{n}=2$ is slightly different and one must look mod 8, but the result is the same). The residue of $q \\bmod 8, p_{2}, p_{3}, \\ldots, p_{n}$ are independent as these are pairwise relatively prime, yielding our heuristic.\n\nThus, we may model our problem of finding the smallest quadratic nonresidue with the following process: independent fair coins are flipped for each prime, and we take the smallest prime that flipped heads. We can estimate the expected value of $f(p)^{2}$ as $\\sum_{n=1}^{\\infty} \\frac{p_{n}^{2}}{2^{n}}$. Looking at the first few terms gives us\n$$\n\\frac{2^{2}}{2}+\\frac{3^{2}}{4}+\\frac{5^{2}}{8}+\\frac{7^{2}}{16}+\\frac{11^{2}}{32}+\\frac{13^{2}}{64}+\\frac{17^{2}}{128}+\\frac{19^{2}}{256}+\\frac{23^{2}}{512}+\\frac{29^{2}}{1024} \\approx 22\n$$\nThe terms after this decay rapidly, so a good approximation is $E=22 \\cdot 10^{5}$, good enough for 20 points. The more inaccurate $E=20 \\cdot 10^{5}$ earns 15 points.\n\nThis Python code computes the exact answer:\n\n```\ndef smallest_nqr(p):\n    for a in range(1, p):\n        if pow(a, (p-1)//2, p) == p-1:\n            return a\nimport sympy\nprint(sum([smallest_nqr(p) ** 2 for p in sympy.ntheory.primerange(3, sympy.prime(10**5+2))]))\n```"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-quadratic-reciprocity-auto-3780",
+      "name": "HMMT February 2020 #0kfo",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2020",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Quadratic residues",
+        "Quadratic reciprocity",
+        "Quadratic forms",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\n\nLet $p > 5$ be a prime number. Show that there exists a prime number $q < p$ and a positive integer $n$ such that $p$ divides $n^{2} - q$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nNote that the condition $p \\mid n^{2} - q$ just means that $q$ is a quadratic residue modulo $p$, or that the Legendre symbol $\\left(\\frac{q}{p}\\right)$ is $1$. We use these standard facts about the Legendre symbol:\n- If $p \\equiv \\pm 1 \\pmod{8}$, then $\\left(\\frac{2}{p}\\right) = 1$.\n- For an odd prime $p$,\n  $$\n  \\left(\\frac{-1}{p}\\right) = \\begin{cases}\n  -1 & \\text{ if } p \\equiv 3 \\pmod{4} \\\\\n  +1 & \\text{ if } p \\equiv 1 \\pmod{4}\n  \\end{cases}\n  $$\n- Quadratic reciprocity: for distinct odd primes $p$ and $q$,\n  $$\n  \\left(\\frac{p}{q}\\right)\\left(\\frac{q}{p}\\right) = \\begin{cases}\n  -1 & \\text{ if } p \\equiv q \\equiv 3 \\pmod{4} \\\\\n  +1 & \\text{ otherwise }\n  \\end{cases}\n  $$\n\nIf $p$ is a Fermat prime or Mersenne prime, then $p$ is congruent to $1$ or $7$ modulo $8$ respectively, since $p > 5$. In that case $q = 2$ works. Otherwise assume $p$ is not a Fermat prime or Mersenne prime, so that $p-1$ and $p+1$ are not powers of $2$.\n\nIf $p \\equiv 1 \\pmod{4}$, then let $q$ be an odd prime divisor of $p-1$, so that $p \\equiv 1 \\pmod{q}$. Then by quadratic reciprocity $\\left(\\frac{q}{p}\\right) = \\left(\\frac{p}{q}\\right) = 1$.\n\nIf $p \\equiv 3 \\pmod{4}$, then let $q$ be an odd prime divisor of $p+1$, so that $p \\equiv -1 \\pmod{q}$. Either $q \\equiv 1 \\pmod{4}$ so that $\\left(\\frac{q}{p}\\right) = \\left(\\frac{p}{q}\\right) = 1$ or $q \\equiv 3 \\pmod{4}$ so that $\\left(\\frac{q}{p}\\right) = -\\left(\\frac{p}{q}\\right) = -\\left(\\frac{-1}{q}\\right) = 1$.\n\nSolution:\n\n(Ankan Bhattacharya) We assume the same standard facts about quadratic residues as the previous solution.\n\nIf $p \\equiv 1 \\pmod{4}$, then since $p > 5$, there exists an odd prime divisor $q$ of $p-4$, which gives\n$$\n\\left(\\frac{q}{p}\\right) = \\left(\\frac{p}{q}\\right) = \\left(\\frac{4}{q}\\right) = 1\n$$\n\nIf $p \\equiv 7 \\pmod{8}$, then we can take $q = 2$.\n\nIf $p \\equiv 3 \\pmod{8}$, then by Legendre's three square theorem there exist odd $a, b, c$ satisfying $p = a^{2} + b^{2} + c^{2}$. Since $p > 3$, these are not all equal and we may assume without loss of generality that $b \\neq c$. Then $p - a^{2} = b^{2} + c^{2}$ has a prime divisor $q \\equiv 1 \\pmod{4}$, which gives\n$$\n\\left(\\frac{q}{p}\\right) = \\left(\\frac{p}{q}\\right) = \\left(\\frac{a^{2}}{q}\\right) = 1\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-quadratic-reciprocity-auto-4473",
+      "name": "HMMT February 2024 #0kyx",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2024",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomials",
+        "Vieta's formulas",
+        "Polynomials mod p",
+        "Chinese remainder theorem",
+        "Quadratic residues",
+        "Quadratic reciprocity"
+      ],
+      "statement": "Problem:\n\nA polynomial $f \\in \\mathbb{Z}[x]$ is called splitty if and only if for every prime $p$, there exist polynomials $g_p, h_p \\in \\mathbb{Z}[x]$ with $\\operatorname{deg} g_p, \\operatorname{deg} h_p < \\operatorname{deg} f$ and all coefficients of $f - g_p h_p$ are divisible by $p$. Compute the sum of all positive integers $n \\leq 100$ such that the polynomial $x^4 + 16 x^2 + n$ is splitty.\n\nProposed by: Pitchayut Saengrungkongka",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe claim that $x^4 + a x^2 + b$ is splitty if and only if either $b$ or $a^2 - 4b$ is a perfect square. (The latter means that the polynomial splits into $(x^2 - r)(x^2 - s)$.)\n\nAssuming the characterization, one can easily extract the answer. For $a = 16$ and $b = n$, one of $n$ and $64 - n$ has to be a perfect square. The solutions to this that are at most $64$ form $8$ pairs that sum to $64$ (if we include $0$), and then we additionally have $81$ and $100$. This means the sum is $64 \\cdot 8 + 81 + 100 = 693$.\n\nNow, we move on to prove the characterization.\n\n## Necessity.\n\nTake a prime $p$ such that neither $a^2 - 4b$ nor $b$ is a quadratic residue modulo $p$ (exists by Dirichlet + CRT + QR). Work in $\\mathbb{F}_p$. Now, suppose that\n\n$$\nx^4 + a x^2 + b = (x^2 + m x + n)(x^2 + s x + t)\n$$\n\nThen, looking at the $x^3$-coefficient gives $m + s = 0$ or $s = -m$. Looking at the $x$-coefficient gives $m(n - t) = 0$.\n\n- If $m = 0$, then $s = 0$, so $x^4 + a x^2 + b = (x^2 + n)(x^2 + t)$, which means $a^2 - 4b = (n + t)^2 - 4 n t = (n - t)^2$, a quadratic residue modulo $p$, contradiction.\n- If $n = t$, then $b = n t$ is a square modulo $p$, a contradiction. (The major surprise of this problem is that this suffices, which will be shown below.)\n\n## Sufficiency.\n\nClearly, the polynomial splits in $p = 2$ because in $\\mathbb{F}_2[x]$, we have $x^4 + a x^2 + b = (x^2 + a x + b)^2$. Now, assume $p$ is odd.\n\nIf $a^2 - 4b$ is a perfect square, then $x^4 + a x^2 + b$ splits into $(x^2 - r)(x^2 - s)$ even in $\\mathbb{Z}[x]$.\n\nIf $b$ is a perfect square, then let $b = k^2$. We then note that\n\n- $x^4 + a x^2 + b$ splits in form $(x^2 - r)(x^2 - s)$ if $\\left(\\frac{a^2 - 4k^2}{p}\\right) = 1$.\n- $x^4 + a x^2 + b$ splits in form $(x^2 + r x + k)(x^2 - r x + k)$ if $a = 2k - r^2$, or $\\left(\\frac{2k - a}{p}\\right) = 1$.\n- $x^4 + a x^2 + b$ splits in form $(x^2 + r x - k)(x^2 - r x - k)$ if $a = -2k - r^2$, or $\\left(\\frac{-2k - a}{p}\\right) = 1$.\n\nSince $(2k - a)(-2k - a) = a^2 - 4k^2$, it follows that at least one of these must happen."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-residues-and-primitive-roots-quadratic-reciprocity-auto-4783",
+      "name": "HMMT February 2025 #0l7j",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2025",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Quadratic residues",
+        "Quadratic reciprocity",
+        "Fermat / Euler / Wilson theorems",
+        "Polynomials mod p",
+        "Injectivity / surjectivity",
+        "Recurrence relations"
+      ],
+      "statement": "Problem:\nLet $\\mathbb{Z}$ be the set of integers. Determine, with proof, all primes $p$ for which there exists a function $f\\colon \\mathbb{Z}\\to \\mathbb{Z}$ such that for any integer $x$,\n\n$f(x + p) = f(x)$ and $p$ divides $f(x + f(x)) - x$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe work in $\\mathbb{F}_p$, treating $f$ as a map from $\\mathbb{F}_p$ to itself. Clearly, $p = 2$ doesn't work. For $p > 2$ such that $5$ is a quadratic residue mod $p$, as well as $p = 5$ itself, there exists some $\\alpha$ such that $(2\\alpha + 1)^2\\equiv 5$ (mod $p$). Taking $f(x) = \\alpha x$ then works because\n\n$$\nf(x + f(x)) - x = (\\alpha^2 + \\alpha -1)x = \\frac{1}{4}\\left((2\\alpha +1)^2 - 5\\right)x\\equiv 0\\pmod {p}.\n$$\n\nTo prove no other primes satisfy the conditions in the problem statement, note that $f$ is surjective, as for any $x$, $f(x + f(x)) = x$. As $\\mathbb{F}_p$ is finite, $f$ is bijective. Plugging in $x = f(y)$ yields\n\n$$\nf(f(y) + f(f(y))) = f(y)\\implies f(y) + f(f(y)) = y.\n$$\n\nSince $f$ is bijective, there exists $z\\in \\mathbb{F}_p$ such that $f(z) = 0$, then $z = f(z + f(z)) = f(z) = 0$. Therefore, $f(0) = 0$. This is the only fixed point, as any fixed point $d$ would satisfy $d = f(d) + f(f(d)) = 2d$, which is impossible if $d \\neq 0$. Hence the remaining residues form nontrivial cycles $y$, $f(y)$, $f(f(y))$, etc. If the cycle containing $y$ is of length $n$, then\n\n$$\n\\begin{array}{rl}\n& f^{-1}(y) = y + f(y),\\\\\n& f^{-2}(y) = f^{-1}(y) + y = 2y + f(y),\\\\\n& \\qquad \\vdots\\\\\n& f^{-(n - 1)}(y) = f(y) = F_ny + F_{n - 1}f(y),\\\\\n& \\qquad y = F_{n + 1}y + F_n f(y),\n\\end{array} \\quad (\\text{by induction})\n$$\n\nwhere $F_k$ is the $k$-th Fibonacci number. As $y \\neq 0$ and $f(y) \\neq 0$, the last two equations tell us\n\n$$\nF_n^2 \\equiv \\left(\\frac{(1 - F_{n - 1})f(y)}{y}\\right) \\left(\\frac{(1 - F_{n + 1})y}{f(y)}\\right) \\equiv (F_{n + 1} - 1)(F_{n - 1} - 1) \\pmod {p}.\n$$\n\nLet $A = F_{n + 1} - 1$ and $B = F_{n - 1} - 1$ for brevity. The last equation becomes\n\n$$\n(A - B)^2 \\equiv AB \\equiv \\frac{1}{4} ((A + B)^2 - (A - B)^2) \\pmod {p} \\Longrightarrow (A + B)^2 \\equiv 5(A - B)^2 \\pmod {p}.\n$$\n\nAs $5$ is not a quadratic residue, this implies $F_{n + 1} \\equiv F_{n - 1} \\equiv 1 \\pmod {p}$. Hence, if $d$ is the smallest positive integer such that $F_d \\equiv 0 \\pmod {p}$ and $F_{d + 1} \\equiv 1 \\pmod {p}$, then the Fibonacci sequence is periodic modulo $p$ with period $d$, so $d \\mid n$. The sum of all cycle lengths (excluding the fixed point $0$) is $p - 1$, so $d \\mid p - 1$. The following well-known lemma will give us a contradiction.\n\n**Lemma 1.** If $5$ is not a quadratic residue modulo a prime $p$, then $p \\nmid F_{p - 1}$.\n\n**Proof 1.** Recall Binet's formula,\n\n$$\nF_{p - 1} = \\frac{1}{\\sqrt{5}} \\left(\\left(\\frac{1 + \\sqrt{5}}{2}\\right)^{p - 1} - \\left(\\frac{1 - \\sqrt{5}}{2}\\right)^{p - 1}\\right).\n$$\n\nMultiplying both sides by $2^{p - 1}$ and expanding via the binomial theorem, we have\n\n$$\n2^{p - 1}F_{p - 1} = 2\\sum_{k = 0}^{\\frac{p - 3}{2}}5^{k}\\binom{p - 1}{2k + 1}.\n$$\n\nHowever, $\\binom{p- 1}{2k+1} \\equiv(- 1)^{2k+1} \\equiv- 1 \\pmod{p}$ for all $k$, so\n\n$$\np \\mid F_{p - 1} \\quad \\text{if and only if} \\quad p \\left| \\sum_{k = 0}^{\\frac{p - 3}{2}} 5^{k} = \\frac{5^{\\frac{p - 1}{2}} - 1}{5 - 1} \\right.\n$$\n\nTherefore $p \\mid F_{p - 1}$ if and only if $5^{\\frac{p - 1}{2}} \\equiv 1 \\pmod {p}$, which doesn't hold if $5$ is not a quadratic residue modulo $p$, as desired. $\\square$\n\n**Proof 2.** Work in $\\mathbb{F}_{p^{2}} = \\mathbb{F}_{p}[\\sqrt{5}]$. Since $5$ is not a quadratic residue, we get that $(\\sqrt{5})^{p} = - \\sqrt{5}$. Using the fact that $(a + b)^{p} = a^{p} + b^{p}$ (because all other terms have coefficient divisible by $p$), we get that\n\n$$\n\\left(\\frac{1 + \\sqrt{5}}{2}\\right)^{p} = \\frac{1 - \\sqrt{5}}{2} \\implies \\left(\\frac{1 + \\sqrt{5}}{2}\\right)^{p - 1} = \\left(\\frac{1 - \\sqrt{5}}{2}\\right)^{2} = \\frac{3 - \\sqrt{5}}{2}.\n$$\n\nSimilarly, $\\left(\\frac{1 - \\sqrt{5}}{2}\\right)^{p - 1} = \\frac{3 + \\sqrt{5}}{2}$. Hence, by Binet's formula,\n\n$$\nF_{p - 1} = \\frac{1}{\\sqrt{5}}\\left(\\left(\\frac{1 + \\sqrt{5}}{2}\\right)^{p - 1} - \\left(\\frac{1 - \\sqrt{5}}{2}\\right)^{p - 1}\\right)\n= \\frac{1}{\\sqrt{5}}\\left(\\frac{3 - \\sqrt{5}}{2} -\\frac{3 + \\sqrt{5}}{2}\\right) = -1,\n$$\n\nso it is not divisible by $p$.\n\nHence, $F_{p - 1} \\neq 0$ (mod $p$) if $5$ is not a quadratic residue modulo $p$, which contradicts $d \\mid p - 1$ above. This completes the solution."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

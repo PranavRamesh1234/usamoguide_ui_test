@@ -1,0 +1,197 @@
+---
+id: angle-chasing-parallel-lines
+title: Angle Chasing and Parallel Lines
+author: USAMO Guide Team
+description: Navigating transversals, alternate interior angles, and supplementary relationships.
+prerequisites: []
+---
+
+
+
+## Overview
+
+Angle chasing is the process of deducing unknown angles from given ones using
+geometric relationships. When a transversal crosses parallel lines, it creates a
+predictable set of equal and supplementary angle pairs. Mastering these patterns
+is essential for AMC 8 geometry.
+
+## Key Ideas
+
+- **Vertical angles** are equal.
+- **Supplementary angles** sum to $180°$.
+- When a transversal crosses parallel lines:
+  - **Alternate interior angles** are equal.
+  - **Corresponding angles** are equal.
+  - **Co-interior (same-side interior) angles** are supplementary.
+- The angles in a triangle sum to $180°$.
+
+## Core Skills
+
+### Identifying Angle Pairs
+
+Angle pairs will be present at any given figure. Identifying angle pairs is crucial as it allows us to make various deductions about the properties of the figure and allows us to even coclude seemingly surprising things, such as a quadrilateral can be enclosed within a circle or 2 seemngly different figures being the same thing in terms of length of sides and angles(We will cover these concepts later!). 
+
+Identifying them is simple: You just observe what relations they have. In fact the process of finding angle pairs and making findings out of them itself is known as Angle Chasing and it is a key intermediate step in many geometry problems wich is dcussed below.
+
+## Multi-Step Angle Chasing
+
+Using one known angle to find the next, then the next, chaining relationships
+across the figure in a careful meticulous manner is known as angle chasing. And then using those relationships to obtain useful relationships. Angle chasing is done by applying multiple properties or theorems(This will be discussed later once again). Now we will dicuss some basic theorems and properties.
+
+### Angle on a line
+
+All angles that lie on a line will always add to $180\degree$. Whenever we have a pair of angles adding up to $180\degree$, they are known as **supplemetary angles**. Right now this may seem trivial but it is crucial as a foundation for other more complex theorems. 
+
+### Angles in line intersections
+
+Whenever we have two lines intersecting each other, the angle opposite to one angle is equal. We call these **Vertically opposite angles**.
+
+ Finally if there are 2 lines which are **parallel** to each other, and a line is cutting through them, it is known as a **transversal**. If the angles are on both the lines are same, they are known as **corresponding angles**. If they lie on the interior side of the line and we take the vertically opposite angle of the exterior correponding angle, they are known as **alternate interior angles**. Similarly we define **alternate exterior angles**.
+
+
+<svg viewBox="0 0 700 500" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, serif">
+
+
+
+  <!-- Title -->
+  <text x="350" y="38" text-anchor="middle" font-size="18" font-weight="bold" fill="#1a1a2e">Transversal Cutting Parallel Lines</text>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- PARALLEL LINE 1  (y = 155)             -->
+  <!-- ═══════════════════════════════════════ -->
+  <line x1="60" y1="155" x2="640" y2="155" stroke="#2c6fad" stroke-width="2.8" stroke-linecap="round"/>
+  <!-- tick marks indicating parallel -->
+  <line x1="190" y1="143" x2="200" y2="167" stroke="#2c6fad" stroke-width="2"/>
+  <line x1="202" y1="143" x2="212" y2="167" stroke="#2c6fad" stroke-width="2"/>
+
+  <!-- label -->
+  <text x="52" y="151" text-anchor="end" font-size="15" font-style="italic" fill="#2c6fad">ℓ₁</text>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- PARALLEL LINE 2  (y = 345)             -->
+  <!-- ═══════════════════════════════════════ -->
+  <line x1="60" y1="345" x2="640" y2="345" stroke="#2c6fad" stroke-width="2.8" stroke-linecap="round"/>
+  <!-- tick marks indicating parallel -->
+  <line x1="190" y1="333" x2="200" y2="357" stroke="#2c6fad" stroke-width="2"/>
+  <line x1="202" y1="333" x2="212" y2="357" stroke="#2c6fad" stroke-width="2"/>
+
+  <!-- label -->
+  <text x="52" y="341" text-anchor="end" font-size="15" font-style="italic" fill="#2c6fad">ℓ₂</text>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- TRANSVERSAL  (slanted line)            -->
+  <!-- passes through (280,155) and (420,345) -->
+  <!-- ═══════════════════════════════════════ -->
+  <!-- extend beyond both parallel lines -->
+  <!-- direction vector: (140, 190) → normalised slope -->
+  <!-- top extension to y=60:  x = 280 - 140*(95/190) = 280-70 = 210 -->
+  <!-- bottom extension to y=440: x = 420 + 140*(95/190) = 420+70 = 490 -->
+  <line x1="210" y1="60" x2="490" y2="440" stroke="#c0392b" stroke-width="2.8" stroke-linecap="round"/>
+  <!-- label -->
+  <text x="498" y="448" font-size="15" font-style="italic" fill="#c0392b">t</text>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- INTERSECTION POINT 1  P1=(280,155)     -->
+  <!-- ═══════════════════════════════════════ -->
+  <circle cx="280" cy="155" r="4" fill="#1a1a2e"/>
+
+  <!--
+    At P1 the transversal goes from upper-left to lower-right.
+    Angle of transversal ≈ atan2(190,140) ≈ 53.6°  (below horizontal)
+    We label the four angles a, b, c, d going clockwise from upper-right.
+  -->
+
+  <!-- Arc for angle a  (upper-right, acute, between ray→right and ray→upper-left of transversal) -->
+  <!-- a is ABOVE the parallel line, to the RIGHT of the transversal -->
+  <path d="M 310,155 A 30,30 0 0,0 294,128" fill="none" stroke="#e67e22" stroke-width="1.8"/>
+  <text x="316" y="148" font-size="14" font-weight="bold" fill="#e67e22">a</text>
+
+  <!-- Arc for angle b  (upper-left, obtuse) -->
+  <path d="M 266,128 A 30,30 0 0,0 250,155" fill="none" stroke="#27ae60" stroke-width="1.8"/>
+  <text x="228" y="148" font-size="14" font-weight="bold" fill="#27ae60">b</text>
+
+  <!-- Arc for angle c  (lower-left, acute = vertical angle to a) -->
+  <path d="M 250,155 A 30,30 0 0,0 266,182" fill="none" stroke="#e67e22" stroke-width="1.8"/>
+  <text x="228" y="176" font-size="14" font-weight="bold" fill="#e67e22">c</text>
+
+  <!-- Arc for angle d  (lower-right, obtuse = vertical angle to b) -->
+  <path d="M 294,182 A 30,30 0 0,0 310,155" fill="none" stroke="#27ae60" stroke-width="1.8"/>
+  <text x="316" y="176" font-size="14" font-weight="bold" fill="#27ae60">d</text>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- INTERSECTION POINT 2  P2=(420,345)     -->
+  <!-- ═══════════════════════════════════════ -->
+  <circle cx="420" cy="345" r="4" fill="#1a1a2e"/>
+
+  <!-- Arc for angle e  (upper-right, same position as a → corresponding angle) -->
+  <path d="M 450,345 A 30,30 0 0,0 434,318" fill="none" stroke="#e67e22" stroke-width="1.8"/>
+  <text x="456" y="338" font-size="14" font-weight="bold" fill="#e67e22">e</text>
+
+  <!-- Arc for angle f  (upper-left) -->
+  <path d="M 406,318 A 30,30 0 0,0 390,345" fill="none" stroke="#27ae60" stroke-width="1.8"/>
+  <text x="368" y="338" font-size="14" font-weight="bold" fill="#27ae60">f</text>
+
+  <!-- Arc for angle g  (lower-left) -->
+  <path d="M 390,345 A 30,30 0 0,0 406,372" fill="none" stroke="#e67e22" stroke-width="1.8"/>
+  <text x="368" y="370" font-size="14" font-weight="bold" fill="#e67e22">g</text>
+
+  <!-- Arc for angle h  (lower-right) -->
+  <path d="M 434,372 A 30,30 0 0,0 450,345" fill="none" stroke="#27ae60" stroke-width="1.8"/>
+  <text x="456" y="370" font-size="14" font-weight="bold" fill="#27ae60">h</text>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- LEGEND / ANGLE RELATIONSHIPS           -->
+  <!-- ═══════════════════════════════════════ -->
+  <rect x="30" y="415" width="640" height="72" rx="8" fill="none" stroke="#2c6fad" stroke-width="1.2"/>
+
+  <text x="50" y="436" font-size="12.5" font-weight="bold" fill="#1a1a2e">Angle Relationships:</text>
+
+  <!-- row 1 -->
+  <text x="50" y="454" font-size="12" fill="#333">
+    <tspan font-weight="bold" fill="#8e44ad">Corresponding:</tspan>
+    <tspan> a=e, b=f, c=g, d=h  (equal)</tspan>
+  </text>
+  <text x="380" y="454" font-size="12" fill="#333">
+    <tspan font-weight="bold" fill="#c0392b">Vertical angles:</tspan>
+    <tspan> a=c, b=d, e=g, f=h  (equal)</tspan>
+  </text>
+
+  <!-- row 2 -->
+  <text x="50" y="474" font-size="12" fill="#333">
+    <tspan font-weight="bold" fill="#16a085">Alt. interior:</tspan>
+    <tspan> c=e, d=f  (equal)</tspan>
+  </text>
+  <text x="260" y="474" font-size="12" fill="#333">
+    <tspan font-weight="bold" fill="#d35400">Alt. exterior:</tspan>
+    <tspan> a=g, b=h  (equal)</tspan>
+  </text>
+  <text x="460" y="474" font-size="12" fill="#333">
+    <tspan font-weight="bold" fill="#2980b9">Co-interior:</tspan>
+    <tspan> c+f=180°, d+e=180°</tspan>
+  </text>
+
+</svg>
+
+
+## Angles in a triangle
+
+The angles in a triangle always add to $180\degree$
+
+## Worked Example
+
+#### Question
+Prove that the angles in a triangle add to $180\degree$
+
+#### Proof
+Let there be a triangle with 1 parallel line as shown below (These parallel lines are known as auxillary lines, which will be covered later) as below
+![Angles in a triangle](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUk8QHXuJXaDFkYLmn2Wr2R1tG0KXTJ8H9ZQ&s)
+Now observe that $BC$ and $AB$ are transversals.
+
+ Hence we can take the alternate interior angles to get $\angle CBE = c \degree$
+ and  $\angle ABD = a \degree$. Observe that $\angle ABC$, $\angle CBE$ and $\angle ABD$ all lie on a line. Hence:
+ $$
+ \angle ABC+\angle CBE+\angle ABD = 180\degree \implies \boxed{a\degree +b\degree+c\degree = 180\degree }
+ $$
+## Practice Problems
+
+<Problems problems="practice" />

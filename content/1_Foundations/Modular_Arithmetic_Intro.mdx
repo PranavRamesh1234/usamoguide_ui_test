@@ -1,0 +1,51 @@
+---
+id: modular-arithmetic-intro
+title: Modular Arithmetic
+author: USAMO Guide Team
+description: Utilizing congruences to manage remainders of massive numbers.
+prerequisites: [divisibility-rules]
+---
+
+<IncompleteSection />
+
+## Overview
+
+Modular arithmetic is the mathematics of remainders. When you divide 17 by 5,
+the remainder is 2, so we write $17 \equiv 2 \pmod{5}$. This notation and its
+rules let you simplify enormous computations by working only with remainders.
+
+## Key Ideas
+
+- $a \equiv b \pmod{m}$ means $m \mid (a - b)$, i.e., $a$ and $b$ leave the
+  same remainder when divided by $m$.
+- You can add, subtract, and multiply congruences:
+  if $a \equiv b$ and $c \equiv d \pmod{m}$, then $a+c \equiv b+d$ and
+  $ac \equiv bd \pmod{m}$.
+- Reduce before computing: $97 \times 103 \pmod{10}$ becomes $7 \times 3 = 21 \equiv 1 \pmod{10}$.
+- Common moduli on AMC 8: 2 (parity), 3, 5, 9, 10.
+
+## Core Skills
+
+### Reducing Large Numbers
+
+$2^{10} = 1024 \equiv 4 \pmod{10}$.
+
+### Remainder Chains
+
+Compute $7^{100} \pmod{5}$ by first noting $7 \equiv 2 \pmod{5}$, then track
+powers of 2 mod 5.
+
+### Divisibility via Modular Arithmetic
+
+A number is divisible by 9 iff its digit sum is $\equiv 0 \pmod{9}$.
+
+## Worked Example
+
+What is the remainder when $3^{20}$ is divided by 5?
+
+$3^1 \equiv 3$, $3^2 \equiv 4$, $3^3 \equiv 2$, $3^4 \equiv 1 \pmod{5}$.
+The cycle length is 4. Since $20 = 4 \times 5$, we get $3^{20} \equiv 1 \pmod{5}$.
+
+## Practice Problems
+
+<Problems problems="practice" />

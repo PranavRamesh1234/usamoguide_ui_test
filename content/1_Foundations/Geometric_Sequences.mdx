@@ -1,0 +1,331 @@
+---
+id: geometric-sequences
+title: Geometric Sequences
+author: Pranav Ramesh
+description: Constant ratios, finite sums, and convergence.
+prerequisites: [algebra-basics]
+---
+
+## Geometric Sequences 
+
+**Definition:** A geometric sequence is a sequence for which there exists a constant r such that each term (except for the first term) is r times the previous term. This constant r is called the common ratio of the sequence. 
+
+For example,
+$$
+1, 3, 9, 27, 81, 243
+$$
+is a geometric sequence, because each term is 3 times the previous term. Geometric sequences are also known as geometric progressions. 
+
+## The General Term
+ 
+Let the first term of a geometric sequence be $a_1$, and the common ratio of the sequence be $r$.
+ 
+$$
+a_n = a_1 \cdot r^{n-1}
+$$
+ 
+The ratio is always $r = \frac{a_{k+1}}{a_k}$ for any consecutive pair.
+ 
+For non-consecutive terms $a_m$ and $a_n$, 
+ 
+$$
+r^{n-m} = \frac{a_n}{a_m} \implies r = \left(\frac{a_n}{a_m}\right)^{\!\frac{1}{n-m}}
+$$
+
+Example Problem 1
+> The first term of a geometric sequence of positive numbers is 12, and the fourth term is 24. Find the 10th term of the geometric sequence.
+Solution: Let r be the common ratio. We multiply the first term by r three times to get the fourth term, so 
+$$
+12r ^ 3 = 24
+$$
+Dividing by 12 and taking the cube root of both sides, we find that $r = 2^{1/3}$ is the common ratio of the sequence. The tenth term of the sequence is therefore 
+$$
+12 \cdot 2^{\frac{10-1}{3}} = 12 \cdot 2^3 = 96.
+$$
+
+### The Finite Sum 
+ 
+$$
+S_n =  \frac{a_1(r^n -1)}{r-1}, \quad r \ne 1.
+$$
+ 
+#### Proof: $\\$ 
+Let the geometric series have value $S$. Then
+$
+S = a_1 + a_1r + a_1r^2 + \cdots + a_1r^{n-1}. \\
+$
+Factoring out $a_1$, multiplying both sides by $(r-1)$, and using the difference of powers factorization yields 
+$$
+S(r-1) = a_1(r-1)(1 + r + r^2 + \cdots + r^{n-1}) = a_1(r^n-1).
+$$ 
+Dividing both sides by $r-1$ yields 
+$$
+S=\frac{a_1(r^n-1)}{r-1}
+$$
+ 
+### The Infinite Sum 
+ 
+When $|r| < 1$ the terms shrink to zero and the series converges:
+ 
+$$
+S_\infty = \frac{a_1}{1-r}, \quad |r| < 1.
+$$
+ 
+When $|r| \geq 1$ the series diverges, and thus cannot apply this formula. 
+
+Proof: If one assumes convergence, Using the terms defined above,
+$$
+S = a_1 + a_1r + a_1r^2 + \cdots.
+$$
+Multiplying both sides by $r$ and adding $a_1$, we find that
+$$
+rS + a_1 = a_1 + r(a_1 + a_1r + \cdots) = a_1 + a_1r + a_1r^2 + \cdots = S.
+$$
+Thus, $rS + a_1 = S$, and so $S = \frac{a_1}{1-r}$.
+ 
+### Geometric Mean
+**Definition**: The geometric mean of n positive numbers is the nth root of the product of the n numbers. 
+
+$$
+\text{G.M.} = \sqrt[n]{x_1 \times x_2 \times \dots \times x_n}
+$$ 
+
+Note: For any finite geometric sequence of positive numbers, the geometric mean of
+the terms in the sequence is equal to the geometric mean of the first term and the last term. (Try Proving this by yourself!)
+
+Proof: Let $n$ be the number of terms of a geometric sequence with first term $a$ and
+common ratio $r$. The last term of this sequence is $ar^{n-1}$, so the geometric mean of the first and last terms is
+ 
+$$
+\sqrt{a \cdot ar^{n-1}} = \sqrt{a^2r^{n-1}} = ar^{(n-1)/2}.
+$$
+ 
+The geometric mean of all $n$ terms is
+ 
+$$
+\sqrt[n]{a(ar)(ar^2)\cdots(ar^{n-1})} = \sqrt[n]{a^n \cdot r^{[1+2+\cdots+(n-1)]}}
+$$
+ 
+$$
+= \sqrt[n]{a^n \cdot r^{(n-1)n/2}}
+$$
+ 
+$$
+\boxed{= ar^{(n-1)/2}}
+$$
+ 
+
+ 
+### Symmetric Substitution
+ 
+For problems giving the sum and product of three terms in GP, we write them as $a/r,\ a,\ ar$.
+ 
+| Quantity | Result |
+|----------|--------|
+| Product | $a^3$ |
+| Sum | $a(1/r + 1 + r)$ |
+| Sum of squares | $a^2(1/r^2 + 1 + r^2)$ |
+ 
+The product is shown through $a^3$, so $a$ can be found. Thus, we know that the sum gives a quadratic in $r$. 
+
+**Concept:** When $x \neq 0$ and $x \neq y$, the factorization
+ 
+$$
+x^n - y^n = (x - y)(x^{n-1} + x^{n-2}y + x^{n-3}y^2 + \cdots + xy^{n-2} + y^{n-1})
+$$
+ 
+is the same as the relationship found by summing the geometric series with first term $x^{n-1}$ and common ratio $y/x$:
+ 
+$$
+x^{n-1} + x^{n-2}y + x^{n-3}y^2 + \cdots + xy^{n-2} + y^{n-1} = \frac{x^{n-1}\!\left(\left(\frac{y}{x}\right)^n - 1\right)}{\frac{y}{x} - 1} = \frac{y^n - x^n}{y - x} = \frac{x^n - y^n}{x - y}.
+$$
+
+## More Examples
+
+> Example 1: Suppose $x, y,z$ is a geometric sequence with common ratio $r$ and x $\neq$ y. If $x, 2y, 3z$ is an arithmetic sequence, find the value of $r$. (Source: AHSME) 
+
+Solution: We can start by reducing the number of variables we have to deal with. From
+our geometric sequence, we know that $y = rx$ and $z = r^2x$. Now that we can write y and z in terms of r and x, we can write our arithmetic sequence in terms of just x and r. 
+$\\$
+So, we know that $x, 2rx,$ and $3r^2x$ are in arithmetic progression, which gives us
+$$
+2rx - x = 3r^2x - 2rx.
+$$
+Rearranging this equation gives us 
+$$
+3r^2x - 4rx + x = 0. 
+$$
+Factoring this equation gives
+$$
+x(r - 1)(3r - 1) =0.
+$$
+We cannot have x = 0 or r = 1, since both of these give us x = y, which is forbidden in the problem
+statement. This leaves us with $r = 1/3$ as the only possible value of $r$. 
+
+> Example 2: The roots of $2x^3 - 19x^2 + kx - 54 = 0$ are in geometric progression for some constant $k$. Find $k$.
+ 
+Solution: Let the three roots in geometric progression be $\frac{a}{r}, a, ar$ for some values $a$ and $r$. This is a convenient choice because the product of the roots simplifies nicely.
+$\\$
+By Vieta's formulas, the product of the roots equals $\frac{54}{2} = 27$. So,
+$$
+\frac{a}{r} \cdot a \cdot ar = a^3 = 27,
+$$
+which gives us $a = 3$.
+$\\$
+By Vieta's formulas, the sum of the roots equals $\frac{19}{2}$. So,
+$$
+\frac{a}{r} + a + ar = \frac{19}{2}.
+$$
+Substituting $a = 3$,
+$$
+\frac{3}{r} + 3 + 3r = \frac{19}{2}.
+$$
+Multiplying through by $2r$,
+$$
+6 + 6r + 6r^2 = 19r,
+$$
+$$
+6r^2 - 13r + 6 = 0,
+$$
+$$
+(2r - 3)(3r - 2) = 0.
+$$
+So $r = \frac{3}{2}$ or $r = \frac{2}{3}$. Both give the same three roots (just in reverse order): $2, 3, \frac{9}{2}$.
+$\\$
+By Vieta's formulas, the sum of the products of the roots taken two at a time equals $\frac{k}{2}$. So,
+$$
+\frac{k}{2} = (2)(3) + (2)\!\left(\tfrac{9}{2}\right) + (3)\!\left(\tfrac{9}{2}\right) = 6 + 9 + \frac{27}{2} = \frac{57}{2}.
+$$
+Therefore $k = \boxed{57}$.
+ 
+> Example 3: The sum of three consecutive terms in a geometric sequence is 39, and the sum of their squares is 741. Find the three terms.
+ 
+Solution: Let the three consecutive terms be $\frac{a}{r}, a, ar$. We are given two conditions:
+ 
+$$
+\frac{a}{r} + a + ar = 39, \tag{1}
+$$
+ 
+$$
+\frac{a^2}{r^2} + a^2 + a^2r^2 = 741. \tag{2}
+$$
+ 
+Notice that equation $(2)$ is related to the square of equation $(1)$. Squaring equation $(1)$:
+ 
+$$
+\left(\frac{a}{r} + a + ar\right)^2 = 1521.
+$$
+ 
+Expanding,
+ 
+$$
+\frac{a^2}{r^2} + a^2 + a^2r^2 + 2\!\left(\frac{a}{r} \cdot a + \frac{a}{r} \cdot ar + a \cdot ar\right) = 1521.
+$$
+ 
+Substituting $(2)$ into the left side,
+ 
+$$
+741 + 2a^2\!\left(\frac{1}{r} + 1 + r\right) = 1521,
+$$
+ 
+$$
+2a^2\!\left(\frac{1}{r} + 1 + r\right) = 780.
+$$
+ 
+From equation $(1)$, $a\!\left(\frac{1}{r} + 1 + r\right) = 39$, so $\frac{1}{r} + 1 + r = \frac{39}{a}$. Substituting,
+ 
+$$
+2a^2 \cdot \frac{39}{a} = 780,
+$$
+ 
+$$
+78a = 780,
+$$
+ 
+$$
+a = 10.
+$$
+ 
+Substituting $a = 10$ back into equation $(1)$:
+ 
+$$
+\frac{10}{r} + 10 + 10r = 39,
+$$
+ 
+$$
+10r^2 - 29r + 10 = 0,
+$$
+ 
+$$
+(2r - 5)(5r - 2) = 0.
+$$
+ 
+So $r = \frac{5}{2}$ or $r = \frac{2}{5}$. Both give the same three terms in reverse order.
+$\\$
+Taking $r = \frac{2}{5}$: the three terms are $\frac{10}{2/5} = 25,\ 10,\ 4$.
+$\\$
+Taking $r = \frac{5}{2}$: the three terms are $4,\ 10,\ 25$.
+$\\$
+The three terms are $\boxed{4, 10, 25}$.
+ 
+> Example 4: Evaluate the sum $4 - \dfrac{8}{3} + \dfrac{16}{9} - \dfrac{32}{27} + \cdots$
+ 
+Solution: We first identify this as a geometric series. The first term is $a = 4$. To find the common ratio, we divide the second term by the first:
+ 
+$$
+r = \frac{-8/3}{4} = -\frac{2}{3}.
+$$
+ 
+Since $|r| = \frac{2}{3} < 1$, the series converges. Applying the infinite geometric series formula $S = \dfrac{a}{1 - r}$,
+ 
+$$
+S = \frac{4}{1 - \left(-\dfrac{2}{3}\right)} = \frac{4}{\dfrac{5}{3}} = 4 \cdot \frac{3}{5} = \boxed{\dfrac{12}{5}}.
+$$
+ 
+> Example 5: Write the following expression as a single polynomial:
+> $$\frac{(t^2 + t + 1)(t^{12} + t^9 + t^6 + t^3 + 1)}{t^{10} + t^5 + 1}$$
+> (Source: Mandelbrot)
+ 
+Solution: We could multiply out the numerator and wade through long division of the product by the denominator. But each factor is a geometric series, so maybe we can use our understanding of geometric series to avoid long division.
+$\\$
+Writing $t^2 + t + 1$ as $1 + t + t^2$, we recognize it as a geometric series with first term $1$ and common ratio $t$, so we have
+ 
+$$
+1 + t + t^2 = \frac{1(t^3 - 1)}{t - 1} = \frac{t^3 - 1}{t - 1}.
+$$
+ 
+You might also have recognized this relationship by noting that $t^2 + t + 1$ is a factor of $t^3 - 1$.
+$\\$
+Similarly, the series $1 + t^3 + t^6 + t^9 + t^{12}$ is geometric with first term $1$ and common ratio $t^3$, and the series $1 + t^5 + t^{10}$ is geometric with first term $1$ and common ratio $t^5$. So we have
+ 
+$$
+1 + t^3 + t^6 + t^9 + t^{12} = \frac{1\left((t^3)^5 - 1\right)}{t^3 - 1} = \frac{t^{15} - 1}{t^3 - 1},
+$$
+ 
+$$
+1 + t^5 + t^{10} = \frac{1\left((t^5)^3 - 1\right)}{t^5 - 1} = \frac{t^{15} - 1}{t^5 - 1}.
+$$
+ 
+We see a lot of common factors among our new expressions, so we expect we can do a lot of cancellation:
+ 
+$$
+\frac{(t^2+t+1)(t^{12}+t^9+t^6+t^3+1)}{t^{10}+t^5+1} = \frac{\dfrac{t^3-1}{t-1} \cdot \dfrac{t^{15}-1}{t^3-1}}{\dfrac{t^{15}-1}{t^5-1}} = \frac{(t^3 - 1)(t^{15} - 1)(t^5 - 1)}{(t^{15} - 1)(t - 1)(t^3 - 1)}.
+$$
+ 
+Cancelling $(t^3 - 1)$ and $(t^{15} - 1)$ from numerator and denominator,
+ 
+$$
+= \frac{t^5 - 1}{t - 1} = \frac{(t-1)(t^4 + t^3 + t^2 + t + 1)}{t - 1} = \boxed{t^4 + t^3 + t^2 + t + 1}.
+$$
+
+## Common Pitfalls
+
+- Mixing up $r^n$ vs. $r^{n-1}$ in the term formula can lead to error. 
+- Using $r$ from non-consecutive terms without checking consistency.
+- Not checking whether $|r| < 1$ before using the infinite formula.
+
+Note: Keep powers as $r^{n-1}$, for convenience and less error (Highly recommended in more complex problems)
+
+## Practice Problems
+
+<Problems problems="practice" />

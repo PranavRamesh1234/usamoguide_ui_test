@@ -1,0 +1,612 @@
+{
+  "MODULE_ID": "chinese-remainder-theorem",
+  "practice": [
+    {
+      "uniqueId": "number-theory-modular-arithmetic-chinese-remainder-theorem-auto-0047",
+      "name": "Berkeley Math Circle #0hjz",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Factorization techniques",
+        "Chinese remainder theorem"
+      ],
+      "statement": "Problem:\n\nFind a positive integer satisfying the following three clues:\n- When multiplied by $2$, it yields a perfect square.\n- When multiplied by $3$, it yields a perfect cube.\n- When multiplied by $5$, it yields a perfect fifth power.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nIt is reasonable to try a number of the form $2^{a} 3^{b} 5^{c}$, where $a$, $b$, and $c$ are nonnegative integers. We want\n$$\n\\begin{array}{ll}\n2^{a+1} 3^{b} 5^{c} \\text{ is a square, i.e. } & 2|a+1,\\ 2| b, \\quad \\text{ and } 2 \\mid c \\\\\n2^{a} 3^{b+1} 5^{c} \\text{ is a cube, i.e. } & 3|a, \\quad 3| b+1, \\text{ and } 3 \\mid c \\\\\n2^{a} 3^{b} 5^{c+1} \\text{ is a fifth power, i.e. } 5|a, \\quad 5| b, \\quad \\text{ and } 5 \\mid c+1 .\n\\end{array}\n$$\nWe can now search for $a$, $b$, and $c$ separately. We find that $n_{0}=2^{15} 3^{20} 5^{24}$ is a solution."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-chinese-remainder-theorem-auto-0317",
+      "name": "Berkeley Math Circle Monthly Contest 1 #0hrh",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Chinese remainder theorem",
+        "Polynomials mod p",
+        "Greatest common divisors (gcd)"
+      ],
+      "statement": "Problem:\n\nDenote by $f(n)$ the integer obtained by reversing the digits of a positive integer $n$. Find the greatest integer that is certain to divide $n^{4}-f(n)^{4}$ regardless of the choice of $n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe answer is $99$.\n\nLet $x = \\overline{d_{n-1} \\ldots d_{2} d_{1} d_{0}}$, i.e. $x = 10^{n-1} d_{n-1} + \\cdots + 10^{2} d_{2} + 10 d_{1} + d_{0}$. Then $y = f(x) = 10^{n-1} d_{0} + 10^{n-2} d_{1} + \\cdots + 10 d_{n-2} + d_{n-1}$.\n\nLet us show separately that $9 \\mid x^{4} - y^{4}$ and that $11 \\mid x^{4} - y^{4}$.\n\nSince $10 \\equiv 1 \\pmod{9}$, $x \\equiv y \\equiv d_{n-1} + d_{n-2} + \\cdots + d_{1} + d_{0} \\pmod{9}$, so $9 \\mid x - y$ and therefore also $9 \\mid (x - y)(x^{3} + x^{2} y + x y^{2} + y^{3}) = x^{4} - y^{4}$.\n\nSince $10 \\equiv -1 \\pmod{11}$, $x \\equiv d_{n-1} - d_{n-2} + \\cdots \\mp d_{1} \\pm d_{0} \\pmod{11}$ and $y \\equiv d_{0} + d_{1} + \\cdots \\mp d_{n-2} \\pm d_{n-1} \\pmod{11}$, i.e. $x \\equiv \\pm y$. In either case $x^{4} \\equiv y^{4} \\pmod{11}$, so $11 \\mid x^{4} - y^{4}$.\n\nSince $9$ and $11$ are relatively prime, their product $99$ must divide $x^{4} - y^{4}$.\n\nTo see that there is no larger integer that always divides $n^{4} - f(n)^{4}$, let $n = 10$, so that $f(n) = 01 = 1$, $n^{4} - f(n)^{4} = 9999 = 3^{2} \\cdot 11 \\cdot 101$, and let $n = 21$, so that $f(n) = 12$ and $n^{4} - f(n)^{4} = 173745 = 3^{5} \\cdot 5 \\cdot 11 \\cdot 13$. The greatest common divisor of these two values of $n^{4} - f(n)^{4}$ is $3^{2} \\cdot 11 = 99$, so there is no larger integer certain to divide $n^{4} - f(n)^{4}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-chinese-remainder-theorem-auto-0331",
+      "name": "Berkeley Math Circle: Monthly Contest 6 #0hrv",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Chinese remainder theorem",
+        "Multiplicative order",
+        "Fermat / Euler / Wilson theorems"
+      ],
+      "statement": "Problem:\nFind the remainder when $10^{2^{0}} + 10^{2^{1}} + \\cdots + 10^{2^{2021}}$ is divided by $\\underbrace{44 \\cdots 44}_{44}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $N = 10^{2^{0}} + 10^{2^{1}} + \\cdots + 10^{2^{2021}}$. By the Chinese Remainder Theorem (CRT), it suffices to find $N \\bmod 4$ and $N \\bmod M = \\underbrace{11 \\cdots 11}_{44}$.\n\nModulo $4$, the remainder is $2$.\n\nModulo $M = \\frac{10^{44} - 1}{9}$, $10^{44} \\equiv 1$, so $10^{2^{i}} \\bmod M$ is determined by $2^{i} \\bmod 44$.\n\nMod $44$, $2^{0}$ is $1$ and $2^{1}$ is $2$. The remaining powers of two are all divisible by $4$. Furthermore, the period of $2 \\bmod 11$ is $10$, so the remaining $2020$ powers of $2$ are in fact divided equally among $10$ nonzero remainders that are multiples of $4$. Therefore,\n$$\nN \\bmod M = 10^{1} + 10^{2} + \\frac{2020}{10} \\cdot \\sum_{i=1}^{10} 10^{4i} = 2020202020202020202020202020202020202020110\n$$\nwhich is $2 \\bmod 4$, and is therefore the answer."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-chinese-remainder-theorem-auto-0374",
+      "name": "Berkeley Math Circle Monthly Contest 8 #0ht2",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 8",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Chinese remainder theorem",
+        "Greatest common divisors (gcd)"
+      ],
+      "statement": "Problem:\nLet $n > 1$ be an odd integer. Prove that every integer $l$ satisfying $1 \\leq l \\leq n$ can be represented as a sum or difference of two integers each of which is less than $n$ and relatively prime to $n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe will use the following lemma (it is known as the Chinese Remainder Theorem).\n\nLemma. Let $m_{1}, m_{2}, \\ldots, m_{k}$ be different relatively prime numbers. If $q_{1}, q_{2}, \\ldots, q_{k}$ are arbitrary non-negative integers then there exists a natural number $x$ less than $m_{1} m_{2} \\ldots m_{k}$ such that\n$$\n\\begin{aligned}\nx & \\equiv q_{1}\\left(\\bmod m_{1}\\right) \\\\\nx & \\equiv q_{2}\\left(\\bmod m_{2}\\right) \\\\\n& \\vdots \\\\\nx & \\equiv q_{k}\\left(\\bmod m_{k}\\right) .\n\\end{aligned}\n$$\nProof of the Lemma. We can assume that $q_{i} < m_{i}$ for $1 \\leq i \\leq k$. We will prove this by induction. For $k = 2$ we consider the numbers $x_{1} = q_{1}, x_{2} = m_{1} + q_{1}, x_{3} = 2 m_{1} + q_{1}, \\ldots, x_{m_{2}} = (m_{2} - 1) m_{1} + q_{1}$. If two of the numbers $x_{i}$ and $x_{j}$ give the same remainder upon division by $m_{2}$ we have that $x_{j} - x_{i}$ is divisible by $m_{2}$ which is impossible since that difference is equal to $(j - i) m_{1}$. Thus all $x_{i}$'s give different remainders modulo $m_{2}$ and one of them has to give a remainder $q_{2}$. This finishes the proof for the case $k = 2$.\n\nAssume now that the statement holds for $k$ and we want to prove it for $k + 1$. Applying the inductional hypothesis $q_{1}, \\ldots, q_{k}$ we find a number $x'$ such that $x' \\equiv q_{i}\\left(\\bmod m_{i}\\right)$ for $1 \\leq i \\leq k$. Now by the case $k = 2$ we get that there is an $x$ such that $x \\equiv x'\\left(\\bmod m_{1} \\cdots m_{k}\\right)$ and $x \\equiv q_{k+1}\\left(\\bmod m_{k+1}\\right)$. Such $x$ satisfies the required condition.\n\nLet $n = p_{1}^{\\alpha_{1}} \\ldots p_{k}^{\\alpha_{k}}$, where $p_{1}, \\ldots, p_{k}$ are prime numbers and $\\alpha_{1}, \\ldots, \\alpha_{k}$ positive integers. Assume that $l$ is given and that $l \\equiv t_{i}\\left(\\bmod p_{i}\\right)$. Since $p_{i} > 2$ we can choose $s_{i}$ such that $s_{i} \\not\\equiv 0\\left(\\bmod p_{i}\\right)$ and $s_{i} \\not\\equiv t_{i}\\left(\\bmod p_{i}\\right)$. By the Chinese Remainder Theorem there exists an integer $s < p_{1} \\ldots p_{k}$ such that $s \\equiv s_{i}\\left(\\bmod p_{i}\\right)$ for every $i = 1, \\ldots, k$. If $s < l$ then choose $a = s$ and $b = l - s$. If $s > l$ then we can choose $a = s$ and $b = s - l$. It is easy to verify that such $a$ and $b$ satisfy the conditions of the problem."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-chinese-remainder-theorem-auto-0442",
+      "name": "MathNet #0huy",
+      "url": "https://usamoguide.com/",
+      "source": "MathNet",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recurrence relations",
+        "Chinese remainder theorem"
+      ],
+      "statement": "Problem:\n\nThe Fibonacci sequence $F_{1}, F_{2}, F_{3}, \\ldots$ is defined by $F_{1}=F_{2}=1$ and $F_{n+2}=F_{n+1}+F_{n}$. Find the least positive integer $t$ such that for all $n>0$, $F_{n}=F_{n+t}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n60 ."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-chinese-remainder-theorem-auto-0584",
+      "name": "Harvard-MIT Math Tournament #0hyw",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Factorization techniques",
+        "Chinese remainder theorem"
+      ],
+      "statement": "Problem:\n\nFor what single digit $n$ does 91 divide the 9-digit number $12345 n 789$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution 1:\n\n$123450789$ leaves a remainder of $7$ when divided by $91$, and $1000$ leaves a remainder of $90$, or $-1$, so adding $7$ multiples of $1000$ will give us a multiple of $91$.\n\n\nSolution 2:\n\nFor those who don't like long division, there is a quicker way. First notice that $91 = 7 \\cdot 13$, and $7 \\cdot 11 \\cdot 13 = 1001$. Observe that $12345 n 789 = 123 \\cdot 1001000 + 45 n \\cdot 1001 - 123 \\cdot 1001 + 123 - 45 n + 789$. It follows that $91$ will divide $12345 n 789$ iff $91$ divides $123 - 45 n + 789 = 462 - n$. The number $462$ is divisible by $7$ and leaves a remainder of $7$ when divided by $13$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-chinese-remainder-theorem-auto-0626",
+      "name": "Harvard-MIT Math Tournament #0i02",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Factorization techniques",
+        "Chinese remainder theorem",
+        "Recurrence relations"
+      ],
+      "statement": "Problem:\nWhat is the smallest square-free composite number that can divide a number of the form $4242 \\ldots 42 \\pm 1$ ?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nIt is easy to see that such a number can never be divisible by $2,3,5$, or $7$. They can be divisible by $11$, the smallest example being $4242424241 = 11 \\cdot 547 \\cdot 705073$.\n\nWhat makes this problem hard is finding the next prime that can divide such a number. Let $T_{n} = \\sum_{i=0}^{n} 42 \\cdot 10^{2i}$. Then the numbers $T_{n}$ modulo a prime $p$ will always be periodic, since $T_{n} = 100 T_{n-1} + 42$, so we just need to compute one period and see if it contains $\\pm 1$.\n\nThus we find that modulo $13$ we get $3,4,0,3, \\ldots$, modulo $17$ we get $8,9,7,11,3,2,4,0,8, \\ldots$, modulo $19$ we get $4,5,10,16,8,6,15,3,0,4, \\ldots$, and modulo $23$ we get $19,10,7,6,21,3,20,18,2,12,0,19, \\ldots$, so none of these primes can ever divide $T_{n} \\pm 1$.\n\nBut $424241 = 29 \\cdot 14629$, so $29$ can also divide numbers of this form. Therefore the smallest composite number that can divide $T_{n} \\pm 1$ for some $n$ is $\\mathbf{319}$, and the smallest such $n$ is $83$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-chinese-remainder-theorem-auto-0869",
+      "name": "Harvard-MIT Math Tournament #0i6t",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Prime numbers",
+        "Chinese remainder theorem"
+      ],
+      "statement": "Problem:\n\nOur next object up for bid is an arithmetic progression of primes. For example, the primes $3$, $5$, and $7$ form an arithmetic progression of length $3$. What is the largest possible length of an arithmetic progression formed of positive primes less than $1,000,000$? Be prepared to justify your answer.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n$12$. We can get $12$ with $110437$ and difference $13860$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-chinese-remainder-theorem-auto-1143",
+      "name": "Harvard-MIT Mathematics Tournament #0ief",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Factorization techniques",
+        "Chinese remainder theorem"
+      ],
+      "statement": "Problem:\n\nWhat is the smallest integer $x$ larger than $1$ such that $x^{2}$ ends in the same three digits as $x$ does?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe condition is that $1000 \\mid x^{2}-x = x(x-1)$. Since $1000 = 2^{3} \\cdot 5^{3}$, and $2$ cannot divide both $x$ and $x-1$, $2^{3} = 8$ must divide one of them. Similarly, $5^{3} = 125$ must divide either $x$ or $x-1$. We try successive values of $x$ that are congruent to $0$ or $1$ modulo $125$ and see which ones have the property that $x$ or $x-1$ is divisible by $8$. It is easy to check that $125, 126, 250, 251$, and $375$ do not work, but the next value, $376$, does, so this is the answer."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-chinese-remainder-theorem-auto-1305",
+      "name": "Harvard-MIT Mathematics Tournament #0iix",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recurrence relations",
+        "Fermat / Euler / Wilson theorems",
+        "Chinese remainder theorem"
+      ],
+      "statement": "Problem:\nLet $a_{0}, a_{1}, a_{2}, \\ldots$ be a sequence of real numbers defined by $a_{0}=21$, $a_{1}=35$, and $a_{n+2}=4 a_{n+1}-4 a_{n}+n^{2}$ for $n \\geq 2$. Compute the remainder obtained when $a_{2006}$ is divided by $100$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nNo pattern is evident in the first few terms, so we look for a formula for $a_{n}$. If we write $a_{n}=A n^{2}+B n+C+b_{n}$ and put $b_{n+2}=4 b_{n+1}-4 b_{n}$. Rewriting the original recurrence, we find\n$$\n\\begin{aligned}\n& A n^{2}+(4 A+B) n+(4 A+2 B+C)+b_{n+2} \\\\\n& =4\\left(A n^{2}+(2 A+B) n+(A+B+C)+b_{n+1}\\right)-4\\left(A n^{2}+B n+C+b_{n}\\right)+n^{2} \\\\\n& \\quad=n^{2}+8 A n+(4 A+4 B)+4 b_{n+1}-4 b_{n}\n\\end{aligned}\n$$\nSolving, $A=1$, $B=4$, $C=8$. With this information, we can solve for $b_{0}=1$ and $b_{1}=6$. Since the characteristic equation of the recurrence of the $b_{i}$ is $x^{2}-4 x+4=(x-2)^{2}=0$, we have $b_{n}=(D n+E) \\cdot 2^{n}$ for some constants $D$ and $E$. Using the known values $b_{0}$ and $b_{1}$, we compute $D=2$ and $E=1$, and finally\n$$\na_{n}=n^{2}+4 n+8+(2 n+1) \\cdot 2^{n}\n$$\nNow, taking modulo $100$, we have $a_{2006} \\equiv 6^{2}+4 \\cdot 6+8+13 \\cdot 2^{2006} \\pmod{100}$. Evidently $2^{2006} \\equiv 0 \\pmod{4}$, but by Euler's theorem $2^{\\phi(25)} \\equiv 2^{20} \\equiv 1 \\pmod{25}$, and so $2^{2006} \\equiv 2^{6} \\equiv 14 \\pmod{25}$. Now the Chinese remainder theorem yields $2^{2006} \\equiv 64 \\pmod{100}$, and we compute $a_{2006} \\equiv 36+24+8+13 \\cdot 64 \\equiv 0 \\pmod{100}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-chinese-remainder-theorem-auto-1457",
+      "name": "Team Selection Test #0in5",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Divisibility / Factorization",
+        "Fermat / Euler / Wilson theorems",
+        "Chinese remainder theorem",
+        "φ (Euler's totient)",
+        "Multiplicative order"
+      ],
+      "statement": "Determine whether or not there exist positive integers $a$ and $b$ such that $a$ does not divide $b^n - n$ for all positive integers $n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**Solution 1.** For all pairs of positive integers $a$ and $b$, we claim that there exist infinitely many $n$ such that $a$ divides $b^n - n$.\nWe establish our claim by strong induction on $a$. The base case of $a = 1$ holds trivially. Now, suppose that the claim holds for all $a < a_0$. Since $\\varphi(a) < a$, by the induction hypothesis and by Lemma 1, there are infinitely many $n$ such that\n$$\n\\varphi(a) \\mid (b^n - n) \\quad \\text{and} \\quad b^{n+\\varphi(a)} \\equiv b^n \\pmod{a}.\n$$\nFor each such $n$, set\n$$\nt = \\frac{b^n - n}{\\varphi(a)} \\quad \\text{and} \\quad n_1 = b^n = n + t\\varphi(a).\n$$\n\nIt follows that\n$$\nb^{n_1} - n_1 \\equiv b^{n+t\\varphi(a)} - (n+t\\varphi(a)) \\equiv b^n - n - t\\varphi(a) \\equiv 0 \\pmod{a}.\n$$\nThen, we see that $n_1$ satisfies the desired property. By the induction hypothesis, there are infinitely many $n_1 = b^n$ satisfying the conditions of the claim for $a$, completing the induction.\n\n\n**Solution 2.** We prove that no such $a, b$ exist by proving the following: for any $a, b$, there is an arithmetic progression $n \\equiv h \\pmod m$, with $m$ divisible only by primes less than or equal to the greatest prime factor of $a$, such that $b^n \\equiv n \\pmod a$ for all sufficiently large $n$ satisfying $n \\equiv h \\pmod m$.\nLet us induct on highest prime divisor of $a$. The result is trivial for $a = 1$. Let $p$ be a prime, and suppose that the result is true whenever all the prime divisors of $a$ are less than $p$. Now, suppose that $p$ is the greatest prime divisor of some $a$, and write $a = p^e a_1$, where $a_1$ has all prime factors less than $p$. By the induction hypothesis, there is an arithmetic progression $n \\equiv h_1 \\pmod{m_1}$, with $m_1$ divisible only by primes strictly less than $p$, such that for $n \\equiv h_1 \\pmod{m_1}$ sufficiently large, $b^n \\equiv n \\pmod{a_1}$. There is no harm in assuming that $p-1$ divides $m_1$. In this case, in this arithmetic progression, $b^n$ is eventually constant modulo $p$ due to the lemma. We can thus choose a congruence modulo $p$ so that for $n$ an appropriate residue class modulo $m_1p$, $b^n \\equiv n \\pmod{p}$. In this progression, $b^n$ is constant modulo $p^2$, so we can refine our choice of $n$ modulo $m_1p$ to a choice of $n$ modulo $m_1p^2$ to force $b^n \\equiv n \\pmod{p^2}$. We can then repeat the above process until we obtain $b^n \\equiv n \\pmod{p^e}$. Since we originally had $b^n \\equiv n \\pmod{a_1}$, combining the two congruences using the Chinese Remainder Theorem gives us $b^n \\equiv n \\pmod a$ for all sufficiently large $n$ in the congruence class generated at the last step. This completes the induction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-chinese-remainder-theorem-auto-1517",
+      "name": "USAMO #0iot",
+      "url": "https://usamoguide.com/",
+      "source": "USAMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Greatest common divisors (gcd)",
+        "Prime numbers",
+        "Factorization techniques",
+        "Chinese remainder theorem",
+        "Quadratic residues",
+        "Polynomials"
+      ],
+      "statement": "Prove that for each positive integer $n$, there are pairwise relatively prime integers $k_0, k_1, \\dots, k_n$, all strictly greater than 1, such that $k_0 k_1 \\cdots k_n - 1$ is the product of two consecutive integers.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "We proceed by induction. The case $n=1$ is clear, since we may pick $k_0 = 3$ and $k_1 = 7$. Let us assume now that for a certain $n$ there are pairwise relatively prime integers $1 < k_0 < k_1 < \\cdots < k_n$ such that $k_0 k_1 \\cdots k_n - 1 = a_n(a_n - 1)$, for some positive integer $a_n$. Then choosing $k_{n+1} = a_n^2 + a_n + 1$ yields\n$$\nk_0 k_1 \\cdots k_{n+1} = (a_n^2 - a_n + 1)(a_n^2 + a_n + 1) = a_n^4 + a_n^2 + 1,\n$$\nso $k_0 k_1 \\cdots k_{n+1} - 1$ is the product of the two consecutive integers $a_n^2$ and $a_n^2 + 1$. Moreover,\n$$\n\\gcd(k_0 k_1 \\cdots k_n, k_{n+1}) = \\gcd(a_n^2 - a_n + 1, a_n^2 + a_n + 1) = 1,\n$$\nhence $k_0, k_1, \\dots, k_{n+1}$ are pairwise relatively prime. This completes the proof.\n\nWrite the relation to be proved as\n$$\n4k_0 k_1 \\cdots k_n = 4a(a+1) + 4 = (2a+1)^2 + 3.\n$$\nThere are infinitely many primes for which $-3$ is a quadratic residue. Let $2 < p_0 < p_1 < \\dots < p_n$ be such primes. Using the Chinese Remainder Theorem to specify $a$ modulo $p_n$, we can find an integer $a$ such that $(2a+1)^2 + 3 = 4p_0 p_1 \\cdots p_n m$ for some positive integer $m$. Grouping the factors of $m$ appropriately with the $p_i$'s, we obtain $(2a+1)^2 + 3 = 4k_0 k_1 \\cdots k_n$ with $k_i$ pairwise relatively prime. We then have $k_0 k_1 \\cdots k_n - 1 = a(a+1)$, as desired.\n\nWe are supposed to show that for every positive integer $n$, there is a positive integer $x$ such that $x(x+1)+1 = x^2+x+1$ has at least $n$ distinct prime divisors. We can actually prove a more general statement.\n\n**Claim.** Let $P(x) = a_d x^d + \\cdots + a_1 x + 1$ be a polynomial of degree $d \\ge 1$ with integer coefficients. Then for every positive integer $n$, there is a positive integer $x$ such that $P(x)$ has at least $n$ distinct prime divisors.\n\nThe proof follows from the following two lemmas.\n\n**Lemma 1.** The following set is infinite:\n$$\nQ = \\{p \\mid p \\text{ a prime for which there is an integer } x \\text{ such that } p \\text{ divides } P(x)\\}.\n$$\n*Proof.* The proof is analogous to Euclid's proof that there are infinitely many primes. Namely, if we assume that there are only finitely many primes $p_1, p_2, \\dots, p_k$ in $Q$, then for each integer $m$, $P(m p_1 p_2 \\cdots p_k)$ is an integer with no prime factors, which must equal 1 or $-1$. However, since $P$ has degree $d \\ge 1$, it takes each of the values 1 and $-1$ at most $d$ times, a contradiction. $\\square$\n\n**Lemma 2.** Let $p_1, p_2, \\dots, p_n$, $n \\ge 1$ be primes in $Q$. Then there is a positive integer $x$ such that $P(x)$ is divisible by $p_1 p_2 \\cdots p_n$.\n*Proof.* For $i = 1, 2, \\dots, n$, since $p_i \\in Q$ we can find an integer $c_i$ such that $P(x)$ is divisible by $p_i$ whenever $x \\equiv c_i(\\text{mod } p_i)$. By the Chinese Remainder Theorem, the system of $n$ congruences $x \\equiv c_i(\\text{mod } p_i)$, $i = 1, 2, \\dots, n$ has positive integer solutions. For every positive integer $x$ that solves this system, $P(x)$ is divisible by $p_1 p_2 \\cdots p_n$. $\\square$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-chinese-remainder-theorem-auto-1588",
+      "name": "Harvard-MIT Mathematics Tournament #0iqs",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Chinese remainder theorem",
+        "Games / greedy algorithms",
+        "Integers"
+      ],
+      "statement": "Problem:\n\nAlice and the Cheshire Cat play a game. At each step, Alice either (1) gives the cat a penny, which causes the cat to change the number of (magic) beans that Alice has from $n$ to $5n$, or (2) gives the cat a nickel, which causes the cat to give Alice another bean. Alice wins (and the cat disappears) as soon as the number of beans Alice has is greater than $2008$ and has last two digits $42$. What is the minimum number of cents Alice can spend to win the game, assuming she starts with $0$ beans?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $35$\n\nConsider the number of beans Alice has in base $5$. Note that $2008 = 31013_{5}$, $42 = 132_{5}$, and $100 = 400_{5}$. Now, suppose Alice has $d_{k} \\cdots d_{2} d_{1}$ beans when she wins; the conditions for winning mean that these digits must satisfy $d_{2} d_{1} = 32$, $d_{k} \\cdots d_{3} \\geq 310$, and $d_{k} \\cdots d_{3} = 4i + 1$ for some $i$.\n\nTo gain these $d_{k} \\cdots d_{2} d_{1}$ beans, Alice must spend at least $5\\left(d_{1} + d_{2} + \\cdots + d_{k}\\right) + k - 1$ cents (5 cents to get each bean in the \"units digit\" and $k-1$ cents to promote all the beans). We now must have $k \\geq 5$ because $d_{k} \\cdots d_{2} d_{1} > 2008$. If $k = 5$, then $d_{k} \\geq 3$ since $d_{k} \\cdots d_{3} \\geq 3100$; otherwise, we have $d_{k} \\geq 1$.\n\nTherefore, if $k = 5$, we have $5\\left(d_{1} + d_{2} + \\cdots + d_{k}\\right) + k - 1 \\geq 44 > 36$; if $k > 5$, we have $5\\left(d_{1} + d_{2} + \\cdots + d_{k}\\right) + k - 1 \\geq 30 + k - 1 \\geq 35$. But we can attain $36$ cents by taking $d_{k} \\cdots d_{3} = 1000$, so this is indeed the minimum."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-chinese-remainder-theorem-auto-1617",
+      "name": "Harvard-MIT Mathematics Tournament #0irl",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Trigonometry",
+        "Cartesian coordinates",
+        "Recurrence relations",
+        "Fermat / Euler / Wilson theorems",
+        "Chinese remainder theorem"
+      ],
+      "statement": "Problem:\nLet $\\mathcal{C}$ be the hyperbola $y^{2}-x^{2}=1$. Given a point $P_{0}$ on the $x$-axis, we construct a sequence of points $\\left(P_{n}\\right)$ on the $x$-axis in the following manner: let $\\ell_{n}$ be the line with slope 1 passing through $P_{n}$, then $P_{n+1}$ is the orthogonal projection of the point of intersection of $\\ell_{n}$ and $\\mathcal{C}$ onto the $x$-axis. (If $P_{n}=0$, then the sequence simply terminates.)\nLet $N$ be the number of starting positions $P_{0}$ on the $x$-axis such that $P_{0}=P_{2008}$. Determine the remainder of $N$ when divided by 2008.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $P_{n}=(x_{n}, 0)$. Then the $\\ell_{n}$ meet $\\mathcal{C}$ at $(x_{n+1}, x_{n+1}-x_{n})$. Since this point lies on the hyperbola, we have $(x_{n+1}-x_{n})^{2}-x_{n+1}^{2}=1$. Rearranging this equation gives\n$$\nx_{n+1}=\\frac{x_{n}^{2}-1}{2 x_{n}}\n$$\nChoose a $\\theta_{0} \\in(0, \\pi)$ with $\\cot \\theta_{0}=x_{0}$, and define $\\theta_{n}=2^{n} \\theta_{0}$. Using the double-angle formula, we have\n$$\n\\cot \\theta_{n+1}=\\cot \\left(2 \\theta_{n}\\right)=\\frac{\\cot ^{2} \\theta_{n}-1}{2 \\cot \\theta_{n}}\n$$\nIt follows by induction that $x_{n}=\\cot \\theta_{n}$. Then, $P_{0}=P_{2008}$ corresponds to $\\cot \\theta_{0}=\\cot \\left(2^{2008} \\theta_{0}\\right)$ (assuming that $P_{0}$ is never at the origin, or equivalently, $2^{n} \\theta$ is never an integer multiple of $\\pi$ ). So, we need to find the number of $\\theta_{0} \\in(0, \\pi)$ with the property that $2^{2008} \\theta_{0}-\\theta_{0}=k \\pi$ for some integer $k$. We have $\\theta_{0}=\\frac{k \\pi}{2^{2008}-1}$, so $k$ can be any integer between 1 and $2^{2008}-2$ inclusive (and note that since the denominator is odd, the sequence never terminates). It follows that the number of starting positions is $N=2^{2008}-2$.\nFinally, we need to compute the remainder when $N$ is divided by 2008. We have $2008=2^{3} \\times 251$. Using Fermat's Little Theorem with 251, we get $2^{2008} \\equiv\\left(2^{250}\\right)^{4} \\cdot 256 \\equiv 1^{4} \\cdot 5=5\\ (\\bmod\\ 251)$. So we have $N \\equiv 3\\ (\\bmod\\ 251)$ and $N \\equiv-2\\ (\\bmod\\ 8)$. Using Chinese Remainder Theorem, we get $N \\equiv 254$ $(\\bmod\\ 2008)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-chinese-remainder-theorem-auto-1662",
+      "name": "Team Selection Test #0isu",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Chinese remainder theorem",
+        "Polynomials mod p",
+        "Fermat / Euler / Wilson theorems",
+        "Polynomial interpolation: Newton, Lagrange",
+        "Determinants"
+      ],
+      "statement": "Let $n$ be a positive integer not divisible by the cube of a prime. Given an integer-coefficient polynomial $f(x)$, define its *signature modulo* $n$ to be the (ordered) sequence $f(1), \\dots, f(n)$ modulo $n$. Of the $n^n$ such $n$-term sequences of integers modulo $n$, how many are the signature of some polynomial $f(x)$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Let $p_1 \\cdots p_r q_1^2 \\cdots q_s$ be the prime factorization of $n$. Then the number of achievable signatures is $p_1^{p_1} \\cdots p_r^{p_r} q_1^{3q_1} \\cdots q_s^{3q_s}$.\n\nWe begin by reducing to the case in which $n$ is a prime or the square of a prime. Assume for now that our claim holds in these cases. Observe that the signature of a polynomial $f(x)$ modulo $n$ is completely determined by the collection of its signatures modulo $p_1, \\dots, p_r, q_1^2, \\dots, q_s^2$. Indeed, for each such modulus $m_i$, the sequence $f(1), \\dots, f(m_i)$ modulo $m_i$ determines the entire sequence $f(1), \\dots, f(n)$ modulo $m_i$ because $a \\equiv b \\pmod{m_i}$ implies $f(a) \\equiv f(b) \\pmod{m_i}$. Since the moduli $p_1, \\dots, p_r, q_1^2, \\dots, q_s^2$ are relatively prime with product $n$, it follows by the Chinese Remainder Theorem that specifying $f(1), \\dots, f(n)$ modulo all $m_i$ is equivalent to specifying the sequence modulo $n$.\n\nConversely, we need to show that every sequence $y_1, \\dots, y_n \\pmod{n}$ obtained by applying the above procedure to a collection of signatures $f_i(1), \\dots, f_i(m_i) \\pmod{m_i}$ is actually the signature of a polynomial $f(x)$. To do this, we apply the Chinese Remainder Theorem once more: define $f(x)$ by choosing its coefficients such that\n$$\n[x^k]f(x) \\equiv [x^k]f_i(x) \\pmod{m_i}\n$$\nfor all $i$. Then $f(x) \\equiv f_i(x) \\pmod{m_i}$ for all $i$, and the claim follows.\n\nBy the above, it suffices to show that the number of achievable signatures modulo $p$ is $p^p$ and the number of achievable signatures modulo $p^2$ is $p^{3p}$. In the first case, this amounts to showing that all $p$-term sequences modulo $p$ can be realized as $f(1), \\dots, f(p)$ for some polynomial $f(x)$. There are a number of quick proofs of this result, all of which ultimately use the fact that the integers modulo $p$ form a field. A direct approach is to use Lagrange interpolation; another method is to use Lagrange's theorem to deduce that no two polynomials in $\\mathbb{Z}/p\\mathbb{Z}$ of degree less than $p$ have the same signature modulo $p$. Yet another approach is to show that the linear transformation (over $\\mathbb{Z}/p\\mathbb{Z}$) that sends the coefficient vector ($[x^0]f(x), \\dots, [x^{p-1}]f(x)$) to the values ($f(1), \\dots, f(p)$) is nonsingular; this can be done by evaluating the Vandermonde determinant.\n\nThe modulus $p^2$ is trickier to handle. We begin by using an idea similar to Lagrange interpolation to exhibit a set of polynomials achieving $p^{3p}$ distinct signatures modulo $p^2$, thus obtaining a lower bound. We then establish a matching upper bound by finding a (different!) set of $p^{3p}$ polynomials such that all integer-coefficient polynomials can be easily “reduced” to one of these, keeping the signature fixed during the reduction.\n\nTo prove our lower bound, we begin by defining\n$$\nf_k(x) = ((x-1) \\cdots (x-(k-1))(x-(k+1)) \\cdots (x-p))^2\n$$\nand\n$$\ng_k(x) = (x-k)f_k(x).\n$$\nConsider all polynomials of the form\n$$\n\\sum_{k=1}^{p} a_k f_k(x) + b_k g_k(x)\n$$\nwhere $1 \\le a_k \\le p^2$ and $1 \\le b_k \\le p$. We claim that no two such polynomials have the same signature modulo $p^2$; this will establish our lower bound.\n\nBy subtracting, it is enough to show that the only polynomial\n$$\nf(x) = \\sum_{k=1}^{p} a_k f_k(x) + b_k g_k(x)\n$$\nsatisfying $f(1) \\equiv \\cdots \\equiv f(p^2) \\equiv 0 \\pmod{p^2}$ with $|a_k| < p^2$ and $|b_k| < p$ is the zero polynomial. In fact, it suffices to evaluate $f(x) \\pmod{p^2}$ at $x = 1, \\dots, 2p$. For $j = 1, \\dots, p$, we have $g_k(j) = 0$ for all $k$ and $f_k(j) = 0$ unless $k = j$, in which case $f_j(j)$ is invertible modulo $p^2$. It follows that $0 \\equiv f(j) = a_j f_j(j)$ and hence $a_j \\equiv 0 \\pmod{p^2}$, so $a_k = 0$ for all $k$.\n\nNext we evaluate $f(x)$ at $j = p + 1, \\dots, 2p$. This time, all $g_k(j)$ vanish modulo $p^2$ except when $k = j - p$, in which case $g_{j-p}(j)$ is divisible by $p$ but not $p^2$. Thus, $0 \\equiv f(j) \\equiv b_{j-p}g_{j-p}(j) \\pmod{p^2}$ and hence $b_{j-p} \\equiv 0 \\pmod{p}$, so $b_k = 0$ for all $k$, completing the proof of the lower bound.\n\nIt remains to prove that no more than $p^{3p}$ signatures modulo $p^2$ are attainable. Given two polynomials $f(x)$ and $g(x)$, we say that they are equivalent, denoted $f(x) \\sim g(x)$, if they have the same signature modulo $p^2$. It is easy to see that $f(x) \\sim g(x)$ implies $f(x)h(x) \\sim g(x)h(x)$ and $f(x) + h(x) \\sim g(x) + h(x)$ for any polynomial $h(x)$. We claim that every polynomial $f(x)$ is equivalent to a polynomial $g(x)$ such that\n$$\n[x^k]g(x) \\in \\{1, \\dots, p^2\\} \\quad \\text{for } 0 \\le k < p\n$$\nand\n$$\n[x^k]g(x) \\in \\{1, \\dots, p\\} \\quad \\text{for } p \\le k < 2p.\n$$\nThe key observation is that by Fermat, $x^p - x$ vanishes modulo $p$ when evaluated at any integer. Therefore, $(x^p - x)^2$ and $p(x^p - x)$ both vanish modulo $p^2$ at all integers, i.e.\n$$\nx^{2p} \\sim 2x^{p+1} - x^2 \\quad \\text{and} \\quad px^p \\sim px.\n$$\nUsing the properties of $\\sim$ stated above, the first relation allows us to reduce $f(x)$ to a polynomial of degree less than $p$; the second relation then allows us to further reduce to a polynomial with all coefficients of $x^p, \\dots, x^{2p-1}$ in $\\{1, \\dots, p\\}$. Finally, the remaining coefficients can be reduced modulo $p^2$ to lie in $\\{1, \\dots, p^2\\}$, completing the proof."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-chinese-remainder-theorem-auto-1953",
+      "name": "13th Annual Harvard-MIT Mathematics Tournament #0j0x",
+      "url": "https://usamoguide.com/",
+      "source": "13th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Chinese remainder theorem",
+        "Fermat / Euler / Wilson theorems",
+        "Vieta's formulas"
+      ],
+      "statement": "Problem:\nCompute the remainder when\n$$\n\\sum_{k=1}^{30303} k^{k}\n$$\nis divided by $101$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe main idea is the following lemma:\n\nLemma. For any non-negative integer $n$ and prime $p$, $$\\sum_{k=n+1}^{n+p^{2}-p} k^{k} \\equiv 1 \\pmod{p}.$$ \n\nProof. Note that $a^{b}$ depends only on the value of $a \\pmod{p}$ and the value of $b \\pmod{p-1}$. Since $p$ and $p-1$ are relatively prime, the Chinese Remainder Theorem implies that any $p^{2}-p$ consecutive integers will take on each possible pair of a residue $\\bmod\\ p$ and a residue $\\bmod\\ p-1$. In other words, if we let $(a, b) = (k \\bmod p, k \\bmod p-1)$, then as $k$ ranges through $p^{2}-p$ consecutive integers, $(a, b)$ will range through all $p^{2}-p$ ordered pairs of residues $\\bmod\\ p$ and residues $\\bmod\\ p-1$. This implies that\n$$\n\\sum_{k=n+1}^{n+p^{2}-p} k^{k} \\equiv \\sum_{b=1}^{p-1} \\sum_{a=1}^{p} a^{b} .\n$$\nIt is well-known that $\\sum_{a=1}^{p} a^{b} = \\begin{cases} -1 & p-1 \\mid b \\\\ 0 & p-1 \\nmid b \\end{cases}$. We will sketch a proof here. When $p-1 \\mid b$, the result follows from Fermat's Little Theorem. When $p-1 \\nmid b$, it suffices to consider the case when $b \\mid p-1$, since the $b$th powers $\\bmod\\ p$ are the same as the $\\gcd(b, p-1)$th powers $\\bmod\\ p$, and there are an equal number of every non-zero $b$th power. But in this case, the $b$th powers are just the solutions to $x^{\\frac{p-1}{b}} - 1$, which add up to zero by Vieta's formulas.\n\nNow, using the formula for $\\sum a^{b}$, we get that\n$$\n\\sum_{b=1}^{p-1} \\sum_{a=1}^{p} a^{b} \\equiv -1 \\pmod{p}\n$$\nwhich completes the lemma.\n\nWe now apply the lemma with $p=101$ and $n=3, 10103$, and $20103$ to get that $\\sum_{k=1}^{30303} k^{k} \\equiv \\left(\\sum_{k=1}^{3} k^{k}\\right) - 3$. But $\\sum_{k=1}^{3} k^{k} = 1^{1} + 2^{2} + 3^{3} = 1 + 4 + 27 = 32$, so the answer is $32 - 3 = 29$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-chinese-remainder-theorem-auto-1997",
+      "name": "Team Selection Test 2010 #0j25",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test 2010",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Chinese remainder theorem",
+        "Prime numbers",
+        "Recurrence relations",
+        "Recursion, bijection"
+      ],
+      "statement": "Define the sequence $a_1, a_2, a_3, \\dots$ by $a_1 = 1$ and\n$$\na_n = a_{\\lfloor n/2 \\rfloor} + a_{\\lfloor n/3 \\rfloor} + \\dots + a_{\\lfloor n/n \\rfloor} + 1\n$$\nfor $n > 1$. Prove that there are infinitely many $n$ such that\n$$\na_n \\equiv n \\pmod{2^{2010}}.\n$$\n(This problem was suggested by Gabriel Carroll.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Our solution will be based upon the following key observation, for which we provide two different proofs.\n\n**Lemma 1.** Let $p$ be a prime. If $p^s$ divides $n$, then $2^{s-1}$ divides $a_n - a_{n-1}$, where $a_0 = 0$.\n\n*First proof of Lemma 1.* We argue by induction on $s$ and then $n$. First, the base case $s=1$ is vacuous. Now assume the claim holds for some $s-1$, and suppose that there existed some smallest $n$ such that $p^s$ divides $n$ but $2^{s-1}$ does not divide $a_n - a_{n-1}$. Consider the auxiliary sequence defined by $b_n = a_n - a_{n-1}$. By the given, the sequence $b_n$ satisfies\n$$\nb_n = \\sum_{i=2}^{n} \\left( a_{\\lfloor \\frac{n}{i} \\rfloor} - a_{\\lfloor \\frac{n-1}{i} \\rfloor} \\right) = \\sum_{\\substack{i|n \\\\ i>1}} b_{n/i} = \\sum_{\\substack{i|n \\\\ i<n}} b_i. \\qquad (1)\n$$\nApplying (1), we see that\n$$\nb_{n/p} = \\sum_{\\substack{i|n/p \\\\ i<n/p}} b_i,\n$$\nso we may write\n$$\nb_n = b_{n/p} + \\sum_{\\substack{i|n/p \\\\ i<n/p}} b_i + \\sum_{\\substack{i|n \\\\ i \\nmid n/p \\\\ i<n}} b_i = 2b_{n/p} + \\sum_{\\substack{i|n \\\\ i \\nmid n/p \\\\ i<n}} b_i. \\qquad (2)\n$$\nNotice that $p^{s-1} \\mid n/p$, so by the inductive hypothesis, we see that $2^{s-1} \\mid 2b_{n/p}$. Further, for any $i < n$ dividing $n$ but not $n/p$, we have that $p^s \\mid i$, hence $2^{s-1} \\mid b_i$ because $i < n$ and $n$ was chosen to be the smallest multiple of $p^s$ for which $2^{s-1} \\nmid b_n$. Therefore, (2) shows that $2^{s-1} \\mid b_n$, a contradiction. This completes the induction, showing that if $p^s \\mid n$, then $2^{s-1} \\mid a_n - a_{n-1}$. $\\square$\n\n*Second proof of Lemma 1.* Let us interpret the sequence $a_n$ combinatorially as follows. Call a finite increasing sequence of integers $k_1 < k_2 < \\dots < k_r$ good if $k_1 = 1$ and $k_j \\mid k_{j+1}$ for each $1 \\le j < r$. Let $c_n$ be the number of good sequences whose last term is at most $n$. Then, we claim that $a_n = c_n$.\n\nIndeed, for any $1 < k \\le n$, good sequences with second term $k$ and last term at most $n$ are in bijection with good sequences with last term at most $\\lfloor n/k \\rfloor$; here, the bijection is provided by dividing each term after the first by $k$. Counting also the sequence consisting of the single term 1, we obtain the recurrence\n$$\nc_n = c_{\\lfloor n/2 \\rfloor} + c_{\\lfloor n/3 \\rfloor} + \\dots + c_{\\lfloor n/n \\rfloor} + 1.\n$$\nObserve further that $c_1 = a_1 = 1$, meaning that the sequence $\\{c_n\\}$ satisfies the same recurrence and initial conditions as $\\{a_n\\}$. Therefore, we obtain $a_n = c_n$.\n\nNow, note that $a_n - a_{n-1}$ is the number of good sequences whose last term is exactly $n$. It suffices therefore to show that if $p^s$ is the highest power of $p$ dividing $n$, then the number of good sequences ending in $n$ is divisible by $2^{s-1}$. Let the $p$-skeleton of a good sequence $k_1, \\dots, k_r$ be the sub-sequence consisting of all the terms $k_j$ such that $k_j/k_{j-1}$ is not a power of $p$ (including the initial 1). It suffices for us to show that the number of good sequences ending in $n$ with a given $p$-skeleton is divisible by $2^{s-1}$.\n\nTake any $p$-skeleton, which we may write in the form\n$$\np^{t_1} k'_1, p^{t_2} k'_2, \\dots, p^{t_m} k'_m\n$$\nfor some $t_1, \\dots, t_m$ and $k'_1, \\dots, k'_m$ satisfying $t_1 = 0$, $k'_1 = 1$, $p \\nmid k'_j$, $k'_1 \\mid k'_2 \\mid \\dots \\mid k'_m$, and $t_1 \\le t_2 \\le \\dots \\le t_m$. Now, to form a good sequence ending in $n$ that has this $p$-skeleton, between any two consecutive terms $p^{t_j} k'_j, p^{t_{j+1}} k'_{j+1}$ of the $p$-skeleton we can insert any subset of the set\n$$\n\\{p^{t_{j+1}} k'_j, p^{t_{j+2}} k'_j, \\dots, p^{t_{j+1}} k'_j\\}.\n$$\nAlso, if the last term $p^{t_{r'}} k'_{r'}$ is not equal to $n$, we can insert any subset containing $n$ of\n$$\n\\{p^{t_{r'}+1} k'_{r'}, p^{t_{r'}+2} k'_{r'}, \\dots, p^{s-1} k'_{r'}\\}\n$$\nafter it. Hence, for each $t = 1, \\dots, s-1$, there is exactly one number of the form $p^t k$ with $p \\nmid k$ that we can choose to include or not in our good sequence. For $t = s$, we can choose to include the number if $n$ is not in the skeleton; otherwise including it is obligatory. So the number of good sequences ending in $n$ that have the given $p$-skeleton is either $2^{s-1}$ or $2^s$, depending whether or not $n$ is part of the skeleton; in any case, it is divisible by $2^{s-1}$. It follows that the total number of good sequences ending in $n$ is divisible by $2^{s-1}$, establishing the lemma. $\\square$\n\nWe now consider the problem proper. For any positive integer $m$, choose distinct primes $p_1, p_2, \\dots, p_m$. By the Chinese Remainder Theorem, there exists some $k$ such that $k + i$ is divisible by $p_i^s$ for $1 \\le i \\le m$. By Lemma 1, this implies that $a_{k+i} - a_{k+i-1}$ is divisible by $2^{s-1}$ for $1 \\le i \\le m$, meaning that $a_k, a_{k+1}, \\dots, a_{k+m}$ are all congruent modulo $2^{s-1}$. For any $N$, if we take $m > N + 2^{s-1} - 1$, there exist positive integers $k$ and $n \\in \\{k+N, \\dots, k+N+2^{s-1}-1\\}$ such that $a_n \\equiv n \\pmod{2^{s-1}}$. In particular, this $n$ satisfies $n > N$. Therefore, for any positive integer $s$, the set of $n$ such that $a_n \\equiv n \\pmod{2^{s-1}}$ is unbounded, hence infinite. Taking $s = 2011$ gives the desired result."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-chinese-remainder-theorem-auto-2300",
+      "name": "USAMO #0jak",
+      "url": "https://usamoguide.com/",
+      "source": "USAMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Chinese remainder theorem",
+        "Prime numbers",
+        "Greatest common divisors (gcd)",
+        "Other"
+      ],
+      "statement": "Determine which integers $n > 1$ have the property that there exists an infinite sequence $a_1, a_2, a_3, \\dots$ of nonzero integers such that the equality\n$$\na_k + 2a_{2k} + \\dots + n a_{nk} = 0\n$$\nholds for every positive integer $k$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "We will show that the sequence exists for all $n \\ge 3$.\n\nFor $n = 2$, the sequence cannot exist. If it existed, we would have $a_k = -2a_{2k}$ for all $k$, from which $a_1 = (-2)^r a_{2r}$ for all $r$ by induction. Then $a_1$ would have to be divisible by $2^r$ for all $r$, which is impossible for $a_1 \\ne 0$.\n\nNow fix $n \\ge 3$. We will show that the desired sequence exists. The construction is a repeated application of the Chinese Remainder Theorem, but the details require substantial care.\n\nFirst we prove two lemmas.\n\n**Lemma 1.** It is possible to partition the positive integers into subsets $S_1, S_2, S_3, \\dots$ so that for every positive integer $k$,\n(i) the numbers $(n-1)k$ and $nk$ are in the same subset, and\n(ii) the numbers $k, 2k, \\dots, (n-2)k$ are all in strictly earlier subsets than $(n-1)k$.\n\n*Proof.* Define a function $f$ from the positive integers to the positive reals as follows. Let $P$ be the set of primes dividing $n$. No element of $P$ divides $n-1$. For any positive integer $k$, write its prime factorization $k = p_1^{e_1} p_2^{e_2} \\cdots p_r^{e_r}$, and then define\n$$\nf(k) = \\prod_{p_i \\notin P} p_i^{e_i} \\cdot \\prod_{p_i \\in P} (p_i^{e_i})^{\\log_n(n-1)}.\n$$\nNotice that for every $k$, we have\n$$\nf((n-1)k) = (n-1)f(k) = f(nk), \\qquad (4)\n$$\nwhereas for each $t = 1, 2, \\dots, n-2$, we have\n$$\nf(tk) \\le tf(k) < f((n-1)k). \\qquad (5)\n$$\nAlso notice that for each $k$, $f(k) \\ge k^{\\log_n(n-1)}$, which implies that for any fixed $C$, there can only be finitely many values of $k$ with $f(k) < C$. Therefore, we may arrange the elements of the image of $f$ in the increasing order $x_1 < x_2 < x_3 < \\dots$. Now let $S_i = f^{-1}(x_i)$ for each $i$. The sets $S_i$ are a partition of the positive integers, and (4) and (5) ensure that they satisfy (i) and (ii), respectively. $\\square$\n\n**Lemma 2.** Let $p$ and $q$ be relatively prime positive integers and $t_1, t_2, \\dots, t_r$ arbitrary integers. Then it is possible to choose nonzero integers $b_1, b_2, \\dots, b_{r+1}$ such that\n$$\npb_i + qb_{i+1} = t_i \\quad \\text{for } i = 1, 2, \\dots, r. \\qquad (6)\n$$\n*Proof.* We use induction on $r$. If $r=1$, then since $p$ and $q$ are relatively prime, we can find $c, d$ such that $pc+qd=1$. Then $b_1 = ct_1$ and $b_2 = dt_1$ satisfy (6). Now suppose we have $b_1, \\dots, b_r$ satisfying (6) for $i=1, 2, \\dots, r-1$. If we choose any integer $k$ and replace each $b_i$ with $b'_i = b_i + (-1)^i p^{i-1} q^{r-i} k$, then (6) still holds for $i=1, 2, \\dots, r-1$, and $pb'_r = pb_r + (-1)^r p^{r-1} k$. Since $p$ and $q$ are relatively prime, we can choose $k$ so as to make $pb'_r$ congruent to $t_r$ modulo $q$, and then we take $b_{r+1} = (t_r - pb'_r)/q$. Then the numbers $b'_1, b'_2, \\dots, b'_r, b_{r+1}$ satisfy (6) for $i=1, 2, \\dots, r$.\n\nThis shows that we can find $b_1, b_2, \\dots, b_{r+1}$ satisfying (6), but they may not all be nonzero. However, once again, we can make the replacements $b'_i = b_i + (-1)^i p^{i-1} q^{r+1-i} k$ for any integer $k$, and the new sequence still satisfies (6). By an appropriate choice of $k$, we can ensure each $b'_i$ is nonzero. $\\square$\n\nNow both lemmas are proven, and we resume the main proof. We will construct terms of the sequence inductively, but not in the order $a_1, a_2, \\dots$.\n\nSuppose $S$ is any set of positive integers, and we have chosen nonzero integers $a_k$ for each $k \\in S$. Say that there is a *conflict* in $S$ if there exists some $k$ such that $k, 2k, \\dots, nk$ are all in $S$, and\n$$\na_k + 2a_{2k} + \\dots + n a_{nk} \\neq 0.\n$$\nLet $S_1, S_2, \\dots$ be as given by Lemma 1. We will inductively define our sequence as follows:\n\na. *Step 1:* Choose nonzero values $a_k$ for all $k \\in S_1$ simultaneously, without creating a conflict in $S_1$.\n\nb. *Step $t > 1$:* Given the values of $a_k$ for $k \\in S_1 \\cup \\cdots \\cup S_{t-1}$ chosen at previous steps, choose nonzero integers $a_k$ for all $k \\in S_t$ simultaneously, without creating a conflict in $S_1 \\cup \\cdots \\cup S_t$.\n\nIf we can show that each step of this process can indeed be carried out, then it will eventually define $a_k$ for all positive integers $k$, satisfying the required condition\n$$\na_k + 2a_{2k} + \\cdots + n a_{nk} = 0 \\qquad (7)\n$$\nfor all $k$ (since no conflicts are created).\n\nFor Step 1, Lemma 1 implies we can choose $a_k$ arbitrarily for $k \\in S_1$ without creating any conflicts, since $(n-1)k, nk \\notin S_1$ for all $k$. Now for Step $t > 1$, suppose the $a_k$ have been assigned already for all $k \\in S_1 \\cup S_2 \\cup \\cdots \\cup S_{t-1}$. We need to assign $a_k$ for $k \\in S_t$ without creating any new conflicts. This just requires that the new assignments satisfy (7) for all integers $k$ such that $(n-1)k$ and $nk$ are in $S_t$. For any other value $k$, either $\\{k, 2k, \\dots, nk\\} \\nsubseteq S_1 \\cup \\cdots \\cup S_t$ so no conflict can be created, or else Lemma 1 implies $\\{k, 2k, \\dots, nk\\} \\subseteq S_1 \\cup \\cdots \\cup S_{t-1}$ so that the corresponding constraint (7) has been dealt with at an earlier step.\n\nThus for each $k$ such that $(n-1)k, nk \\in S_t$, we have a constraint\n$$\n(n-1)a_{(n-1)k} + n a_{nk} = X_k, \\qquad (8)\n$$\nwhere $X_k = -(a_k + \\cdots + (n-2)a_{(n-2)k})$ is determined by the assignments made at previous steps. We just need to show that it is possible to choose $a_k$ for all $k \\in S_t$ such that all these constraints are satisfied.\n\nForm a directed graph whose vertices are the elements of $S_t$, with an edge leading from $(n-1)k$ to $nk$ whenever both numbers are in $S_t$. Then every component of this graph is either a single vertex or a (directed) path. We wish to show that nonzero integer values can be assigned to elements of $S_t$ so that for each edge, the corresponding constraint (8) is satisfied. It suffices to show this for each component of the graph. If the component is a single vertex, any nonzero value works. Otherwise, it is a path $k_1, k_2, \\dots, k_{r+1}$, and Lemma 2 ensures that we can choose nonzero integer values for $a_{k_1}, a_{k_2}, \\dots, a_{k_{r+1}}$ so as to satisfy (8) for each edge.\n\nThis shows that each step of our constructive process can indeed be performed successfully, eventually constructing every term of the sequence.\n\n(By Dai Yang). We claim that such a sequence exists for all $n$ except $n = 2$. If we assume that $n = 2$, then\n$$\na_1 = -2a_2 = 4a_4 = -8a_8 = \\dots\n$$\nwhich is impossible since $a_1$ cannot be divisible by arbitrarily large powers of 2. Thus no valid sequence exists for $n = 2$.\n\nFor $n \\ge 3$, we begin with the following lemma.\n\n**Lemma 3.** If there exists a multiplicative function $f(x)$ from $\\mathbb{N}$ to $\\mathbb{Z}$ such that $f(x) \\ne 0$ for all $x$ and\n$$\nf(1) + 2f(2) + \\cdots + n f(n) = 0,\n$$\nthen there exists a sequence $\\{a_i\\}$ satisfying the desired conditions.\n\n*Proof.* Assume that $f(x)$ satisfies the hypothesis. Let $a_k = f(k)$ for all $k$. Since $f(x)$ is multiplicative, we have for all positive integers $k$ that\n$$\n\\begin{aligned}\na_k + 2a_{2k} + \\dots + n a_{nk} &= f(k) + 2f(2k) + \\dots + n f(nk) \\\\\n&= k f(1) + 2k f(2) + \\dots + n k f(n) \\\\\n&= k(f(1) + 2f(2) + \\dots + n f(n)) \\\\\n&= 0.\n\\end{aligned}\n\\quad \\square\n$$\n\nWe now use Lemma 3 to establish the following lemma.\n\n**Lemma 4.** If there exist primes $p$ and $q$ satisfying $\\sqrt{n} < q < p \\le n$ and $p > \\frac{n}{2}$, then there exists a sequence $\\{a_i\\}$ satisfying the desired conditions.\n\n*Proof.* Let $p$ and $q$ be given. For a prime $r$, define $v_r(k)$ to be the largest exponent $v$ such that $r^v \\mid k$. Let $f(x) = a^{v_p(x)} b^{v_q(x)}$ for all positive integers $x$, where $a$ and $b$ are nonzero integers. Clearly $f(x)$ is a multiplicative function. We will find suitable values for $a$ and $b$ so that $f(x)$ satisfies the conditions of Lemma 3.\n\nLet the multiples of $q$ that are less than or equal to $n$ be $q, 2q, \\dots, m q$ for some $m$. Since $\\sqrt{n} < q$, we have $m < q$. Note also that the only multiple of $p$ that is less than or equal to $n$ is $p$ itself. Hence, for all $\\ell$ satisfying $1 \\le \\ell \\le n$, we have\n$$\nf(\\ell) = \\begin{cases} a & \\text{if } \\ell = p \\\\\nb & \\text{if } \\ell = q, 2q, \\dots, m q \\\\\n1 & \\text{otherwise.} \\end{cases}\n$$\nTherefore, for some constant $d$, we have\n$$\nf(1) + 2f(2) + \\dots + n f(n) = a p + b q + 2 b q + \\dots + m b q + d = a p + b \\frac{q m(m+1)}{2} + d. \\quad (9)\n$$\nNote that $m < q < p$, so that $\\text{gcd}(p, \\frac{q m(m+1)}{2}) = 1$. By Bézout's Identity, there exist integers $a'$ and $b'$ for which $a' p + b' \\frac{q m(m+1)}{2} = 1$, hence after appropriate scaling, we obtain $a$ and $b$ so that\n$$\na p + b \\frac{q m(m+1)}{2} = -d.\n$$\nThen (9) reduces to\n$$\nf(1) + 2f(2) + \\dots + n f(n) = 0.\n$$\nNote that we can also stipulate that $a$ and $b$ be nonzero. Therefore, $f(x)$ satisfies the hypothesis of Lemma 3, so a valid sequence $\\{a_i\\}$ exists. $\\square$\n\nIt now suffices to list for each $n \\ge 3$ either a function $f(x)$ satisfying Lemma 3 or a pair of primes $p$ and $q$ satisfying Lemma 4.\n\n* If $n = 3$, let $f(x) = (-1)^{v_3(x)}$. Note that $f(1) + 2f(2) + 3f(3) = 0$, as required by Lemma 3.\n* If $n = 4$, let $f(x) = (-1)^{v_2(x)}(-1)^{v_3(x)}$.\n* If $n = 5, 6, 7, 8$, let $p = 5$ and $q = 3$.\n* If $n = 9, 10$, let $p = 7$ and $q = 5$.\n* If $11 \\le n \\le 16$, let $p = 11$ and $q = 7$.\n* If $n > 16$, by Bertrand's Postulate, we can find a prime $p$ satisfying $\\frac{n}{2} < p \\le n$, and a prime $q$ satisfying $\\frac{n}{4} < q \\le \\frac{n}{2}$. For all $n > 16$, we have $\\frac{n}{4} > \\sqrt{n}$, so $p$ and $q$ satisfy the conditions of Lemma 4.\n\nThis exhausts all values of $n \\ge 3$, so we are done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-chinese-remainder-theorem-auto-2340",
+      "name": "HMMT November 2012 #0jbo",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2012",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Chinese remainder theorem"
+      ],
+      "statement": "Problem:\n\nGiven any positive integer, we can write the integer in base 12 and add together the digits of its base 12 representation. We perform this operation on the number $7^{6^{5^{4^{3^{2^{1}}}}}}$ repeatedly until a single base 12 digit remains. Find this digit.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFor a positive integer $n$, let $s(n)$ be the sum of digits when $n$ is expressed in base 12. We claim that $s(n) \\equiv n \\pmod{11}$ for all positive integers $n$. Indeed, if $n = d_{k} 12^{k} + d_{k-1} 12^{k-1} + \\cdots + d_{0}$ with each $d_{i}$ an integer between 0 and 11, inclusive, because $12 \\equiv 1 \\pmod{11}$, reducing modulo 11 gives exactly $s(n)$. Thus, our answer is congruent to $N = 7^{6^{5^{4^{3^{2^{1}}}}}}$ modulo 11, and furthermore must be a one-digit integer in base 12; these two conditions uniquely determine the answer.\n\nBy Fermat's Little Theorem, $7^{10} \\equiv 1 \\pmod{11}$, and also observe that $6^{5^{4^{3^{2^{1}}}}} \\equiv 6 \\pmod{10}$ because $6 \\cong 0 \\pmod{2}$ and $6 \\cong 1 \\pmod{5}$. Thus, $N \\equiv 7^{6} \\equiv 343^{2} \\equiv 2^{2} \\equiv 4 \\pmod{11}$, which is our answer. (Additionally, we note that this process of writing the number in base twelve and summing the digits must eventually terminate because the value decreases after each step.)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-chinese-remainder-theorem-auto-2373",
+      "name": "Harvard-MIT Mathematics Tournament #0jcl",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recurrence relations",
+        "Complex numbers",
+        "Chinese remainder theorem",
+        "Fermat / Euler / Wilson theorems"
+      ],
+      "statement": "Problem:\n\nLet $x_{1} = y_{1} = x_{2} = y_{2} = 1$, then for $n \\geq 3$ let $x_{n} = x_{n-1} y_{n-2} + x_{n-2} y_{n-1}$ and $y_{n} = y_{n-1} y_{n-2} - x_{n-1} x_{n-2}$. What are the last two digits of $\\left|x_{2012}\\right|$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $z_{n} = y_{n} + x_{n} i$. Then the recursion implies that:\n$$\n\\begin{aligned}\n& z_{1} = z_{2} = 1 + i \\\\\n& z_{n} = z_{n-1} z_{n-2}\n\\end{aligned}\n$$\nThis implies that\n$$\nz_{n} = \\left(z_{1}\\right)^{F_{n}}\n$$\nwhere $F_{n}$ is the $n^{\\text{th}}$ Fibonacci number $\\left(F_{1} = F_{2} = 1\\right)$. So, $z_{2012} = (1 + i)^{F_{2012}}$. Notice that\n$$\n(1 + i)^{2} = 2i\n$$\nAlso notice that every third Fibonacci number is even, and the rest are odd. So:\n$$\nz_{2012} = (2i)^{\\frac{F_{2012} - 1}{2}} (1 + i)\n$$\nLet $m = \\frac{F_{2012} - 1}{2}$. Since both real and imaginary parts of $1 + i$ are $1$, it follows that the last two digits of $\\left|x_{2012}\\right|$ are simply the last two digits of $2^{m} = 2^{\\frac{F_{2012} - 1}{2}}$.\nBy the Chinese Remainder Theorem, it suffices to evaluate $2^{m}$ modulo $4$ and $25$. Clearly, $2^{m}$ is divisible by $4$. To evaluate it modulo $25$, it suffices by Euler's Totient theorem to evaluate $m$ modulo $20$.\nTo determine $\\left(F_{2012} - 1\\right) / 2$ modulo $4$ it suffices to determine $F_{2012}$ modulo $8$. The Fibonacci sequence has period $12$ modulo $8$, and we find\n$$\n\\begin{aligned}\nF_{2012} &\\equiv 5 \\quad (\\bmod 8) \\\\\nm &\\equiv 2 \\quad (\\bmod 4)\n\\end{aligned}\n$$\n$2 \\times 3 \\equiv 1 (\\bmod 5)$, so\n$$\nm \\equiv 3 F_{2012} - 3 \\quad (\\bmod 5)\n$$\nThe Fibonacci sequence has period $20$ modulo $5$, and we find\n$$\nm \\equiv 4 \\quad (\\bmod 5)\n$$\nCombining,\n$$\n\\begin{aligned}\nm &\\equiv 14 \\quad (\\bmod 20) \\\\\n2^{m} &\\equiv 2^{14} = 4096 \\equiv 21 \\quad (\\bmod 25) \\\\\n\\left|x_{2012}\\right| &\\equiv 4 \\cdot 21 = 84 \\quad (\\bmod 100)\n\\end{aligned}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-chinese-remainder-theorem-auto-2475",
+      "name": "TSTST #0jff",
+      "url": "https://usamoguide.com/",
+      "source": "TSTST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Prime numbers",
+        "Greatest common divisors (gcd)",
+        "Chinese remainder theorem",
+        "Injectivity / surjectivity"
+      ],
+      "statement": "Let $N$ be the set of positive integers. Let $f: \\mathbb{N} \\to \\mathbb{N}$ be a function satisfying the following two conditions:\n\na. $f(m)$ and $f(n)$ are relatively prime whenever $m$ and $n$ are relatively prime.\n\nb. $n \\le f(n) \\le n + 2012$ for all $n$.\n\nProve that for any natural number $n$ and any prime $p$, if $p$ divides $f(n)$ then $p$ divides $n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Let $g(n)$ be the smallest prime factor of $f(n)$. (Since $f(n) \\ge n$, $f(n)$ must have a prime factor unless $n=1$ and $f(1)=1$. In this case, we define $g(1)=1$.) First, we show that for any prime $p$ and any $k \\ge 1$, $f(p^k)$ is a power of $g(p)$.\n\nSuppose for the sake of contradiction that $f(p^k)$ is not a power of $g(p)$ for some $p$ and $k$. Choose $M$ sufficiently large so that $p^k < M \\cdot 2013!$, and let $P$ be the set of primes less than or equal to $M \\cdot 2013! + 1$. For any $q \\in P$, we have\n$$\ng(q) \\le f(q) \\le q + 2012 \\le M \\cdot 2013! + 2013,\n$$\nand furthermore the numbers $M \\cdot 2013! + i$ are composite for $2 \\le i \\le 2013$. It follows that $g(q) \\in P$, and so $g$ can be treated as a function from $P$ to $P$. Clearly, $g$ is injective because $f(q_1)$ and $f(q_2)$ are relatively prime for any distinct $q_1, q_2 \\in P$. Then, $g$ is bijective and in particular surjective.\n\nNow we can apply the same reasoning we used on primes in $P$ to $p^k$. We have\n$$\nf(p^k) \\le p^k + 2012 \\le M \\cdot 2013! + 2013,\n$$\nand so $f(p^k)$ has only prime factors in $P$. Suppose for the sake of contradiction that there is some prime $q \\in P$ not equal to $g(p)$ which divides $f(p^k)$. Then, by the surjectivity of $g$, there exists $r \\in P$ such that $g(r) = q$ (and with $r \\neq p$). We then find that $p^k$ and $r$ are relatively prime, but $q$ divides both $f(r)$ and $f(p^k)$, contradicting the first condition in the problem. It follows that $f(p^k)$ is a power of $g(p)$, as claimed.\n\nNext, we show that in fact $g(p) = p$. Indeed, suppose instead that $g(p) = q \\neq p$. Then, choose $\\ell$ sufficiently large so that $q^\\ell > 2013$, and letting $P = p^{q^\\ell - q^{\\ell-1}}$, choose $k$ sufficiently large so that $P^k > q^\\ell$. We find that\n$$\nP^k \\equiv 1^k \\equiv 1 \\bmod{q^\\ell}.\n$$\nBy the second condition of the problem, the only possible residues of $f(P^k)$ modulo $q^\\ell$ are the numbers between 1 and 2013, so in particular, $f(P^k)$ cannot be divisible by $q^\\ell$. On the other hand, $f(P^k) \\ge P^k > q^\\ell$, so $f(P^k)$ cannot be any power of $q$, contradicting the fact that since $P^k$ is a power of $p$, $f(P^k)$ must be a power of $g(p) = q$. This proves our claim that $g(p) = p$.\n\nFinally, let $p$ be any prime, and let $n$ be any positive integer relatively prime to $p$. Then, $f(p)$ and $f(n)$ are relatively prime, and since $f(p)$ is a power of $p$, it follows that $f(n)$ is not divisible by $p$. This is the contrapositive of the desired result, so we are done.\n\n(By Gabriel Carroll) We first show that for any positive integer $N > 1$ and residue $r$, there exists a number $L$ such that $L \\equiv r \\bmod{N}$ and $f(L) = L$.\n\nTo see this, let $\\{p_{i,j} \\mid 1 \\le i, j \\le 2012\\}$ be a set of distinct primes not dividing $N$ and larger than 2012. Also, let $\\{q_i \\mid 1 \\le i \\le 2012\\}$ be another disjoint set of primes, also not dividing $N$ and larger than 2012.\n\nBy the Chinese Remainder Theorem, there exists a positive integer $K$ such that the following congruences hold:\n\n* $K \\equiv -i \\bmod{p_{i,j}}$ for $1 \\le i, j \\le 2012$,\n* $K \\equiv 0 \\bmod{q_i}$ for $1 \\le i \\le 2012$, and\n* $K \\equiv r + 1 \\bmod{N}$.\n\nNote that since $p_{i,j} > 2012$ and $1 \\le i \\le 2012$, it follows that $K$ is relatively prime to each $p_{i,j}$. Let $P$ be the product of the prime factors of $K$ not dividing $N$ and not equal to $q_i$ for some $i$.\n\nBy the Chinese Remainder Theorem again, there exists a positive integer $L$ such that the following congruences hold:\n\n* $L \\equiv -j \\bmod{p_{i,j}}$ for $1 \\le i, j \\le 2012$,\n* $L \\equiv -i \\bmod{q_i}$ for $1 \\le i \\le 2012$,\n* $L \\equiv r \\bmod{N}$, and\n* $L \\equiv 1 \\bmod{P}$.\n\nWe first claim that $K$ and $L$ are relatively prime. Indeed, suppose for the sake of contradiction that a prime $q$ divided both $K$ and $L$. By the construction of $L$, $q$ cannot be a factor of $P$ or any of the $q_i$. Thus, the only remaining possibility is that $q \\mid N$. However, $K - L \\equiv 1 \\bmod{N}$, so this is impossible.\n\nThus, since $K$ and $L$ are relatively prime, we have by the first condition of the problem that $f(K)$ and $f(L)$ are relatively prime. Next, note that for any $1 \\le i, j \\le 2012$, we have\n$$\nK + i \\equiv L + j \\equiv 0 \\quad \\text{mod } p_{i,j},\n$$\nand for any $1 \\le j \\le 2012$, we have\n$$\nK \\equiv L + j \\equiv 0 \\quad \\text{mod } q_j.\n$$\nRecall from the second condition of the problem that $f(K)$ and $f(L)$ must take the forms $K + i$ and $L + j$, respectively, where $0 \\le i, j \\le 2012$. It follows from the above considerations that we must have $f(L) = L$, and by construction, we have $L \\equiv r \\pmod N$, as desired.\n\nWe can now quickly finish the problem. Suppose for the sake of contradiction that there is a prime $p$ and a number $n$ such that $p \\mid f(n)$ but $p \\nmid n$. Take $L$ to be a positive integer such that $L \\equiv p \\pmod{np}$ and $f(L) = L$. Then, $L$ is relatively prime to $n$, so $f(n)$ is relatively prime to $f(L)$. But $f(L) = L$ is divisible by $p$, a contradiction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-chinese-remainder-theorem-auto-2575",
+      "name": "HMMT November 2013 #0ji7",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2013",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Chinese remainder theorem",
+        "Multiplicative order",
+        "Sums and products"
+      ],
+      "statement": "Problem:\nLet $N$ be the largest positive integer that can be expressed as a 2013-digit base $-4$ number. What is the remainder when $N$ is divided by $210$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe largest is $$\\sum_{i=0}^{1006} 3 \\cdot 4^{2i} = 3 \\frac{16^{1007}-1}{16-1} = \\frac{16^{1007}-1}{5}.$$\n\nThis is $1 \\pmod{2}$, $0 \\pmod{3}$, $3 \\cdot 1007 \\equiv 21 \\equiv 1 \\pmod{5}$, and $3\\left(2^{1007}-1\\right) \\equiv 3\\left(2^{8}-1\\right) \\equiv 3\\left(2^{2}-1\\right) \\equiv 2$ $\\pmod{7}$, so we need $1 \\pmod{10}$ and $9 \\pmod{21}$, which is $9+2 \\cdot 21=51 \\pmod{210}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-chinese-remainder-theorem-auto-2578",
+      "name": "HMMT 2013 #0jia",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2013",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Chinese remainder theorem",
+        "Inverses mod n",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\n\nLet $m$ be an odd positive integer greater than $1$. Let $S_{m}$ be the set of all non-negative integers less than $m$ which are of the form $x+y$, where $x y-1$ is divisible by $m$. Let $f(m)$ be the number of elements of $S_{m}$.\n\na. Prove that $f(m n)=f(m) f(n)$ if $m, n$ are relatively prime odd integers greater than $1$.\n\nb. Find a closed form for $f\\left(p^{k}\\right)$, where $k>0$ is an integer and $p$ is an odd prime.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFor a positive integer $n$, let $\\mathbb{Z} / n \\mathbb{Z}$ denote the set of residues modulo $n$ and $(\\mathbb{Z} / n \\mathbb{Z})^{*}$ denote the set of residues modulo $n$ that are relatively prime to $n$. Then, rephrased, $S_{m}$ is the set of residues modulo $m$ of the form $x+x^{-1}$, where $x \\in (\\mathbb{Z} / m \\mathbb{Z})^{*}$.\n\nFor part (a), suppose $a = x + x^{-1} \\in S_{m}$ and $b = y + y^{-1} \\in S_{n}$. By the Chinese Remainder Theorem, there exists a residue $z \\in (\\mathbb{Z} / m n \\mathbb{Z})^{*}$ such that $m \\mid (x-z)$ and $n \\mid (y-z)$, and thus $z + z^{-1} \\equiv x + x^{-1} \\pmod{m}$ and $z + z^{-1} \\equiv y + y^{-1} \\pmod{n}$. Therefore, all $f(m) f(n)$ residues modulo $m n$ which result from applying the Chinese Remainder Theorem to an element each of $S_{m}$ and $S_{n}$ are in $S_{m n}$. Conversely, given $z + z^{-1} \\in (\\mathbb{Z} / m n \\mathbb{Z})^{*}$, taking $z + z^{-1}$ modulo $m$ and $n$ gives elements of $S_{m}$ and $S_{n}$, so indeed $f(m n) = f(m) f(n)$.\n\nWe now proceed to part (b). For each $x \\in (\\mathbb{Z} / p^{k} \\mathbb{Z})^{*}$, denote $q(x)$ to be the largest non-negative integer $i \\leq k$ such that $p^{i}$ divides $x^{2}-1$ (this is clearly well-defined). For a given $x$, let $g(x)$ be the number of $y \\in (\\mathbb{Z} / p^{k} \\mathbb{Z})^{*}$ such that $x + x^{-1} \\equiv y + y^{-1} \\pmod{p^{k}}$. Note that this condition is equivalent to $(x-y)(x y-1) \\equiv 0 \\pmod{p^{k}}$.\n\nFirst, consider the case in which $q(x) \\geq k / 2$, in which case we have $p^{\\lceil k / 2 \\rceil} \\mid (x-1)(x+1)$, and because $p$ is odd, $x \\equiv \\pm 1 \\pmod{p^{\\lceil k / 2 \\rceil}}$. Thus, either $(x-1)^{2} \\equiv 0 \\pmod{p^{k}}$ or $(x+1)^{2} \\equiv 0 \\pmod{p^{k}}$, and it follows that $x + x^{-1} \\equiv \\pm 2 \\pmod{p^{k}}$ (clearly $2$ and $-2$ are distinct). Conversely, $x + x^{-1} \\equiv \\pm 2$ implies $(x \\pm 1) \\equiv 0 \\pmod{p^{\\lceil k / 2 \\rceil}}$, which in turn implies $q(x) \\geq k / 2$. It is now clear that there are exactly two elements of $S_{m}$ corresponding to residues of the form $x + x^{-1}$ with $q(x) \\geq k / 2$, and all other elements of $S_{m}$ come from $x$ with $q(x) < k / 2$.\n\nFix $x$ with $q(x) < k / 2$; we will compute $g(x)$. Suppose $(x-y)(x y-1) \\equiv 0 \\pmod{p^{k}}$, and say $x-y, x y-1$ have $j, j'$ factors of $p$, respectively. If $j \\leq j'$, note that $x^{2}-1 \\equiv x y-1 \\equiv 0 \\pmod{p^{j}}$, so $j \\leq q(x)$. Similarly, if $j' \\leq j$, $x \\equiv y \\pmod{p^{j'}}$, so $x^{2}-1 \\equiv x y-1 \\equiv 0 \\pmod{p^{j'}}$, and so $j' \\leq q(x)$. It follows that $\\min(j, j') \\leq q(x)$, and thus $\\max(j, j') \\geq k - q(x)$.\n\nSuppose $p^{k-q(x)} \\mid (x-y)$. Then, $x y-1 \\equiv x^{2}-1 \\equiv 0 \\pmod{p^{q(x)}}$ because $q(x) < k / 2$, so any $y$ with $p^{k-q(x)} \\mid (x-y)$ satisfies $(x-y)(x y-1) \\equiv 0 \\pmod{p^{k}}$. Now, suppose $p^{k-q(x)} \\mid (x y-1)$, that is, $y \\equiv x^{-1} \\pmod{p^{k-q(x)}}$. Then, $x y \\equiv 1 \\pmod{p^{q(x)}}$, and since $x^{2} \\equiv 1 \\pmod{p^{q(x)}}$, we have $x \\equiv y \\pmod{p^{q(x)}}$, so again we have $(x-y)(x y-1) \\equiv 0 \\pmod{p^{k}}$. It follows that the set of $y$ satisfying $(x-y)(x y-1) \\equiv 0 \\pmod{p^{k}}$ is exactly the set of $y$ with $y \\equiv x \\pmod{p^{k-q(x)}}$ or $y \\equiv x^{-1} \\pmod{p^{k-q(x)}}$. $x, x^{-1}$ are distinct residues modulo $p^{k-q(x)}$, because $x^{2}-1$ has fewer than $k / 2$ factors of $p$, so it follows that $g(x) = 2 p^{q(x)}$. In particular, note that these values are distinct for different values of $q(x) < k / 2$, so $x + x^{-1} \\equiv y + y^{-1}$ implies $q(x) = q(y)$ or $q(x), q(y) \\geq k / 2$.\n\nFor each integer $i$ with $0 \\leq i < k / 2$, we need to compute the number of $x \\in (\\mathbb{Z} / p^{k} \\mathbb{Z})$ with $q(x) = i$. Clearly, this is the number of $x$ with $p^{i} \\mid x^{2}-1$ minus the number of $x$ with $p^{i+1} \\mid x^{2}-1$. When $i = 0$, the number of $x$ with $p^{i} \\mid x^{2}-1$ is clearly $p^{k-1}(p-1)$, and when $i > 0$, this number is $2 p^{k-i}$, as we have $x \\equiv \\pm 1 \\pmod{p^{i}}$.\n\nWe can now count the number of elements of $S_{p^{k}}$ using casework on the value of $q(x)$ where we take $x$ to be such that $x + x^{-1}$ is a particular element of $S_{m}$. Applying the results from the previous two paragraphs, our answer is\n$$\n2 + \\frac{p^{k-1}(p-3)}{2} + \\sum_{i=1}^{\\lceil k / 2 \\rceil - 1} \\frac{2 p^{k-i} - 2 p^{k-i-1}}{2 p^{i}}\n$$\nwhere the summand $2$ comes from $\\pm 2 \\in S_{p^{k}}$, corresponding to all $x$ with $q(x) > k / 2$, the next summand comes from those $x$ with $q(x) = 0$, and each additional summand comes from those $x$ with $q(x) = i$ in the relevant range. We may evaluate the last sum as a geometric series, to obtain the final closed form answer of\n$$\n2 + \\frac{p^{k-1}(p-3)}{2} + \\frac{p^{k-1} - p^{\\frac{1+(-1)^{k}}{2}}}{p+1}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-chinese-remainder-theorem-auto-2604",
+      "name": "HMMT November 2014 #0jj0",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2014",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Chinese remainder theorem",
+        "Quadratic residues",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\n\nSuppose that $m$ and $n$ are integers with $1 \\leq m \\leq 49$ and $n \\geq 0$ such that $m$ divides $n^{n+1}+1$. What is the number of possible values of $m$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $\\quad 29$\n\nIf $n$ is even, $n+1 \\mid n^{n+1}+1$, so we can cover all odd $m$.\n\nIf $m$ is even and $m \\mid n^{n+1}+1$, then $n$ must be odd, so $n+1$ is even, and $m$ cannot be divisible by $4$ or any prime congruent to $3 \\pmod{4}$. Conversely, if $m / 2$ has all factors $1 \\pmod{4}$, then by CRT there exists $N \\equiv 1 \\pmod{4}$ such that $m \\mid N^{2}+1 \\mid N^{N+1}+1$ (note $(N+1)/2$ is odd).\n\nSo the only bad numbers take the form $2k$, where $1 \\leq k \\leq 24$ is divisible by at least one of $2,3,7,11,19,23,31, \\ldots$ We count $k=2,4, \\ldots, 24$ (there are $12$ numbers here), $k=3,9,15,21$ (another four), $k=7,11,19,23$ (another four), giving a final answer of $49-12-4-4=29$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-chinese-remainder-theorem-auto-2622",
+      "name": "HMMT November 2014 #0jji",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2014",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recurrence relations",
+        "Chinese remainder theorem",
+        "Multiplicative order",
+        "Factorization techniques"
+      ],
+      "statement": "Problem:\n\nLet a sequence $\\{a_{n}\\}_{n=0}^{\\infty}$ be defined by $a_{0}=\\sqrt{2}$, $a_{1}=2$, and $a_{n+1}=a_{n} a_{n-1}^{2}$ for $n \\geq 1$. The sequence of remainders when $a_{0}, a_{1}, a_{2}, \\cdots$ are divided by $2014$ is eventually periodic with some minimal period $p$ (meaning that $a_{m}=a_{m+p}$ for all sufficiently large integers $m$, and $p$ is the smallest such positive integer). Find $p$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $12$\n\nLet $a_{n}=2^{b_{n}}$, so notice $b_{1}=1$, $b_{2}=2$, and $b_{n+1}=b_{n}+2 b_{n-1}$ for $n \\geq 1$, so by inspection $b_{n}=2^{n-1}$ for all $n$; thus $a_{n}=2^{2^{n-1}}$.\n\n$2014 = 2 \\cdot 19 \\cdot 53$ so we just want to find the lcm of the eventual periods of $2^{n} \\bmod \\operatorname{ord}_{19}(2)$ and $\\operatorname{ord}_{53}(2)$. These orders divide $18$ and $52$ respectively, and we can manually check $\\operatorname{ord}_{9}(2)=6$ and $\\operatorname{ord}_{13}(2)=12$. The lcm of these is $12$, so to show the answer is $12$, it suffices to show that $13 \\mid \\operatorname{ord}_{53}(2)$. This is true since $2^{4} \\not \\equiv 1 \\pmod{53}$. So, the answer is $12$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

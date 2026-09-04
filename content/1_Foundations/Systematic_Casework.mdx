@@ -1,0 +1,124 @@
+---
+id: systematic-casework
+title: Systemic Casework 
+author: USAMO Guide Team - Wonwoo Choi 
+description: 
+prerequisites: [counting-fundamentals, permutations-combinations]
+---
+
+## What is Casework? 
+Casework in combinatorics is the art of breaking a problem into sub pieces with each having a specific case to it. There is not really a direct formula but it is important to have different techniques 
+to solve each problem with casework cleanly, and add the results. 
+
+## How to Organize Cases
+
+The most important rule to learn in casework is how cases are split. Hence, following these 4 steps 
+ 
+1. **Find what to split the total number of cases.**
+In every question, there tends to be a feature that creates the structural difference of a problem. For example, the leading digit,
+the parity of a quantity, the size of the largest element, or whether a
+specific condition stated in the question holds. A good split reduces each case to a significantly simpler problem.
+ 
+2. **Organize the cases and list them.**
+Writing down all cases ic important for both organization and also forces you to check if the casewotk method covers all cases.
+
+3. **Solve each case independently.**
+An important point to note here is one should not carry assumptions from one case into another and instead should use the original
+constraints when entering each case.
+ 
+4. **Addition of all Cases and verify the solution.**
+Find the sum of all the cases, and verify with a small example or by checking against the complement.
+
+## Example Problems 
+
+Examples are very important in this module, and in general. To improve caseworking, solving as many problems as possible is a great way. 
+Let's start with an easy example. 
+
+### 1. Not Having Repeated Digits 
+ 
+How many integers from $1$ to $100$ have no repeated digit?
+Here, it is quite obvious that dividing this into one digit and two digit numbers would be a efficient way of caseworking.
+ 
+Case 1: One-digit numbers ($1$–$9$) We see that all trivially have no repeated digit. Hence the count is $9$.
+ 
+Case 2: Two-digit numbers ($10$–$99$) In the tens digit $a \in \{1,\ldots,9\}$,
+units digit $b \in \{0,\ldots,9\}$, $b \ne a$. Hence the count is: $9 \times 9 = 81$.
+ 
+Case 3: $100$, as this is the last scenario left. Digits are $1,0,0$ and is repeated and is thus excluded.
+ 
+Total sum of all cases: $9 + 81 = \mathbf{90}$.
+
+### 2. Parity Casework
+ 
+How many ways can you choose two numbers from $\{1,2,3,4,5\}$ without replacement so that their sum is odd?
+ 
+This problem shows the basics of parity. We know that odd + odd = even and hence a sum is odd if and only if odd + even = odd 
+Hence for odd numbers, we have $\{1,3,5\}$ and $3$ choices. For even numbers, $\{2,4\}$ we have $2$ choices.
+ 
+Answer: $3 \times 2 = \mathbf{6}$.
+
+### 3. Absolute Value Cases 
+ 
+How many ordered pairs of integers $(x,y)$ satisfy $|x| + |y| = 5$?
+
+For this problem, when we construct a graph, we see that there are 4 parts, and each with a condition to the x and y axis.
+ 
+**Case 1: $x > 0, y > 0$.** $x + y = 5$, $x,y \geq 1$: $(1,4),(2,3),(3,2),(4,1)$ and hence we get $4$ pairs.
+ 
+**Case 2: $x > 0, y < 0$.** $x - y = 5$, $x \geq 1$, $y \leq -1$: $(1,-4),(2,-3),(3,-2),(4,-1)$ obtaining $4$ pairs.
+ 
+**Case 3: $x < 0, y > 0$.** By symmetry with Case 2, we know that it is $4$ pairs.
+ 
+**Case 4: $x < 0, y < 0$.** Again, by symmetry with Case 1 we get $4$ pairs.
+ 
+**Case 5: $x = 0$.** $|y| = 5 \Rightarrow y = \pm 5$ — $2$ pairs.
+ 
+**Case 6: $y = 0$.** $|x| = 5 \Rightarrow x = \pm 5$ — $2$ pairs.
+ 
+Therefore, the total is $4+4+4+4+2+2 = \mathbf{20}$.
+ 
+Lastly, a point to note is that the axis cases are the most commonly missed. Hence it is important to handle $x=0$ and $y=0$ separately.
+
+### 4. Finding the number of Paths on a Grid 
+ 
+How many ways are there to walk from $(0,0)$ to $(3,3)$ on a grid, moving only right (R) or up (U), without passing through $(2,2)$?
+ 
+This is an important problem as it also utilizes working with complementary casework. 
+We see that the total paths from $(0,0)$ to $(3,3)$ is $\binom{6}{3} = 20$.
+ 
+Paths through $(2,2)$: paths from $(0,0)$ to $(2,2)$ times paths from $(2,2)$ to $(3,3)$ = $\binom{4}{2} \times \binom{2}{1} = 6 \times 2 = 12$.
+ 
+Therefore, the answer is $20 - 12 = \mathbf{8}$.
+
+### 5. Different Combinations of Coins 
+ 
+In how many ways can you make exactly $25$ cents using pennies ($1$¢), nickels ($5$¢), and dimes ($10$¢)?
+ 
+In these common problems, it is important to use casework on the number of dimes. Usually, in casework, counting from the largest unit provides a more organized method. 
+ 
+First, when we have $2$ dimes ($20$¢), we need $5$¢ from pennies and nickels.
+Hence we work on a sub case on nickels. $0$ nickels ($5$ pennies), $1$ nickel ($0$ pennies). The total count: $2$.
+ 
+Second, when we have $1$ dime ($10$¢), we need $15$¢. For nickels, $0,1,2,3$ and 
+that gives $15,10,5,0$ pennies respectively. Thus the count is $4$.
+ 
+Lastly, when we have $0$ dimes, we need $25$¢. We have nickels of: $0,1,2,3,4,5$, and thus the count is $6$.
+ 
+Total: $2 + 4 + 6 = \mathbf{12}$.
+
+Remember that Permutations (order matters): $P(n,r) = \frac{n!}{(n-r)!}$. Combinations (order does not matter): $\binom{n}{r} = \frac{n!}{r!(n-r)!}$.
+
+### 6. Choosing with restrictions & "At Least" Format
+ 
+A club has $5$ seniors and $4$ juniors. How many $4$ person committees contain at least $2$ seniors?
+ 
+It is evident that we should do casework on the number of seniors.
+ 
+Case 1: $2$ seniors. $\binom{5}{2}\binom{4}{2} = 10 \times 6 = 60$.
+ 
+Case 2: $3$ seniors. $\binom{5}{3}\binom{4}{1} = 10 \times 4 = 40$.
+ 
+Case 3: $4$ seniors. $\binom{5}{4}\binom{4}{0} = 5 \times 1 = 5$.
+
+For all of these cases, note that the total number of juniors are constant. 
+Hence the total is $60 + 40 + 5 = \mathbf{105}$.

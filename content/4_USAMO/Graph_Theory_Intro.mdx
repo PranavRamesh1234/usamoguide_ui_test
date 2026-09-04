@@ -1,0 +1,245 @@
+---
+id: graph-theory-intro
+title: Graph Theory (Intro)
+author: USAMO Guide Team
+description: Basic graph definitions, invariants, and simple proofs.
+prerequisites: ["proof-writing-basics"]
+---
+
+## Overview
+
+Graph theory problems often rely on invariants such as degree sums and
+connectivity.
+
+## Key Ideas
+
+- Handshaking lemma: the sum of degrees equals $2E$.
+- Trees with $n$ vertices have $n-1$ edges.
+- Parity arguments are common in graph proofs.
+
+## Worked Example
+
+Show that any graph has an even number of vertices of odd degree.
+
+The sum of degrees is $2E$, an even number. A sum of degrees is even only if
+the count of odd terms is even.
+
+## More Examples (Warm-up):
+
+### Example 1: Interesting Degrees Problem
+
+Let $G$ be a simple graph on $n$ vertices with degrees $d_1,d_2,\dots,d_n$. Suppose that
+
+$$
+\sum_{i=1}^{n} d_i^2 > n\left\lfloor \frac{n^2}{4}\right\rfloor.
+$$
+
+Your job is to prove that $G$ contains a triangle.
+
+First, we assume $G$ is triangle-free. Then, by Mantel's Theorem, we have that
+
+$$
+m\le \left\lfloor \frac{n^2}{4}\right\rfloor.
+$$
+
+Also,
+
+$$
+\sum_v d(v)^2=\sum_{uv\in E}(d(u)+d(v)).
+$$
+
+For every edge $uv$, we have $d(u)+d(v)\le n$, otherwise $u$ and $v$ would have a common neighbor and form a triangle. Thus,
+
+$$
+\sum_v d(v)^2\le nm\le n\left\lfloor \frac{n^2}{4}\right\rfloor,
+$$
+
+which contradicts the claim, so therefore $G$ contains a triangle.
+
+### Example 2: Hall's Matching Theorem (classic!)
+
+Let $G=(X,Y)$ be a bipartite graph. Suppose that every vertex of $X$ has degree at least $r$, and every vertex of $Y$ has degree at most $r$.
+
+Your job is to prove that $G$ contains a matching saturating (at least one edge for every vertex) $X$.
+
+First of all, for any subset $S\subseteq X$, we can count edges between $S$ and $N(S)$:
+
+$$
+r|S|\le e(S,N(S))\le r|N(S)|.
+$$
+
+Thus,
+$|N(S)| \ge |S|$
+
+
+Hall's condition holds, so Hall's Theorem guarantees a matching saturating all vertices of $X$, and we are done!
+
+### Example 3: Tricky Paths Problem
+
+Let $G$ be a graph on $n\ge4$ vertices. Suppose that every pair of nonadjacent vertices $u,v$ satisfies the following:
+
+$$
+d(u)+d(v)\ge n+1.
+$$
+
+Your job is to prove that any two vertices are connected by at least three internally vertex-disjoint paths (make sure you read this carefully!).
+
+First, assume that there is a vertex cut $S$ with $|S|\le2$. Let $A$ and $B$ be distinct components of $G-S$, and here, we will choose $a\in A$, $b\in B$.
+
+Then
+
+$$
+d(a)\le |A|-1+|S|,
+\qquad
+d(b)\le |B|-1+|S|.
+$$
+
+From here, Adding and using $|A|+|B|\le n-|S|$ gives us:
+
+$$
+d(a)+d(b)\le n+|S|-2\le n,
+$$
+
+which contradicts the claim. Thus $\kappa(G)\ge3$, and Menger's Theorem (important!) means that there are at least three internally vertex-disjoint paths between any two vertices, and here, we are done!
+
+### Example 4: Wonderful Bipartite Matching Problem!
+
+Let $G=(X,Y)$ be a bipartite graph with
+
+$$
+|X|=|Y|=n.
+$$
+
+Suppose every vertex has degree at least $n/2$.
+
+Your job is to prove that $G$ contains a perfect matching (every vertex has exactly 1 edge).
+
+First, by Hall's Theorem, realize that it suffices to show $|N(S)|\ge |S|$ for every $S\subseteq X$.
+
+Assume $|N(S)|<|S|$. Now, notice that since every vertex of $S$ has degree at least $n/2$,
+
+$$
+e(S,N(S))\ge \frac n2|S|.
+$$
+
+Because $e(S,N(S))\le |S||N(S)|$, we get that:
+
+$$
+|N(S)|\ge \frac n2.
+$$
+
+Thus $|S|>\frac n2$. Let $T=Y\setminus N(S)$. Then
+
+$$
+|T|=n-|N(S)|>n-|S|.
+$$
+
+Every vertex of $T$ has degree at least $n/2$ and no neighbors in $S$, so we have:
+
+$$
+|X\setminus S|\ge \frac n2.
+$$
+
+Hence $|S|\le n/2$, which is a contradiction! Thus, Hall's condition holds, and $G$ has a perfect matching, and we are done!
+
+### Example 5: Turán's Theorem
+
+Let $G$ be a graph on $n$ vertices with more than
+
+$$
+\left(1-\frac1r\right)\frac{n^2}{2}
+$$
+
+edges.
+
+Your goal is to prove that $G$ contains a clique (you should know this term!) of size $r+1$.
+
+First, we assume that $G$ contains no $K_{r+1}$. So, by Turán's Theorem, we have:
+
+$$
+e(G)\le e(T_r(n))
+\le
+\left(1-\frac1r\right)\frac{n^2}{2}.
+$$
+
+However, this contradicts the claim! So, $G$ must contain a clique of size $r+1$, and we are done here!
+
+### Example 6: A Truly Dazzling Triangles Problem :)
+
+Let $G$ be a graph on $n$ vertices with
+
+$$
+m>\frac{n^2}{4}.
+$$
+
+Your goal is to prove that there exists an edge contained in at least
+
+$$
+\frac{2m}{n}-\frac n2
+$$
+
+triangles.
+
+First, for an edge $uv$, let
+
+$$
+c(uv)=|N(u)\cap N(v)|.
+$$
+
+Since
+
+$$
+c(uv)\ge d(u)+d(v)-n,
+$$
+
+we can sum over all edges to give us
+
+$$
+\sum_{uv\in E} c(uv)
+\ge
+\sum_v d(v)^2-mn.
+$$
+
+Then, from here, we can use Cauchy–Schwarz, to get:
+
+$$
+\sum_v d(v)^2
+\ge
+\frac{(2m)^2}{n}.
+$$
+
+Hence
+
+$$
+\sum_{uv\in E} c(uv)
+\ge
+\frac{4m^2}{n}-mn.
+$$
+
+Averaging over all $m$ edges,there must be some edge that satisfies
+
+$$
+c(uv)\ge
+\frac{4m}{n}-n.
+$$
+
+Since
+
+$$
+\frac{4m}{n}-n
+\ge
+\frac{2m}{n}-\frac n2,
+$$
+
+that edge lies in at least
+
+$$
+\frac{2m}{n}-\frac n2
+$$
+
+triangles, and we are done!
+
+
+## Practice Problems
+
+<Problems problems="practice" />

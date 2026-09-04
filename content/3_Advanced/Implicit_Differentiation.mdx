@@ -1,0 +1,67 @@
+---
+id: implicit-differentiation
+title: Implicit Differentiation
+author: Pranav Ramesh
+description: Differentiating equations without explicitly solving for y
+prerequisites: [differentiation-rules, chain-rule]
+---
+
+# Introduction
+
+Up to this point, we've differentiated functions by isolating for $y$ and then taking the derivative of the other side. But it's not always easy — or even possible — to solve directly for $y$. This is where **implicit differentiation** comes in.
+
+The idea is to differentiate both sides of an equation with respect to $x$ and apply the chain rule as needed. This works because differentiation is an operation just like addition or subtraction: if you differentiate both sides of a true equation, it remains true.
+
+The key is that whenever you differentiate a term involving $y$, you must multiply by $\dfrac{dy}{dx}$ (also written $y'$) via the chain rule, since $y$ is itself a function of $x$.
+
+# Examples
+
+> **Example 1:** Find $\dfrac{dy}{dx}$ given $x^2 + y^2 = 1$.
+>
+> **Solution:** Differentiate both sides with respect to $x$:
+>
+> $$\frac{d}{dx}(x^2 + y^2) = \frac{d}{dx}(1)$$
+>
+> $$2x + 2y \cdot \frac{dy}{dx} = 0$$
+>
+> Solving for $\dfrac{dy}{dx}$:
+>
+> $$\boxed{\frac{dy}{dx} = \frac{-x}{y}}$$
+>
+> In the second step, we used the chain rule on $y^2$: since $y$ is a function of $x$, differentiating gives $2y \cdot \dfrac{dy}{dx}$.
+
+> **Example 2:** Find $y'$ given $x^2 + xy + y^3 = 0$.
+>
+> **Solution:** The middle term $xy$ is a product of two functions of $x$, so we need both the product rule and the chain rule. Differentiating both sides:
+>
+> $$\frac{d}{dx}(x^2 + xy + y^3) = \frac{d}{dx}(0)$$
+>
+> $$2x + (x \cdot y' + 1 \cdot y) + 3y^2 y' = 0$$
+>
+> Collecting all $y'$ terms on one side:
+>
+> $$y'(x + 3y^2) = -2x - y$$
+>
+> $$\boxed{y' = \frac{-2x - y}{x + 3y^2}}$$
+
+# Practice Problems
+
+> **Problem 1:** Given $2xy + x^3 - 3y^2 = 5$, find $\dfrac{dy}{dx}$.
+>
+> **Answer:** $\dfrac{dy}{dx} = \dfrac{-2y - 3x^2}{2x - 6y}$
+
+> **Problem 2:** Given $x^3 y + y^2 - x^2 = 5$, find the slope of the tangent line at the point $(2, 1)$.
+>
+> **Answer:** $-\dfrac{4}{5}$
+
+> **Problem 3:** Given $\dfrac{1}{x} + \dfrac{1}{y} = \dfrac{1}{12}$, find $\dfrac{dy}{dx}$.
+>
+> **Answer:** $-\dfrac{y^2}{x^2}$
+
+<Info title="More Practice">
+
+Additional practice problems can be found on Khan Academy, Paul's Online Math Notes, and the Organic Chemistry Tutor.
+
+</Info>
+
+<Problems problems="practice" />

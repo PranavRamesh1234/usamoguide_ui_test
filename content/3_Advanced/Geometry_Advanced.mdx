@@ -1,0 +1,113 @@
+---
+id: geometry-advanced
+title: Advanced Geometry
+author: USAMO Guide Team
+description: Cevians, homothety, and power of a point for AIME.
+prerequisites: ["euclidean-geometry"]
+---
+
+## Overview
+
+Advanced geometry blends similarity, power of a point, and homothety. Draw
+accurate diagrams and track equal angles carefully.
+
+## Key Ideas
+
+- Ceva's theorem: for concurrent cevians, $\frac{AF}{FB}\cdot\frac{BD}{DC}\cdot\frac{CE}{EA}=1$.
+- Homothety maps circles to circles and preserves tangency.
+- Power of a point applies to tangents and secants.
+
+## Core Skills
+
+**Definition.** (Cevian) For a triangle $ABC$, a *cevian* is a line segment from one vertex to a point on the other side of the extension of the aforementioned side. For instance, if $D$ is a point on line $BC$, then $AD$ is a cevian.
+
+### Ceva's Theorem
+
+**Theorem.** (Ceva's Theorem) Let $ABC$ be a triangle. Suppose $D$, $E$, and $F$ are points on $BC$, $CA$, and $AB$, respectively. Then, 
+
+$$
+\frac{AF}{FB}\cdot\frac{BD}{DC}\cdot\frac{CE}{EA}=1
+$$
+
+if and only if $AD$, $BE$, and $CF$ are concurrent.
+
+Now, we prove this in two parts!
+
+**Part I.** ($AD$, $BE$, and $CF$ concur $\implies \prod = 1$) Suppose that $AD$, $BE$, and $CF$ concur at $X$. Then,
+
+$$
+\dfrac{AF}{FB} = \dfrac{[AXC]}{[CXB]}, \quad \dfrac{BD}{DC} = \dfrac{[BXA]}{[AXC]}, \quad \dfrac{CE}{EA} = \dfrac{[CXB]}{[BXA]}.
+$$
+
+Multiplying yields the desired result. For more description, $\dfrac{AF}{FB} = \dfrac{[AXC]}{[CXB]}$ holds as each triangle has the same base being $XC$ while the heights are proportional to the ratio $AF:FB$. $\blacksquare$
+
+**Part II.** ($\prod = 1 \implies$ $AD$, $BE$, and $CF$ concur) Here, we assume $D$, $E$, and $F$ are points on their respective segments such that 
+
+$$
+\frac{AF}{FB}\cdot\frac{BD}{DC}\cdot\frac{CE}{EA}=1.
+$$
+
+Assume that $X = AD \cap BE$ and $CX \cap AB = F'$. Then, from Part I, 
+
+$$
+\dfrac{AF'}{F'B} \cdot \dfrac{BD}{DC} \cdot \dfrac{CE}{EA} = 1.
+$$
+
+Hence, $\dfrac{AF'}{F'B} = \dfrac{AF}{FB}$ which implies $F = F'$, as desired. $\blacksquare$
+
+This is a really important property to not miss: you can use this to prove concurrency, which is a really subtle, but common property in lots of Olympiad Geometry problems, in particular!
+
+### Menelaus' Theorem
+
+**Theorem.** (Menelaus' Theorem) Let $ABC$ be a triangle. Points $P$, $Q$, and $R$ lie on $AB$, $BC$, and $CA$, respectively. Then,
+
+$$
+\frac{AP}{PB}\cdot\frac{BQ}{QC}\cdot\frac{CF}{FA}=1
+$$
+
+if and only if $AP$, $BQ$, and $CR$ are collinear.
+
+The proof is fairly similar to Ceva's, so it can be an exercise for the reader!
+
+### Use Homothety Centers
+
+Identify the homothety center to map tangency points and parallel lines.
+
+### Combine with Similarity
+
+Look for similar triangles created by tangents, secants, or parallel lines.
+
+## Worked Example
+
+If two tangents from $P$ touch a circle at $A$ and $B$, then $PA=PB$.
+This follows from equal tangents to a circle.
+
+## More Examples
+
+### Example 1: Ceva
+
+If $\frac{AF}{FB}=2$, $\frac{BD}{DC}=3$, find $\frac{CE}{EA}$ for concurrency.
+
+$\frac{CE}{EA}=\frac{1}{6}$.
+
+### Example 2: Power of a Point
+
+From $P$, a secant meets the circle at $A,B$ with $PA=3$, $PB=12$. Find the
+tangent length.
+
+$PT^2=36$, so $PT=6$.
+
+### Example 3: Homothety
+
+If two circles are externally tangent at $T$, the line joining centers passes
+through $T$. This is the homothety center.
+
+## Strategy Checklist
+
+- Decide if Ceva/Menelaus applies.
+- Look for homothety centers to relate segments.
+- Use power of a point to connect lengths.
+
+## Practice Problems
+
+<Problems problems="practice" />

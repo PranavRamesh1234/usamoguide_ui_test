@@ -1,0 +1,286 @@
+{
+  "MODULE_ID": "calculus-differential-calculus-applications",
+  "practice": [
+    {
+      "uniqueId": "calculus-differential-calculus-applications-auto-0766",
+      "name": "Harvard-MIT Math Tournament #0i3y",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "ODEs",
+        "Applications"
+      ],
+      "statement": "Problem:\n\nOn the planet Lemniscate, the people use the elliptic table of elements, a far more advanced version of our periodic table. They're not very good at calculus, though, so they've asked for your help. They know that Kr is somewhat radioactive and deteriorates into Pl, a very unstable element that deteriorates to form the stable element As. They started with a block of Kr of size 10 and nothing else. (Their units don't translate into English, sorry.) At time $t$, they let $x(t)$ be the amount of Kr, $y(t)$ the amount of Pl, and $z(t)$ the amount of As. They know that $x'(t) = -x$, and that, in the absence of Kr, $y'(t) = -2y$. Your job is to find at what time $t$ the quantity of Pl will be largest. You should assume that the entire amount of Kr that deteriorates has turned into Pl.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThis problem is long-winded since it's giving an autonomous linear system of differential equations without using any such language (and it includes a number of subtle references). The system we have is $x' = -x$, $y' = x - 2y$. It's not hard to see that $x = 10 e^{-t}$ satisfies the first equation and the initial condition. Plugging this into the second equation and using the integrating factor $e^{2t}$ (or using eigenvalues and eigenvectors to solve the system directly, though I don't want to begin to explain what that means) lets us solve for $y$. More precisely, we want to solve $y' + 2y = 10 e^{-t}$. Multiply by $e^{2t}$ and simplify the left hand side to get $(y e^{2t})' = 10 e^{t}$. Integrating both sides with respect to $t$ then yields $y e^{2t} = 10 e^{t} + C$, or $y = 10 e^{-t} + C e^{-2t}$. Since $y(0) = 0$, we find $C = -10$. Now to maximize $y$, we solve $y'(t) = 0$, or $-10 e^{-t} + 20 e^{-2t} = 0$, or $t = \\ln 2$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-differential-calculus-applications-auto-0846",
+      "name": "Harvard-MIT Math Tournament #0i66",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Derivatives",
+        "Applications",
+        "Trigonometric functions"
+      ],
+      "statement": "Problem:\n\nWhat is the minimum vertical distance between the graphs of $2+\\sin (x)$ and $\\cos (x)$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe derivative of $2+\\sin (x)-\\cos (x)$ is $\\cos x+\\sin x$, which in the interval $0 \\leq x<2 \\pi$ is zero at $x=\\frac{3 \\pi}{4}, \\frac{7 \\pi}{4}$. At $\\frac{7 \\pi}{4}$, when $\\sin (x)$ is negative and $\\cos (x)$ is positive, the distance reaches its minimal value of $2-\\sqrt{2}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-differential-calculus-applications-auto-1118",
+      "name": "Harvard-MIT Mathematics Tournament #0idq",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Derivatives",
+        "Applications"
+      ],
+      "statement": "Problem:\nIf $x$ and $y$ are real numbers with $(x+y)^{4} = x - y$, what is the maximum possible value of $y$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n$$\n3 \\sqrt[3]{2} / 16\n$$\nBy drawing the graph of the curve (as shown), which is just a $135^{\\circ}$ clockwise rotation and scaling of $y = x^{4}$, we see that the maximum is achieved at the unique point where $d y / d x = 0$. Implicit differentiation gives $4(d y / d x + 1)(x + y)^{3} = 1 - d y / d x$, so setting $d y / d x = 0$ gives $4(x + y)^{3} = 1$. So $x + y = 1 / \\sqrt[3]{4} = \\sqrt[3]{2} / 2$, and $x - y = (x + y)^{4} = \\sqrt[3]{2} / 8$. Subtracting and dividing by 2 gives $y = (\\sqrt[3]{2} / 2 - \\sqrt[3]{2} / 8) / 2 = 3 \\sqrt[3]{2} / 16$.\n\n![](attached_image_1.png)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-differential-calculus-applications-auto-1132",
+      "name": "Harvard-MIT Mathematics Tournament #0ie4",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Derivatives",
+        "Applications"
+      ],
+      "statement": "Problem:\nLet $f(x) = x^{3} + a x + b$, with $a \\neq b$, and suppose the tangent lines to the graph of $f$ at $x = a$ and $x = b$ are parallel. Find $f(1)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nSince $f'(x) = 3x^{2} + a$, we must have $3a^{2} + a = 3b^{2} + a$. Then $a^{2} = b^{2}$, and since $a \\neq b$, $a = -b$. Thus $f(1) = 1 + a + b = 1$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-differential-calculus-applications-auto-1166",
+      "name": "Harvard-MIT Mathematics Tournament #0if2",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Applications",
+        "Single-variable",
+        "Trigonometric functions"
+      ],
+      "statement": "Problem:\nA plane curve is parameterized by $x(t) = \\int_{t}^{\\infty} \\frac{\\cos u}{u} du$ and $y(t) = \\int_{t}^{\\infty} \\frac{\\sin u}{u} du$ for $1 \\leq t \\leq 2$. What is the length of the curve?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution: $\\ln 2$\nBy the Second Fundamental Theorem of Calculus, $\\frac{d x}{d t} = -\\frac{\\cos t}{t}$ and $\\frac{d y}{d t} = -\\frac{\\sin t}{t}$. Therefore, the length of the curve is\n$$\n\\int_{1}^{2} \\sqrt{\\left(\\frac{d x}{d t}\\right)^{2} + \\left(\\frac{d y}{d t}\\right)^{2}} d t = \\int_{1}^{2} \\sqrt{\\frac{\\cos^{2} t}{t^{2}} + \\frac{\\sin^{2} t}{t^{2}}} d t = \\int_{1}^{2} \\frac{1}{t} d t = [\\ln t]_{1}^{2} = \\ln 2\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-differential-calculus-applications-auto-1448",
+      "name": "Harvard-MIT Mathematics Tournament #0imw",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Applications",
+        "Derivatives"
+      ],
+      "statement": "Problem:\nLet $a$ be a positive real number. Find the value of $a$ such that the definite integral\n$$\n\\int_{a}^{a^{2}} \\frac{\\mathrm{d} x}{x+\\sqrt{x}}\n$$\nachieves its smallest possible value.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $\\sqrt{3-2 \\sqrt{2}}$\nLet $F(a)$ denote the given definite integral. Then\n$$\nF'(a) = \\frac{\\mathrm{d}}{\\mathrm{d} a} \\int_{a}^{a^{2}} \\frac{\\mathrm{d} x}{x+\\sqrt{x}} = 2a \\cdot \\frac{1}{a^{2}+\\sqrt{a^{2}}} - \\frac{1}{a+\\sqrt{a}}.\n$$\nSetting $F'(a) = 0$, we find that $2a + 2\\sqrt{a} = a + 1$ or $(\\sqrt{a} + 1)^{2} = 2$. We find $\\sqrt{a} = \\pm \\sqrt{2} - 1$, and because $\\sqrt{a} > 0$, $a = (\\sqrt{2} - 1)^{2} = 3 - 2\\sqrt{2}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-differential-calculus-applications-auto-1464",
+      "name": "Harvard-MIT Mathematics Tournament #0inc",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Derivatives",
+        "Applications"
+      ],
+      "statement": "Problem:\nFind the real number $\\alpha$ such that the curve $f(x)=e^{x}$ is tangent to the curve $g(x)=\\alpha x^{2}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n$\\boxed{e^{2}/4}$. Suppose tangency occurs at $x=x_{0}$. Then $e^{x_{0}}=\\alpha x_{0}^{2}$ and $f'(x_{0})=2 \\alpha x_{0}$. On the other hand, $f'(x)=f(x)$, so $\\alpha x_{0}^{2}=2 \\alpha x_{0}$. Clearly, $\\alpha=0$ and $x_{0}=0$ are impossible, so it must be that $x_{0}=2$. Then $\\alpha=e^{x_{0}}/(x_{0}^{2})=e^{2}/4$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-differential-calculus-applications-auto-1567",
+      "name": "Harvard-MIT Mathematics Tournament #0iq7",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Derivatives",
+        "Applications"
+      ],
+      "statement": "Problem:\n\nLet $\\ell$ be the line through $(0,0)$ and tangent to the curve $y = x^{3} + x + 16$. Find the slope of $\\ell$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet the point of tangency be $(t, t^{3} + t + 16)$, then the slope of $\\ell$ is $\\dfrac{t^{3} + t + 16}{t}$. On the other hand, since $\\dfrac{dy}{dx} = 3t^{2} + 1$, the slope of $\\ell$ is $3t^{2} + 1$. Therefore,\n$$\n\\frac{t^{3} + t + 16}{t} = 3t^{2} + 1\n$$\nSimplifying, we get $t^{3} = 8$, so $t = 2$. It follows that the slope is $3(2)^{2} + 1 = 13$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-differential-calculus-applications-auto-1636",
+      "name": "Harvard-MIT Mathematics Tournament #0is4",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Applications",
+        "Derivatives",
+        "Limits"
+      ],
+      "statement": "Problem:\n\nLet $a$, $b$ be constants such that\n$$\n\\lim_{x \\rightarrow 1} \\frac{(\\ln (2-x))^{2}}{x^{2}+a x+b}=1.\n$$\nDetermine the pair $(a, b)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $(-2,1)$\n\nWhen $x=1$, the numerator is $0$, so the denominator must be zero as well, so $1+a+b=0$.\n\nUsing l'Hôpital's rule, we must have\n$$\n1=\\lim_{x \\rightarrow 1} \\frac{(\\ln (2-x))^{2}}{x^{2}+a x+b}=\\lim_{x \\rightarrow 1} \\frac{2 \\ln (2-x)}{(x-2)(2 x+a)}\n$$\nand by the same argument we find that $2+a=0$. Thus, $a=-2$ and $b=1$. This is indeed a solution, as can be seen by finishing the computation."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-differential-calculus-applications-auto-1706",
+      "name": "Harvard-MIT Mathematics Tournament #0iu2",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Derivatives",
+        "Applications"
+      ],
+      "statement": "Problem:\n\nLet $f$ be a differentiable real-valued function defined on the positive real numbers. The tangent lines to the graph of $f$ always meet the $y$-axis 1 unit lower than where they meet the function. If $f(1)=0$, what is $f(2)$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe tangent line to $f$ at $x$ meets the $y$-axis at $f(x)-1$ for any $x$, so the slope of the tangent line is $f'(x) = \\frac{1}{x}$, and so $f(x) = \\ln(x) + C$ for some $C$. Since $f(1) = 0$, we have $C = 0$, and so $f(x) = \\ln(x)$. Thus $f(2) = \\ln(2)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-differential-calculus-applications-auto-2172",
+      "name": "Harvard-MIT Mathematics Tournament #0j70",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Derivatives",
+        "Applications",
+        "Single-variable"
+      ],
+      "statement": "Problem:\n\nLet $f: \\mathbb{R} \\rightarrow \\mathbb{R}$ be a differentiable function such that $f(0)=0$, $f(1)=1$, and $\\left|f^{\\prime}(x)\\right| \\leq 2$ for all real numbers $x$. If $a$ and $b$ are real numbers such that the set of possible values of $\\int_{0}^{1} f(x) d x$ is the open interval $(a, b)$, determine $b-a$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $\\frac{3}{4}$\n\nDraw lines of slope $\\pm 2$ passing through $(0,0)$ and $(1,1)$. These form a parallelogram with vertices $(0,0)$, $(.75,1.5)$, $(1,1)$, $(.25,-.5)$. By the mean value theorem, no point of $(x, f(x))$ lies outside this parallelogram, but we can construct functions arbitrarily close to the top or the bottom of the parallelogram while satisfying the condition of the problem. So $(b-a)$ is the area of this parallelogram, which is $\\frac{3}{4}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-differential-calculus-applications-auto-4779",
+      "name": "AIME II #0l7f",
+      "url": "https://usamoguide.com/",
+      "source": "AIME II",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Trigonometric functions",
+        "Derivatives",
+        "Applications"
+      ],
+      "statement": "There are $n$ values of $x$ in the interval $0 < x < 2\\pi$ where $f(x) = \\sin(7\\pi \\cdot \\sin(5x)) = 0$. For $t$ of these $n$ values of $x$, the graph of $y = f(x)$ is tangent to the $x$-axis. Find $n + t$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

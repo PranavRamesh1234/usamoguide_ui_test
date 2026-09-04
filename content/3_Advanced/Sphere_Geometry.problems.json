@@ -1,0 +1,205 @@
+{
+  "MODULE_ID": "sphere-geometry",
+  "practice": [
+    {
+      "uniqueId": "aime-2022i-10",
+      "name": "Problem 10 (2022 AIME I)",
+      "url": "https://artofproblemsolving.com/wiki/index.php/2022_AIME_I_Problems/Problem_10",
+      "source": "AIME",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "3d geometry",
+        "Sphere Tangency"
+      ],
+      "statement": "Three spheres with radii 11, 13, and 19 are mutually externally tangent. A plane intersects the spheres in three congruent circles centered at $A$, $B$, and $C$, respectively, and the centers of the spheres all lie on the same side of this plane. Suppose that $AB^2 = 560$. Find $AC^2$.",
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-non-euclidean-geometry-spherical-geometry-auto-1259",
+      "name": "Harvard-MIT Mathematics Tournament #0ihn",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Spherical Geometry"
+      ],
+      "statement": "Problem:\nA bear walks one mile south, one mile east, and one mile north, only to find itself where it started. Another bear, more energetic than the first, walks two miles south, two miles east, and two miles north, only to find itself where it started. However, the bears are not white and did not start at the north pole. At most how many miles apart, to the nearest .001 mile, are the two bears' starting points?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nSay the first bear walks a mile south, an integer $n > 0$ times around the south pole, and then a mile north. The middle leg of the first bear's journey is a circle of circumference $1 / n$ around the south pole, and therefore about $\\frac{1}{2 n \\pi}$ miles north of the south pole. (This is not exact even if we assume the Earth is perfectly spherical, but it is correct to about a micron.) Adding this to the mile that the bear walked south/north, we find that it started about $1 + \\frac{1}{2 n \\pi}$ miles from the south pole. Similarly, the second bear started about $2 + \\frac{2}{2 m \\pi}$ miles from the south pole for some integer $m > 0$, so they must have started at most\n$$\n3 + \\frac{1}{2 n \\pi} + \\frac{2}{2 m \\pi} \\leq 3 + \\frac{3}{2 \\pi} \\approx 3.477\n$$\nmiles apart."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-differential-geometry-curvature-auto-1367",
+      "name": "Harvard-MIT Mathematics Tournament #0ikn",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Curvature"
+      ],
+      "statement": "Problem:\nFind all positive real numbers $c$ such that the graph of $f: \\mathbb{R} \\rightarrow \\mathbb{R}$ given by $f(x) = x^{3} - c x$ has the property that the circle of curvature at any local extremum is centered at a point on the $x$-axis.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe equation $0 = f'(x) = 3x^{2} - c$ has two real roots: $\\pm \\sqrt{c / 3}$. Let $a := \\sqrt{c / 3}$. As $f''(-a) = -6 \\sqrt{c / 3} < 0$, $f$ has a unique local maximum at $x = -a$.\n\nBecause $f$ has half-turn symmetry about the origin, it suffices to consider this local extremum. The radius of curvature at any local extremum is\n$$\nr(x) = \\frac{1}{|f''(x)|} = \\frac{1}{6|x|},\n$$\nso the condition in the problem is equivalent to\n$$\n\\begin{gathered}\nr(-a) = f(-a) \\\\\n\\frac{1}{6a} = -a(a^{2} - c) \\\\\n1 = 6a^{2}(c - a^{2}) = 2c(2c / 3) \\\\\nc = \\sqrt{3} / 2\n\\end{gathered}"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-solid-geometry-3d-shapes-auto-0361",
+      "name": "MathNet #0hsp",
+      "url": "https://usamoguide.com/",
+      "source": "MathNet",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Volume",
+        "3D Shapes",
+        "Trigonometry",
+        "Triangle trigonometry"
+      ],
+      "statement": "Problem:\n\nLet $D$ be a dodecahedron which can be inscribed in a sphere with radius $R$. Let $I$ be an icosahedron which can also be inscribed in a sphere of radius $R$. Which has the greater volume, and why?\n\nNote: A regular polyhedron is a geometric solid, all of whose faces are congruent regular polygons, in which the same number of polygons meet at each vertex. A regular dodecahedron is a polyhedron with 12 faces which are regular pentagons and a regular icosahedron is a polyhedron with 20 faces which are equilateral triangles. A polyhedron is inscribed in a sphere if all of its vertices lie on the surface of the sphere.\n\nThe illustration below shows a dodecahedron and an icosahedron, not necessarily to scale.\n\n![](attached_image_1.png)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n$D$ has the greater volume.\n\nThe key idea that we will use is a beautiful relationship between $I$ and $D$; they are dual polyhedra. To understand this, note that $D$ has 12 faces, 30 edges, and 20 vertices. (The 12 pentagonal faces produce 60 edges and 60 vertices, but these are, respectively, double- and triple-counted. Hence there are $60/2 = 30$ edges and $60 / 3=20$ vertices). Likewise, $I$ has 20 faces, 30 edges, and 12 vertices. Notice that $I$ has as many vertices as $D$ has faces, and vice-versa.\n\nConsequently, if we join each center of the faces of an icosahedron to the centers of adjacent faces, we will get a dodecahedron, and vice-versa. (For the other platonic solids, the cube and octahedron are duals of each other, and the tetrahedron is its own dual).\n\nWe will use duality to prove an important lemma.\n\nLemma: If a dodecahedron and an icosahedron can be inscribed in the same sphere, then they circumscribe the same sphere as well.\n\nTo see why this is true, imagine $I$ and $D$ both sitting inside a sphere of radius $R$ with center $O$, which circumscribes both polyhedra. Thus all the vertices of both polyhedra lie on the surface of this sphere. Because the polyhedra are dual, we can place the polyhedra so that for every vertex $A$ of $I$, the line $A O$ is perpendicular to and passes through the center of a face of $D$. Likewise, for every vertex $B$ of $D$, the line $B O$ is perpendicular to and passes through the center of a face of $I$.\n\nThe illustration below is an imperfect depiction of a portion of this situation. The left picture is a \"top view,\" as seen by an observer looking directly down at the center of a face of $D$. Point $A$ is a vertex of $I$, and $B$ is a vertex of $D$.\n\n![](attached_image_2.png)\nTop View\n\n![](attached_image_3.png)\nSide View\n\nThe picture on the right is a \"side view\" (not-to-scale), showing the projections of $A$ and $B$ down to the center $O$ of the sphere. Let $C O$ be the perpendicular projection of $A O$ onto $B O$. Note that point $C$ is the center of a face of the icosahedron $I$ (in the Top View, you cannot see $C$ because it is directly \"underneath\" $B$ ), and $h=C O$ is the radius of the inscribed sphere of $I$. Also $r=A C$ is the radius of the circumscribed circle about a face of $I$.\n\nLet $E O$ be the perpendicular projection of $B O$ on to $A O$. Clearly $E O=C O=h$ (since $A O= B O=R$ ), but by duality, $E$ must be a center of a face of the dodecahedron $D$. Consequently, the radius of the inscribed sphere of $D$ must also equal $h$.\n\nNow it is a simple matter to compute and compare the two volumes. Notice that $D$ consists of 12 pyramids with regular pentagonal bases (each with circumradius $r$ ) and height $h$. Likewise, $I$ consists of 20 pyramids with equilateral triangular bases (each with circumradius $r$ ) and height $h$. Recall that the volume of a pyramid with base area $B$ and height $h$ is $B h / 3$. Now we can easily compare the two volumes.\n\n$$\n\\frac{\\operatorname{vol}(D)}{\\operatorname{vol}(I)}=\\frac{\\frac{h}{3} \\times 12 \\times \\text{ area of pentagon }}{\\frac{h}{3} \\times 20 \\times \\text{ area of triangle }}\n$$\n$$\n\\begin{aligned}\n& =\\frac{3 \\times \\text{ area of pentagon }}{5 \\times \\text{ area of triangle }} \\\\\n& =\\frac{3 \\times 5 \\times \\frac{r^{2}}{2} \\sin 72^{\\circ}}{5 \\times 3 \\times \\frac{r^{2}}{2} \\sin 120^{\\circ}} \\\\\n& =\\frac{\\sin 72^{\\circ}}{\\sin 60^{\\circ}} \\\\\n& >1 .\n\\end{aligned}\n$$\n\nWe are using the fact that a regular $n$-gon that can be inscribed in a circle of radius $r$ can be dissected into $n$ \"pie slices\" that are isosceles triangles with sides of length $r$ and vertex angle $(360 / n)^{\\circ}$. Thus the area of the regular $n$-gon is $n \\times\\left(r^{2} / 2\\right) \\times \\sin (360 / n)^{\\circ}$.\n\nSolution:\n\n(sketch) Instead of showing that the inscribed spheres have equal radii, we can use duality and the \"top view\" used in the previous solution to show that the radius of the circumscribed circle of each face of $D$ is equal to the radius of the circumscribed circle of each face of $I$. In other words, the two circles depicted below have the same radii. This fact is attributed to the ancient Greek mathematician Apollonius.\n\n![](attached_image_4.png)\n\nOnce this is known, it is easy to deduce that the two polyhedra have identical inscribed sphere radii, and the rest of the solution proceeds as before."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-solid-geometry-3d-shapes-auto-0974",
+      "name": "Harvard-MIT Mathematics Tournament #0i9q",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Surface Area",
+        "3D Shapes"
+      ],
+      "statement": "Problem:\nCompute the surface area of a cube inscribed in a sphere of surface area $\\pi$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe sphere's radius $r$ satisfies $4 \\pi r^{2} = \\pi \\Rightarrow r = 1/2$, so the cube has body diagonal $1$, hence side length $1/\\sqrt{3}$. So, its surface area is $6(1/\\sqrt{3})^{2} = 2$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-solid-geometry-3d-shapes-auto-1036",
+      "name": "Harvard-MIT Mathematics Tournament #0ibg",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Surface Area",
+        "3D Shapes"
+      ],
+      "statement": "Problem:\nOn a spherical planet with diameter $10,000~\\mathrm{km}$, powerful explosives are placed at the north and south poles. The explosives are designed to vaporize all matter within $5,000~\\mathrm{km}$ of ground zero and leave anything beyond $5,000~\\mathrm{km}$ untouched. After the explosives are set off, what is the new surface area of the planet, in square kilometers?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n$100,000,000 \\pi$\n\nThe explosives have the same radius as the planet, so the surface area of the \"cap\" removed is the same as the new surface area revealed in the resulting \"dimple.\" Thus the area is preserved by the explosion and remains $\\pi \\cdot (10,000)^2$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-solid-geometry-3d-shapes-auto-1070",
+      "name": "Harvard-MIT Mathematics Tournament #0ice",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "3D Shapes",
+        "Other 3D problems"
+      ],
+      "statement": "Problem:\nA plane $P$ slices through a cube of volume $1$ with a cross-section in the shape of a regular hexagon. This cube also has an inscribed sphere, whose intersection with $P$ is a circle. What is the area of the region inside the regular hexagon but outside the circle?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nOne can show that the hexagon must have as its vertices the midpoints of six edges of the cube, as illustrated; for example, this readily follows from the fact that opposite sides of the hexagons and the medians between them are parallel. We then conclude that the side of the hexagon is $\\sqrt{2} / 2$ (since it cuts off an isosceles triangle of leg $1 / 2$ from each face), so the area is $\\left(\\frac{3}{2}\\right)\\left(\\frac{\\sqrt{2}}{2}\\right)^{2}\\left(\\sqrt{3}\\right) = \\frac{3 \\sqrt{3}}{4}$. Also, the plane passes through the center of the sphere by symmetry, so it cuts out a cross section of radius $1 / 2$, whose area (which is contained entirely inside the hexagon) is then $\\pi / 4$. The sought area is thus $\\frac{3 \\sqrt{3} - \\pi}{4}$.\n\n![](attached_image_1.png)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-solid-geometry-3d-shapes-auto-1225",
+      "name": "Harvard-MIT Mathematics Tournament #0igp",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "3D Shapes",
+        "Other 3D problems"
+      ],
+      "statement": "Problem:\nA cube with side length $2$ is inscribed in a sphere. A second cube, with faces parallel to the first, is inscribed between the sphere and one face of the first cube. What is the length of a side of the smaller cube?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFirst note that the long diagonal of the cube has length $2\\sqrt{3}$, so the radius of the sphere is $\\sqrt{3}$. Let $x$ be the side length of the smaller cube. Then the distance from the center of the sphere to the far face of the smaller cube is $1 + x$, while the distance from the center of the far face to a vertex lying on the sphere is $\\frac{x\\sqrt{2}}{2}$. Therefore, the square of the radius is\n$$\n3 = (1 + x)^2 + \\frac{x^2}{2},\n$$\nor\n$$\n3x^2 + 4x - 4 = (3x - 2)(x + 2) = 0,\n$$\nso $x = \\frac{2}{3}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-solid-geometry-3d-shapes-auto-1310",
+      "name": "Harvard-MIT Mathematics Tournament #0ij2",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Surface Area",
+        "3D Shapes"
+      ],
+      "statement": "Problem:\nA pebble is shaped as the intersection of a cube of side length $1$ with the solid sphere tangent to all of the cube's edges. What is the surface area of this pebble?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nImagine drawing the sphere and the cube. Take a cross section, with a plane parallel to two of the cube's faces, passing through the sphere's center. In this cross section, the sphere looks like a circle, and the cube looks like a square (of side length $1$) inscribed in that circle. We can now calculate that the sphere has diameter\n$$\nd := \\sqrt{2}\n$$\nand surface area\n$$\nS := \\pi d^{2} = 2 \\pi,\n$$\nand that the sphere protrudes a distance of\n$$\nx := \\frac{\\sqrt{2} - 1}{2}\n$$\nout from any given face of the cube.\n\nIt is known that the surface area chopped off from a sphere by any plane is proportional to the perpendicular distance thus chopped off. Thus, each face of the cube chops off a fraction\n$$\n\\frac{x}{d}\n$$\nof the sphere's surface. The surface area of the pebble contributed by the sphere is thus\n$$\nS \\cdot \\left(1 - 6 \\cdot \\frac{x}{d}\\right),\n$$\nwhereas the cube contributes $6$ circles of radius $\\frac{1}{2}$, with total area\n$$\n6 \\cdot \\pi \\left(\\frac{1}{2}\\right)^{2} = \\frac{3}{2} \\pi.\n$$\nThe pebble's surface area is therefore\n$$\nS \\cdot \\left(1 - 6 \\cdot \\frac{x}{d}\\right) + \\frac{3}{2} \\pi = 2 \\pi \\cdot \\left(1 - 6 \\cdot \\frac{\\sqrt{2} - 1}{2 \\sqrt{2}}\\right) + \\frac{3}{2} \\pi = \\frac{6 \\sqrt{2} - 5}{2} \\pi.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

@@ -1,0 +1,574 @@
+{
+  "MODULE_ID": "algebra-abstract-algebra-permutations-basic-group-theory",
+  "practice": [
+    {
+      "uniqueId": "algebra-abstract-algebra-permutations-basic-group-theory-auto-0503",
+      "name": "Berkeley Math Circle Monthly Contest 1 #0hwn",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Invariants / monovariants",
+        "Permutations / basic group theory"
+      ],
+      "statement": "Problem:\n\nIn the hold of a pirate ship are ten treasure chests lying on pedestals in a circular arrangement. The captain would like to move each chest clockwise by one pedestal. However, the chests are so heavy that the captain and his assistant can only switch two chests at a time. What is the minimum number of switches needed to accomplish the task?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe answer is $9$. It is easy to see that nine moves are sufficient; they can move a single chest counterclockwise one pedestal at a time, until after nine moves all of the other chests have been moved clockwise one pedestal.\n\nSuppose that, at each stage of the game, we draw an arrow from each pedestal to the pedestal on which the chest which it now holds originally sat. Then every pedestal has one incoming and one outgoing arrow, and the overall graph can be decomposed into some number of disconnected cycles. Let $c$ be the number of cycles. We note that at the beginning of the process, $c=10$ (every arrow is its own cycle) while at the end, $c=1$ (all the pedestals are connected in a ring).\n\nWe now claim that at each move, $c$ cannot decrease by more than $1$. Each move affects only two pedestals, which may initially belong to one or two cycles; the performance of the move may fuse two cycles into one or break up cycles into more cycles, but it certainly cannot replace two cycles by zero cycles. Therefore, $c$ decreases by at most $1$ at each move and hence cannot reach as low as $1$ before the ninth move."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-abstract-algebra-permutations-basic-group-theory-auto-0648",
+      "name": "Berkeley Math Circle #0i0o",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Invariants / monovariants",
+        "Induction / smoothing",
+        "Permutations / basic group theory"
+      ],
+      "statement": "Problem:\n\nThree grasshoppers are on a straight line. Every second one grasshopper jumps. It jumps across one (but not across two) of the other grasshoppers. Prove that after 1999 seconds the grasshoppers cannot be in the initial position.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAssume that the grasshoppers are initially in the order $(A, B, C)$ on the line. Call $(A, B, C)$, $(B, C, A)$, $(C, A, B)$ \"even\" orders and $(A, C, B)$, $(B, A, C)$, $(C, B, A)$ \"odd\" orders. We claim that if the grasshoppers are in an even order, they will be in an odd order the next second, and vice versa. This can be proved by simply checking all the possible situations. For example, if we start from the even order $(A, B, C)$, then either $A$ jumps across $B$, $B$ jumps across $A$, $B$ jumps across $C$, or $C$ jumps across $B$. These yield the respective orders $(B, A, C)$, $(B, A, C)$, $(A, C, B)$, $(A, C, B)$, which are odd. A similar analysis starting from each of the other five positions confirms that we switch parity with every jump.\n\nNow we claim that after an even number of seconds, the grasshoppers are in an even order, and after an odd number of seconds, they are in an odd order. This is a simple induction: after $n=0$ seconds, they are in an order defined to be even. If $n>0$, suppose $n$ is even. Then $n-1$ is odd, so the grasshoppers are in an odd order after $n-1$ seconds (by induction) and will be in an even order after $n$ seconds. Likewise, if $n$ is odd, then the grasshoppers are in an even order after $n-1$ seconds and therefore in an odd order after $n$ seconds. This completes the induction step.\n\nBut this means that after 1999 seconds, the grasshoppers are in an odd order; since they initially were in an even order, they cannot be in the same position."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-abstract-algebra-permutations-basic-group-theory-auto-0731",
+      "name": "3rd Bay Area Mathematical Olympiad #0i2z",
+      "url": "https://usamoguide.com/",
+      "source": "3rd Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recursion, bijection",
+        "Permutations / basic group theory",
+        "Divisibility / Factorization",
+        "Modular Arithmetic",
+        "Recurrence relations"
+      ],
+      "statement": "Problem:\n\nFor each positive integer $n$, let $a_{n}$ be the number of permutations $\\tau$ of $\\{1,2, \\ldots, n\\}$ such that $\\tau(\\tau(\\tau(x)))=x$ for $x=1,2, \\ldots, n$. The first few values are\n$$\na_{1}=1,\\ a_{2}=1,\\ a_{3}=3,\\ a_{4}=9.\n$$\nProve that $3^{334}$ divides $a_{2001}$.\n\n(A permutation of $\\{1,2, \\ldots, n\\}$ is a rearrangement of the numbers $\\{1,2, \\ldots, n\\}$, or equivalently, a one-to-one and onto function from $\\{1,2, \\ldots, n\\}$ to $\\{1,2, \\ldots, n\\}$. For example, one permutation of $\\{1,2,3\\}$ is the rearrangement $\\{2,1,3\\}$, which is equivalent to the function $\\sigma:\\{1,2,3\\} \\rightarrow\\{1,2,3\\}$ defined by $\\sigma(1)=2,\\ \\sigma(2)=1,\\ \\sigma(3)=3$.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nConsider the permutations $\\tau$ of $\\{1,2, \\ldots, n\\}$ such that $\\tau(\\tau(\\tau(x)))=x$ for $x=1,2, \\ldots, n$. Then for each $x \\in\\{1,2, \\ldots, n\\}$, there are only two possibilities. Either $x$ is a fixed point; i.e., $\\tau(x)=x$, or else $x$ is a member of a 3-cycle $(xyz)$; i.e. $\\tau(x)=y,\\ \\tau(y)=z,\\ \\tau(z)=x$, where $x, y, z$ are 3 distinct numbers.\n\nWe can thus partition these permutations into two cases: Either 1 is a fixed point, or it is not. In the first case, the remaining elements $\\{2, \\ldots, n\\}$ can be permuted in $a_{n-1}$ ways. In the second case, 1 is part of a 3-cycle $(1\\ i\\ j)$, where $i \\neq j$ and $i, j \\in\\{2, \\ldots, n\\}$. There are $(n-1)(n-2)$ such 3-cycles (order counts). Then the remaining $n-3$ elements can be permuted in $a_{n-3}$ ways. Hence we have (for $n>3$)\n$$\na_{n}=a_{n-1}+(n-1)(n-2) a_{n-3}.\n$$\nDefine $b_{n}$ to be the highest power of 3 which divides $a_{n}$; i.e.\n$$\n3^{b_{n}} \\mid\\mid a_{n}\n$$\nIf $n \\not \\equiv 0 \\pmod{3}$, then $(n-1)(n-2)$ will be a multiple of 3, so equation (1) yields $a_{n}=a_{n-1}+3k a_{n-3}$, where $k$ is a positive integer. Hence\n$$\nb_{n} \\geq \\min \\left(b_{n-1},\\ b_{n-3}+1\\right),\\quad n \\not \\equiv 0 \\pmod{3}\n$$\nIf $n \\equiv 0 \\pmod{3}$, then $(n-1)(n-2) \\equiv -1 \\pmod{3}$, but both $(n-2)(n-3)$ and $(n-3)(n-4)$ are multiples of 3. Plugging into (1), we have\n$$\n\\begin{aligned}\na_{n}-a_{n-1} &= (n-1)(n-2) a_{n-3} = (3u-1) a_{n-3}, \\\\\na_{n-1}-a_{n-2} &= (n-2)(n-3) a_{n-4} = 3v a_{n-4}, \\\\\na_{n-2}-a_{n-3} &= (n-3)(n-4) a_{n-5} = 3w a_{n-5},\n\\end{aligned}\n$$\nfor positive integers $u, v, w$. Adding these, we get\n$$\na_{n}-a_{n-3} = (3u-1) a_{n-3} + 3v a_{n-4} + 3w a_{n-5},\n$$\nso\n$$\na_{n} = 3\\left(u a_{n-3} + v a_{n-4} + w a_{n-5}\\right).\n$$\nThis implies that\n$$\nb_{n} \\geq 1 + \\min\\left(b_{n-3},\\ b_{n-4},\\ b_{n-5}\\right),\\quad n \\equiv 0 \\pmod{3},\\ n>5\n$$\nWe know that $b_{1}=0,\\ b_{2}=0,\\ b_{3}=1$. Employing (2), we get $b_{4} \\geq 1,\\ b_{5} \\geq 1$. Then (3) yields $b_{6} \\geq 1$. Applying (2) again yields $b_{7} \\geq 1,\\ b_{8} \\geq 1$. But now when (3) is applied, we have $b_{9} \\geq 2$. It is evident that continuing this process, (2) and (3) will increment $b_{n}$ by at least one as $n$ increases by 6. In other words,\n$$\nb_{6k+3} \\geq k+1\n$$\nSince $2001=6 \\cdot 333+3$, we are done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-abstract-algebra-permutations-basic-group-theory-auto-1324",
+      "name": "Harvard-MIT Mathematics Tournament #0ijg",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other 3D problems",
+        "Vectors",
+        "Permutations / basic group theory"
+      ],
+      "statement": "Problem:\nFour points are independently chosen uniformly at random from the interior of a regular dodecahedron. What is the probability that they form a tetrahedron whose interior contains the dodecahedron's center?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nTo any tetrahedron $P_{1} P_{2} P_{3} P_{4}$ we can associate a quadruple $\\left(\\epsilon_{(i j k)}\\right)$, where $(i j k)$ ranges over all conjugates of the cycle $(123)$ in the alternating group $A_{4}$: $\\epsilon_{i j k}$ is the sign of the directed volume $\\left[O P_{i} P_{j} P_{k}\\right]$. Assume that, for a given tetrahedron $P_{1} P_{2} P_{3} P_{4}$, all members of its quadruple are nonzero (this happens with probability $1$). For $1 \\leq i \\leq 4$, if we replace $P_{i}$ with its reflection through the origin, the three members of the tetrahedron's quadruple that involve $P_{i}$ all flip sign, because each $\\left[O P_{i} P_{j} P_{k}\\right]$ is a linear function of the vector $\\overrightarrow{O P}$. Thus, if we consider the $16$ sister tetrahedra obtained by choosing independently whether to flip each $P_{i}$ through the origin, the quadruples range through all $16$ possibilities (namely, all the quadruples consisting of $\\pm 1$'s). Two of these $16$ tetrahedra, namely those with quadruples $(1,1,1,1)$ and $(-1,-1,-1,-1)$, will contain the origin.\nSo the answer is $2 / 16 = 1 / 8$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-abstract-algebra-permutations-basic-group-theory-auto-1641",
+      "name": "Berkeley Math Circle Monthly Contest 2 #0is9",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 2",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other",
+        "Permutations / basic group theory"
+      ],
+      "statement": "Problem:\nLet $n$ be a positive integer and let $S$ be the set $\\{1,2, \\ldots, n\\}$. Define a function $f: S \\rightarrow S$ by\n$$\nf(x)= \\begin{cases}2 x & \\text{ if } 2 x \\leq n, \\\\ 2 n-2 x+1 & \\text{ otherwise. }\\end{cases}\n$$\nDefine $f^{2}(x)=f(f(x)), f^{3}(x)=f(f(f(x)))$, and so on. If $m$ is a positive integer satisfying $f^{m}(1)=1$, prove that $f^{m}(k)=k$ for all $k \\in S$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFirst note that\n$$\nf(x) \\equiv \\pm 2 x \\quad \\bmod 2 n+1\n$$\nIt follows that\n$$\nf^{p}(x) \\equiv \\pm 2^{p} x \\quad \\bmod 2 n+1\n$$\nThus if $f^{m}(1)=1$, $2^{m} \\equiv \\pm 1$ and so, for any $k \\in S$,\n$$\nf^{m}(k) \\equiv \\pm 2^{m} k \\equiv \\pm k \\quad \\bmod 2 n+1\n$$\nthat is, $f^{m}(k) \\pm k=j(2 n+1)$ for some integer $j$ and some choice of the sign. Since\n$$\n0<1+1 \\leq f^{m}(k)+k \\leq n+n<2 n+1,\n$$\nthe plus sign is invalid. Thus the minus sign holds, and since\n$$\n-(2 n+1)<1-n \\leq f^{m}(k)-k \\leq n-1<2 n+1,\n$$\nwe get $j=0$, i.e. $f^{m}(k)=k$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-abstract-algebra-permutations-basic-group-theory-auto-1654",
+      "name": "11th Annual Harvard-MIT Mathematics Tournament - Team Round: B Division #0ism",
+      "url": "https://usamoguide.com/",
+      "source": "11th Annual Harvard-MIT Mathematics Tournament - Team Round: B Division",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Permutations / basic group theory",
+        "Other"
+      ],
+      "statement": "Problem:\n\nProve that 572 is not a juggling sequence.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe are given $j(0) = 5$, $j(1) = 7$ and $j(2) = 2$. So $f(3) = 3 + j(0) = 8$ and $f(1) = 1 + j(1) = 8$. Thus $f(3) = f(1)$ and so $f$ is not a permutation of $\\mathbb{Z}$, and hence 572 is not a juggling pattern. (In other words, there is a \"collision\" at times $t \\equiv 2 \\pmod{3}$.)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-abstract-algebra-permutations-basic-group-theory-auto-1664",
+      "name": "11th Annual Harvard-MIT Mathematics Tournament - Team Round: B Division #0isw",
+      "url": "https://usamoguide.com/",
+      "source": "11th Annual Harvard-MIT Mathematics Tournament - Team Round: B Division",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recursion, bijection",
+        "Permutations / basic group theory",
+        "Integers"
+      ],
+      "statement": "Problem:\n\nSuppose that $j(0) j(1) \\cdots j(n-1)$ is a valid juggling sequence. For $i=0,1, \\ldots, n-1$, let $a_{i}$ denote the remainder of $j(i)+i$ when divided by $n$. Prove that $(a_{0}, a_{1}, \\ldots, a_{n-1})$ is a permutation of $(0,1, \\ldots, n-1)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSuppose that $a_{i}=j(i)+i-b_{i} n$, where $b_{i}$ is an integer. Note that $f\\left(i-b_{i} n\\right)=i-b_{i} n+j(i)=a_{i}$. Since $\\{i-b_{i} n \\mid i=0,1, \\ldots, n-1\\}$ contains $n$ distinct integers (as their residue $\\bmod n$ are all distinct), and $f$ is a permutation, we see that after applying the map $f$, the resulting set $\\{a_{0}, a_{1}, \\ldots, a_{n-1}\\}$ is a set of $n$ distinct integers. Since $0 \\leq a_{i}<n$ from definition, we see that $(a_{0}, a_{1}, \\ldots, a_{n-1})$ is a permutation of $(0,1, \\ldots, n-1)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-abstract-algebra-permutations-basic-group-theory-auto-2109",
+      "name": "Harvard-MIT Mathematics Tournament #0j59",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Permutations / basic group theory",
+        "Counting two ways",
+        "Catalan numbers, partitions",
+        "Cauchy-Schwarz"
+      ],
+      "statement": "Problem:\n\nDenote $\\{1,2, \\ldots, n\\}$ by $[n]$, and let $S$ be the set of all permutations of $[n]$. Call a subset $T$ of $S$ good if every permutation $\\sigma$ in $S$ may be written as $t_{1} t_{2}$ for elements $t_{1}$ and $t_{2}$ of $T$, where the product of two permutations is defined to be their composition. Call a subset $U$ of $S$ extremely good if every permutation $\\sigma$ in $S$ may be written as $s^{-1} u s$ for elements $s$ of $S$ and $u$ of $U$. Let $\\tau$ be the smallest value of $|T| /|S|$ for all good subsets $T$, and let $v$ be the smallest value of $|U| /|S|$ for all extremely good subsets $U$. Prove that $\\sqrt{v} \\geq \\tau$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nCall an element $t \\in S$ an involution if and only if $t^{2}$ is the identity permutation. We claim that the set of all involutions in $S$ constitutes a good subset of $S$. The proof is simple. Let $s$ be an arbitrary permutation in $S$. Note that $s$ may be decomposed into a product of disjoint cycles of length at least $2$, and suppose that there are $m$ such cycles in its decomposition. For $1 \\leq i \\leq m$, let $l_{i}$ denote the length of the $i$th cycle, so that $s$ may be written as\n$$\n\\left(a_{1,1} a_{1,2} \\ldots a_{1, l_{1}}\\right)\\left(a_{2,1} a_{2,2} \\ldots a_{2, l_{2}}\\right) \\ldots\\left(a_{m, 1} a_{m, 2} \\ldots a_{m, l_{m}}\\right)\n$$\nfor some pairwise distinct elements\n$$\na_{1,1}, a_{1,2}, \\ldots, a_{1, l_{1}}, a_{2,1}, a_{2,2}, \\ldots, a_{2, l_{2}}, \\ldots, a_{m, 1}, a_{m, 2}, \\ldots, a_{m, l_{m}}\n$$\nof $[n]$. Consider the permutations $q$ and $r$ defined by $q\\left(a_{i, j}\\right)=a_{i, l_{i}+1-j}$ for all $1 \\leq j \\leq l_{i}$ and $r\\left(a_{i, 1}\\right)=a_{i, 1}$ and $r\\left(a_{i, k}\\right)=a_{i, l_{i}+2-k}$ for all $2 \\leq k \\leq l_{i}$, for all $1 \\leq i \\leq m$, and by $q(x)=r(x)=x$ for all $x \\in[n]$ otherwise. Since $q, r \\in S$, $q^{2}=r^{2}=1$, and $r q=s$, it follows that the set of all involutions in $S$ is indeed good, as desired.\n\nFor all integer partitions $\\lambda$ of $n$, let $f^{\\lambda}$ denote the number of standard Young tableaux of shape $\\lambda$. By the Robinson-Schensted-Knuth correspondence, the permutations of $[n]$ are in bijection with pairs of standard Young tableaux of the same shape in such a way that the involutions of $[n]$ are in bijection with pairs of identical standard Young tableaux. In other words, the number of permutations of $[n]$ is equal to the number of pairs of identically shaped standard Young tableaux whose shape is a partition of $n$, and the number of involutions of $[n]$ is equal to the number of standard Young tableaux whose shape is a partition of $n$. Hence $n!=\\sum_{\\lambda}\\left(f^{\\lambda}\\right)^{2}$ and $\\tau \\leq \\sum_{\\lambda} \\frac{f^{\\lambda}}{n!}$, where both sums range over all partitions $\\lambda$ of $n$.\n\nFor all elements $u \\in S$, define the conjugacy class of $u$ to be the set of elements that may be written in the form $s^{-1} u s$ for some $s \\in S$. It is easy to see that for all $u, u' \\in S$, the conjugacy classes of $u$ and $u'$ are either identical or disjoint. It follows that $S$ may be partitioned into disjoint conjugacy classes and that any extremely good subset of $S$ must contain at least one element from each distinct conjugacy class. We claim that the number of distinct conjugacy classes of $S$ is at least the number of integer partitions of $n$. It turns out that the two numbers are in fact equal, but such a result is not necessary for the purposes of this problem. Let $u$ be an arbitrary permutation in $S$. Recall that $u$ may be written as\n$$\n\\left(a_{1,1} a_{1,2} \\ldots a_{1, l_{1}}\\right)\\left(a_{2,1} a_{2,2} \\ldots a_{2, l_{2}}\\right) \\ldots\\left(a_{m, 1} a_{m, 2} \\ldots a_{m, l_{m}}\\right)\n$$\nfor some pairwise distinct elements\n$$\na_{1,1}, a_{1,2}, \\ldots, a_{1, l_{1}}, a_{2,1}, a_{2,2}, \\ldots, a_{2, l_{2}}, \\ldots, a_{m, 1}, a_{m, 2}, \\ldots, a_{m, l_{m}}\n$$\nof $[n]$. Associate to the conjugacy class of $u$ the partition $n=l_{w_{1}}+l_{w_{2}}+\\ldots+l_{w_{m}}+1+\\ldots+1$, where $w_{1}, w_{2}, \\ldots, w_{m}$ is a partition of $1,2, \\ldots, m$ such that $w_{1} \\geq w_{2} \\geq \\ldots \\geq w_{m}$ and the $1$'s represent all the fixed points of $s$. Now note that if $s$ is any permutation in $S$, $s^{-1} u s$ may be written in the form\n$$\ns^{-1}\\left(a_{1,1} a_{1,2} \\ldots a_{1, l_{1}}\\right) s s^{-1}\\left(a_{2,1} a_{2,2} \\ldots a_{2, l_{2}}\\right) s \\ldots s^{-1}\\left(a_{m, 1} a_{m, 2} \\ldots a_{m, l_{m}}\\right) s\n$$\nwhich may be written as\n$$\n\\left(b_{1,1} b_{1,2} \\ldots b_{1, l_{1}}\\right)\\left(b_{2,1} b_{2,2} \\ldots b_{2, l_{2}}\\right) \\ldots\\left(b_{m, 1} b_{m, 2} \\ldots b_{m, l_{m}}\\right)\n$$\nfor some pairwise distinct elements\n$$\nb_{1,1}, b_{1,2}, \\ldots, b_{1, l_{1}}, b_{2,1}, b_{2,2}, \\ldots, b_{2, l_{2}}, \\ldots, b_{m, 1}, b_{m, 2}, \\ldots, b_{m, l_{m}}\n$$\nof $[n]$ because multiplying by $s^{-1}$ on the left and by $s$ on the right is equivalent to re-indexing the letters $1,2, \\ldots, n$. Hence if partitions of $n$ are associated to all conjugacy classes of $S$ analogously, the same partition that is associated to $u$ is associated to $s^{-1} u s$ for all $s \\in S$. Since exactly one partition is associated to each conjugacy class, it follows that the number of conjugacy classes cannot exceed the number of partitions, as desired.\n\nTo conclude, we need only observe that $v \\geq \\sum_{\\lambda} \\frac{1}{n!}$ by our above claim, for then\n$$\nn!\\sqrt{v}=\\sqrt{n!\\sum_{\\lambda} 1}=\\sqrt{\\left(\\sum_{\\lambda}\\left(f^{\\lambda}\\right)^{2}\\right)\\left(\\sum_{\\lambda} 1\\right)} \\geq \\sum_{\\lambda} f^{\\lambda} \\geq n!\\tau\n$$\nby the Cauchy-Schwarz inequality, and this completes the proof."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-abstract-algebra-permutations-basic-group-theory-auto-2162",
+      "name": "13th Bay Area Mathematical Olympiad #0j6q",
+      "url": "https://usamoguide.com/",
+      "source": "13th Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Permutations / basic group theory"
+      ],
+      "statement": "Problem:\n\nConsider the $8 \\times 8 \\times 8$ Rubik's cube below. Each face is painted with a different color, and it is possible to turn any layer, as you can with smaller Rubik's cubes. Let $X$ denote the move that turns the shaded layer shown (indicated by arrows going from the top to the right of the cube) clockwise by $90$ degrees, about the axis labeled $X$. When move $X$ is performed, the only layer that moves is the shaded layer. Likewise, define move $Y$ to be a clockwise $90$-degree turn about the axis labeled $Y$, of just the shaded layer shown (indicated by the arrows going from the front to the top, where the front is the side pierced by the $X$ rotation axis). Let $M$ denote the move \"perform $X$, then perform $Y$.\"\n\n![](attached_image_1.png)\n\nImagine that the cube starts out in \"solved\" form (so each face has just one color), and we start doing move $M$ repeatedly. What is the least number of repeats of $M$ in order for the cube to be restored to its original colors?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThere are two \"bands\" of individual unit cubes (called cubies) that are moved by $M$. Of those, only the cubies exactly three units from an edge of the cube, such as the cubie originally at the intersection of the shaded bands, can ever move out of a single plane of rotation. All the other cubes either remain fixed or return to their original position every four repetitions of $M$ as they travel once around the cube with four $90$ degree turns.\n\nEach of these cubies that move in both the planes of rotation will return to its original position every seven repetitions of $M$. It must be moved by a total of four $90$ degree turns around each of $X$ and $Y$ to return to its starting point; to do so, it moves once with both $X$ and $Y$, three times with $X$, and three times with $Y$, in some order depending on the cubie's initial position. For example, the cubie that is initially at the top intersection of the two shaded bands will move first to the right face (where the $Y$ arrow emerges) and then to the bottom and then the left. On the fourth move $M$ it will be affected by first $X$ and then $Y$, ending up on the back. Then it is affected only by $Y$ for three moves, shifting to the bottom, front, and finally returning to its original location on top after seven moves.\n\nThus, for all the cubies to return to their starting points, the number of moves $M$ must be a multiple of both $4$ and $7$, and therefore $28$ is the smallest possible number of repeats of $M$ in order for the cube to be restored."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-abstract-algebra-permutations-basic-group-theory-auto-2184",
+      "name": "Harvard-MIT Mathematics Tournament #0j7c",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recursion, bijection",
+        "Permutations / basic group theory"
+      ],
+      "statement": "Problem:\n\nAn ordering of a set of $n$ elements is a bijective map between the set and $\\{1,2, \\ldots, n\\}$. Call an ordering $\\rho$ of the 10 unordered pairs of distinct integers from the set $\\{1,2,3,4,5\\}$ admissible if, for any $1 \\leq a<b<c \\leq 5$, either $p(\\{a, b\\})<p(\\{a, c\\})<p(\\{b, c\\})$ or $p(\\{b, c\\})<p(\\{a, c\\})<p(\\{a, b\\})$. Find the total number of admissible orderings.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: 768\nThis problem is a special case of the higher Bruhat order, a class of combinatorial object widely studied for its connection to an assortment of mathematical areas such as algebraic geometry, algebraic combinatorics, and computational geometry.\nAn admissible order in our problem—the higher Bruhat order $B(5,2)$—are best viewed as the set of reduced decompositions of the permutation 4321. Loosely speaking, a reduced decomposition is a sequence of adjacent transpositions that changes the permutation $n, n-1, \\ldots, 1$ to $1,2, \\ldots, n$. For example, for $n=4$, the sequence $(1,2),(1,3),(1,4),(2,3),(2,4),(3,4)$ induces the following reduced decomposition:\n$$\n4321 \\rightarrow 4312 \\rightarrow 4132 \\rightarrow 1432 \\rightarrow 1423 \\rightarrow 1243 \\rightarrow 1234\n$$\nFor each permutation above, switching the two bolded numbers yields the next permutation in the chain. For example, switching 3 and 1 in 4312 yields 4132.\n\nThe number of reduced decompositions of $n, n-1, \\ldots, 1$ is equal to the number of $(n-1)$st standard Young Tableaux of staircase shape, given by the formula\n$$\n\\frac{\\binom{n}{2}!}{1^{n-1} \\cdot 3^{n-2} \\cdots (2n-3)}.\n$$\nWhen $n=5$, the formula gives 768."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-abstract-algebra-permutations-basic-group-theory-auto-2295",
+      "name": "15th Annual Harvard-MIT Mathematics Tournament #0jaf",
+      "url": "https://usamoguide.com/",
+      "source": "15th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Enumeration with symmetry",
+        "Permutations / basic group theory",
+        "Fermat / Euler / Wilson theorems",
+        "φ (Euler's totient)"
+      ],
+      "statement": "Problem:\nLet $S$ be the set $\\{1,2, \\ldots, 2012\\}$. A perfectutation is a bijective function $h$ from $S$ to itself such that there exists an $a \\in S$ such that $h(a) \\neq a$, and that for any pair of integers $a \\in S$ and $b \\in S$ such that $h(a) \\neq a, h(b) \\neq b$, there exists a positive integer $k$ such that $h^{k}(a)=b$. Let $n$ be the number of ordered pairs of perfectutations $(f, g)$ such that $f(g(i))=g(f(i))$ for all $i \\in S$, but $f \\neq g$. Find the remainder when $n$ is divided by 2011.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: 2\n\nNote that both $f$ and $g$, when written in cycle notation, must contain exactly one cycle that contains more than 1 element. Assume $f$ has $k$ fixed points, and that the other $2012-k$ elements form a cycle, (of which there are $(2011-k)!$ ways).\n\nThen note that if $f$ fixes $a$ then $f(g(a))=g(f(a))=g(a)$ implies $f$ fixes $g(a)$. So $g$ must send fixed points of $f$ to fixed points of $f$. It must, therefore, send non-fixed points to non-fixed points. This partitions $S$ into two sets, at least one of which must be fixed by $g$, since $g$ is a perfectutation.\n\nIf $g$ fixes all of the non-fixed points of $f$, then, since any function commutes with the identity, $g$ fixes some $m$ of the fixed points and cycles the rest in $(k-m-1)!$ ways. So there are $\\sum_{m=0}^{k-2}\\binom{k}{m}(k-m-1)!$ choices, which is $\\sum_{m=0}^{k-2} \\frac{k!}{(k-m) m!}$.\n\nIf $g$ fixes all of the fixed points of $f$, then order the non-fixed points of $f$ $a_{1}, a_{2}, \\ldots, a_{2012-k}$ such that $f\\left(a_{i}\\right)=a_{i+1}$. If $g\\left(a_{i}\\right)=a_{j}$ then $f\\left(g\\left(a_{i}\\right)\\right)=a_{j+1}$ thus $g\\left(a_{i+1}\\right)=a_{j+1}$. Therefore the choice of $g\\left(a_{1}\\right)$ uniquely determines $g\\left(a_{i}\\right)$ for the rest of the $i$, and $g\\left(a_{m}\\right)=a_{m+j-i}$. But $g$ has to be a perfectutation, so $g$ cycles through all the non-fixed points of $f$, which happens if and only if $j-i$ is relatively prime to $2012-k$. So there are $\\phi(2012-k)$ choices.\n\nTherefore for any $f$ there are $\\sum_{m=0}^{k-2} \\frac{k!}{(k-m) m!}+\\phi(2012-k)$ choices of $g$, but one of them will be $g=f$, which we cannot have by the problem statement. So there are $-1+\\sum_{m=0}^{k-2} \\frac{k!}{(k-m) m!}+\\phi(2012-k)$ options.\n\nNow note that a permutation can not fix all but one element. So\n$$\nn=\\sum_{k=0}^{2010}\\binom{2012}{k}(2011-k)!\\left(-1+\\sum_{m=0}^{k-2} \\frac{k!}{(k-m) m!}+\\phi(2012-k)\\right)\n$$\nModulo 2011 (which is prime), note that all terms in the summand except the one where $k=1$ vanish. Thus, $n \\equiv (2010)!(-1+(-1)) \\equiv 2 \\pmod{2011}$ by Wilson's Theorem."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-abstract-algebra-permutations-basic-group-theory-auto-2353",
+      "name": "Harvard-MIT Mathematics Tournament #0jc1",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Counting two ways",
+        "Invariants / monovariants",
+        "Permutations / basic group theory"
+      ],
+      "statement": "Problem:\n\nFor a permutation $\\sigma$ of $1,2, \\ldots, 7$, a transposition is a swapping of two elements. (For instance, we could apply a transposition to the permutation $3,7,1,4,5,6,2$ and get $3,7,6,4,5,1,2$ by swapping the $1$ and the $6$.)\nLet $f(\\sigma)$ be the minimum number of transpositions necessary to turn $\\sigma$ into the permutation $1,2,3,4,5,6,7$. Find the sum of $f(\\sigma)$ over all permutations $\\sigma$ of $1,2, \\ldots, 7$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nTo solve this problem, we use the idea of a cycle in a permutation. If $\\sigma$ is a permutation, we say that $(a_{1} a_{2} \\cdots a_{k})$ is a cycle if $\\sigma(a_{i})=a_{i+1}$ for $1 \\leq i \\leq k-1$ and $\\sigma(a_{k})=a_{1}$. Any permutation can be decomposed into disjoint cycles; for instance, the permutation $3,7,6,4,5,1,2$ can be written as $(136)(27)(4)(5)$. For a permutation $\\sigma$, let $g(\\sigma)$ be the number of cycles in its cycle decomposition. (This includes single-element cycles.)\n\nClaim. For any permutation $\\sigma$ on $n$ elements, $f(\\sigma)=n-g(\\sigma)$.\n\nProof. Given a cycle $(a_{1} a_{2} \\cdots a_{k})$ (with $k \\geq 2$) of a permutation $\\sigma$, we can turn this cycle into the identity permutation with $k-1$ transpositions; first we swap $a_{1}$ and $a_{2}$; that is, we replace $\\sigma$ with a permutation $\\sigma'$ such that instead of $\\sigma(a_{k})=a_{1}$ and $\\sigma(a_{1})=a_{2}$, we have $\\sigma'(a_{k})=a_{2}$ and $\\sigma'(a_{1})=a_{1}$. Now, $\\sigma'$ takes $a_{1}$ to itself, so we are left with the cycle $(a_{2} \\cdots a_{k})$. We continue until the entire cycle is replaced by the identity, which takes $k-1$ transpositions. Now, for any $\\sigma$, we resolve each cycle in this way, making a total of $n-g(\\sigma)$ transpositions, to turn $\\sigma$ into the identity permutation.\n\nThis shows that $n-g(\\sigma)$ transpositions suffice; now let us show that we cannot do it in less. We show that whenever we make a transposition, the value of $n-g(\\sigma)$ can never decrease by more than $1$. Whenever we swap two elements, if they are in different cycles, then those two cycles merge into one; thus $n-g(\\sigma)$ actually increased. If the two elements are in one cycle, then the one cycle splits into two cycles, so $n-g(\\sigma)$ decreased by only one, and this proves the claim.\n\nThus, we want to find\n$$\n\\sum_{\\sigma \\in S_{7}} (7-g(\\sigma)) = 7 \\cdot 7! - \\sum_{\\sigma \\in S_{7}} g(\\sigma)\n$$\nTo evaluate the sum, we instead sum over every cycle the number of permutations it appears in. For any $1 \\leq k \\leq 7$, the number of cycles of size $k$ is $\\frac{7!}{(7-k)!k}$, and the number of permutations each such cycle can appear in is $(7-k)!$. Thus we get that the answer is\n$$\n7 \\cdot 7! - \\sum_{k=1}^{7} \\frac{7!}{k} = 22212\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-abstract-algebra-permutations-basic-group-theory-auto-2562",
+      "name": "HMMT 2013 #0jhu",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2013",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Matchings, Marriage Lemma, Tutte's theorem",
+        "Permutations / basic group theory"
+      ],
+      "statement": "Problem:\n\nThere are $n$ children and $n$ toys such that each child has a strict preference ordering on the toys. We want to distribute the toys: say a distribution $A$ dominates a distribution $B \\neq A$ if in $A$, each child receives at least as preferable of a toy as in $B$. Prove that if some distribution is not dominated by any other, then at least one child gets his/her favorite toy in that distribution.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSuppose we have a distribution $A$ assigning each child $C_{i}$, $i=1,2, \\ldots, n$, toy $T_{i}$, such that no child $C_{i}$ gets their top preference $T_{i}^{\\prime} \\neq T_{i}$. Then, pick an arbitrary child $C_{1}$ and construct the sequence of children $C_{i_{1}}, C_{i_{2}}, C_{i_{3}}, \\ldots$ where $i_{1}=1$ and $C_{i_{k+1}}$ was assigned the favorite toy $T_{i_{k}}^{\\prime}$ of the last child $C_{i_{k}}$. Eventually, some $C_{i_{k}}=C_{i_{1}}$; at this point, just pass the toys around this cycle so that each of these children gets their favorite toy. Clearly the resulting distribution dominates the original, so we're done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-abstract-algebra-permutations-basic-group-theory-auto-2581",
+      "name": "IMO Team Selection Team Selection Test #0jid",
+      "url": "https://usamoguide.com/",
+      "source": "IMO Team Selection Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Permutations / basic group theory",
+        "Other",
+        "Recursion, bijection"
+      ],
+      "statement": "Given a set $S$ of $n$ variables, a binary operation $\\times$ on $S$ is called *simple* if it satisfies $(x \\times y) \\times z = x \\times (y \\times z)$ for all $x, y, z \\in S$ and $x \\times y \\in \\{x, y\\}$ for all $x, y \\in S$. Given a simple operation $\\times$ on $S$, any string of elements in $S$ can be reduced to a single element, such as $xyz \\rightarrow x \\times (y \\times z)$. A string of variables in $S$ is called *full* if it contains each variable in $S$ at least once, and two strings are *equivalent* if they evaluate to the same variable regardless of which simple $\\times$ is chosen. For example, $xxx$, $xx$, and $x$ are equivalent, but these are only full if $n = 1$. Suppose $T$ is a set of strings such that any full string is equivalent to exactly one element of $T$. Determine the number of elements of $T$.\n(This problem was suggested by John Berman.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**Solution 1.** The answer is $n!^2$.\nWe use $s_1 \\sim s_2$ to denote that strings $s_1$ and $s_2$ are equivalent. If $x_1x_2 \\cdots x_k$ is any string in $S$, we can see that\n$$\nx_1x_2\\cdots x_kx_1x_2\\cdots x_k = (x_1\\cdots x_k)(x_1\\cdots x_k) \\sim x_1\\cdots x_k\n$$\nbecause $xx \\in \\{x\\}$. But also, if $a_1a_2 \\cdots a_i, b_1b_2 \\cdots b_j$ are strings in $S$ and $x \\in S$, then\n$$\nxa_1a_2 \\cdots a_ixb_1b_2 \\cdots b_jx \\sim xa_1a_2 \\cdots a_ib_1b_2 \\cdots b_jx\n$$\nTo prove this, it suffices to show that $xaxbx \\sim xabx$. Suppose that for some $\\times$, these did not evaluate to the same element of $S$. Then $a \\times x = x$, since otherwise $x(a \\times x)bx = xabx$. Similarly, $x \\times b = x$. This means that\n$$\nxaxbx = x(a \\times x)bx = xxbx = x(x \\times b)x = xxx = x\n$$\nso by assumption $xabx \\neq x$. But if $xabx = a$, then in particular $xa = a$, $ab = a$, and $ax = a$ all must hold, the latter of which is a contradiction. Similarly if $xabx = b$ we reach a contradiction. Thus this equivalence holds.\nGiven any full string $w = x_1x_2 \\cdots x_k$, we claim that it is equivalent to some string consisting of two concatenated permutations of $S$, i.e. $\\sigma_1\\sigma_2$ where $\\sigma_1$ is a permutation of the $n$ variables of $S$ and $\\sigma_2$ is also. Note that $w \\sim ww = x_1x_2 \\cdots x_kx_1x_2 \\cdots x_k$. This string may be reduced by our second observation above so that in any case where an element $y$ appears more than two times, all but the outermost instances of $y$ are removed. Because $w$ was full, the new string $\\tilde{w} \\sim w$ will have each element of $S$ occurring exactly twice. But the first occurrences of each variable all occur in the first instance of $w$, and the last occurrences all occur in the second instance of $w$ (in $ww$), so $\\tilde{w}$ consists of two concatenated permutations of $S$, of which there are $n!^2$ possibilities.\nIt remains to show that two double-permutations $\\sigma_1\\sigma_2$ and $\\sigma'_1\\sigma'_2$ are not equivalent. Suppose otherwise. Without loss of generality we may assume that $\\sigma_1 \\neq \\sigma'_1$; otherwise we reverse the order of the operation $\\times$ found below. Choose two elements $a, b$ such that $a$ occurs before $b$ in $\\sigma_1$ but their order is reversed in $\\sigma'_1$. Then choose some operation $\\times$ such that for any $x, y \\in S$,\n$$\nx \\times y = \\begin{cases} y & \\text{if } x \\notin \\{a, b\\}, y \\in \\{a, b\\}, \\\\ x & \\text{otherwise.} \\end{cases}\n$$\nThis operation clearly satisfies $x \\times y \\in \\{x, y\\}$, and some easy casework on which of $x, y, z$ are in $\\{a, b\\}$ shows that $(x \\times y) \\times z = x \\times (y \\times z)$ for all $x, y, z \\in S$. Hence, the operation is simple. Furthermore $\\sigma_1\\sigma_2$ evaluates to $a$ under this operation, while $\\sigma'_1\\sigma'_2$ evaluates to $b$. We conclude that the two strings are not equivalent, finishing the solution.\n\n\n**Solution 2** (Based on an idea of Alex Zhai). Given an operation $\\times$, construct a complete directed graph $G(\\times)$ with $n$ vertices, each vertex corresponding to a variable of $S$. Construct an edge marked $L$ going from $u$ to $v$ if $u \\times v = u$, and an edge marked $R$ from $v$ to $u$ if $u \\times v = v$. In this way each pair of vertices will have two edges between them, either both going in the same direction or both having the same marking.\nSuppose we have an edge from $x$ to $y$ marked $a$ and an edge from $y$ to $z$ marked $b$. Through some simple casework on $a, b$ and use of the associative condition on $\\times$, we can verify this implies there is an edge from $x$ to $z$ marked $a$. Call this the *associativity condition* on $G(\\times)$.\nNow suppose two vertices $u, v$ are such that there are two edges from $u$ to $v$, one $L$ and one $R$. We claim this means there is no path from $v$ to $u$. Suppose that $v, w_1, w_2, \\dots, w_k, u$ were such a path. Then the associativity condition on $u, v, w_1$ means that $u$ has two edges marked $L$ and $R$ from $u$ to $w_1$. Through the same methods we can inductively show that the two edges between $u$ to $w_i$ are directed away from $u$ for all $i$. But we need an edge from $w_k$ to $u$, so this is a contradiction.\nConsider the strongly connected components of $G(\\times)$, meaning components such that a pair of vertices $u, v$ has a path from $u$ to $v$ and a path from $v$ to $u$ if and only if $u, v$ are in the same component. The above paragraph implies that for any $u, v$ in the same component, the two edges between $u, v$ go in opposite directions and have the same marking. The associativity condition implies the markings between all pairs of vertices in the same component are equal, so we can consider each component to be either $L$ as a whole or $R$ as a whole.\nLet $C_1$ be the component such that no other component has an edge going into $C_1$, and call this the top component of $G(\\times)$. Then by the way we have constructed the graph, any full expression evaluates to a variable corresponding to a vertex in $C_1$ under $\\times$. Since all the edges in $C_1$ are either $L$ or $R$, the value of the full expression is either the leftmost variable out of those appearing in $C_1$, or the rightmost variable. In this way, we have completely characterized how a full expression can be evaluated under a simple operation $\\times$: take a nonempty subset $T$ of the variables, then $\\times$ evaluates the expression to either the leftmost occurrence of a variable in $T$, or the rightmost occurrence of a variable in $T$.\nFrom here the problem is straightforward to finish. Given a full expression $w$, consider only the leftmost occurrence of each variable in $w$. This gives a permutation $\\sigma_L$ of the variables of $S$. Similarly construct $\\sigma_R$ from the rightmost occurrence of each variable in $w$. By our above characterization $w$ is equivalent to $\\sigma_L\\sigma_R$, and there are $n!^2$ ways to make a word from appending two permutations. Finally, suppose we have a different appending $\\sigma'_L\\sigma'_R$ (without loss of generality we may assume that $\\sigma_L \\neq \\sigma'_L$). We have some pair $a, b$ such that $a$ appears to the left of $b$ in $\\sigma_L$ but their order is reversed in $\\sigma'_L$. Then we can construct $\\times$ such that $a, b$ are the only two elements of the top component marked $L$ of $G(\\times)$. This operation gives $\\sigma_L\\sigma_R = a$ and $\\sigma'_L\\sigma'_R = b$, so the two are not equivalent."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-abstract-algebra-permutations-basic-group-theory-auto-2801",
+      "name": "HMMT November 2015 #0joh",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2015",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Enumeration with symmetry",
+        "Permutations / basic group theory"
+      ],
+      "statement": "Problem:\n\nConsider a $2 \\times 2$ grid of squares. Each of the squares will be colored with one of 10 colors, and two colorings are considered equivalent if one can be rotated to form the other. How many distinct colorings are there?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThis solution will be presented in the general case with $n$ colors. Our problem asks for $n=10$.\n\nWe isolate three cases:\n\nCase 1: Every unit square has the same color\n\nIn this case there are clearly $n$ ways to color the square.\n\nCase 2: Two non-adjacent squares are the same color, and the other two squares are also the same color (but not all four squares are the same color).\n\nIn this case there are clearly $\\binom{n}{2}=\\frac{n(n-1)}{2}$ ways to color the square.\n\nCase 3: Every other case\n\nSince without the \"rotation\" condition there would be $n^{4}$ colorings, we have that in this case by complementary counting there are $\\frac{n^{4}-n(n-1)-n}{4}$ ways to color the square.\n\nTherefore the answer is\n$$\nn+\\frac{n^{2}-n}{2}+\\frac{n^{4}-n^{2}}{4}=\\frac{n^{4}+n^{2}+2 n}{4}=2530\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-abstract-algebra-permutations-basic-group-theory-auto-2891",
+      "name": "HMMT November #0jqz",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Enumeration with symmetry",
+        "Permutations / basic group theory",
+        "Other"
+      ],
+      "statement": "Problem:\n\nConsider a $7 \\times 7$ grid of squares. Let $f:\\{1,2,3,4,5,6,7\\} \\rightarrow \\{1,2,3,4,5,6,7\\}$ be a function; in other words, $f(1), f(2), \\ldots, f(7)$ are each (not necessarily distinct) integers from $1$ to $7$. In the top row of the grid, the numbers from $1$ to $7$ are written in order; in every other square, $f(x)$ is written where $x$ is the number above the square. How many functions have the property that the bottom row is identical to the top row, and no other row is identical to the top row?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nConsider the directed graph with $1,2,3,4,5,6,7$ as vertices, and there is an edge from $i$ to $j$ if and only if $f(i)=j$. Since the bottom row is equivalent to the top one, we have $f^{6}(x)=x$. Therefore, the graph must decompose into cycles of length $6,3,2$, or $1$. Furthermore, since no other row is equivalent to the top one, the least common multiple of the cycle lengths must be $6$. The only partitions of $7$ satisfying these constraints are $7=6+1$, $7=3+2+2$, and $7=3+2+1+1$.\n\nIf we have a cycle of length $6$ and a cycle of length $1$, there are $7$ ways to choose which six vertices will be in the cycle of length $6$, and there are $5! = 120$ ways to determine the values of $f$ within this cycle (to see this, pick an arbitrary vertex in the cycle: the edge from it can connect to any of the remaining $5$ vertices, which can connect to any of the remaining $4$ vertices, etc.). Hence, there are $7 \\cdot 120 = 840$ possible functions $f$ in this case.\n\nIf we have a cycle of length $3$ and two cycles of length $2$, there are $\\frac{\\binom{7}{2}\\binom{5}{2}}{2} = 105$ possible ways to assign which vertices will belong to which cycle (we divide by two to avoid double-counting the cycles of length $2$). As before, there are $2! \\cdot 1! \\cdot 1! = 2$ assignments of $f$ within the cycles, so there are a total of $210$ possible functions $f$ in this case.\n\nFinally, if we have a cycle of length $3$, a cycle of length $2$, and two cycles of length $1$, there are $\\binom{7}{3}\\binom{4}{2} = 210$ possible ways to assign the cycles, and $2! \\cdot 1! \\cdot 0! \\cdot 0! = 2$ ways to arrange the edges within the cycles, so there are a total of $420$ possible functions $f$ in this case.\n\nHence, there are a total of $840+210+420=1470$ possible $f$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-abstract-algebra-permutations-basic-group-theory-auto-2904",
+      "name": "HMMT February 2015 #0jrc",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2015",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Graph Theory",
+        "Invariants / monovariants",
+        "Pigeonhole principle",
+        "Permutations / basic group theory"
+      ],
+      "statement": "Problem:\nLet $\\pi$ be a permutation of $\\{1,2, \\ldots, 2015\\}$. With proof, determine the maximum possible number of ordered pairs $(i, j) \\in \\{1,2, \\ldots, 2015\\}^{2}$ with $i<j$ such that $\\pi(i) \\cdot \\pi(j)>i \\cdot j$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $\\dbinom{2014}{2}$\n\nLet $n=2015$. The only information we will need about $n$ is that $n>5$.\n\nFor the construction, take $\\pi$ to be the $n$-cycle defined by\n$$\n\\pi(k)= \\begin{cases}k+1 & \\text{ if } 1 \\leq k \\leq n-1 \\\\ 1 & \\text{ if } k=n\\end{cases}\n$$\nThen $\\pi(i)>i$ for $1 \\leq i \\leq n-1$. So $\\pi(i) \\pi(j)>i j$ for at least $\\binom{n-1}{2}$ pairs $i<j$.\n\nFor convenience let $z_{i}=\\frac{\\pi(i)}{i}$, so that we are trying to maximize the number of pairs $(i, j), i<j$ with $z_{i} z_{j}>1$. Notice that over any cycle $c=\\left(i_{1} i_{2} \\cdots i_{k}\\right)$ in the cycle decomposition of $\\pi$ we have $\\prod_{i \\in c} z_{i}=1$. In particular, multiplying over all such cycles gives $\\prod_{i=1}^{n} z_{i}=1$.\n\nConstruct a graph $G$ on vertex set $V=[n]$ such that there is an edge between $i$ and $j$ whenever $\\pi(i) \\pi(j)>i j$. For any cycle $C=\\left(v_{1}, v_{2}, \\ldots, v_{k}\\right)$ in this graph we get $1<\\prod_{i=1}^{k} z_{v_{i}} z_{v_{i+1}}=\\prod_{v \\in C} z_{v}^{2}$. So, we get in particular that $G$ is non-Hamiltonian.\n\nBy the contrapositive of Ore's theorem there are two distinct indices $u, v \\in[n]$ such that $d(u)+d(v) \\leq n-1$. The number of edges is then at most $\\binom{n-2}{2}+(n-1)=\\binom{n-1}{2}+1$.\n\nIf equality is to hold, we need $G \\setminus\\{u, v\\}$ to be a complete graph. We also need $d(u)+d(v)=n-1$, with $uv$ not an edge. This implies $d(u), d(v) \\geq 1$. Since $n>5$, the pigeonhole principle gives that at least one of $u, v$ has degree at least $3$. WLOG $d(u) \\geq 3$.\n\nLet $w$ be a neighbor of $v$ and let $a, b, c$ be neighbors of $u$; WLOG $w \\neq a, b$. Since $G \\setminus\\{u, v, w\\}$ is a complete graph, we can pick a Hamiltonian path in $G \\setminus\\{u, v, w\\}$ with endpoints $a, b$. Connecting $u$ to the ends of this path forms an $(n-2)$-cycle $C$.\n\nThis gives us $\\prod_{x \\in C} z_{x}^{2}>1$. But we also have $z_{v} z_{w}>1$, so $1=\\prod_{i=1}^{n} z_{i}>1$, contradiction.\n\nSo, $\\binom{n-1}{2}+1$ cannot be attained, and $\\binom{n-1}{2}$ is indeed the maximum number of pairs possible."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-abstract-algebra-permutations-basic-group-theory-auto-3072",
+      "name": "HMMT February 2016 #0jw0",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2016",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Counting two ways",
+        "Enumeration with symmetry",
+        "Permutations / basic group theory"
+      ],
+      "statement": "Problem:\nLet $V=\\{1, \\ldots, 8\\}$. How many permutations $\\sigma: V \\rightarrow V$ are automorphisms of some tree?\n\n(A graph consists of a some set of vertices and some edges between pairs of distinct vertices. It is connected if every two vertices in it are connected by some path of one or more edges. A tree $G$ on $V$ is a connected graph with vertex set $V$ and exactly $|V|-1$ edges, and an automorphism of $G$ is a permutation $\\sigma: V \\rightarrow V$ such that vertices $i, j \\in V$ are connected by an edge if and only if $\\sigma(i)$ and $\\sigma(j)$ are.)\n\nProposed by: Mitchell Lee",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe decompose into cycle types of $\\sigma$. Note that within each cycle, all vertices have the same degree; also note that the tree has total degree $14$ across its vertices (by all its seven edges).\n\nFor any permutation that has a $1$ in its cycle type (i.e., it has a fixed point), let $1 \\leq a \\leq 8$ be a fixed point. Consider the tree that consists of the seven edges from $a$ to the seven other vertices—this permutation (with $a$ as a fixed point) is an automorphism of this tree.\n\nFor any permutation that has cycle type $2+6$, let $a$ and $b$ be the two elements in the $2$-cycle. If the $6$-cycle consists of $c, d, e, f, g, h$ in that order, consider the tree with edges between $a$ and $b, c, e, g$ and between $b$ and $d, f, h$. It's easy to see $\\sigma$ is an automorphism of this tree.\n\nFor any permutation that has cycle type $2+2+4$, let $a$ and $b$ be the two elements of the first two-cycle. Let the other two-cycle consist of $c$ and $d$, and the four-cycle be $e, f, g, h$ in that order. Then consider the tree with edges between $a$ and $b$, $a$ and $c$, $b$ and $d$, $a$ and $e$, $b$ and $f$, $a$ and $g$, $b$ and $h$. It's easy to see $\\sigma$ is an automorphism of this tree.\n\nFor any permutation that has cycle type $2+3+3$, let $a$ and $b$ be the vertices in the $2$-cycle. One of $a$ and $b$ must be connected to a vertex distinct from $a, b$ (follows from connectedness), so there must be an edge between a vertex in the $2$-cycle and a vertex in a $3$-cycle. Repeatedly applying $\\sigma$ to this edge leads to a cycle of length $4$ in the tree, which is impossible (a tree has no cycles). Therefore, these permutations cannot be automorphisms of any tree.\n\nFor any permutation that has cycle type $3+5$, similarly, there must be an edge between a vertex in the $3$-cycle and a vertex in the $5$-cycle. Repeatedly applying $\\sigma$ to this edge once again leads to a cycle in the tree, which is not possible. So these permutations cannot be automorphisms of any tree.\n\nThe only remaining possible cycle types of $\\sigma$ are $4+4$ and $8$. In the first case, if we let $x$ and $y$ be the degrees of the vertices in each of the cycles, then $4x+4y=14$, which is impossible for integer $x, y$. In the second case, if we let $x$ be the degree of the vertices in the $8$-cycle, then $8x=14$, which is not possible either.\n\nSo we are looking for the number of permutations whose cycle type is not $2+2+3$, $8$, $4+4$, $3+5$. The number of permutations with cycle type $2+2+3$ is $\\binom{8}{2} \\frac{1}{2} \\binom{6}{3}(2!)^{2}=1120$, with cycle type $8$ is $7!=5040$, with cycle type $4+4$ is $\\frac{1}{2}\\binom{8}{4}(3!)^{2}=1260$, with cycle type $3+5$ is $\\binom{8}{3}(2!)(4!)=2688$. Therefore, by complementary counting, the number of permutations that ARE automorphisms of some tree is $8!-1120-1260-2688-5040=30212$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-abstract-algebra-permutations-basic-group-theory-auto-3142",
+      "name": "HMMT November #0jxy",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Permutations / basic group theory",
+        "Injectivity / surjectivity"
+      ],
+      "statement": "Problem:\n\nCompute the number of functions $f:\\{1,2, \\ldots, 9\\} \\rightarrow \\{1,2, \\ldots, 9\\}$ which satisfy $f(f(f(f(f(x))))) = x$ for each $x \\in \\{1,2, \\ldots, 9\\}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAll cycle lengths in the permutation must divide $5$, which is a prime number. Either $f(x) = x$ for all $x$, or there exists exactly one permutation cycle of length $5$. In the latter case, there are $\\binom{9}{5}$ ways to choose which numbers are in the cycle and $4!$ ways to create the cycle. The answer is thus $1 + \\binom{9}{5} \\cdot 4! = 3025$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-abstract-algebra-permutations-basic-group-theory-auto-3144",
+      "name": "February 2017 #0jy0",
+      "url": "https://usamoguide.com/",
+      "source": "February 2017",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Enumeration with symmetry",
+        "Recursion, bijection",
+        "Permutations / basic group theory"
+      ],
+      "statement": "Problem:\n\nYang has the sequence of integers $1,2, \\ldots, 2017$. He makes 2016 swaps in order, where a swap changes the positions of two integers in the sequence. His goal is to end with $2,3, \\ldots, 2017,1$. How many different sequences of swaps can Yang do to achieve his goal?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $n=2017$. The problem is asking to write a cycle permutation of $n$ integers as the product of $n-1$ transpositions. Say that the transpositions Yang uses are $(a_{i}, b_{i})$ (i.e. swapping the $a_{i}$-th integer in the sequence with the $b_{i}$-th integer in the sequence). Draw the graph with edges $(a_{i}, b_{i})$. One can show that the result is a cycle if and only if the resulting graph is acyclic, so it must be a tree. There are $n^{n-2}$ trees by Cayley's formula, and for each tree, it can be made in $(n-1)!$ ways (any ordering of the edges). So the total number of ways to end with a cycle is $n^{n-2} \\cdot (n-1)!$. By symmetry, each cycle can be made in the same number of ways, so in particular the cycle $2,3, \\ldots, n, 1$ can be made in $\\frac{n^{n-2} \\cdot (n-1)!}{(n-1)!} = n^{n-2}$ ways."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-abstract-algebra-permutations-basic-group-theory-auto-3197",
+      "name": "HMMT November #0jzh",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Permutations / basic group theory",
+        "Invariants / monovariants"
+      ],
+      "statement": "Problem:\n\nLunasa, Merlin, and Lyrica each have a distinct hat. Every day, two of these three people, selected randomly, switch their hats. What is the probability that, after 2017 days, every person has their own hat back?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nImagine that the three hats are the vertices of an equilateral triangle. Then each day the exchange is equivalent to reflecting the triangle along one of its three symmetry axes, which changes the orientation of the triangle (from clockwise to counterclockwise or vice versa). Thus, an even number of such exchanges must be performed if the orientation is to be preserved. Since the triangle is reflected 2017 times, it is impossible for the final triangle to have the same orientation as the original triangle, so the desired probability is $0$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-abstract-algebra-permutations-basic-group-theory-auto-3318",
+      "name": "HMMT February #0k2u",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Permutations / basic group theory",
+        "Induction / smoothing",
+        "Recursion, bijection"
+      ],
+      "statement": "Problem:\n\nMichelle has a word with $2^{n}$ letters, where a word can consist of letters from any alphabet. Michelle performs a switcheroo on the word as follows: for each $k = 0, 1, \\ldots, n-1$, she switches the first $2^{k}$ letters of the word with the next $2^{k}$ letters of the word. For example, for $n = 3$, Michelle changes\n$$\nA\\ B\\ C\\ D\\ E\\ F\\ G\\ H \\rightarrow B\\ A\\ C\\ D\\ E\\ F\\ G\\ H \\rightarrow C\\ D\\ B\\ A\\ E\\ F\\ G\\ H \\rightarrow E\\ F\\ G\\ H\\ C\\ D\\ B\\ A\n$$\nin one switcheroo.\n\nIn terms of $n$, what is the minimum positive integer $m$ such that after Michelle performs the switcheroo operation $m$ times on any word of length $2^{n}$, she will receive her original word?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $m(n)$ denote the number of switcheroos needed to take a word of length $2^{n}$ back to itself. Consider a word of length $2^{n}$ for some $n > 1$. After 2 switcheroos, one has separately performed a switcheroo on the first half of the word and on the second half of the word, while returning the (jumbled) first half of the word to the beginning and the (jumbled) second half of the word to the end.\n\nAfter $2 \\cdot m(n-1)$ switcheroos, one has performed a switcheroo on each half of the word $m(n-1)$ times while returning the halves to their proper order. Therefore, the word is in its proper order. However, it is never in its proper order before this, either because the second half precedes the first half (i.e. after an odd number of switcheroos) or because the halves are still jumbled (because each half has had fewer than $m(n-1)$ switcheroos performed on it).\n\nIt follows that $m(n) = 2 m(n-1)$ for all $n > 1$. We can easily see that $m(1) = 2$, and a straightforward proof by induction shows that $m = 2^{n}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-abstract-algebra-permutations-basic-group-theory-auto-3621",
+      "name": "HMIC #0kb9",
+      "url": "https://usamoguide.com/",
+      "source": "HMIC",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Invariants / monovariants",
+        "Permutations / basic group theory"
+      ],
+      "statement": "Problem:\n\nSir Alex is coaching a soccer team of $n$ players of distinct heights. He wants to line them up so that for each player $P$, the total number of players that are either to the left of $P$ and taller than $P$ or to the right of $P$ and shorter than $P$ is even. In terms of $n$, how many possible orders are there?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe want to determine the number of permutations $\\pi$ of $1, \\ldots, n$ such that every number is involved in an even number of inversions. The key observation is that the number of inversions $k$ is involved in has the same parity as $\\pi(k)-k$. This is since $\\pi(k)-k$ can be interpreted as the number of $i$ with $\\pi(i)<\\pi(k)$ minus the number of $i$ with $i<k$, meaning that $i$ is counted with a weight of $\\pm 1 \\equiv 1 \\pmod{2}$ if and only if $i$ is in an inversion with $k$.\n\nFrom this, it follows that such permutations are the ones that permute the even and odd numbers, so the answer is $\\left\\lfloor\\frac{n}{2}\\right\\rfloor!\\left\\lceil\\frac{n}{2}\\right\\rceil!$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-abstract-algebra-permutations-basic-group-theory-auto-4671",
+      "name": "HMMT February 2024 #0l4f",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2024",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Permutations / basic group theory",
+        "Injectivity / surjectivity"
+      ],
+      "statement": "Problem:\nCompute the number of triples $(f, g, h)$ of permutations on $\\{1,2,3,4,5\\}$ such that\n$$\n\\begin{aligned}\n& f(g(h(x)))=h(g(f(x)))=g(x), \\\\\n& g(h(f(x)))=f(h(g(x)))=h(x), \\text{ and } \\\\\n& h(f(g(x)))=g(f(h(x)))=f(x)\n\\end{aligned}\n$$\nfor all $x \\in \\{1,2,3,4,5\\}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $f g$ represent the composition of permutations $f$ and $g$, where $(f g)(x)=f(g(x))$ for all $x \\in \\{1,2,3,4,5\\}$.\n\nEvaluating $f g h f h$ in two ways, we get\n$$\nf = g f h = (f g h) f h = f g h f h = f(g h f) h = f h h,\n$$\nso $h h = 1$. Similarly, we get $f, g$, and $h$ are all involutions. Then\n$$\nf g h = g \\Longrightarrow f g = g h,\n$$\nso $f g = g h = h f$. Let $x := f g = g h = h f$. Then\n$$\nx^{3} = (f g)(g h)(h f) = 1\n$$\nWe can also show that $f g = g h = h f$ along with $f, g, h$ being involutions is enough to recover the initial conditions, so we focus on satisfying these new conditions.\n\nIf $x = 1$, then $f = g = h$ is an involution. There are $1 + \\binom{5}{2} + \\frac{1}{2} \\binom{5}{2,2,1} = 26$ involutions, so this case gives 26 solutions.\n\nSuppose $x \\neq 1$. Then since $x^{3} = 1$, $x$ is composed of a 3-cycle and two fixed points, of which there are 20 choices. WLOG $x = (123)$. It can be checked that $\\{1,2,3\\}$ must map to itself for all of $f, g, h$ and also $\\{4,5\\}$. We can either have all of $f, g, h$ map 4 and 5 to themselves or each other. Restricted to $\\{1,2,3\\}$, they are some rotation of (12), (23), (13). Each of the 20 cases thus gives $2 \\cdot 3 = 6$ triples, so overall we get $20 \\cdot 6 = 120$.\n\nThe final answer is $26 + 120 = 146$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

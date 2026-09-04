@@ -1,0 +1,324 @@
+{
+  "MODULE_ID": "geometry-plane-geometry-advanced-configurations-brocard-point-symmedians",
+  "practice": [
+    {
+      "uniqueId": "geometry-plane-geometry-advanced-configurations-brocard-point-symmedians-auto-1468",
+      "name": "Team Selection Test #0ing",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Tangents",
+        "Cyclic quadrilaterals",
+        "Brocard point, symmedians",
+        "Miquel point",
+        "Circle of Apollonius",
+        "Triangle trigonometry",
+        "Angle chasing",
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle"
+      ],
+      "statement": "Triangle $ABC$ is inscribed in circle $\\omega$. The tangent lines to $\\omega$ at $B$ and $C$ meet at $T$. Point $S$ lies on ray $BC$ such that $AS \\perp AT$. Points $B_1$ and $C_1$ lie on ray $ST$ (with $C_1$ in between $B_1$ and $S$) such that $B_1T = BT = C_1T$. Prove that triangles $ABC$ and $AB_1C_1$ are similar to each other.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**Solution 1.** (Based on work by Oleg Golberg) We start with an important geometric observation.\n\n**Lemma.** Triangle $ABC$ inscribed in circle $\\omega$. Lines $BT$ and $CT$ are tangent to $\\omega$. Let $M$ be the midpoint of side $BC$. Then $\\angle BAT = \\angle CAM$. (Line $AT$ is a symmedian of triangle.)\n\n*Proof.* We consider the above configuration. (If $\\angle BAC$ is obtuse, our proof can be modified slightly.) Let $D$ denote the second intersection (other than $A$) of line $AT$ and circle $\\omega$. Because $BT$ is tangent to $\\omega$ at $B$, $\\angle TBD = \\angle TAB$. Hence triangles $TBD$ and $TAB$ are similar, implying that $BD/AB = TB/TA$. Likewise, triangles $TCD$ and $TAC$ are similar and $CD/AC = TC/TA$. By equal tangents, $TB = TC$. Consequently, we have $BD/AB = TB/TA = TC/TA = CD/AC$, implying that\n$$\nBD \\cdot AC = CD \\cdot AB.\n$$\nBy the **Ptolemy's theorem** to cyclic quadrilateral $ABDC$, we have $BD \\cdot AC + AB \\cdot CD = AD \\cdot BC$.\nCombining the last two equations, we obtain that $2 BD \\cdot AC = AD \\cdot BC$ or\n$$\n\\frac{AC}{AD} = \\frac{BC}{2BD} = \\frac{MC}{BD}.\n$$\nFurther considering that $\\angle ACM = \\angle ACB = \\angle ADB$ (since $ABDC$ is cyclic), we conclude that\ntriangle $ABD$ is similar to triangle $AMC$, implying that $\\angle BAT = \\angle BAD = \\angle CAM$. $\\square$\n\nBecause $BT$ is tangent to $\\omega$, $\\angle CBT = \\angle CAB$, and so\n$$\n\\angle TBA = \\angle ABC + \\angle CBT = \\angle ABC + \\angle CAB = 180^\\circ - \\angle BCA.\n$$\nBy the lemma, we have $\\angle BAT = \\angle CAM$. Applying the Law of Sines to triangles $BAT$ and $CAM$, we obtain\n$$\n\\frac{BT}{AT} = \\frac{\\sin \\angle BAT}{\\sin \\angle TBA} = \\frac{\\sin \\angle CAM}{\\sin \\angle BCA} = \\frac{MC}{AM}.\n$$\nNote that $TB = TC_1$. Thus, $TC_1/TA = MC/MA$. By equal tangents, $TB = TC$. In isosceles triangle $BTC$, $M$ is the midpoint of base $BC$. Consequently, $\\angle TMS = \\angle TAC = \\angle TAS = 90^\\circ$, implying that $TMAP$ is cyclic. Hence $\\angle AMC = \\angle ATC_1$. Because\n$$\n\\frac{AM}{AT} = \\frac{MC}{TC_1} \\quad (*)\n$$\nand $\\angle AMC = \\angle ATC_1$, triangles $MAC$ and $TAC_1$ are similar. Because $BC/BM = B_1C_1/TC_1 = 2$, triangles $ABC$ and $AB_1C_1$ are similar.\n\n\n**Solution 2.** (By Alex Zhai) We maintain the notations in the first proof. As shown at the end of the first proof, it suffices to show that $(*)$.\n\n![](attached_image_1.png)\n\nLet $O$ be the circumcenter of $ABC$. Note that triangles $OMC$, $OCT$ are similar to each other, implying that $OM/OC = OC/OT$ or $OM \\cdot OT = OC^2 = OA^2$. Thus triangles $OAM$ and $OTA$ are also similar to each other. Further note that triangles $OMC$ and $CMT$ are also similar to each other. These similarities (which amount to the circumcircle of $ABC$ being a circle of Apollonius) give\n$$\n\\frac{AM}{AT} = \\frac{OM}{OA} = \\frac{OM}{OC} = \\frac{MC}{CT} = \\frac{MC}{TB} = \\frac{MC}{TC_1},\n$$\nwhich is $(*)$.\n\n\n**Solution 3.** (Based on work by Sherry Gong) We maintain the notations of the previous solutions. Let $\\omega$ intersect lines $AT$ and $AS$ again at $X$ and $Y$ (other than $A$), respectively. Let lines $YB$ and $CX$ meet at $B_2$, and let $YC$ and $BX$ meet at $C_2$. Applying Pascal's theorem to cyclic (degenerated) hexagon $BBYAXC$ shows that intersections of three pairs of lines $BB$ and $AX$, $BY$ and $XC$, and $YA$ and $CB$ are collinear; that is, $B_2, C_2, S$ are collinear. Likewise, applying Pascal's theorem to cyclic (degenerated) hexagon $CCYAXB$ shows that $B_2, C_2, T$ are collinear. We conclude that $B_2, C_2, S, T$ are collinear.\n\n![](attached_image_2.png)\n\nSince $ACXY$ is cyclic, $\\angle YCX = \\angle YAX = 180^\\circ - \\angle XAB = 90^\\circ$. Thus $\\angle B_2CC_2 = \\angle XCC_2 = 180^\\circ - \\angle YCX = 90^\\circ$. Likewise, $\\angle C_2BB_2 = 90^\\circ$. It follows that $BCC_2B_2$ is inscribed in a circle with $B_2C_2$ as its diameter. Thus the circumcenter of this circle is the intersection of lines $ST$ and the perpendicular of segment $BC$. This circumcenter must be $T$, and consequently, $B_2 = B_1$ and $C_2 = C_1$.\n\n![](attached_image_3.png)\n\nBecause $AYBC$ and $B_1C_1CB$ are cyclic, by Miquel's theorem, $SACC_1$. (Indeed, $\\angle ACB = 180^\\circ - \\angle B_1YS$ and $\\angle BCC_1 = 180^\\circ - \\angle YB_1S$ lead to $\\angle ACC_1 = 360^\\circ - \\angle ACB - \\angle BCC_1 = 180^\\circ - YSB_1$.) Also, by Miquel's theorem, $YAC_1B_1$ is cyclic. (Indeed, $\\angle C_1AX = \\angle C_1CS = \\angle SB_1Y$.) By these cyclic quadrilaterals, it is not difficult to obtain $\\angle ACS = \\angle AC_1S$ (or $\\angle ACB = \\angle AC_1B_1$) and $\\angle ABC = \\angle AYC = \\angle AYC_1 = \\angle AB_1C_1$. Consequently, triangles $ABC$ and $AB_1C_1$ are similar to each other."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-advanced-configurations-brocard-point-symmedians-auto-2085",
+      "name": "Harvard-MIT Mathematics Tournament #0j4l",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Cyclic quadrilaterals",
+        "Tangents",
+        "Radical axis theorem",
+        "Brocard point, symmedians",
+        "Polar triangles, harmonic conjugates",
+        "Isogonal/isotomic conjugates, barycentric coordinates",
+        "Angle chasing"
+      ],
+      "statement": "Problem:\nLet $ABC$ be a non-isosceles, non-right triangle, let $\\omega$ be its circumcircle, and let $O$ be its circumcenter. Let $M$ be the midpoint of segment $BC$. Let the circumcircle of triangle $AOM$ intersect $\\omega$ again at $D$. If $H$ is the orthocenter of triangle $ABC$, prove that $\\angle DAH = \\angle MAO$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n![](attached_image_1.png)\nLet $X$ be the intersection of the line tangent to $\\omega$ at $B$ with the line tangent to $\\omega$ at $C$. Note that $\\triangle OMC \\sim \\triangle OCX$ since $\\angle OMC = \\angle OCX = \\frac{\\pi}{2}$. Hence $\\frac{OM}{OC} = \\frac{OC}{OX}$, or, equivalently, $\\frac{OM}{OA} = \\frac{OA}{OX}$. By SAS similarity, it follows that $\\triangle OAM \\sim \\triangle OXA$. Therefore, $\\angle OAM = \\angle OXA$.\n\nWe claim now that $\\angle OAD = \\angle OAX$. By the similarity $\\triangle OAM \\sim OXA$, we have that $\\angle OAX = \\angle OMA$. Since $AOMD$ is a cyclic quadrilateral, we have that $\\angle OMA = \\angle ODA$. Since $OA = OD$, we have that $\\angle ODA = \\angle OAD$. Combining these equations tells us that $\\angle OAX = \\angle OAD$, so $A$, $D$, and $X$ are collinear.\n\nFinally, since both $AH$ and $OX$ are perpendicular to $BC$, it follows that $AH \\parallel OX$, so $\\angle DAH = \\angle DXO = \\angle AXO = \\angle MAO$, as desired.\n\nSolution:\nLet $Y$ be the intersection of $BC$ with the line tangent to $\\omega$ at $A$. Then the circumcircle of triangle $AOM$ has diameter $OY$, so $AD$ is perpendicular to $OY$ because the radical axis of two circles is perpendicular to the line between their centers. Since $Y$ is on the polar of $A$, it follows that $A$ is on the polar of $Y$, so $AD \\perp OX$ implies that $AD$ is the polar of $Y$, i.e. $AD$ is the symmedian from $A$ in triangle $ABC$. Hence $AD$ and $AM$ are isogonal. Since $AH$ and $AO$ are also isogonal, the desired conclusion follows immediately."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-advanced-configurations-brocard-point-symmedians-auto-2089",
+      "name": "Harvard-MIT Mathematics Tournament #0j4p",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Tangents",
+        "Homothety",
+        "Polar triangles, harmonic conjugates",
+        "Brocard point, symmedians",
+        "Angle chasing"
+      ],
+      "statement": "Problem:\nLet $ABC$ be a triangle, and let $E$ and $F$ be the feet of the altitudes from $B$ and $C$, respectively. If $A$ is not a right angle, prove that the circumcenter of triangle $AEF$ lies on the incircle of triangle $ABC$ if and only if the incenter of triangle $ABC$ lies on the circumcircle of triangle $AEF$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $D$ be the foot of the altitude from $A$. Let $H$ be the orthocenter of triangle $ABC$. Let $M$ be the midpoint of $AH$. Let $I$ be the incenter of triangle $ABC$. Let $\\omega$ be the incircle of triangle $ABC$. Let $\\gamma$ be the circumcircle of $AEF$. Let $\\eta$ be the nine-point circle of triangle $ABC$.\n\nWe first dispense with the case in which $AB = AC$. Since $M$ is the circumcenter of triangle $AEF$, if the circumcenter of triangle $AEF$ lies on the incircle of triangle $ABC$, then $\\omega$ and $\\eta$ intersect in two points: $M$ and $D$. Since $\\omega$ and $\\eta$ are tangent by Feuerbach's Theorem, it follows that $\\omega$ and $\\eta$ are coincident, in which case triangle $ABC$ is equilateral.\n\n![](attached_image_1.png)\n\nIf the incenter of triangle $ABC$ lies on the circumcircle of triangle $AEF$, then $A$, $I$, and $H$ lie on $\\gamma$. Since no circle may intersect a line in three distinct points and $A$ is distinct from $I$ and $H$, it follows that $I$ and $H$ are coincident, in which case triangle $ABC$ is equilateral. Since it is clear that if $ABC$ is equilateral, $M$ lies on $\\omega$ and $I$ lies on $\\gamma$, this completes the proof in the case that $AB = AC$.\n\nThroughout the remainder of this solution, we assume that $AB \\neq AC$. Let $\\Omega$ be the circumcircle of triangle $ABC$, and let $\\alpha$ be the $A$-mixtilinear incircle. Let $\\alpha$ be tangent to $AB$ at $P$, to $AC$ at $Q$, and to $\\Omega$ at $R$. Since $AB \\neq AC$, lines $PQ$ and $BC$ are not parallel. Let their intersection be $Z$, and let the bisectors of $\\angle A$, $\\angle B$, and $\\angle C$ intersect $\\Omega$ at $T$, $U$, and $V$, respectively. Let the point diametrically opposite $T$ on $\\Omega$ be $S$. Let lines $RS$ and $BC$ intersect at $Y$. We introduce a lemma here, namely that $I$ lies on $PQ$ and that $Y$ and $Z$ are harmonic conjugates with respect to $B$ and $C$.\n\n![](attached_image_2.png)\n\nLet lines $AR$ and $PQ$ intersect at $K$. Since $PA$ and $QA$ are tangent to $\\alpha$ at $P$ and $Q$, respectively, $RK$ is the symmedian from $R$ in triangle $PQR$. By Pascal's Theorem applied to cyclic hexagon $ACVRUB$, points $Q$, $I$, and $P$ are collinear. Since $AP = AQ$ and $AI$ bisects $\\angle PAQ$, $I$ is the midpoint of $PQ$. Hence $RI$ is the median from $R$ in triangle $PQR$. It follows that $\\angle ICQ = \\angle PRA = \\angle IRQ$ and $\\angle IBP = \\angle QRA = \\angle IRP$. Hence quadrilaterals $RBPI$ and $RCQI$ are cyclic, so $RI$ is the bisector of $\\angle BRC$. It follows also that $\\angle BIP = \\angle BCI$, so line $PQ$ is tangent to the circumcircle of triangle $BIC$ at $I$. Since $T$ is the circumcenter of triangle $BIC$ and $S$ is diametrically opposite $T$ on $\\Omega$, $BS$ and $CS$ are tangent to the circumcircle of triangle $BIC$ at $B$ and $C$, respectively. It follows that $IS$ is the symmedian from $I$ in triangle $BIC$; since $RI$ is the bisector of $\\angle BRC$, $R$, $I$, and $S$ are collinear. Hence $RS$ is the polar of $Z$ with respect to the circumcircle of triangle $BIC$, so $Y$ and $Z$ are harmonic conjugates with respect to $B$ and $C$, as desired.\n\n![](attached_image_3.png)\n\nWe now take up the main problem. We first prove that $I$ lies on $\\gamma$ if $M$ lies on $\\omega$. If $M$ lies on $\\omega$, then $M$ is the Feuerbach point. Let $X$ be the center of the homothety of positive magnitude mapping $\\omega$ to $\\Omega$. Since the center of the homothety of positive magnitude $\\omega$ to $\\eta$ is $M$ and the center of the homothety of positive magnitude mapping $\\eta$ to $\\Omega$ is $H$, it follows by Monge's Circle Theorem that $X$ lies on line $MH$. Note that $R$ is the center of the homothety of positive magnitude mapping $\\alpha$ to $\\Omega$. Since the center of homothety of positive magnitude mapping $\\alpha$ to $\\omega$ is $A$, it follows by the same theorem that $R$ lies on line $AX$, so points $A$, $M$, $H$, and $R$ are collinear.\n\nNote that triangle $BRC$ is the reflection of triangle $BHC$ about line $BC$. Since line $RY$ bisects angle $BRC$, it follows that line $HY$ bisects $\\angle BHC$. Let the line through $H$ parallel to $PQ$ intersect $BC$ at $Z'$. Since $\\angle HBA = \\angle HCA$, the internal bisectors of $\\angle BAC$ and $\\angle BHC$ are parallel. Since $PQ$ is perpendicular to $AI$ and $BZ'$ is parallel to $PQ$, it follows that $BZ'$ is the external bisector of $\\angle BHC$. Hence $Y$ and $Z'$ are harmonic conjugates with respect to $B$ and $C$. It follows that $Z$ and $Z'$ are coincident, and, therefore, that $H$ and $K$ are coincident. We may conclude that $\\angle AIH$ is right, which implies the desired result because $\\gamma$ is the circle on diameter $AH$. (Do think carefully about why this argument fails if $AB = AC$.)\n\nConversely, if $I$ lies on $\\gamma$, then $\\angle AIH$ is right, so points $P$, $H$, $I$, and $Q$ are collinear. Since $PQ$ is perpendicular to $AI$ and the internal bisectors of $\\angle BAC$ and $\\angle BHC$ are parallel, it follows that $PQ$ is the external bisector of $\\angle BHC$. Let the internal bisector of $\\angle BHC$ intersect $BC$ at $Y'$. Then $Y'$ and $Z$ are harmonic conjugates with respect to $B$ and $C$, so $Y$ and $Y'$ are coincident. Let $R'$ be the reflection of $H$ about line $BC$. Clearly $R'Y$ is the bisector of $\\angle BR'C$, so $R'$, $Y$, and $S$ are collinear. Since $R$, $Y$, and $S$ are collinear and $R'$ also lies on $\\Omega$, it follows that $R$ and $R'$ are coincident. Since $HR'$ is perpendicular to $BC$, it follows that points $A$, $H$, and $R$ are collinear.\n\nLet $X'$ be the center of the homothety of positive magnitude mapping $\\omega$ to $\\Omega$. Since the center of the homothety of positive magnitude mapping $\\omega$ to $\\alpha$ is $A$, and the center of the homothety of positive magnitude mapping $\\alpha$ to $\\Omega$ is $R$, it follows by Monge's Circle Theorem that $X'$ lies on line $AR$. Note that $H$ is the center of the homothety of positive magnitude mapping $\\Omega$ to $\\eta$. Since the center of the homothety of positive magnitude mapping $\\omega$ to $\\eta$ is the Feuerbach point, it follows by the same theorem that the Feuerbach point lies on line $AR$ as well. Since $AR$ intersects $\\eta$ at $M$ and $D$, the Feuerbach point may be either $M$ or $D$. However, $D$ may not be the Feuerbach point, else the altitude from $A$ and the bisector of $\\angle A$ in triangle $ABC$ would be coincident, contradicting the assumption that $AB \\neq AC$. We may conclude that $M$ is the Feuerbach point, so, in particular, $M$ lies on $\\omega$, as desired. This completes the proof."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-advanced-configurations-brocard-point-symmedians-auto-2726",
+      "name": "HMMT 2014 #0jme",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2014",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Brocard point, symmedians",
+        "Tangents",
+        "Angle chasing",
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle"
+      ],
+      "statement": "Problem:\n\nLet $ABC$ be an acute triangle with circumcenter $O$ such that $AB = 4$, $AC = 5$, and $BC = 6$. Let $D$ be the foot of the altitude from $A$ to $BC$, and $E$ be the intersection of $AO$ with $BC$. Suppose that $X$ is on $BC$ between $D$ and $E$ such that there is a point $Y$ on $AD$ satisfying $XY \\parallel AO$ and $YO \\perp AX$. Determine the length of $BX$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $\\dfrac{96}{41}$\n\nLet $AX$ intersect the circumcircle of $\\triangle ABC$ again at $K$. Let $OY$ intersect $AK$ and $BC$ at $T$ and $L$, respectively. We have $\\angle LOA = \\angle OYX = \\angle TDX = \\angle LAK$, so $AL$ is tangent to the circumcircle. Furthermore, $OL \\perp AK$, so $\\triangle ALK$ is isosceles with $AL = AK$, so $AK$ is also tangent to the circumcircle. Since $BC$ and the tangents to the circumcircle at $A$ and $K$ all intersect at the same point $L$, $CL$ is a symmedian of $\\triangle ACK$. Then $AK$ is a symmedian of $\\triangle ABC$. Then we can use $\\dfrac{BX}{XC} = \\dfrac{(AB)^2}{(AC)^2}$ to compute $BX = \\dfrac{96}{41}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-advanced-configurations-brocard-point-symmedians-auto-2969",
+      "name": "HMMT February #0jt5",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Brocard point, symmedians",
+        "Ceva's theorem"
+      ],
+      "statement": "Problem:\nLet $ABC$ be a triangle with $AB = 13$, $AC = 14$, and $BC = 15$. Let $G$ be the point on $AC$ such that the reflection of $BG$ over the angle bisector of $\\angle B$ passes through the midpoint of $AC$. Let $Y$ be the midpoint of $GC$ and $X$ be a point on segment $AG$ such that $\\frac{AX}{XG} = 3$. Construct $F$ and $H$ on $AB$ and $BC$, respectively, such that $FX \\parallel BG \\parallel HY$. If $AH$ and $CF$ concur at $Z$ and $W$ is on $AC$ such that $WZ \\parallel BG$, find $WZ$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nObserve that $BG$ is the $B$-symmedian, and thus $\\frac{AG}{GC} = \\frac{c^2}{a^2}$. Stewart's theorem gives us\n$$\nBG = \\sqrt{\\frac{2a^2c^2b}{b(a^2 + c^2)} - \\frac{a^2b^2c^2}{a^2 + c^2}} = \\frac{ac}{a^2 + c^2} \\sqrt{2(a^2 + c^2) - b^2} = \\frac{390\\sqrt{37}}{197}\n$$\nThen by similar triangles,\n$$\nZW = HY \\frac{ZA}{HA} = BG \\frac{YC}{GC} \\frac{ZA}{HA} = BG \\frac{1}{2} \\frac{6}{7} = \\frac{1170\\sqrt{37}}{1379}\n$$\nwhere $\\frac{ZA}{HA}$ is found with mass points or Ceva."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-advanced-configurations-brocard-point-symmedians-auto-3348",
+      "name": "HMMT February #0k3o",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Brocard point, symmedians",
+        "Triangle trigonometry",
+        "Angle chasing"
+      ],
+      "statement": "Problem:\n\nIn acute triangle $A B C$, let $D, E$, and $F$ be the feet of the altitudes from $A, B$, and $C$ respectively, and let $L, M$, and $N$ be the midpoints of $B C, C A$, and $A B$, respectively. Lines $D E$ and $N L$ intersect at $X$, lines $D F$ and $L M$ intersect at $Y$, and lines $X Y$ and $B C$ intersect at $Z$. Find $\\frac{Z B}{Z C}$ in terms of $A B, A C$, and $B C$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nBecause $N L \\parallel A C$ we have triangles $D X L$ and $D E C$ are similar. From angle chasing, we also have that triangle $D E C$ is similar to triangle $A B C$. We have $\\angle X N A = 180^{\\circ} - \\angle X N B = 180^{\\circ} - \\angle L N B = 180 - C A B = \\angle L M A$. In addition, we have\n$$\n\\frac{N X}{N A} = \\frac{X D \\cdot X E}{X L \\cdot N A} = \\frac{A B}{B C} \\frac{X E}{L C} \\frac{N M}{N A} = \\frac{A B}{B C} \\frac{E D}{D C} \\frac{B C}{A B} = \\frac{E D}{D C} = \\frac{A B}{A C} = \\frac{M L}{M A}.\n$$\nThese two statements mean that triangles $A N X$ and $A M L$ are similar, and $\\angle X A B = \\angle X A N = \\angle L A M = \\angle L A C$. Similarly, $\\angle X A Y = \\angle L A C$, making $A, X$, and $Y$ collinear, with $\\angle Y A B = \\angle X A B = \\angle L A C$; i.e., line $A X Y$ is a symmedian of triangle $A B C$.\n\nThen\n$$\n\\frac{Z B}{Z C} = \\frac{A B}{A C} \\frac{\\sin \\angle Z A B}{\\sin \\angle Z A C} = \\frac{A B}{A C} \\frac{\\sin \\angle L A C}{\\sin \\angle L A B},\n$$\nby the ratio lemma. But using the ratio lemma,\n$$\n1 = \\frac{L B}{L C} = \\frac{A B}{A C} \\frac{\\sin \\angle L A B}{\\sin \\angle L A C},\n$$\nso\n$$\n\\frac{\\sin \\angle L A C}{\\sin \\angle L A B} = \\frac{A B}{A C},\n$$\nso\n$$\n\\frac{Z B}{Z C} = \\frac{A B^2}{A C^2}.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-advanced-configurations-brocard-point-symmedians-auto-3606",
+      "name": "USA IMO TST #0kau",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO TST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Tangents",
+        "Inversion",
+        "Homothety",
+        "Miquel point",
+        "Brocard point, symmedians",
+        "Isogonal/isotomic conjugates, barycentric coordinates",
+        "Angle chasing"
+      ],
+      "statement": "Let $ABC$ be a triangle and let $M$ and $N$ denote the midpoints of $\\overline{AB}$ and $\\overline{AC}$, respectively. Let $X$ be a point such that $\\overline{AX}$ is tangent to the circumcircle of triangle $ABC$. Denote by $\\omega_B$ the circle through $M$ and $B$ tangent to $\\overline{MX}$, and by $\\omega_C$ the circle through $N$ and $C$ tangent to $\\overline{NX}$. Show that $\\omega_B$ and $\\omega_C$ intersect on line $BC$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**First solution using symmedians (Merlijn Staps)** Let $\\overline{XY}$ be the other tangent from $X$ to $(AMN)$.\n**Claim.** Line $\\overline{XM}$ is tangent to $(BMY)$; hence $Y$ lies on $\\omega_B$.\n![](attached_image_1.png)\n*Proof.* Let $Z$ be the midpoint of $\\overline{AY}$. Then $\\overline{MX}$ is the $M$-symmedian in triangle $AMY$. Since $\\overline{MZ} \\parallel \\overline{BY}$, it follows that $\\angle AMX = \\angle ZMY = \\angle BYM$. We conclude that $\\overline{XM}$ is tangent to the circumcircle of triangle $BMY$. $\\square$\n\nSimilarly, $\\omega_C$ is the circumcircle of triangle $CNY$. As $AMYN$ is cyclic too, it follows that $\\omega_B$ and $\\omega_C$ intersect on $\\overline{BC}$, by Miquel's theorem.\n\n\n**Second solution (Jetze Zoethout)** Let $\\omega_B$ intersect $\\overline{BC}$ again at $S$ and let $\\overline{MS}$ intersect $\\overline{AC}$ again at $Y$. Angle chasing gives $\\angle XMY = \\angle XMS = \\angle MBS = \\angle ABC = \\angle XAC = \\angle XAY$, so $Y$ is on the circumcircle of triangle $AMX$. Furthermore, from $\\angle XMY = \\angle ABC$ and $\\angle ACB = \\angle XAB = \\angle XYM$ it follows that $\\triangle ABC \\sim \\triangle XMY$ and from $\\angle XAY = \\angle MBS$ and $\\angle YXA = \\angle YMA = \\angle BMS$ it follows that $\\triangle AXY \\sim \\triangle BMS$.\n---\n![](attached_image_2.png)\nWe now find\n$$\n\\frac{AN}{AX} = \\frac{AN/BM}{AX/BM} = \\frac{AC/AB}{MS/XY} = \\frac{AB/AB}{MS/XM} = \\frac{XM}{MS},\n$$\nwhich together with $\\angle XMS = \\angle XAN$ yields $\\triangle XMS \\sim \\triangle XAN$. From $\\angle XSY = \\angle XSM = \\angle XNA = \\angle XNY$ we now have that $S$ is on the circumcircle of triangle $XNY$. Finally, we have $\\angle XNS = \\angle XYS = \\angle XYM = \\angle ACB = \\angle NCS$ so $\\overline{XN}$ is tangent to the circle through $C, N$, and $S$, as desired.\n\n\n**Third solution by moving points method** Fix triangle $ABC$ and animate $X$ along the tangent at $A$. We let $D$ denote the second intersection point of $\\omega_C$ with line $\\overline{BC}$.\n**Claim.** The composed map $X \\mapsto D$ is a fractional linear transformation (i.e. a projective map) in terms of a real coordinate on line $\\overline{AA}, \\overline{BC}$.\n*Proof*. Let $\\ell$ denote the perpendicular bisector of $\\overline{CN}$, also equipped with a real coordinate. We let $P$ denote the intersection of $\\overline{XM}$ with $\\ell$, $S$ the circumcenter of $\\triangle CMD$. Let $T$ denote the midpoint of $\\overline{BD}$.\nWe claim that the composed map\n$$\n\\overline{AA} \\rightarrow \\ell \\rightarrow \\ell \\rightarrow \\overline{BC} \\rightarrow \\overline{BC}\n$$\nby $X \\mapsto P \\mapsto S \\mapsto T \\mapsto D$\nis projective, by showing each individual map is projective.\n![](attached_image_3.png)\n* The map $X \\mapsto P$ is projective since it is a perspectivity through $N$ from $\\overline{AA}$ to $\\ell$.\n* The map $P \\mapsto S$ is projective since it is equivalent to a negative inversion on $\\ell$ at the midpoint of $\\overline{NC}$ with radius $\\frac{1}{2}NC$. (Note $\\angle PNS = 90^\\circ$ is fixed.)\n* The map $S \\mapsto T$ is projective since it is a perspectivity $\\ell \\to \\overline{BC}$ through the point at infinity perpendicular to $\\overline{BC}$ (in fact, it is linear).\n* The map $T \\mapsto D$ is projective (in fact, linear) since it is a homothety through $C$ with fixed ratio 2.\nThus the composed map is projective as well. $\\square$\n\nSimilarly, if we define $D'$ so that $\\overline{XM}$ is tangent to $(BMD')$, the map $X \\mapsto D'$ is projective as well. We aim to show $D = D'$, and since the maps correspond to fractional linear transformations in projective coordinates, it suffices to verify it for three distinct choices of $X$. We do so:\n* If $X = \\overline{AA} \\cap \\overline{MN}$, then $D$ and $D'$ satisfy $MB = MD'$, $NC = ND$. This means they are the feet of the $A$-altitude on $\\overline{BC}$.\n* As $X$ approaches $A$ the points $D$ and $D'$ approach the infinity point along $\\overline{BC}$.\n* If $X$ is a point at infinity along $\\overline{AA}$, then $D$ and $D'$ coincide with the midpoint of $\\overline{BC}$.\nThis completes the solution.\n\n\n**Fourth solution by isogonal conjugates (Anant Mudgal)** Let $Y$ be the isogonal conjugate of $X$ in $\\triangle AMN$ and $Z$ be the reflection of $Y$ in $\\overline{MN}$. As $\\overline{AX}$ is tangent to the circumcircle of $\\triangle AMN$, it follows that $\\overline{AY} \\parallel \\overline{MN}$. Thus $Z$ lies on $\\overline{BC}$ since $\\overline{MN}$ bisects the strip made by $\\overline{AY}$ and $\\overline{BC}$.\n![](attached_image_4.png)\nFinally,\n$$\n\\angle ZMX = \\angle ZMN + \\angle NMX = \\angle NMY + \\angle YMA = \\angle NMA = \\angle ZBM\n$$\nso $\\overline{XM}$ is tangent to the circumcircle of $\\triangle ZMB$, hence $Z$ lies on $\\omega_B$. Similarly, $Z$ lies on $\\omega_C$ and we're done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-advanced-configurations-brocard-point-symmedians-auto-3790",
+      "name": "USA TSTST #0kfy",
+      "url": "https://usamoguide.com/",
+      "source": "USA TSTST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Inversion",
+        "Spiral similarity",
+        "Miquel point",
+        "Brocard point, symmedians",
+        "Polar triangles, harmonic conjugates",
+        "Circle of Apollonius",
+        "Angle chasing"
+      ],
+      "statement": "Let $ABC$ be a scalene triangle with incenter $I$. The incircle of $ABC$ touches $BC$, $CA$, $AB$ at points $D$, $E$, $F$, respectively. Let $P$ be the foot of the altitude from $D$ to $EF$, and let $M$ be the midpoint of $BC$. The rays $AP$ and $IP$ intersect the circumcircle of triangle $ABC$ again at points $G$ and $Q$, respectively. Show that the incenter of triangle $GQM$ coincides with $D$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Refer to the figure below.\n![](attached_image_1.png)\n\n**Claim** — The point $Q$ is the Miquel point of $BFEC$. Also, $\\overline{QD}$ bisects $\\angle BQC$.\n*Proof*. Inversion around the incircle maps line $EF$ to $(AIEF)$ and the nine-point circle of $\\triangle DEF$ to the circumcircle of $\\triangle ABC$ (as the midpoint of $EF$ maps to $A$, etc.). This implies $P$ maps to $Q$; that is, $Q$ coincides with the second intersection of $(AFIE)$ with $(ABC)$. This is the claimed Miquel point.\nThe spiral similarity mentioned then gives $\\frac{QB}{BF} = \\frac{QC}{CE}$, so $\\overline{QD}$ bisects $\\angle BQC$. $\\square$\n\n**Claim** — We have $(QG; BC) = -1$, so in particular $\\overline{GD}$ bisects $\\angle BGC$.\n*Proof*. Note that\n$$\n-1 = (AI; EF) \\stackrel{Q}{=} (\\overline{AQ} \\cap \\overline{EF}, P; E, F) \\stackrel{A}{=} (QG; BC).\n$$\nThe last statement follows from Apollonian circle, or more bluntly $\\frac{GB}{GC} = \\frac{QB}{QC} = \\frac{BD}{DC}$. $\\square$\n\nHence $\\overline{QD}$ and $\\overline{GD}$ are angle bisectors of $\\angle BQC$ and $\\angle BGC$. However, $\\overline{QM}$ and $\\overline{QG}$ are isogonal in $\\angle BQC$ (as median and symmedian), and similarly for $\\angle BGC$, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-advanced-configurations-brocard-point-symmedians-auto-4060",
+      "name": "HMMT Spring 2021 #0kng",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT Spring 2021",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Tangents",
+        "Brocard point, symmedians",
+        "Cyclic quadrilaterals",
+        "Angle chasing",
+        "Translation"
+      ],
+      "statement": "Problem:\n\nLet $ABCD$ be a trapezoid with $AB \\parallel CD$ and $AD = BD$. Let $M$ be the midpoint of $AB$, and let $P \\neq C$ be the second intersection of the circumcircle of $\\triangle BCD$ and the diagonal $AC$. Suppose that $BC = 27$, $CD = 25$, and $AP = 10$. If $MP = \\frac{a}{b}$ for relatively prime positive integers $a$ and $b$, compute $100a + b$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAs $\\angle PBD = \\angle PCD = \\angle PAB$, $DB$ is tangent to $(ABP)$. As $DA = DB$, $DA$ is also tangent to $(ABP)$. Let $CB$ intersect $(ABP)$ again at $X \\neq B$; it follows that $XD$ is the $X$-symmedian of $\\triangle AXB$. As $\\angle AXC = \\angle DAB = \\angle ADC$, $X$ also lies on $(ACD)$. Therefore $\\angle PXB = \\angle PAB = \\angle PCD = \\angle AXD$, so $XP$ is the median of $\\triangle AXB$, i.e. $XP$ passes through $M$.\n\nNow we have $\\triangle MPA \\sim \\triangle MBX$ and $\\triangle ABX \\sim \\triangle BCD$. Therefore\n$$\n\\frac{MP}{AP} = \\frac{MB}{XB} = \\frac{AB}{2XB} = \\frac{BC}{2DC} \\Longrightarrow MP = \\frac{BC \\cdot AP}{2DC} = \\frac{27 \\cdot 10}{2 \\cdot 25} = \\frac{27}{5}\n$$\n\nSolution:\n\nLet $E$ be the point such that $\\square BDCE$ is a parallelogram. Then $\\square ADCE$ is an isosceles trapezoid, therefore $\\angle PAB = \\angle CAB = \\angle BED = \\angle CDE$; this angle is also equal to $\\angle PBD = \\angle PCD$. Now, $\\angle ABP = \\angle ABD - \\angle PBD = \\angle BEC - \\angle BED = \\angle DEC$, therefore $\\triangle PAB \\sim \\triangle CDE$. Let $F$ be the midpoint of $DE$, which lies on $BC$ because $\\square BDCE$ is a parallelogram. It follows that $(\\triangle PAB, M) \\sim (\\triangle CDE, F)$, therefore\n$$\n\\frac{MP}{AP} = \\frac{FC}{DC} = \\frac{BC}{2DC}\n$$\nand again this gives $MP = \\frac{27}{5}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-advanced-configurations-brocard-point-symmedians-auto-4471",
+      "name": "HMMT November 2024 #0kyv",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2024",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cyclic quadrilaterals",
+        "Brocard point, symmedians",
+        "Triangle trigonometry",
+        "Angle chasing"
+      ],
+      "statement": "Problem:\n\nIsabella the geologist discovers a diamond deep underground via an X-ray machine. The diamond has the shape of a convex cyclic pentagon $P A B C D$ with $A D \\| B C$. Soon after the discovery, her X-ray breaks, and she only recovers partial information about its dimensions. She knows that $A D=70$, $B C=55$, $P A: P D=3: 4$, and $P B: P C=5: 6$. Compute $P B$.\n\n![](attached_image_1.png)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n![](attached_image_2.png)\nLet $X=P B \\cap A D$ and $Y=P C \\cap A D$. Let $A X=p$, $X Y=q$, and $Y D=r$. From $A B \\| C D$, we get that $A B=C D$, and so $\\angle A P X=\\angle D P Y$. Thus, we may apply Steiner ratio theorem on $\\triangle P A D$ and $\\triangle P X Y$ to get that\n$$\n\\frac{p(p+q)}{r(q+r)}=\\frac{3^{2}}{4^{2}}, \\quad \\frac{p(q+r)}{r(p+q)}=\\frac{5^{2}}{6^{2}} .\n$$\nMultiplying these two equations gives $p: r=5: 8$, and using each individual equations gives $p: q : r=5: 22: 8$. Thus, $p=10$, $q=44$, and $r=16$.\n\nNow, from $X Y \\| B C$, we have $P X: X B=4: 1$, so set $P X=4 t$ and $X B=t$. However, $4 t^{2}=P Y \\cdot Y C=10 \\cdot 60=600$. Solving this gives $t=\\sqrt{150}=5 \\sqrt{6}$, hence $P B=5 t=25 \\sqrt{6}$.\n\nSolution:\n\n![](attached_image_3.png)\nLet $A B=C D=a$, $A C=B D=b$, $\\frac{A P}{3}=\\frac{D P}{4}=x$, and $\\frac{B P}{5}=\\frac{C P}{6}=y$. Applying Ptolemy's theorem for the quadrilaterals $A B C P$, $B C D P$, and $A B C D$ yields:\n$$\n\\begin{aligned}\nb \\cdot 5 y & =55 \\cdot 3 x+a \\cdot 6 y \\\\\nb \\cdot 6 y & =55 \\cdot 4 x+a \\cdot 5 y \\\\\nb^{2} & =55 \\cdot 70+a^{2}\n\\end{aligned}\n$$\nEquating the left-hand sides of (1) and (2) leads to\n$$\n6 \\cdot(165 x+6 a y)=5 \\cdot(220 x+5 a y) \\Longrightarrow 110 x=11 a y \\Longrightarrow 10 x=a y\n$$\nSubstituting $220 x=22 a y$ into (2) implies $27 a y=6 b y$, or $b=\\frac{9}{2} a$. Plugging this into (3), we find $a^{2}=200$, so $a=10 \\sqrt{2}$, and therefore $b=45 \\sqrt{2}$. Furthermore, $x=y \\sqrt{2}$ after replacing $a$ with $10 \\sqrt{2}$ in (4). We now apply Law of Cosines for $\\triangle A B C$ and $\\triangle A P C$ :\n$$\n\\begin{aligned}\n55^{2}+(10 \\sqrt{2})^{2}-2 \\cdot(10 \\sqrt{2}) \\cdot 55 \\cos \\theta & =(45 \\sqrt{2})^{2} \\\\\n(3 \\sqrt{2} y)^{2}+(6 y)^{2}+2 \\cdot(3 \\sqrt{2} y) \\cdot(6 y) \\cos \\theta & =(45 \\sqrt{2})^{2}\n\\end{aligned}\n$$\nwhere $\\theta=\\angle A B C$. Solving (5) yields\n$$\n\\cos \\theta=\\frac{55^{2}+(10 \\sqrt{2})^{2}-(45 \\sqrt{2})^{2}}{2 \\cdot(10 \\sqrt{2}) \\cdot 55}=-\\frac{3 \\sqrt{2}}{8}\n$$\nPlugging this into (6), we can compute:\n$$\ny^{2}=\\frac{(45 \\sqrt{2})^{2}}{(3 \\sqrt{2})^{2}+6^{2}-27}=\\frac{4050}{27}=150\n$$\nTherefore, $B P=5 y=5 \\sqrt{150}=25 \\sqrt{6}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-advanced-configurations-brocard-point-symmedians-auto-4589",
+      "name": "HMMT November 2024 #0l25",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2024",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Tangents",
+        "Triangle trigonometry",
+        "Brocard point, symmedians",
+        "Trigonometry",
+        "Angle chasing"
+      ],
+      "statement": "Problem:\n\nLet $ABC$ be an acute triangle and $D$ be the foot of altitude from $A$ to $\\overline{BC}$. Let $X$ and $Y$ be points on the segment $\\overline{BC}$ such that $\\angle BAX = \\angle YAC$, $BX = 2$, $XY = 6$, and $YC = 3$. Given that $AD = 12$, compute $BD$.\n\nProposed by: Sarunyu Thongjarast\n\nAnswer: $12 \\sqrt{2} - 16 = \\sqrt{288} - 16$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n![](attached_image_1.png)\n\nLet the line tangent to $\\odot(ABC)$ at $A$ intersect line $BC$ at $P$.\n\nProof. Note that\n$$\n\\angle PAX = \\angle PAB + \\angle BAX = \\angle PCA + \\angle CAY = \\angle PYA\n$$\n\nThis proves the desired tangency.\nNow, by power of point, we have,\n$$\n\\begin{aligned}\nPB \\cdot PC & = PX \\cdot PY = PA^2 \\\\\nPB(PB+11) & = (PB+2)(PB+8) \\\\\nPB & = 16 \\\\\nPA^2 & = PB \\cdot PC = 16 \\cdot 27 \\\\\nPA & = 12 \\sqrt{3}\n\\end{aligned}\n$$\n\nBy Pythagorean theorem, $AD^2 + DP^2 = PA^2$. Therefore, $PD^2 = PA^2 - AD^2 = 432 - 144 = 288$, so $PD = 12 \\sqrt{2}$. Finally, $BD = PD - PB = 12 \\sqrt{2} - 16$.\n\n\nSolution 2:\n\nSince $\\angle BAX = \\angle CAY$, by Steiner ratio theorem, we get that\n$$\n\\frac{AB^2}{AC^2} = \\frac{BX}{CX} \\cdot \\frac{BY}{CY} = \\frac{2}{9} \\cdot \\frac{8}{3} = \\frac{16}{27}\n$$\n\nThus, if $BD = x$, then by Pythagorean theorem, we get that $AB^2 = 144 + x^2$ and $AC^2 = 144 + (11 - x)^2$. Combining with the displayed equations gives\n$$\n\\begin{aligned}\n27\\left(144 + x^2\\right) & = 16\\left(144 + (11 - x)^2\\right) \\\\\n27\\left(144 + x^2\\right) & = 16\\left(144 + x^2\\right) + 16(-22x + 121) \\\\\n11\\left(144 + x^2\\right) & = 16 \\cdot 11 \\cdot (-2x + 11) \\\\\nx^2 + 144 + 16(2x - 11) & = 0 \\\\\nx^2 + 32x - 32 & = 0 \\\\\nx & = 12 \\sqrt{2} - 16,\n\\end{aligned}\n$$\n(where we only take the positive solution since $x > 0$).\n\n\nSolution 3:\n\nSuppose that $BD = c$. From the length conditions, we get that\n$$\n\\tan \\angle BAD = \\frac{c}{12}, \\quad \\tan \\angle DAX = \\frac{2 - c}{12}, \\quad \\tan \\angle DAC = \\frac{11 - c}{12}, \\quad \\tan \\angle DAY = \\frac{8 - c}{12}\n$$\n\nThus, using tangent addition formula, we get that\n$$\n\\begin{aligned}\n& \\tan \\angle BAX = \\tan (\\angle BAD + \\angle DAX) = \\frac{\\frac{c}{12} + \\frac{2 - c}{12}}{1 - \\frac{c}{12} \\cdot \\frac{2 - c}{12}} = \\frac{\\frac{2}{12}}{\\frac{144 - 2c + c^2}{144}} = \\frac{24}{144 - 2c + c^2} \\\\\n& \\tan \\angle YAC = \\tan (\\angle DAC - \\angle DAY) = \\frac{\\frac{11 - c}{12} - \\frac{8 - c}{12}}{1 + \\frac{11 - c}{12} \\cdot \\frac{8 - c}{12}} = \\frac{\\frac{3}{12}}{\\frac{c^2 - 19c + 232}{144}} = \\frac{36}{c^2 - 19c + 232}\n\\end{aligned}\n$$\n\nHence, the condition $\\angle BAX = \\angle CAY$ translates to\n$$\n\\begin{aligned}\n\\frac{24}{144 - 2c + c^2} & = \\frac{36}{c^2 - 19c + 232} \\\\\n36\\left(c^2 - 2c + 144\\right) - 24\\left(c^2 - 19c + 232\\right) & = 0 \\\\\n3\\left(c^2 - 2c + 144\\right) - 2\\left(c^2 - 19c + 232\\right) & = 0 \\\\\nc^2 + 32c - 32 & = 0 \\\\\nc & = -16 \\pm 12 \\sqrt{2}\n\\end{aligned}\n$$\nSince $c$ is positive, the answer is $BD = 12 \\sqrt{2} - 16$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-advanced-configurations-brocard-point-symmedians-auto-4618",
+      "name": "HMIC 2024 #0l2y",
+      "url": "https://usamoguide.com/",
+      "source": "HMIC 2024",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Brocard point, symmedians",
+        "Polar triangles, harmonic conjugates",
+        "Radical axis theorem",
+        "Tangents",
+        "Inversion",
+        "Triangle trigonometry",
+        "Constructions and loci"
+      ],
+      "statement": "Problem:\n\nLet $ABC$ be an acute, scalene triangle with circumcenter $O$ and symmedian point $K$. Let $X$ be the point on the circumcircle of triangle $BOC$ such that $\\angle AXO = 90^{\\circ}$. Assume that $X \\neq K$. The hyperbola passing through $B, C, O, K$, and $X$ intersects the circumcircle of triangle $ABC$ at points $U$ and $V$, distinct from $B$ and $C$. Prove that $UV$ is the perpendicular bisector of $AX$.\n\nThe symmedian point of triangle $ABC$ is the intersection of the reflections of $B$-median and $C$-median across the angle bisectors of $\\angle ABC$ and $\\angle ACB$, respectively.\n\n![](attached_image_1.png)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $\\mathcal{H}$ denote the hyperbola, and also recall a well-known fact that $A, K, X$ are collinear. This solution is split into two independent parts.\n\nProof of $\\boldsymbol{U} \\boldsymbol{V} \\perp \\boldsymbol{AX}$.\n\nLet $T = OX \\cap BC$, and let $OX$ intersect $\\odot(ABC)$ at points $Y, Z$. Then, we apply Desargues Involution Theorem (DIT) on $BCUV$ and line $OX$. We get an involution that\n- swaps $T$ and $UV \\cap OX$;\n- swaps $BU \\cap OX$ and $CV \\cap OX$;\n- swaps $BV \\cap OX$ and $CU \\cap OX$;\n- from conic $\\odot(ABCUV)$, swaps $Y$ and $Z$;\n- from conic $\\mathcal{H}$, swaps $O$ and $X$.\n\nThus, we get an involution swapping $(O, X)$ and $(Y, Z)$, and $(T, UV \\cap OX)$. Now, notice that since $B, O, X, C$ are concyclic, we have $TY \\cdot TZ = TB \\cdot TC = TO \\cdot TX$, so this involution is an inversion at $T$. Thus, it maps $T$ to $\\infty_{OX}$. Hence, $U, V, \\infty_{OX}$ are collinear, implying that $UV \\perp AX$.\n\nProof of $\\boldsymbol{U} \\boldsymbol{V}$ bisects $\\boldsymbol{AX}$.\n\nLet $M$ be the midpoint of $AX$. Let $AX$ intersect $BC$ at $D$ and $\\odot(ABC)$ at $P$. We apply Desargues Involution Theorem (DIT) on $BCUV$ and line $AX$. We get an involution that\n- swaps $D$ and $UV \\cap OX$;\n- swaps $BU \\cap AX$ and $CV \\cap AX$;\n- swaps $BV \\cap AX$ and $CU \\cap AX$;\n- from conic $\\odot(ABCUV)$, swaps $A$ and $P$;\n- from conic $\\mathcal{H}$, swaps $K$ and $X$.\n\nThus, we have an involution swapping $(A, P)$ and $(K, X)$, and we want to show that it swaps $(D, M)$, or equivalently\n$$\n(A, X ; M, P) = (P, K ; D, A)\n$$\nThe left hand side is $\\frac{AM}{XM} / \\frac{AP}{XP} = -2$. To show that $(P, K ; D, A) = -2$, we take any projective transformation that fixes $\\odot(ABC)$ and sends $\\triangle ABC$ to an equilateral triangle. This transformation preserves $BB \\cap CC, CC \\cap AA$, and $AA \\cap BB$, so it preserves symmedians. The result then become evident.\n\nSolution:\n\nLet $AK$ meet $BC$ at $Z$, and redefine $U, V$ to be the intersections of perpendicular bisector of $AX$ and $\\odot(ABC)$. We will use the following properties of $X$ :\n- $X$ lies on $AK$\n- $\\triangle BXA \\sim \\triangle AXC$ with ratio $c : b$\n- $\\angle BXA = \\angle ACX = 180^{\\circ} - A$.\n\nConsider the quadratic function\n$$\nf(P) = \\frac{\\operatorname{Pow}_{\\odot(ABC)}(P)}{\\operatorname{Pow}_{\\odot(ABC)}(O)} - \\frac{d(P, BC) d(P, UV)}{d(O, BC) d(O, UV)}\n$$\nIt is clear (say, in coordinates) that $f$ is the equation of a conic passing through $B, C, U, V$, and $O$. Hence, it suffices to show $f(X) = 0$ and $f(K) = 0$.\n\nSince $OX \\parallel UV$, we have\n$$\nf(X) = \\frac{\\operatorname{Pow}_{\\odot(ABC)}(X)}{\\operatorname{Pow}_{\\odot(ABC)}(O)} - \\frac{d(X, BC)}{d(O, BC)}\n$$\nThe RHS above is a circle (in coordinates) and is 0 when $X \\in \\{O, B, C\\}$, and is hence 0 for any $X$ on $(BOC)$. Thus, $f(X) = 0$.\n\nTo show that $f(K) = 0$, consider the function $f(P)$ for a variable point $P$ on line $AKXZ$. We claim that\n$$\nf(P) = \\frac{PX \\cdot PK}{AX \\cdot AK} f(A)\n$$\nafter which the result follows from taking $P = K$. The LHS and RHS are quadratic functions that agree at $A$ and $X$. It remains to check that they agree at one more point - we will take $P = Z$. We compute\n$$\n\\begin{aligned}\nf(Z) & = \\frac{BZ \\cdot CZ}{R^{2}} = \\frac{a^{2} b^{2} c^{2}}{(b^{2} + c^{2})^{2}} \\cdot \\frac{1}{R^{2}} \\\\\nf(A) & = -\\frac{d(A, BC)}{d(O, BC)} \\cdot \\frac{d(A, UV)}{d(O, UV)} = \\frac{d(A, BC)}{d(O, BC)} = \\frac{bc}{2R^{2} \\cos A} \\\\\n\\frac{ZK}{AK} & = \\frac{b^{2} + c^{2}}{a^{2}} \\\\\n\\frac{ZX}{AX} & = \\frac{[XBC]}{[XABC]} = \\frac{XB \\cdot XC \\sin(2A)}{XB \\cdot XA \\sin(A) + XA \\cdot XC \\sin(A)} = \\frac{2bc \\cos A}{b^{2} + c^{2}},\n\\end{aligned}\n$$\nand the desired result follows.\n\nSolution:\n\nWe prove the following main claim.\n\nClaim. Let $P$ be a point on $AX$, and let the conic through $B, C, O, X, P$ meet $(ABC)$ again at $U', V'$. Then $U'V'$ passes through a fixed point, and the map $P \\mapsto U'V' \\cap AX$ is projective.\n\nProof. Take a projective transformation sending $B, C$ to the circle points. Then the new problem is the following: We have points $A, X, O$, a fixed circle $\\Omega$ passing through $A$, and a point $P$ on $AX$. Let $(POX)$ meet $\\Omega$ at $U', V'$. Then $U'V'$ passes through a fixed point and $P \\mapsto U'V' \\cap AX$ is projective. First, if we take two points $P_1, P_2$, by radical axis on $\\left(P_1OX\\right), \\left(P_2OX\\right)$, and $\\Omega$, $U_1'V_1', U_2'V_2'$, and $OX$ concur. Thus, $U'V'$ meets $OX$ at a fixed point. Let this point be $Q$. Now let $O_1$ be the center of $\\Omega$ and $O_P$ the center of $(POX)$. $O_P$ moves linearly w.r.t. $P$, so $P \\mapsto O_1O_P$ is projective. Then $U'V'$ is the line through $Q$ perpendicular to $O_1O_P$, and hence also moves projectively. Finally, intersecting $U'V'$ with $AX$ is projective, so the entire map $P \\mapsto U'V' \\cap AX$ is projective, as desired.\n\nWe now return to the original problem. Let the tangents to $(ABC)$ at $B, C$ meet at $T$. It is well-known that $A, X, K, T$ are collinear, and $B, O, C, X, T$ are concyclic. We now consider the following cases:\n- $P = AX \\cap BC$ : The conic $(BCOXP)$ degenerates to the two lines $OX, BC$, so $U'V' = OX$, and $U'V' \\cap AX = X$. Thus, $AX \\cap BC \\mapsto X$.\n- $P = T$ : The conic $(BCOXT)$ is just the circle $(BOC)$. Then $(BOC)$ meets $(ABC)$ again at the circle points, so $U'V'$ is the line at infinity, and $T \\mapsto (AX)_\\infty$.\n- $P = A$ : In this case, $A = U'$ or $V'$, so $U'V' \\cap AX = A$ and $A \\mapsto A$.\n\nFrom the first two cases, we see that the fixed point $U'V'$ passes through is $(OX)_\\infty$ i.e. $U'V'$ is always parallel to $OX$. Now note that the cross-ratio $(A, AX \\cap BC ; K, T) = -1$, and hence if $K \\mapsto f(K)$, we have $\\left(A, X ; f(K), (AX)_\\infty\\right) = -1$. Thus, $f(K)$ must be the midpoint of $AX$, and $UV$ is the line through $f(K)$ parallel to $OX$ i.e. the perpendicular bisector of $AX$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

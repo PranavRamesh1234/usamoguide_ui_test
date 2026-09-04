@@ -1,0 +1,53 @@
+{
+  "MODULE_ID": "algebra-abstract-algebra-ring-theory",
+  "practice": [
+    {
+      "uniqueId": "algebra-abstract-algebra-ring-theory-auto-1089",
+      "name": "Harvard-MIT Mathematics Tournament #0icx",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers",
+        "Ring Theory",
+        "Roots of unity"
+      ],
+      "statement": "Problem:\n$S$ is a set of complex numbers such that if $u, v \\in S$, then $u v \\in S$ and $u^{2}+v^{2} \\in S$. Suppose that the number $N$ of elements of $S$ with absolute value at most $1$ is finite. What is the largest possible value of $N$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFirst, if $S$ contained some $u \\neq 0$ with absolute value $<1$, then (by the first condition) every power of $u$ would be in $S$, and $S$ would contain infinitely many different numbers of absolute value $<1$. This is a contradiction.\n\nNow suppose $S$ contains some number $u$ of absolute value $1$ and argument $\\theta$. If $\\theta$ is not an integer multiple of $\\pi / 6$, then $u$ has some power $v$ whose argument lies strictly between $\\theta+\\pi / 3$ and $\\theta+\\pi / 2$. Then $u^{2}+v^{2}=u^{2}\\left(1+(v / u)^{2}\\right)$ has absolute value between $0$ and $1$, since $(v / u)^{2}$ lies on the unit circle with angle strictly between $2 \\pi / 3$ and $\\pi$. But $u^{2}+v^{2} \\in S$, so this is a contradiction.\n\nThis shows that the only possible elements of $S$ with absolute value $\\leq 1$ are $0$ and the points on the unit circle whose arguments are multiples of $\\pi / 6$, giving $N \\leq 1+12=13$.\n\nTo show that $N=13$ is attainable, we need to show that there exists a possible set $S$ containing all these points. Let $T$ be the set of all numbers of the form $a+b \\omega$, where $a, b$ are integers and $\\omega$ is a complex cube root of $1$. Since $\\omega^{2}=-1-\\omega$, $T$ is closed under multiplication and addition. Then, if we let $S$ be the set of numbers $u$ such that $u^{2} \\in T$, $S$ has the required properties, and it contains the $13$ complex numbers specified, so we're in business."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-abstract-algebra-ring-theory-auto-3047",
+      "name": "HMMT February 2016 #0jvb",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2016",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Generating functions",
+        "Polynomial operations",
+        "Ring Theory"
+      ],
+      "statement": "Problem:\n\nKelvin the Frog has a pair of standard fair 8-sided dice (each labelled from 1 to 8). Alex the sketchy Kat also has a pair of fair 8-sided dice, but whose faces are labelled differently (the integers on each of Alex's dice need not be distinct). To Alex's dismay, when both Kelvin and Alex roll their dice, the probability that they get any given sum is equal!\n\nSuppose that Alex's two dice have $a$ and $b$ total dots on them, respectively. Assuming that $a \\neq b$, find all possible values of $\\min \\{a, b\\}$.\n\nProposed by: Alexander Katz",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nDefine the generating function of an event $A$ as the polynomial\n$$\ng(A, x) = \\sum p_{i} x^{i}\n$$\nwhere $p_{i}$ denotes the probability that $i$ occurs during event $A$. We note that the generating function is multiplicative; i.e.\n$$\ng(A \\text{ AND } B, x) = g(A) g(B) = \\sum p_{i} q_{j} x^{i+j}\n$$\nwhere $q_{j}$ denotes the probability that $j$ occurs during event $B$.\n\nIn our case, events $A$ and $B$ are the rolling of the first and second dice, respectively, so the generating functions are the same:\n$$\ng(\\text{die}, x) = \\frac{1}{8} x^{1} + \\frac{1}{8} x^{2} + \\frac{1}{8} x^{3} + \\frac{1}{8} x^{4} + \\frac{1}{8} x^{5} + \\frac{1}{8} x^{6} + \\frac{1}{8} x^{7} + \\frac{1}{8} x^{8}\n$$\nand so\n$$\ng(\\text{both dice rolled}, x) = g(\\text{die}, x)^{2} = \\frac{1}{64}\\left(x^{1} + x^{2} + x^{3} + x^{4} + x^{5} + x^{6} + x^{7} + x^{8}\\right)^{2}\n$$\nwhere the coefficient of $x^{i}$ denotes the probability of rolling a sum of $i$.\n\nWe wish to find two alternate dice, $C$ and $D$, satisfying the following conditions:\n- $C$ and $D$ are both 8-sided dice; i.e. the sum of the coefficients of $g(C, x)$ and $g(D, x)$ are both 8 (or $g(C, 1) = g(D, 1) = 8$).\n- The faces of $C$ and $D$ are all labeled with a positive integer; i.e. the powers of each term of $g(C, x)$ and $g(D, x)$ are positive integers (or $g(C, 0) = g(D, 0) = 0$).\n- The probability of rolling any given sum upon rolling $C$ and $D$ is equal to the probability of rolling any given sum upon rolling $A$ and $B$; i.e. $g(C, x) g(D, x) = g(A, x) g(B, x)$.\n\nBecause the dice are \"fair\"—i.e. the probability of rolling any face is $\\frac{1}{8}$—we can multiply $g(A, x), g(B, x), g(C, x)$ and $g(D, x)$ by 8 to get integer polynomials; as this does not affect any of the conditions, we can assume $g(C, x)$ and $g(D, x)$ are integer polynomials multiplying to $\\left(x^{1} + x^{2} + \\ldots + x^{8}\\right)^{2}$ (and subject to the other two conditions as well). Since $\\mathbb{Z}$ is a UFD (i.e. integer polynomials can be expressed as the product of integer polynomials in exactly one way, up to order and scaling by a constant), all factors of $g(C, x)$ and $g(D, x)$ must also be factors of $x^{1} + x^{2} + \\ldots + x^{8}$. Hence it is useful to factor $x^{1} + x^{2} + \\ldots + x^{8} = x(x+1)(x^{2}+1)(x^{4}+1)$.\n\nWe thus have $g(C, x) g(D, x) = x^{2}(x+1)^{2}(x^{2}+1)^{2}(x^{4}+1)^{2}$. We know that $g(C, 0) = g(D, 0) = 0$, so $x \\mid g(C, x), g(D, x)$. It remains to distribute the remaining term $(x+1)^{2}(x^{2}+1)^{2}(x^{4}+1)^{2}$; we can view each of these 6 factors as being \"assigned\" to either $C$ or $D$. Note that since $g(C, 1) = g(D, 1) = 8$, and each of the factors $x+1, x^{2}+1, x^{4}+1$ evaluates to 2 when $x=1$, exactly three factors must be assigned to $C$ and exactly three to $D$. Finally, assigning $x+1, x^{2}+1$, and $x^{4}+1$ to $C$ results in the standard die, with $a = b = 28$. This gives us the three cases (and their permutations):\n\n- $g(C, x) = x(x+1)^{2}(x^{2}+1)$, $g(D, x) = x(x^{2}+1)(x^{4}+1)^{2}$. In this case we get $g(C, x) = x^{5} + 2 x^{4} + 2 x^{3} + 2 x^{2} + x$ and $g(D, x) = x^{11} + x^{9} + 2 x^{7} + 2 x^{5} + x^{3} + x$, so the \"smaller\" die has faces $5, 4, 4, 3, 3, 2, 2$, and $1$ which sum to $24$.\n\n- $g(C, x) = x(x+1)(x^{2}+1)^{2}$, $g(D, x) = x(x+1)(x^{4}+1)^{2}$. In this case we have $g(C, x) = x^{6} + x^{5} + 2 x^{4} + 2 x^{3} + x^{2} + x$ and $g(D, x) = x^{10} + x^{9} + 2 x^{6} + 2 x^{5} + x^{2} + x$, so the \"smaller\" die has faces $6, 5, 4, 4, 3, 3, 2$ and $1$ which sum to $28$.\n\n- $g(C, x) = x(x^{2}+1)^{2}(x^{4}+1)$, $g(D, x) = x(x+1)^{2}(x^{4}+1)$. In this case we have $g(C, x) = x^{9} + 2 x^{7} + 2 x^{5} + 2 x^{3} + x$ and $g(D, x) = x^{7} + 2 x^{6} + x^{5} + x^{3} + 2 x^{2} + x$, so the \"smaller die\" has faces $7, 6, 6, 5, 3, 2, 2$, $1$ which sum to $32$.\n\nTherefore, $\\min \\{a, b\\}$ is equal to $24$, $28$, or $32$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

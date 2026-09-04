@@ -1,0 +1,1819 @@
+{
+  "MODULE_ID": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems",
+  "practice": [
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-0128",
+      "name": "Berkeley Math Circle Monthly Contest 1 #0hm8",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Factorization techniques",
+        "Techniques: modulo, size analysis, order analysis, inequalities",
+        "Integers"
+      ],
+      "statement": "Problem:\nDetermine whether there exists a number that begins with $2$ having the property that, when the $2$ is moved to the end, the number is\n(a) doubled;\n(b) tripled.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution.\nThere is no such number. Suppose that it existed; represent it by $2 \\cdots ab$ where $a$ and $b$ are the last two digits of the number. Let us write the digit-by-digit multiplication:\n\n![](attached_image_1.png)\n\nFrom the last column it is clear that there are only two choices for $b$: $1$ and $6$. We now look at the next-to-last column. If $b$ is $1$, there is no way that the multiplication of $a$ by $2$, without an added carry, can give the odd number $1$. On the other hand, if $b$ is $6$, there is no way that the multiplication of $b$ by $2$, with the added carry of $1$ resulting from $6 \\times 2 = 12$, can give the even number $6$.\n\nThe answer is yes; such a number is $285714$, which satisfies $285714 \\times 3 = 857142$. There is no need to say more; we have rigorously proved that such a number exists. However, we will mention two of many methods for finding this number. The first is the end-digit analysis used in part (a):\n$$\n\\begin{gathered}\n\\cdots x \\times 3 = \\cdots 2 \\text{ gives } x = 4 \\text{ (no other digit works) } \\\\\n\\cdots x4 \\times 3 = \\cdots 42 \\text{ gives } x = 1, \\text{ etc. }\n\\end{gathered}\n$$\nThis process continues until we reach a number that begins with $2$.\n\nThe second method is an algebraic one. Suppose that the number is $x$ and has $n$ digits. Then moving a $2$ from the beginning to the end of $x$ can be achieved by first multiplying $x$ by $10$ (thus adding a $0$ at the end), adding $2$ (thus changing this $0$ to a $2$), and subtracting $2 \\cdot 10^n$ (deleting the $2$ at the beginning). We have the condition\n$$\n10x + 2 - 2 \\cdot 10^n = 3x,\n$$\nwhich we can solve for $x$:\n$$\n\\begin{aligned}\n10x - 3x & = 2 \\cdot 10^n - 2 \\\\\n7x & = 2 \\cdot 10^n - 2 \\\\\nx & = \\frac{2 \\cdot 10^n - 2}{7}.\n\\end{aligned}\n$$\nThus for $x$ to exist, $2 \\cdot 10^n - 2$ must be divisible by $7$. As is easily verified, this does not hold for $n = 1, 2, 3, 4,$ or $5$, but it works for $n = 6$, yielding\n$$\nx = \\frac{2000000 - 2}{7} = 285714.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-0176",
+      "name": "MathNet #0hnk",
+      "url": "https://usamoguide.com/",
+      "source": "MathNet",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\n\nWhat is the remainder when $100!$ is divided by $101$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWilson's theorem says that for $p$ a prime, $(p-1)! \\equiv -1 \\pmod{p}$, so the remainder is $100$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-0331",
+      "name": "Berkeley Math Circle: Monthly Contest 6 #0hrv",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Chinese remainder theorem",
+        "Multiplicative order",
+        "Fermat / Euler / Wilson theorems"
+      ],
+      "statement": "Problem:\nFind the remainder when $10^{2^{0}} + 10^{2^{1}} + \\cdots + 10^{2^{2021}}$ is divided by $\\underbrace{44 \\cdots 44}_{44}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $N = 10^{2^{0}} + 10^{2^{1}} + \\cdots + 10^{2^{2021}}$. By the Chinese Remainder Theorem (CRT), it suffices to find $N \\bmod 4$ and $N \\bmod M = \\underbrace{11 \\cdots 11}_{44}$.\n\nModulo $4$, the remainder is $2$.\n\nModulo $M = \\frac{10^{44} - 1}{9}$, $10^{44} \\equiv 1$, so $10^{2^{i}} \\bmod M$ is determined by $2^{i} \\bmod 44$.\n\nMod $44$, $2^{0}$ is $1$ and $2^{1}$ is $2$. The remaining powers of two are all divisible by $4$. Furthermore, the period of $2 \\bmod 11$ is $10$, so the remaining $2020$ powers of $2$ are in fact divided equally among $10$ nonzero remainders that are multiples of $4$. Therefore,\n$$\nN \\bmod M = 10^{1} + 10^{2} + \\frac{2020}{10} \\cdot \\sum_{i=1}^{10} 10^{4i} = 2020202020202020202020202020202020202020110\n$$\nwhich is $2 \\bmod 4$, and is therefore the answer."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-0396",
+      "name": "Berkeley Math Circle #0hto",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Prime numbers",
+        "Factorization techniques",
+        "Fermat / Euler / Wilson theorems",
+        "Multiplicative order",
+        "Recurrence relations"
+      ],
+      "statement": "Problem:\n\nThe tower function of twos, $T(n)$, is defined by $T(1)=2$ and $T(n+1)=2^{T(n)}$ for $n \\geq 1$. Prove that $T(n)-T(n-1)$ is divisible by $n!$ for $n \\geq 2$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $U(n) = T(n) - T(n-1)$. Note that\n$$\nU(n) = T(n) - T(n-1) = 2^{T(n-1)} - 2^{T(n-2)} = 2^{T(n-2)}\\left(2^{T(n-1)-T(n-2)} - 1\\right) = T(n-1)\\left(2^{U(n-1)} - 1\\right)\n$$\n\nWe first prove two lemmas, the second a refinement of the first.\n\nLemma 1. $U(n-1) \\mid U(n)$.\n\nProof. By induction on $n$. It is clear when $n=2$ and $n=3$. Suppose that $U(n-2) \\mid U(n-1)$, $n \\geq 3$. Then\n$$\n\\frac{U(n)}{U(n-1)} = \\frac{T(n-1)}{T(n-2)} \\cdot \\frac{2^{U(n-1)}-1}{2^{U(n-2)}-1}.\n$$\nThe first fraction is clearly an integer. Since $a \\mid b$ implies $2^a-1 \\mid 2^b-1$, the second fraction is an integer as well.\n\nLemma 2. If $p$ is a prime and $U(k)$ is divisible by $p^r$, $r \\geq 1$, then $U(k+1)$ is divisible by $p^{r+1}$.\n\nProof. If $p=2$, the $r$ factors of $2$ in $U(k)$ must be contained in $T(k-1)$. Since $T(k) > T(k-1)$, $T(k)$ has at least $r+1$ factors of $2$, and so does $U(k+1)$.\n\nIf $p>2$, we use induction on $n$. Let $n_0$ be the smallest value such that $p \\mid U(n_0)$. Let $r_0$ be the number of factors of $p$ in $U(n_0)$. Since $T(n_0-1)$ is a power of $2$, the $r_0$ factors are all contained in $2^{U(n_0-1)}-1$, i.e.\n$$\n2^{U(n_0-1)} \\equiv 1 \\pmod{p^{r_0}}.\n$$\nBy the preceding lemma, $U(n_0)$ is divisible by $U(n_0-1)$; however, by definition of $n_0$, $U(n_0)$ is divisible by $p$ while $U(n_0-1)$ is not. Consequently\n$$\nU(n_0) = U(n_0-1) \\cdot p \\cdot J\n$$\nwhere $J$ is an integer. We find that\n$$\n\\begin{aligned}\n2^{U(n_0-1)} &\\equiv 1 \\pmod{p^{r_0}} \\\\\n2^{U(n_0-1) \\cdot J} &\\equiv 1 \\pmod{p^{r_0}} \\\\\n2^{U(n_0)} = 2^{U(n_0-1) \\cdot J \\cdot p} &\\equiv 1 \\pmod{p^{r_0+1}}\n\\end{aligned}\n$$\nwhere we have used the fact that $a \\equiv b \\pmod{p^r}$ implies $a^p \\equiv b^p \\pmod{p^{r+1}}$. We conclude that $p^{r_0+1} \\mid 2^{U(n_0)}-1 \\mid U(n_0+1)$. This completes the base case. The induction step is similar, except that $n_0$ and $r_0$ are replaced by $n$ and $r$, and the analogous equation follows from the induction hypothesis rather than the definition of $n_0$.\n\nWe prove the following statement by strong induction for $n \\geq 2$:\n\nLemma 3. $U(n)$ is divisible by all prime powers less than $3 \\cdot 2^{n-2} - 1$.\n\nProof. We can verify the statement by hand for $n=2$ and $n=3$. Thus we suppose that $U(k) = T(k) - T(k-1)$ is divisible by $k!$ for $k < n$, where $n \\geq 4$. We prove the second assertion first. Let $p^r$ be a prime power less than $3 \\cdot 2^{n-2} - 1$. If $r > 1$, we note that\n$$\np^{r-1} \\leq \\frac{p^r}{2} \\leq \\frac{3 \\cdot 2^{n-2} - 2}{2} = 3 \\cdot 2^{n-3} - 1\n$$\nfurthermore, at least one of these inequalities is strict, since the first becomes equality only if $p=2$, and $2^n - 1 < 3 \\cdot 2^{n-2} < 2^n$ when $n \\geq 4$. Thus by the induction hypothesis, $p^{r-1}$ divides $U_{n-1}$, and we are done by Lemma 2. Now we assume that $r=1$. We may assume that $p \\geq 5$ since $U_3$ is already divisible by $2$ and $3$. Then $p-1$ is composite, and we can resolve it into prime powers\n$$\np-1 = q_1^{a_1} q_2^{a_2} \\cdots q_s^{a_s}\n$$\nwhere each factor $q_i^{a_i}$ is at most\n$$\n\\frac{p-1}{2} < \\frac{3 \\cdot 2^{n-2} - 2}{2} = 3 \\cdot 2^{n-3} - 1.\n$$\nWe infer that each $q_i^{a_i}$ divides $U_{n-1}$, and therefore $p-1$ divides $U_{n-1}$. We now have\n$$\np \\mid 2^{p-1} - 1 \\mid 2^{U_{n-1}} - 1 \\mid U_n\n$$\nas desired.\n\nWe are now ready to solve the problem. Assume that $n \\geq 4$; the cases $n=2$ and $n=3$ are easily checked by hand. Let $p$ be a prime dividing $n!$, that is, $p \\leq n$. The number of factors of $p$ in $n!$ is\n$$\nR = \\sum_{i=1}^{\\infty} \\left\\lfloor \\frac{n}{p^i} \\right\\rfloor < \\sum_{i=1}^{\\infty} \\frac{n}{p^i} = n \\sum_{i=1}^{\\infty} \\frac{1}{p^i} = n \\cdot \\frac{1/p}{1-1/p} = \\frac{n}{p-1}\n$$\nSo\n$$\nR \\leq \\frac{n-1}{p-1}\n$$\nWe observe that $p \\mid U(p)$: by hand calculation if $p=2$, and because $p < 3 \\cdot 2^{p-2} - 1$ if $p > 3$. By Lemma 2, applied $n-p$ times,\n$$\np^{n-p+1} \\mid U(n).\n$$\nSince $n-p+1 \\geq \\frac{n-1}{p-1}$ if $n \\geq p$, we have $p^R \\mid U(n)$, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-0400",
+      "name": "Berkeley Math Circle: Monthly Contest 7 #0hts",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 7",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Greatest common divisors (gcd)"
+      ],
+      "statement": "Problem:\n\nLet $n$ be a positive integer which also divides $2^{n}-1$. Show that $n=1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAssume not and let $p$ be the smallest prime divisor of $n$. We have $p \\mid 2^{n}-1$, and also $p \\mid 2^{p-1}-1$ by Fermat's little theorem. By using the classical fact that $\\gcd\\left(2^{x}-1,2^{y}-1\\right)=2^{\\gcd(x, y)}-1$, we conclude $p$ divides $2^{\\gcd(p-1, n)}-1$.\n\nBut since $p$ is the smallest divisor of $n$, it follows $\\gcd(p-1, n)=1$. So $p$ divides $2^{1}-1=1$ which is absurd."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-0403",
+      "name": "Berkeley Math Circle Monthly Contest 2 #0htv",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 2",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\nProve that there are infinitely many primes $p$ with the following property: there exists a positive integer $k$ such that $2^{k}-3$ is divisible by $p$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nSuppose that there were only finitely many such primes $p_{1}, p_{2}, p_{3}, \\ldots, p_{n}$. Consider the number\n$$\nN=2^{\\left(p_{1}-1\\right)\\left(p_{2}-1\\right) \\cdots\\left(p_{n}-1\\right)+2}-3 .\n$$\nClearly, none of the $p_{i}$'s is $2$. Using Fermat's little theorem, we can prove that $N$ is not divisible by any of the $p_{i}$:\n$$\nN \\equiv 2^{\\left(p_{1}-1\\right) \\cdots\\left(p_{i}-1\\right) \\cdots\\left(p_{n}-1\\right)} \\cdot 4-3 \\equiv 1 \\cdot 4-3 \\equiv 1 \\quad (\\bmod\\ p_{i})\n$$\nHowever, $N>1$ since the product $\\left(p_{1}-1\\right) \\cdots\\left(p_{n}-1\\right)$ is at least $1$. Therefore $N$ is divisible by a prime other than the $p_{i}$, which is a contradiction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-0406",
+      "name": "Berkeley Math Circle: Monthly Contest 4 #0hty",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 4",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "φ (Euler's totient)",
+        "Fermat / Euler / Wilson theorems",
+        "Multiplicative order"
+      ],
+      "statement": "Problem:\nShow that $n$ divides $\\varphi\\left(a^{n}-1\\right)$ for any integers $a$ and $n$, where $\\varphi$ is Euler's totient function.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $N = a^{n} - 1$. Then $\\gcd(a, N) = 1$ and the order of $a \\pmod{N}$ is exactly equal to $n$. But $a^{\\varphi(N)} \\equiv 1 \\pmod{N}$ too. Thus $n$ divides $\\varphi(N)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-0422",
+      "name": "Berkeley Math Circle: Monthly Contest 6 #0hue",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Multiplicative order",
+        "Fermat / Euler / Wilson theorems",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\nFind the smallest prime $p > 100$ for which there exists an integer $a > 1$ such that $p$ divides $\\frac{a^{89} - 1}{a - 1}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe answer is $p = 179$. To see this works, take $a = 4$; by Fermat's little theorem, $4^{89} - 1 = 2^{178} - 1$ is divisible by $179$.\n\nNow suppose $a^{89} \\equiv 1 \\pmod{p}$. We consider two cases:\n- If $a \\equiv 1 \\pmod{p}$, then\n$$\n0 \\equiv 1 + a + \\cdots + a^{88} \\equiv 89 \\pmod{p}\n$$\nwhich forces $p = 89$.\n- Otherwise, since $89$ is prime, it follows $a$ has order $89$ modulo $p$. So $89 \\mid p - 1$. The smallest prime which obeys this is $p = 179$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-0430",
+      "name": "Berkeley Math Circle Monthly Contest 1 #0hum",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\n\nFor positive integers $n$, define\n$$\na_{n} = 3^{n} + 6^{n} - 2^{n}.\n$$\nFind, with proof, all primes that do not divide any of the numbers $a_{1}, a_{2}, a_{3}, \\ldots$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: 2 and 3. It is clear that, for $n \\geq 1$, the terms $6^{n}$ and $2^{n}$ are even while $3^{n}$ is odd, so $2 \\nmid a_{n}$. Similarly, $3^{n}$ and $6^{n}$ are divisible by $3$ but $2^{n}$ is not, so $3 \\nmid a_{n}$.\n\nLet $p \\geq 5$ be a prime. We claim that $a_{p-2} \\equiv 0 \\pmod{p}$. We have\n$$\n\\begin{aligned}\n6 a_{p-2} &= 6\\left(3^{p-2} + 6^{p-2} - 2^{p-2}\\right) \\\\\n&\\equiv 2 \\cdot 3^{p-1} + 6^{p-1} - 3 \\cdot 2^{p-1} \\\\\n&\\equiv 2 + 1 - 3 \\quad (\\text{by Fermat's little theorem}) \\\\\n&\\equiv 0 \\pmod{p}\n\\end{aligned}\n$$\nSince $p$ does not divide $6$, $p$ must divide $a_{p-2}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-0515",
+      "name": "Berkeley Math Circle #0hwz",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Techniques: modulo, size analysis, order analysis, inequalities",
+        "Fermat / Euler / Wilson theorems",
+        "Other"
+      ],
+      "statement": "Problem:\n\nAre there positive integers $a$ and $b$ satisfying $a^{2}-23=b^{11}$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe answer is no. We may write the given equation as\n$$\na^{2}+45^{2}=b^{11}+2^{11}.\n$$\nTaking modulo $4$, we have $b^{11} \\equiv a^{2}+45^{2} \\equiv a^{2}+1 \\pmod{4}$ which forces $b \\equiv 1 \\pmod{4}$ and $a \\equiv 0 \\pmod{2}$. Thus $b+2 \\equiv 3 \\pmod{4}$.\n\nLet $\\nu_{p}$ be the usual $p$-adic notation. Let $p$ be an odd prime divisor of $b+2$ which is $3 \\pmod{4}$, and with $\\nu_{p}(b+2)$ being odd (in particular nonzero). As a consequence of Fermat's Christmas theorem, we have\n$$\n\\nu_{p}\\left(a^{2}+45^{2}\\right)= \\begin{cases}4 & p=3 \\text{ and } \\nu_{3}(a) \\geq 2 \\\\ 2 & p=3 \\text{ and } \\nu_{3}(a)=1 \\\\ 2 & p=5 \\text{ and } \\nu_{5}(a) \\geq 1 \\\\ 0 & \\text{ otherwise }\\end{cases}\n$$\nOn the other hand for any $p \\neq 11$ we have $\\nu_{p}\\left(b^{11}+2^{11}\\right)=\\nu_{p}(11)+\\nu_{p}(b+2)=\\nu_{p}(b+2)$, by the exponent lifting lemma (since we assumed $p \\mid b+2$). This is odd, and hence we get a contradiction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-0527",
+      "name": "Berkeley Math Circle #0hxb",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Polynomial operations"
+      ],
+      "statement": "Problem:\n\nLet $p$ be a prime number, and $f\\left(x_{1}, \\ldots, x_{n}\\right)$ be a polynomial with integer coefficients of total degree less than $n$. Prove that the number of ordered $n$-tuples $\\left(x_{1}, \\ldots, x_{n}\\right)$ with $0 \\leq x_{i}<p$ such that $f\\left(x_{1}, \\ldots, x_{n}\\right)$ is an integer multiple of $p$ is an integer multiple of $p$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nBy Fermat's little theorem, the expression\n$$\nf\\left(x_{1}, \\ldots, x_{n}\\right)^{p-1}\n$$\nequals $0 \\bmod p$ if $f\\left(x_{1}, \\ldots, x_{n}\\right)$ is $0 \\bmod p$ and $1 \\bmod p$ otherwise. So\n$$\nS=\\sum_{0 \\leq x_{1}, \\ldots, x_{n}<p} f\\left(x_{1}, \\ldots, x_{n}\\right)^{p-1} \\equiv p^{n}-z \\equiv -z\n$$\nwhere $z$ is the number of zeros of $f \\bmod p$. To prove $z \\equiv 0$, it suffices to prove that $S \\equiv 0$. Expanding $f^{p-1}$ as a polynomial, we see that $S$ is a sum of terms of the form\n$$\n\\sum_{0 \\leq x_{1}, \\ldots, x_{n}<p} c_{a_{1}, \\ldots, a_{n}} x_{1}^{a_{1}} \\cdots x_{n}^{a_{n}}=c_{a_{1}, \\ldots, a_{n}}\\left(\\sum_{0 \\leq x_{1}<p} x_{1}^{a_{1}}\\right) \\cdots\\left(\\sum_{0 \\leq x_{n}<p} x_{n}^{a_{n}}\\right)\n$$\nWe claim that one of the factors in parentheses is zero $\\bmod p$. We know $f$ has total degree at most $n-1$, so $f^{p-1}$ has total degree at most $(n-1)(p-1)$, and hence some $a_{i}$ is less than $p-1$. So it suffices to prove that\n$$\nT:=\\sum_{0 \\leq x<p} x^{a} \\equiv 0 \\quad \\bmod p\n$$\nfor $0 \\leq a<p-1$. For $a=0$ it is obvious (note that we are using the convention $0^{0}=1$ ). Otherwise, note that the equation $y^{a} \\equiv 1$ has at most $a$ roots $\\bmod p$, so there is a $y$ such that $y^{a} \\not \\equiv 1$. Now\n$$\n\\left(y^{a}-1\\right) T=\\sum_{0 \\leq x<p}(x y)^{a}-\\sum_{0 \\leq x<p} x^{a}\n$$\nwhich is $0 \\bmod p$ since the terms of the first sum are just a permutation of those of the second. Consequently $T \\equiv 0 \\bmod p$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-0730",
+      "name": "Berkeley Math Circle #0i2y",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Factorization techniques",
+        "Recurrence relations"
+      ],
+      "statement": "Problem:\n\nLet $a_{1}=3$ and define $a_{n+1} = \\left(3 a_{n}^{2} + 1\\right) / 2 - a_{n}$ for $n \\geq 1$. If $n$ is a power of $3$, prove that $a_{n}$ is divisible by $n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe main trick is finding a closed-form expression for $a_{n}$, which requires some experimentation. We will show that $a_{n} = \\left(2^{2^{n}+1} + 1\\right) / 3$ for all $n$ by induction. It is easy to check that the formula holds for $n=1$. And if it holds for some $n$, then\n\n$$\n\\begin{aligned}\na_{n+1} & = \\frac{3 a_{n}^{2} + 1}{2} - a_{n} \\\\\n& = \\frac{1}{2}\\left(3\\left[\\frac{2^{2^{n}+1} + 1}{3}\\right]^{2} + 1\\right) - \\frac{2^{2^{n}+1} + 1}{3} \\\\\n& = \\frac{1}{2}\\left(\\frac{\\left(2^{2^{n}+1}\\right)^{2} + 2\\left(2^{2^{n}+1}\\right) + 1}{3} + 1\\right) - \\frac{2^{2^{n}+1} + 1}{3} \\\\\n& = \\frac{1}{2}\\left(\\frac{2^{2^{n+1}+2} + 2\\left(2^{2^{n}+1}\\right) + 4}{3}\\right) - \\frac{2^{2^{n}+1} + 1}{3} \\\\\n& = \\frac{2^{2^{n+1}+1} + 2^{2^{n}+1} + 2}{3} - \\frac{2^{2^{n}+1} + 1}{3} \\\\\n& = \\frac{2^{2^{n+1}+1} + 1}{3},\n\\end{aligned}\n$$\n\ngiving the induction step.\n\nNow, by Euler's theorem, $3^{k}$ divides $2^{2 \\cdot 3^{k-1}} - 1$, for any nonnegative integer $k$, since $\\phi\\left(3^{k}\\right)$ (i.e. the number of integers in $\\{1,2, \\ldots, 3^{k}\\}$ relatively prime to $3^{k}$) equals $2 \\cdot 3^{k-1}$. But notice that $2^{2 \\cdot 3^{k-1}} - 1 = \\left(2^{3^{k-1}} - 1\\right)\\left(2^{3^{k-1}} + 1\\right)$, and $3^{k-1}$ is odd $\\Rightarrow 2^{3^{k-1}} \\equiv 2 \\pmod{3} \\Rightarrow 2^{3^{k-1}} - 1$ is relatively prime to $3^{k}$, so, in fact, $3^{k}$ divides $2^{3^{k-1}} + 1$. Also, for any integers $c, d$ with $d$ odd, $2^{c} + 1 \\mid 2^{c d} + 1$. We conclude that $3^{k} \\mid 2^{a} + 1$ whenever $3^{k-1} \\mid a$ and $a$ is odd.\n\nApplying this result twice in succession, we find that $3^{k} \\mid 2^{3^{k}} + 1$ and then that $3^{k+1} \\mid 2^{2^{3^{k}} + 1} + 1$, so that $3^{k} \\mid \\left(2^{2^{3^{k}} + 1} + 1\\right) / 3 = a_{3^{k}}$ for any integer $k \\geq 0$, and this is what we wanted to prove."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-0845",
+      "name": "Bay Area Mathematical Olympiad #0i65",
+      "url": "https://usamoguide.com/",
+      "source": "Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Pigeonhole principle",
+        "Fermat / Euler / Wilson theorems",
+        "Sums and products"
+      ],
+      "statement": "Problem:\n\nProfessor Moriarty has designed a \"prime-testing trail.” The trail has 2002 stations, labeled $1, \\ldots, 2002$. Each station is colored either red or green, and contains a table which indicates, for each of the digits $0, \\ldots, 9$, another station number. A student is given a positive integer $n$, and then walks along the trail, starting at station $1$. The student reads the first (leftmost) digit of $n$, and looks this digit up in station $1$'s table to get a new station location. The student then walks to this new station, reads the second digit of $n$ and looks it up in this station's table to get yet another station location, and so on, until the last (rightmost) digit of $n$ has been read and looked up, sending the student to his or her final station. Here is an example that shows possible values for some of the tables. Suppose that $n=19$ :\n\n| Station | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |\n| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |\n| 1 (red) | 15 | 29 | 314 | 16 | 2002 | 97 | 428 | 1613 | 91 | 24 |\n| $\\vdots$ |  |  |  |  |  |  |  |  |  |  |\n| $\\vdots$ |  |  |  |  |  |  |  |  |  |  |\n| 29 (red) | 98 | 331 | 1918 | 173 | 15 | 41 | 17 | 631 | 1211 | 1429 |\n| $\\vdots$ |  |  |  |  |  |  |  |  |  |  |\n| 1429 (green) | 7 | 18 | 31 | 43 | 216 | 1709 | 421 | 53 | 224 | 1100 |\n\nUsing these tables, station $1$, digit $1$ leads to station $29$; station $29$, digit $9$ leads to station $1429$; and station $1429$ is green.\n\nProfessor Moriarty claims that for any positive integer $n$, the final station (in the example, $1429$) will be green if and only if $n$ is prime. Is this possible?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nNo, this is impossible. Suppose on the contrary that such a trail has been designed. Since there are infinitely many primes, we can choose a prime $p$ with more than $2002$ decimal digits. When we test $p$ on the trail, we will visit some station more than once. Write $p$ as $10^{N} A + 10^{m} B + C$ so that the station after the digits of $A$ is the same as after the digits of $B$. Then we may reach the same station by running through the digits of $A$, then running through the digits of $B$ any number of times, then running through the digits of $C$.\n\nThat is, for all $k \\geq 0$, the numbers\n$$\n\\begin{gathered}\nC + 10^{m} B \\left(1 + 10^{N-m} + 10^{2(N-m)} + \\cdots + 10^{k(N-m)}\\right) + 10^{(k+1)(N-m)+m} A \\\\\n= C - \\frac{10^{m} B}{10^{N-m}-1} + 10^{(k+1)(N-m)} \\left(10^{m} A + \\frac{10^{m} B}{10^{N-m}-1}\\right)\n\\end{gathered}\n$$\nall lead to the same terminal station, and so must all be prime. For simplicity, write this expression as $p_{k} = r + t^{k} s$, and choose $k$ large enough so that $p_{k}$ does not divide the denominators of $r, s, t$. Then $t^{k} \\equiv t^{k+p_{k}-1} \\pmod{p_{k}}$ by Fermat's little theorem, so $p_{k+p_{k}-1}$ is divisible by $p_{k}$ and hence is not prime, contradiction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-0937",
+      "name": "USA IMO 2003 #0i8p",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO 2003",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Multiplicative order",
+        "Fermat / Euler / Wilson theorems",
+        "Prime numbers"
+      ],
+      "statement": "Find all ordered triples of primes $(p, q, r)$ such that\n$$\np \\mid q^r + 1, \\quad q \\mid r^p + 1, \\quad r \\mid p^q + 1.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "We check that this is a solution:\n$$\n2 \\mid 126 = 5^3 + 1, \\quad 5 \\mid 10 = 3^2 + 1, \\quad 3 \\mid 33 = 2^5 + 1.\n$$\nNow let $p, q, r$ be three primes satisfying the given divisibility relations. Since $q$ does not divide $q^r + 1$, $p \\neq q$, and similarly $q \\neq r, r \\neq p$, so $p, q$ and $r$ are all distinct. We now prove a lemma.\n**Lemma.** Let $p, q, r$ be distinct primes with $p \\mid q^r + 1$, and $p > 2$. Then either $2r \\mid p-1$ or $p \\mid q^2 - 1$.\n*Proof.* Since $p \\mid q^r + 1$, we have\n$$\nq^r \\equiv -1 \\not\\equiv 1 \\pmod{p}, \\quad \\text{because } p > 2,\n$$\nbut\n$$\nq^{2r} \\equiv (-1)^2 \\equiv 1 \\pmod{p}.\n$$\nLet $d$ be the order of $q \\pmod{p}$; then from the above congruences, $d$ divides $2r$ but not $r$. Since $r$ is prime, the only possibilities are $d = 2$ or $d = 2r$. If $d = 2r$, then $2r \\mid p-1$ because $d \\mid p-1$. If $d = 2$, then $q^2 \\equiv 1 \\pmod{p}$ so $p \\mid q^2 - 1$. This proves the lemma. ■\nNow let's first consider the case where $p, q$ and $r$ are all odd. Since $p \\mid q^r + 1$, by the lemma either $2r \\mid p-1$ or $p \\mid q^2 - 1$. But $2r \\mid p-1$ is impossible because\n$$\n2r \\mid p-1 \\implies p \\equiv 1 \\pmod{r} \\implies 0 \\equiv p^q + 1 \\equiv 2 \\pmod{r}\n$$\nand $r > 2$. So we must have $p \\mid q^2 - 1 = (q - 1)(q + 1)$. Since $p$ is an odd prime and $q - 1, q + 1$ are both even, we must have\n$$\np \\mid \\frac{q-1}{2} \\quad \\text{or} \\quad p \\mid \\frac{q+1}{2};\n$$\neither way,\n$$\np \\le \\frac{q+1}{2} < q.\n$$\nBut then by a similar argument we may conclude $q < r, r < p$, a contradiction.\nThus, at least one of $p, q, r$ must equal 2. By a cyclic permutation we may assume that $p = 2$. Now $r \\mid 2^q + 1$, so by the lemma, either $2q \\mid r - 1$ or $r \\mid 2^2 - 1$. But $2q \\mid r - 1$ is impossible as before, because $q$ divides $r^2 + 1 = (r^2 - 1) + 2$ and $q > 2$. Hence, we must have $r \\mid 2^2 - 1$. We conclude that $r = 3$, and $q \\mid r^2 + 1 = 10$. Because $q \\ne p$, we must have $q = 5$. Hence (2, 5, 3) and its cyclic permutations are the only solutions."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-1192",
+      "name": "Harvard-MIT Mathematics Tournament #0ifs",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recurrence relations",
+        "Fermat / Euler / Wilson theorems",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\nLet $a_{1} = 3$, and for $n \\geq 1$, let $a_{n+1} = (n+1) a_{n} - n$. Find the smallest $m \\geq 2005$ such that $a_{m+1} - 1 \\mid a_{m}^{2} - 1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe will show that $a_{n} = 2 \\cdot n! + 1$ by induction. Indeed, the claim is obvious for $n = 1$, and $(n+1)(2 \\cdot n! + 1) - n = 2 \\cdot (n+1)! + 1$.\n\nThen we wish to find $m \\geq 2005$ such that $2(m+1)! \\mid 4(m!)^{2} + 4 m!$, or dividing by $2 \\cdot m!$, we want $m+1 \\mid 2(m! + 1)$.\n\nSuppose $m+1$ is composite. Then it has a proper divisor $d > 2$, and since $d \\mid m!$, we must have $d \\mid 2$, which is impossible. Therefore, $m+1$ must be prime, and if this is the case, then $m+1 \\mid m! + 1$ by Wilson's Theorem.\n\nTherefore, since the smallest prime greater than $2005$ is $2011$, the smallest possible value of $m$ is $2010$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-1200",
+      "name": "IMO #0ig0",
+      "url": "https://usamoguide.com/",
+      "source": "IMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Prime numbers"
+      ],
+      "statement": "Consider the sequence $a_1, a_2, \\dots$ defined by\n$$\na_n = 2^n + 3^n + 6^n - 1.\n$$\nfor all positive integers $n$. Determine all positive integers that are relatively prime to every term of the sequence.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "The answer is that $1$ is the only such number. It suffices to show that every prime $p$ divides $a_n$ for some positive integer $n$. Note that both $p=2$ and $p=3$ divide $a_2 = 2^2 + 3^2 + 6^2 - 1 = 48$.\n\nNow we assume that $p \\ge 5$. By **Fermat's Little Theorem**, we have $2^{p-1} \\equiv 3^{p-1} \\equiv 6^{p-1} \\equiv 1 \\pmod{p}$. Then\n$$\n3 \\cdot 2^{p-1} + 2 \\cdot 3^{p-1} + 6^{p-1} \\equiv 3 + 2 + 1 \\equiv 6 \\pmod{p},\n$$\nor, $6(2^{p-2} + 3^{p-2} + 6^{p-2} - 1) \\equiv 0 \\pmod{p}$; that is, $6a_{p-2}$ is divisible by $p$. Because $p$ is relatively prime to $6$, $a_{p-2}$ is divisible by $p$, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-1305",
+      "name": "Harvard-MIT Mathematics Tournament #0iix",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recurrence relations",
+        "Fermat / Euler / Wilson theorems",
+        "Chinese remainder theorem"
+      ],
+      "statement": "Problem:\nLet $a_{0}, a_{1}, a_{2}, \\ldots$ be a sequence of real numbers defined by $a_{0}=21$, $a_{1}=35$, and $a_{n+2}=4 a_{n+1}-4 a_{n}+n^{2}$ for $n \\geq 2$. Compute the remainder obtained when $a_{2006}$ is divided by $100$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nNo pattern is evident in the first few terms, so we look for a formula for $a_{n}$. If we write $a_{n}=A n^{2}+B n+C+b_{n}$ and put $b_{n+2}=4 b_{n+1}-4 b_{n}$. Rewriting the original recurrence, we find\n$$\n\\begin{aligned}\n& A n^{2}+(4 A+B) n+(4 A+2 B+C)+b_{n+2} \\\\\n& =4\\left(A n^{2}+(2 A+B) n+(A+B+C)+b_{n+1}\\right)-4\\left(A n^{2}+B n+C+b_{n}\\right)+n^{2} \\\\\n& \\quad=n^{2}+8 A n+(4 A+4 B)+4 b_{n+1}-4 b_{n}\n\\end{aligned}\n$$\nSolving, $A=1$, $B=4$, $C=8$. With this information, we can solve for $b_{0}=1$ and $b_{1}=6$. Since the characteristic equation of the recurrence of the $b_{i}$ is $x^{2}-4 x+4=(x-2)^{2}=0$, we have $b_{n}=(D n+E) \\cdot 2^{n}$ for some constants $D$ and $E$. Using the known values $b_{0}$ and $b_{1}$, we compute $D=2$ and $E=1$, and finally\n$$\na_{n}=n^{2}+4 n+8+(2 n+1) \\cdot 2^{n}\n$$\nNow, taking modulo $100$, we have $a_{2006} \\equiv 6^{2}+4 \\cdot 6+8+13 \\cdot 2^{2006} \\pmod{100}$. Evidently $2^{2006} \\equiv 0 \\pmod{4}$, but by Euler's theorem $2^{\\phi(25)} \\equiv 2^{20} \\equiv 1 \\pmod{25}$, and so $2^{2006} \\equiv 2^{6} \\equiv 14 \\pmod{25}$. Now the Chinese remainder theorem yields $2^{2006} \\equiv 64 \\pmod{100}$, and we compute $a_{2006} \\equiv 36+24+8+13 \\cdot 64 \\equiv 0 \\pmod{100}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-1402",
+      "name": "Harvard-MIT Mathematics Tournament #0ilm",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Multiplicative order",
+        "Recurrence relations"
+      ],
+      "statement": "Problem:\n\nDefine the sequence of positive integers $a_{n}$ recursively by $a_{1}=7$ and $a_{n}=7^{a_{n-1}}$ for all $n \\geq 2$. Determine the last two digits of $a_{2007}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: 43. Note that the last two digits of $7^{4}$ are 01. Also, $a_{2006}=7^{a_{2005}}=(-1)^{a_{2005}}=-1=3$ $(\\bmod 4)$ since $a_{2005}$ is odd. Therefore, $a_{2007}=7^{a_{2006}}=7^{3}=43\\ (\\bmod\\ 100)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-1436",
+      "name": "Harvard-MIT Mathematics Tournament #0imk",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Techniques: modulo, size analysis, order analysis, inequalities"
+      ],
+      "statement": "Problem:\nFind the number of 7-tuples $\\left(n_{1}, \\ldots, n_{7}\\right)$ of integers such that\n$$\n\\sum_{i=1}^{7} n_{i}^{6}=96957\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: 2688. Consider the equation in modulo 9. All perfect 6th powers are either 0 or 1. Since 9 divides 96957, it must be that each $n_{i}$ is a multiple of 3. Writing $3 a_{i}=n_{i}$ and dividing both sides by $3^{6}$, we have $a_{1}^{6}+\\cdots+a_{7}^{6}=133$. Since sixth powers are nonnegative, $\\left|a_{i}\\right| \\leq 2$. Again considering modulo 9, we see that $a_{i} \\neq 0$. Thus, $a_{i}^{6} \\in\\{1,64\\}$. The only possibility is $133=64+64+1+1+1+1+1$, so $\\left|a_{1}\\right|, \\ldots,\\left|a_{7}\\right|$ consists of two 2's and five 1's. It follows that the answer is $\\binom{7}{2} \\cdot 2^{7}=2688$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-1454",
+      "name": "Harvard-MIT Mathematics Tournament #0in2",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Games / greedy algorithms"
+      ],
+      "statement": "Problem:\n\nEric and Greg are watching their new favorite TV show, The Price is Right. Bob Barker recently raised the intellectual level of his program, and he begins the latest installment with bidding on the following question: How many Carmichael numbers are there less than 100,000?\n\nEach team is to list one nonnegative integer not greater than 100,000. Let $X$ denote the answer to Bob's question. The teams listing $N$, a maximal bid (of those submitted) not greater than $X$, will receive $N$ points, and all other teams will neither receive nor lose points. (A Carmichael number is an odd composite integer $n$ such that $n$ divides $a^{n-1}-1$ for all integers $a$ relatively prime to $n$ with $1<a<n$.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n16? There are 16 such numbers: 561, 1105, 1729, 2465, 2821, 6601, 8911, 10585, 15841, 29341, 41041, 46657, 52633, 62745, 63973, and 75361. The next, 101101, is too large to be counted. Their distribution is considerably more subtle than that of the primes, and it was only recently proven that there are infinitely many Carmichael numbers. For sufficiently large $n$, $C(n) > n^{2/7}$, although this bound has been subsequently improved. (For details, see Alford, W. R.; Granville, A.; and Pomerance, C. \"There are Infinitely Many Carmichael Numbers.\" Annals of Mathematics. 139 (1994), 703-722.) The expectation is that teams are unable to determine that $X=16$; otherwise, the obvious dominant play is listing 16. The Problem Czar, anticipating that teams will attempt to deduce $X$ by considering the point values of the other problems in the triplet, has chosen a value $X$ that is considerably lower. Teams may of course speculate whether this action has been taken, and to what extent, etc... On the actual TV show, many contestants win by guessing prices of 1, or other numbers dramatically lower than the actual price. This strategy is enhanced because of the show's ordered bidding, and will be more difficult here. It will be interesting to see the submissions."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-1457",
+      "name": "Team Selection Test #0in5",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Divisibility / Factorization",
+        "Fermat / Euler / Wilson theorems",
+        "Chinese remainder theorem",
+        "φ (Euler's totient)",
+        "Multiplicative order"
+      ],
+      "statement": "Determine whether or not there exist positive integers $a$ and $b$ such that $a$ does not divide $b^n - n$ for all positive integers $n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**Solution 1.** For all pairs of positive integers $a$ and $b$, we claim that there exist infinitely many $n$ such that $a$ divides $b^n - n$.\nWe establish our claim by strong induction on $a$. The base case of $a = 1$ holds trivially. Now, suppose that the claim holds for all $a < a_0$. Since $\\varphi(a) < a$, by the induction hypothesis and by Lemma 1, there are infinitely many $n$ such that\n$$\n\\varphi(a) \\mid (b^n - n) \\quad \\text{and} \\quad b^{n+\\varphi(a)} \\equiv b^n \\pmod{a}.\n$$\nFor each such $n$, set\n$$\nt = \\frac{b^n - n}{\\varphi(a)} \\quad \\text{and} \\quad n_1 = b^n = n + t\\varphi(a).\n$$\n\nIt follows that\n$$\nb^{n_1} - n_1 \\equiv b^{n+t\\varphi(a)} - (n+t\\varphi(a)) \\equiv b^n - n - t\\varphi(a) \\equiv 0 \\pmod{a}.\n$$\nThen, we see that $n_1$ satisfies the desired property. By the induction hypothesis, there are infinitely many $n_1 = b^n$ satisfying the conditions of the claim for $a$, completing the induction.\n\n\n**Solution 2.** We prove that no such $a, b$ exist by proving the following: for any $a, b$, there is an arithmetic progression $n \\equiv h \\pmod m$, with $m$ divisible only by primes less than or equal to the greatest prime factor of $a$, such that $b^n \\equiv n \\pmod a$ for all sufficiently large $n$ satisfying $n \\equiv h \\pmod m$.\nLet us induct on highest prime divisor of $a$. The result is trivial for $a = 1$. Let $p$ be a prime, and suppose that the result is true whenever all the prime divisors of $a$ are less than $p$. Now, suppose that $p$ is the greatest prime divisor of some $a$, and write $a = p^e a_1$, where $a_1$ has all prime factors less than $p$. By the induction hypothesis, there is an arithmetic progression $n \\equiv h_1 \\pmod{m_1}$, with $m_1$ divisible only by primes strictly less than $p$, such that for $n \\equiv h_1 \\pmod{m_1}$ sufficiently large, $b^n \\equiv n \\pmod{a_1}$. There is no harm in assuming that $p-1$ divides $m_1$. In this case, in this arithmetic progression, $b^n$ is eventually constant modulo $p$ due to the lemma. We can thus choose a congruence modulo $p$ so that for $n$ an appropriate residue class modulo $m_1p$, $b^n \\equiv n \\pmod{p}$. In this progression, $b^n$ is constant modulo $p^2$, so we can refine our choice of $n$ modulo $m_1p$ to a choice of $n$ modulo $m_1p^2$ to force $b^n \\equiv n \\pmod{p^2}$. We can then repeat the above process until we obtain $b^n \\equiv n \\pmod{p^e}$. Since we originally had $b^n \\equiv n \\pmod{a_1}$, combining the two congruences using the Chinese Remainder Theorem gives us $b^n \\equiv n \\pmod a$ for all sufficiently large $n$ in the congruence class generated at the last step. This completes the induction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-1574",
+      "name": "1st Annual Harvard-MIT November Tournament #0iqe",
+      "url": "https://usamoguide.com/",
+      "source": "1st Annual Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Modular Arithmetic",
+        "Fermat / Euler / Wilson theorems"
+      ],
+      "statement": "Problem:\nWhat is the units digit of $7^{2009}$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: 7\nNote that the units digits of $7^{1}, 7^{2}, 7^{3}, 7^{4}, 7^{5}, 7^{6}, \\ldots$ follows the pattern $7, 9, 3, 1, 7, 9, 3, 1, \\ldots$. The 2009th term in this sequence should be 7.\n\n\nAlternate method:\nNote that the units digit of $7^{4}$ is equal to 1, so the units digit of $(7^{4})^{502}$ is also 1. But $(7^{4})^{502} = 7^{2008}$, so the units digit of $7^{2008}$ is 1, and therefore the units digit of $7^{2009}$ is 7."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-1617",
+      "name": "Harvard-MIT Mathematics Tournament #0irl",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Trigonometry",
+        "Cartesian coordinates",
+        "Recurrence relations",
+        "Fermat / Euler / Wilson theorems",
+        "Chinese remainder theorem"
+      ],
+      "statement": "Problem:\nLet $\\mathcal{C}$ be the hyperbola $y^{2}-x^{2}=1$. Given a point $P_{0}$ on the $x$-axis, we construct a sequence of points $\\left(P_{n}\\right)$ on the $x$-axis in the following manner: let $\\ell_{n}$ be the line with slope 1 passing through $P_{n}$, then $P_{n+1}$ is the orthogonal projection of the point of intersection of $\\ell_{n}$ and $\\mathcal{C}$ onto the $x$-axis. (If $P_{n}=0$, then the sequence simply terminates.)\nLet $N$ be the number of starting positions $P_{0}$ on the $x$-axis such that $P_{0}=P_{2008}$. Determine the remainder of $N$ when divided by 2008.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $P_{n}=(x_{n}, 0)$. Then the $\\ell_{n}$ meet $\\mathcal{C}$ at $(x_{n+1}, x_{n+1}-x_{n})$. Since this point lies on the hyperbola, we have $(x_{n+1}-x_{n})^{2}-x_{n+1}^{2}=1$. Rearranging this equation gives\n$$\nx_{n+1}=\\frac{x_{n}^{2}-1}{2 x_{n}}\n$$\nChoose a $\\theta_{0} \\in(0, \\pi)$ with $\\cot \\theta_{0}=x_{0}$, and define $\\theta_{n}=2^{n} \\theta_{0}$. Using the double-angle formula, we have\n$$\n\\cot \\theta_{n+1}=\\cot \\left(2 \\theta_{n}\\right)=\\frac{\\cot ^{2} \\theta_{n}-1}{2 \\cot \\theta_{n}}\n$$\nIt follows by induction that $x_{n}=\\cot \\theta_{n}$. Then, $P_{0}=P_{2008}$ corresponds to $\\cot \\theta_{0}=\\cot \\left(2^{2008} \\theta_{0}\\right)$ (assuming that $P_{0}$ is never at the origin, or equivalently, $2^{n} \\theta$ is never an integer multiple of $\\pi$ ). So, we need to find the number of $\\theta_{0} \\in(0, \\pi)$ with the property that $2^{2008} \\theta_{0}-\\theta_{0}=k \\pi$ for some integer $k$. We have $\\theta_{0}=\\frac{k \\pi}{2^{2008}-1}$, so $k$ can be any integer between 1 and $2^{2008}-2$ inclusive (and note that since the denominator is odd, the sequence never terminates). It follows that the number of starting positions is $N=2^{2008}-2$.\nFinally, we need to compute the remainder when $N$ is divided by 2008. We have $2008=2^{3} \\times 251$. Using Fermat's Little Theorem with 251, we get $2^{2008} \\equiv\\left(2^{250}\\right)^{4} \\cdot 256 \\equiv 1^{4} \\cdot 5=5\\ (\\bmod\\ 251)$. So we have $N \\equiv 3\\ (\\bmod\\ 251)$ and $N \\equiv-2\\ (\\bmod\\ 8)$. Using Chinese Remainder Theorem, we get $N \\equiv 254$ $(\\bmod\\ 2008)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-1662",
+      "name": "Team Selection Test #0isu",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Chinese remainder theorem",
+        "Polynomials mod p",
+        "Fermat / Euler / Wilson theorems",
+        "Polynomial interpolation: Newton, Lagrange",
+        "Determinants"
+      ],
+      "statement": "Let $n$ be a positive integer not divisible by the cube of a prime. Given an integer-coefficient polynomial $f(x)$, define its *signature modulo* $n$ to be the (ordered) sequence $f(1), \\dots, f(n)$ modulo $n$. Of the $n^n$ such $n$-term sequences of integers modulo $n$, how many are the signature of some polynomial $f(x)$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Let $p_1 \\cdots p_r q_1^2 \\cdots q_s$ be the prime factorization of $n$. Then the number of achievable signatures is $p_1^{p_1} \\cdots p_r^{p_r} q_1^{3q_1} \\cdots q_s^{3q_s}$.\n\nWe begin by reducing to the case in which $n$ is a prime or the square of a prime. Assume for now that our claim holds in these cases. Observe that the signature of a polynomial $f(x)$ modulo $n$ is completely determined by the collection of its signatures modulo $p_1, \\dots, p_r, q_1^2, \\dots, q_s^2$. Indeed, for each such modulus $m_i$, the sequence $f(1), \\dots, f(m_i)$ modulo $m_i$ determines the entire sequence $f(1), \\dots, f(n)$ modulo $m_i$ because $a \\equiv b \\pmod{m_i}$ implies $f(a) \\equiv f(b) \\pmod{m_i}$. Since the moduli $p_1, \\dots, p_r, q_1^2, \\dots, q_s^2$ are relatively prime with product $n$, it follows by the Chinese Remainder Theorem that specifying $f(1), \\dots, f(n)$ modulo all $m_i$ is equivalent to specifying the sequence modulo $n$.\n\nConversely, we need to show that every sequence $y_1, \\dots, y_n \\pmod{n}$ obtained by applying the above procedure to a collection of signatures $f_i(1), \\dots, f_i(m_i) \\pmod{m_i}$ is actually the signature of a polynomial $f(x)$. To do this, we apply the Chinese Remainder Theorem once more: define $f(x)$ by choosing its coefficients such that\n$$\n[x^k]f(x) \\equiv [x^k]f_i(x) \\pmod{m_i}\n$$\nfor all $i$. Then $f(x) \\equiv f_i(x) \\pmod{m_i}$ for all $i$, and the claim follows.\n\nBy the above, it suffices to show that the number of achievable signatures modulo $p$ is $p^p$ and the number of achievable signatures modulo $p^2$ is $p^{3p}$. In the first case, this amounts to showing that all $p$-term sequences modulo $p$ can be realized as $f(1), \\dots, f(p)$ for some polynomial $f(x)$. There are a number of quick proofs of this result, all of which ultimately use the fact that the integers modulo $p$ form a field. A direct approach is to use Lagrange interpolation; another method is to use Lagrange's theorem to deduce that no two polynomials in $\\mathbb{Z}/p\\mathbb{Z}$ of degree less than $p$ have the same signature modulo $p$. Yet another approach is to show that the linear transformation (over $\\mathbb{Z}/p\\mathbb{Z}$) that sends the coefficient vector ($[x^0]f(x), \\dots, [x^{p-1}]f(x)$) to the values ($f(1), \\dots, f(p)$) is nonsingular; this can be done by evaluating the Vandermonde determinant.\n\nThe modulus $p^2$ is trickier to handle. We begin by using an idea similar to Lagrange interpolation to exhibit a set of polynomials achieving $p^{3p}$ distinct signatures modulo $p^2$, thus obtaining a lower bound. We then establish a matching upper bound by finding a (different!) set of $p^{3p}$ polynomials such that all integer-coefficient polynomials can be easily “reduced” to one of these, keeping the signature fixed during the reduction.\n\nTo prove our lower bound, we begin by defining\n$$\nf_k(x) = ((x-1) \\cdots (x-(k-1))(x-(k+1)) \\cdots (x-p))^2\n$$\nand\n$$\ng_k(x) = (x-k)f_k(x).\n$$\nConsider all polynomials of the form\n$$\n\\sum_{k=1}^{p} a_k f_k(x) + b_k g_k(x)\n$$\nwhere $1 \\le a_k \\le p^2$ and $1 \\le b_k \\le p$. We claim that no two such polynomials have the same signature modulo $p^2$; this will establish our lower bound.\n\nBy subtracting, it is enough to show that the only polynomial\n$$\nf(x) = \\sum_{k=1}^{p} a_k f_k(x) + b_k g_k(x)\n$$\nsatisfying $f(1) \\equiv \\cdots \\equiv f(p^2) \\equiv 0 \\pmod{p^2}$ with $|a_k| < p^2$ and $|b_k| < p$ is the zero polynomial. In fact, it suffices to evaluate $f(x) \\pmod{p^2}$ at $x = 1, \\dots, 2p$. For $j = 1, \\dots, p$, we have $g_k(j) = 0$ for all $k$ and $f_k(j) = 0$ unless $k = j$, in which case $f_j(j)$ is invertible modulo $p^2$. It follows that $0 \\equiv f(j) = a_j f_j(j)$ and hence $a_j \\equiv 0 \\pmod{p^2}$, so $a_k = 0$ for all $k$.\n\nNext we evaluate $f(x)$ at $j = p + 1, \\dots, 2p$. This time, all $g_k(j)$ vanish modulo $p^2$ except when $k = j - p$, in which case $g_{j-p}(j)$ is divisible by $p$ but not $p^2$. Thus, $0 \\equiv f(j) \\equiv b_{j-p}g_{j-p}(j) \\pmod{p^2}$ and hence $b_{j-p} \\equiv 0 \\pmod{p}$, so $b_k = 0$ for all $k$, completing the proof of the lower bound.\n\nIt remains to prove that no more than $p^{3p}$ signatures modulo $p^2$ are attainable. Given two polynomials $f(x)$ and $g(x)$, we say that they are equivalent, denoted $f(x) \\sim g(x)$, if they have the same signature modulo $p^2$. It is easy to see that $f(x) \\sim g(x)$ implies $f(x)h(x) \\sim g(x)h(x)$ and $f(x) + h(x) \\sim g(x) + h(x)$ for any polynomial $h(x)$. We claim that every polynomial $f(x)$ is equivalent to a polynomial $g(x)$ such that\n$$\n[x^k]g(x) \\in \\{1, \\dots, p^2\\} \\quad \\text{for } 0 \\le k < p\n$$\nand\n$$\n[x^k]g(x) \\in \\{1, \\dots, p\\} \\quad \\text{for } p \\le k < 2p.\n$$\nThe key observation is that by Fermat, $x^p - x$ vanishes modulo $p$ when evaluated at any integer. Therefore, $(x^p - x)^2$ and $p(x^p - x)$ both vanish modulo $p^2$ at all integers, i.e.\n$$\nx^{2p} \\sim 2x^{p+1} - x^2 \\quad \\text{and} \\quad px^p \\sim px.\n$$\nUsing the properties of $\\sim$ stated above, the first relation allows us to reduce $f(x)$ to a polynomial of degree less than $p$; the second relation then allows us to further reduce to a polynomial with all coefficients of $x^p, \\dots, x^{2p-1}$ in $\\{1, \\dots, p\\}$. Finally, the remaining coefficients can be reduced modulo $p^2$ to lie in $\\{1, \\dots, p^2\\}$, completing the proof."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-1859",
+      "name": "Team Selection Test 2009 #0iyb",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test 2009",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Polynomial operations",
+        "Field Theory"
+      ],
+      "statement": "Fix a prime number $p > 5$. Let $a, b, c$ be integers no two of which have their difference divisible by $p$. Let $i, j, k$ be nonnegative integers such that $i + j + k$ is divisible by $p-1$. Suppose that for all integers $x$, the quantity\n$$\n(x-a)(x-b)(x-c)[(x-a)^i(x-b)^j(x-c)^k - 1]\n$$\nis divisible by $p$. Prove that each of $i, j, k$ must be divisible by $p-1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "We first prove that $k$ is congruent to one of $1, 0, -1$ modulo $(p-1)$. We rephrase the hypothesis in terms of modular arithmetic: If $x \\not\\equiv a, b, c \\pmod p$, then\n$$\n(x - a)^i (x - b)^j \\equiv (x - c)^{-k} \\pmod{p}.\n$$\nBy Fermat's little theorem, there is no harm in shifting $i, j, k$ by multiples of $p-1$, so we may assume $i, j, -k$ are elements of the set $\\{0, 1, 2, \\dots, p-2\\}$. If $i + j \\le p-2$, then the condition $i + j + k \\equiv 0 \\pmod{p-1}$ forces $-k = i + j$. In this case, the polynomial $(x-c)^{-k} - (x-a)^i(x-b)^j$ has degree at most $-k-1$ (since it is the difference of two monic polynomials of degree $-k$), but modulo $p$ it has at least $p-3$ distinct roots (namely the values of $x$ other than $a, b, c$). The only ways to avoid a contradiction are either to have $i+j = -k = p-2$ or to have the polynomial $(x-c)^{-k} - (x-a)^i(x-b)^j$ be identically zero modulo $p$. The former gives $k \\equiv 1 \\pmod{p-1}$ and we are done. The latter forces $i = j = -k = 0$ by unique factorization of polynomials modulo $p$, so we are again done.\n\nIf on the other hand $i + j \\ge p - 1$, then we also have\n$$\n(x - a)^{p-1-i} (x - b)^{p-1-j} \\equiv (x - c)^{k} \\pmod{p}\n$$\nfor all $x$ not congruent to $a, b, c$ modulo $p$. If $k \\equiv 0 \\pmod{(p-1)}$, we are done; otherwise, the fact that $i+j \\equiv -k \\not\\equiv 0 \\pmod{(p-1)}$ forces $i+j \\ge p$, so $(p-1-i) + (p-1-j) \\le p-2$. Thus the previous paragraph implies either $k \\equiv 0 \\pmod{(p-1)}$ or $k \\equiv -1 \\pmod{(p-1)}$.\n\nBy symmetry, each of $i$, $j$, $k$ is congruent to one of $-1$, $0$, $1$ modulo $(p-1)$. Because $i + j + k \\equiv 0$ (mod $(p-1)$) and $p - 1 > 3$, the only possibilities (up to permutations) are $\\{i, j, k\\} \\equiv \\{0, 0, 0\\}$ (mod $(p-1)$) or $\\{i, j, k\\} \\equiv \\{1, 0, -1\\}$ (mod $(p-1)$). However, the latter implies that $x - a \\equiv x - c$ (mod $p$) for all $x \\ne a, b, c$ (mod $p$), which is impossible as soon as there is at least one such $x$ (which is true since $p > 3$). This contradiction leaves only the possibility $\\{i, j, k\\} \\equiv \\{0, 0, 0\\}$ (mod $(p-1)$), proving the desired result."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-1953",
+      "name": "13th Annual Harvard-MIT Mathematics Tournament #0j0x",
+      "url": "https://usamoguide.com/",
+      "source": "13th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Chinese remainder theorem",
+        "Fermat / Euler / Wilson theorems",
+        "Vieta's formulas"
+      ],
+      "statement": "Problem:\nCompute the remainder when\n$$\n\\sum_{k=1}^{30303} k^{k}\n$$\nis divided by $101$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe main idea is the following lemma:\n\nLemma. For any non-negative integer $n$ and prime $p$, $$\\sum_{k=n+1}^{n+p^{2}-p} k^{k} \\equiv 1 \\pmod{p}.$$ \n\nProof. Note that $a^{b}$ depends only on the value of $a \\pmod{p}$ and the value of $b \\pmod{p-1}$. Since $p$ and $p-1$ are relatively prime, the Chinese Remainder Theorem implies that any $p^{2}-p$ consecutive integers will take on each possible pair of a residue $\\bmod\\ p$ and a residue $\\bmod\\ p-1$. In other words, if we let $(a, b) = (k \\bmod p, k \\bmod p-1)$, then as $k$ ranges through $p^{2}-p$ consecutive integers, $(a, b)$ will range through all $p^{2}-p$ ordered pairs of residues $\\bmod\\ p$ and residues $\\bmod\\ p-1$. This implies that\n$$\n\\sum_{k=n+1}^{n+p^{2}-p} k^{k} \\equiv \\sum_{b=1}^{p-1} \\sum_{a=1}^{p} a^{b} .\n$$\nIt is well-known that $\\sum_{a=1}^{p} a^{b} = \\begin{cases} -1 & p-1 \\mid b \\\\ 0 & p-1 \\nmid b \\end{cases}$. We will sketch a proof here. When $p-1 \\mid b$, the result follows from Fermat's Little Theorem. When $p-1 \\nmid b$, it suffices to consider the case when $b \\mid p-1$, since the $b$th powers $\\bmod\\ p$ are the same as the $\\gcd(b, p-1)$th powers $\\bmod\\ p$, and there are an equal number of every non-zero $b$th power. But in this case, the $b$th powers are just the solutions to $x^{\\frac{p-1}{b}} - 1$, which add up to zero by Vieta's formulas.\n\nNow, using the formula for $\\sum a^{b}$, we get that\n$$\n\\sum_{b=1}^{p-1} \\sum_{a=1}^{p} a^{b} \\equiv -1 \\pmod{p}\n$$\nwhich completes the lemma.\n\nWe now apply the lemma with $p=101$ and $n=3, 10103$, and $20103$ to get that $\\sum_{k=1}^{30303} k^{k} \\equiv \\left(\\sum_{k=1}^{3} k^{k}\\right) - 3$. But $\\sum_{k=1}^{3} k^{k} = 1^{1} + 2^{2} + 3^{3} = 1 + 4 + 27 = 32$, so the answer is $32 - 3 = 29$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-1965",
+      "name": "Harvard-MIT Mathematics Tournament #0j19",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems"
+      ],
+      "statement": "Problem:\nCall a positive integer in base $10$ $k$-good if we can split it into two integers $y$ and $z$, such that $y$ is all digits on the left and $z$ is all digits on the right, and such that $y = k \\cdot z$. For example, $2010$ is $2$-good because we can split it into $20$ and $10$ and $20 = 2 \\cdot 10$. $20010$ is also $2$-good, because we can split it into $20$ and $010$. In addition, it is $20$-good, because we can split it into $200$ and $10$.\nShow that there exists a $48$-good perfect square.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe wish to find integers $a$, $z$ such that $48z \\cdot 10^{a} + z = z\\left(48 \\cdot 10^{a} + 1\\right)$ is a perfect square, where $z < 10^{a}$. This would prove that there exists a $48$-good perfect square because we are pulling off the last $a$ digits of the number and get two integers $48z$ and $z$.\n\nTo make $z$ small by keeping the product a perfect square, we'd like $48 \\cdot 10^{a} + 1$ to be divisible by some reasonably large square. Take $a = 42 = \\varphi(49)$. By Euler's theorem, $10^{42} \\equiv 1 \\pmod{49}$, so $48 \\cdot 10^{a} + 1$ is a multiple of $49$.\n\nThen we can take $z = \\frac{48 \\cdot 10^{a} + 1}{49}$. (Clearly $z < 10^{a}$, so we're fine.) Then we have\n$$\nz\\left(48 \\cdot 10^{a} + 1\\right) = \\left(\\frac{48 \\cdot 10^{42} + 1}{7}\\right)^{2}.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-2051",
+      "name": "Team Selection Test 2010 #0j3n",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test 2010",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Primitive roots mod p / p^n",
+        "Polynomial operations"
+      ],
+      "statement": "Determine whether or not there exists a positive integer $k$ such that $p = 6k + 1$ is prime and\n$$\n\\binom{3k}{k} \\equiv 1 \\pmod{p}.\n$$\n(This problem was suggested by Gabriel Carroll.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "No such $k$ exists. For suppose that $k$ and $p$ are as described. Consider the number\n$$\nA = \\sum_{i=0}^{p-1} (i^3 - 1)^{3k}.\n$$\nBecause $p-1 = 6k$ is divisible by $3$, there are three cube roots of $1$ modulo $p$. Therefore, three terms in the sum are $0$ modulo $p$, and the others are $[(p-1)/2]$th powers of nonzero residues, hence are congruent to either $1$ or $-1$ modulo $p$. Consequently, $A$ is congruent to one of the residues $p-3, p-5, p-7, \\dots, -(p-3)$ modulo $p$. In particular, $A$ cannot be congruent to $1$ or $-1$ modulo $p$.\n\nOn the other hand, applying the binomial theorem and changing the order of summation, we have\n$$\nA = \\sum_{i=0}^{p-1} \\left( \\sum_{j=0}^{3k} \\binom{3k}{j} (-1)^j i^{3(3k-j)} \\right) = \\sum_{j=0}^{3k} \\left( (-1)^j \\binom{3k}{j} \\sum_{i=0}^{p-1} i^{3(3k-j)} \\right), \\quad (1)\n$$\nwhere we use the convention $0^0 = 1$ for the case $i = 0, j = 3k$.\n\nNow, we claim that $\\sum_{i=0}^{p-1} i^d \\equiv 0 \\pmod{p}$ if $p-1 \\nmid d$. For this, choose a primitive root $g$ modulo $p$ and notice that $g^d \\not\\equiv 1 \\pmod{p}$, while we have\n$$\n(g^d - 1) \\sum_{i=0}^{p-1} i^d \\equiv \\sum_{i=0}^{p-1} (g \\cdot i)^d - \\sum_{i=0}^{p-1} i^d \\equiv 0 \\pmod{p},\n$$\ngiving the claim. Further, notice that $\\sum_{i=0}^{p-1} i^d \\equiv 0 \\pmod{p}$ when $d = 0$.\n\nNow, because $3 \\cdot (3k) < 2(p-1)$, the only value of $j$ such that $3 \\cdot (3k-j)$ is a multiple of $p-1$ is $j = k$, where $3 \\cdot (3k-j) = 6k = p-1$. This means that the sums $\\sum_i i^{3 \\cdot (3k-j)}$ are congruent to $0$ modulo $p$ unless $j = k$. Further, for $j = k$, the sum evaluates to\n$$\n\\sum_{i=0}^{p-1} i^{6k} \\equiv \\sum_{i=0}^{p-1} i^{p-1} \\equiv \\sum_{i=1}^{p-1} 1 \\equiv -1 \\pmod{p}.\n$$\n\nConsidering (1) in this light, we find that\n$$\nA \\equiv (-1)^k \\cdot \\binom{3k}{k} \\cdot (-1) \\pmod{p}.\n$$\nSince we saw that $A$ is not congruent to $1$ or $-1$ modulo $p$, we conclude that $\\binom{3k}{k} \\not\\equiv 1 \\pmod{p}$, a contradiction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-2188",
+      "name": "USAMO #0j7g",
+      "url": "https://usamoguide.com/",
+      "source": "USAMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Multiplicative order"
+      ],
+      "statement": "Consider the assertion that for each positive integer $n \\ge 2$, the remainder upon dividing $2^{2n}$ by $2^n - 1$ is a power of 4. Either prove the assertion or find (with proof) a counterexample.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "The assertion is false, and the smallest $n$ for which it fails is $n = 25$. Given $n \\ge 2$, let $r$ be the remainder when $2^n$ is divided by $n$. Then $2^n = kn + r$ where $k$ is a positive integer and $0 \\le r < n$. It follows that\n$$\n2^{2n} = 2^{kn+r} \\equiv 2^r \\pmod{2^n - 1},\n$$\nwhere $2^r < 2^{2n} - 1$. Thus, the remainder when $2^{2n}$ is divided by $2^n - 1$ is $2^r$. Now, $2^r$ is a power of 4 if and only if $r$ is even, so to disprove the assertion it is enough to find an $n$ for which the corresponding $r$ is odd. We describe now a method to find such an $n$.\nIf $n$ is even then so is $r = 2^n - kn$. If $n$ is an odd prime then $2^n \\equiv 2 \\pmod n$ by Fermat's Little Theorem; hence $r \\equiv 2^n \\equiv 2 \\pmod n$ and $r = 2$. Therefore, we may rule out these values of $n$.\nIt remains to try cases in which $n$ is odd and composite. In the first three instances $n = 9, 15, 21$ there is no contradiction to the assertion:\n$$\nn = 9: \\quad 2^6 \\equiv 1 \\pmod 9 \\quad \\Rightarrow \\quad 2^9 \\equiv 2^6 \\cdot 2^3 \\equiv 8 \\pmod 9\n$$\n$$\nn = 15: \\quad 2^4 \\equiv 1 \\pmod{15} \\quad \\Rightarrow \\quad 2^{15} \\equiv (2^4)^3 \\cdot 2^3 \\equiv 8 \\pmod{15}\n$$\n$$\nn = 21: \\quad 2^6 \\equiv 1 \\pmod{21} \\quad \\Rightarrow \\quad 2^{21} \\equiv (2^6)^3 \\cdot 2^3 \\equiv 8 \\pmod{21}\n$$\nHowever, for $n = 25$, we see that\n$$\n2^{10} = 1024 \\equiv -1 \\Rightarrow 2^{20} \\equiv 1 \\Rightarrow 2^{25} \\equiv 2^5 \\equiv 7 \\pmod{25},\n$$\nso 7 is the remainder when $2^{25}$ is divided by 25 and $2^7$ is the remainder when $2^{2^{25}}$ is divided by $2^{25} - 1$. This gives the desired counterexample."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-2194",
+      "name": "Harvard-MIT November Tournament #0j7m",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Multiplicative order"
+      ],
+      "statement": "Problem:\nDetermine the remainder when\n$$\n2^{\\frac{1 \\cdot 2}{2}} + 2^{\\frac{2 \\cdot 3}{2}} + \\cdots + 2^{\\frac{2011 \\cdot 2012}{2}}\n$$\nis divided by $7$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe have that $2^{3} \\equiv 1 \\pmod{7}$. Hence, it suffices to consider the exponents modulo $3$. We note that the exponents are the triangular numbers and upon division by $3$ give the pattern of remainders $1, 0, 0, 1, 0, 0, \\ldots$, so what we want is\n$$\n\\begin{aligned}\n2^{\\frac{1 \\cdot 2}{2}} + \\cdots + 2^{\\frac{2011 \\cdot 2012}{2}} &\\equiv 2^{1} + 2^{0} + 2^{0} + 2^{1} + \\ldots + 2^{0} + 2^{1} \\pmod{7} \\\\\n&\\equiv \\frac{2010}{3} (2^{1} + 2^{0} + 2^{0}) + 2^{1} \\\\\n&\\equiv (670)(4) + 2 \\\\\n&\\equiv 1.\n\\end{aligned}"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-2295",
+      "name": "15th Annual Harvard-MIT Mathematics Tournament #0jaf",
+      "url": "https://usamoguide.com/",
+      "source": "15th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Enumeration with symmetry",
+        "Permutations / basic group theory",
+        "Fermat / Euler / Wilson theorems",
+        "φ (Euler's totient)"
+      ],
+      "statement": "Problem:\nLet $S$ be the set $\\{1,2, \\ldots, 2012\\}$. A perfectutation is a bijective function $h$ from $S$ to itself such that there exists an $a \\in S$ such that $h(a) \\neq a$, and that for any pair of integers $a \\in S$ and $b \\in S$ such that $h(a) \\neq a, h(b) \\neq b$, there exists a positive integer $k$ such that $h^{k}(a)=b$. Let $n$ be the number of ordered pairs of perfectutations $(f, g)$ such that $f(g(i))=g(f(i))$ for all $i \\in S$, but $f \\neq g$. Find the remainder when $n$ is divided by 2011.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: 2\n\nNote that both $f$ and $g$, when written in cycle notation, must contain exactly one cycle that contains more than 1 element. Assume $f$ has $k$ fixed points, and that the other $2012-k$ elements form a cycle, (of which there are $(2011-k)!$ ways).\n\nThen note that if $f$ fixes $a$ then $f(g(a))=g(f(a))=g(a)$ implies $f$ fixes $g(a)$. So $g$ must send fixed points of $f$ to fixed points of $f$. It must, therefore, send non-fixed points to non-fixed points. This partitions $S$ into two sets, at least one of which must be fixed by $g$, since $g$ is a perfectutation.\n\nIf $g$ fixes all of the non-fixed points of $f$, then, since any function commutes with the identity, $g$ fixes some $m$ of the fixed points and cycles the rest in $(k-m-1)!$ ways. So there are $\\sum_{m=0}^{k-2}\\binom{k}{m}(k-m-1)!$ choices, which is $\\sum_{m=0}^{k-2} \\frac{k!}{(k-m) m!}$.\n\nIf $g$ fixes all of the fixed points of $f$, then order the non-fixed points of $f$ $a_{1}, a_{2}, \\ldots, a_{2012-k}$ such that $f\\left(a_{i}\\right)=a_{i+1}$. If $g\\left(a_{i}\\right)=a_{j}$ then $f\\left(g\\left(a_{i}\\right)\\right)=a_{j+1}$ thus $g\\left(a_{i+1}\\right)=a_{j+1}$. Therefore the choice of $g\\left(a_{1}\\right)$ uniquely determines $g\\left(a_{i}\\right)$ for the rest of the $i$, and $g\\left(a_{m}\\right)=a_{m+j-i}$. But $g$ has to be a perfectutation, so $g$ cycles through all the non-fixed points of $f$, which happens if and only if $j-i$ is relatively prime to $2012-k$. So there are $\\phi(2012-k)$ choices.\n\nTherefore for any $f$ there are $\\sum_{m=0}^{k-2} \\frac{k!}{(k-m) m!}+\\phi(2012-k)$ choices of $g$, but one of them will be $g=f$, which we cannot have by the problem statement. So there are $-1+\\sum_{m=0}^{k-2} \\frac{k!}{(k-m) m!}+\\phi(2012-k)$ options.\n\nNow note that a permutation can not fix all but one element. So\n$$\nn=\\sum_{k=0}^{2010}\\binom{2012}{k}(2011-k)!\\left(-1+\\sum_{m=0}^{k-2} \\frac{k!}{(k-m) m!}+\\phi(2012-k)\\right)\n$$\nModulo 2011 (which is prime), note that all terms in the summand except the one where $k=1$ vanish. Thus, $n \\equiv (2010)!(-1+(-1)) \\equiv 2 \\pmod{2011}$ by Wilson's Theorem."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-2340",
+      "name": "HMMT November 2012 #0jbo",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2012",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Chinese remainder theorem"
+      ],
+      "statement": "Problem:\n\nGiven any positive integer, we can write the integer in base 12 and add together the digits of its base 12 representation. We perform this operation on the number $7^{6^{5^{4^{3^{2^{1}}}}}}$ repeatedly until a single base 12 digit remains. Find this digit.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFor a positive integer $n$, let $s(n)$ be the sum of digits when $n$ is expressed in base 12. We claim that $s(n) \\equiv n \\pmod{11}$ for all positive integers $n$. Indeed, if $n = d_{k} 12^{k} + d_{k-1} 12^{k-1} + \\cdots + d_{0}$ with each $d_{i}$ an integer between 0 and 11, inclusive, because $12 \\equiv 1 \\pmod{11}$, reducing modulo 11 gives exactly $s(n)$. Thus, our answer is congruent to $N = 7^{6^{5^{4^{3^{2^{1}}}}}}$ modulo 11, and furthermore must be a one-digit integer in base 12; these two conditions uniquely determine the answer.\n\nBy Fermat's Little Theorem, $7^{10} \\equiv 1 \\pmod{11}$, and also observe that $6^{5^{4^{3^{2^{1}}}}} \\equiv 6 \\pmod{10}$ because $6 \\cong 0 \\pmod{2}$ and $6 \\cong 1 \\pmod{5}$. Thus, $N \\equiv 7^{6} \\equiv 343^{2} \\equiv 2^{2} \\equiv 4 \\pmod{11}$, which is our answer. (Additionally, we note that this process of writing the number in base twelve and summing the digits must eventually terminate because the value decreases after each step.)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-2373",
+      "name": "Harvard-MIT Mathematics Tournament #0jcl",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recurrence relations",
+        "Complex numbers",
+        "Chinese remainder theorem",
+        "Fermat / Euler / Wilson theorems"
+      ],
+      "statement": "Problem:\n\nLet $x_{1} = y_{1} = x_{2} = y_{2} = 1$, then for $n \\geq 3$ let $x_{n} = x_{n-1} y_{n-2} + x_{n-2} y_{n-1}$ and $y_{n} = y_{n-1} y_{n-2} - x_{n-1} x_{n-2}$. What are the last two digits of $\\left|x_{2012}\\right|$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $z_{n} = y_{n} + x_{n} i$. Then the recursion implies that:\n$$\n\\begin{aligned}\n& z_{1} = z_{2} = 1 + i \\\\\n& z_{n} = z_{n-1} z_{n-2}\n\\end{aligned}\n$$\nThis implies that\n$$\nz_{n} = \\left(z_{1}\\right)^{F_{n}}\n$$\nwhere $F_{n}$ is the $n^{\\text{th}}$ Fibonacci number $\\left(F_{1} = F_{2} = 1\\right)$. So, $z_{2012} = (1 + i)^{F_{2012}}$. Notice that\n$$\n(1 + i)^{2} = 2i\n$$\nAlso notice that every third Fibonacci number is even, and the rest are odd. So:\n$$\nz_{2012} = (2i)^{\\frac{F_{2012} - 1}{2}} (1 + i)\n$$\nLet $m = \\frac{F_{2012} - 1}{2}$. Since both real and imaginary parts of $1 + i$ are $1$, it follows that the last two digits of $\\left|x_{2012}\\right|$ are simply the last two digits of $2^{m} = 2^{\\frac{F_{2012} - 1}{2}}$.\nBy the Chinese Remainder Theorem, it suffices to evaluate $2^{m}$ modulo $4$ and $25$. Clearly, $2^{m}$ is divisible by $4$. To evaluate it modulo $25$, it suffices by Euler's Totient theorem to evaluate $m$ modulo $20$.\nTo determine $\\left(F_{2012} - 1\\right) / 2$ modulo $4$ it suffices to determine $F_{2012}$ modulo $8$. The Fibonacci sequence has period $12$ modulo $8$, and we find\n$$\n\\begin{aligned}\nF_{2012} &\\equiv 5 \\quad (\\bmod 8) \\\\\nm &\\equiv 2 \\quad (\\bmod 4)\n\\end{aligned}\n$$\n$2 \\times 3 \\equiv 1 (\\bmod 5)$, so\n$$\nm \\equiv 3 F_{2012} - 3 \\quad (\\bmod 5)\n$$\nThe Fibonacci sequence has period $20$ modulo $5$, and we find\n$$\nm \\equiv 4 \\quad (\\bmod 5)\n$$\nCombining,\n$$\n\\begin{aligned}\nm &\\equiv 14 \\quad (\\bmod 20) \\\\\n2^{m} &\\equiv 2^{14} = 4096 \\equiv 21 \\quad (\\bmod 25) \\\\\n\\left|x_{2012}\\right| &\\equiv 4 \\cdot 21 = 84 \\quad (\\bmod 100)\n\\end{aligned}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-2405",
+      "name": "RMM #0jdh",
+      "url": "https://usamoguide.com/",
+      "source": "RMM",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Quadratic residues",
+        "Fermat / Euler / Wilson theorems",
+        "Prime numbers"
+      ],
+      "statement": "For a positive integer $a$, define a sequence of integers $x_1, x_2, \\dots$ by letting $x_1 = a$ and $x_{n+1} = 2x_n + 1$ for $n \\ge 1$. Let $y_n = 2^{x_n} - 1$. Determine the largest possible $k$ such that, for some positive integer $a$, the numbers $y_1, \\dots, y_k$ are all prime.\n\n(This problem was suggested by Valery Senderov from Russia.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "The answer is $k=2$. If $a=1$, then $y_1=1$ is not prime. If $a=2$, then $y_1=3$ and $y_2=31$ are prime, while $y_3 = 2^{11}-1 = 23 \\cdot 89$ is composite. It now remains only to check that $y_1, y_2$, and $y_3$ cannot all be prime for $a \\ge 3$.\n\nSuppose otherwise for the sake of contradiction that $y_1, y_2$, and $y_3$ are all prime. Because $y_i = 2^{x_i} - 1$, this implies that $x_1, x_2$, and $x_3$ are all prime; in particular, $a$ is prime. Observe that $x_2 \\equiv 3 \\pmod 4$, which implies that $x_3 \\equiv 7 \\pmod 8$. Therefore, we see that $2$ is a quadratic residue modulo $x_3$, so we may find some $s$ for which $2 \\equiv s^2 \\pmod{x_3}$. For this $s$, we have\n$$\n2^{x_2} \\equiv 2^{\\frac{x_3-1}{2}} \\equiv s^{x_3-1} \\equiv 1 \\pmod{x_3},\n$$\nwhich implies that $x_3 \\mid 2^{x_2} - 1$. But $y_2 = 2^{x_2} - 1$ is prime, so this implies that $2x_2 + 1 = x_3 = 2^{x_2} - 1$. We have also that $x_2 > 3$, which implies that $2^{x_2} - 1 > 2x_2 + 1$, yielding a contradiction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-2406",
+      "name": "HMMT #0jdi",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Greatest common divisors (gcd)",
+        "Fermat / Euler / Wilson theorems",
+        "Multiplicative order",
+        "Generating functions",
+        "Other"
+      ],
+      "statement": "Problem:\nLet $N$ be a positive integer whose decimal representation contains $11235$ as a contiguous substring, and let $k$ be a positive integer such that $10^{k} > N$. Find the minimum possible value of\n$$\n\\frac{10^{k}-1}{\\operatorname{gcd}\\left(N, 10^{k}-1\\right)}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $89$\n\nSet $m = \\frac{10^{k}-1}{\\operatorname{gcd}\\left(N, 10^{k}-1\\right)}$. Then, in lowest terms, $\\frac{N}{10^{k}-1} = \\frac{a}{m}$ for some integer $a$. On the other hand, the decimal expansion of $\\frac{N}{10^{k}-1}$ simply consists of the decimal expansion of $N$, possibly with some padded zeros, repeating. Since $N$ contains $11235$ as a contiguous substring, the decimal representation of $\\frac{a}{m}$ must as well.\n\nConversely, if $m$ is relatively prime to $10$ and if there exists an $a$ such that the decimal representation of $\\frac{a}{m}$ contains the substring $11235$, we claim that $m$ is an attainable value for $\\frac{10^{k}-1}{\\operatorname{gcd}\\left(N, 10^{k}-1\\right)}$. To see this, note that since $m$ is relatively prime to $10$, there exists a value of $k$ such that $m$ divides $10^{k}-1$ (for example, $k=\\phi(m)$). Letting $ms = 10^{k}-1$ and $N = as$, it follows that $\\frac{a}{m} = \\frac{as}{ms} = \\frac{N}{10^{k}-1}$. Since the decimal expansion of this fraction contains the substring $11235$, it follows that $N$ must also, and therefore $m$ is an attainable value.\n\nWe are therefore looking for a fraction $\\frac{a}{m}$ which contains the substring $11235$ in its decimal expansion. Since $1,1,2,3$, and $5$ are the first five Fibonacci numbers, it makes sense to look at the value of the infinite series\n$$\n\\sum_{i=1}^{\\infty} \\frac{F_{i}}{10^{i}}\n$$\nA simple generating function argument shows that $\\sum_{i=1}^{\\infty} F_{i} x^{i} = \\frac{x}{1-x-x^{2}}$, so substituting $x=1/10$ leads us to the fraction $10/89$ (which indeed begins $0.11235\\ldots$).\n\nHow do we know no smaller values of $m$ are possible? Well, if $a'/m'$ contains the substring $11235$ somewhere in its infinitely repeating decimal expansion, then note that there is an $i$ such that the decimal expansion of the fractional part of $10^{i}\\left(a'/m'\\right)$ begins with $0.11235\\ldots$ We can therefore, without loss of generality, assume that the decimal representation of $a'/m'$ begins $0.11235\\ldots$ But since the decimal representation of $10/89$ begins $0.11235\\ldots$, it follows that\n$$\n\\left|\\frac{10}{89} - \\frac{a'}{m'}\\right| \\leq 10^{-5}\n$$\nOn the other hand, this absolute difference, if non-zero, is at least $\\frac{1}{89 m'}$. If $m' < 89$, this is at least $\\frac{1}{89^{2}} > 10^{-5}$, and therefore no smaller values of $m'$ are possible."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-2416",
+      "name": "HMMT 2013 #0jds",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2013",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems"
+      ],
+      "statement": "Problem:\n\nFor how many integers $1 \\leq k \\leq 2013$ does the decimal representation of $k^{k}$ end with a $1$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: 202\n\nWe claim that this is only possible if $k$ has a units digit of $1$. Clearly, it is true in these cases. Additionally, $k^{k}$ cannot have a units digit of $1$ when $k$ has a units digit of $2, 4, 5, 6$, or $8$. If $k$ has a units digit of $3$ or $7$, then $k^{k}$ has a units digit of $1$ if and only if $4 \\mid k$, a contradiction. Similarly, if $k$ has a units digit of $9$, then $k^{k}$ has a units digit of $1$ if and only if $2 \\mid k$, also a contradiction. Since there are $202$ integers between $1$ and $2013$, inclusive, with a units digit of $1$, there are $202$ such $k$ which fulfill our criterion."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-2433",
+      "name": "IMO Team Selection Test #0je9",
+      "url": "https://usamoguide.com/",
+      "source": "IMO Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Techniques: modulo, size analysis, order analysis, inequalities",
+        "Fermat / Euler / Wilson theorems",
+        "Prime numbers"
+      ],
+      "statement": "Find all triples $(x, y, z)$ of positive integers such that $x \\le y \\le z$ and\n$$\nx^3(y^3 + z^3) = 2012(xyz + 2).\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "The solution is $(x, y, z) = (2, 251, 252)$.\nBy the given, $x$ divides $2 \\cdot 2012 = 2^3 \\cdot 503$. Moreover, $x$ cannot be a multiple of $503$, by considering the exponent of $503$ in both terms of the equation. Similarly, by considering the powers of $2$ on both sides of the equation, we conclude that $x$ cannot be a multiple of $4$, thus $x = 1$ or $x = 2$. Thus, we have either\n$$\ny^3 + z^3 = 2012(yz + 2) \\text{ or } y^3 + z^3 = 503(yz + 1).\n$$\nIn either case, $503$ divides $y^3 + z^3$, so $y^3 \\equiv -z^3 \\pmod{503}$. Consequently, by Fermat's little theorem, we have $y^2 \\equiv y^{504} \\equiv y^{3 \\cdot 168} \\equiv z^{3 \\cdot 168} \\equiv z^2 \\pmod{503}$. From $y^3 \\equiv -z^3 \\pmod{503}$ and $z^2 \\equiv y^2 \\pmod{503}$, we conclude that either both $y$ and $z$ are divisible by $503$ or $y \\equiv -z \\pmod{503}$. Hence in all cases $y+z$ is a multiple of $503$. Write $y+z=503k$ with $k$ a positive integer.\nNext, we cannot have $y = z$, as it would then follow that either $y^2 + 1$ or $y^2 + 2$ divides $2y^3$, which forces $y \\le 1$. For $(y-z)^2 = 1$, say $y = z + 1$ the first equation has no solution because $y+z$ must be even, while the second one has only the solution $(y, z) = (251, 252)$, as in this case the equation simply becomes $x + y = 503$. We now prove that we cannot have $(y-z)^2 \\ge 4$. Indeed, if this happened, write $y+z = 503k$ and note that $y^2 - yz + z^2 > yz + 2$. Thus for the first equation we would get $k < 4$, while for the second one $k < 1$. Consider the first equation with $k < 4$. As $y+z$ is even, $k$ is even and so $k = 3$. But then $3$ divides both $y+z$ and $yz+2$, so $3$ divides $y^2+1$, which is impossible.\nThus, the only solution is $(2, 251, 252)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-2531",
+      "name": "TSTST #0jgz",
+      "url": "https://usamoguide.com/",
+      "source": "TSTST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Factorization techniques",
+        "Recurrence relations"
+      ],
+      "statement": "A rational number $x$ is given. Prove that there exists a sequence $x_0, x_1, x_2, \\dots$ of rational numbers with the following properties:\n\na. $x_0 = x$;\n\nb. for every $n \\ge 1$, either $x_n = 2x_{n-1}$ or $x_n = 2x_{n-1} + \\frac{1}{n}$;\n\nc. $x_n$ is an integer for some $n$.\n\n(This problem was suggested by Gabriel Carroll.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Let $x$ be written in lowest terms as $p/q$, and write $q = 2^r s$, where $s$ is odd. Let $S$ be the set of residue classes modulo $s$, where arithmetic on elements of $S$ is understood to be done modulo $s$. For any positive integer $N$ and any $t \\in S$, say that $t$ is *attainable* at $N$ if there exists a sequence $x_0, x_1, \\dots, x_N$ such that\n\n* $x_0 = x$;\n* $x_n = 2x_{n-1}$ or $x_n = 2x_{n-1} + 1/n$ for each $n = 1, \\dots, N$;\n* $s x_N$ is an integer in the residue class $t$.\n\nSay that a subset $T \\subseteq S$ is *attainable* at $N$ if every element of $T$ is attainable at $N$.\n\nLemma 1. There exists a nonempty set attainable at some $N$.\n\n*Proof.* Taking $x_n = 2x_{n-1}$ for all $n$, we get $x_r = 2^r x = p/s$, in lowest terms, hence the residue class of $p$ is attainable at $r$. $\\square$\n\nLemma 2. If the nonempty subset $T \\subseteq S$ is attainable at $N$, and $T$ is not all of $S$, then there exist another subset $T'$ and $N' > N$, with $T'$ attainable at $N'$, and $T'$ containing more elements than $T$.\n\n*Proof.* Choose $k$ such that $2^k s > N$, and put $N' = 2^k s + k$.\n\nFor each $t \\in T$, the residue class $2^{N'-N} t$ is attainable at $N'$. Indeed, if $x_0, \\dots, x_N$ attain $t$ at $N$, then just extend the sequence by defining $x_n = 2x_{n-1}$ for each $n = N+1, \\dots, N'$, and we have $x_{N'} = 2^{N'-N} x_N$ from which the assertion follows.\n\nAlso, the residue class $2^{N'-N} t + 1$ is attainable at $N'$. Indeed, take the sequence $x_0, \\dots, x_N$ attaining $t$ at $N$, then define $x_n = 2x_{n-1}$ for each $n = N+1, \\dots, N'$ except for $n = 2^k s$, in which case we put $x_n = 2x_{n-1} + 1/n$. Then we have $x_{N'} = 2^{N'-N} x_N + 2^{N'-2^k s}/2^k s = 2^{N'-N} x_N + 1/s$, from which the assertion follows.\n\nSo the two sets of residues\n$$\nT'_1 = \\{2^{N'-N} t \\mid t \\in T\\} \\quad \\text{and} \\quad T'_2 = \\{2^{N'-N} t + 1 \\mid t \\in T\\}\n$$\nare both attainable at $N'$. Also, $T'_1$ has the same number of elements as $T$, since $2^{N'-N}$ is relatively prime to $s$.\n\nThere must be some $t \\in T'_1$ such that $t + 1 \\notin T'_1$: Otherwise, starting from any element of $T'_1$ and applying induction, we could show that every element of $S$ must be in $T'_1$; but since $T'_1$ has the same number of elements as $T$, which by assumption is a proper subset of $S$, this is impossible. Hence, $T'_2$ contains some element not in $T'_1$. So their union $T' = T'_1 \\cup T'_2$, which again is attainable at $N'$, contains strictly more elements than $T'_1$, and so contains more elements than $T$. This completes the proof. $\\square$\n\nNow, using Lemma 1 and Lemma 2, we can successively construct nonempty subsets $T_1, T_2, T_3, \\dots$ having progressively more elements, each attainable at some $N_1, N_2, N_3, \\dots$ respectively. This process cannot continue forever, since each $T_i$ is contained in the finite set $S$. Therefore, it must eventually stop, which happens when some $T_i$ is all of $S$. In particular, the residue class $0 \\in T_i$ is attainable at $N_i$. This means that we can construct $x_0, x_1, \\dots, x_{N_i}$ with $x_{N_i}$ an integer. Then just take $x_n = 2x_{n-1}$ for each $n \\ge N_i + 1$, and we have an infinite sequence satisfying the conditions of the problem.\n\nSuppose that $x_m \\in \\mathbb{Q} \\setminus \\mathbb{Z}$ is given, where $m \\ge 0$. Let $p$ be the largest prime divisor of the denominator of $x_m$, and write\n$$\nx_m = \\frac{a}{b p^k}\n$$\nwhere $p \\nmid a$ and $p \\nmid b$. We show that we can reach a value $x_n$, $n > m$, whose denominator has at most $k-1$ factors of $p$ and no larger prime divisors. Using this successively, we can decrease the largest prime divisor of the denominator until no factors are left.\n\nIf $p=2$, we may take $n=m+1$ with $x_n = 2x_m$. Therefore, we will now assume that $p \\ge 3$.\n\nOur procedure for constructing $x_{m+1}, \\dots, x_n$ will be to take $x_{i+1} = 2x_i$ for $m \\le i < n-1$ and\n$$\nx_n = 2x_{n-1} + \\frac{1}{n} = 2^{n-m} x_m + \\frac{1}{n} = \\frac{2^{n-m} a}{b p^k} + \\frac{1}{n}.\n$$\nWe consider $n$ of the form $c p^k (p-1)$, where all prime factors of $c$ are less than $p$. Then\n$$\nx_n = \\frac{2^{c p^k (p-1) - m} \\cdot a}{b p^k} + \\frac{1}{c p^k (p-1)} = \\frac{2^{c p^k (p-1)} a c (p-1) + 2^m b}{2^m b c p^k (p-1)}.\n$$\nSince the denominator of this expression has exactly $k$ factors of $p$ and no larger prime divisors, it suffices to show that we can choose $c$ such that the numerator is divisible by $p$. Mod $p$, we have $2^{c p^k (p-1)} \\equiv 1 \\pmod{p}$ so we want\n$$\na c \\equiv 2^m b \\pmod{p}.\n$$\nSince $p \\nmid a$, $p \\nmid b$, and $p \\ne 2$, this condition has a unique solution $c = c_0$, $1 \\le c_0 \\le p-1$. We may now take $c = 2^{\\ell(p-1)} c_0$ where $\\ell$ is large enough so that $n = c p^k (p-1) > m$. This value of $c$ clearly has no prime factors greater than or equal to $p$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-2552",
+      "name": "Berkeley Math Circle Monthly Contest 6 #0jhk",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Multiplicative order",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\nFind all positive integers $n$ such that $n \\mid 2^{n}-1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe only such $n$ is $n=1$. Clearly $1 \\mid 2^{1}-1$.\n\nSuppose that $n>1$ is a solution. Let $p$ be the smallest prime divisor of $n$. Note that $p>2$ (an even value of $n$ cannot divide $2^{n}-1$). By Fermat's little theorem, $2^{p-1} \\equiv 1 \\pmod{p}$. But we are also given $2^{n} \\equiv 1 \\pmod{p}$. Thus the order $m$ of $2 \\bmod p$ (that is, the smallest $m$ such that $2^{m} \\equiv 1 \\pmod{p}$) divides both $p-1$ and $n$. But $p-1$ has only prime factors less than $p$, and $n$ has only prime factors greater than or equal to $p$, so these numbers are relatively prime. We get $m=1$, so $2^{1} \\equiv 1 \\pmod{p}$, a contradiction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-2672",
+      "name": "HMMT November 2014 #0jkw",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2014",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Chinese remainder theorem",
+        "Quadratic residues",
+        "Recurrence relations"
+      ],
+      "statement": "Problem:\nLet $f(x) = x^{2} - 2$, and let $f^{n}$ denote the function $f$ applied $n$ times. Compute the remainder when $f^{24}(18)$ is divided by $89$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $L_{n}$ denote the Lucas numbers given by $L_{0} = 2$, $L_{1} = 1$, and $L_{n+2} = L_{n+1} + L_{n}$. Note that $L_{n}^{2} - 2 = L_{2n}$ when $n$ is even (one can show this by induction, or explicitly using $L_{n} = \\left(\\frac{1+\\sqrt{5}}{2}\\right)^{n} + \\left(\\frac{1-\\sqrt{5}}{2}\\right)^{n}$). So, $f^{24}(L_{6}) = L_{3 \\cdot 2^{25}}$.\n\nNow note that since $89 \\equiv 4 \\pmod{5}$, we have $5^{\\frac{p-1}{2}} \\equiv 1 \\pmod{89}$ so $L_{89} = \\left(\\frac{1+\\sqrt{5}}{2}\\right)^{p} + \\left(\\frac{1-\\sqrt{5}}{2}\\right)^{p} \\equiv L_{1} \\pmod{89}$ and similarly $L_{90} \\equiv L_{2}$, so the sequence $L_{n} \\pmod{89}$ is periodic with period $88$. (Alternatively, reason by analog of Fermat's little theorem, since we can substitute an integer residue for $\\sqrt{5}$.)\n\nWe have $3 \\cdot 2^{25} \\equiv 3 \\cdot 2^{5} \\equiv 8 \\pmod{11}$ and $\\equiv 0 \\pmod{8}$, so $L_{3 \\cdot 2^{25}} \\equiv L_{8} \\pmod{89}$. Computing $L_{8} = 47$ gives the answer."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-2734",
+      "name": "IMO Team Selection Team Selection Test #0jmm",
+      "url": "https://usamoguide.com/",
+      "source": "IMO Team Selection Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Recurrence relations",
+        "Sums and products"
+      ],
+      "statement": "Define a function $f : \\mathbb{N} \\to \\mathbb{N}$ by $f(1) = 1$, $f(n + 1) = f(n) + 2^{f(n)}$ for every positive integer $n$. Prove that $f(1), f(2), \\dots, f(3^{2013})$ leave distinct remainders when divided by $3^{2013}$.\n\n(This problem was suggested by Evan O'Dorney.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "We prove the following stronger statement: For any $k \\ge 0$ and $a \\ge 1$, the values $f(a), f(a+1), \\dots, f(a+3^k - 1)$ are all distinct modulo $3^k$; that is, these numbers form a complete set of residues modulo $3^k$. We will induct on $k$, the case $k=0$ being trivial.\n\nAssume the statement true for a given $k$; we will prove it for $k+1$. For any $a \\ge 1$, we have\n$$\n\\begin{aligned}\n& f(a + 3^k) - f(a) \\\\\n&= [f(a+1) - f(a)] + [f(a+2) - f(a+1)] + \\dots + [f(a + 3^k) - f(a + 3^k - 1)] \\\\\n&= 2^{f(a)} + 2^{f(a+1)} + \\dots + 2^{f(a+3^k-1)}.\n\\end{aligned}\n$$\n\nNote that by Euler's theorem, to know $2^x$ modulo $3^{k+1}$ ($x \\ge 1$), it suffices to know $x$ modulo $\\varphi(3^{k+1}) = 2 \\cdot 3^k$. Now $f(x)$ is always odd (this follows from the definition), while the inductive hypothesis tells us that $f(a), \\dots, f(a+3^k-1)$ are distinct mod $3^k$. Hence sets\n$$\n\\{f(a), \\dots, f(a + 3^k - 1)\\} \\quad \\text{and} \\quad \\{1, 3, 5, \\dots, 2 \\cdot 3^k - 1\\}\n$$\nare congruent to each other modulo $2 \\cdot 3^k$. Therefore, modulo $3^{k+1}$, we have\n$$\nf(a + 3^k) - f(a) \\equiv 2^1 + 2^3 + 2^5 + \\dots + 2^{2 \\cdot 3^k - 1} \\equiv 2(1 + 4 + 4^2 + \\dots + 4^{3^k - 1}) \\equiv \\frac{2(4^{3^k} - 1)}{3}.\n$$\nBy the binomial theorem, we have\n$$\n4^{3^k} - 1 = (1 + 3)^{3^k} - 1 = 3 \\cdot \\binom{3^k}{1} + \\dots,\n$$\nwhere each of the remaining summands are divisible by $3^{k+2}$; hence\n$$\nf(a + 3^k) - f(a) \\equiv 2 \\cdot 3^k \\pmod{3^k} \\qquad (20)\n$$\nfor all $a$.\n\nReturning to the sequence\n$$\nf(a), f(a+1), \\dots, f(a + 3^{k+1} - 1),\n$$\nwe see that, since $f(b) \\equiv f(b + 3^k)$ modulo $3^k$ (a consequence of the inductive hypothesis), the terms congruent to one another modulo $3^k$ come in triples $(f(b), f(b + 3^k), f(b + 2 \\cdot 3^k))$. By (20), these terms, modulo $3^{k+1}$, are congruent to $(f(b), f(b) + 2 \\cdot 3^k, f(b) + 3^k)$, which are pairwise distinct, completing our induction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-2759",
+      "name": "HMMT November 2015 #0jnb",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2015",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Enumeration with symmetry",
+        "Fermat / Euler / Wilson theorems"
+      ],
+      "statement": "Problem:\nLet $N$ be the number of functions $f$ from $\\{1,2, \\ldots, 101\\} \\rightarrow \\{1,2, \\ldots, 101\\}$ such that $f^{101}(1)=2$. Find the remainder when $N$ is divided by 103.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFor convenience, let $n=101$. Compute the number of functions such that $f^{n}(1)=1$. Since $n$ is a prime, there are 2 cases: the order of $1$ is either $1$ or $n$. The first case gives $n^{n-1}$ functions, and the second case gives $(n-1)!$ functions. By symmetry, the number of ways for $f^{n}(1)=2$ is\n$$\n\\frac{1}{n-1} \\cdot \\left(n^{n}-n^{n-1}-(n-1)!\\right) = n^{n-1}-(n-2)!\n$$\nPlugging in $n=101$, we need to find\n$$\n\\begin{gathered}\n101^{100}-99! \\equiv (-2)^{-2} - \\frac{101!}{6} \\\\\n= 1/4 - 1/6 = 1/12 = 43 \\quad (\\bmod 103).\n\\end{gathered}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-2761",
+      "name": "HMMT November 2015 #0jnd",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2015",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Chinese remainder theorem",
+        "Fermat / Euler / Wilson theorems",
+        "Greatest common divisors (gcd)",
+        "Inverses mod n",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\nA number $n$ is bad if there exists some integer $c$ for which $x^{x} \\equiv c \\pmod{n}$ has no integer solutions for $x$. Find the number of bad integers between $2$ and $42$ inclusive.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nCall a number good if it is not bad. We claim all good numbers are products of distinct primes, none of which are equivalent to $1$ modulo another.\n\nWe first show that all such numbers are good. Consider $n = p_{1} p_{2} \\ldots p_{k}$, and let $x$ be a number satisfying $x \\equiv c \\pmod{p_{1} p_{2} \\ldots p_{k}}$ and $x \\equiv 1 \\pmod{(p_{1}-1)(p_{2}-1) \\ldots (p_{k}-1)}$. Since, by assumption, $p_{1} p_{2} \\ldots p_{k}$ and $(p_{1}-1)(p_{2}-1) \\ldots (p_{k}-1)$ are relatively prime, such an $x$ must exist by CRT. Then $x^{x} \\equiv c^{1} = c \\pmod{n}$, for any $c$, as desired.\n\nWe now show that all other numbers are bad. Suppose that there exist some $p_{1}, p_{2} \\mid n$ such that $\\gcd(p_{1}, p_{2}-1) \\neq 1$ (which must hold for some two primes by assumption), and hence $\\gcd(p_{1}, p_{2}-1) = p_{1}$. Consider some $c$ for which $p_{1} c$ is not a $p_{1}$th power modulo $p_{2}$, which must exist as $p_{1} c$ can take any value modulo $p_{2}$ (as $p_{1}, p_{2}$ are relatively prime). We then claim that $x^{x} \\equiv p_{1} c \\pmod{n}$ is not solvable.\n\nSince $p_{1} p_{2} \\mid n$, we have $x^{x} \\equiv p_{1} c \\pmod{p_{1} p_{2}}$, hence $p_{1} \\mid x$. But then $x^{x} \\equiv p_{1} c$ is a $p_{1}$th power modulo $p_{2}$ as $p_{1} \\mid x$, contradicting our choice of $c$. As a result, all such numbers are bad.\n\nFinally, it is easy to see that $n$ is bad if it is not squarefree. If $p_{1}$ divides $n$ twice, then letting $c = p_{1}$ makes the given equivalence unsolvable.\n\nHence, there are $16$ numbers (13 primes: $2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41$; and 3 semiprimes: $3 \\cdot 5 = 15$, $3 \\cdot 11 = 33$, $5 \\cdot 7 = 35$) that are good, which means that $41 - 16 = 25$ numbers are bad."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-2802",
+      "name": "HMMT February #0joi",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Algebraic properties of binomial coefficients",
+        "Recursion, bijection",
+        "Induction / smoothing",
+        "Fermat / Euler / Wilson theorems"
+      ],
+      "statement": "Problem:\n\nDefine a sequence $a_{i, j}$ of integers such that $a_{1, n} = n^{n}$ for $n \\geq 1$ and $a_{i, j} = a_{i-1, j} + a_{i-1, j+1}$ for all $i, j \\geq 1$. Find the last (decimal) digit of $a_{128,1}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nBy applying the recursion multiple times, we find that $a_{1,1} = 1$, $a_{2, n} = n^{n} + (n+1)^{n+1}$, and $a_{3, n} = n^{n} + 2(n+1)^{n+1} + (n+2)^{n+2}$. At this point, we can conjecture and prove by induction that\n$$\na_{m, n} = \\sum_{k=0}^{m-1} \\binom{m-1}{k} (n+k)^{n+k} = \\sum_{k \\geq 0} \\binom{m-1}{k} (n+k)^{n+k}\n$$\n(The second expression is convenient for dealing with boundary cases. The induction relies on $\\binom{m}{0} = \\binom{m-1}{0}$ on the $k=0$ boundary, as well as $\\binom{m}{k} = \\binom{m-1}{k} + \\binom{m-1}{k-1}$ for $k \\geq 1$.) We fix $m = 128$. Note that $\\binom{127}{k} \\equiv 1 \\pmod{2}$ for all $1 \\leq k \\leq 127$ and $\\binom{127}{k} \\equiv 0 \\pmod{5}$ for $3 \\leq k \\leq 124$, by Lucas' theorem on binomial coefficients. Therefore, we find that\n$$\na_{128,1} = \\sum_{k=0}^{127} \\binom{127}{k} (k+1)^{k+1} \\equiv \\sum_{k=0}^{127} (k+1)^{k+1} \\equiv 0\n$$\nand\n$$\na_{128,1} \\equiv \\sum_{k \\in [0,2] \\cup [125,127]} \\binom{127}{k} (k+1)^{k+1} \\equiv 4 \\quad (\\bmod 5).\n$$\nTherefore, $a_{128,1} \\equiv 4 \\pmod{10}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-2824",
+      "name": "HMMT February 2015 #0jp4",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2015",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Complex numbers",
+        "Algebraic properties of binomial coefficients",
+        "Polynomial operations"
+      ],
+      "statement": "Problem:\nLet $z = a + b i$ be a complex number with integer real and imaginary parts $a, b \\in \\mathbb{Z}$, where $i = \\sqrt{-1}$ (i.e. $z$ is a Gaussian integer). If $p$ is an odd prime number, show that the real part of $z^{p} - z$ is an integer divisible by $p$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe directly compute/expand\n$$\n\\begin{aligned}\n\\operatorname{Re}\\left(z^{p}-z\\right) & = \\operatorname{Re}\\left((a+b i)^{p}-(a+b i)\\right) \\\\\n& = \\left[a^{p} - \\binom{p}{2} a^{p-2} b^{2} + \\binom{p}{4} a^{p-4} b^{4} - \\cdots \\right] - a .\n\\end{aligned}\n$$\nSince $\\binom{p}{i}$ is divisible by $p$ for all $i=2,4,6, \\ldots$ (since $1 \\leq i \\leq p-1$), we have\n$$\n\\left[a^{p} - \\binom{p}{2} a^{p-2} b^{2} + \\binom{p}{4} a^{p-4} b^{4} - \\cdots \\right] - a \\equiv a^{p} - a \\equiv 0 \\quad (\\bmod p)\n$$\nby Fermat's little theorem. Thus $p$ divides the real part of $z^{p}-z$.\n\n\nSolution 2:\nFrom the Frobenius endomorphism,\n$$\nz^{p} = (a + b i)^{p} \\equiv a^{p} + (b i)^{p} = a^{p} \\pm b^{p} i \\equiv a \\pm b i \\quad (\\bmod p \\cdot \\mathbb{Z}[i])\n$$\nwhere we're using congruence of Gaussian integers (so that $u \\equiv v (\\bmod p)$ if and only if $\\frac{u-v}{p}$ is a Gaussian integer). This is equivalent to the simultaneous congruence of the real and imaginary parts modulo $p$, so the real part of $z^{p}$ is congruent to $a$, the real part of $z$. So indeed $p$ divides the real part of $z^{p}-z$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-2908",
+      "name": "HMMT February 2015 #0jrg",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2015",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Roots of unity",
+        "Symmetric functions",
+        "Polynomials mod p",
+        "Fermat / Euler / Wilson theorems",
+        "Algebraic numbers"
+      ],
+      "statement": "Problem:\nLet $z = e^{\\frac{2\\pi i}{101}}$ and let $\\omega = e^{\\frac{2\\pi i}{10}}$. Prove that\n$$\n\\prod_{a=0}^{9} \\prod_{b=0}^{100} \\prod_{c=0}^{100} \\left(\\omega^{a} + z^{b} + z^{c}\\right)\n$$\nis an integer and find (with proof) its remainder upon division by $101$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $p = 101$ and $r = 10$. Note that $p \\nmid r$.\n\nIn the sequel, we will repeatedly use the polynomial identities $\\prod_{k (\\bmod p)} (x - z^{k}) = x^{p} - 1$, and $\\prod_{j (\\bmod r)} (x - \\omega^{j}) = x^{r} - 1$.\n\nThe product is an integer by standard symmetric sum theory (concrete precursor to Galois theory, though one doesn't need the full language). More precisely, it expands into an integer-coefficient polynomial symmetric in the $\\omega^{j}$ (for the $r$ residues $j (\\bmod r)$), and also symmetric in the $z^{k}$ (for the $p$ residues $k (\\bmod p)$). So by the fundamental theorem of symmetric sums, it can be written as an integer-coefficient polynomial in the symmetric sums of the $\\omega^{j}$ together with the symmetric sums of the $z^{k}$. But these symmetric sums are integers themselves, so the original expression is indeed an integer.\n\nTo actually compute the remainder modulo $p$, note by the Frobenius endomorphism $(u + v)^{p} \\equiv u^{p} + v^{p} \\pmod{p}$ that\n$$\n\\begin{aligned}\n\\prod_{a, b, c} (\\omega^{a} + z^{b} + z^{c}) &= \\prod_{a, b} (-1)^{p} \\left( (-\\omega^{a} - z^{b})^{p} - 1 \\right) \\\\\n&\\equiv \\prod_{a, b} (\\omega^{p a} + z^{p b} - (-1)^{p}) = \\prod_{a, b} (\\omega^{p a} + 2) \\quad (\\bmod p)\n\\end{aligned}\n$$\nwhere we use $p \\equiv 1 \\pmod{2}$ in the last step. This simplifies further to\n$$\n\\begin{aligned}\n\\prod_{a} (-1)^{p} (-2 - \\omega^{p a})^{p} &= \\prod_{a} (-1)^{p} (-2 - \\omega^{a})^{p} \\\\\n&= (-1)^{p r} [(-2)^{r} - 1]^{p} \\equiv (-1)^{p r} [(-2)^{r} - 1] \\quad (\\bmod p)\n\\end{aligned}\n$$\nwhere we've used the fact that $\\{p a \\bmod r\\} = \\{a \\bmod r\\}$ (since $p$ is invertible $\\bmod r$), as well as Fermat's little theorem on $(-2)^{r} - 1$.\n\nFinally, we plug in the specific numbers:\n$$\n(-1)^{101 \\cdot 10} [(-2)^{10} - 1] = 1023 \\equiv 13 \\pmod{101}\n$$\n\nSolution:\nHere we sketch a better solution found by several teams, but missed by the author (primarily due to blindness from having first found the first solution). The proof of the first part (that the product is an integer) is the same, so we only sketch different proofs of the second part (computation of the remainder $\\bmod p$).\n\nFor example, we can use the algebraic integer formulation from the previous solution. Indeed, note that $D := \\prod_{a, b, c} (\\omega^{a} + z^{b} + z^{c}) - \\prod_{a, b, c} (\\omega^{a} + 1^{b} + 1^{c})$ is an algebraic integer divisible by $z - 1$. But $D$ is also a difference of integers, hence an integer itself. The only way $\\frac{D}{z - 1}$ can be an algebraic integer is if $p \\mid D$ (Why?), so it simply remains to compute the remainder when the integer $\\prod_{a, b, c} (\\omega^{a} + 1^{b} + 1^{c})$ is divided by $p$, which is quite easy.\n\nAlternatively (as some contestants/teams found), we can get rid of $\\omega$ first (rather than $z$ as in the previous solution), so (up to sign) we want to evaluate $\\prod_{b, c} (1 + (z^{b} + z^{c})^{r}) \\pmod{p}$. But we have a polynomial identity $\\prod_{b, c} (1 + (T^{b} + T^{c})^{r}) \\in \\Phi_{p}(T) \\cdot \\mathbb{Z}[x] + M$ for some constant integer $M$, where $\\Phi_{p}(T) = T^{p-1} + \\cdots + T + 1$ denotes the $p$th cyclotomic polynomial. But note that $\\Phi_{p}(z) = 0$ is congruent to $\\Phi_{p}(1) = p$ modulo $p$, so\n$$\n\\prod_{b, c} (1 + (z^{b} + z^{c})^{r}) - \\prod_{b, c} (1 + (1^{b} + 1^{c})^{r})\n$$\nis an integer divisible by $p$. The rest is easy.\n\nFinally, as before:\n$$\n(-1)^{101 \\cdot 10} [(-2)^{10} - 1] = 1023 \\equiv 13 \\pmod{101}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-2948",
+      "name": "HMMT February #0jsk",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Multiplicative order",
+        "Chinese remainder theorem",
+        "Greatest common divisors (gcd)"
+      ],
+      "statement": "Problem:\n\nDetermine the number of integers $2 \\leq n \\leq 2016$ such that $n^{n}-1$ is divisible by $2,3,5,7$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nOnly $n \\equiv 1 \\pmod{210}$ work. Proof: we require $\\gcd(n, 210) = 1$. Note that for all $p \\leq 7$ the order of $n$ $(\\bmod\\ p)$ divides $p-1$, hence is relatively prime to any $p \\leq 7$. So $n^{n} \\equiv 1 \\pmod{p} \\Longleftrightarrow n \\equiv 1 \\pmod{p}$ for each of these $p$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-2980",
+      "name": "HMMT February #0jtg",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Chinese remainder theorem",
+        "Fermat / Euler / Wilson theorems",
+        "Primitive roots mod p / p^n",
+        "Multiplicative order"
+      ],
+      "statement": "Problem:\n\nFor positive integers $a, b$, $a \\uparrow \\uparrow b$ is defined as follows: $a \\uparrow \\uparrow 1 = a$, and $a \\uparrow \\uparrow b = a^{a \\uparrow \\uparrow (b-1)}$ if $b > 1$.\nFind the smallest positive integer $n$ for which there exists a positive integer $a$ such that $a \\uparrow \\uparrow 6 \\not\\equiv a \\uparrow \\uparrow 7 \\pmod{n}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe see that the smallest such $n$ must be a prime power, because if two numbers are distinct mod $n$, they must be distinct mod at least one of the prime powers that divide $n$. For $k \\geq 2$, if $a \\uparrow \\uparrow k$ and $a \\uparrow \\uparrow (k+1)$ are distinct $\\bmod p^{r}$, then $a \\uparrow \\uparrow (k-1)$ and $a \\uparrow \\uparrow k$ must be distinct $\\bmod \\phi\\left(p^{r}\\right)$. In fact they need to be distinct $\\bmod \\frac{\\phi\\left(p^{r}\\right)}{2}$ if $p=2$ and $r \\geq 3$ because then there are no primitive roots mod $p^{r}$.\n\nUsing this, for $1 \\leq k \\leq 5$ we find the smallest prime $p$ such that there exists $a$ such that $a \\uparrow \\uparrow k$ and $a \\uparrow \\uparrow (k+1)$ are distinct $\\bmod p$. The list is: $3, 5, 11, 23, 47$. We can easily check that the next largest prime for $k=5$ is $139$, and also any prime power other than $121$ for which $a \\uparrow \\uparrow 5$ and $a \\uparrow \\uparrow 6$ are distinct is also larger than $139$.\n\nNow if $a \\uparrow \\uparrow 6$ and $a \\uparrow \\uparrow 7$ are distinct $\\bmod p$, then $p-1$ must be a multiple of $47$ or something that is either $121$ or at least $139$. It is easy to see that $283$ is the smallest prime that satisfies this.\n\nIf $n$ is a prime power less than $283$ such that $a \\uparrow \\uparrow 6$ and $a \\uparrow \\uparrow 7$ are distinct $\\bmod n$, then the prime can be at most $13$ and clearly this doesn't work because $\\phi\\left(p^{r}\\right) = p^{r-1}(p-1)$.\n\nTo show that $283$ works, choose $a$ so that $a$ is a primitive root $\\bmod 283, 47, 23, 11, 5$ and $3$. This is possible by the Chinese Remainder theorem, and it is easy to see that this $a$ works by induction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-3013",
+      "name": "HMMT February 2016 #0jud",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2016",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Multiplicative order",
+        "Chinese remainder theorem",
+        "Sums and products"
+      ],
+      "statement": "Problem:\nDetermine the remainder when\n$$\n\\sum_{i=0}^{2015}\\left\\lfloor\\frac{2^{i}}{25}\\right\\rfloor\n$$\nis divided by $100$, where $\\lfloor x\\rfloor$ denotes the largest integer not greater than $x$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $r_{i}$ denote the remainder when $2^{i}$ is divided by $25$. Note that because $2^{\\phi(25)} \\equiv 2^{20} \\equiv 1 \\pmod{25}$, $r$ is periodic with length $20$. In addition, we find that $20$ is the order of $2 \\bmod 25$. Since $2^{i}$ is never a multiple of $5$, all possible integers from $1$ to $24$ are represented by $r_{1}, r_{2}, \\ldots, r_{20}$ with the exceptions of $5, 10, 15$, and $20$. Hence,\n$$\n\\sum_{i=1}^{20} r_{i} = \\sum_{i=1}^{24} i - (5+10+15+20) = 250.\n$$\nWe also have\n$$\n\\begin{aligned}\n\\sum_{i=0}^{2015}\\left\\lfloor\\frac{2^{i}}{25}\\right\\rfloor &= \\sum_{i=0}^{2015} \\frac{2^{i} - r_{i}}{25} \\\\\n&= \\sum_{i=0}^{2015} \\frac{2^{i}}{25} - \\sum_{i=0}^{2015} \\frac{r_{i}}{25} \\\\\n&= \\frac{2^{2016} - 1}{25} - \\sum_{i=0}^{1999} \\frac{r_{i}}{25} - \\sum_{i=0}^{15} \\frac{r_{i}}{25} \\\\\n&= \\frac{2^{2016} - 1}{25} - 100\\left(\\frac{250}{25}\\right) - \\sum_{i=0}^{15} \\frac{r_{i}}{25} \\\\\n&\\equiv \\frac{2^{2016} - 1}{25} - \\sum_{i=0}^{15} \\frac{r_{i}}{25} \\pmod{100}\n\\end{aligned}\n$$\nWe can calculate $\\sum_{i=0}^{15} r_{i} = 185$, so\n$$\n\\sum_{i=0}^{2015}\\left\\lfloor\\frac{2^{i}}{25}\\right\\rfloor \\equiv \\frac{2^{2016} - 186}{25} \\pmod{100}\n$$\nNow $2^{\\phi(625)} \\equiv 2^{500} \\equiv 1 \\pmod{625}$, so $2^{2016} \\equiv 2^{16} \\equiv 536 \\pmod{625}$. Hence $2^{2016} - 186 \\equiv 350 \\pmod{625}$, and $2^{2016} - 186 \\equiv 2 \\pmod{4}$. This implies that $2^{2016} - 186 \\equiv 350 \\pmod{2500}$, and so $\\frac{2^{2016} - 186}{25} \\equiv 14 \\pmod{100}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-3070",
+      "name": "HMMT November 2016 #0jvy",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2016",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Chinese remainder theorem",
+        "Primitive roots mod p / p^n",
+        "Multiplicative order",
+        "Recurrence relations"
+      ],
+      "statement": "Problem:\nLet the sequence $a_{i}$ be defined as $a_{i+1} = 2^{a_{i}}$. Find the number of integers $1 \\leq n \\leq 1000$ such that if $a_{0} = n$, then $100$ divides $a_{1000} - a_{1}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe claim that $a_{1000}$ is constant mod $100$.\n\n$a_{997}$ is divisible by $2$. This means that $a_{998}$ is divisible by $4$. Thus $a_{999}$ is constant mod $5$. Since it is also divisible by $4$, it is constant $\\bmod\\ 20$. Thus $a_{1000}$ is constant $\\bmod\\ 25$, since $\\phi(25) = 20$. Since $a_{1000}$ is also divisible by $4$, it is constant mod $100$.\n\nWe know that $a_{1000}$ is divisible by $4$, and let it be congruent to $k \\bmod 25$.\nThen $2^{n}$ is divisible by $4$ ($n \\geq 2$) and $2^{n} \\equiv k \\bmod 25$. We can also show that $2$ is a primitive root mod $25$, so there is one unique value of $n \\bmod 20$. It suffices to show this value isn't $1$. But $2^{2^{0 \\bmod 4}} \\equiv 2^{16 \\bmod 20}$ $\\bmod 25$, so $n \\equiv 16 \\bmod 20$. Thus there are $1000 / 20 = 50$ values of $n$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-3094",
+      "name": "February 2017 #0jwm",
+      "url": "https://usamoguide.com/",
+      "source": "February 2017",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomials mod p",
+        "Quadratic residues",
+        "Fermat / Euler / Wilson theorems",
+        "Recursion, bijection"
+      ],
+      "statement": "Problem:\nLet $\\mathbb{N}$ denote the natural numbers. Compute the number of functions $f: \\mathbb{N} \\rightarrow \\{0,1, \\ldots, 16\\}$ such that\n$$\nf(x+17)=f(x) \\quad \\text{and} \\quad f\\left(x^{2}\\right) \\equiv f(x)^{2}+15 \\pmod{17}\n$$\nfor all integers $x \\geq 1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nBy plugging in $x=0$, we get that $f(0)$ can be either $-1,2$. As $f(0)$ is unrelated to all other values, we need to remember to multiply our answer by $2$ at the end. Similarly, $f(1)=-1$ or $2$.\n\nConsider the graph $x \\rightarrow x^{2}$. It is a binary tree rooted at $-1$, and there is an edge $-1 \\rightarrow 1$, and a loop $1 \\rightarrow 1$. Our first case is $f(1)=-1$. Note that if $x, y$ satisfy $x^{2}=y$, then $f(y) \\neq 1$. Otherwise, we would have $f(x)^{2}=3 \\pmod{17}$, a contradiction as $3$ is a nonresidue. So only the $8$ leaves can take the value $1$. This contributes $2^{8}$.\n\nFor $f(1)=2$, we can once again propagate down the tree. While it looks like we have $2$ choices at each node (for the square roots), this is wrong, as if $f(x)=-2$ and $y^{2}=x$, then $f(y)=0$ is forced.\n\nGiven this intuition, let $a_{n}$ denote the answer for a binary tree of height $n$ where the top is either $-2$ or $2$. Therefore, $a_{1}=2$, $a_{2}=5$. You can show the recurrence $a_{n}=a_{n-1}^{2}+2^{2^{n}-4}$. This is because if the top is $2$, then we get a contribution of $a_{n-1}^{2}$. If the top is $-2$, then both entries below it must be $0$. After that, you can show that each of the remaining $2^{n}-4$ vertices can be either of $2$ possible square roots. Therefore, we get the recurrence as claimed. One can compute that $a_{4}=5777$, so we get the final answer $2(256+5777)=12066$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-3134",
+      "name": "February 2017 #0jxq",
+      "url": "https://usamoguide.com/",
+      "source": "February 2017",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Quadratic residues",
+        "Factorization techniques",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\nAt a recent math contest, Evan was asked to find $2^{2016} \\pmod{p}$ for a given prime number $p$ with $100 < p < 500$. Evan has forgotten what the prime $p$ was, but still remembers how he solved it:\n- Evan first tried taking $2016$ modulo $p-1$, but got a value $e$ larger than $100$.\n- However, Evan noted that $e - \\frac{1}{2}(p-1) = 21$, and then realized the answer was $-2^{21} \\pmod{p}$.\nWhat was the prime $p$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer is $p=211$. Let $p=2d+1$, $50 < d < 250$. The information in the problem boils down to\n$$\n2016 = d + 21 \\pmod{2d}\n$$\nFrom this we can at least read off $d \\mid 1995$.\nNow factor $1995 = 3 \\cdot 5 \\cdot 7 \\cdot 19$. The values of $d$ in this interval are $57, 95, 105, 133$. The prime values of $2d+1$ are then $191$ and $211$. Of these, we take $211$ since $(2 / 191) = +1$ while $(2 / 211) = -1$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-3311",
+      "name": "HMMT November 2018 #0k2n",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2018",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Decimals",
+        "Sums and products",
+        "Multiplicative order",
+        "Fermat / Euler / Wilson theorems"
+      ],
+      "statement": "Problem:\nWhat is the 3-digit number formed by the $9998^{\\text{th}}$ through $10000^{\\text{th}}$ digits after the decimal point in the decimal expansion of $\\frac{1}{998}$?\n\nNote: Make sure your answer has exactly three digits, so please include any leading zeroes if necessary.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: 042\n\nNote that $\\frac{1}{998} + \\frac{1}{2} = \\frac{250}{499}$ repeats every 498 digits because 499 is prime, so $\\frac{1}{998}$ does as well (after the first 498 block). Now we need to find $38^{\\text{th}}$ to $40^{\\text{th}}$ digits. We expand this as a geometric series\n$$\n\\frac{1}{998} = \\frac{\\frac{1}{1000}}{1 - \\frac{2}{1000}} = .001 + .001 \\times .002 + .001 \\times .002^{2} + \\cdots\n$$\nThe contribution to the $36^{\\text{th}}$ through $39^{\\text{th}}$ digits is 4096, the $39^{\\text{th}}$ through $42^{\\text{nd}}$ digits is 8192, and $41^{\\text{st}}$ through $45^{\\text{th}}$ digits is 16384. We add these together:\n\n![](attached_image_1.png)\n\nThe remaining terms decrease too fast to have effect on the digits we are looking at, so the $38^{\\text{th}}$ to $40^{\\text{th}}$ digits are 042."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-3371",
+      "name": "Berkeley Math Circle #0k4b",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recurrence relations",
+        "Multiplicative order",
+        "Fermat / Euler / Wilson theorems",
+        "Sums and products"
+      ],
+      "statement": "Problem:\nA sequence $a_{1}, a_{2}, \\ldots$ of positive integers satisfies $a_{1}=1$ and\n$$\na_{n+1}=2^{a_{n}}+a_{n}\n$$\nfor $n \\geq 1$. Prove that $a_{1}, a_{2}, \\ldots, a_{243}$ leave distinct remainders when divided by $243$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nI'll prove by induction on $k \\geq 1$ that any $3^{k}$ consecutive values of $a_{n}$ produce distinct residues modulo $3^{k}$. The base case $k=1$ is easily checked ($a_{n}$ is always odd, hence $a_{n}$ cycles $1,0,2 \\bmod 3$).\n\nFor the inductive step, assume it's true up to $k$. Since $2^{*} (\\bmod 3^{k+1})$ cycles every $2 \\cdot 3^{k}$, and $a_{k}$ is always odd, it follows that\n$$\n\\begin{aligned}\na_{n+3^{k}}-a_{n} & =2^{a_{n}}+2^{a_{n+1}}+\\cdots+2^{a_{n+3^{k}-1}} \\quad (\\bmod 3^{k+1}) \\\\\n& \\equiv 2^{1}+2^{3}+\\cdots+2^{2 \\cdot 3^{k}-1} \\quad (\\bmod 3^{k+1}) \\\\\n& =2 \\cdot \\frac{4^{3^{k}}-1}{4-1} .\n\\end{aligned}\n$$\nHence\n$$\na_{n+3^{k}}-a_{n} \\equiv C \\quad (\\bmod 3^{k+1}) \\quad \\text{ where } \\quad C=2 \\cdot \\frac{4^{3^{k}}-1}{4-1}\n$$\nnoting that $C$ does not depend on $n$. Exponent lifting gives $\\nu_{3}(C)=k$ (meaning $3^{k}$ divides $C$ but not $3^{k+1}$), hence $a_{n}, a_{n+3^{k}}, a_{n+2 \\cdot 3^{k}}$ differ $\\bmod 3^{k+1}$ for all $n$, and the inductive hypothesis now solves the problem."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-3511",
+      "name": "HMMT February 2019 #0k87",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2019",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Multiplicative order",
+        "φ (Euler's totient)",
+        "Fermat / Euler / Wilson theorems"
+      ],
+      "statement": "Problem:\nFor positive integers $a$ and $b$ such that $a$ is coprime to $b$, define $\\operatorname{ord}_{b}(a)$ as the least positive integer $k$ such that $b \\mid a^{k}-1$, and define $\\varphi(a)$ to be the number of positive integers less than or equal to $a$ which are coprime to $a$. Find the least positive integer $n$ such that\n$$\n\\operatorname{ord}_{n}(m)<\\frac{\\varphi(n)}{10}\n$$\nfor all positive integers $m$ coprime to $n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe maximum order of an element modulo $n$ is the Carmichael function, denoted $\\lambda(n)$. The following properties of the Carmichael function are established:\n- For primes $p>2$ and positive integers $k$, $\\lambda\\left(p^{k}\\right)=(p-1) p^{k-1}$.\n- For a positive integer $k$,\n$$\n\\lambda\\left(2^{k}\\right)= \\begin{cases}2^{k-2} & \\text{ if } k \\geq 3 \\\\ 2^{k-1} & \\text{ if } k \\leq 2\\end{cases}\n$$\n- For a positive integer $n$ with prime factorization $n=\\prod p_{i}^{k_{i}}$,\n$$\n\\lambda(n)=\\operatorname{lcm}\\left(\\lambda\\left(p_{1}^{k_{1}}\\right), \\lambda\\left(p_{2}^{k_{2}}\\right), \\ldots\\right)\n$$\nMeanwhile, for $n=\\prod p_{i}^{k_{i}}$, we have $\\varphi(n)=\\prod\\left(p_{i}-1\\right) p_{i}^{k_{i}-1}$. Hence the intuition is roughly that the $\\left(p_{i}-1\\right) p_{i}^{k_{i}-1}$ terms must share divisors in order to reach a high value of $\\frac{\\varphi(n)}{\\lambda(n)}$.\nWe will now show that $n \\geq 240$ by doing casework on the prime divisors of $z=\\frac{\\varphi(n)}{\\lambda(n)}$. Suppose $p \\mid z$ and $p>2$. This requires two terms among $\\lambda\\left(p_{1}^{k_{1}}\\right), \\lambda\\left(p_{2}^{k_{2}}\\right), \\ldots$ to be multiples of $p$ because $\\lambda(n)$ is the lcm of the terms whereas the product of these numbers has the same number of factors of $p$ as $\\varphi(n)$ (note that this does not hold for $p=2$ because $\\lambda\\left(2^{k}\\right) \\neq 2^{k-1}$ in general). These correspond to either $p^{2} \\mid n$ or $q \\mid n$ with $q \\equiv 1(\\bmod p)$. Therefore\n$$\nn \\geq \\max \\left(p^{2}(2 p+1),(2 p+1)(4 p+1)\\right)\n$$\nbecause the smallest primes congruent to $1(\\bmod p)$ are at least $2 p+1$ and $4 p+1$. For $p \\geq 5$ this gives $n>240$, so we may assume $p \\leq 3$.\nFirst we address the case $p=3$. This means that two numbers among $9,7,13,19,31,37, \\ldots$ divide $n$. As $7 \\times 37>240$, we discard primes greater than 31. Of the remaining numbers, we have\n$$\n\\lambda(9)=6, \\lambda(7)=6, \\lambda(13)=12, \\lambda(19)=18, \\lambda(31)=30 .\n$$\nNo candidate value of $n$ is the product of just two of these numbers as the gcd of any two of the associated $\\lambda$ values is at most 6. Furthermore, multiplying by just 2 will not affect $\\varphi(n)$ or $\\lambda(n)$, so we must multiply at least two of these numbers by a number greater than 2. Throwing out numbers greater than 240, this leaves only $3 \\times 9 \\times 7$, which does not work. (A close candidate is $3 \\times 7 \\times 13=273$, for which $\\varphi(n)=144, \\lambda(n)=12$.)\nThe remaining case is when the only prime divisors of $\\frac{\\varphi(n)}{\\lambda(n)}$ are 2. It is not hard to see that $\\lambda(n) \\geq 4$ when $n \\nmid 24$ (and when $n \\mid 24$ it's clear that $\\phi(n) \\leq 8$, so we do not need to consider them). When $\\lambda(n)=4$, we need $\\varphi(n) \\geq 4 \\cdot 2^{4}=64$ and $v_{2}(n) \\leq 4$, so the smallest such integer is $n=2^{4} \\cdot 3 \\cdot 5=240$, which we can check does indeed satisfy $\\frac{\\varphi(n)}{\\lambda(n)}>10$. It is not difficult to check that higher values of $\\lambda(n)$ will not yield any $n$ below 240, so 240 is indeed the smallest possible $n$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-3523",
+      "name": "HMMT February 2019 Team Round #0k8j",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2019 Team Round",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Least common multiples (lcm)",
+        "Fermat / Euler / Wilson theorems",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\nFind all positive integers $n$ for which there do not exist $n$ consecutive composite positive integers less than $n!$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $1,2,3,4$\n\nFirst, note that clearly there are no composite positive integers less than $2!$, and no $3$ consecutive composite positive integers less than $3!$. The only composite integers less than $4!$ are\n$$\n4,6,8,9,10,12,14,15,16,18,20,21,22\n$$\nand it is easy to see that there are no $4$ consecutive composite positive integers among them. Therefore, all $n \\leq 4$ works.\n\nDefine $M=\\operatorname{lcm}(1,2, \\ldots, n+1)$. To see that there are no other such positive integers, we first show that for all $n \\geq 5$, $n!>M$. Let $k=\\left\\lfloor\\log_{2}(n+1)\\right\\rfloor$. Note that $v_{2}(M)=k$, while\n$$\nv_{2}((n+1)!)=\\sum_{i=1}^{k}\\left\\lfloor\\frac{n+1}{2^{i}}\\right\\rfloor \\geq \\sum_{i=1}^{k}\\left(\\frac{n+1}{2^{i}}-1\\right)=\\left(n+1-\\frac{n+1}{2^{k}}\\right)-k \\geq (n+1-2)-k=n-k-1.\n$$\nThis means that at least $(n-k-1)-k=n-2k-1$ powers of $2$ are lost when going from $(n+1)!$ to $M$. Since $M \\mid (n+1)!$, when $n-2k-1 \\geq k+1 \\Longleftrightarrow n \\geq 3k+2$, we have\n$$\nM \\leq \\frac{(n+1)!}{2^{k+1}} \\leq \\frac{(n+1)!}{2(n+1)}<n!\n$$\nas desired. Since $n \\geq 2^{k}-1$, we can rule out all $k$ such that $2^{k} \\geq 3k+3$, which happens when $k \\geq 4$ or $n \\geq 15$. Moreover, when $k=3$, we may also rule out all $n \\geq 3k+2=11$.\n\nWe thus need only check values of $n$ between $5$ and $10$:\n\n$n=5$: $n!=120$, $M=60$;\n\n$n=6$: $n!=720$, $M=420$;\n\n$n=7$: $n!=5040$, $M=840$;\n\n$n \\in \\{8,9,10\\}$: $n!\\geq 40320$, $M \\leq 27720$.\n\nIn all cases, $n!>M$, as desired.\n\nTo finish, note that $M-2, M-3, \\ldots, M-(n+1)$ are all composite (divisible by $2,3, \\ldots, n+1$ respectively), which gives the desired $n$ consecutive numbers. Therefore, all integers $n \\geq 5$ do not satisfy the problem condition, and we are done.\n\nSolution:\nHere is a different way to show that constructions exist for $n \\geq 5$. Note that when $n+1$ is not prime, the numbers $n!-2, n!-3, \\ldots, n!-(n+1)$ are all composite (the first $n-1$ are clearly composite, the last one is composite because $n+1 \\mid n!$ and $n!>2(n+1)$). Otherwise, if $n=p-1$ for prime $p \\geq 7$, then the numbers $(n-1)!,(n-1)!-1,(n-1)!-2, \\ldots,(n-1)!-(n-1)$ are all composite (the first one and the last $n-2$ are clearly composite since $(n-1)!>2(n-1)$, the second one is composite since $p \\mid (p-2)!-1=(n-1)!-1$ by Wilson's theorem)."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-3720",
+      "name": "HMIC #0ke0",
+      "url": "https://usamoguide.com/",
+      "source": "HMIC",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomials mod p",
+        "Fermat / Euler / Wilson theorems",
+        "Quadratic residues",
+        "Generating functions",
+        "Algebraic properties of binomial coefficients"
+      ],
+      "statement": "Problem:\nLet $C_{k} = \\frac{1}{k+1} \\binom{2k}{k}$ denote the $k^{\\text{th}}$ Catalan number and $p$ be an odd prime. Prove that exactly half of the numbers in the set\n$$\n\\left\\{\\sum_{k=1}^{p-1} C_{k} n^{k} \\mid n \\in \\{1,2, \\ldots, p-1\\}\\right\\}\n$$\nare divisible by $p$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe work in $\\mathbb{F}_{p}[X]$.\nWe claim that\n$$\n(1-4 X)^{\\frac{p+1}{2}}-1+2 X^{p}+2 X \\sum_{k=0}^{p-1} C_{k} X^{k}=0\n$$\nThe solution follows from this claim, as\n$$\n\\sum_{k=1}^{p-1} C_{k} n^{k} \\equiv 0 \\quad(\\bmod p) \\Longleftrightarrow (1-4 n)^{\\frac{p+1}{2}}-1+2 n^{p}+2 n \\equiv 0 \\quad(\\bmod p)\n$$\nSince $n^{p} \\equiv n \\pmod{p}$, this is equivalent to $n \\equiv \\frac{1}{4} \\pmod{p}$ or $1-4 n$ being a non-zero quadratic residue in $\\mathbb{F}_{p}$. But we must omit the solution of $n=0$, so we get $1+\\left(\\frac{p-1}{2}-1\\right)=\\frac{p-1}{2}$ values of $n$ that work. Now we prove the claim. Observe the following facts:\n- $C_{p-1}=\\frac{1}{2p-1}\\binom{2p-1}{p}=-1$ by Lucas' theorem.\n- For $\\frac{p-1}{2}<k<p-1$,\n$$\n\\nu_{p}\\left(C_{k}\\right)=\\nu_{p}((2k)!)-\\nu_{p}((k+1)!)-\\nu_{p}(k!)=1\n$$\nsince $k+1<p \\leq 2k$, so $C_{k}=0$.\nWe show that the coefficient of $X^{k}$ in the LHS is 0 for $k=0, \\ldots, p$. This is obvious for $k>\\frac{p+1}{2}$ and $k=0$ by the above facts, as the coefficient is $2+2 C_{p-1}$ for $k=p$, $2 C_{k}$ for $\\frac{p+1}{2}<k<p$, and 0 for $k=0$.\nNow for $1 \\leq k \\leq \\frac{p+1}{2}$, the coefficient is $\\binom{\\frac{p+1}{2}}{k}(-4)^{k}+2 C_{k-1}=0$. Write\n$$\n\\begin{aligned}\n\\binom{\\frac{p+1}{2}}{k} & =\\frac{\\frac{p+1}{2} \\cdot \\frac{p-1}{2} \\cdot \\frac{p-3}{2} \\cdots \\frac{p-2k+3}{2}}{k!} \\\\\n& =\\frac{\\frac{1}{2} \\cdot\\left(-\\frac{1}{2}\\right) \\cdot\\left(-\\frac{3}{2}\\right) \\cdots\\left(-\\frac{2k-3}{2}\\right)}{k!} \\\\\n& =\\frac{(-1)^{k-1}}{2^{k}} \\cdot \\frac{1 \\cdot 3 \\cdots (2k-3)}{k!} \\\\\n& =\\frac{(-1)^{k-1}}{2^{k}} \\cdot \\frac{(2k-2)!}{2^{k-1}(k-1)!k!} \\\\\n& =-\\frac{2 C_{k-1}}{(-4)^{k}}\n\\end{aligned}\n$$\nso the coefficient is 0 .\n\nSolution:\nWe present an alternate proof of the key claim. Use the same starting facts as before.\nLet $Q(X) = -2 + \\sum_{k=0}^{\\frac{p-1}{2}} C_{k} X^{k} = -2 + X^{p-1} + \\sum_{k=0}^{p-1} C_{k} X^{k}$.\nSquare $Q$ and multiply by $X$ to get\n$$\n\\begin{aligned}\nX Q^{2} & = 4X - 4X \\sum_{k=0}^{\\frac{p-1}{2}} C_{k} X^{k} + X\\left(\\sum_{k=0}^{\\frac{p-1}{2}} C_{k} X^{k}\\right)^{2} \\\\\n& = -4X - 4X Q + X \\sum_{k=0}^{p-2} \\sum_{j=0}^{k} C_{j} C_{k-j} X^{k} + C_{\\frac{p-1}{2}}^{2} X^{p} \\\\\n& = -4X - 4X Q + \\sum_{k=0}^{p-2} C_{k+1} X^{k+1} + 4 X^{p} \\\\\n& = -4X - 4X Q + Q + 1 - X^{p-1} + 4 X^{p} \\\\\n& = (1-4X) Q - (1-4X)(X^{p-1} - 1)\n\\end{aligned}\n$$\nIt follows that\n$$\n\\begin{aligned}\n0 & = 4X \\cdot \\left(X Q^{2} - (1-4X) Q + (1-4X)(X^{p-1} - 1)\\right) \\\\\n& = 4X^{2} Q^{2} - 4X(1-4X) Q + 4(1-4X)(X^{p} - X) \\\\\n& = 4X^{2} Q^{2} - 4X(1-4X) Q + (1-4X)^{2} - (1-4X)^{p+1} \\\\\n& = \\left(2X Q + (1-4X)^{\\frac{p+1}{2}} - (1-4X)\\right) \\cdot \\left(2X Q - (1-4X)^{\\frac{p+1}{2}} - (1-4X)\\right) .\n\\end{aligned}\n$$\nEvaluating the second factor at 0 gives $-2$, so it is not the zero polynomial. Thus the first factor is the zero polynomial, from which the claim follows.\n\nSolution:\nWe prove the following generalization: Let $q$ be a power of $p$. Then the polynomial $\\sum_{k=1}^{q-1} C_{k} X^{k}$ has $\\frac{q+1}{2}$ roots in $\\mathbb{F}_{q}$ and $\\frac{p+1}{2}$ roots in $\\mathbb{F}_{p}$. It once again suffices to prove the key claim, just with $p$ replaced by $q$.\nWork in $\\mathbb{F}_{q}[[X]]$, the ring of formal power series over $\\mathbb{F}_{q}$. Then\n$$\n\\begin{aligned}\n\\sum_{k=0}^{\\infty} \\binom{2k}{k} X^{k} & = (1-4X)^{-\\frac{1}{2}} \\\\\n& = (1-4X)^{\\frac{q-1}{2}} \\left((1-4X)^{q}\\right)^{-\\frac{1}{2}} \\\\\n& = (1-4X)^{\\frac{q-1}{2}} \\left(1-4X^{q}\\right)^{-\\frac{1}{2}} \\\\\n& = (1-4X)^{\\frac{q-1}{2}} \\sum_{k=0}^{\\infty} \\binom{2k}{k} X^{qk}\n\\end{aligned}\n$$\nTaking both sides mod $X^{q}$,\n$$\n\\sum_{k=0}^{q-1} \\binom{2k}{k} X^{k} = (1-4X)^{\\frac{q-1}{2}}\n$$\nThen using $\\binom{2q}{q} = 2$, we have\n$$\n\\sqrt{1-4X} = (1-4X) \\cdot (1-4X)^{-\\frac{1}{2}} \\equiv (1-4X) \\cdot \\left((1-4X)^{\\frac{q-1}{2}} + 2 X^{q}\\right) \\quad \\left(\\bmod X^{q+1}\\right)\n$$\nso\n$$\nX \\sum_{k=0}^{\\infty} C_{k} X^{k} = \\frac{1-\\sqrt{1-4X}}{2} \\equiv \\frac{1-(1-4X)^{\\frac{q+1}{2}} - 2 X^{q}}{2} \\quad \\left(\\bmod X^{q+1}\\right)\n$$\nfrom which the claim follows.\nAlternatively, one can also finish by integrating $(1-4X)^{\\frac{p-1}{2}}$, noting that the \"constant of integration\" is no longer a constant but rather a polynomial of the form $a + b X^{p}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-3758",
+      "name": "HMMT February 2020 #0kf2",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2020",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Prime numbers",
+        "Factorization techniques"
+      ],
+      "statement": "Problem:\nFind the sum of all positive integers $n$ for which\n$$\n\\frac{15 \\cdot n!^{2}+1}{2 n-3}\n$$\nis an integer.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nIt is clear that $n=1$ and $n=2$ work so assume that $n>2$. If $2 n-3$ is composite then its smallest prime factor is at most $\\frac{2 n-3}{2}<n$ so will be coprime to $15 \\cdot n!^{2}+1$. Therefore assume that $2 n-3=p$ is prime. We can rewrite the numerator as\n$$\n(-1)^{n} \\cdot 15 \\cdot\\left(1 \\cdot 2 \\cdots \\frac{p+3}{2}\\right) \\cdot\\left(\\frac{p-3}{2} \\cdot \\frac{p-1}{2} \\cdots(p-1)\\right)+1 \\quad(\\bmod p)\n$$\nBy Wilson's Theorem, $(p-1)!\\equiv-1(\\bmod p)$, so the expression simplifies to\n$$\n(-1)^{n+1} \\cdot 15 \\cdot \\frac{p-3}{2} \\cdot \\frac{p-1}{2} \\cdot \\frac{p+1}{2} \\cdot \\frac{p+3}{2}+1 \\equiv(-1)^{n+1} \\cdot \\frac{135}{16}+1 \\quad(\\bmod p)\n$$\nIf $p \\equiv 3(\\bmod 4)$, then we have\n$$\n\\frac{135+16}{16} \\equiv \\frac{151}{16} \\equiv 0 \\quad(\\bmod p)\n$$\nIf $p \\equiv 1(\\bmod 4)$, then we have\n$$\n\\frac{135-16}{16} \\equiv \\frac{119}{16} \\equiv 0 \\quad(\\bmod p)\n$$\nSo $p$ must be a prime divisor of 151 or 119 , which means that $p \\in\\{7,17,151\\}$. All of these numbers work aside from $7($ because $7 \\equiv 3(\\bmod 4))$ and the corresponding values of $n$ are 10 and 77 . The sum of the solutions is then $1+2+10+77=90$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-3864",
+      "name": "HMMT Spring 2021 Guts Round #0ki0",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT Spring 2021 Guts Round",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Chinese remainder theorem",
+        "Fermat / Euler / Wilson theorems",
+        "Algorithms",
+        "Factorization techniques"
+      ],
+      "statement": "Problem:\n\nLet $f: \\mathbb{Z}^2 \\rightarrow \\mathbb{Z}$ be a function such that, for all positive integers $a$ and $b$,\n$$\nf(a, b)= \\begin{cases}b & \\text{ if } a>b \\\\ f(2 a, b) & \\text{ if } a \\leq b \\text{ and } f(2 a, b)<a \\\\ f(2 a, b)-a & \\text{ otherwise }\\end{cases}\n$$\n\nCompute $f\\left(1000,3^{2021}\\right)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nNote that $f(a, b)$ is the remainder of $b$ when divided by $a$. If $a>b$ then $f(a, b)$ is exactly $b \\bmod a$. If instead $a \\leq b$, our \"algorithm\" doubles our $a$ by $n$ times until we have $a \\times 2^{n}>b$. At this point, we subtract $a^{\\overline{2 n-1}}$ from $f\\left(a \\cdot 2^{n}, b\\right)$ and iterate back down until we get $a>b-a \\cdot k>0$ and $f(a, b)=b-a \\cdot k$ for some positive integer $k$. This expression is equivalent to $b-a \\cdot k \\bmod a$, or $b \\bmod a$.\n\nThus, we want to compute $3^{2021} \\bmod 1000$. This is equal to $3 \\bmod 8$ and $78 \\bmod 125$. By CRT, this implies that the answer is 203."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-3958",
+      "name": "HMMT Spring 2021 Team Round #0kkm",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT Spring 2021 Team Round",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\nLet $m$ be a positive integer. Show that there exists a positive integer $n$ such that each of the $2m+1$ integers\n$$\n2^{n}-m, 2^{n}-(m-1), \\ldots, 2^{n}+(m-1), 2^{n}+m\n$$\nis positive and composite.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $P$ be the set of prime divisors of the $2m+1$ numbers\n$$\n2^{m+1}-m, 2^{m+1}-m+1, \\ldots, 2^{m+1}+m\n$$\nWe claim that\n$$\nn = m+1 + \\prod_{p \\in P}(p-1)\n$$\nworks. To check this, let $k$ be any integer with $|k| \\leq m$. We can take some prime $q \\mid 2^{m+1}+k$, as $2^{m+1}+k \\geq 2^{m+1}-m \\geq 3$. Let $\\prod_{p \\in P}(p-1) = (q-1) \\alpha_q$. Then, applying Fermat's little theorem, we have\n$$\n2^{n} \\equiv 2^{m+1} \\cdot \\left(2^{q-1}\\right)^{\\alpha_q} \\equiv 2^{m+1} \\equiv -k \\pmod{q}\n$$\nThus, $2^{n}+k$ is divisible by $q$ and is bigger than $q$, so it is positive and composite. This works for each of the required $k$, so we are done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-3996",
+      "name": "Berkeley Math Circle: Monthly Contest 4 #0klo",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 4",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Quadratic residues"
+      ],
+      "statement": "Problem:\n\nAre there integers $a$ and $b$ for which $a^{2} = b^{15} + 1004$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe answer is no. Work modulo $31$: the equation reads $a^{2} \\equiv b^{15} + 12$. (The choice of $31$ is motivated by $2 \\cdot 15 + 1 = 31$.) We must have $b^{15} \\in \\{-1, 0, 1\\}$ $(\\bmod\\ 31)$ since the square of $b^{15} (\\bmod\\ 31)$ is $b^{30} (\\bmod\\ 31)$ which is always $0$ or $1$.\n\nHowever, one can exhaustively check that none of $11, 12, 13$ are quadratic residues modulo $31$. So this concludes the proof."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-4023",
+      "name": "HMMT Spring 2021 #0kmf",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT Spring 2021",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Counting two ways",
+        "Pigeonhole principle",
+        "Fermat / Euler / Wilson theorems",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\nLet $S=\\{1,2, \\ldots, 2021\\}$, and let $\\mathcal{F}$ denote the set of functions $f: S \\rightarrow S$. For a function $f \\in \\mathcal{F}$, let\n$$\nT_{f}=\\left\\{f^{2021}(s): s \\in S\\right\\}\n$$\nwhere $f^{2021}(s)$ denotes $f(f(\\cdots(f(s)) \\cdots))$ with 2021 copies of $f$. Compute the remainder when\n$$\n\\sum_{f \\in \\mathcal{F}}\\left|T_{f}\\right|\n$$\nis divided by the prime 2017, where the sum is over all functions $f$ in $\\mathcal{F}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe key idea is that $t \\in T_{f}$ if and only if $f^{k}(t)=t$ for some $k>0$. To see this, let $s \\in S$ and consider\n$$\ns, f(s), f(f(s)), \\ldots, f^{2021}(s)\n$$\nThis sequence has 2022 terms that are all in $S$, so we must have a repeat. Suppose $f^{m}(s)=f^{n}(s)$ with $0 \\leq n<m \\leq 2021$. Then $f^{2021}(s)=f^{2021+m-n}(s)$. In particular, for $t=f^{2021}(s)$, we have $f^{k}(t)=t$ with $k=m-n$. On the other hand, if $f^{k}(t)=t$, then letting $s=f^{2021 k-2021}(t)$ gives $f^{2021}(s)=t$.\nWe will compute the number of $f$ for which $f^{k}(1)=1$ for some $k$, and then multiply by 2021. We do this by casework on the minimum possible value of $k$.\nGiven $k$, we just need to choose distinct values in $\\{2, \\ldots, 2021\\}$ for each of $f^{1}(1), f^{2}(1), \\ldots, f^{k-1}(1)$. We have $\\frac{2020!}{(2021-k)!}$ ways to do this. For each of the $2021-k$ other values with $f$ not yet determined, we can do anything we want, giving $2021^{2021-k}$ choices. So,\n$$\n\\sum_{f \\in \\mathcal{F}}\\left|T_{f}\\right|=2021 \\sum_{k=1}^{2021} \\frac{2020!}{(2021-k)!} \\cdot 2021^{2021-k}\n$$\nTaking this mod 2017, all terms with $k>4$ reduce to 0, and $2021^{2021-k}$ reduces to $4^{5-k}$ for $k \\leq 4$. We are thus left with\n$$\n\\sum_{f \\in \\mathcal{F}}\\left|T_{f}\\right| \\equiv 4\\left[4^{4}+3 \\cdot 4^{3}+3 \\cdot 2 \\cdot 4^{2}+3 \\cdot 2 \\cdot 1 \\cdot 4^{1}\\right] \\equiv 255 \\quad(\\bmod 2017)\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-4042",
+      "name": "HMMT November 2021 Team Round #0kmy",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2021 Team Round",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Invariants / monovariants",
+        "Games / greedy algorithms",
+        "Fermat / Euler / Wilson theorems",
+        "Chinese remainder theorem"
+      ],
+      "statement": "Problem:\n\nPaul and Sara are playing a game with integers on a whiteboard, with Paul going first. When it is Paul's turn, he can pick any two integers on the board and replace them with their product; when it is Sara's turn, she can pick any two integers on the board and replace them with their sum. Play continues until exactly one integer remains on the board. Paul wins if that integer is odd, and Sara wins if it is even.\n\nInitially, there are 2021 integers on the board, each one sampled uniformly at random from the set $\\{0,1,2,3, \\ldots, 2021\\}$. Assuming both players play optimally, the probability that Paul wins is $\\frac{m}{n}$, where $m, n$ are positive integers and $\\operatorname{gcd}(m, n)=1$. Find the remainder when $m+n$ is divided by 1000.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe claim that Paul wins if and only if there are exactly 1 or 2 odd integers on the board at the start. Assuming this, the answer is $\\frac{2021+\\left(\\frac{2021}{2}\\right)}{2^{2021}}$. Since the numerator is odd, this fraction is reduced. Now, $m+n \\equiv 2^{2021}+21+2021 \\cdot 1010 \\equiv 231+2^{2021} \\equiv 231+2^{21} \\equiv 231+2 \\cdot 1024^{2} \\equiv 231+2 \\cdot 576 \\equiv 383$.\n\nNow, observe that only the parity of the integers matters, so we work mod 2, replacing all odd integers with ones and even integers with zeros. Also, note that on Paul's turn, there are always an odd number of numbers on the board, and vice versa.\n\nIf the number of ones on the board ever becomes 1, Paul can win, since Sara cannot change the number of ones on the board, while Paul can replace 2 zeros with 1 zero, since Paul will always be given at least 3 numbers on his turn. Moreover, if at the beginning there are 2 ones, Paul can replace them with 1 one and win in the same manner. Obviously, if at any point the board only contains zeroes, Sara wins.\n\nNow suppose the number of ones on the board is initially at least 3. Call a state good if there are at least 3 ones and at least 1 zero. We now make the following claims:\n\nClaim. If Paul ever acts on a good state so that the result is no longer good, Sara can force a win.\n\nProof. Paul cannot erase all the zeros from the board. Also, Paul can decrease the number of ones on the board by at most 1. Therefore, the only way this can happen is if, as a result of Paul's move, the number of ones drops from 3 to 2. However, in the case, Sara can replace the 2 ones with a zero on her next turn, making the board contain all zeros, guaranteeing a Sara victory.\n\nClaim. If the current state of the game is good, Sara can make a move that results in a good state, with the exception of 1110, in which case Sara can win anyway.\n\nProof. If there are at least 2 zeros, Sara can act on those. If there are at least 5 ones, Sara can replace 2 ones with a zero. If none of these are true, then there must be at most 1 zero and at most 4 ones. Since Sara will always have an even number of numbers on the board on her turn, the state must be 1110. In this case, she may replace a one and a zero with a one, giving Bob the state 111. The only move for Bob is to change the state to 11, after which Alice wins following her only move.\n\nAs a result of these claims, if the state of the board ever becomes good, Sara can force a win. Now, if at the beginning there are at least 3 ones, the state is either good already. Otherwise, the state consists of 2021 ones. In the latter case, Paul must change the state to 2020 ones, after which Sara can replace 2 ones with a zero, making the state 2018 ones and 1 zero. Since $2018 \\geq 3$, the state is now good and therefore Sara can force a win."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-4180",
+      "name": "Berkeley Math Circle: Monthly Contest 5 #0kqs",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 5",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Chinese remainder theorem",
+        "Fermat / Euler / Wilson theorems",
+        "Factorization techniques"
+      ],
+      "statement": "Problem:\n\nShow that $a^{1729} \\equiv a \\pmod{1729}$ for all positive integers $a$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSince $1729 = 7 \\cdot 13 \\cdot 19$, by the Chinese Remainder Theorem it suffices to show that $a^{1729} \\equiv a$ in $\\bmod\\ 7$, $\\bmod\\ 13$, and $\\bmod\\ 19$. This follows from Fermat's Little Theorem, since\n$$\n\\begin{aligned}\n& a^{1729} \\equiv \\left(a^6\\right)^{288} \\cdot a \\equiv a \\quad (\\bmod\\ 7), \\\\\n& a^{1729} \\equiv \\left(a^{12}\\right)^{144} \\cdot a \\equiv a \\quad (\\bmod\\ 13), \\\\\n& a^{1729} \\equiv \\left(a^{18}\\right)^{96} \\cdot a \\equiv a \\quad (\\bmod\\ 19)\n\\end{aligned}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-4191",
+      "name": "HMMT November 2022 #0kr3",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2022",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Algebraic properties of binomial coefficients"
+      ],
+      "statement": "Problem:\nA group of 101 Dalmathians participate in an election, where they each vote independently on either candidate $A$ or $B$ with equal probability. If $X$ Dalmathians voted for the winning candidate, the expected value of $X^{2}$ can be expressed as $\\frac{a}{b}$ for positive integers $a, b$ with $\\operatorname{gcd}(a, b)=1$. Find the unique positive integer $k \\leq 103$ such that $103 \\mid a-b k$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nClaim: with 101 replaced with $2k+1$, the expectation of $X^{2}$ is\n$$\n\\frac{\\binom{2k}{k}}{2^{2k+1}}(2k+1)^{2}+\\frac{(2k+1)(2k+2)}{4}.\n$$\nThe answer is this value taken modulo 103, which can be calculated by noting that the integers modulo 103 form a finite field. Note that the multiplicative inverse of 4 is 26, the multiplicative inverse of $2^{101}$ is 2 by Fermat's little theorem, and the multiplicative inverse of $102!$ is 102 by Wilson's theorem.\n\nNow we will justify the Claim. Let $I_{i}$ be the indicator random variable of the $i$-th Dalmathian voting for the winning candidate ($I_{i}=1$ if $i$ votes for the winning candidate, and $I_{i}=0$ otherwise). Then we want to find\n$$\n\\mathbb{E}\\left[\\left(I_{1}+\\cdots+I_{2k+1}\\right)^{2}\\right].\n$$\nBy symmetry and linearity, this is\n$$\n(2k+1) \\mathbb{E}\\left[I_{1}^{2}\\right]+(2k+1)(2k) \\mathbb{E}\\left[I_{1} I_{2}\\right].\n$$\nNow, we note that $\\mathbb{E}\\left[I_{1}^{2}\\right]=\\mathbb{E}\\left[I_{1}\\right]$ is just the probability that Dalmathian 1 votes for the winning candidate. WLOG, say that they vote for $A$. Then we want to find the probability that at least $k$ of the remaining $2k$ Dalmathians also vote for $A$. By symmetry, this is equal to the probability that exactly $k$ vote for $A$, plus half of the remaining probability. This is:\n$$\n\\frac{1}{2}+\\frac{\\binom{2k}{k}}{2^{2k+1}}\n$$\nNext, we must calculate $\\mathbb{E}\\left[I_{1} I_{2}\\right]$. In order for $I_{1} I_{2}$ to be 1, they must Dalmathians vote for the same candidate ($1/2$ chance), and then this candidate has to win (at least $k-1$ out of the remaining $2k-1$ Dalmathians vote for that candidate). Overall, this occurs with probability\n$$\n\\frac{1}{2}\\left(\\frac{1}{2}+\\frac{\\binom{2k-1}{k-1}}{2^{2k-1}}\\right)\n$$\nNow when we add the two terms together, we get\n$$\n\\left(\\frac{1}{2}+\\frac{\\binom{2k}{k}}{2^{2k+1}}\\right)(2k+1)+(2k+1)(2k)\\left(\\frac{1}{4}+\\frac{\\binom{2k-1}{k-1}}{2^{2k}}\\right).\n$$\nWith some simplification, you get the expression in the Claim."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-4277",
+      "name": "HMMT November 2022 #0kth",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2022",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\n\nCall an ordered pair $(a, b)$ of positive integers fantastic if and only if $a, b \\leq 10^{4}$ and\n$$\n\\operatorname{gcd}(a \\cdot n!-1, a \\cdot(n+1)!+b)>1\n$$\nfor infinitely many positive integers $n$. Find the sum of $a+b$ across all fantastic pairs $(a, b)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe first prove the following lemma, which will be useful later.\n\nLemma: Let $p$ be a prime and $1 \\leq n \\leq p-1$ be an integer. Then, $n!(p-1-n)!\\equiv(-1)^{n-1}(\\bmod p)$.\n\nProof. Write\n$$\n\\begin{aligned}\nn!(p-n-1)! & =(1 \\cdot 2 \\cdots n)((p-n-1) \\cdots 2 \\cdot 1) \\\\\n& \\equiv(-1)^{p-n-1}(1 \\cdot 2 \\cdots n)((n+1) \\cdots(p-2)(p-1)) \\quad(\\bmod p) \\\\\n& =(-1)^{n}(p-1)! \\\\\n& \\equiv(-1)^{n-1} \\quad(\\bmod p)\n\\end{aligned}\n$$\n(where we have used Wilson's theorem). This implies the result.\n\nNow, we begin the solution. Suppose that a prime $p$ divides both $a \\cdot n!-1$ and $a \\cdot(n+1)!+b$. Then, since\n$$\n-b \\equiv a \\cdot(n+1)!\\equiv(n+1) \\cdot(a \\cdot n!) \\equiv(n+1) \\quad(\\bmod p)\n$$\nwe get that $p \\mid n+b+1$. Since we must have $n<p$ (or else $p \\mid n!$ ), we get that, for large enough $n$, $n=p-b-1$. However, by the lemma,\n$$\na(-1)^{b-1} \\equiv a \\cdot b!(p-1-b)!=a \\cdot b!n!\\equiv b!\\quad(\\bmod p)\n$$\nThis must hold for infinitely many $p$, so $a=(-1)^{b-1} b!$. This forces all fantastic pairs to be in form $((2 k-1)!, 2 k-1)$.\n\nNow, we prove that these pairs all work. Take $n=p-2 k$ for all large primes $p$. Then, we have\n$$\n\\begin{aligned}\na \\cdot n! & \\equiv(2 k-1)!(p-2 k)! \\\\\n& \\equiv(-1)^{2 k} \\equiv 1 \\quad(\\bmod p) \\\\\na \\cdot(n+1)! & \\equiv(n+1) \\cdot(a \\cdot n!) \\\\\n& \\equiv(p-2 k+1) \\cdot 1 \\equiv-(2 k-1) \\quad(\\bmod p)\n\\end{aligned}\n$$\nso $p$ divides the gcd.\n\nThe answer is $(1+1)+(6+3)+(120+5)+(5040+7)=5183$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-4284",
+      "name": "HMMT February 2022 #0kto",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2022",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial operations",
+        "Fermat / Euler / Wilson theorems"
+      ],
+      "statement": "Problem:\n\nSuppose $P(x)$ is a monic polynomial of degree $2023$ such that\n$$\nP(k) = k^{2023} P\\left(1 - \\frac{1}{k}\\right)\n$$\nfor every positive integer $1 \\leq k \\leq 2023$. Then $P(-1) = \\frac{a}{b}$, where $a$ and $b$ are relatively prime integers. Compute the unique integer $0 \\leq n < 2027$ such that $b n - a$ is divisible by the prime $2027$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $n = 2023$. If $P(x) = x^{n} + a_{n-1} x^{n-1} + \\cdots + a_{0}$, then let\n$$\nR(x) = x^{n} P\\left(1 - \\frac{1}{x}\\right) = (x-1)^{n} + a_{n-1}(x-1)^{n} x + \\cdots + a_{0} x^{n}\n$$\nThen, note that $Q(x) = P(x) - R(x)$ is a polynomial of degree at most $n$, and it has roots $1, 2, \\ldots, n$, so we have $Q(x) = k(x-1) \\cdots (x-n)$ for some real constant $k$. Now we determine $P(x)$ in terms of $Q(x)$. If $g(x) = 1 - 1 / x$, then $g(g(x)) = \\frac{1}{1-x}$ and $g(g(g(x))) = x$. Therefore, we have\n$$\n\\begin{aligned}\nP(x) - x^{n} P\\left(1 - \\frac{1}{x}\\right) & = Q(x) \\\\\nP\\left(1 - \\frac{1}{x}\\right) - \\left(1 - \\frac{1}{x}\\right)^{n} P\\left(\\frac{1}{1-x}\\right) & = Q\\left(1 - \\frac{1}{x}\\right) \\\\\nP\\left(\\frac{1}{1-x}\\right) - \\left(\\frac{1}{1-x}\\right)^{n} P(x) & = Q\\left(\\frac{1}{1-x}\\right) .\n\\end{aligned}\n$$\nAdding the first equation, $x^{n}$ times the second, and $(x-1)^{n}$ times the third yields\n$$\n2 P(x) = Q(x) + x^{n} Q\\left(\\frac{x-1}{x}\\right) + (x-1)^{n} Q\\left(\\frac{1}{1-x}\\right),\n$$\nso\n$$\n\\begin{aligned}\n& P(x) = \\frac{k}{2} \\big((x-1)(x-2) \\cdots (x-n) + (0 x - 1)(-1 x - 1) \\cdots (-(n-1) x - 1) \\\\\n& \\qquad + (-1 x + 0)(-2 x + 1) \\cdots (-n x + (n-1))\\big) .\n\\end{aligned}\n$$\nTherefore,\n$$\nP(-1) = \\frac{k}{2} (-(n+1)! + 0 + (2n+1)!!)\n$$\nAlso, since $P$ is monic, we know that\n$$\n1 = \\frac{k}{2} (1 + 0 - n!)\n$$\nso\n$$\nP(-1) = \\frac{(2n-1)!! - (n+1)!}{1 - n!}\n$$\nModulo $2027$, $(n+1)! = 2024! \\equiv -1$ and $n! = 2023! \\equiv 1$ (by Wilson's theorem and properties of factorials mod prime). Also, $(2n+1)!! \\equiv 0$. So our answer is\n$$\n\\frac{1/2}{1 - 1/6} = \\frac{3}{5} \\equiv \\frac{2030}{5} = 406\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-4340",
+      "name": "HMMT February 2023 #0kv8",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2023",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Expected values",
+        "Fermat / Euler / Wilson theorems"
+      ],
+      "statement": "Problem:\nLet $a_{0}, a_{1}, a_{2}, \\ldots$ be an infinite sequence where each term is independently and uniformly random in the set $\\{1,2,3,4\\}$. Define an infinite sequence $b_{0}, b_{1}, b_{2}, \\ldots$ recursively by $b_{0}=1$ and $b_{i+1}=a_{i}^{b_{i}}$. Compute the expected value of the smallest positive integer $k$ such that $b_{k} \\equiv 1 \\pmod{5}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nDo casework on what $a_{0}$ is.\n\nIf $a_{0}=1$ then $k=1$.\n\nIf $a_{0}=4$ then $k=2$.\n\nIf $a_{0}=3$ then\n- if $a_{1}=1$, then $k=2$\n- if $a_{1}=2$ or $4$, then $k=3$\n- if $a_{1}=3$, then you make no progress.\nSo in expectation it requires $E=(2+3+(E+1)+3)/4 \\Longrightarrow E=3$.\n\nIf $a_{0}=2$ then\n- if $a_{1}=1$ or $4$, then $k=2$\n- if $a_{1}=2$, then $k=3$\n- if $a_{1}=3$, then it can be checked that if $a_{2}=1$ we get $k=3$, if $a_{2}=2$ or $4$ then $k=4$, and if $a_{2}=3$ then we make no progress. Thus, this case is equivalent to the case of $a_{0}=3$ except shifted over by one, so it is $3+1=4$ in expectation.\nSo this case is $(2+3+4+2)/4$ in expectation.\n\nThis means the answer is $(1+(11/4)+3+2)/4=35/16$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-4509",
+      "name": "AMC 10 B #0kzx",
+      "url": "https://usamoguide.com/",
+      "source": "AMC 10 B",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "φ (Euler's totient)",
+        "Polynomial operations"
+      ],
+      "statement": "How many different remainders can result when the 100th power of an integer is divided by 125?\n\n(A) 1   (B) 2   (C) 5   (D) 25   (E) 125",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Write $N = 5k + r$ for $r = 0, 1, 2, 3$, or $4$. If $r = 0$, then $N = 5k$ and $N^{100}$ is divisible by $125$, so the remainder is $0$. If $r = 1, 2, 3$, or $4$, then $N^2 = 25k^2 + 10rk + r^2 = 5m + 1$ for some integer $m$. Now use the Binomial Theorem:\n$$\n\\begin{aligned} N^{100} = (N^2)^{50} = (5m \\pm 1)^{50} = (5m)^{50} &\\pm 50(5m)^{49} + \\binom{50}{2}(5m)^{48} \\pm \\dots \\\\ &\\pm \\binom{50}{47}(5m)^3 + \\binom{50}{48}(5m)^2 \\pm 50(5m) + 1. \\end{aligned}\n$$\n\nLet $\\phi(n)$ be the number of positive integers less than $n$ that are relatively prime to $n$; this is Euler's totient function. Then $\\phi(125) = 5^3 - 5^2 = 100$. By Euler's Totient Theorem, if $a$ is not a multiple of $5$, then $a^{100} \\equiv 1 \\pmod{125}$. If $a$ is a multiple of $5$, then $a^{100} \\equiv 0 \\pmod{125}$. Therefore there are only $2$ possible remainders: $0$ and $1$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-4553",
+      "name": "AMC 10 B #0l15",
+      "url": "https://usamoguide.com/",
+      "source": "AMC 10 B",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Polynomial operations"
+      ],
+      "statement": "Let\n$$\nP(m) = \\frac{m}{2} + \\frac{m^2}{4} + \\frac{m^4}{8} + \\frac{m^8}{8}.\n$$\nHow many of the values $P(2022)$, $P(2023)$, $P(2024)$, and $P(2025)$ are integers?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**Answer (E):** Let $Q(m) = 8P(m) = 4m + 2m^2 + m^4 + m^8$. Because the coefficients of $Q$ are integers, it follows that if $a \\equiv b \\pmod{8}$, then $Q(a) \\equiv Q(b) \\pmod{8}$. It suffices to show that the 8 numbers $Q(-3)$, $Q(-2)$, $Q(-1)$, ..., $Q(4)$ are all divisible by 8. If $m$ is even, then each of the monomials of $Q(m)$ is divisible by 8. If $m = \\pm 1$, then $Q(m) = \\pm 4 + 4 \\equiv 0 \\pmod{8}$. If $m = \\pm 3$, then $m^2 = 9 \\equiv 1 \\pmod{8}$, which implies that $m^4 \\equiv 1 \\pmod{8}$, and so also that $m^8 \\equiv 1 \\pmod{8}$. Hence $Q(\\pm 3) \\equiv \\pm 12 + 2 + 1 + 1 \\equiv 0 \\pmod{8}$.\n\nTherefore $8P(m)$ is divisible by 8 for all integers $m$, which implies that $P(m)$ is an integer for all $m$. In particular, all 4 of the given values of $P(m)$ are integers.\n\n\nLet $Q(m)$ be defined as in the first solution, and note that $Q(m)$ is divisible by 8 if $m$ is even. To treat odd $m$, write\n$$\n\\begin{align*} \nQ(m) &= 8m + 4(m^2 - m) + 2m^2(m^2 - 1) + m^4(m^4 - 1) \\\\ \n&= 8m + 4m(m - 1) + 2m^2(m + 1)(m - 1) + m^4(m^2 + 1)(m + 1)(m - 1) \n\\end{align*}\n$$\nand note that because $m+1, m-1$, and $m^2+1$ are all even, each term has at least three factors of 2. The solution concludes as above.\n\n\nAnother way to see that $Q(m)$ is divisible by 8 when $m$ is odd in the second solution is to apply more general facts from number theory. Fermat's Little Theorem asserts that if $p$ is prime, then $a^p \\equiv a \\pmod p$ for all integers $a$. In particular, $m^2 \\equiv m \\pmod 2$. Euler's Totient Theorem asserts that if $\\gcd(a, q) = 1$, then $a^{\\phi(q)} \\equiv 1 \\pmod{q}$, where $\\phi(q)$ is the number of positive integers less than $q$ that are relatively prime to $q$. Because $\\phi(4) = 2$, it follows that $m^2 \\equiv 1 \\pmod{4}$ when $m$ is odd. Also, $\\phi(8) = 4$, so $m^4 \\equiv 1 \\pmod{8}$ if $m$ is odd."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-4633",
+      "name": "HMMT February 2024 #0l3d",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2024",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "φ (Euler's totient)",
+        "Prime numbers",
+        "Greatest common divisors (gcd)"
+      ],
+      "statement": "Problem:\nCompute the sum of all positive integers $n$ such that $50 \\leq n \\leq 100$ and $2 n+3$ does not divide $2^{n!}-1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe claim that if $n \\geq 10$, then $2 n+3 \\nmid 2^{n!}-1$ if and only if both $n+1$ and $2 n+3$ are prime.\n\nIf both $n+1$ and $2 n+3$ are prime, then assume $2 n+3 \\mid 2^{n!}-1$. By Fermat's Little Theorem, $2 n+3 \\mid 2^{2 n+2}+1$. However, since $n+1$ is prime, $\\gcd(2 n+2, n!)=2$, so $2 n+3 \\mid 2^{2}-1=3$, a contradiction.\n\nIf $2 n+3$ is composite, then $\\varphi(2 n+3)$ is even and is at most $2 n$, so $\\varphi(2 n+3) \\mid n!$, done.\n\nIf $n+1$ is composite but $2 n+3$ is prime, then $2 n+2 \\mid n!$, so $2 n+3 \\mid 2^{n!}-1$.\n\nThe prime numbers between 50 and 100 are $53,59,61,67,71,73,79,83,89,97$. If one of these is $n+1$, then the only numbers that make $2 n+3$ prime are 53, 83, and 89, making $n$ one of 52, 82, and 88. These sum to 222."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-4751",
+      "name": "USAMO #0l6n",
+      "url": "https://usamoguide.com/",
+      "source": "USAMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Counting two ways",
+        "Catalan numbers, partitions",
+        "Fermat / Euler / Wilson theorems",
+        "Sums and products"
+      ],
+      "statement": "Determine, with proof, all positive integers $k$ such that\n$$\n\\frac{1}{n+1} \\sum_{i=0}^{n} \\binom{n}{i}^{k}\n$$\nis an integer for every positive integer $n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Let $S(n, k) = \\sum_{i=0}^{n} \\binom{n}{i}^{k}$.\nWe are to find all positive integers $k$ such that $\\frac{S(n, k)}{n+1}$ is an integer for all $n \\ge 1$.\n\nFirst, consider small values of $k$.\n\n**Case $k = 1$:**\n$S(n, 1) = \\sum_{i=0}^{n} \\binom{n}{i} = 2^{n}$.\nSo $\\frac{2^{n}}{n+1}$ must be integer for all $n$. But for $n = 1$, $\\frac{2^{1}}{2} = 1$ (integer), but for $n = 2$, $\\frac{2^{2}}{3} = \\frac{4}{3}$ (not integer). So $k = 1$ does not work.\n\n**Case $k = 2$:**\n$S(n, 2) = \\sum_{i=0}^{n} \\binom{n}{i}^{2}$.\nRecall that $\\sum_{i=0}^{n} \\binom{n}{i}^{2} = \\binom{2n}{n}$.\nSo $\\frac{\\binom{2n}{n}}{n+1}$ must be integer for all $n$.\nBut $\\binom{2n}{n} = \\frac{(2n)!}{n! n!}$.\nIt is known that $\\frac{\\binom{2n}{n}}{n+1} = C_{n}$, the $n$-th Catalan number, which is always integer.\nSo $k = 2$ works.\n\n**Case $k = 3$:**\n$S(n, 3) = \\sum_{i=0}^{n} \\binom{n}{i}^{3}$.\nFor $n = 1$, $\\binom{1}{0}^{3} + \\binom{1}{1}^{3} = 1 + 1 = 2$, $\\frac{2}{2} = 1$ (integer).\nFor $n = 2$, $\\binom{2}{0}^{3} + \\binom{2}{1}^{3} + \\binom{2}{2}^{3} = 1 + 8 + 1 = 10$, $\\frac{10}{3} = \\frac{10}{3}$ (not integer).\nSo $k = 3$ does not work.\n\n**Case $k = 4$:**\nFor $n = 1$, $\\binom{1}{0}^{4} + \\binom{1}{1}^{4} = 1 + 1 = 2$, $\\frac{2}{2} = 1$.\nFor $n = 2$, $\\binom{2}{0}^{4} + \\binom{2}{1}^{4} + \\binom{2}{2}^{4} = 1 + 16 + 1 = 18$, $\\frac{18}{3} = 6$.\nFor $n = 3$, $\\binom{3}{0}^{4} + \\binom{3}{1}^{4} + \\binom{3}{2}^{4} + \\binom{3}{3}^{4} = 1 + 81 + 81 + 1 = 164$, $\\frac{164}{4} = 41$.\nSo for small $n$, it is integer. Try $n = 4$:\n$\\binom{4}{0}^{4} = 1$, $\\binom{4}{1}^{4} = 256$, $\\binom{4}{2}^{4} = 1296$, $\\binom{4}{3}^{4} = 256$, $\\binom{4}{4}^{4} = 1$.\nSum: $1 + 256 + 1296 + 256 + 1 = 1810$, $\\frac{1810}{5} = 362$.\nStill integer. Try $n = 5$:\n$\\binom{5}{0}^{4} = 1$, $\\binom{5}{1}^{4} = 625$, $\\binom{5}{2}^{4} = 10000$, $\\binom{5}{3}^{4} = 10000$, $\\binom{5}{4}^{4} = 625$, $\\binom{5}{5}^{4} = 1$.\nSum: $1 + 625 + 10000 + 10000 + 625 + 1 = 21252$, $\\frac{21252}{6} = 3542$.\nStill integer. But this is not a proof for all $n$.\n\nBut for $k = 2$, we have a closed formula: $\\sum_{i=0}^{n} \\binom{n}{i}^{2} = \\binom{2n}{n}$, and $\\frac{\\binom{2n}{n}}{n+1}$ is always integer.\nFor $k > 2$, there is no such closed formula, and for $k = 1$, it fails for $n = 2$.\n\nNow, let's try to prove that $k = 2$ is the only solution.\n\nSuppose $k > 2$. For large $n$, $\\binom{n}{\\lfloor n/2 \\rfloor}^{k}$ dominates the sum, and $n+1$ does not generally divide $S(n, k)$.\n\nAlternatively, consider $n = p - 1$ for a prime $p$.\nThen $n + 1 = p$.\n$\\binom{n}{i}$ for $0 < i < n$ is divisible by $p$ except for $i = 0$ and $i = n$.\nSo $\\binom{p-1}{i} \\equiv 0 \\pmod{p}$ for $1 \\le i \\le p-2$.\nThus, $\\binom{p-1}{i}^{k} \\equiv 0 \\pmod{p}$ for $1 \\le i \\le p-2$.\nSo $S(p-1, k) \\equiv \\binom{p-1}{0}^{k} + \\binom{p-1}{p-1}^{k} \\equiv 1 + 1 = 2 \\pmod{p}$.\nTherefore, $\\frac{S(p-1, k)}{p}$ is integer if and only if $p \\mid 2$.\nBut for $p > 2$, $p$ does not divide $2$, so $\\frac{S(p-1, k)}{p}$ is not integer for $p > 2$.\n\nTherefore, the only possible value is $k = 2$.\n\n**Answer:**\nThe only positive integer $k$ such that\n$$\n\\frac{1}{n+1} \\sum_{i=0}^{n} \\binom{n}{i}^{k}\n$$\nis an integer for every positive integer $n$ is $k = 2$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-4764",
+      "name": "HMMT February #0l70",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Chinese remainder theorem",
+        "φ (Euler's totient)"
+      ],
+      "statement": "Problem:\nLet $r$ be the remainder when $2017^{2025!} - 1$ is divided by $2025!$. Compute $\\frac{r}{2025!}$. (Note that $2017$ is prime.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $N = 2017^{2025!}$. Let $p$ be a prime dividing $2025!$ other than $2017$. Let $p^{k}$ be the largest power of $p$ dividing $2025!$. Clearly, $\\phi (p^{k}) = (p - 1)p^{k - 1}$ divides $2025!$ and $\\gcd (2017, p^{k}) = 1$, so by Euler's Totient Theorem,\n$$\nN \\equiv 1 \\pmod{p^{k}}.\n$$\nRepeating for all such primes $p$, we obtain\n$$\nN \\equiv 1 \\pmod{2025! / 2017}.\n$$\nTherefore, $\\frac{2025!}{2017} \\mid N - 1$, so $r = \\frac{2025!}{2017} s$ for some $0 \\leq s < 2017$. Also, since $N \\equiv 0$ (mod $2017$), we have $r = \\frac{2025!}{2017} s \\equiv -1$ (mod $2017$).\nBy Wilson's,\n$$\n\\frac{2025!}{2017} = 2016! (2018)(2019)\\ldots (2025) \\equiv -8! \\equiv 20 \\pmod{2017}.\n$$\nTherefore, $s$ is negative the inverse of $20$ (mod $2017$), which is $1311$. Our answer is\n$$\n\\frac{r}{2025!} = \\frac{(2025! / 2017)(1311)}{2025!} = \\frac{1311}{2017}.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-4783",
+      "name": "HMMT February 2025 #0l7j",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2025",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Quadratic residues",
+        "Quadratic reciprocity",
+        "Fermat / Euler / Wilson theorems",
+        "Polynomials mod p",
+        "Injectivity / surjectivity",
+        "Recurrence relations"
+      ],
+      "statement": "Problem:\nLet $\\mathbb{Z}$ be the set of integers. Determine, with proof, all primes $p$ for which there exists a function $f\\colon \\mathbb{Z}\\to \\mathbb{Z}$ such that for any integer $x$,\n\n$f(x + p) = f(x)$ and $p$ divides $f(x + f(x)) - x$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe work in $\\mathbb{F}_p$, treating $f$ as a map from $\\mathbb{F}_p$ to itself. Clearly, $p = 2$ doesn't work. For $p > 2$ such that $5$ is a quadratic residue mod $p$, as well as $p = 5$ itself, there exists some $\\alpha$ such that $(2\\alpha + 1)^2\\equiv 5$ (mod $p$). Taking $f(x) = \\alpha x$ then works because\n\n$$\nf(x + f(x)) - x = (\\alpha^2 + \\alpha -1)x = \\frac{1}{4}\\left((2\\alpha +1)^2 - 5\\right)x\\equiv 0\\pmod {p}.\n$$\n\nTo prove no other primes satisfy the conditions in the problem statement, note that $f$ is surjective, as for any $x$, $f(x + f(x)) = x$. As $\\mathbb{F}_p$ is finite, $f$ is bijective. Plugging in $x = f(y)$ yields\n\n$$\nf(f(y) + f(f(y))) = f(y)\\implies f(y) + f(f(y)) = y.\n$$\n\nSince $f$ is bijective, there exists $z\\in \\mathbb{F}_p$ such that $f(z) = 0$, then $z = f(z + f(z)) = f(z) = 0$. Therefore, $f(0) = 0$. This is the only fixed point, as any fixed point $d$ would satisfy $d = f(d) + f(f(d)) = 2d$, which is impossible if $d \\neq 0$. Hence the remaining residues form nontrivial cycles $y$, $f(y)$, $f(f(y))$, etc. If the cycle containing $y$ is of length $n$, then\n\n$$\n\\begin{array}{rl}\n& f^{-1}(y) = y + f(y),\\\\\n& f^{-2}(y) = f^{-1}(y) + y = 2y + f(y),\\\\\n& \\qquad \\vdots\\\\\n& f^{-(n - 1)}(y) = f(y) = F_ny + F_{n - 1}f(y),\\\\\n& \\qquad y = F_{n + 1}y + F_n f(y),\n\\end{array} \\quad (\\text{by induction})\n$$\n\nwhere $F_k$ is the $k$-th Fibonacci number. As $y \\neq 0$ and $f(y) \\neq 0$, the last two equations tell us\n\n$$\nF_n^2 \\equiv \\left(\\frac{(1 - F_{n - 1})f(y)}{y}\\right) \\left(\\frac{(1 - F_{n + 1})y}{f(y)}\\right) \\equiv (F_{n + 1} - 1)(F_{n - 1} - 1) \\pmod {p}.\n$$\n\nLet $A = F_{n + 1} - 1$ and $B = F_{n - 1} - 1$ for brevity. The last equation becomes\n\n$$\n(A - B)^2 \\equiv AB \\equiv \\frac{1}{4} ((A + B)^2 - (A - B)^2) \\pmod {p} \\Longrightarrow (A + B)^2 \\equiv 5(A - B)^2 \\pmod {p}.\n$$\n\nAs $5$ is not a quadratic residue, this implies $F_{n + 1} \\equiv F_{n - 1} \\equiv 1 \\pmod {p}$. Hence, if $d$ is the smallest positive integer such that $F_d \\equiv 0 \\pmod {p}$ and $F_{d + 1} \\equiv 1 \\pmod {p}$, then the Fibonacci sequence is periodic modulo $p$ with period $d$, so $d \\mid n$. The sum of all cycle lengths (excluding the fixed point $0$) is $p - 1$, so $d \\mid p - 1$. The following well-known lemma will give us a contradiction.\n\n**Lemma 1.** If $5$ is not a quadratic residue modulo a prime $p$, then $p \\nmid F_{p - 1}$.\n\n**Proof 1.** Recall Binet's formula,\n\n$$\nF_{p - 1} = \\frac{1}{\\sqrt{5}} \\left(\\left(\\frac{1 + \\sqrt{5}}{2}\\right)^{p - 1} - \\left(\\frac{1 - \\sqrt{5}}{2}\\right)^{p - 1}\\right).\n$$\n\nMultiplying both sides by $2^{p - 1}$ and expanding via the binomial theorem, we have\n\n$$\n2^{p - 1}F_{p - 1} = 2\\sum_{k = 0}^{\\frac{p - 3}{2}}5^{k}\\binom{p - 1}{2k + 1}.\n$$\n\nHowever, $\\binom{p- 1}{2k+1} \\equiv(- 1)^{2k+1} \\equiv- 1 \\pmod{p}$ for all $k$, so\n\n$$\np \\mid F_{p - 1} \\quad \\text{if and only if} \\quad p \\left| \\sum_{k = 0}^{\\frac{p - 3}{2}} 5^{k} = \\frac{5^{\\frac{p - 1}{2}} - 1}{5 - 1} \\right.\n$$\n\nTherefore $p \\mid F_{p - 1}$ if and only if $5^{\\frac{p - 1}{2}} \\equiv 1 \\pmod {p}$, which doesn't hold if $5$ is not a quadratic residue modulo $p$, as desired. $\\square$\n\n**Proof 2.** Work in $\\mathbb{F}_{p^{2}} = \\mathbb{F}_{p}[\\sqrt{5}]$. Since $5$ is not a quadratic residue, we get that $(\\sqrt{5})^{p} = - \\sqrt{5}$. Using the fact that $(a + b)^{p} = a^{p} + b^{p}$ (because all other terms have coefficient divisible by $p$), we get that\n\n$$\n\\left(\\frac{1 + \\sqrt{5}}{2}\\right)^{p} = \\frac{1 - \\sqrt{5}}{2} \\implies \\left(\\frac{1 + \\sqrt{5}}{2}\\right)^{p - 1} = \\left(\\frac{1 - \\sqrt{5}}{2}\\right)^{2} = \\frac{3 - \\sqrt{5}}{2}.\n$$\n\nSimilarly, $\\left(\\frac{1 - \\sqrt{5}}{2}\\right)^{p - 1} = \\frac{3 + \\sqrt{5}}{2}$. Hence, by Binet's formula,\n\n$$\nF_{p - 1} = \\frac{1}{\\sqrt{5}}\\left(\\left(\\frac{1 + \\sqrt{5}}{2}\\right)^{p - 1} - \\left(\\frac{1 - \\sqrt{5}}{2}\\right)^{p - 1}\\right)\n= \\frac{1}{\\sqrt{5}}\\left(\\frac{3 - \\sqrt{5}}{2} -\\frac{3 + \\sqrt{5}}{2}\\right) = -1,\n$$\n\nso it is not divisible by $p$.\n\nHence, $F_{p - 1} \\neq 0$ (mod $p$) if $5$ is not a quadratic residue modulo $p$, which contradicts $d \\mid p - 1$ above. This completes the solution."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-fermat-euler-wilson-theorems-auto-4789",
+      "name": "16th United States of America Junior Mathematical Olympiad #0l7p",
+      "url": "https://usamoguide.com/",
+      "source": "16th United States of America Junior Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Techniques: modulo, size analysis, order analysis, inequalities",
+        "Fermat / Euler / Wilson theorems"
+      ],
+      "statement": "Let $S$ be a set of positive integers with the following properties:\n* $\\{1, 2, \\dots, 2025\\} \\subseteq S$.\n* If $a, b \\in S$ and $\\gcd(a, b) = 1$, then $ab \\in S$.\n* If for some $s \\in S$, $s+1$ is composite, then all positive divisors of $s+1$ are in $S$.\nProve that $S$ contains all positive integers.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

@@ -1,0 +1,197 @@
+{
+  "MODULE_ID": "number-theory-diophantine-equations-pell-s-equations",
+  "practice": [
+    {
+      "uniqueId": "number-theory-diophantine-equations-pell-s-equations-auto-0234",
+      "name": "Berkeley Math Circle Monthly Contest 6 #0hp6",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Pell's equations",
+        "Techniques: modulo, size analysis, order analysis, inequalities",
+        "Polynomial operations",
+        "Recurrence relations"
+      ],
+      "statement": "Problem:\n\na. Prove that for all real numbers $x$ and $y$,\n$$\nx^{2}-2 y^{2}=-\\left[(x+2 y)^{2}-2(x+y)^{2}\\right] .\n$$\n\nb. How many positive integer solutions does the equation $x^{2}-2 y^{2}=1$ have?\n\nc. How many positive integer solutions does the equation $x^{2}-2 y^{2}=5$ have?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\na. This is simply an algebra calculation:\n$$\n\\begin{aligned}\n-\\left[(x+2 y)^{2}-2(x+y)^{2}\\right] & =-\\left[x^{2}+4 x y+4 y^{2}-2\\left(x^{2}+2 x y+y^{2}\\right)\\right] \\\\\n& =-\\left[x^{2}+4 x y+4 y^{2}-2 x^{2}-4 x y-2 y^{2}\\right] \\\\\n& =-\\left[-x^{2}+2 y^{2}\\right] \\\\\n& =x^{2}-2 y^{2} .\n\\end{aligned}\n$$\n\nb. There are infinitely many. Begin at the solution $x_{0}=3, y_{0}=2$ and apply the transformation\n$$\nx_{n+1}=x_{n}+2 y_{n}, \\quad y_{n+1}=x_{n}+y_{n} .\n$$\nBy part (a), the value of $x_{n}^{2}-2 y_{n}^{2}$ is alternately 1 and $-1$ (to be precise, $(-1)^{n}$). Also, all the $x_{n}$ are positive so $y_{0}<y_{1}<y_{2}<\\cdots$ and we never repeat a pair $(x, y)$. Thus we get infinitely many solutions to $x^{2}-2 y^{2}=1$. (With some more work one can prove that the $\\left(x_{2 n}, y_{2 n}\\right)$ are all positive integer solutions.)\n\nc. There are no solutions. Look at the remainders of the terms mod $5$. The term $x^{2}$ must be $0,1$, or $4$; the term $2 y^{2}$ must be $0,2$, or $3$. The only way these can equal each other is if $5 \\mid x$ and $5 \\mid y$. But then $25 \\mid x^{2}-2 y^{2}=5$, a contradiction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-diophantine-equations-pell-s-equations-auto-0319",
+      "name": "Berkeley Math Circle #0hrj",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Pell's equations",
+        "Infinite descent / root flipping",
+        "Quadratic fields"
+      ],
+      "statement": "Problem:\n\nFind all pairs of integers $x, y$ such that $2 x^{2} - 6 x y + 3 y^{2} = -1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe first characterize all solutions to the equation $a^{2} - 3 b^{2} = 1$ in nonnegative integers. This is a Pell equation, and the method used is standard. Suppose we have $(a + b \\sqrt{3})(a - b \\sqrt{3}) = a^{2} - 3 b^{2} = 1$ with $a > 1$; then we can set $a' = 2a - 3b$, $b' = 2b - a$. Then $(a + b \\sqrt{3}) = (2 + \\sqrt{3})(a' + b' \\sqrt{3})$ and $a'^{2} - 3 b^{2} = (4a^{2} - 12ab + 9b^{2}) - 3(4b^{2} - 4ab + a^{2}) = a^{2} - 3b^{2} = 1$. Moreover, we claim $a'$ and $b'$ are also nonnegative, with $a' < a$. To see this, note that $9b^{2} = 3(a^{2} - 1) < 4a^{2} \\Rightarrow 3b < 2a \\Rightarrow a' = 2a - 3b > 0$; $3b^{2} = a^{2} - 1 > 0 \\Rightarrow b > 0 \\Rightarrow a^{2} = 3b^{2} + 1 \\leq 4b^{2} \\Rightarrow b' = 2b - a \\geq 0$; and $b > 0 \\Rightarrow 9b^{2} > 3b^{2} + 1 = a^{2} \\Rightarrow a - a' = 3b - a > 0$.\n\nThus, a solution $(a, b)$ in nonnegative integers with $a > 1$ yields a new solution $(a', b')$ such that $a' < a$ and $(a + b \\sqrt{3}) = (2 + \\sqrt{3})(a' + b' \\sqrt{3})$. If $a' > 1$, we can repeat this process to obtain nonnegative integers $a'', b''$ such that $a'' < a'$ and $(a' + b' \\sqrt{3}) = (2 + \\sqrt{3})(a'' + b'' \\sqrt{3})$. Continuing in this manner, we obtain a sequence of solutions with $a > a' > a'' > \\cdots$. But this sequence of nonnegative integers cannot decrease forever, so eventually we get to some $n$ for which $a^{(n)} = 1$. The equation then implies $b^{(n)} = 0$, so $a + b \\sqrt{3} = (2 + \\sqrt{3})^{n}(a^{(n)} + b^{(n)} \\sqrt{3}) = (2 + \\sqrt{3})^{n}$. Then, it follows that $(2 - \\sqrt{3})^{n} = a - b \\sqrt{3}$. (This can be proven by comparing the binomial expansions of $(2 + \\sqrt{3})^{n}$ and $(2 - \\sqrt{3})^{n}$, or by a straightforward induction on $n$; note that the equation $a + b \\sqrt{3} = (2 + \\sqrt{3})^{n}$ uniquely determines the integers $a$ and $b$.) Thus, we conclude that\n$$\na = \\frac{(2 + \\sqrt{3})^{n} + (2 - \\sqrt{3})^{n}}{2}, \\quad b = \\frac{(2 + \\sqrt{3})^{n} - (2 - \\sqrt{3})^{n}}{2 \\sqrt{3}}.\n$$\nIf we had wanted all integer solutions to the equation $a^{2} - 3 b^{2} = 1$, rather than all nonnegative integer solutions, we simply note that the equation is invariant under switching signs of $a$ and/or $b$, so the set of all solutions is simply the set of solutions given above with possible sign changes thrown in.\n\nNow we consider the given equation, $2 x^{2} - 6 x y + 3 y^{2} = -1$. This can be rewritten as $x^{2} - 3(y - x)^{2} = 1$. Thus, by letting $a = x$, $b = y - x$, we have an equivalence between our given equation and the Pell equation, so we can express our solutions to the former in terms of those of the latter: $x = a$ and $y = a + b$ gives\n$$\nx = \\pm \\frac{(2 + \\sqrt{3})^{n} + (2 - \\sqrt{3})^{n}}{2}, \\quad y = x \\pm \\frac{(2 + \\sqrt{3})^{n} - (2 - \\sqrt{3})^{n}}{2 \\sqrt{3}}\n$$\nwhere $n$ is any nonnegative integer. It can be checked by computation that any such pair is a valid, integral solution, and the foregoing argument shows that all solutions are of this form."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-diophantine-equations-pell-s-equations-auto-0753",
+      "name": "USA IMO #0i3l",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Pell's equations",
+        "Infinite descent / root flipping",
+        "Techniques: modulo, size analysis, order analysis, inequalities",
+        "Greatest common divisors (gcd)",
+        "Recurrence relations"
+      ],
+      "statement": "Find all pairs of nonnegative integers $(m, n)$ such that\n$$\n(m + n - 5)^2 = 9mn.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**First Solution.** The equation is symmetric in $m$ and $n$. The solutions are the unordered pairs\n$$\n\\{5F_{2k}^2, 5F_{2k+2}^2\\}, \\quad \\{L_{2k-1}^2, L_{2k+1}^2\\},\n$$\nwhere $k$ is a nonnegative integer and $\\{F_j\\}$, $\\{L_j\\}$ are the **Fibonacci** and **Lucas sequences**, respectively — that is, the sequences defined by $F_1 = F_2 = 1$, $L_1 = 1$, $L_2 = 3$, and the recursive relations $F_{j+2} = F_{j+1} + F_j$ and $L_{j+2} = L_{j+1} + L_j$ for $j \\ge 1$. Note that we amended the Lucas sequence by considering $L_1 = -1$ and $L_0 = 2$.\nLet $g = \\gcd(m, n)$ and write $m = gm_1$ and $n = gn_1$. Because $9mn$ is a perfect square, $m_1$ and $n_1$ are perfect squares. Let $m_1 = x^2$ and $n_1 = y^2$. The given condition becomes\n$$\n(gx^2 + gy^2 - 5)^2 = 9g^2x^2y^2.\n$$\nTaking the square root on both sides yields\n$$\ng(x^2 + y^2) - 5 = \\pm 3gxy,\n$$\nor\n$$\ng(x^2 + y^2 \\pm 3xy) = 5.\n$$\nIf $g(x^2 + y^2 + 3xy) = 5$, then $x^2 + y^2 + 3xy \\le 5$, implying that $x = y = g = 1$ and $(m, n) = (1, 1)$.\nOtherwise, $g(x^2 + y^2 - 3xy) = 5$ and $g = 1$ or $5$. Fix $g$ equal to one of these values, so that\n$$\nx^2 - 3xy + y^2 = \\frac{5}{g}. \\qquad (1)\n$$\nLet $\\{a, b\\}$ denote an unordered pair of numbers. We call $\\{a, b\\}$ a *g-pair* if $\\{x, y\\} = \\{a, b\\}$ satisfies (1) and *a* and *b* are positive integers. Also, we call $\\{p, q\\}$ *smaller* (respectively, *larger*) than $\\{r, s\\}$ if $p + q$ is smaller (respectively, larger) than $r + s$.\nSuppose that $\\{a, b\\}$ is a *g-pair*. View (1) as a monic quadratic in $x$ with $y = b$ constant. The coefficient of $x$ in a monic quadratic function $(x - r_1)(x - r_2)$ equals $-(r_1 + r_2)$, implying that $\\{3b - a, b\\}$ should also satisfy (1). Indeed,\n$$\nb^2 - 3b(3b - a) + (3b - a)^2 = a^2 - 3ab + b^2 = \\frac{5}{g}.\n$$\nAlso, if $b > 2$, note that\n$$\na^2 - 3ab + b^2 = \\frac{5}{g} < b^2.\n$$\nIt follows that $a^2 - 3ab < 0$ and so $3b - a > 0$. Thus, if $\\{a, b\\}$ is a $g$-pair with $b > 2$, then $\\{b, 3b - a\\}$ is a $g$-pair as well. Also note that for $a' = b$ and $b' = 3b - a$, $\\{a', 3b' - a'\\} = \\{a, b\\}$.\nFurthermore, if $a \\ge b$, note that $a \\ne b$ because otherwise $-a^2 = 5/g > 0$, which is impossible. Thus, $a > b$ and\n$$\na^2 - 3ab + b^2 = \\frac{5}{g} > b^2 - a^2,\n$$\nwhich implies that $a(2a - 3b) > 0$ and hence $a + b > b + (3b - a)$ and also $3b - a > b$. Thus, $\\{a', b'\\}$ is a smaller $g$-pair than $(a, b)$ with $a' \\ge b'$.\nGiven any $g$-pair $\\{a, b\\}$ with $b \\le a$, if $b \\le 2$ then $a$ must equal $r(g)$, where $r(5) = 3$ if $r(1) = 4$. Otherwise, according to the above observation we can repeatedly reduce it to a smaller $g$-pair until $\\min(a, b) \\le 2$ — that is, to the $g$-pair $(r(g), 1)$.\nBeginning with $\\{r(g), 1\\}$, we reverse the reducing process so that $\\{x, y\\}$ is replaced by the larger $g$-pair $\\{3x - y, x\\}$. Moreover, this must generate all $g$-pairs since all $g$-pairs can be reduced to $\\{r(g), 1\\}$. We may express these possible pairs in terms of the Fibonacci and Lucas numbers; for $g = 1$, observe that $L_2 = 1$, $L_3 = 4 = r(1)$, and that\n$$\n\\begin{aligned}\nL_{2k+3} &= L_{2k+2} + L_{2k+1} = (L_{2k+1} + L_{2k}) + L_{2k+1} \\\\\n&= (L_{2k+1} + (L_{2k+1} - L_{2k-1})) + L_{2k+1} \\\\\n&= 3L_{2k+1} - L_{2k-1}\n\\end{aligned}\n$$\nfor $k \\ge 0$. For $g = 5$, the Fibonacci numbers satisfy an analogous recursive relation, and $F_2 = 1$, $F_4 = 3 = r(5)$. Therefore, $\\{m, n\\} = \\{L_{2k-1}^2, L_{2k+1}^2\\}$ and $\\{m, n\\} = \\{5F_{2k}^2, 5F_{2k+2}^2\\}$ for $k \\ge 0$.\n\n**Second Solution.** As we have seen in the first solutions, it suffices to solve the equations\n$$\nx^2 + y^2 - 3xy = 1 \\qquad (2)\n$$\nand\n$$\nx^2 + y^2 - 3xy = 5. \\qquad (3)\n$$\nThe first equation is equivalent to $(2x - 3y)^2 - 5y^2 = 4$, which is a *Pell's* equation of the form\n$$\nu^2 - dv^2 = 4. \\qquad (4)\n$$\nAll the solutions $(u, v) = (u_k, v_k)$, $k \\ge 1$, of equation (4) are given by\n$$\n\\frac{1}{2} (u_k + v_k \\sqrt{d}) = \\left( \\frac{u_1 + v_1 \\sqrt{d}}{2} \\right)^k, \\quad k \\ge 1, \\qquad (5)\n$$\nwhere $(u, v) = (u_1, v_1)$ is the solution to (4) with least positive $u$ value.\nFrom (5) it is not difficult to see that\n$$\nu_k = \\left( \\frac{u_1 + v_1 \\sqrt{d}}{2} \\right)^k + \\left( \\frac{u_1 - v_1 \\sqrt{d}}{2} \\right)^k\n$$\nand\n$$\nv_k = \\frac{1}{\\sqrt{d}} \\left[ \\left( \\frac{u_1 + v_1 \\sqrt{d}}{2} \\right)^k - \\left( \\frac{u_1 - v_1 \\sqrt{d}}{2} \\right)^k \\right]\n$$\nfor all $k \\ge 1$. In our case, $(u_1, v_1) = (3, 1)$. Hence\n$$\n\\begin{aligned}\ny_k &= v_k = \\frac{1}{\\sqrt{5}} \\left[ \\left( \\frac{3+\\sqrt{5}}{2} \\right)^k - \\left( \\frac{3-\\sqrt{5}}{2} \\right)^k \\right] \\\\\n&= \\frac{1}{\\sqrt{5}} \\left[ \\left( \\frac{1+\\sqrt{5}}{2} \\right)^{2k} - \\left( \\frac{1-\\sqrt{5}}{2} \\right)^{2k} \\right] = F_{2k},\n\\end{aligned}\n$$\nwhere $\\{F_n\\}_n^\\infty$ is the Fibonacci sequence, and\n$$\n2x_k - 3y_k = u_k = \\left( \\frac{3+\\sqrt{5}}{2} \\right)^k - \\left( \\frac{3-\\sqrt{5}}{2} \\right)^k,\n$$\nimplying\n$$\n\\begin{aligned}\nx_k &= \\frac{1}{2} (u_k + 3v_k) \\\\\n&= \\frac{1}{2} \\left[ \\left( \\frac{3}{\\sqrt{5}} + 1 \\right) \\left( \\frac{3+\\sqrt{5}}{2} \\right)^k - \\left( \\frac{3}{\\sqrt{5}} - 1 \\right) \\left( \\frac{3-\\sqrt{5}}{2} \\right)^k \\right] \\\\\n&= \\frac{1}{\\sqrt{5}} \\left[ \\left( \\frac{3+\\sqrt{5}}{2} \\right)^{k+1} - \\left( \\frac{3-\\sqrt{5}}{2} \\right)^{k+1} \\right] \\\\\n&= \\frac{1}{\\sqrt{5}} \\left[ \\left( \\frac{1+\\sqrt{5}}{2} \\right)^{2k+2} - \\left( \\frac{1-\\sqrt{5}}{2} \\right)^{2k+2} \\right] = F_{2k+2}.\n\\end{aligned}\n$$\nIt follows that $m_k = 5x_k^2 = 5F_{2k+2}^2$ and $n_k = 5y_k^2 = 5F_{2k}^2$, for $k \\ge 1$.\n\nEquation (3) is equivalent to $(2x-3y)^2 - 5y^2 = 20$. Setting $2x-3y = 5v$ and $y = u$, the equation reduces to $u^2 - 5v^2 = -4$. This is a Pell's equation of the form\n$$\nu^2 - dv^2 = -4, \\qquad (6)\n$$\nwhose solutions $(u, v) = (u_k, v_k)$, $k = 1, 3, 5, \\dots$, are given by\n$$\n\\frac{1}{2} (u_k + v_k \\sqrt{d}) = \\left( \\frac{u_1 + v_1 \\sqrt{d}}{2} \\right)^k, \\quad k = 1, 3, 5, \\dots,\n$$\nwhere $(u, v) = (u_1, v_1)$ is the solution to (6) with least positive $u$ value. It follows that\n$$\nu_k = \\left( \\frac{u_1 + v_1 \\sqrt{d}}{2} \\right)^k + \\left( \\frac{u_1 - v_1 \\sqrt{d}}{2} \\right)^k\n$$\nand\n$$\nv_k = \\frac{1}{\\sqrt{d}} \\left[ \\left( \\frac{u_1 + v_1 \\sqrt{d}}{2} \\right)^k - \\left( \\frac{u_1 - v_1 \\sqrt{d}}{2} \\right)^k \\right]\n$$\nfor $k = 1, 3, 5, \\dots$. In our case, $(u_1, v_1) = (1, 1)$. Hence\n$$\nu_k = \\left( \\frac{1 + \\sqrt{5}}{2} \\right)^k + \\left( \\frac{1 - \\sqrt{5}}{2} \\right)^k = L_k,\n$$\nwhere $\\{L_n\\}^\\infty_{n=1}$ is the Lucas sequence, and\n$$\nv_k = \\frac{1}{\\sqrt{5}} \\left[ \\left( \\frac{1 + \\sqrt{5}}{2} \\right)^k - \\left( \\frac{1 - \\sqrt{5}}{2} \\right)^k \\right] = F_k,\n$$\nfor $k = 1, 3, 5, \\dots$. Hence $y_k = L_k$, $k = 1, 3, 5, \\dots$, and\n$$\n\\begin{align*}\nx_k &= \\frac{1}{2}(3L_k + 5F_k) \\\\\n&= \\frac{1}{2}\\left[ (3 + \\sqrt{5})\\left(\\frac{1 + \\sqrt{5}}{2}\\right)^k + (3 - \\sqrt{5})\\left(\\frac{1 - \\sqrt{5}}{2}\\right)^k \\right] \\\\\n&= \\left(\\frac{1 + \\sqrt{5}}{2}\\right)^{k+2} + \\left(\\frac{1 - \\sqrt{5}}{2}\\right)^{k+2} \\\\\n&= L_{k+2}.\n\\end{align*}\n$$\nTherefore $m_k = 5L_{k+2}^2$, $n_k = 5L_k^2$, $k = -1, 1, 3, 5, \\dots$. Here we extended the definition of Lucas number to $L_0 = 2$ and $L_{-1} = -1$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-diophantine-equations-pell-s-equations-auto-2221",
+      "name": "13th Bay Area Mathematical Olympiad #0j8d",
+      "url": "https://usamoguide.com/",
+      "source": "13th Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Algebraic properties of binomial coefficients",
+        "Pell's equations"
+      ],
+      "statement": "Problem:\n\nDoes there exist a row of Pascal's Triangle containing four distinct elements $a$, $b$, $c$ and $d$ such that $b=2a$ and $d=2c$?\n\nNote that the values must be distinct, so $a$, $b$, $c$, $d$ must be four different numbers.\n\nRecall that Pascal's triangle is the pattern of numbers that begins as follows\n\n![](attached_image_1.png)\n\nwhere the elements of each row are the sums of pairs of adjacent elements of the prior row. For example, $10 = 4 + 6$. Also note that the last row displayed above contains the four elements $a=5$, $b=10$, $d=10$, $c=5$, satisfying $b=2a$ and $d=2c$, but these four elements are NOT distinct.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nYes, there are infinitely many such rows. For example,\n$$\n\\binom{203}{68} = 2\\binom{203}{67} \\text{ and } \\binom{203}{85} = 2\\binom{203}{83}\n$$\nThere are infinitely many rows having two adjacent elements in a 1:2 ratio, for\n$$\n2\\binom{n}{k} = \\binom{n}{k+1}\n$$\nreduces to $2(k+1) = n - k$, or $n = 3k + 2$. So as long as $n \\equiv 2 \\pmod{3}$, there will be two adjacent elements in a 1:2 ratio.\n\nNext, we search for \"doubles\" that are not adjacent. The next easiest case to try is\n$$\n2\\binom{n}{k} = \\binom{n}{k+2}\n$$\nwhich reduces to\n$$\n2(k+2)(k+1) = (n-k)(n-k-1).\n$$\nSubstitute $u = n - k$ and $v = k + 2$; our equation becomes\n$$\n2(v^2 - v) = u^2 - u\n$$\nMultiplying both sides by 4 and completing the square yields\n$$\n2(4v^2 - 4v + 1) = 4u^2 - 4u + 1 + 1,\n$$\nso substituting $x = 2v - 1$, $y = 2u - 1$ reduces the original equation to\n$$\n2x^2 - y^2 = 1.\n$$\nThis is a Pell's equation with infinitely many solutions which can be generated in the standard way, or we can observe that $(1,1)$, $(5,7)$ are solutions and that if $(x, y)$ is a solution, then $(3x + 2y, 4x + 3y)$ is also a solution.\n\nIt remains to show that one of these solutions produces an $n$ which is congruent to $2$ modulo $3$. Since $n = \\frac{x + y}{2} - 1$, we must have $x + y \\equiv 0 \\pmod{6}$. The first solution with this property is $(5,7)$, but this doesn't work, because it corresponds to $n = 5$, and the elements of the row are $1, 5, 10, 10, 5, 1$, so the doubles are not distinct. Generating solutions via $(x, y) \\rightarrow (3x + 2y, 4x + 3y)$ modulo $6$, we have the repeating pattern\n$$\n(1,1), (-1,1), (-1,-1), (1,-1), (1,1), \\ldots\n$$\nwhich shows that every other solution $(x, y)$ has the property $x + y \\equiv 0 \\pmod{6}$. The next solution after $(5,7)$ with this property will correspond to an $n$ large enough so that the doubles will be distinct. Specifically, the solution is $(169, 239)$ which corresponds to $n = 203$, $k = 83$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-diophantine-equations-pell-s-equations-auto-2567",
+      "name": "TST #0jhz",
+      "url": "https://usamoguide.com/",
+      "source": "TST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Pell's equations",
+        "Techniques: modulo, size analysis, order analysis, inequalities",
+        "Polynomial operations"
+      ],
+      "statement": "Determine if there exists a (three-variable) polynomial $P(x, y, z)$ with integer coefficients satisfying the following property: A positive integer $n$ is *not* a perfect square if and only if there is a triple $(x, y, z)$ of positive integers such that $P(x, y, z) = n$.\n(This problem was suggested by Gerhard Woeginger.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "The answer is *yes*. Suppose that $Q(x, y, z)$ is a polynomial with integer coefficients such that for all integers $x, y, z$, we have\n\n* $Q(x, y, z) \\ge 0$,\n* if $Q(x, y, z) = 0$ then $x$ is a non-square, and\n* for each positive non-square $x$, there exist $y, z \\in \\mathbb{Z}$ with $Q(x, y, z) = 0$.\n\nWe claim that the polynomial\n$$\nP(x, y, z) = x - xQ(x, y, z)\n$$\nsatisfies the desired property. Indeed, $P(x, y, z) \\le 0$ unless $Q(x, y, z) = 0$, in which case $x$ must be a non-square, so if $P(x, y, z)$ is a positive integer, then it is a non-square. Further, for any positive non-square $x$, choosing $y, z$ for which $Q(x, y, z) = 0$ yields a triple $(x, y, z)$ for which $P(x, y, z) = x$. It remains only to show that such a polynomial $Q(x, y, z)$ exists. We present two approaches.\n\nFirst approach:\n\nFor any $x \\in \\mathbb{Z}$, we have the following chain of five equivalent statements:\n(i) $x$ is a positive non-square,\n(ii) $y^2 < x < (y+1)^2$ for some $y \\in \\mathbb{Z}$,\n(iii) $(x - y^2)((y + 1)^2 - x) > 0$ for some $y \\in \\mathbb{Z}$,\n(iv) $((x - y^2)((y + 1)^2 - x) - z)^2 = 0$ for some $y, z \\in \\mathbb{Z}$,\n(v) $Q(x, y, z) = 0$ for some $y, z \\in \\mathbb{Z}$, where\n$$\nQ(x, y, z) = ((x - y^2)((y + 1)^2 - x) - z)^2\n$$\nsatisfies the desired conditions.\n\nSecond approach:\n\nIt is well known that the Pell equation $y^2 - xz^2 = 1$ with parameter $x$ has a positive integer solution $y, z \\in \\mathbb{Z}$ if and only if $x$ is not a square. Therefore the polynomial\n$$\nQ(x, y, z) = (y^2 - xz^2 - 1)^2\n$$\nalso satisfies the desired conditions.\n\n**Remark.** For any $k$, the problem statement also works with “not a $k$th power” instead of “not a square.” However, in this case the second approach breaks down because we can no longer use the theory of Pell equations."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-diophantine-equations-pell-s-equations-auto-3139",
+      "name": "February 2017 #0jxv",
+      "url": "https://usamoguide.com/",
+      "source": "February 2017",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Pell's equations"
+      ],
+      "statement": "Problem:\nFind the smallest possible value of $x+y$ where $x, y \\geq 1$ and $x$ and $y$ are integers that satisfy $x^{2}-29 y^{2}=1$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nContinued fraction convergents to $\\sqrt{29}$ are $5, \\frac{11}{2}, \\frac{16}{3}, \\frac{27}{5}, \\frac{70}{13}$ and you get $70^{2}-29 \\cdot 13^{2}=-1$ so since $(70+13 \\sqrt{29})^{2}=9801+1820 \\sqrt{29}$ the answer is $9801+1820=11621$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-diophantine-equations-pell-s-equations-auto-3594",
+      "name": "HMMT February 2019 #0kai",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2019",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Pell's equations",
+        "Greatest common divisors (gcd)",
+        "Factorization techniques"
+      ],
+      "statement": "Problem:\nDetermine the second smallest positive integer $n$ such that $n^{3}+n^{2}+n+1$ is a perfect square.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n$n^{3}+n^{2}+n+1 = (n+1)(n^{2}+1)$. Note that $\\gcd(n^{2}+1, n+1) = \\gcd(2, n+1) = 1$ or $2$, and since $n^{2}+1$ is not a perfect square for $n \\geq 1$, we must have $n^{2}+1 = 2p^{2}$ and $n+1 = 2q^{2}$ for some integers $p$ and $q$. The first equation is a variant of Pell's equation, which (either by brute-forcing small cases or using the known recurrence) gives solutions $(n, p) = (1, 1), (7, 5), \\ldots$ Incidentally, both smallest solutions $n=1$ and $n=7$ allow an integer solution to the second equation, so $n=7$ is the second smallest integer that satisfies the condition."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-diophantine-equations-pell-s-equations-auto-4351",
+      "name": "HMMT February 2023 #0kvj",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2023",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Symmetric functions",
+        "Recurrence relations",
+        "Pell's equations"
+      ],
+      "statement": "Problem:\n\nSuppose $m>n>1$ are positive integers such that there exist $n$ complex numbers $x_{1}, x_{2}, \\ldots, x_{n}$ for which\n- $x_{1}^{k}+x_{2}^{k}+\\cdots+x_{n}^{k}=1$ for $k=1,2, \\ldots, n-1$;\n- $x_{1}^{n}+x_{2}^{n}+\\cdots+x_{n}^{n}=2$; and\n- $x_{1}^{m}+x_{2}^{m}+\\cdots+x_{n}^{m}=4$.\nCompute the smallest possible value of $m+n$.\nProposed by: Rishabh Das",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $S_{k}=\\sum_{j=1}^{n} x_{j}^{k}$, so $S_{1}=S_{2}=\\cdots=S_{n-1}=1, S_{n}=2$, and $S_{m}=4$. The first of these conditions gives that $x_{1}, \\ldots, x_{n}$ are the roots of $P(x)=x^{n}-x^{n-1}-c$ for some constant $c$. Then $x_{i}^{n}=x_{i}^{n-1}+c$, and thus\n$$\n2=S_{n}=S_{n-1}+c n=1+c n\n$$\nso $c=\\frac{1}{n}$.\n\nThus, we have the recurrence $S_{k}=S_{k-1}+\\frac{S_{k-n}}{n}$. This gives $S_{n+j}=2+\\frac{j}{n}$ for $0 \\leq j \\leq n-1$, and then $S_{2 n}=3+\\frac{1}{n}$. Then $S_{2 n+j}=3+\\frac{2 j+1}{n}+\\frac{j^{2}+j}{2 n^{2}}$ for $0 \\leq j \\leq n-1$. In particular, $S_{3 n-1}>4$, so we have $m \\in[2 n, 3 n-1]$. Let $m=2 n+j$. Then\n$$\n3+\\frac{2 j+1}{n}+\\frac{j^{2}+j}{2 n^{2}}=4 \\Longrightarrow 2 n^{2}-2 n(2 j+1)-\\left(j^{2}+j\\right)=0 .\n$$\nViewing this as a quadratic in $n$, the discriminant $4(2 j+1)^{2}+8\\left(j^{2}+j\\right)=24 j^{2}+24 j+4=4\\left(6 j^{2}+6 j+1\\right)$ must be a perfect square, so $6 j^{2}+6 j+1$ is a square. Then\n$$\n6 j^{2}+6 j+1=y^{2} \\Longrightarrow 12 j^{2}+12 j+2=2 y^{2} \\Longrightarrow 3(2 j+1)^{2}-2 y^{2}=1\n$$\nThe case $j=0$ gives $n=1$, a contradiction. After this, the smallest $j$ that works is $j=4$ (and $y=11$ ). Plugging this back into our quadratic,\n$$\n2 n^{2}-18 n-20=0 \\Longrightarrow n^{2}-9 n-10=0\n$$\nso $n=10$. Then $m=2 n+j=24$, so $m+n=34$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

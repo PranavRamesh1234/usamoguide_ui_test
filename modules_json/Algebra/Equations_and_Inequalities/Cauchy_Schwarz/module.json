@@ -1,0 +1,869 @@
+{
+  "MODULE_ID": "algebra-equations-and-inequalities-cauchy-schwarz",
+  "practice": [
+    {
+      "uniqueId": "algebra-equations-and-inequalities-cauchy-schwarz-auto-0106",
+      "name": "Berkeley Math Circle #0hlm",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "QM-AM-GM-HM / Power Mean",
+        "Cauchy-Schwarz"
+      ],
+      "statement": "Problem:\n\nDetermine the positive real numbers $a$ and $b$ satisfying $9 a^{2} + 16 b^{2} = 25$ such that $a \\cdot b$ is maximal. What is the maximum of $a \\cdot b$? Explain your answer!",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nApplying the inequality $x^{2} + y^{2} \\geq 2 x y$ on $x = 3a$ and $y = 4b$ we get\n$$\n25 = (3a)^{2} + (4b)^{2} \\geq 2 \\cdot 3a \\cdot 4b = 24ab.\n$$\nHence $ab \\leq \\frac{25}{24}$.\n\nThe equality is attained for $x = y$ or equivalently for $3a = 4b$. In that case\n$$\n25 = (3a)^{2} + (4b)^{2} = 2 \\cdot 9a^{2}\n$$\nhence $a = \\frac{5}{3\\sqrt{2}}$. Now we have\n$$\nb = \\frac{3}{4}a = \\frac{5}{4\\sqrt{2}}.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-cauchy-schwarz-auto-0372",
+      "name": "Berkeley Math Circle Monthly Contest 3 #0ht0",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 3",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cauchy-Schwarz",
+        "Linear and quadratic inequalities"
+      ],
+      "statement": "Problem:\n\nDetermine the greatest real number $a$ such that the inequality\n$$\nx_{1}^{2}+x_{2}^{2}+x_{3}^{2}+x_{4}^{2}+x_{5}^{2} \\geq a\\left(x_{1} x_{2}+x_{2} x_{3}+x_{3} x_{4}+x_{4} x_{5}\\right)\n$$\nholds for every five real numbers $x_{1}, x_{2}, x_{3}, x_{4}, x_{5}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nNote that\n$$\nx_{1}^{2}+x_{2}^{2}+x_{3}^{2}+x_{4}^{2}+x_{5}^{2} = \\left(x_{1}^{2}+\\frac{x_{2}^{2}}{3}\\right) + \\left(\\frac{2 x_{2}^{2}}{3}+\\frac{x_{3}^{2}}{2}\\right) + \\left(\\frac{x_{3}^{2}}{2}+\\frac{2 x_{4}^{2}}{3}\\right) + \\left(\\frac{x_{4}^{2}}{3}+x_{5}^{2}\\right) .\n$$\n\nNow applying the inequality $a^{2}+b^{2} \\geq 2 a b$ we get\n$$\nx_{1}^{2}+x_{2}^{2}+x_{3}^{2}+x_{4}^{2}+x_{5}^{2} \\geq \\frac{2}{\\sqrt{3}}\\left(x_{1} x_{2}+x_{2} x_{3}+x_{3} x_{4}+x_{4} x_{5}\\right) \\text{.}\n$$\n\nThis proves that $a \\geq \\frac{2}{\\sqrt{3}}$. In order to prove $a \\leq \\frac{2}{\\sqrt{3}}$ it is enough to notice that for $(x_{1}, x_{2}, x_{3}, x_{4}, x_{5}) = (1, \\sqrt{3}, 2, \\sqrt{3}, 1)$ we have\n$$\nx_{1}^{2}+x_{2}^{2}+x_{3}^{2}+x_{4}^{2}+x_{5}^{2} = \\frac{2}{\\sqrt{3}}\\left(x_{1} x_{2}+x_{2} x_{3}+x_{3} x_{4}+x_{4} x_{5}\\right) \\text{.}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-cauchy-schwarz-auto-0378",
+      "name": "Berkeley Math Circle #0ht6",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Counting two ways",
+        "Cauchy-Schwarz"
+      ],
+      "statement": "Problem:\n\nEvery two members of a certain society are either friends or enemies. Suppose that there are $n$ members of the society, that there are exactly $q$ pairs of friends, and that in every set of three persons there are two who are enemies to each other. Prove that there is at least one member of the society among whose enemies there are at most $q \\cdot\\left(1-\\frac{4 q}{n^{2}}\\right)$ pairs of friends.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nDenote by $S$ the set of all members of the society, by $A$ the set of all pairs of friends, and by $N$ the set of all pairs of enemies. For every $x \\in S$, denote by $f(x)$ the number of friends of $x$ and by $F(x)$ the number of pairs of friends among enemies of $x$. It is easy to prove:\n$$\n\\begin{gathered}\nq = |A| = \\frac{1}{2} \\sum_{x \\in S} f(x) ; \\\\\n\\sum_{\\{a, b\\} \\in A}(f(a)+f(b)) = \\sum_{x \\in S} f^{2}(x) .\n\\end{gathered}\n$$\nIf $a$ and $b$ are friends, then the number of their common enemies is equal to $(n-2)-(f(a)-1)-(f(b)-1)=n-f(a)-f(b)$. Thus\n$$\n\\frac{1}{n} \\sum_{x \\in S} F(x) = \\frac{1}{n} \\sum_{\\{a, b\\} \\in A}(n-f(a)-f(b)) = q - \\frac{1}{n} \\sum_{x \\in S} f^{2}(x)\n$$\nUsing the inequality between arithmetic and quadratic mean on the last expression, we get\n$$\n\\frac{1}{n} \\sum_{x \\in S} F(x) \\leq q - \\frac{4 q^{2}}{n^{2}}\n$$\nand the statement of the problem follows immediately."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-cauchy-schwarz-auto-0518",
+      "name": "Berkeley Math Circle: Monthly Contest 7 #0hx2",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 7",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cauchy-Schwarz",
+        "Symmetric functions"
+      ],
+      "statement": "Problem:\nProve that if positive real numbers $x, y, z$ have sum $1$, then\n$$\n\\frac{x}{x+yz} + \\frac{y}{y+zx} + \\frac{z}{z+xy} \\leq \\frac{2}{1-3xyz}.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe idea is to use the identity\n$$\n\\frac{x}{x+yz} = \\frac{x}{x(x+y+z) + yz} = \\frac{x}{(x+y)(x+z)} = \\frac{x(y+z)}{(x+y)(y+z)(z+x)}\n$$\nSo the left-hand side is exactly equal to\n$$\n\\frac{2(xy+yz+zx)}{(x+y)(y+z)(z+x)} = \\frac{2(xy+yz+zx)(x+y+z)}{(x+y)(y+z)(z+x)}.\n$$\nWe let $k = (xy+yz+zx)(x+y+z)$. On the other hand, we claim that $k \\leq 1/3$, which is sufficient. Indeed, to prove $k \\leq 1/3$ it suffices to prove that\n$$\nxy+yz+zx \\leq \\frac{(x+y+z)^2}{3}\n$$\nwhich is a direct consequence of the Cauchy-Schwarz inequality.\n\nOn the other hand, the left-hand side equals, exactly,\n$$\n\\frac{2k}{k-xyz} = 2 + \\frac{2xyz}{k-xyz}\n$$\nSo simply noting $k \\leq 1/3$ implies the desired conclusion, since this is a decreasing function of $k$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-cauchy-schwarz-auto-0713",
+      "name": "USA IMO #0i2h",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle trigonometry",
+        "Cyclic quadrilaterals",
+        "Tangents",
+        "Angle chasing",
+        "Distance chasing",
+        "Cartesian coordinates",
+        "Vectors",
+        "Optimization in geometry",
+        "Cauchy-Schwarz"
+      ],
+      "statement": "Let $P$ be a point in the plane of triangle $ABC$ such that the segments $PA$, $PB$, and $PC$ are the sides of an obtuse triangle. Assume that in this triangle the obtuse angle opposes the side congruent to $PA$. Prove that $\\angle BAC$ is acute.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "By the **Cauchy-Schwarz Inequality**,\n$$\n\\sqrt{PB^2 + PC^2} \\sqrt{AC^2 + AB^2} \\ge PB \\cdot AC + PC \\cdot AB.\n$$\nApplying the **(Generalized) Ptolemy's Inequality** to quadrilateral $ABPC$ yields\n$$\nPB \\cdot AC + PC \\cdot AB \\geq PA \\cdot BC.\n$$\n![](attached_image_1.png)\nBecause $PA$ is the longest side of an obtuse triangle with side lengths $PA$, $PB$, $PC$, we have $PA > \\sqrt{PB^2 + PC^2}$ and hence\n$$\nPA \\cdot BC \\geq \\sqrt{PB^2 + PC^2} \\cdot BC.\n$$\nCombining these three inequalities yields $\\sqrt{AB^2 + AC^2} > BC$, implying that angle $BAC$ is acute.\n\nLet $D$ and $Q$ be the feet of the perpendiculars from $B$ and $P$ to line $AC$, respectively. Then $DQ \\leq BP$. Furthermore, the given conditions imply that $AP^2 > BP^2 + PC^2$, which can be written as $AP^2 - PC^2 > BP^2$. Hence,\n$$\n\\begin{align*}\nAQ^2 &\\geq AQ^2 - QC^2 \\\\\n&= (AP^2 - PQ^2) - (CP^2 - PQ^2) \\\\\n&= AP^2 - PC^2 \\\\\n&> BP^2 \\\\\n&\\geq DQ^2.\n\\end{align*}\n$$\nLet $\\ell$ be the ray $AC$ minus the point $A$. Note that, since $PA > PC$, $Q$ lies on ray $\\ell$. If $D$ did not lie on $\\ell$, then $AQ$ would be less than or equal to $DQ$, a contradiction. Thus, $D$ lies on $\\ell$, and angle $BAC$ is acute.\n\n![](attached_image_2.png)\nSet up a coordinate system on the plane with $A = (0,0)$, $B = (a,0)$, $C = (b,c)$, and $P = (x,y)$. Without loss of generality, we may assume that $a > 0$ and that $c > 0$. Proving that angle $BAC$ is acute is equivalent to proving that $b > 0$. Since $PA^2 > PB^2 + PC^2$,\n$$\nx^2 + y^2 > (x-a)^2 + y^2 + (x-b)^2 + (y-c)^2.\n$$\nHence,\n$$\n0 > (x-a)^2 - 2bx + b^2 + (y-c)^2 \\geq -2bx.\n$$\nSince $PA > PB$, we have $x > \\frac{a}{2} > 0$. It follows that $b > 0$, as desired.\n\nWe first prove the following Lemma.\n\n**Lemma.** For any four points $W$, $X$, $Y$, and $Z$ in the plane,\n$$\nWY^2 + XZ^2 \\leq WX^2 + XY^2 + YZ^2 + ZW^2.\n$$\n*Proof.* Pick an arbitrary origin $O$ and let $w$, $x$, $y$, $z$ denote the vectors from $O$ to $W$, $X$, $Y$, $Z$, respectively. Then\n$$\n\\begin{align*}\nWX^2 + XY^2 + YZ^2 + ZW^2 - WY^2 - XZ^2 \\\\\n&= |w-x|^2 + |x-y|^2 + |y-z|^2 + |z-w|^2 - |w-y|^2 - |x-z|^2 \\\\\n&= w \\cdot w + x \\cdot x + y \\cdot y + z \\cdot z \\\\\n&\\quad -2(w \\cdot x + x \\cdot y + y \\cdot z + z \\cdot w - w \\cdot y - x \\cdot z) \\\\\n&= |w+y-x-z|^2,\n\\end{align*}\n$$\nwhich is always nonnegative. Equality holds if and only if $w + y = x + z$, which is true if and only if $WXYZ$ is a (possibly degenerate) parallelogram.\n\nApplying the Lemma to points $A$, $B$, $C$, and $P$ gives\n$$\n\\begin{align*}\n0 \\le AB^2 + BP^2 + PC^2 + CA^2 - AP^2 - BC^2 \\\\\n&= (PB^2 + PC^2 - PA^2) + (AB^2 + AC^2 - BC^2) \\\\\n&< 0 + (AB^2 + AC^2 - BC^2) \\\\\n&= AB^2 + AC^2 - BC^2.\n\\end{align*}\n$$\nTherefore, angle $BAC$ is acute.\n\nIn this solution, $\\sin^{-1}$ takes on values between $0^\\circ$ and $90^\\circ$. Note that $\\angle PAB < 90^\\circ$, since $PB < PA$. Applying the **Law of Sines** to triangle $PAB$ yields\n$$\n\\sin \\angle PAB = \\frac{PB}{PA} \\sin \\angle ABP \\le \\frac{PB}{PA}.\n$$\nIt follows that\n$$\n\\angle PAB \\le \\sin^{-1} \\frac{PB}{PA}.\n$$\nSince $PA^2 > PB^2 + PC^2$, we have similarly\n$$\n\\angle PAC \\le \\sin^{-1} \\frac{PC}{PA} < \\sin^{-1} \\frac{\\sqrt{PA^2 - PB^2}}{PA}.\n$$\nThus,\n$$\n\\begin{align*}\n\\angle BAC &\\le \\angle BAP + \\angle PAC \\\\\n&< \\sin^{-1} \\frac{PB}{PA} + \\sin^{-1} \\frac{\\sqrt{PA^2 - PB^2}}{PA}.\n\\end{align*}\n$$\nIf $\\theta = \\sin^{-1} \\frac{PB}{PA}$, then $\\sin(90^\\circ - \\theta) = \\cos \\theta = \\sqrt{1 - \\sin^2 \\theta} = \\frac{\\sqrt{PA^2 - PB^2}}{PA}$.\nHence,\n$$\n\\angle BAC < \\sin^{-1} \\frac{PB}{PA} + \\sin^{-1} \\frac{\\sqrt{PA^2 - PB^2}}{PA} = 90^\\circ,\n$$\nand angle $BAC$ is acute.\n\n![](attached_image_3.png)\nNote that $PA^2 > PB^2 + PC^2$. Regard $P$ as fixed and $A, B$, and $C$ as free to rotate on circles of radii $PA, PB$, and $PC$ about $P$, respectively. As $A, B, C$ vary, $\\angle BAC$ will be maximized when $B$ and $C$ are on opposite sides of line $PA$ and $\\angle ABP$ and $\\angle ACP$ are right angles, i.e., lines $AB$ and $AC$ are tangent to the circles passing through $B$ and $C$.\nWithout loss of generality, we assume that $PA > PB \\ge PC$. In this case, $ABPC$ is cyclic and $AB^2 = PA^2 - PB^2 > PC^2$, and similarly $AC^2 > PB^2$. Hence, on the circumcircle of $ABPC$, arcs $AB$ and $AC$ are bigger than arcs $PC$ and $PB$, respectively. Thus, $\\angle BPC > \\angle BAC$. Since these two angles are supplementary, angle $BAC$ is acute."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-cauchy-schwarz-auto-0972",
+      "name": "USA IMO 2003 #0i9o",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO 2003",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cauchy-Schwarz",
+        "QM-AM-GM-HM / Power Mean",
+        "Linear and quadratic inequalities",
+        "Symmetric functions"
+      ],
+      "statement": "Let $a$, $b$, $c$ be positive real numbers. Prove that\n$$\n\\frac{(2a + b + c)^2}{2a^2 + (b+c)^2} + \\frac{(2b + c + a)^2}{2b^2 + (c+a)^2} + \\frac{(2c + a + b)^2}{2c^2 + (a+b)^2} \\le 8.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**First Solution.** (Based on work by Matthew Tang and Anders Kaseorg)\nBy multiplying $a$, $b$, and $c$ by a suitable factor, we reduce the problem to the case when $a + b + c = 3$. The desired inequality reads\n$$\n\\frac{(a+3)^2}{2a^2+(3-a)^2} + \\frac{(b+3)^2}{2b^2+(3-b)^2} + \\frac{(c+3)^2}{2c^2+(3-c)^2} \\le 8.\n$$\nSet\n$$\nf(x) = \\frac{(x+3)^2}{2x^2 + (3-x)^2}\n$$\nIt suffices to prove that $f(a) + f(b) + f(c) \\le 8$. Note that\n$$\n\\begin{aligned}\nf(x) &= \\frac{x^2 + 6x + 9}{3(x^2 - 2x + 3)} = \\frac{1}{3} \\cdot \\frac{x^2 + 6x + 9}{x^2 - 2x + 3} \\\\\n&= \\frac{1}{3} \\left( 1 + \\frac{8x + 6}{x^2 - 2x + 3} \\right) \\\\\n&= \\frac{1}{3} \\left( 1 + \\frac{8x + 6}{(x-1)^2 + 2} \\right) \\le \\frac{1}{3} \\left( 1 + \\frac{8x + 6}{2} \\right) \\\\\n&= \\frac{1}{3}(4x + 4).\n\\end{aligned}\n$$\nHence,\n$$\nf(a) + f(b) + f(c) \\le \\frac{1}{3}(4a + 4 + 4b + 4 + 4c + 4) = 8,\n$$\nas desired, with equality if and only if $a = b = c$.\n\n\n**Second Solution.** (By Liang Qin) Setting $x = a+b$, $y = b+c$, $z = c+a$ gives $2a+b+c = x+z$, hence $2a = x+z-y$ and their analogous forms. The desired inequality becomes\n$$\n\\frac{2(x+z)^2}{(x+z-y)^2+2y^2} + \\frac{2(z+y)^2}{(z+y-x)^2+2x^2} + \\frac{2(y+x)^2}{(y+x-z)^2+2z^2} \\le 8.\n$$\nBecause $2(s^2 + t^2) \\ge (s + t)^2$ for all real numbers $s$ and $t$, we have $2(x + z - y)^2 + 2y^2 \\ge (x + z - y + y)^2 = (x + z)^2$. Hence\n$$\n\\begin{aligned}\n\\frac{2(x+z)^2}{(x+z-y)^2+2y^2} &= \\frac{4(x+z)^2}{2(x+z-y)^2+4y^2} \\le \\frac{4(x+z)^2}{(x+z)^2+2y^2} \\\\\n&= \\frac{4}{1+2 \\cdot \\frac{y^2}{(x+z)^2}} \\le \\frac{4}{1+2 \\cdot \\frac{y^2}{2(x^2+z^2)}} \\\\\n&= \\frac{4(x^2+z^2)}{x^2+y^2+z^2}.\n\\end{aligned}\n$$\nIt is not difficult to see that the desired result follows from summing up the above inequality and its analogous forms.\n\n\n**Third Solution.** (By Richard Stong) Note that\n$$\n\\begin{aligned}\n(2x + y)^2 + 2(x - y)^2 &= 4x^2 + 4xy + y^2 + 2x^2 - 4xy + 2y^2 \\\\\n&= 3(2x^2 + y^2).\n\\end{aligned}\n$$\nSetting $x = a$ and $y = b + c$ yields\n$$\n(2a + b + c)^2 + 2(a - b - c)^2 = 3(2a^2 + (b+c)^2).\n$$\nThus, we have\n$$\n\\begin{aligned} \\frac{(2a + b + c)^2}{2a^2 + (b + c)^2} &= \\frac{3(2a^2 + (b+c)^2) - 2(a-b-c)^2}{2a^2 + (b+c)^2} \\\\\n&= 3 - \\frac{2(a-b-c)^2}{2a^2 + (b+c)^2}. \\end{aligned}\n$$\nand its analogous forms. Thus, the desired inequality is equivalent to\n$$\n\\frac{(a - b - c)^2}{2a^2 + (b + c)^2} + \\frac{(b - a - c)^2}{2b^2 + (c + a)^2} + \\frac{(c - a - b)^2}{2c^2 + (a + b)^2} \\geq \\frac{1}{2}.\n$$\nBecause $(b+c)^2 \\le 2(b^2+c^2)$, we have $2a^2+(b+c)^2 \\le 2(a^2+b^2+c^2)$ and its analogous forms. It suffices to show that\n$$\n\\frac{(a - b - c)^2}{2(a^2 + b^2 + c^2)} + \\frac{(b - a - c)^2}{2(a^2 + b^2 + c^2)} + \\frac{(c - a - b)^2}{2(a^2 + b^2 + c^2)} \\ge \\frac{1}{2},\n$$\nor,\n$$\n(a - b - c)^2 + (b - a - c)^2 + (c - a - b)^2 \\ge a^2 + b^2 + c^2.\n$$\nMultiplying this out, the left-hand side of the last inequality becomes $3(a^2+b^2+c^2)-2(ab+bc+ca)$. Therefore the last inequality is equivalent to $2[a^2 + b^2 + c^2 - (ab + bc + ca)] \\ge 0$, which is evident because\n$$\n2[a^2 + b^2 + c^2 - (ab + bc + ca)] = (a - b)^2 + (b - c)^2 + (c - a)^2.\n$$\nEqualities hold if and only if $(b+c)^2 = 2(b^2+c^2)$ and $(c+a)^2 = 2(c^2+a^2)$, that is, $a = b = c$.\n\n\n**Fourth Solution.** We first convert the inequality into\n$$\n\\frac{2a(a + 2b + 2c)}{2a^2 + (b + c)^2} + \\frac{2b(b + 2c + 2a)}{2b^2 + (c + a)^2} + \\frac{2c(c + 2a + 2b)}{2c^2 + (a + b)^2} \\le 5.\n$$\nSplitting the 5 among the three terms yields the equivalent form\n$$\n\\sum_{\\text{cyc}} \\frac{4a^2 - 12a(b + c) + 5(b + c)^2}{3[2a^2 + (b + c)^2]} \\ge 0, \\quad (1)\n$$\nwhere $\\sum_{\\text{cyc}}$ is the **cyclic sum** of variables $(a, b, c)$. The numerator of the term shown factors as $(2a-x)(2a-5x)$, where $x = b+c$. We will show\n$$\n\\frac{(2a-x)(2a-5x)}{3(2a^2+x^2)} \\geq -\\frac{4(2a-x)}{3(a+x)}. \\qquad (2)\n$$\nIndeed, (2) is equivalent to\n$$\n(2a-x)[(2a-5x)(a+x) + 4(2a^2+x^2)] \\geq 0,\n$$\nwhich reduces to\n$$\n(2a-x)(10a^2 - 3ax - x^2) = (2a-x)^2(5a+x) \\geq 0,\n$$\nwhich is evident. We proved that\n$$\n\\frac{4a^2 - 12a(b+c) + 5(b+c)^2}{3[2a^2 + (b+c)^2]} \\geq -\\frac{4(2a-b-c)}{3(a+b+c)},\n$$\nhence (1) follows. Equality holds if and only if $2a = b + c$, $2b = c + a$, $2c = a + b$, i.e., when $a = b = c$.\n\n\n**Fifth Solution.** Given a function $f$ of $n$ variables, we define the symmetric sum\n$$\n\\sum_{\\text{sym}} f(x_1, \\dots, x_n) = \\sum_{\\sigma} f(x_{\\sigma(1)}, \\dots, x_{\\sigma(n)})\n$$\nwhere $\\sigma$ runs over all permutations of $1, \\dots, n$ (for a total of $n!$ terms). For example, if $n = 3$, and we write $x, y, z$ for $x_1, x_2, x_3$,\n$$\n\\begin{aligned} \\sum_{\\text{sym}} x^3 &= 2x^3 + 2y^3 + 2z^3 \\\\\n\\sum_{\\text{sym}} x^2y &= x^2y + y^2z + z^2x + x^2z + y^2x + z^2y \\\\\n\\sum_{\\text{sym}} xyz &= 6xyz. \\end{aligned}\n$$\nWe combine the terms in the desired inequality over a common denominator and use symmetric sum notation to simplify the algebra. The numerator of the difference between the two sides is\n$$\n2 \\sum_{\\text{sym}} (4a^6 + 4a^5b + a^4b^2 + 5a^4bc + 5a^3b^3 - 26a^3b^2c + 7a^2b^2c^2), \\quad (3)\n$$\nand it suffices to show the the expression in (3) is always greater or equal to 0. By the **Weighted AM-GM Inequality**, we have $4a^6 + b^6 + c^6 \\geq 6a^4bc$, $3a^5b + 3a^5c + b^5a + c^5a \\geq 8a^4bc$, and their analogous forms. Adding those inequalities yields\n$$\n\\sum_{\\text{sym}} 6a^6 \\geq \\sum_{\\text{sym}} 6a^4bc \\quad \\text{and} \\quad \\sum_{\\text{sym}} 8a^5b \\geq \\sum_{\\text{sym}} 8a^4bc.\n$$\nConsequently, we obtain\n$$\n\\sum_{\\text{sym}} 4a^6 + 4a^5b + 5a^4bc \\geq \\sum_{\\text{sym}} 13a^4bc. \\quad (4)\n$$\nAgain by the AM-GM Inequality, we have $a^4b^2 + b^4c^2 + c^4a^2 \\geq 4a^2b^2c^2$, $a^3b^3 + b^3c^3 + c^3a^3 \\geq 3a^2b^2c^2$, and their analogous forms. Thus,\n$$\n\\sum_{\\text{sym}} a^4b^2 + 5a^3b^3 \\geq \\sum_{\\text{sym}} 6a^2b^2c^2,\n$$\nor\n$$\n\\sum_{\\text{sym}} a^4b^2 + 5a^3b^3 + 7a^2b^2c^2 \\geq \\sum_{\\text{sym}} 13a^2b^2c^2. \\quad (5)\n$$\nRecalling **Schur's Inequality**, we have\n$$\n\\begin{aligned} & a^3 + b^3 + c^3 + 3abc - (a^2b + b^2c + c^2a + ab^2 + bc^2 + ca^2) \\\\\n& = a(a-b)(a-c) + b(b-a)(b-c) + c(c-a)(c-b) \\geq 0, \\end{aligned}\n$$\nor\n$$\n\\sum_{\\text{sym}} a^3 - 2a^2b + abc \\geq 0.\n$$\nThus\n$$\n\\sum_{\\text{sym}} 13a^4bc - 26a^3b^2c + 13a^2b^2c^2 \\geq 13abc \\sum_{\\text{sym}} a^3 - 2a^2b + abc \\geq 0. \\quad (6)\n$$\nAdding (4), (5), and (6) yields (3)."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-cauchy-schwarz-auto-1013",
+      "name": "USA IMO #0iat",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cauchy-Schwarz",
+        "Linear and quadratic inequalities",
+        "Quadratic functions",
+        "Vectors",
+        "Triangle trigonometry"
+      ],
+      "statement": "Let $a_1, a_2, \\dots, a_n, b_1, b_2, \\dots, b_n$ be real numbers such that\n$$\n(a_1^2 + a_2^2 + \\cdots + a_n^2 - 1)(b_1^2 + b_2^2 + \\cdots + b_n^2 - 1) \n> (a_1b_1 + a_2b_2 + \\cdots + a_nb_n - 1)^2.\n$$\nShow that $a_1^2 + a_2^2 + \\cdots + a_n^2 > 1$ and $b_1^2 + b_2^2 + \\cdots + b_n^2 > 1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "If exactly one of $a_1^2 + a_2^2 + \\dots + a_n^2$ and $b_1^2 + b_2^2 + \\dots + b_n^2$ is no greater than $1$, then the left-hand side of the inequality is no greater than $0$, and inequality $(*)$ is trivial. Now we assume that both are no greater than $1$. Set $a = 1 - a_1^2 - a_2^2 - \\dots - a_n^2$ and $b = 1 - b_1^2 - b_2^2 - \\dots - b_n^2$. Then both $a$ and $b$ are nonnegative real numbers. Multiplying both sides of the inequality $(*)$ by $4$ gives\n$$\n(2 - 2a_1b_1 - 2a_2b_2 - \\dots - 2a_n b_n)^2 \\geq 4ab\n$$\nNote that\n$$\n\\begin{aligned}\n& 2 - 2a_1b_1 - 2a_2b_2 - \\cdots - 2a_n b_n \\\\\n&= (a_1 - b_1)^2 + (a_2 - b_2)^2 + \\cdots + (a_n - b_n)^2 + a + b \\\\\n&\\geq a + b \\geq 0.\n\\end{aligned}\n$$\nIt follows that\n$$\n(2 - 2a_1b_1 - 2a_2b_2 - \\cdots - 2a_n b_n)^2 \\geq (a+b)^2 \\geq 4ab,\n$$\nas desired.\n\nWe use the following inequality of Aczel: If $x_1, \\dots, x_m, y_1, \\dots, y_m \\in \\mathbb{R}$ such that $x_1^2 > x_2^2 + \\dots + x_m^2$, then\n$$\n(x_1y_1 - x_2y_2 - \\dots - x_m y_m)^2 \\geq (x_1^2 - x_2^2 - \\dots - x_m^2)(y_1^2 - y_2^2 - \\dots - y_m^2).\n$$\nTo prove Aczel's Inequality, we consider the quadratic function\n$$\nf(t) = (x_1 t + y_1)^2 - \\sum_{i=2}^{m} (x_i t + y_i)^2\n$$\nand note that $f(-y_1/x_1) \\leq 0$. It follows that the discriminant is nonnegative, hence proving the desired inequality. Now we proceed to solve the problem at hand. It is clear that $a_1^2 + \\dots + a_n^2 - 1$ and $b_1^2 + \\dots + b_n^2 - 1$ have the same sign. If both are negative, then Aczel's Inequality yields\n$$\n(1 - a_1 b_1 - \\dots - a_n b_n)^2 \\geq (1 - a_1^2 - \\dots - a_n^2)(1 - b_1^2 - \\dots - b_n^2),\n$$\ncontradicting the given inequality.\n\nDefine the vectors $\\mathbf{u} = [a_1, a_2, \\dots, a_n]$ and $\\mathbf{v} = [b_1, b_2, \\dots, b_n]$, and place $\\mathbf{u}$ and $\\mathbf{v}$ tail by tail at the origin $O$ to form two sides of a triangle in $\\mathbb{R}^n$ by letting $A$ and $B$ be the points with the coordinates of $\\mathbf{u}$ and $\\mathbf{v}$. The given inequality is equivalent to $(\\mathbf{u} \\cdot \\mathbf{u} - 1)(\\mathbf{v} \\cdot \\mathbf{v} - 1) > (\\mathbf{u} \\cdot \\mathbf{v} - 1)^2$, where “$\\cdot$” denotes the **dot product** of two vectors. Expanding both sides and rearranging terms yields\n$$\n(\\mathbf{u} \\cdot \\mathbf{u})(\\mathbf{v} \\cdot \\mathbf{v}) - \\mathbf{u} \\cdot \\mathbf{u} - \\mathbf{v} \\cdot \\mathbf{v} > (\\mathbf{u} \\cdot \\mathbf{v})^2 - 2(\\mathbf{u} \\cdot \\mathbf{v}),\n$$\nor\n$$\n(\\mathbf{u} \\cdot \\mathbf{u})(\\mathbf{v} \\cdot \\mathbf{v}) - (\\mathbf{u} \\cdot \\mathbf{v})^2 > \\mathbf{u} \\cdot \\mathbf{u} + \\mathbf{v} \\cdot \\mathbf{v} - 2(\\mathbf{u} \\cdot \\mathbf{v}).\n$$\nFactoring the right-hand side of the above inequality gives\n$$\n(\\mathbf{u} \\cdot \\mathbf{u})(\\mathbf{v} \\cdot \\mathbf{v}) - (\\mathbf{u} \\cdot \\mathbf{v})^2 > (\\mathbf{u} - \\mathbf{v}) \\cdot (\\mathbf{u} - \\mathbf{v}).\n$$\nBy the vector form of the **Law of Cosines**, we have $(\\mathbf{u} \\cdot \\mathbf{v})^2 = (\\mathbf{u} \\cdot \\mathbf{u})(\\mathbf{v} \\cdot \\mathbf{v}) \\cos^2 \\angle AOB$. Hence\n$$\n(\\mathbf{u} \\cdot \\mathbf{u})(\\mathbf{v} \\cdot \\mathbf{v})(1 - \\cos^2 \\angle AOB) > (\\mathbf{u} - \\mathbf{v}) \\cdot (\\mathbf{u} - \\mathbf{v}),\n$$\nor\n$$\n(\\mathbf{u} \\cdot \\mathbf{u})(\\mathbf{v} \\cdot \\mathbf{v}) \\sin^2 \\angle AOB > (\\mathbf{u} - \\mathbf{v}) \\cdot (\\mathbf{u} - \\mathbf{v});\n$$\nthat is, $OA^2 \\cdot OB^2 \\sin^2 \\angle AOB > AB^2$. Hence\n$$\n[AOB] = \\frac{1}{2} OA \\cdot OB^2 \\sin \\angle AOB > \\frac{1}{2} \\cdot AB.\n$$\nTherefore, the length of the altitude from $O$ to $AB$ must be greater than $1$. Yet the altitude is the shortest segment connecting $O$ to $AB$, and so $1 < OA^2 = \\mathbf{u} \\cdot \\mathbf{u} = \\sum_{i=1}^n a_i^2$ and $1 < OB^2 = \\mathbf{v} \\cdot \\mathbf{v} = \\sum_{i=1}^n b_i^2$, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-cauchy-schwarz-auto-1181",
+      "name": "IMO #0ifh",
+      "url": "https://usamoguide.com/",
+      "source": "IMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cauchy-Schwarz",
+        "QM-AM-GM-HM / Power Mean",
+        "Symmetric functions"
+      ],
+      "statement": "$$\n\\frac{x^5 - x^2}{x^5 + y^2 + z^2} + \\frac{y^5 - y^2}{y^5 + z^2 + x^2} + \\frac{z^5 - z^2}{z^5 + x^2 + y^2} \\ge 0.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Note that\n$$\n\\frac{x^5 - x^2}{x^5 + y^2 + z^2} = 1 - \\frac{x^2 + y^2 + z^2}{x^5 + y^2 + z^2}\n$$\nand its cyclic analogous forms. The given inequality is equivalent to\n$$\n\\frac{x^2 + y^2 + z^2}{x^5 + y^2 + z^2} + \\frac{x^2 + y^2 + z^2}{y^5 + z^2 + x^2} + \\frac{x^2 + y^2 + z^2}{z^5 + x^2 + y^2} \\le 3. \\quad (\\dagger)\n$$\nIn view of the **Cauchy-Schwarz Inequality** and the condition $xyz \\ge 1$, we have\n$$\n\\begin{aligned} (x^5 + y^2 + z^2)(yz + y^2 + z^2) &\\ge \\left(x^{\\frac{5}{2}}(yz)^{\\frac{1}{2}} + y^2 + z^2\\right)^2 \\\\ &\\ge (x^2 + y^2 + z^2)^2, \\end{aligned}\n$$\nor\n$$\n\\frac{x^2 + y^2 + z^2}{x^5 + y^2 + z^2} \\le \\frac{yz + y^2 + z^2}{x^2 + y^2 + z^2}.\n$$\n\nTaking the cyclic sum of the above inequality and analogous forms gives\n$$\n\\frac{x^2 + y^2 + z^2}{x^5 + y^2 + z^2} + \\frac{x^2 + y^2 + z^2}{y^5 + z^2 + x^2} + \\frac{x^2 + y^2 + z^2}{z^5 + x^2 + y^2} \\le 2 + \\frac{yz + zx + xy}{x^2 + y^2 + z^2}.\n$$\nIt suffices to show that $xy + yz + zx \\le x^2 + y^2 + z^2$, which is well known (and can be easily shown by the Cauchy-Schwarz Inequality or $(x - y)^2 + (y - z)^2 + (z - x)^2 \\ge 0$).\n\nGiven a function $f$ of $n$ variables, we define the symmetric sum\n$$\n\\sum_{\\text{sym}} f(x_1, \\dots, x_n) = \\sum_{\\sigma} f(x_{\\sigma(1)}, \\dots, x_{\\sigma(n)})\n$$\nwhere $\\sigma$ runs over all permutations of $1, \\dots, n$ (for a total of $n!$ terms). For example, if $n = 3$, and we write $x, y, z$ for $x_1, x_2, x_3$,\n$$\n\\begin{aligned} \\sum_{\\text{sym}} x^3 &= 2x^3 + 2y^3 + 2z^3 \\\\ \\sum_{\\text{sym}} x^2y &= x^2y + y^2z + z^2x + x^2z + y^2x + z^2y \\\\ \\sum_{\\text{sym}} xyz &= 6xyz. \\end{aligned}\n$$\nIf $xyz = t^3 \\ge 1$, set $x = tx_1, y = ty_1$, and $z = tz_1$. Then $x_1, y_1$, and $z_1$ are real numbers with $x_1y_1z_1 = 1$. Note that\n$$\n\\frac{x^2 + y^2 + z^2}{x^5 + y^2 + z^2} = \\frac{x_1^2 + y_1^2 + z_1^2}{x_1^5 t^3 + y_1^2 + z_1^2} \\le \\frac{x_1^2 + y_1^2 + z_1^2}{x_1^5 + y_1^2 + z_1^2}\n$$\nWe may further assume $xyz = 1$ for inequality (†). We establish inequality (†) in a very mechanical way. Multiplying both sides of the inequality by\n$$\n(x^5 + y^2 + z^2)(y^5 + z^2 + x^2)(z^5 + x^2 + y^2)\n$$\nand canceling the like terms reduces the desired inequality to\n$$\n\\sum_{\\text{sym}} (x^9 + x^3 + 4x^7y^5) \\ge \\sum_{\\text{sym}} (x^6 + x^3y^3 + 2x^5y^4 + 2x^4y^2). \\quad (\\dagger')\n$$\nBy the AM-GM Inequality, we have $x^6+y^6 \\ge 2x^3y^3$ and $x^9+x^3 \\ge 2x^6$ and their symmetric analogous forms. Adding them together shows that\n$$\n\\sum_{\\text{sym}} (x^9 + x^3) \\ge \\sum_{\\text{sym}} (x^6 + x^3 y^3). \\quad (*)\n$$\nIt suffices to show that\n$$\n\\sum_{\\text{sym}} x^7 y^5 \\ge \\sum_{\\text{sym}} x^5 y^4 = \\sum_{\\text{sym}} x^6 y^5 z \\quad (**)\n$$\nand\n$$\n\\sum_{\\text{sym}} x^7 y^5 \\ge \\sum_{\\text{sym}} x^4 y^2 = \\sum_{\\text{sym}} x^6 y^4 z^2. \\quad (***)\n$$\n\n(Based on work by Jiayin Kang from China) We shall prove something more, namely that\n$$\n\\frac{x^5}{x^5 + y^2 + z^2} + \\frac{y^5}{y^5 + z^2 + x^2} + \\frac{z^5}{z^5 + x^2 + y^2} \\geq 1 \\quad (\\ddag)\n$$\nand\n$$\n1 \\geq \\frac{x^2}{x^5 + y^2 + z^2} + \\frac{y^2}{y^5 + z^2 + x^2} + \\frac{z^2}{z^5 + x^2 + y^2}. \\quad (\\ddag')\n$$\nNote that (‡) follows from adding\n$$\n\\frac{x^5}{x^5 + y^2 + z^2} \\geq \\frac{x^4}{x^4 + y^4 + z^4} \\quad (\\text{or } x(y^4 + z^4) \\geq y^2 + z^2)\n$$\nwith its analogous cyclic inequalities. By the AM-GM Inequality, we have\n$$\n2x(y^4 + z^4) \\geq x(y^2 + z^2)^2 \\geq 2xyz(y^2 + z^2) \\geq 2(y^2 + z^2),\n$$\nas desired.\n\n(Based on work by Hyun Soo Kim) We present a third approach of establishing inequality (†). Because $y^2 + z^2 \\geq 2yz$ and $xyz \\geq 1$, we have\n$$\n\\frac{1}{x^5 + y^2 + z^2} \\leq \\frac{1}{\\frac{x^4}{yz} + y^2 + z^2} \\leq \\frac{1}{\\frac{2x^4}{y^2+z^2} + y^2 + z^2}\n$$\nand the cyclic analogous forms. Thus it suffices to show that\n$$\n\\frac{x^2 + y^2 + z^2}{\\frac{2x^4}{y^2+z^2} + y^2 + z^2} + \\frac{x^2 + y^2 + z^2}{\\frac{2y^4}{z^2+x^2} + z^2 + x^2} + \\frac{x^2 + y^2 + z^2}{\\frac{2z^4}{x^2+y^2} + x^2 + y^2} \\leq 3.\n$$\nHowever, since this is a homogeneous inequality, the condition $xyz \\geq 1$ is not relevant anymore.\nFurthermore, we may assume that $x^2 + y^2 + z^2 = 3$. Then the inequality reduces to\n$$\n\\frac{1}{\\frac{2x^4}{3-x^2} + 3 - x^2} + \\frac{1}{\\frac{2y^4}{3-y^2} + 3 - y^2} + \\frac{1}{\\frac{2z^4}{3-z^2} + 3 - z^2} \\leq 1,\n$$\nor\n$$\n\\frac{3 - x^2}{3x^4 - 6x^2 + 9} + \\frac{3 - y^2}{3y^4 - 6y^2 + 9} + \\frac{3 - z^2}{3z^4 - 6z^2 + 9} \\leq 1,\n$$\nwhere $x, y$, and $z$ are positive real numbers with $x^2 + y^2 + z^2 = 3$.\nBecause $3x^4 - 6x^2 + 9 = 3(x^2 - 1)^2 + 6 \\geq 6$ and $3 - x^2 = y^2 + z^2 \\geq 0$, we obtain\n$$\n\\frac{3 - x^2}{3x^4 - 6x^2 + 9} \\leq \\frac{3 - x^2}{6}.\n$$\nAdding the above inequality and the cyclic analogous forms gives\n$$\n\\frac{3 - x^2}{3x^4 - 6x^2 + 9} + \\frac{3 - y^2}{3y^4 - 6y^2 + 9} + \\frac{3 - z^2}{3z^4 - 6z^2 + 9} \\\\ \\leq \\frac{9 - (x^2 + y^2 + z^2)}{6} = 1,\n$$\nas desired.\n\n(Based on work by Xuancheng Shao from China) We claim that\n$$\n\\frac{1}{x^5 + y^2 + z^2} \\le \\frac{\\frac{3}{2} \\cdot (y^2 + z^2)}{(x^2 + y^2 + z^2)^2}.\n$$\nAdding the above inequality and the cyclic analogous forms yields the desired inequality (†).\nBecause $xyz \\ge 1$, $x \\ge \\frac{1}{yz}$, and so\n$$\n\\frac{1}{x^5 + y^2 + z^2} \\le \\frac{1}{\\frac{x^4}{yz} + y^2 + z^2},\n$$\nor\n$$\n\\frac{1}{x^5 + y^2 + z^2} \\le \\frac{yz}{x^4 + yz(y^2 + z^2)}.\n$$\nIt suffices to show that\n$$\n\\frac{2yz}{x^4 + yz(y^2 + z^2)} \\le \\frac{3(y^2 + z^2)}{(x^2 + y^2 + z^2)^2},\n$$\nor\n$$\n2yz(x^2 + y^2 + z^2)^2 \\le 3x^4(y^2 + z^2) + 3yz(y^2 + z^2)^2.\n$$\nExpanding the left-hand side of the last inequality in $x^2$ and $y^2 + z^2$ gives\n$$\n2x^4yz + 4x^2yz(y^2 + z^2) \\le 3x^4(y^2 + z^2) + yz(y^2 + z^2)^2.\n$$\nBecause $3x^4(y^2 + z^2) \\ge 6x^4yz$, it suffices to show that\n$$\n4x^2yz(y^2 + z^2) \\le 4x^4yz + yz(y^2 + z^2)^2,\n$$\nwhich is evident by the AM-GM Inequality.\n\n(Based on work by Iurie Boreico from Moldova) Note that\n$$\n\\frac{x^5 - x^2}{x^5 + y^2 + z^2} \\ge \\frac{x^5 - x^2}{x^3(x^2 + y^2 + z^2)}\n$$\nis equivalent to\n$$\n\\frac{(x^3 - 1)^2(y^2 + z^2)}{x(x^5 + y^2 + z^2)(x^2 + y^2 + z^2)} \\ge 0,\n$$\nwhich is true for all positive $x, y, z$. Hence\n$$\n\\frac{x^5 - x^2}{x^5 + y^2 + z^2} \\ge \\frac{x^2 - \\frac{1}{x}}{x^2 + y^2 + z^2}.\n$$\nSumming the above inequality with its analogous cyclic inequalities, we see that the desired result follows from\n$$\nx^2 + y^2 + z^2 - \\frac{1}{x} - \\frac{1}{y} - \\frac{1}{z} \\ge 0.\n$$\nSince $xyz \\ge 1$,\n$$\n\\begin{aligned}\n& x^2 + y^2 + z^2 - \\frac{1}{x} - \\frac{1}{y} - \\frac{1}{z} \\\\\n= & x^2 + y^2 + z^2 - \\frac{yz + xz + xy}{xyz} \\\\\n\\ge & x^2 + x^2 + z^2 - yz - xz - xy \\\\\n= & \\frac{(x-y)^2 + (y-z)^2 + (z-x)^2}{2} \\ge 0,\n\\end{aligned}\n$$\nso we are done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-cauchy-schwarz-auto-1421",
+      "name": "Team Selection Test #0im5",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cauchy-Schwarz",
+        "Abel summation",
+        "Counting two ways",
+        "Matrices"
+      ],
+      "statement": "Let $n$ be a positive integer and let $a_1 \\le a_2 \\le \\dots \\le a_n$ and $b_1 \\le b_2 \\le \\dots \\le b_n$ be two nondecreasing sequences of real numbers such that\n$$\na_1 + \\dots + a_i \\le b_1 + \\dots + b_i \\quad \\text{for every } i = 1, \\dots, n-1\n$$\nand\n$$\na_1 + \\dots + a_n = b_1 + \\dots + b_n.\n$$\n\nSuppose that for any real number $m$, the number of pairs $(i, j)$ with $a_i - a_j = m$ equals the number of pairs $(k, \\ell)$ with $b_k - b_\\ell = m$. Prove that $a_i = b_i$ for $i = 1, \\dots, n$.\n\n**Note:** It is important to interpret the condition that for any real number $m$, the number of pairs $(i, j)$ with $a_i - a_j = m$ equals the number of pairs $(k, \\ell)$ with $b_k - b_\\ell = m$. It means that we have two identical multi-sets (a multi-set is a set that allows repeated elements)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**First Solution:** Put $s_n = a_1 + \\cdots + a_n = b_1 + \\cdots + b_n$. Then\n$$\n\\begin{aligned}\n2 \\sum_{i=1}^{n-1} (a_1 + \\cdots + a_i) &= 2(n-1)a_1 + 2(n-2)a_2 + \\cdots + 2(1)a_{n-1} \\\\\n&= (n-1)a_1 + (n-3)a_2 + \\cdots + (1-n)a_n + (n-1)s_n \\\\\n&= (n-1)s_n + \\sum_{1 \\le i < j \\le n} (a_i - a_j)\n\\end{aligned}\n$$\nand similarly\n$$\n2 \\sum_{i=1}^{n-1} (b_1 + \\cdots + b_i) = (n-1)s_n + \\sum_{1 \\le k < \\ell \\le n} (b_k - b_\\ell).\n$$\nBy (*), these two quantities are equal, so\n$$\n2 \\sum_{i=1}^{n-1} (a_1 + \\cdots + a_i) = 2 \\sum_{i=1}^{n-1} (b_1 + \\cdots + b_i).\n$$\nConsequently, each of the inequalities $a_1 + \\cdots + a_i \\le b_1 + \\cdots + b_i$ for $i = 1, \\dots, n-1$ must be an equality. Since we also have equality for $i = n$ by assumption, we deduce that $a_i = b_i$ for $i = 1, \\dots, n$, as desired.\n\n\n**Second Solution:** Expanding both sides of (**) yields\n$$\n(n-1) \\sum_{i=1}^{n} a_i^2 + 2 \\sum_{1 \\le i < j \\le n} a_i a_j = (n-1) \\sum_{i=1}^{n} b_i^2 + 2 \\sum_{1 \\le k < \\ell \\le n} b_k b_\\ell.\n$$\nSquaring both sides of the given equation $a_1 + \\cdots + a_n = b_1 + \\cdots + b_n$ gives\n$$\n\\sum_{i=1}^{n} a_i^2 + 2 \\sum_{1 \\le i < j \\le n} a_i a_j = \\sum_{i=1}^{n} b_i^2 + 2 \\sum_{1 \\le k < \\ell \\le n} b_k b_\\ell.\n$$\nFrom the above relations we easily deduce that\n$$\n\\sum_{i=1}^{n} a_i^2 = \\sum_{i=1}^{n} b_i^2.\n$$\nBy the Cauchy-Schwarz inequality, we obtain that\n$$\n\\left(\\sum_{i=1}^{n} b_i^2\\right)^2 = \\left(\\sum_{i=1}^{n} a_i^2\\right) \\left(\\sum_{i=1}^{n} b_i^2\\right) \\ge \\left(\\sum_{i=1}^{n} a_i b_i\\right)^2\n$$\nor\n$$\n\\sum_{i=1}^{n} b_i^2 \\geq \\left| \\sum_{i=1}^{n} a_i b_i \\right| \\geq \\sum_{i=1}^{n} a_i b_i. \\qquad (\\dagger)\n$$\nWe set $s_i = a_1 + \\dots + a_i$ and $t_i = b_1 + \\dots + b_i$ for every $1 \\le i \\le n$. By Abel's summation formula, we have\n$$\n\\begin{aligned}\n\\sum_{i=1}^{n} a_i b_i &= s_1 b_1 + [s_2 - s_1] b_2 + [s_3 - s_2] b_3 + \\dots + [s_n - s_{n-1}] b_n \\\\\n&= s_1(b_1 - b_2) + s_2(b_2 - b_3) + \\dots + s_{n-1}(b_{n-1} - b_n) + s_n b_n.\n\\end{aligned}\n$$\nBy the given conditions, $s_i \\le t_i$ and $b_i - b_{i+1} \\le 0$ for every $1 \\le i \\le n-1$ and $s_n = t_n$. It follows that\n$$\n\\begin{aligned}\n\\sum_{i=1}^{n} a_i b_i &\\ge t_1(b_1 - b_2) + t_2(b_2 - b_3) + \\dots + t_{n-1}(b_{n-1} - b_n) + t_n b_n \\\\\n&= t_1 b_1 + [t_2 - t_1] b_2 + [t_3 - t_2] b_3 + \\dots + [t_n - t_{n-1}] b_n = \\sum_{i=1}^{n} b_i^2.\n\\end{aligned}\n$$\nCombining the last inequality and (\\dagger), we conclude that the equality case holds for every inequality we discussed above. In particular, $s_i = t_i$ for $i = 1, \\dots, n$. These inequalities immediately give us $a_n = b_n$, $a_{n-1} = b_{n-1}$, $\\dots$, $a_1 = b_1$ and the problem is solved.\n\n\n**Third Solution:** If $u = (u_1, u_2, \\dots, u_n)$ and $v = (v_1, v_2, \\dots, v_n)$ are two nonincreasing sequences, we say that $u$ majorizes $v$ if $u_1 + \\dots + u_n = v_1 + \\dots + v_n$ and $u_1 + \\dots + u_i \\ge v_1 + \\dots + v_i$ for $i = 1, 2, \\dots, n-1$. It is not difficult to see that $(a_n, \\dots, a_1)$ majorizes $(b_n, \\dots, b_1)$. By a theorem of Birkhoff, it follows that there are constants $c_\\sigma \\in (0, 1]$, where $\\sigma$ runs over some set $S$ of permutations of $\\{1, \\dots, n\\}$, with $\\sum_{\\sigma \\in S} c_\\sigma = 1$ and\n$$\n\\sum_{\\sigma \\in S} c_{\\sigma} a_{\\sigma(i)} = b_i \\quad \\text{for } i = 1, 2, \\dots, n.\n$$\nWe will prove the inequality\n$$\n\\sum_{i,j=1}^{n} |a_i - a_j| \\ge \\sum_{i,j=1}^{n} |b_i - b_j|,\n$$\nwith equality if and only if $a_i = b_i$ for $i = 1, \\dots, n$. With this result, we complete our proof by noting (***).\nWe have\n$$\n\\begin{aligned}\n\\sum_{i,j=1}^{n} |a_i - a_j| &= \\sum_{\\sigma \\in S} c_{\\sigma} \\sum_{i,j=1}^{n} |a_i - a_j| = \\sum_{\\sigma \\in S} c_{\\sigma} \\sum_{i,j=1}^{n} |a_{\\sigma(i)} - a_{\\sigma(j)}| \\\\\n&= \\sum_{i,j=1}^{n} \\sum_{\\sigma \\in S} c_{\\sigma} |a_{\\sigma(i)} - a_{\\sigma(j)}| \\ge \\sum_{i,j=1}^{n} \\left| \\sum_{\\sigma \\in S} c_{\\sigma} (a_{\\sigma(i)} - a_{\\sigma(j)}) \\right| = \\sum_{i,j=1}^{n} |b_i - b_j|,\n\\end{aligned}\n$$\nusing the fact that $|x_1| + \\dots + |x_m| \\ge |x_1| + \\dots + |x_m|$ for all real numbers $x_1, \\dots, x_m$.\nThis establishes the desired inequality; it remains to check the equality condition. For this, we must have\n$$\n\\sum_{\\sigma \\in S} c_{\\sigma} |a_{\\sigma(i)} - a_{\\sigma(j)}| = \\left| \\sum_{\\sigma \\in S} c_{\\sigma} (a_{\\sigma(i)} - a_{\\sigma(j)}) \\right|\n$$\nfor each pair $i$ and $j$; in particular, for each pair $i$ and $j$, the sign of $a_{\\sigma(i)} - a_{\\sigma(j)}$ must be the same for all $\\sigma \\in S$ for which $a_{\\sigma(i)} \\neq a_{\\sigma(j)}$. It follows by the lemma below that the sequence $a_{\\sigma(1)}, \\dots, a_{\\sigma(n)}$ itself must be the same for all $\\sigma \\in S$, yielding $a_i = b_i$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-cauchy-schwarz-auto-1580",
+      "name": "Harvard-MIT Mathematics Tournament #0iqk",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Optimization in geometry",
+        "Cauchy-Schwarz",
+        "Distance chasing"
+      ],
+      "statement": "Problem:\n\nLet $ABC$ be a triangle with $AB = 5$, $BC = 4$ and $AC = 3$. Let $\\mathcal{P}$ and $\\mathcal{Q}$ be squares inside $ABC$ with disjoint interiors such that they both have one side lying on $AB$. Also, the two squares each have an edge lying on a common line perpendicular to $AB$, and $\\mathcal{P}$ has one vertex on $AC$ and $\\mathcal{Q}$ has one vertex on $BC$. Determine the minimum value of the sum of the areas of the two squares.\n\n![](attached_image_1.png)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n$\\boxed{\\dfrac{144}{49}}$\n\nLet the side lengths of $\\mathcal{P}$ and $\\mathcal{Q}$ be $a$ and $b$, respectively. Label two of the vertices of $\\mathcal{P}$ as $D$ and $E$ so that $D$ lies on $AB$ and $E$ lies on $AC$, and so that $DE$ is perpendicular to $AB$. The triangle $ADE$ is similar to $ACB$. So $AD = \\dfrac{3}{4} a$. Using similar arguments, we find that\n$$\n\\frac{3a}{4} + a + b + \\frac{4b}{3} = AB = 5\n$$\nso\n$$\n\\frac{a}{4} + \\frac{b}{3} = \\frac{5}{7}\n$$\nUsing Cauchy-Schwarz inequality, we get\n$$\n\\left(a^2 + b^2\\right)\\left(\\frac{1}{4^2} + \\frac{1}{3^2}\\right) \\geq \\left(\\frac{a}{4} + \\frac{b}{3}\\right)^2 = \\frac{25}{49}\n$$\nIt follows that\n$$\na^2 + b^2 \\geq \\frac{144}{49}\n$$\nEquality occurs at $a = \\frac{36}{35}$ and $b = \\frac{48}{35}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-cauchy-schwarz-auto-1631",
+      "name": "11th Annual Harvard-MIT Mathematics Tournament #0irz",
+      "url": "https://usamoguide.com/",
+      "source": "11th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cauchy-Schwarz",
+        "Complex numbers",
+        "Vectors"
+      ],
+      "statement": "Problem:\nSuppose that $a, b, c, d$ are real numbers satisfying $a \\geq b \\geq c \\geq d \\geq 0$, $a^{2} + d^{2} = 1$, $b^{2} + c^{2} = 1$, and $a c + b d = 1/3$. Find the value of $a b - c d$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $\\frac{2 \\sqrt{2}}{3}$\nWe have\n$$\n(a b - c d)^2 = (a^2 + d^2)(b^2 + c^2) - (a c + b d)^2 = (1)(1) - \\left(\\frac{1}{3}\\right)^2 = \\frac{8}{9}\n$$\nSince $a \\geq b \\geq c \\geq d \\geq 0$, $a b - c d \\geq 0$, so $a b - c d = \\frac{2 \\sqrt{2}}{3}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-cauchy-schwarz-auto-1801",
+      "name": "USAMO 2009 #0iwp",
+      "url": "https://usamoguide.com/",
+      "source": "USAMO 2009",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cauchy-Schwarz",
+        "QM-AM-GM-HM / Power Mean"
+      ],
+      "statement": "For $n \\ge 2$ let $a_1, a_2, \\dots, a_n$ be positive real numbers such that\n$$\n(a_1 + a_2 + \\dots + a_n) \\left( \\frac{1}{a_1} + \\frac{1}{a_2} + \\dots + \\frac{1}{a_n} \\right) \\le \\left( n + \\frac{1}{2} \\right)^2.\n$$\nProve that $\\max(a_1, a_2, \\dots, a_n) \\le 4 \\min(a_1, a_2, \\dots, a_n)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**Solution 1.** The Cauchy-Schwarz Inequality gives\n$$\n\\begin{aligned} \\left(n + \\frac{1}{2}\\right)^2 &\\ge (a_1 + a_2 + \\dots + a_n) \\left(\\frac{1}{a_1} + \\frac{1}{a_2} + \\dots + \\frac{1}{a_n}\\right) \\\\ &= (m + a_2 + \\dots + a_{n-1} + M) \\left(\\frac{1}{M} + \\frac{1}{a_2} + \\dots + \\frac{1}{a_{n-1}} + \\frac{1}{m}\\right) \\\\ &\\ge \\left(\\sqrt{\\frac{m}{M}} + \\underbrace{1 + \\dots + 1}_{n-2} + \\sqrt{\\frac{M}{m}}\\right)^2. \\end{aligned}\n$$\nHence\n$$\nn + \\frac{1}{2} \\ge \\sqrt{\\frac{m}{M}} + n - 2 + \\sqrt{\\frac{M}{m}} \\quad \\text{or} \\quad \\sqrt{\\frac{m}{M}} + \\sqrt{\\frac{M}{m}} \\le \\frac{5}{2} \\qquad (2)\n$$\nIt follows that\n$$\n2(m + M) \\le 5\\sqrt{Mm},\n$$\nwhich is (1), completing our proof.\n\n\n**Solution 2 (By Adam Hesterberg).** Consider the quadratic polynomial (in $x$)\n$$\n\\begin{aligned} p(x) &= \\frac{1}{2} \\left[ \\left( \\sqrt{a_1}x + \\frac{1}{\\sqrt{a_n}} \\right)^2 + \\left( \\sqrt{a_n}x + \\frac{1}{\\sqrt{a_1}} \\right)^2 + \\sum_{i=2}^{n-1} \\left( \\sqrt{a_i}x + \\frac{1}{\\sqrt{a_i}} \\right)^2 + \\left( 5 - 2\\sqrt{\\frac{m}{M}} - 2\\sqrt{\\frac{M}{m}} \\right) x \\right] \\\\ &= \\left( \\frac{1}{2} \\sum_{i=1}^{n} a_i \\right) x^2 + \\frac{2n+1}{2} \\cdot x + \\left( \\frac{1}{2} \\sum_{i=1}^{n} \\frac{1}{a_i} \\right). \\end{aligned}\n$$\nIts discriminant is equal to\n$$\n\\Delta = \\left( \\sum_{i=1}^{n} a_i \\right) \\left( \\sum_{i=1}^{n} \\frac{1}{a_i} \\right) - \\left( n + \\frac{1}{2} \\right)^2,\n$$\nwhich is nonnegative, by the given condition. Thus $p(x)$ has a root $r$, implying that\n$$\n0 = p(r) \\geq \\left(5 - 2\\sqrt{\\frac{m}{M}} - 2\\sqrt{\\frac{M}{m}}\\right) r.\n$$\nBecause all of $p(x)$'s coefficients are positive, we must have $r < 0$, from which it follows (2).\n\n\n**Solution 3** (By Zuming Feng). We set $a = \\frac{a_2+\\cdots+a_{n-1}}{n-2}$. Then $m \\le a_2 \\le a \\le a_{n-1} \\le M$ and $a_2 + \\cdots + a_{n-1} = (n-2)a$. By the AM-HM Inequality, we have\n$$\n\\frac{1}{a_2} + \\cdots + \\frac{1}{a_{n-1}} \\ge \\frac{(n-2)^2}{a_2 + \\cdots + a_{n-1}} = \\frac{n-2}{a}.\n$$\nIt follows that\n$$\n\\begin{aligned} \\left(n + \\frac{1}{2}\\right)^2 &\\ge (a_1 + a_2 + \\cdots + a_n) \\left(\\frac{1}{a_1} + \\frac{1}{a_2} + \\cdots + \\frac{1}{a_n}\\right) \\\\ &\\ge (m + (n-2)a + M) \\left(\\frac{1}{m} + \\frac{n-2}{a} + \\frac{1}{M}\\right) \\\\ &= (m + M) \\left(\\frac{1}{m} + \\frac{1}{M}\\right) + (n-2)^2 + \\frac{(n-2)(m+M)}{a} + (n-2)a \\left(\\frac{1}{m} + \\frac{1}{M}\\right) \\\\ &= \\frac{(m+M)^2}{mM} + (n-2)^2 + \\frac{(n-2)(m+M)}{mM} \\cdot \\left(\\frac{mM}{a} + a\\right). \\end{aligned}\n$$\nBy the AM-GM Inequality, we have $\\frac{mM}{a} + a \\ge 2\\sqrt{mM}$ with equality at $m \\le a = \\sqrt{mM} \\le M$. We deduce that\n$$\n\\left(n + \\frac{1}{2}\\right)^2 \\ge \\frac{(m + M)^2}{mM} + (n - 2)^2 + \\frac{2(n - 2)(m + M)}{\\sqrt{mM}}.\n$$\nSetting $t = \\frac{m+M}{\\sqrt{mM}}$ in the last inequality yields\n$$\n\\left(n + \\frac{1}{2}\\right)^2 \\ge t^2 + (n - 2)^2 + 2(n - 2)t,\n$$\nfrom which it follows that\n$$\nt^2 + 2(n-2)t - 5n + \\frac{15}{4} \\le 0 \\quad \\text{or} \\quad 4t^2 + 8(n-2)t - 5(4n-3) \\le 0.\n$$\nFactoring the left-hand side of the last inequality gives $(2t-5)(2t+(4n-3)) \\le 0$, implying $2t-5 \\le 0$, which is (1)."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-cauchy-schwarz-auto-1846",
+      "name": "Bay Area Mathematical Olympiad #0ixy",
+      "url": "https://usamoguide.com/",
+      "source": "Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle trigonometry",
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Trigonometry",
+        "Angle chasing",
+        "Jensen/smoothing",
+        "Cauchy-Schwarz",
+        "QM-AM-GM-HM / Power Mean",
+        "Jensen / smoothing"
+      ],
+      "statement": "Problem:\nLet $\\triangle ABC$ be an acute triangle with angles $\\alpha, \\beta$, and $\\gamma$. Prove that\n$$\n\\frac{\\cos \\alpha}{\\cos (\\beta-\\gamma)}+\\frac{\\cos \\beta}{\\cos (\\gamma-\\alpha)}+\\frac{\\cos \\gamma}{\\cos (\\alpha-\\beta)} \\geq \\frac{3}{2}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nSince $\\cos \\gamma = -\\cos (\\alpha+\\beta) = -\\cos \\alpha \\cos \\beta + \\sin \\alpha \\sin \\beta$, and $\\cos (\\alpha-\\beta) = \\cos \\alpha \\cos \\beta + \\sin \\alpha \\sin \\beta$ the given inequality transforms to\n$$\n\\begin{aligned}\n& \\frac{\\sin \\beta \\sin \\gamma - \\cos \\beta \\cos \\gamma}{\\sin \\beta \\sin \\gamma + \\cos \\beta \\cos \\gamma} + \\frac{\\sin \\gamma \\sin \\alpha - \\cos \\gamma \\cos \\alpha}{\\sin \\gamma \\sin \\alpha + \\cos \\gamma \\cos \\alpha} \\\\\n& + \\frac{\\sin \\alpha \\sin \\beta - \\cos \\alpha \\cos \\beta}{\\sin \\alpha \\sin \\beta + \\cos \\alpha \\cos \\beta} \\geq \\frac{3}{2} \\\\\n& \\frac{\\tan \\beta \\tan \\gamma - 1}{\\tan \\beta \\tan \\gamma + 1} + \\frac{\\tan \\gamma \\tan \\alpha - 1}{\\tan \\gamma \\tan \\alpha + 1} + \\frac{\\tan \\alpha \\tan \\beta - 1}{\\tan \\alpha \\tan \\beta + 1} \\geq \\frac{3}{2}.\n\\end{aligned}\n$$\nSome elementary trigonometry yields\n$$\n\\begin{aligned}\n\\tan \\alpha + \\tan \\beta + \\tan \\gamma &= \\frac{\\sin \\alpha \\cos \\beta \\cos \\gamma + \\sin \\beta \\cos \\alpha \\cos \\gamma + \\sin \\gamma \\cos \\alpha \\cos \\beta}{\\cos \\alpha \\cos \\beta \\cos \\gamma} \\\\\n&= \\frac{\\sin \\alpha \\cos \\beta \\cos \\gamma + \\cos \\alpha (\\sin \\beta \\cos \\gamma + \\sin \\gamma \\cos \\beta)}{\\cos \\alpha \\cos \\beta \\cos \\gamma} \\\\\n&= \\frac{\\sin \\alpha \\cos \\beta \\cos \\gamma + \\cos \\alpha \\sin (\\beta+\\gamma)}{\\cos \\alpha \\cos \\beta \\cos \\gamma}\n\\end{aligned}\n$$\nNow we use the fact that the angles add to $180^\\circ$ to see that $\\sin (\\beta+\\gamma) = \\sin (\\alpha)$, so\n$$\n\\begin{aligned}\n\\frac{\\sin \\alpha \\cos \\beta \\cos \\gamma + \\cos \\alpha \\sin (\\beta+\\gamma)}{\\cos \\alpha \\cos \\beta \\cos \\gamma} &= \\frac{\\sin \\alpha \\cos \\beta \\cos \\gamma + \\cos \\alpha \\sin \\alpha}{\\cos \\alpha \\cos \\beta \\cos \\gamma} \\\\\n&= \\frac{\\sin \\alpha \\cdot (\\cos \\beta \\cos \\gamma + \\cos \\alpha)}{\\cos \\alpha \\cos \\beta \\cos \\gamma} \\\\\n&= \\frac{\\sin \\alpha \\cdot (\\cos \\beta \\cos \\gamma - \\cos (\\beta+\\gamma))}{\\cos \\alpha \\cos \\beta \\cos \\gamma} \\\\\n&= \\frac{\\sin \\alpha \\cdot (\\cos \\beta \\cos \\gamma - (\\cos \\beta \\cos \\gamma - \\sin \\beta \\sin \\gamma))}{\\cos \\alpha \\cos \\beta \\cos \\gamma} \\\\\n&= \\tan \\alpha \\tan \\beta \\tan \\gamma\n\\end{aligned}\n$$\nNow, setting $x = \\tan \\alpha$ and so on, our inequality\n$$\n\\frac{y z - 1}{y z + 1} + \\frac{z x - 1}{z x + 1} + \\frac{x y - 1}{x y + 1} \\geq \\frac{3}{2}\n$$\nhas the property that $x, y, z$ are positive real numbers satisfying $x + y + z = x y z$.\nMultiplying the numerator and the denominator of the first fraction by $x$, second by $y$ and third by $z$ the inequality becomes\n$$\n\\frac{S - x}{S + x} + \\frac{S - y}{S + y} + \\frac{S - z}{S + z} \\geq \\frac{3}{2}\n$$\nfor $S = x y z$. Using the substitution $S + x = a, S + y = b, S + z = c$ and solving for $S, x, y, z$ we get $S = \\frac{a + b + c}{4}$, $x = \\frac{3a - b - c}{4}$, $y = \\frac{3b - a - c}{4}$, $z = \\frac{3c - a - b}{4}$, $S - x = \\frac{b + c - a}{2}$, $S - y = \\frac{c + a - b}{2}$, $S - z = \\frac{a + b - c}{2}$, and (1) becomes\n$$\n\\frac{1}{2}\\left(\\frac{b}{a} + \\frac{c}{a} - 1 + \\frac{a}{b} + \\frac{c}{b} - 1 + \\frac{a}{c} + \\frac{b}{c} - 1\\right) \\geq \\frac{3}{2}\n$$\nThis immediately follows from $\\frac{b}{a} + \\frac{a}{b} \\geq 2$, $\\frac{a}{c} + \\frac{c}{a} \\geq 2$, and $\\frac{c}{b} + \\frac{b}{c} \\geq 2$.\n\nLet $O$ be the circumcenter of $\\triangle ABC$. Extend $AO$ to meet $BC$ at $X$, and similarly $BO$ extends to $Y$ and $CO$ to $Z$.\nAs shown in the diagram at left below, draw $AA'$ parallel to $BC$, drop the altitude $AH$ from point $A$, and also draw $MO$, the perpendicular bisector of $BC$, meeting $AA'$ at $N$.\nNow $AHMN$ is a rectangle, so $AH = MN$. Also, $ABCA'$ is a cyclic trapezoid and thus isosceles, so $\\angle A'BC = \\angle ACB = \\gamma$. Thus $\\angle ABA' = \\angle ABC = \\angle ACB = \\beta - \\gamma$, so the measure of $\\operatorname{arc} AA' = 2(\\beta - \\gamma)$, which means that $\\angle AON = \\beta - \\gamma$. Using right triangle $ONA$, we have $ON = OA \\cos (\\beta - \\gamma)$.\nAgain using central and inscribed angles, $\\operatorname{arc} BC = 2\\alpha$ so $\\angle BOM = \\alpha$ and $OM = OB \\cos \\alpha$. Dividing $OM$ by $ON$,\n$$\n\\frac{OM}{ON} = \\frac{OB \\cos \\alpha}{OA \\cos (\\beta - \\gamma)} = \\frac{\\cos \\alpha}{\\cos (\\beta - \\gamma)}\n$$\nFinally, because $AA' \\parallel BC, \\triangle ANO \\sim \\triangle XMO$, which gives $\\frac{OX}{OA} = \\frac{OM}{ON}$.\nNow by symmetry, we can find similar relationships for all three fractions in the original inequality, so our goal now is to prove that\n$$\n\\frac{OX}{OA} + \\frac{OY}{OB} + \\frac{OZ}{OC} \\geq \\frac{3}{2}\n$$\n\n![](attached_image_1.png)\n\nIn the figure at right above, the area ratio $\\frac{AO}{AX} = \\frac{[ABOC]}{[ABC]}$, so adding analogous terms for each of the three ratios,\n$$\n\\frac{AO}{AX} + \\frac{BO}{BY} + \\frac{CO}{CZ} = \\frac{[ABOC] + [BCOA] + [AOBC]}{[ABC]} = 2,\n$$\nsince the numerator counts the area of each piece exactly twice.\nNext, by the arithmetic mean - harmonic mean inequality (or Cauchy-Schwarz if you prefer),\n$$\n\\left(\\frac{AO}{AX} + \\frac{BO}{BY} + \\frac{CO}{CZ}\\right)\\left(\\frac{AX}{AO} + \\frac{BY}{BO} + \\frac{CZ}{CO}\\right) \\geq 9\n$$\nFinally, since $\\frac{AX}{AO} = 1 + \\frac{OX}{AO}$ and similarly for the other two fractions, we can first divide by 2 and then subtract 3 from each side,\n$$\n\\frac{OX}{OA} + \\frac{OY}{OB} + \\frac{OZ}{OC} \\geq \\frac{9}{2} - 3 = \\frac{3}{2}\n$$\n\nSolution:\nRemark. Once the inequality is transformed to (1) we can use the convexity of the function $f(t) = \\frac{S-t}{S+t}$ and Jensen's inequality:\n$$\n\\frac{1}{3}(f(x) + f(y) + f(z)) \\geq f\\left(\\frac{x+y+z}{3}\\right).\n$$\nIt can be easily seen that the previous inequality is exactly (1).\n\nSolution 2, earning a Brilliancy award for Amol Aggarwal of Saratoga HS:\n$$\n\\frac{OX}{OA} + \\frac{OY}{OB} + \\frac{OZ}{OC} \\geq \\frac{3}{2}\n$$\n![](attached_image_2.png)\n\nIn the figure at right above, the area ratio $\\frac{AO}{AX} = \\frac{[ABOC]}{[ABC]}$, so adding analogous terms for each of the three ratios,\n$$\n\\frac{AO}{AX} + \\frac{BO}{BY} + \\frac{CO}{CZ} = \\frac{[ABOC] + [BCOA] + [AOBC]}{[ABC]} = 2,\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-cauchy-schwarz-auto-1948",
+      "name": "13th Annual Harvard-MIT Mathematics Tournament #0j0s",
+      "url": "https://usamoguide.com/",
+      "source": "13th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cauchy-Schwarz"
+      ],
+      "statement": "Problem:\nSuppose that there are real numbers $a, b, c \\geq 1$ and that there are positive reals $x, y, z$ such that\n$$\n\\begin{aligned}\na^{x}+b^{y}+c^{z} & =4 \\\\\nx a^{x}+y b^{y}+z c^{z} & =6 \\\\\nx^{2} a^{x}+y^{2} b^{y}+z^{2} c^{z} & =9\n\\end{aligned}\n$$\nWhat is the maximum possible value of $c$ ?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $\\sqrt[3]{4}$\n\nThe Cauchy-Schwarz inequality states that given 2 sequences of $n$ real numbers $x_{1}, x_{2}, \\ldots, x_{n}$ and $y_{1}, y_{2}, \\ldots, y_{n}$, then\n$$\n\\left(x_{1}^{2}+x_{2}^{2}+\\ldots+x_{n}^{2}\\right)\\left(y_{1}^{2}+y_{2}^{2}+\\ldots+y_{n}^{2}\\right) \\geq \\left(x_{1} y_{1}+x_{2} y_{2}+\\ldots+x_{n} y_{n}\\right)^{2}\n$$\nwith equality holding if and only if $\\frac{x_{1}}{y_{1}}=\\frac{x_{2}}{y_{2}}=\\ldots=\\frac{x_{n}}{y_{n}}$.\n\nApplying this to $\\{a^{x / 2}, b^{y / 2}, c^{z / 2}\\}$ and $\\{x a^{x / 2}, y b^{y / 2}, z c^{z / 2}\\}$ yields\n$$\n\\left(a^{x}+b^{y}+c^{z}\\right)\\left(x^{2} a^{x}+y^{2} b^{y}+z^{2} c^{z}\\right) \\geq \\left(x a^{x}+y b^{y}+z c^{z}\\right)^{2}\n$$\nwith equality holding if and only if $x=y=z$.\n\nHowever, equality does hold (both sides evaluate to $36$), so $x=y=z$. The second equation then becomes $x\\left(a^{x}+b^{x}+c^{x}\\right)=6$, which implies $x=\\frac{3}{2}$. Then we have $a^{3 / 2}+b^{3 / 2}+c^{3 / 2}=4$. To maximize $c$, we minimize $a$ and $b$ by setting $a=b=1$. Then $c^{3 / 2}=2$ or $c=\\sqrt[3]{4}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-cauchy-schwarz-auto-2109",
+      "name": "Harvard-MIT Mathematics Tournament #0j59",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Permutations / basic group theory",
+        "Counting two ways",
+        "Catalan numbers, partitions",
+        "Cauchy-Schwarz"
+      ],
+      "statement": "Problem:\n\nDenote $\\{1,2, \\ldots, n\\}$ by $[n]$, and let $S$ be the set of all permutations of $[n]$. Call a subset $T$ of $S$ good if every permutation $\\sigma$ in $S$ may be written as $t_{1} t_{2}$ for elements $t_{1}$ and $t_{2}$ of $T$, where the product of two permutations is defined to be their composition. Call a subset $U$ of $S$ extremely good if every permutation $\\sigma$ in $S$ may be written as $s^{-1} u s$ for elements $s$ of $S$ and $u$ of $U$. Let $\\tau$ be the smallest value of $|T| /|S|$ for all good subsets $T$, and let $v$ be the smallest value of $|U| /|S|$ for all extremely good subsets $U$. Prove that $\\sqrt{v} \\geq \\tau$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nCall an element $t \\in S$ an involution if and only if $t^{2}$ is the identity permutation. We claim that the set of all involutions in $S$ constitutes a good subset of $S$. The proof is simple. Let $s$ be an arbitrary permutation in $S$. Note that $s$ may be decomposed into a product of disjoint cycles of length at least $2$, and suppose that there are $m$ such cycles in its decomposition. For $1 \\leq i \\leq m$, let $l_{i}$ denote the length of the $i$th cycle, so that $s$ may be written as\n$$\n\\left(a_{1,1} a_{1,2} \\ldots a_{1, l_{1}}\\right)\\left(a_{2,1} a_{2,2} \\ldots a_{2, l_{2}}\\right) \\ldots\\left(a_{m, 1} a_{m, 2} \\ldots a_{m, l_{m}}\\right)\n$$\nfor some pairwise distinct elements\n$$\na_{1,1}, a_{1,2}, \\ldots, a_{1, l_{1}}, a_{2,1}, a_{2,2}, \\ldots, a_{2, l_{2}}, \\ldots, a_{m, 1}, a_{m, 2}, \\ldots, a_{m, l_{m}}\n$$\nof $[n]$. Consider the permutations $q$ and $r$ defined by $q\\left(a_{i, j}\\right)=a_{i, l_{i}+1-j}$ for all $1 \\leq j \\leq l_{i}$ and $r\\left(a_{i, 1}\\right)=a_{i, 1}$ and $r\\left(a_{i, k}\\right)=a_{i, l_{i}+2-k}$ for all $2 \\leq k \\leq l_{i}$, for all $1 \\leq i \\leq m$, and by $q(x)=r(x)=x$ for all $x \\in[n]$ otherwise. Since $q, r \\in S$, $q^{2}=r^{2}=1$, and $r q=s$, it follows that the set of all involutions in $S$ is indeed good, as desired.\n\nFor all integer partitions $\\lambda$ of $n$, let $f^{\\lambda}$ denote the number of standard Young tableaux of shape $\\lambda$. By the Robinson-Schensted-Knuth correspondence, the permutations of $[n]$ are in bijection with pairs of standard Young tableaux of the same shape in such a way that the involutions of $[n]$ are in bijection with pairs of identical standard Young tableaux. In other words, the number of permutations of $[n]$ is equal to the number of pairs of identically shaped standard Young tableaux whose shape is a partition of $n$, and the number of involutions of $[n]$ is equal to the number of standard Young tableaux whose shape is a partition of $n$. Hence $n!=\\sum_{\\lambda}\\left(f^{\\lambda}\\right)^{2}$ and $\\tau \\leq \\sum_{\\lambda} \\frac{f^{\\lambda}}{n!}$, where both sums range over all partitions $\\lambda$ of $n$.\n\nFor all elements $u \\in S$, define the conjugacy class of $u$ to be the set of elements that may be written in the form $s^{-1} u s$ for some $s \\in S$. It is easy to see that for all $u, u' \\in S$, the conjugacy classes of $u$ and $u'$ are either identical or disjoint. It follows that $S$ may be partitioned into disjoint conjugacy classes and that any extremely good subset of $S$ must contain at least one element from each distinct conjugacy class. We claim that the number of distinct conjugacy classes of $S$ is at least the number of integer partitions of $n$. It turns out that the two numbers are in fact equal, but such a result is not necessary for the purposes of this problem. Let $u$ be an arbitrary permutation in $S$. Recall that $u$ may be written as\n$$\n\\left(a_{1,1} a_{1,2} \\ldots a_{1, l_{1}}\\right)\\left(a_{2,1} a_{2,2} \\ldots a_{2, l_{2}}\\right) \\ldots\\left(a_{m, 1} a_{m, 2} \\ldots a_{m, l_{m}}\\right)\n$$\nfor some pairwise distinct elements\n$$\na_{1,1}, a_{1,2}, \\ldots, a_{1, l_{1}}, a_{2,1}, a_{2,2}, \\ldots, a_{2, l_{2}}, \\ldots, a_{m, 1}, a_{m, 2}, \\ldots, a_{m, l_{m}}\n$$\nof $[n]$. Associate to the conjugacy class of $u$ the partition $n=l_{w_{1}}+l_{w_{2}}+\\ldots+l_{w_{m}}+1+\\ldots+1$, where $w_{1}, w_{2}, \\ldots, w_{m}$ is a partition of $1,2, \\ldots, m$ such that $w_{1} \\geq w_{2} \\geq \\ldots \\geq w_{m}$ and the $1$'s represent all the fixed points of $s$. Now note that if $s$ is any permutation in $S$, $s^{-1} u s$ may be written in the form\n$$\ns^{-1}\\left(a_{1,1} a_{1,2} \\ldots a_{1, l_{1}}\\right) s s^{-1}\\left(a_{2,1} a_{2,2} \\ldots a_{2, l_{2}}\\right) s \\ldots s^{-1}\\left(a_{m, 1} a_{m, 2} \\ldots a_{m, l_{m}}\\right) s\n$$\nwhich may be written as\n$$\n\\left(b_{1,1} b_{1,2} \\ldots b_{1, l_{1}}\\right)\\left(b_{2,1} b_{2,2} \\ldots b_{2, l_{2}}\\right) \\ldots\\left(b_{m, 1} b_{m, 2} \\ldots b_{m, l_{m}}\\right)\n$$\nfor some pairwise distinct elements\n$$\nb_{1,1}, b_{1,2}, \\ldots, b_{1, l_{1}}, b_{2,1}, b_{2,2}, \\ldots, b_{2, l_{2}}, \\ldots, b_{m, 1}, b_{m, 2}, \\ldots, b_{m, l_{m}}\n$$\nof $[n]$ because multiplying by $s^{-1}$ on the left and by $s$ on the right is equivalent to re-indexing the letters $1,2, \\ldots, n$. Hence if partitions of $n$ are associated to all conjugacy classes of $S$ analogously, the same partition that is associated to $u$ is associated to $s^{-1} u s$ for all $s \\in S$. Since exactly one partition is associated to each conjugacy class, it follows that the number of conjugacy classes cannot exceed the number of partitions, as desired.\n\nTo conclude, we need only observe that $v \\geq \\sum_{\\lambda} \\frac{1}{n!}$ by our above claim, for then\n$$\nn!\\sqrt{v}=\\sqrt{n!\\sum_{\\lambda} 1}=\\sqrt{\\left(\\sum_{\\lambda}\\left(f^{\\lambda}\\right)^{2}\\right)\\left(\\sum_{\\lambda} 1\\right)} \\geq \\sum_{\\lambda} f^{\\lambda} \\geq n!\\tau\n$$\nby the Cauchy-Schwarz inequality, and this completes the proof."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-cauchy-schwarz-auto-2171",
+      "name": "Harvard-MIT Mathematics Tournament #0j6z",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers",
+        "Cauchy-Schwarz"
+      ],
+      "statement": "Problem:\nLet $x$ and $y$ be complex numbers such that $|x|=|y|=1$.\n\na. Determine the maximum value of $|1+x|+|1+y|-|1+xy|$.\n\nb. Determine the maximum value of $|1+x|+|1+xy|+|1+xy^{2}|+\\ldots+|1+xy^{2011}|-1006|1+y|$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\na. Answer: $2\\sqrt{2}$\n\nb. Answer: $2012\\sqrt{2}$ We divide the terms into 1006 sums of the form\n$$\n|1+xy^{2k}|+|1+xy^{2k+1}| - |1+y|\n$$\nFor each of these, we obtain, as in part a,\n$$\n\\begin{aligned}\n|1+xy^{2k}|+|1+xy^{2k+1}| - |1+y| &\\leq |1+xy^{2k}| + |xy^{2k+1} - y| \\\\\n&= |1+xy^{2k}| + |y||1 - xy^{2k}| \\\\\n&= |1+xy^{2k}| + |1 - xy^{2k}| \\\\\n&\\leq 2\\sqrt{2}\n\\end{aligned}\n$$\nAgain, this is maximized when $x^{2}y^{4k} = -1$, which leaves a total sum of at most $2012\\sqrt{2}$. If we let $x = i$ and $y = -1$, every sum of three terms will be $2\\sqrt{2}$, for a total of $2012\\sqrt{2}$, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-cauchy-schwarz-auto-2394",
+      "name": "IMO Team Selection Test #0jd6",
+      "url": "https://usamoguide.com/",
+      "source": "IMO Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Coloring schemes, extremal arguments",
+        "Counting two ways",
+        "Cauchy-Schwarz"
+      ],
+      "statement": "A social club has $2k + 1$ members, each of whom is fluent in the same $k$ languages. Any pair of members always talk to each other in only one language. Suppose that there were no three members such that they use only one language among them. Let $A$ be the number of three-member subsets such that the three distinct pairs among them use different languages. Find the maximum possible value of $A$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "The answer is $\\binom{2k+1}{3} - k(2k+1)$, or $\\frac{2k(k-2)(2k+1)}{3}$.\n\nWe will treat the social club as a complete graph on $2k+1$ vertices, where each language corresponds to one color of edge between pairs of vertices. Let $V = \\{v_1, \\dots, v_{2k+1}\\}$ be the set of vertices, $L = \\{l_1, \\dots, l_k\\}$ be the set of languages or colors, and let $\\deg_i(v)$ correspond to the number of edges of color $l_i$ out of vertex $v$.\n\nFirst, we show that this is the maximum. Call a triangle in the graph of members *isosceles* if two of its edges are the same color. We can count the number of isosceles triangle by looking at the vertex shared by the two edge of the same color, so that the number of isosceles triangles at a vertex $v$ is equal to $\\binom{\\deg_1(v)}{2} + \\dots + \\binom{\\deg_k(v)}{2}$. By Cauchy's inequality, we have\n$$\n\\begin{aligned}\n\\binom{\\deg_1(v)}{2} + \\dots + \\binom{\\deg_k(v)}{2} &= \\frac{1}{2} \\sum_{i=1}^{k} (\\deg_i(v))^2 - \\frac{1}{2} \\sum_{i=1}^{k} \\deg_i(v) \\\\\n&\\geq \\frac{1}{2} \\left( \\frac{1}{1^2 + \\dots + 1^2} \\right) (1 \\cdot \\deg_1(v) + \\dots + 1 \\cdot \\deg_k(v))^2 \\\\\n&= k.\n\\end{aligned}\n$$\n\nSumming over all vertices, we obtain that there are at least\n$$\n\\sum_{v \\in V} \\sum_{i=1}^{k} \\binom{\\deg_i(v)}{2} \\geq \\sum_{v \\in V} k = k(2k+1)\n$$\nisosceles triangles. By the conditions of the problem, there does not exist a monochromatic triangle; consequently, every triangle is either isosceles or has edges of three different colors (of which there are $A$ such triangles). Therefore, we conclude that\n$$\nA \\leq \\binom{2k+1}{3} - k(2k+1).\n$$\n\nNow, we give a construction for $A = \\binom{2k+1}{3} - k(2k+1)$. We note that equality holds in the inequality above when $\\deg_i(v) = 2$ for all $i$ and $v$. Thus, it suffices to show that any complete graph on $2n+1$ vertices can be decomposed into $k$ disjoint Hamiltonian cycles, since we can then assign one color to each cycle.\n\nFor this, start with the cycle $C_0 = (v_0, v_1, v_{2k}, v_2, v_{2k-1}, v_3, v_{2k-2}, \\dots, v_k, vk+1, v_0)$ constructed by starting at $v_0$ and alternately going to vertices in the two lists $v_1, v_2, \\dots, v_k$ and $v_{2k}, v_{2k-1}, \\dots, v_{k+1}$. Then, construct the cycles $C_1, \\dots, C_{k-1}$ so that cycle $C_i$ is constructed by adding $i$ to the subscript of each vertex in $C_0$ (where we set $v_i = v_{i+2k+1}$). If we look at the set of edges $(v_i, v_{i+n})$ for $1 \\le n < k$, we note that exactly two occur in each $C_i$ and that each $i$ occurs as the first vertex index exactly once, so these cycles are disjoint, completing the construction. (More precisely, for even $n$ this edge occurs at $(v_{-n/2}, v_{n/2})$ and $(v_{k+1-n/2}, v_{k+1+n/2})$ in $C_0$, and consequently the edge $(v_i, v_{i+n})$ occurs in one of $C_{i+\\frac{n}{2}}$, $C_{i+\\frac{n}{2}-k-1}$, or $C_{i+\\frac{n}{2}-(2k+1)}$, depending on which of these subscripts lies in $[0, k-1]$. A similar argument holds for odd $n$.)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-cauchy-schwarz-auto-2489",
+      "name": "HMMT November 2013 #0jft",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2013",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Radical axis theorem",
+        "Cartesian coordinates",
+        "Optimization in geometry",
+        "Cauchy-Schwarz",
+        "QM-AM-GM-HM / Power Mean"
+      ],
+      "statement": "Problem:\n\nChords $\\overline{AB}$ and $\\overline{CD}$ of circle $\\omega$ intersect at $E$ such that $AE=8$, $BE=2$, $CD=10$, and $\\angle AEC=90^{\\circ}$. Let $R$ be a rectangle inside $\\omega$ with sides parallel to $\\overline{AB}$ and $\\overline{CD}$, such that no point in the interior of $R$ lies on $\\overline{AB}$, $\\overline{CD}$, or the boundary of $\\omega$. What is the maximum possible area of $R$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $26+6 \\sqrt{17}$\n\nBy power of a point, $(CE)(ED) = (AE)(EB) = 16$, and $CE + ED = CD = 10$. Thus $CE$, $ED$ are $2$, $8$. Without loss of generality, assume $CE = 8$ and $DE = 2$.\n\nAssume our circle is centered at the origin, with points $A = (-3,5)$, $B = (-3,-5)$, $C = (5,-3)$, $D = (-5,-3)$, and the equation of the circle is $x^{2} + y^{2} = 34$. Clearly the largest possible rectangle must lie in the first quadrant, and if we let $(x, y)$ be the upper-right corner of the rectangle, then the area of the rectangle is $(x+3)(y+3) = 9 + 6(x+y) + x y \\leq 9 + 12 \\sqrt{\\frac{x^{2} + y^{2}}{2}} + \\frac{x^{2} + y^{2}}{2} = 26 + 6 \\sqrt{17}$, where equality holds if and only if $x = y = \\sqrt{17}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-cauchy-schwarz-auto-2594",
+      "name": "USAMO #0jiq",
+      "url": "https://usamoguide.com/",
+      "source": "USAMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vieta's formulas",
+        "Symmetric functions",
+        "Complex numbers",
+        "Cauchy-Schwarz"
+      ],
+      "statement": "Let $a$, $b$, $c$, $d$ be real numbers such that $b - d \\ge 5$ and all zeros $x_1$, $x_2$, $x_3$, and $x_4$ of the polynomial $P(x) = x^4 + a x^3 + b x^2 + c x + d$ are real. Find the smallest value the product $(x_1^2 + 1)(x_2^2 + 1)(x_3^2 + 1)(x_4^2 + 1)$ can take.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**Solution 1** (by Titu Andreescu). Using Vieta's identities we have:\n$$\nx_1x_2 + x_1x_3 + x_1x_4 + x_2x_3 + x_2x_4 + x_3x_4 - x_1x_2x_3x_4 \\ge 5,\n$$\nand so\n$$\nx_1(x_2 + x_3 + x_4 - x_2x_3x_4) + 1(x_2x_3 + x_2x_4 + x_3x_4 - 1) \\ge 4.\n$$\nIt follows that\n$$\n4^2 \\le [x_1(x_2 + x_3 + x_4 - x_2x_3x_4) + 1(x_2x_3 + x_2x_4 + x_3x_4 - 1)]^2,\n$$\nso by the Cauchy-Schwarz Inequality,\n$$\n\\begin{aligned} 4^2 &\\le (x_1^2 + 1)[(x_2 + x_3 + x_4 - x_2x_3x_4)^2 + (x_2x_3 + x_2x_4 + x_3x_4 - 1)^2] \\\\ &= (x_1^2 + 1)(x_2^2 + 1)(x_3^2 + 1)(x_4^2 + 1). \\end{aligned}\n$$\nSetting $x_1 = \\dots = x_4 = 1$ gives $b - d = 5$ and makes the product attain its minimum possible value of $16$.\n\n**Solution 2** (by Titu Andreescu). An alternative, shorter argument runs as follows: we have\n$$\n(x_1^2 + 1)(x_2^2 + 1)(x_3^2 + 1)(x_4^2 + 1) = P(i)P(-i) = ((1 - b + d) + i(c - a))(1 - b + d - i(c - a)) = (b - d - 1)^2 + (c - a)^2 \\ge 16,\n$$\nwith equality if and only if $b - d = 5$ and $a = c$, both attained if $x_1 = \\dots = x_4 = 1$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-cauchy-schwarz-auto-2598",
+      "name": "HMMT 2014 #0jiu",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2014",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cauchy-Schwarz",
+        "Invariants / monovariants",
+        "Sums and products"
+      ],
+      "statement": "Problem:\n\nFix a positive real number $c>1$ and positive integer $n$. Initially, a blackboard contains the numbers $1, c, \\ldots, c^{n-1}$. Every minute, Bob chooses two numbers $a, b$ on the board and replaces them with $c a + c^{2} b$. Prove that after $n-1$ minutes, the blackboard contains a single number no less than\n\n$$\n\\left(\\frac{c^{n / L}-1}{c^{1 / L}-1}\\right)^{L}\n$$\nwhere $\\phi=\\frac{1+\\sqrt{5}}{2}$ and $L=1+\\log _{\\phi}(c)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nBy a simple reverse induction, we can show that at any instant, any number on the board takes the form $\\sum_{\\alpha \\in A} c^{r_{\\alpha}} c^{\\alpha}$ for a certain $A \\subseteq \\{0, \\ldots, n-1\\}$ for non-negative integer weights $r_{\\alpha}$ satisfying $\\sum_{\\alpha \\in A} \\phi^{-r_{\\alpha}}=1$, where these subsets $A$ partition $\\{0, \\ldots, n-1\\}$, and after each minute the number of parts decreases by 1. (Note that $1=\\phi^{-1}+\\phi^{-2}$, and when we \"merge\" two of these sets $A, B$ corresponding to $a, b \\rightarrow c a + c^{2} b$, we add 1 to all the weights of $A$, and 2 to all the weights of $B$.) Therefore, the final number takes the form $\\sum_{i=0}^{n-1} c^{t_{i}} c^{i}$ for positive integer weights $t_{0}, \\ldots, t_{n-1}$ satisfying $\\sum_{i=0}^{n-1} \\phi^{-t_{i}}=1$.\n\nLet $M=\\log_{\\phi}(c)>0$ (so $L=1+M$). Then $c=\\phi^{M}$, so by Holder's inequality,\n$$\n\\left(\\sum_{i=0}^{n-1} c^{t_{i}} c^{i}\\right)^{1}\\left(\\sum_{i=0}^{n-1} \\phi^{-t_{i}}\\right)^{M} \\geq \\left(\\sum_{i=0}^{n-1}\\left[c^{i}\\left(c \\phi^{-M}\\right)^{t_{i}}\\right]^{1 / L}\\right)^{L} = \\left(\\frac{c^{n / L}-1}{c^{1 / L}-1}\\right)^{L}\n$$\nas desired.\n\nAlternate solution:\n\nWe have $c x^{L} + c^{2} y^{L} \\geq (x+y)^{L}$ for any nonnegative reals $x, y$, since $\\left(c x^{L} + c^{2} y^{L}\\right)\\left(c^{-1 /(L-1)} + c^{-2 /(L-1)}\\right)^{L-1} \\geq (x+y)^{L}$ by Holder's inequality, $c^{1 /(L-1)} = c^{1 / \\log_{\\phi}(c)} = \\phi$, and of course $\\phi^{-1} + \\phi^{-2} = 1$.\n\nIn particular, $\\left(c a + c^{2} b\\right)^{1 / L} \\geq a^{1 / L} + b^{1 / L}$. Thus $\\sum_{i=0}^{n-1}\\left(c^{i}\\right)^{1 / L} \\leq N^{1 / L}$, where $N$ is the final (nonnegative) number on the board. Hence $N^{1 / L} \\geq \\frac{c^{n / L}-1}{c^{1 / L}-1}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-cauchy-schwarz-auto-2817",
+      "name": "HMMT November 2015 #0jox",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2015",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Sums and products",
+        "Cauchy-Schwarz"
+      ],
+      "statement": "Problem:\nFind the largest real number $k$ such that there exists a sequence of positive reals $\\{a_{i}\\}$ for which $\\sum_{n=1}^{\\infty} a_{n}$ converges but $\\sum_{n=1}^{\\infty} \\frac{\\sqrt{a_{n}}}{n^{k}}$ does not.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFor $k > \\frac{1}{2}$, I claim that the second sequence must converge. The proof is as follows: by the Cauchy-Schwarz inequality,\n$$\n\\left(\\sum_{n \\geq 1} \\frac{\\sqrt{a_{n}}}{n^{k}}\\right)^{2} \\leq \\left(\\sum_{n \\geq 1} a_{n}\\right)\\left(\\sum_{n \\geq 1} \\frac{1}{n^{2k}}\\right)\n$$\nSince for $k > \\frac{1}{2}$, $\\sum_{n \\geq 1} \\frac{1}{n^{2k}}$ converges, the right hand side converges. Therefore, the left hand side must also converge.\n\nFor $k \\leq \\frac{1}{2}$, the following construction surprisingly works: $a_{n} = \\frac{1}{n \\log^{2} n}$. It can be easily verified that $\\sum_{n \\geq 1} a_{n}$ converges, while\n$$\n\\sum_{n \\geq 1} \\frac{\\sqrt{a_{n}}}{n^{1/2}} = \\sum_{n \\geq 1} \\frac{1}{n \\log n}\n$$\ndoes not converge."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-cauchy-schwarz-auto-2870",
+      "name": "Berkeley Math Circle #0jqe",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cauchy-Schwarz",
+        "QM-AM-GM-HM / Power Mean"
+      ],
+      "statement": "Problem:\n\nFor positive integers $x_{1}, x_{2}, \\ldots, x_{n}$ satisfying $x_{1}+\\cdots+x_{n}=101 n$, prove that\n$$\n\\binom{x_{1}}{2}+\\binom{x_{2}}{2}+\\cdots+\\binom{x_{n}}{2} \\geq 5050 n\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nNoting that $2\\binom{x}{2}=x^{2}-x$, we see that it suffices to prove that\n$$\nx_{1}^{2}+\\cdots+x_{n}^{2} \\geq 2(5050 n)+101 n=10201 n .\n$$\nThis follows immediately by Cauchy-Schwarz as\n$$\n(101 n)^{2}=\\left(x_{1}+\\cdots+x_{n}\\right)^{2} \\leq\\left(x_{1}^{2}+\\cdots+x_{n}^{2}\\right)(1+\\cdots+1)=n\\left(x_{1}^{2}+\\cdots+x_{n}^{2}\\right) .\n$$\nRearranging gives the conclusion."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-cauchy-schwarz-auto-3152",
+      "name": "HMIC #0jy8",
+      "url": "https://usamoguide.com/",
+      "source": "HMIC",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vectors",
+        "Cauchy-Schwarz",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\n\nLet $v_{1}, v_{2}, \\ldots, v_{m}$ be vectors in $\\mathbb{R}^{n}$, such that each has a strictly positive first coordinate. Consider the following process. Start with the zero vector $w=(0,0, \\ldots, 0) \\in \\mathbb{R}^{n}$. Every round, choose an $i$ such that $1 \\leq i \\leq m$ and $w \\cdot v_{i} \\leq 0$, and then replace $w$ with $w+v_{i}$.\nShow that there exists a constant $C$ such that regardless of your choice of $i$ at each step, the process is guaranteed to terminate in $C$ rounds. The constant $C$ may depend on the vectors $v_{1}, \\ldots, v_{m}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $w_{0}=0$, let $w_{r}$ be the vector $w$ after $r$ rounds. Also, let $e_{1}$ denote the vector $(1,0, \\ldots, 0)$. Note that\n$$\nw_{r+1}^{2}=\\left(w_{r}+v_{i}\\right)^{2}=w_{r}^{2}+v_{i}^{2}+2 w_{r} \\cdot v_{i} \\leq w_{r}^{2}+v_{i}^{2}\n$$\nas we have by the condition that $w_{r} \\cdot v_{i} \\leq 0$. Therefore, we have by induction that $\\left|w_{r}\\right| \\leq M \\sqrt{r}$, where $M=\\max _{i}\\left|v_{i}\\right|$. Also, we have that\n$$\nw_{r+1} \\cdot e_{1}=w_{r} \\cdot e_{1}+v_{i} \\cdot e_{1}\n$$\nso $w_{r} \\cdot e_{1} \\geq m r$, where $m=\\min _{i}\\left(v_{i} \\cdot e_{1}\\right)>0$.\nNow using the obvious inequality\n$$\nM \\sqrt{r} \\geq\\left|w_{r}\\right| \\geq w_{r} \\cdot e_{1} \\geq m r\n$$\nwe get that $r \\leq \\frac{M^{2}}{m^{2}}$, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-cauchy-schwarz-auto-3191",
+      "name": "Berkeley Math Circle: Monthly Contest 7 #0jzb",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 7",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cauchy-Schwarz",
+        "QM-AM-GM-HM / Power Mean"
+      ],
+      "statement": "Problem:\nProve that\n$$\n64 \\frac{a b c d+1}{(a+b+c+d)^{2}} \\leq a^{2}+b^{2}+c^{2}+d^{2}+\\frac{1}{a^{2}}+\\frac{1}{b^{2}}+\\frac{1}{c^{2}}+\\frac{1}{d^{2}}\n$$\nfor $a, b, c, d>0$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nBy Holder inequality, we have\n$$\n\\left(\\sum_{\\text{cyc}} a^{-2}\\right)\\left(\\sum_{\\text{cyc}} a\\right)^{2} \\geq (1+1+1+1)^{3} = 64\n$$\nAlso, we have\n$$\n\\left(\\sum_{\\text{cyc}} a^{2}\\right)\\left(\\sum_{\\text{cyc}} a\\right)^{2} \\geq \\left(4 \\sqrt[4]{(a b c d)^{2}}\\right) (4 \\sqrt[4]{a b c d})^{2} = 64 a b c d\n$$\nby AM-GM. Summing these two gives the conclusion."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-cauchy-schwarz-auto-3194",
+      "name": "Berkeley Math Circle #0jze",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cauchy-Schwarz"
+      ],
+      "statement": "Problem:\nShow that for positive real numbers $a$, $b$, and $c$,\n$$\n\\frac{1}{a+b}+\\frac{1}{b+c}+\\frac{1}{c+a} \\geq \\frac{(a+b+c)^{2}}{a b(a+b)+b c(b+c)+c a(c+a)}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nExpanding and rearranging the denominator gives\n$$\na^{2} b + a b^{2} + b^{2} c + b c^{2} + c^{2} a + a c = c^{2}(a+b) + a^{2}(b+c) + b^{2}(c+a).\n$$\nBy Cauchy-Schwarz,\n$$\n\\left(c^{2}(a+b) + a^{2}(b+c) + b^{2}(c+a)\\right)\\left(\\frac{1}{a+b} + \\frac{1}{b+c} + \\frac{1}{c+a}\\right) \\geq (a+b+c)^{2},\n$$\nand dividing by $c^{2}(a+b) + a^{2}(b+c) + b^{2}(c+a)$ gives the desired inequality."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-cauchy-schwarz-auto-3332",
+      "name": "HMMT November 2018 #0k38",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2018",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cauchy-Schwarz",
+        "Quadratic functions"
+      ],
+      "statement": "Problem:\nOver all real numbers $x$ and $y$, find the minimum possible value of\n$$\n(x y)^{2}+(x+7)^{2}+(2 y+7)^{2}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution 1: Rewrite the given expression as $\\left(x^{2}+4\\right)\\left(1+y^{2}\\right)+14(x+2 y)+94$. By Cauchy-Schwartz, this is at least $(x+2 y)^{2}+14(x+2 y)+94=(x+2 y+7)^{2}+45$. The minimum is $45$, attained when $x y=2$, $x+2 y=-7$.\n\n\nSolution 2: Let $z=2 y$, $s=x+z$, $p=x z$. We seek to minimize\n$$\n\\begin{aligned}\n\\left(\\frac{x z}{2}\\right)^{2}+(x+7)^{2}+(z+7)^{2} & =\\frac{p^{2}}{4}+\\left(x^{2}+z^{2}\\right)+14(x+z)+98 \\\\\n& =\\frac{p^{2}}{4}+s^{2}-2 p+14 s+98 \\\\\n& =\\left(\\frac{p}{2}-2\\right)^{2}+(s+7)^{2}+45 \\\\\n& \\geq 45\n\\end{aligned}\n$$\nEquality holds when $s=-7$, $p=4$. Since $s^{2} \\geq 4 p$, this system has a real solution for $x$ and $z$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-cauchy-schwarz-auto-3376",
+      "name": "Berkeley Math Circle: Monthly Contest 2 #0k4g",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 2",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cauchy-Schwarz",
+        "Linear and quadratic inequalities"
+      ],
+      "statement": "Problem:\nLet $a$, $b$, $x$, $y$, $z$ be positive real numbers. Prove the inequality\n$$\n\\frac{x}{a y+b z}+\\frac{y}{a z+b x}+\\frac{z}{a x+b y} \\geq \\frac{3}{a+b} .\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nApplying Cauchy-Schwarz inequality to the triples\n$$\n\\sqrt{\\frac{x}{a y+b z}}, \\sqrt{\\frac{y}{a z+b x}}, \\sqrt{\\frac{z}{a x+b y}} \\text{ and } \\sqrt{x(a y+b z)}, \\sqrt{y(a z+b x)}, \\sqrt{z(a x+b y)} \\text{, }\n$$\nwe get that\n$$\n\\frac{x}{a y+b z}+\\frac{y}{a z+b x}+\\frac{z}{a x+b y} \\geq \\frac{(x+y+z)^2}{(a+b)(x y+y z+z x)} .\n$$\nBut we note that\n$$\n(x-y)^2+(y-z)^2+(z-x)^2 \\geq 0 \\Longrightarrow (x+y+z)^2 \\geq 3(x y+y z+z x),\n$$\nand the desired inequality follows."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-cauchy-schwarz-auto-3495",
+      "name": "Berkeley Math Circle: Monthly Contest 5 #0k7r",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 5",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cauchy-Schwarz",
+        "Polynomials"
+      ],
+      "statement": "Problem:\nLet $P$ be a polynomial with positive real coefficients. Prove that if\n$$\nP\\left(\\frac{1}{x}\\right) \\geq \\frac{1}{P(x)}\n$$\nholds for $x=1$, then it holds for every $x>0$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $P(x)=a_{n} x^{n}+a_{n-1} x^{n-1}+\\cdots+a_{1} x+a_{0}$, so $a_{k}>0$ for every $k$. Since the statement holds for $x=1$, $P(1) \\geq 1$. Then by Cauchy-Schwarz,\n$$\nP(x) P\\left(\\frac{1}{x}\\right)=\\left(\\sum_{k=0}^{n}\\left(\\sqrt{a_{k} x^{k}}\\right)^{2}\\right)\\left(\\sum_{k=0}^{n}\\left(\\sqrt{\\frac{a_{k}}{x^{k}}}\\right)^{2}\\right) \\geq\\left(\\sum_{k=0}^{n} a_{k}\\right)^{2}=P(1)^{2} \\geq 1\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-cauchy-schwarz-auto-3707",
+      "name": "HMMT February 2020 #0kdn",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2020",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cauchy-Schwarz",
+        "Sums and products",
+        "Polynomial operations"
+      ],
+      "statement": "Problem:\nFind the smallest real constant $\\alpha$ such that for all positive integers $n$ and real numbers $0 = y_{0} < y_{1} < \\cdots < y_{n}$, the following inequality holds:\n$$\n\\alpha \\sum_{k=1}^{n} \\frac{(k+1)^{3 / 2}}{\\sqrt{y_{k}^{2}-y_{k-1}^{2}}} \\geq \\sum_{k=1}^{n} \\frac{k^{2}+3 k+3}{y_{k}} \\text{.}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe first prove the following lemma:\nLemma. For positive reals $a, b, c, d$, the inequality\n$$\n\\frac{a^{3 / 2}}{c^{1 / 2}} + \\frac{b^{3 / 2}}{d^{1 / 2}} \\geq \\frac{(a+b)^{3 / 2}}{(c+d)^{1 / 2}}\n$$\nholds.\nProof. Apply Hölder's inequality in the form\n$$\n\\left(\\frac{a^{3 / 2}}{c^{1 / 2}} + \\frac{b^{3 / 2}}{d^{1 / 2}}\\right)^{2}(c+d) \\geq (a+b)^{3}.\n$$\nFor $k \\geq 2$, applying the lemma to $a = (k-1)^{2}$, $b = 8k + 8$, $c = y_{k-1}^{2}$, $d = y_{k}^{2} - y_{k-1}^{2}$ yields\n$$\n\\frac{(k-1)^{3}}{y_{k-1}} + \\frac{(8k+8)^{3 / 2}}{\\sqrt{y_{k}^{2} - y_{k-1}^{2}}} \\geq \\frac{(k+3)^{3}}{y_{k}}.\n$$\nWe also have the equality\n$$\n\\frac{(8 \\cdot 1 + 8)^{3 / 2}}{\\sqrt{y_{1}^{2} - y_{0}^{2}}} = \\frac{(1+3)^{3}}{y_{1}}.\n$$\nSumming the inequality from $k=2$ to $k=n$ with the equality yields\n$$\n\\sum_{k=1}^{n} \\frac{(8k+8)^{3 / 2}}{\\sqrt{y_{k}^{2} - y_{k-1}^{2}}} \\geq \\sum_{k=1}^{n} \\frac{(k+3)^{3} - k^{3}}{y_{k}} + \\frac{n^{3}}{y_{n}} \\geq \\sum_{k=1}^{n} \\frac{9\\left(k^{2} + 3k + 3\\right)}{y_{k}}\n$$\nHence the inequality holds for $\\alpha = \\frac{16 \\sqrt{2}}{9}$. In the reverse direction, this is sharp when $y_{n} = n(n+1)(n+2)(n+3)$ (so that $y_{k-1} = \\frac{k-1}{k+3} y_{k}$ for $k=2, \\ldots, n$) and $n \\rightarrow \\infty$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-cauchy-schwarz-auto-4067",
+      "name": "USA Junior MO #0knn",
+      "url": "https://usamoguide.com/",
+      "source": "USA Junior MO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cauchy-Schwarz",
+        "Telescoping series"
+      ],
+      "statement": "Let $n \\ge 4$ be an integer. Find all positive real solutions to the following system of $2n$ equations:\n$$\n\\begin{aligned}\na_1 &= \\frac{1}{a_{2n}} + \\frac{1}{a_2}, & a_2 &= a_1 + a_3, \\\\\na_3 &= \\frac{1}{a_2} + \\frac{1}{a_4}, & a_4 &= a_3 + a_5, \\\\\na_5 &= \\frac{1}{a_4} + \\frac{1}{a_6}, & a_6 &= a_5 + a_7, \\\\\n\\vdots & & \\vdots & \\\\\na_{2n-1} &= \\frac{1}{a_{2n-2}} + \\frac{1}{a_{2n}}, & a_{2n} &= a_{2n-1} + a_1.\n\\end{aligned}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-cauchy-schwarz-auto-4071",
+      "name": "USAMO #0knr",
+      "url": "https://usamoguide.com/",
+      "source": "USAMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recurrence relations",
+        "Cauchy-Schwarz"
+      ],
+      "statement": "Let $n \\ge 4$ be an integer. Find all positive real solutions to the following system of $2n$ equations:\n$$\n\\begin{aligned}\na_1 &= \\frac{1}{a_{2n}} + \\frac{1}{a_2}, & a_2 &= a_1 + a_3, \\\\\na_3 &= \\frac{1}{a_2} + \\frac{1}{a_4}, & a_4 &= a_3 + a_5, \\\\\na_5 &= \\frac{1}{a_4} + \\frac{1}{a_6}, & a_6 &= a_5 + a_7, \\\\\n\\vdots & & \\vdots & \\\\\na_{2n-1} &= \\frac{1}{a_{2n-2}} + \\frac{1}{a_{2n}}, & a_{2n} &= a_{2n-1} + a_1.\n\\end{aligned}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-cauchy-schwarz-auto-4099",
+      "name": "HMMT February 2022 #0koj",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2022",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vectors",
+        "Cauchy-Schwarz",
+        "Invariants / monovariants"
+      ],
+      "statement": "Problem:\nOn a board the following six vectors are written:\n$$\n(1,0,0), \\quad(-1,0,0), \\quad(0,1,0), \\quad(0,-1,0), \\quad(0,0,1), \\quad(0,0,-1)\n$$\nGiven two vectors $v$ and $w$ on the board, a move consists of erasing $v$ and $w$ and replacing them with $\\frac{1}{\\sqrt{2}}(v+w)$ and $\\frac{1}{\\sqrt{2}}(v-w)$. After some number of moves, the sum of the six vectors on the board is $u$. Find, with proof, the maximum possible length of $u$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFor a construction, note that one can change\n$$\n(1,0,0),(-1,0,0) \\rightarrow (\\sqrt{2}, 0,0),(0,0,0) \\rightarrow (1,0,0),(1,0,0)\n$$\nand similarly for $(0,1,0),(0,-1,0)$ and $(0,0,1),(0,0,-1)$. Then $u=(2,2,2)$.\n\nFor the bound, argue as follows: let the vectors be $v_{1}, \\ldots, v_{6}$, $n=(x, y, z)$ be any unit vector, and $S=\\sum_{i}(n \\cdot v_{i})^{2}$, where the sum is over all vectors on the board. We claim that $S$ is invariant. Indeed, we have\n$$\n\\begin{aligned}\n\\left(n \\cdot \\frac{1}{\\sqrt{2}}(v+w)\\right)^{2}+\\left(n \\cdot \\frac{1}{\\sqrt{2}}(v-w)\\right)^{2} & =\\left(\\frac{n \\cdot v+n \\cdot w}{\\sqrt{2}}\\right)^{2}+\\left(\\frac{n \\cdot v-n \\cdot w}{\\sqrt{2}}\\right)^{2} \\\\\n& =\\frac{2(n \\cdot v)^{2}+2(n \\cdot w)^{2}}{2} \\\\\n& =(n \\cdot v)^{2}+(n \\cdot w)^{2}\n\\end{aligned}\n$$\nAlso, at the beginning we have $S=2 x^{2}+2 y^{2}+2 z^{2}=2$. Therefore we must always have $S=2$. Thus, by the Cauchy-Schwarz inequality we have\n$$\nn \\cdot u=\\sum n \\cdot v_{i} \\leq \\sqrt{\\sum_{i}(n \\cdot v_{i})^{2}} \\sqrt{6}=\\sqrt{12}=2 \\sqrt{3}\n$$\nBut since $n$ is arbitrary, this implies that $|u| \\leq 2 \\sqrt{3}$; otherwise we could pick $n=u /|u|$ and reach a contradiction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-cauchy-schwarz-auto-4106",
+      "name": "AIME II #0koq",
+      "url": "https://usamoguide.com/",
+      "source": "AIME II",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cartesian coordinates",
+        "Optimization in geometry",
+        "Cauchy-Schwarz"
+      ],
+      "statement": "Let $a$, $b$, $x$, and $y$ be real numbers with $a > 4$ and $b > 1$ such that\n$$\n\\frac{x^2}{a^2} + \\frac{y^2}{a^2 - 16} = \\frac{(x - 20)^2}{b^2 - 1} + \\frac{(y - 11)^2}{b^2} = 1.\n$$\nFind the least possible value for $a + b$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-cauchy-schwarz-auto-4317",
+      "name": "HMMT February 2023 #0kul",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2023",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cartesian coordinates",
+        "Cauchy-Schwarz"
+      ],
+      "statement": "Problem:\nThe graph of the equation $x+y=\\left\\lfloor x^{2}+y^{2}\\right\\rfloor$ consists of several line segments. Compute the sum of their lengths.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe split into cases on the integer $k=\\left\\lfloor x^{2}+y^{2}\\right\\rfloor$. Note that $x+y=k$ but $x^{2}+y^{2} \\geq \\frac{1}{2}(x+y)^{2}=\\frac{1}{2} k^{2}$ and $x^{2}+y^{2}<k+1$, which forces $k \\leq 2$.\n\nIf $k=0$, the region defined by $0 \\leq x^{2}+y^{2}<1$ and $x+y=0$ is the diameter from $\\left(\\frac{\\sqrt{2}}{2},-\\frac{\\sqrt{2}}{2}\\right)$ to $\\left(-\\frac{\\sqrt{2}}{2}, \\frac{\\sqrt{2}}{2}\\right)$, which has length $2$.\n\nIf $k=1$, the region $1 \\leq x^{2}+y^{2}<2$ and $x+y=1$ consists of two segments, which is the chord on $x^{2}+y^{2}=2$ minus the chord on $x^{2}+y^{2}=1$. The former has length $2 \\sqrt{(\\sqrt{2})^{2}-\\left(\\frac{\\sqrt{2}}{2}\\right)^{2}}=\\sqrt{6}$, and the latter has length $2 \\sqrt{1^{2}-\\left(\\frac{\\sqrt{2}}{2}\\right)^{2}}=\\sqrt{2}$. So the total length here is $\\sqrt{6}-\\sqrt{2}$.\n\nIf $k=2$, the region $2 \\leq x^{2}+y^{2}<3$ and $x+y=1$ is the chord on $x^{2}+y^{2}=3$, which has length $2 \\sqrt{(\\sqrt{3})^{2}-(\\sqrt{2})^{2}}=2$.\n\nOur final answer is $2+(\\sqrt{6}-\\sqrt{2})+2=4+\\sqrt{6}-\\sqrt{2}$.\n\n![](attached_image_1.png)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-cauchy-schwarz-auto-4324",
+      "name": "USA TSTST #0kus",
+      "url": "https://usamoguide.com/",
+      "source": "USA TSTST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cauchy-Schwarz",
+        "Telescoping series",
+        "Sums and products",
+        "Induction / smoothing"
+      ],
+      "statement": "Let $n \\ge m \\ge 1$ be integers. Prove that\n$$\n\\sum_{k=m}^{n} \\left( \\frac{1}{k^2} + \\frac{1}{k^3} \\right) \\ge m \\cdot \\left( \\sum_{k=m}^{n} \\frac{1}{k^2} \\right)^2 .\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**First solution (authors)** By Cauchy-Schwarz, we have\n$$\n\\begin{align*}\n\\sum_{k=m}^{n} \\frac{k+1}{k^3} &= \\sum_{k=m}^{n} \\frac{\\left(\\frac{1}{k^2}\\right)^2}{\\frac{1}{k(k+1)}} \\\\\n&\\ge \\frac{\\left(\\frac{1}{m^2} + \\frac{1}{(m+1)^2} + \\dots + \\frac{1}{n^2}\\right)^2}{\\frac{1}{m(m+1)} + \\frac{1}{(m+1)(m+2)} + \\dots + \\frac{1}{n(n+1)}} \\\\\n&= \\frac{\\left(\\frac{1}{m^2} + \\frac{1}{(m+1)^2} + \\dots + \\frac{1}{n^2}\\right)^2}{\\frac{1}{m} - \\frac{1}{n+1}} \\\\\n&> \\frac{\\left(\\sum_{k=m}^{n} \\frac{1}{k^2}\\right)^2}{\\frac{1}{m}}\n\\end{align*}\n$$\nas desired.\n\n\n**Second approach by inducting down, Luke Robitaille and Carl Schildkraut** Fix $n$; we'll induct downwards on $m$. For the base case of $n = m$ the result is easy, since the left side is $\\frac{m+1}{m^3}$ and the right side is $\\frac{m}{m^4} = \\frac{1}{m^3}$.\nFor the inductive step, suppose we have shown the result for $m+1$. Let\n\n$$\nA = \\sum_{k=m+1}^{n} \\frac{1}{k^2} \\quad \\text{and} \\quad B = \\sum_{k=m+1}^{n} \\frac{1}{k^3}.\n$$\nWe know $A + B \\ge (m+1)A^2$, and we want to show\n$$\n\\left(A + \\frac{1}{m^2}\\right) + \\left(B + \\frac{1}{m^3}\\right) \\ge m \\left(A + \\frac{1}{m^2}\\right)^2.\n$$\n\n$$\n\\left(A + \\frac{1}{m^2}\\right) + \\left(B + \\frac{1}{m^3}\\right) - m \\left(A + \\frac{1}{m^2}\\right)^2 = A + B + \\frac{m+1}{m^3} - mA^2 - \\frac{2A}{m} - \\frac{1}{m^3} \\\\\n= \\left(A + B - (m+1)A^2\\right) + \\left(A - \\frac{1}{m}\\right)^2 \\ge 0,\n$$\nand we are done.\n\n\n**Third approach by reducing $n \\to \\infty$, Michael Ren and Carl Schildkraut** First, we give:\n\nSet $n = \\infty$ henceforth. Let\n$$\nA = \\sum_{k=m}^{\\infty} \\frac{1}{k^2} \\quad \\text{and} \\quad B = \\sum_{k=m}^{\\infty} \\frac{1}{k^3};\n$$\n\nWrite\n$$\nC = \\sum_{k=m}^{\\infty} \\frac{1}{k^2(2k-1)(2k+1)} \\quad \\text{and} \\quad D = \\sum_{k=m}^{\\infty} \\frac{8k^2 - 1}{k^3(2k-1)^2(2k+1)^2}.\n$$\n\n$$\n\\frac{2}{2k-1} - \\frac{2}{2k+1} = \\frac{1}{k^2} + \\frac{1}{k^2(2k-1)(2k+1)},\n$$\nand\n$$\n\\frac{2}{(2k-1)^2} - \\frac{2}{(2k+1)^2} = \\frac{1}{k^3} + \\frac{8k^2-1}{k^3(2k-1)^2(2k+1)^2},\n$$\n\n$$\nA = \\frac{2}{2m-1} - C \\quad \\text{and} \\quad B = \\frac{2}{(2m-1)^2} - D.\n$$\n\n$$\n\\frac{2m+1}{2m-1}C \\ge D + mC^2.\n$$\n\n**Claim** — We have\n$$\n\\frac{2m + 1/2}{2m - 1} C \\geq D.\n$$\n\n*Proof.* We compare termwise; we need\n$$\n\\frac{2m + 1/2}{2m - 1} \\cdot \\frac{1}{k^2(2k - 1)(2k + 1)} \\ge \\frac{8k^2 - 1}{k^3(2k - 1)^2(2k + 1)^2}\n$$\nfor $k \\ge m$. It suffices to show\n$$\n\\frac{2k + 1/2}{2k - 1} \\cdot \\frac{1}{k^2(2k - 1)(2k + 1)} \\ge \\frac{8k^2 - 1}{k^3(2k - 1)^2(2k + 1)^2},\n$$\nwhich is equivalent to $k(2k + 1/2)(2k + 1) \\ge 8k^2 - 1$. This holds for all $k \\ge 1$. $\\square$\n\n**Claim** — We have\n$$\n\\frac{1/2}{2m-1}C \\ge mC^2.\n$$\n\n*Proof.* We need $C \\le 1/(2m(2m-1))$; indeed,\n$$\n\\frac{1}{2m(2m-1)} = \\sum_{k=m}^{\\infty} \\left( \\frac{1}{2k(2k-1)} - \\frac{1}{2(k+1)(2k+1)} \\right) = \\sum_{k=m}^{\\infty} \\frac{4k+1}{2k(2k-1)(k+1)(2k+1)};\n$$\ncomparing term-wise with the definition of $C$ and using the inequality $k(4k+1) \\ge 2(k+1)$ for $k \\ge 1$ gives the desired result. $\\square$\n\n\n**Fourth approach by bashing, Carl Schildkraut** With a bit more work, the third approach can be adapted to avoid the $n \\to \\infty$ reduction. Similarly to before, define\n$$\nA = \\sum_{k=m}^{n} \\frac{1}{k^2} \\quad \\text{and} \\quad B = \\sum_{k=m}^{n} \\frac{1}{k^3};\n$$\nwe want to show $1 + 4mB \\ge (2mA - 1)^2$. Writing\n\n$$\nC = \\sum_{k=m}^{n} \\frac{1}{k^2(2k-1)(2k+1)} \\quad \\text{and} \\quad D = \\sum_{k=m}^{n} \\frac{8k^2 - 1}{k^3(2k-1)^2(2k+1)^2}.\n$$\nWe compute\n$$\nA = \\frac{2}{2m-1} - \\frac{2}{2n+1} - C \\quad \\text{and} \\quad B = \\frac{2}{(2m-1)^2} - \\frac{2}{(2n+1)^2} - D.\n$$\n\nThen, the inequality we wish to show reduces (as in the previous solution) to\n$$\n\\frac{2m+1}{2m-1}C + \\frac{2(2m+1)}{(2m-1)(2n+1)} \\ge D + mC^2 + \\frac{2(2m+1)}{(2n+1)^2} + \\frac{4m}{2n+1}C.\n$$\n\nWe deal first with the terms not containing the variable $n$, i.e. we show that\n$$\n\\frac{2m+1}{2m-1}C \\ge D + mC^2.\n$$\n\nFor this part, the two claims from the previous solution go through exactly as written above, and we have $C \\le 1/(2m(2m-1))$. We now need to show\n$$\n\\frac{2(2m+1)}{(2m-1)(2n+1)} \\ge \\frac{2(2m+1)}{(2n+1)^2} + \\frac{4m}{2n+1}C\n$$\n(this is just the inequality between the remaining terms); our bound on $C$ reduces this to proving\n$$\n\\frac{4(2m+1)(n-m+1)}{(2m-1)(2n+1)^2} \\ge \\frac{2}{(2m-1)(2n+1)}.\n$$\nExpanding and writing in terms of $n$, this is equivalent to\n$$\nn \\ge \\frac{1 + 2(m - 1)(2m + 1)}{4m} = m - \\frac{2m + 1}{4m},\n$$\nwhich holds for all $n \\ge m$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-equations-and-inequalities-cauchy-schwarz-auto-4459",
+      "name": "HMMT February 2024 #0kyj",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2024",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cauchy-Schwarz",
+        "Integers"
+      ],
+      "statement": "Problem:\nLet $a_{1}, a_{2}, a_{3}, \\ldots, a_{100}$ be integers such that\n$$\n\\frac{a_{1}^{2}+a_{2}^{2}+a_{3}^{2}+\\cdots+a_{100}^{2}}{a_{1}+a_{2}+a_{3}+\\cdots+a_{100}}=100 .\n$$\nDetermine, with proof, the maximum possible value of $a_{1}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe can rearrange the equation as follows:\n$$\n\\begin{gathered}\na_{1}^{2}+a_{2}^{2}+\\cdots+a_{99}^{2}+a_{100}^{2}=100\\left(a_{1}+a_{2}+\\cdots+a_{99}+a_{100}\\right) \\\\\n\\left(a_{1}^{2}-100 a_{1}\\right)+\\left(a_{2}^{2}-100 a_{2}\\right)+\\left(a_{3}^{2}-100 a_{3}\\right)+\\cdots+\\left(a_{100}^{2}-100 a_{100}\\right)=0 \\\\\n\\left(a_{1}-50\\right)^{2}+\\left(a_{2}-50\\right)^{2}+\\left(a_{3}-50\\right)^{2}+\\cdots+\\left(a_{100}-50\\right)^{2}=100 \\cdot 50^{2}=500^{2}\n\\end{gathered}\n$$\nThus $\\left(a_{1}-50\\right)^{2} \\leq 500^{2}$ and so $a_{1} \\leq 550$. Equality holds when $a_{1}=550$ and $a_{i}=50$ for all $i>1$. Therefore, the maximum possible value of $a_{1}$ is 550 .\n\nSolution:\nLet $k=\\frac{1}{99}\\left(a_{2}+a_{3}+\\cdots+a_{100}\\right)$. Note, that by the Cauchy-Schwarz inequality, we have:\n$$\n99 \\cdot\\left(a_{2}^{2}+a_{3}^{2}+\\cdots+a_{100}^{2}\\right) \\geq\\left(a_{2}+a_{3}+\\cdots+a_{100}\\right)^{2}=(99 k)^{2}\n$$\nand so:\n$$\n100=\\frac{a_{1}^{2}+a_{2}^{2}+a_{3}^{2}+\\cdots+a_{100}^{2}}{a_{1}+a_{2}+a_{3}+\\cdots+a_{100}} \\geq \\frac{a_{1}^{2}+99 k^{2}}{a_{1}+99 k}\n$$\nNow consider the function:\n$$\nf_{t}(x)=\\frac{99 x^{2}+t^{2}}{99 x+t}\n$$\nfor all reals $t$. Note that for $t=a_{1}$, we have that $f_{t}(k) \\leq 100$ for some real $k$. Furthermore, because $a_{1}^{2}+a_{2}^{2}+\\cdots+a_{100}^{2}>0$, we have $a_{1}+a_{2}+\\cdots+a_{100}>0$, and so $f_{t}(x)>0$ for all valid $x$.\nWe assume $a_{1}>0$, since we are trying to maximize this element and some positive solution exists (i.e. $(100,100, \\ldots, 100)$ ). Hence, the minimum point of $f_{t}(x)$ over $x>0$ needs to be less than 100 . To compute this, set the derivative to be zero as follows:\n$$\nf_{t}^{\\prime}(x)=1-\\frac{100 t^{2}}{(t+99 x)^{2}}=0\n$$\nwhich has solutions at $x=\\frac{t}{11}$ and $x=-\\frac{t}{9}$. Taking a second derivative shows that the point $\\left(\\frac{t}{11}, \\frac{2 t}{11}\\right)$ is the only valid minimum point in the first quadrant. Hence, we must have $\\frac{2 t}{11} \\leq 100$ and so $a_{1}=t \\leq 550$, as desired. Equality holds at $(550,50, \\ldots, 50)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

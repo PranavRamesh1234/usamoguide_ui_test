@@ -1,0 +1,807 @@
+{
+  "MODULE_ID": "geometry-plane-geometry-transformations-translation",
+  "practice": [
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-translation-auto-0282",
+      "name": "Berkeley Math Circle Monthly Contest 1 #0hqi",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Translation",
+        "Triangle inequalities",
+        "Optimization in geometry"
+      ],
+      "statement": "Problem:\n\nTwo villages, $A$ and $B$, lie on opposite sides of a straight river in the positions shown. There will be a market in village $B$, and residents of village $A$ wish to attend. The people of village $A$ would like to build a bridge across and perpendicular to the river so that the total route walked by residents of $A$ to the bridge, across the bridge, and onward to $B$ is as short as possible. How can they find the exact location of the bridge, and how long will the route be?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFor convenience, we label the point $X$, the foot of the perpendicular from $A$ to the river. We also label $Y$, the point where the perpendicular $B Y$ to the river through $B$ meets the parallel $A Y$ to the river through $A$. The key construction is to translate $B$ southward $1 \\mathrm{~km}$ to point $E$. Let $A C D B$ be any route. Then segments $D C$ and $B E$ are congruent and parallel,\n\n![](attached_image_1.png)\n\nmaking a parallelogram $D C E B$. The total route is $A C + C D + D B = A C + C E + E B$. But by the triangle inequality, $A C + C E \\geq A E$ so the total route cannot be shorter than $A E + E B = 5 + 1 = 6 \\mathrm{~km}$. (continued)\n\nThe residents of $A$ can ensure a 6-kilometer route by putting the start $C$ of the bridge at the point where $A E$ crosses the lower bank of the river. In this situation, since $A$, $C$, and $E$ lie on a line, the triangle inequality is an equality, so the total route is $A C + C D + D B = A C + C E + E B = A E + E B = 5 + 1 = 6$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-translation-auto-0314",
+      "name": "Berkeley Math Circle Monthly Contest #0hre",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Coloring schemes, extremal arguments",
+        "Translation",
+        "Constructions and loci"
+      ],
+      "statement": "Problem:\nFind the minimal natural number $n$ with the following property: It is possible to tile the plane with squares whose side lengths belong to the set $\\{1,2, \\ldots, n\\}$ so that no two squares with the same side length touch along a segment of an edge.\n\nRemark. Squares with the same side length can touch at a vertex, however. Not all of the side lengths from $1$ to $n$ need to be used in the tiling.\n\n\nFigure 1\n\nFigure 2\n\nFigure 3\n\nFigure 4",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe answer is $n=5$. The desired tiling is shown in Figure 1. It is formed by translation from the L-shaped region in bold borders. Since none of the five squares in this region border on squares of like side length, neither does any square in the infinite tiling.\n\nTo show that $n \\leq 4$ does not work, it is necessary to plow through many arrangements of the tiles until reaching a contradiction. We present one method of structuring the argument. Some square in the tiling must have minimal size. Its four sides must be covered by squares larger than itself. If one side is covered by squares that protrude on both ends (pictorially, $\\square$ or $\\square$ ), then it becomes impossible to cover the opposite side; consequently any minimal square must be covered by four squares in the pinwheel arrangement $\\Vdash$.\n\nAssume first that the smallest square is the $1 \\times 1$ and it is surrounded by a $2 \\times 2$ and a $3 \\times 3$ in the manner of A, B, C in Figure 2. Now the upper left corner of $\\mathrm{D}$ must be filled by a $4 \\times 4$ (a $1 \\times 1$ would lack the necessary pinwheel layout) and likewise there is a $3 \\times 3$ at $\\mathrm{E}$. Now the corner $\\mathrm{F}$ cannot be filled with a $4 \\times 4$ square without wrecking the pinwheel at $\\mathrm{A}$, so it must be a $1 \\times 1$. The space above $\\mathrm{F}$ is now calling for either a $3 \\times 3$ or a $4 \\times 4$, either of which disrupts the pinwheel at $\\mathrm{A}$. Thus the arrangement $\\mathrm{ABC}$ at Figure 2 is impossible.\n\nSo if a $2 \\times 2$ borders on a $1 \\times 1$, the resulting cavity must be filled by a $4 \\times 4$ as in $\\mathrm{ABC}$ of Figure 3. The $3 \\times 3$ at $\\mathrm{D}$ is clear. The left side of the A-pinwheel must have a $3 \\times 3$ ($E$) since a $4 \\times 4$ would leave untilable space below $B$. The remaining spot on the pinwheel is necessarily occupied by a $2 \\times 2$ ($F$). Now $AFE$ of Figure 3 is the same configuration as $ABC$ of Figure 2. Hence this case is also impossible. So a $2 \\times 2$ cannot touch a $1 \\times 1$.\n\nThus any $1 \\times 1$ must be covered alternately by $3 \\times 3$'s and $4 \\times 4$'s as at $ABC$ of Figure 4. The $2 \\times 2$ at $D$ follows immediately, and since a $1 \\times 1$ cannot touch a $2 \\times 2$, we must use a $4 \\times 4$ at $\\mathrm{E}$ and a $2 \\times 2$ at $\\mathrm{F}$. Now the space around $\\mathrm{F}$ must be covered by a $3 \\times 3$ and a $4 \\times 4$ which is impossible.\n\nWe have left for last the case where there are no $1 \\times 1$'s. Since a tiling using only $3 \\times 3$'s and $4 \\times 4$'s is clearly impossible, the minimal square must be $2 \\times 2$, covered alternately by $3 \\times 3$'s and $4 \\times 4$'s as at $\\mathrm{D}$ and $\\mathrm{CBE}$ of Figure 4 (ignore square $A$). We derive the $2 \\times 2$ at $\\mathrm{F}$ and the resulting contradiction in the same manner as the preceding case.\n\n![](attached_image_1.png)\n\n![](attached_image_2.png)\n\n![](attached_image_3.png)\n\n![](attached_image_4.png)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-translation-auto-0419",
+      "name": "Berkeley Math Circle #0hub",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Circles",
+        "Translation"
+      ],
+      "statement": "Problem:\n\nThe point $K$ lies in the interior of the unit circle. Four lines are drawn through $K$ such that each two adjacent lines form an angle of $45^{\\circ}$, as shown in the picture. In such a way the circle is divided into 8 regions. Four of these regions are colored such that no two colored regions share more than one point. Find the maximal and minimal possible value for the total area of colored regions.\n\n![](attached_image_1.png)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe will show that the total area of colored regions is equal to $\\frac{1}{2}$ the area of the circle no matter how the lines are drawn.\n\nFirst we will inscribe our circle in a square whose sides are parallel to 2 of these lines. If we color the regions of the square in the same way as the regions of the circle are colored we can easily prove that the total area of colored regions is equal to the area of non-colored regions for the square. Hence it remains to prove the equality of the areas of colored and uncolored regions that are outside the circle. Now we will look at the pictures below. For each picture it is obvious that it has the same area of colored parts as the previous picture (as some colored parts are just moved from one location to the other).\n\n![](attached_image_2.png)\n![](attached_image_3.png)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-translation-auto-0473",
+      "name": "Berkeley Math Circle Monthly Contest 2 #0hvt",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 2",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Quadrilaterals",
+        "Rotation",
+        "Translation",
+        "Triangle inequalities"
+      ],
+      "statement": "Problem:\nLet $ABCD$ be a convex quadrilateral. Suppose that the area of $ABCD$ is equal to\n$$\n\\frac{AB+CD}{2} \\cdot \\frac{AD+BC}{2}\n$$\nProve that $ABCD$ is a rectangle.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nIn the picture shown, we have replicated quadrilateral $ABCD$ four times, rotating by $180^{\\circ}$ successively about the midpoints of $BC$, $CF$, and $CH$. Because the angles of the quadrilateral sum to $360^{\\circ}$, the figure \"closes up\" so that the final quadrilateral has $CD$ as a side and would, if further rotated $180^{\\circ}$ about $CD$, coincide with $ABCD$.\nWe note that $AD$ and $EF$ are parallel and congruent, as are $FG$ and $DI$; thus triangles $ADI$\n![](attached_image_1.png)\nand $EFG$ are translations of one another, and $AI$ is parallel and congruent to $IG$. The same can be said for triangles $ABE$ and $IHG$. So\n$$\n\\text{4. Area } ABCD = \\text{Area } ABEFGHID = \\text{Area } ABEGHI = \\text{Area } AEGI.\n$$\nBecause $AEGI$ is a parallelogram, with base $AE$ and height at most $AI$, we can continue:\n$$\n\\text{Area } AEGI \\leq AE \\cdot AI \\leq (AB + BE)(AD + DI) = (AB + CD)(AD + BC) = 4 \\text{Area } ABCD.\n$$\nAll these inequalities must be equalities. So $A$, $B$, $E$ are collinear (i.e. $AB \\parallel CD$); $A$, $D$, $I$ are collinear (i.e. $AD \\parallel BC$); and angle $EAI$, which is also angle $BAD$, equals $90^{\\circ}$. From this we conclude that $ABCD$ is a rectangle."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-translation-auto-0665",
+      "name": "2nd Bay Area Mathematical Olympiad #0i15",
+      "url": "https://usamoguide.com/",
+      "source": "2nd Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangles",
+        "Translation",
+        "Rotation",
+        "Vectors",
+        "Constructions and loci"
+      ],
+      "statement": "Problem:\nProve that there exists a set $S$ of $3^{1000}$ points in the plane such that for each point $P$ in $S$, there are at least 2000 points in $S$ whose distance to $P$ is exactly 1 inch.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet us define a $k$-configuration to be a finite set of points on the plane such that for each point $P$ in the set, there are at least $k$ points of the set 1 inch from $P$. Then the problem is asking us to show that there is a 2000-configuration with $3^{1000}$ points.\n\nNotice that an equilateral triangle is a 2-configuration which has 3 points. Now, let $A$ be a $k$-configuration with $N$ points, and let $T$ be an equilateral triangle with unit side length. We shall show that it is possible to \"add\" $A$ and $T$ to create a $(k+2)$-configuration with $3N$ points:\n\nDefine the set $S$ by\n$$\nS = \\{ a + t \\mid a \\in A,\\ t \\in T \\}\n$$\nwhere we treat the points as vectors. In other words, $S$ consists of the vector sums of every point in $A$ with every point in $T$. Since $A$ has $N$ points, and $T$ has 3 points, the set $S$ will have $3N$ points as long as all of these sums are distinct. For the time being, let us assume that the sums are all distinct.\n\nNow we will show that $S$ is a $(k+2)$-configuration. Consider any point $a + t$ in $S$, where $a \\in A$ and $t \\in T$. Since $A$ is a $k$-configuration, there are $k$ points $a_1, \\ldots, a_k \\in A$ that are 1 inch away from $a$. Likewise, there are two points $t_1, t_2$ in $T$ which are each 1 inch away from $t$. It is easy to check that the $k+2$ points\n$$\nt + a_1, \\ldots, t + a_k ;\\ a + t_1, a + t_2\n$$\nare each 1 inch away from $a + t$. Thus $S$ is a $(k+2)$-configuration.\n\nBut how do we ensure that all $3N$ sums are distinct? The sums fail to be distinct only if there are pairs $a, a' \\in A$ and $t, t' \\in T$ with $a + t = a' + t'$, which in turn is true if and only if $a - a' = t' - t$. To ensure that this does not happen, it suffices to rotate one of the two sets (say, $T$) so that the slopes of all of the lines connecting all pairs of points in $T$ do not equal any of the slopes in $A$ (easy to do since there are finitely many points).\n\nFor example, in the following diagram, we attempt to \"add\" two equilateral triangles (the second triangle is outlined), but because of equal slopes, the sum contains only 6 points.\n![](attached_image_1.png)\n\nOn the other hand, if we rotate the second triangle (in this case, by 30 degrees), the resulting sum contains 9 points (and you should check that this new set is indeed a 4-configuration).\n![](attached_image_2.png)\n\nClearly, we can continue this summation process, adding additional copies of equilateral triangles (making sure to rotate so that no slopes are equal). For each triangle that we add, the new set will have three times as many points. Thus if we add 1000 triangles, we will get a set with $3^{1000}$ points which is a $2 + 2 + \\cdots + 2 = 2000$-configuration."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-translation-auto-0926",
+      "name": "Harvard-MIT Mathematics Tournament #0i8e",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorial Geometry",
+        "Translation",
+        "Rotation",
+        "Constructions and loci"
+      ],
+      "statement": "Problem:\nWhat is the smallest number of regular hexagons of side length $1$ needed to completely cover a disc of radius $1$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFirst, we show that two hexagons do not suffice. Specifically, we claim that a hexagon covers less than half of the disc's boundary. First, a hexagon of side length $1$ may be inscribed in a circle, and this covers just $6$ points. Translating the hexagon vertically upward (regardless of its orientation) will cause it to no longer touch any point on the lower half of the circle, so that it now covers less than half of the boundary. By rotational symmetry, the same argument applies to translation in any other direction, proving the claim. Then, two hexagons cannot possibly cover the disc.\n\nThe disc can be covered by three hexagons as follows. Let $P$ be the center of the circle. Put three non-overlapping hexagons together at point $P$. This will cover the circle, since each hexagon will cover a $120^{\\circ}$ sector of the circle.\n\n![](attached_image_1.png)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-translation-auto-0971",
+      "name": "5th Bay Area Mathematical Olympiad #0i9n",
+      "url": "https://usamoguide.com/",
+      "source": "5th Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Translation",
+        "Homothety",
+        "Angle chasing",
+        "Distance chasing",
+        "QM-AM-GM-HM / Power Mean",
+        "Triangle trigonometry"
+      ],
+      "statement": "Problem:\n\nLet $ABCD$ be a square, and let $E$ be an internal point on side $AD$. Let $F$ be the foot of the perpendicular from $B$ to $CE$. Suppose $G$ is a point such that $BG = FG$, and the line through $G$ parallel to $BC$ passes through the midpoint of $EF$. Prove that $AC < 2 \\cdot FG$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFirst note that, for given $E, F$, there is only one point $G$ with the required properties: since $BG = FG$, $G$ must lie on the perpendicular bisector of $BF$, and by the second condition, $G$ lies on the line through the midpoint of $EF$ parallel to $BC$; $G$ must thus be the unique intersection of these two lines. We now give an alternative construction for $G$ from which the result will follow.\n\nSince $BA, CD$ are parallel and equal, we may translate $\\triangle CDE$ to give a triangle $\\triangle BAE'$. Then $E', A, E$ are collinear, with $E'E = E'A + AE = ED + AE = AD = BC$, and $E'E, BC$ are parallel, so we may also translate $\\triangle BCF$ to give $\\triangle E'EF'$. Then $F, E, F'$ are collinear. Now $E'F' = BF$, and $\\angle E'F'E = \\angle BFC = 90^\\circ = \\angle BFE$; hence, $BE'F'F$ is a rectangle. Let $G'$ be its center. Certainly $BG' = FG'$. Let the line through $G'$ parallel to $BC$ hit $BE', FF'$ at $M, N$ respectively; then symmetry gives $E'M = FN$. However, by translation, $EN = E'M$, so $EN = FN$, and the parallel to $BC$ through $G'$ bisects $EF$. Thus, by the uniqueness of $G$ already proven, $G = G'$, the center of $BE'F'F$.\n\n![](attached_image_1.png)\n\nNow,\n$$\n2 \\cdot FG = FE' = \\sqrt{BF^2 + BE'^2} > \\sqrt{2 \\cdot BF \\cdot BE'}\n$$\n(by AM-GM, strict because $BF < BC = CD < CE = BE'$)\n\n$$\n= \\sqrt{2[ BFF'E' ]} = \\sqrt{2( [BAE'] + [E'EF'] + [ABFE] )}\n$$\n(here brackets denote areas)\n$$\n\\begin{gathered}\n= \\sqrt{2([CDE] + [BCF] + [ABFE])} = \\sqrt{2[ABCD]} \\\\\n= \\sqrt{2} \\cdot AB = AC.\n\\end{gathered}\n\nSolution:\n\nThe following solution, due to Philip Sung of Saratoga High School, not only establishes the inequality, but computes the difference.\n\n![](attached_image_2.png)\n\nLet $I$ bisect $\\overline{BF}$ and $J$ bisect $\\overline{EF}$. Extend $AD$; and draw a parallel to $\\overline{FE}$ through $B$; let this meet $AD$ at $H$. Extend $\\overrightarrow{BF}$ so it meets $DC$ at $K$.\n\nWe will show that $FBHE$ is the image of $FIGJ$ under a scaling with ratio $2$ and center $F$. Obviously, $F$ is taken to $F$, $I$ is taken to $B$, and $J$ to $E$. $G$ is the intersection of $IG$ and $JG$, so it is mapped to the intersection of their images, $\\overline{BH}$ is the image of $\\overline{IG}$ because it is parallel to $\\overline{IG}$ and passes through the image of $I$ (i.e., $B$). Similarly, $\\overline{EH}$ is the image of $\\overline{JG}$. $H$ lies on both $\\overline{EH}$ and $\\overline{BH}$, so it is the image of $G$.\n\n$\\angle HBF$ is right, as is $\\angle ABC$. So they cut off equal angles: $\\angle HCA \\cong \\angle KBC$. In addition, because $\\overline{AB} \\cong \\overline{CB}$ and $\\angle HAB \\cong \\angle KCB$ (they are both right), $\\triangle HAB \\cong \\triangle KCB$ and $\\overline{AH} \\cong \\overline{CK}$.\n\n$FH = 2FG$ because $H$ is the image of $G$ under aforementioned dilation. The problem statement then reduces to:\n\n$$\nAC < FH.\n$$\n\nWe will show, equivalently, that $AC^2 < FH^2$ ($AC$ and $FH$ are both positive.)\n\n$$\n\\begin{array}{rlrl}\nFH^2 & = FB^2 + BH^2 & & (\\triangle FBH \\text{ is right}) \\\\\n& = FB^2 + BA^2 + AH^2 & & (\\triangle BAH \\text{ is right}) \\\\\n& = FB^2 + BA^2 + CK^2 & & (AH = CK) \\\\\n& = FB^2 + BA^2 + CF^2 + FK^2 & (\\triangle CK \\text{ is right}) \\\\\n& = (FB^2 + CF^2) + BA^2 + FK^2 & \\\\\n& = BC^2 + BA^2 + FK^2 & & (\\triangle BFC \\text{ is right}) \\\\\n& = AC^2 + FK^2 & & (\\triangle ABC \\text{ is right}) \\\\\n& > AC^2 & & (FK \\text{ is nonzero}) \\\\\nFH^2 & > AC^2 & &\n\\end{array}\n$$\n\nand we're done!\n\n$$\n\\therefore\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-translation-auto-1355",
+      "name": "Team Selection Test #0ikb",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cyclic quadrilaterals",
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Triangle trigonometry",
+        "Rotation",
+        "Translation",
+        "Complex numbers in geometry",
+        "Trigonometry",
+        "Angle chasing"
+      ],
+      "statement": "Let $ABC$ be a triangle. Triangles $PAB$ and $QAC$ are constructed outside of triangle $ABC$ such that $AP = AB$ and $AQ = AC$ and $\\angle BAP = \\angle CAQ$. Segments $BQ$ and $CP$ meet at $R$. Let $O$ be the circumcenter of triangle $BCR$. Prove that $AO \\perp PQ$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**Note:** We present five different approaches. The first three synthetic solutions are all based on the following simple observation.\nWe first note that $APBR$ and $AQCR$ are cyclic quadrilaterals. It is easy to see that triangles $APC$ and $ABQ$ are congruent to each other, implying that $\\angle APR = \\angle APC = \\angle ABQ = \\angle ABR$. Thus, $APBR$ is a cyclic quadrilateral. Likewise, we can show that $AQCR$ is also cyclic.\n\n![](attached_image_1.png)\n\nLet $\\angle PAB = 2x$. Then in isosceles triangle $APB$, $\\angle APB = 90^\\circ - x$. In cyclic quadrilateral $APBR$, $\\angle ARB = 180^\\circ - \\angle APB = 90^\\circ + x$. Likewise, $\\angle ARC = 90^\\circ + x$. Hence $\\angle BRC = 360^\\circ - \\angle ARB - \\angle ARC = 180^\\circ - 2x$. It follows that $\\angle BOC = 4x$.\n\n**First Solution:** Reflect $C$ across line $AQ$ to $D$. Then $\\angle BAD = 4x + \\angle BAC = \\angle BAQ$. It is easy to see that triangles $BAD$ and $PAQ$ are congruent, implying that $\\angle ADB = \\angle AQP = y$.\n\n![](attached_image_2.png)\n\nNote also that $CAD$ and $COB$ are two isosceles triangles with the same vertex angle, and so they are similar to each other. It follows that triangle $CAO$ and $CBD$ are similar by SAS (side-angle-side), implying that $\\angle CAO = \\angle CDB = z$.\n\nThe angle formed by lines $AO$ and $PQ$ is equal to\n$$\n180^\\circ - \\angle OAQ - \\angle AQP = 180^\\circ - \\angle OAC - \\angle CAQ - \\angle AQP = 180^\\circ - z - 2x - y.\n$$\n\nSince $AQ$ is perpendicular to the base $CD$ in isosceles triangle $ACD$, we have\n$$\n90^\\circ = \\angle QAD + \\angle CDA = \\angle QAD + \\angle ADB + \\angle BDC = 2x + y + z.\n$$\nCombining the last two equations yields that fact the angle formed by lines $AO$ and $PQ$ is equal to $90^\\circ$; that is, $AO \\perp PQ$.\n\n\n**Second Solution:** We maintain the same notations as in the first solution. Let $M$ be the midpoint of arc $\\widehat{BC}$ on the circumcircle of triangle $BOC$. Then $BM = CM$. Since triangles $APC$ and $ABQ$ are congruent, $PC = BQ$. Since $BRMC$ is cyclic, $\\angle PCM = \\angle RCM = \\angle RBM = \\angle QBM$. Hence triangles $BMQ$ and $CMP$ are congruent by SAS. It follows triangles $MPQ$ and $MBC$ are similar. Since $\\angle BOC = 4x$, $\\angle MBC = \\angle MCB = x$, and so $\\angle MPQ = x$.\n\n![](attached_image_3.png)\n\nNote that both triangles $PAB$ and $MOB$ are isosceles triangles with vertex angle $2x$; that is, they are similar to each other. Hence triangles $BMP$ and $BOA$ are also similar by SAS, implying that $\\angle OAB = MPB = s$. We also note that in isosceles triangle $APB$,\n$$\n90^\\circ = \\angle APB + \\angle PAB/2 = \\angle APQ + \\angle QPM + \\angle MPB + \\angle PAB/2 = \\angle APQ + 2x + s.\n$$\nPutting the above together, we conclude that\n$$\n\\angle PAO + \\angle APQ = \\angle PAB + \\angle BAO + \\angle APQ = 2x + s + \\angle APQ = 90^\\circ,\n$$\nthat is $AO \\perp PQ$.\n\n\n**Third Solution:** We consider two rotations:\n$\\mathbf{R}_1$: a counterclockwise $2x$ (degree) rotation centered at $A$,\n$\\mathbf{R}_2$: a clockwise $4x$ (degree) rotation centered at $O$.\nLet $\\mathbf{T}$ denote the composition $\\mathbf{R}_1\\mathbf{R}_2\\mathbf{R}_1$. Then $\\mathbf{T}$ is a counterclockwise $2x - 4x + 2x = 0^\\circ$ rotation; that is, $\\mathbf{T}$ is translation. Note that\n$$\n\\mathbf{T}(P) = \\mathbf{R}_1(\\mathbf{R}_2(\\mathbf{R}_1(P))) = \\mathbf{R}_1(\\mathbf{R}_2(B)) = \\mathbf{R}_1(C) = Q,\n$$\nor, $\\mathbf{T}$ is the vector translation $\\overrightarrow{PQ}$.\nLet $A_1 = \\mathbf{R}_2(A)$ and $A_2 = \\mathbf{R}_1(A_1)$. Then $\\mathbf{T}(A) = A_2$; that is, $\\overrightarrow{AA_2} = \\overrightarrow{PQ}$, or $AA_2 \\parallel PQ$.\nBy the definitions of $\\mathbf{R}_2$ and $\\mathbf{R}_1$, we know that triangles $OAA_1$ and $A_1AA_2$ are isosceles triangles with respect vertex angles $\\angle AOA_1 = 4x$ and $\\angle A_1AA_2 = 2x^\\circ$. It is routine to compute that $\\angle OAA_2 = 90^\\circ$; that $AO \\perp AA_2$, or $AO \\perp PQ$.\n\n\n**Fourth Solution:** (By Ian Le) In this solutions, let each lowercase letter denote the number assigned to the point labeled with the corresponding uppercase letter. We further assume that $A$ is origin; that is, let $a = 0$. Let $\\omega = e^{2xi}$ (or $\\omega = \\cos(2x) + i\\sin(2x)$, and $\\omega^{-1} = \\cos(2x) - i\\sin(2x)$). Then because $O$ lies on the perpendicular bisector of $BC$ and $\\angle BOC = 4x$,\n$$\no = c + \\frac{(b-c)i}{2\\omega \\sin(2x)} = c + \\frac{bi}{2\\omega \\sin(2x)} - \\frac{ci}{2\\omega \\sin(2x)}.\n$$\nNote that\n$$\nc - \\frac{ci}{2\\omega \\sin(2x)} = c + \\frac{c\\omega^{-1}}{2i \\sin(2x)} = \\frac{c(\\omega^{-1} + 2i \\sin(2x))}{2i \\sin(2x)} = \\frac{c\\omega}{2i \\sin(2x)},\n$$\nCombining the last two equations gives\n$$\no = \\frac{bi}{2\\omega \\sin(2x)} + \\frac{c\\omega}{2i \\sin(2x)} = -\\frac{b}{2i\\omega \\sin(2x)} + \\frac{c\\omega}{2i \\sin(2x)} = \\frac{1}{2i \\sin(2x)} \\left( c\\omega - \\frac{b}{\\omega} \\right).\n$$\nNow we note that $p = \\frac{b}{\\omega}$ and $q = c\\omega$. Consequently, we obtain\n$$\n\\frac{q-p}{o-a} = 2i \\sin(2x),\n$$\nwhich is clearly a pure imaginary number; that is, $OA \\perp PQ$.\n\n\n**Fifth Solution:** (By Lan Le) In this solutions, we set $BC = a$, $AB = c$, $CA = b$, $A = \\angle BAC$, $B = \\angle ABC$, and $C = \\angle BCA$. We use the fact that\n$$\nOA \\perp PQ \\text{ if and only if } AP^2 - AQ^2 = OP^2 - OQ^2.\n$$\nClearly $AP^2 - AQ^2 = c^2 - b^2$. It remains to show that\n$$\nOP^2 - OQ^2 = c^2 - b^2. \\qquad (*)\n$$\nIn isosceles triangles APB and BOC, $BP = 2c \\sin x$ and $BO = \\frac{a}{2 \\sin(2x)}$. Note that $\\angle PBA + \\angle ABC + \\angle CBO = 90^\\circ - x + B + 90^\\circ - 2x = 180^\\circ + B - 3x$. Applying the **law of cosines** to triangle PBO yields\n$$\nOP^2 = 4c^2 \\sin^2 x + \\frac{a^2}{4 \\sin^2(2x)} + \\frac{ac \\cos(B - 3x)}{\\cos x}.\n$$\nIn exactly the same way, we can show that\n$$\nOQ^2 = 4b^2 \\sin^2 x + \\frac{a^2}{4 \\sin^2(2x)} + \\frac{ab \\cos(C - 3x)}{\\cos x}.\n$$\nHence\n$$\nOP^2 - OQ^2 = 4(c^2 - b^2) \\sin^2 x + \\frac{a}{\\cos x} (c \\cos(B - 3x) - b \\cos(C - 3x)). \\quad (\\dagger)\n$$\nUsing **Addition and Subtraction formulas** and the **law of sines** (more precisely, $c \\sin B = b \\sin C$), we have\n$$\n\\begin{aligned} & c \\cos(B - 3x) - b \\cos(C - 3x) \\\\ = & c \\cos(3x) \\cos B + c \\sin(3x) \\sin B - b \\cos(3x) \\cos C - b \\sin(3x) \\sin C \\\\ = & \\cos(3x)(c \\cos B - b \\cos C). \\end{aligned}\n$$\nSubstituting the last equation into $(\\dagger)$ gives\n$$\nOP^2 - OQ^2 = 4(c^2 - b^2) \\sin^2 x + \\frac{\\cos 3x}{\\cos x} (ac \\cos B - ab \\cos C).\n$$\nNote that\n$$\nac \\cos B - ab \\cos C = c(a \\cos B + b \\cos A) - b(a \\cos C + c \\cos A) = c^2 - b^2.\n$$\nCombining the last equations gives\n$$\nOP^2 - OQ^2 = (c^2 - b^2) \\left( 4 \\sin^2 x + \\frac{\\cos 3x}{\\cos x} \\right).\n$$\nBy the **Triple-angle formulas**, we have $\\cos 3x = 4 \\cos^3 x - 3 \\cos x$, and so\n$$\nOP^2 - OQ^2 = (c^2 - b^2)(4 \\sin^2 x + 4 \\cos^2 x - 3) = c^2 - b^2,\n$$\nwhich is $(*)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-translation-auto-1440",
+      "name": "9th Bay Area Mathematical Olympiad #0imo",
+      "url": "https://usamoguide.com/",
+      "source": "9th Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Translation",
+        "Cyclic quadrilaterals",
+        "Triangle trigonometry",
+        "Angle chasing"
+      ],
+      "statement": "Problem:\n\nIn $\\triangle ABC$, $D$ and $E$ are two points on segment $\\overline{BC}$ such that $BD = CE$ and $\\angle BAD = \\angle CAE$. Prove that $\\triangle ABC$ is isosceles.\n\n![](attached_image_1.png)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nTranslate $\\triangle BDA$ horizontally until its side $BD$ coincides with side $EC$, and label the image of point $A$ by $A'$. We now have two triangles $\\triangle ECA$ and $\\triangle ECA'$ which share the same base $EC$, have the same height (equal to the height $AH$ of the original $\\triangle ABC$), and equal angles $\\angle EAC$ and $\\angle EA'C$. The last implies that there is a circle $k$ passing through points $E, C, A'$ and $A$. The equal heights condition implies that $BC$ is parallel to $AA'$; yet the only trapezoids inscribed in a circle are isosceles. Therefore, $ECA'A$ is isosceles with $AE = A'C$. Since the diagonals of an isosceles trapezoid are equal, $EA' = CA$. Translating back to the original $\\triangle ABC$, this means that $BA = CA$ and $\\triangle ABC$ is isosceles.\n\n![](attached_image_2.png)\n\nSolution:\n\nWithout loss of generality, assume that the points $B, D, E$ and $C$ are arranged in this order on the line $\\overleftrightarrow{BC}$; otherwise, switch points $D$ and $E$ in the remainder of the solution.\n\nSuppose that $\\triangle ABC$ is not isosceles. Without loss of generality, let $BA < CA$. Let $AL$ denote the angle bisector of $\\angle BAC$, where $L$ lies on side $BC$. Reflect $\\triangle ABL$ across $AL$ and denote by $B'$ and $D'$ the images of $B$ and $D$, respectively. Since $B'A = BA < CA$, $B'$ is inside side $CA$, and this forces the whole segment $LB'$ to be inside $\\triangle LCA$; in particular, $D'$ is an interior point of segment $AE$.\n\nBecause of the reflection, $\\triangle AD'B'$ has equal area as $\\triangle ADB$. In its turn, $\\triangle ADB$ has the equal area as $\\triangle AEC$ (they have equal bases and heights). This implies that $\\triangle AD'B'$ and $\\triangle AEC$ have equal area, which contradicts the fact that one triangle is properly included in the other.\n\nWe conclude that our supposition is false. Therefore, $AB = AC$ and our triangle is isosceles as desired.\n\n![](attached_image_3.png)\n\nSolution:\n\nLet $\\angle BAD = \\angle CAE = \\theta$. In the end triangles, $\\triangle ABD$ and $\\triangle ACE$, and $\\triangle ABC$, by the Law of Sines\n$$\n\\frac{a}{\\sin \\theta} = \\frac{m}{\\sin B} = \\frac{n}{\\sin C} \\quad \\text{and} \\quad \\frac{q}{\\sin B} = \\frac{p}{\\sin C}\n$$\nThen $mp = nq$. Suppose $p \\neq q$. Then, without loss of generality, $p < q$, which implies $np < nq = mp$ and $n < m$. But if $p < q$ then $\\angle C < \\angle B$ which implies $\\angle AED = \\angle C + \\theta < \\angle B + \\theta = \\angle ADE$ and $m < n$.\n\nThis is a contradiction, so $p = q$ and $\\triangle ABC$ is isosceles.\n\nSolution:\n\nLet $\\angle BAD = \\angle CAE = \\theta$. $\\triangle ABD$ and $\\triangle ACE$ have equal areas since they have equal bases $(BD = EC)$ and the same altitude from $A$. Then\n$$\n\\frac{1}{2} p m \\sin \\theta = \\frac{1}{2} q n \\sin \\theta\n$$\nwhich implies $mp = nq$. Now use the same contradiction as in the above solution."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-translation-auto-1824",
+      "name": "Harvard-MIT November Tournament #0ixc",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Translation",
+        "Cartesian coordinates",
+        "Distance chasing"
+      ],
+      "statement": "Problem:\n\nA ball inside a rectangular container of width $7$ and height $12$ is launched from the lower-left vertex of the container. It first strikes the right side of the container after traveling a distance of $\\sqrt{53}$ (and strikes no other sides between its launch and its impact with the right side).\n\nHow many times does the ball bounce before it returns to a vertex? (The final contact with a vertex does not count as a bounce.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nEvery segment the ball traverses between bounces takes it $7$ units horizontally and $2$ units up. Thus, after $5$ bounces it has traveled up $10$ units, and the final segment traversed takes it directly to the upper right vertex of the rectangle."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-translation-auto-1917",
+      "name": "13th Annual Harvard-MIT Mathematics Tournament #0izx",
+      "url": "https://usamoguide.com/",
+      "source": "13th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Rotation",
+        "Translation",
+        "Complex numbers in geometry",
+        "Trigonometry",
+        "Constructions and loci"
+      ],
+      "statement": "Problem:\n\nAn ant starts at the origin, facing in the positive $x$-direction. Each second, it moves 1 unit forward, then turns counterclockwise by $\\sin^{-1}\\left(\\frac{3}{5}\\right)$ degrees. What is the least upper bound on the distance between the ant and the origin? (The least upper bound is the smallest real number $r$ that is at least as big as every distance that the ant ever is from the origin.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $\\sqrt{10}$\n\nWe claim that the points the ant visits lie on a circle of radius $\\frac{\\sqrt{10}}{2}$. We show this by saying that the ant stays a constant distance $\\frac{\\sqrt{10}}{2}$ from the point $\\left(\\frac{1}{2}, \\frac{3}{2}\\right)$.\n\nSuppose the ant moves on a plane $P$. Consider a transformation of the plane $P'$ such that after the first move, the ant is at the origin of $P'$ and facing in the direction of the $x'$ axis (on $P'$). The transformation to get from $P$ to $P'$ can be gotten by rotating $P$ about the origin counterclockwise through an angle $\\sin^{-1}\\left(\\frac{3}{5}\\right)$ and then translating it 1 unit to the right. Observe that the point $\\left(\\frac{1}{2}, \\frac{3}{2}\\right)$ is fixed under this transformation, which can be shown through the expression $\\left(\\frac{1}{2}+\\frac{3}{2} i\\right)\\left(\\frac{4}{5}+\\frac{3}{5} i\\right)+1=\\frac{1}{2}+\\frac{3}{2} i$. It follows that at every point the ant stops, it will always be the same distance from $\\left(\\frac{1}{2}, \\frac{3}{2}\\right)$. Since it starts at $(0,0)$, this fixed distance is $\\frac{\\sqrt{10}}{2}$.\n\n![](attached_image_1.png)\n\nSince $\\sin^{-1}\\left(\\frac{3}{5}\\right)$ is not a rational multiple of $\\pi$, the points the ant stops at form a dense subset of the circle in question. As a result, the least upper bound on the distance between the ant and the origin is the diameter of the circle, which is $\\sqrt{10}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-translation-auto-2037",
+      "name": "Harvard-MIT Mathematics Tournament #0j39",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Spiral similarity",
+        "Translation",
+        "Angle chasing"
+      ],
+      "statement": "Problem:\n\nPoint $P$ lies inside a convex pentagon $A F Q D C$ such that $F P D Q$ is a parallelogram. Given that $\\angle F A Q=\\angle P A C=10^{\\circ}$, and $\\angle P F A=\\angle P D C=15^{\\circ}$. What is $\\angle A Q C$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $\\frac{\\pi}{12}$\n\nLet $C'$ be the point such that there is a spiral similarity between $\\triangle A F P$ and $\\triangle A Q C'$. In other words, one triangle can be formed from the other by dilating and rotating about one of the triangle's vertices (in this case, $A$). We will show that $C'$ is $C$, so our answer will be $\\angle A Q C = \\angle A Q C' = \\angle A F P = 15^{\\circ}$.\n\nBy the spiral similarity theorem, $\\triangle A F Q \\sim \\triangle A P C'$ (this is intuitive by looking at a diagram), so $\\angle P A C = \\angle F A Q = 10^{\\circ}$, so to show that $C'$ is $C$, it is sufficient to show that $\\angle P D C' = 15^{\\circ}$.\n\n![](attached_image_1.png)\n\nLet $X$ be the fourth point of the parallelogram $F P C' X$ (see the above diagram). The angle between lines $\\overline{F P}$ and $\\overline{F A}$ is $15^{\\circ}$. Since $\\overline{X C'} \\parallel \\overline{F P}$, the angle between $\\overline{F A}$ and $\\overline{X C'}$ is $15^{\\circ}$ as well. In addition, the angle between $\\overline{Q A}$ and $\\overline{Q C'}$ is $\\angle A Q C' = 15^{\\circ}$, so $\\angle X C' Q = \\angle F A Q$. Further, because $F P C' X$ is a parallelogram, $\\frac{Q C'}{X C'} = \\frac{Q C'}{F P}$. By similar triangles $\\triangle A F P$ and $\\triangle A Q C'$, $\\frac{Q C'}{F P} = \\frac{Q A}{F A}$. By SAS similarity, there is a spiral similarity between $\\triangle X C' Q$ and $\\triangle F A Q$, so $\\angle F Q X = \\angle A Q C' = 15^{\\circ}$.\n\nNote that the segments $\\overline{F P}$, $\\overline{X C'}$, and $\\overline{Q D}$ are all parallel and equal in length. Therefore, $\\triangle F Q X \\cong \\triangle P D C'$ are congruent, and $\\angle P D C' = 15^{\\circ}$ as well. So $C'$ is $C$, and $\\angle A Q C = 15^{\\circ}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-translation-auto-2074",
+      "name": "Harvard-MIT November Tournament #0j4a",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Translation",
+        "Constructions and loci",
+        "Tangents"
+      ],
+      "statement": "Problem:\n\nLet $\\Omega$ be a circle of radius $8$ centered at point $O$, and let $M$ be a point on $\\Omega$. Let $S$ be the set of points $P$ such that $P$ is contained within $\\Omega$, or such that there exists some rectangle $ABCD$ containing $P$ whose center is on $\\Omega$ with $AB=4$, $BC=5$, and $BC \\parallel OM$. Find the area of $S$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $164+64\\pi$\n\nWe wish to consider the union of all rectangles $ABCD$ with $AB=4$, $BC=5$, and $BC \\parallel \\overline{OM}$, with center $X$ on $\\Omega$. Consider translating rectangle $ABCD$ along the radius $XO$ to a rectangle $A'B'C'D'$ now centered at $O$. It is now clear that every point inside $ABCD$ is a translate of a point in $A'B'C'D'$, and furthermore, any rectangle $ABCD$ translates along the appropriate radius to the same rectangle $A'B'C'D'$.\n\nWe see that the boundary of this region can be constructed by constructing a quarter-circle at each vertex, then connecting these quarter-circles with tangents to form four rectangular regions. Now, splitting our region into four quarter circles and five rectangles, we compute the desired area to be\n\n$$\n4 \\cdot \\frac{1}{4}(8)^2 \\pi + 2(4 \\cdot 8) + 2(5 \\cdot 8) + (4 \\cdot 5) = 164 + 64\\pi\n$$\n\n![](attached_image_1.png)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-translation-auto-2195",
+      "name": "Harvard-MIT Mathematics Tournament #0j7n",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Convex hulls",
+        "Translation",
+        "Distance chasing"
+      ],
+      "statement": "Problem:\n\nLet $H$ be a regular hexagon of side length $x$. Call a hexagon in the same plane a \"distortion\" of $H$ if and only if it can be obtained from $H$ by translating each vertex of $H$ by a distance strictly less than $1$. Determine the smallest value of $x$ for which every distortion of $H$ is necessarily convex.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "![](attached_image_1.png)\nLet $H = A_{1}A_{2}A_{3}A_{4}A_{5}A_{6}$ be the hexagon, and for all $1 \\leq i \\leq 6$, let points $A_{i}'$ be considered such that $A_{i}A_{i}' < 1$. Let $H' = A_{1}'A_{2}'A_{3}'A_{4}'A_{5}'A_{6}'$, and consider all indices modulo $6$. For any point $P$ in the plane, let $D(P)$ denote the unit disk $\\{ Q \\mid PQ < 1 \\}$ centered at $P$; it follows that $A_{i}' \\in D(A_{i})$.\nLet $X$ and $X'$ be points on line $A_{1}A_{6}$, and let $Y$ and $Y'$ be points on line $A_{3}A_{4}$ such that $A_{1}X = A_{1}X' = A_{3}Y = A_{3}Y' = 1$ and $X$ and $X'$ lie on opposite sides of $A_{1}$ and $Y$ and $Y'$ lie on opposite sides of $A_{3}$. If $X'$ and $Y'$ lie on segments $A_{1}A_{6}$ and $A_{3}A_{4}$, respectively, then segment $A_{1}'A_{3}'$ lies between the lines $XY$ and $X'Y'$. Note that $\\frac{x}{2}$ is the distance from $A_{2}$ to $A_{1}A_{3}$.\n![](attached_image_2.png)\nIf $\\frac{x}{2} \\geq 2$, then $C(A_{2})$ cannot intersect line $XY$, since the distance from $XY$ to $A_{1}A_{3}$ is $1$ and the distance from $XY$ to $A_{2}$ is at least $1$. Therefore, $A_{1}'A_{3}'$ separates $A_{2}'$ from the other $3$ vertices of the hexagon. By analogous reasoning applied to the other vertices, we may conclude that $H'$ is convex.\nIf $\\frac{x}{2} < 2$, then $C(A_{2})$ intersects $XY$, so by choosing $A_{1}' = X$ and $A_{3}' = Y$, we see that we may choose $A_{2}'$ on the opposite side of $XY$, in which case $H'$ will be concave. Hence the answer is $4$, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-translation-auto-2294",
+      "name": "15th Annual Harvard-MIT Mathematics Tournament #0jae",
+      "url": "https://usamoguide.com/",
+      "source": "15th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Cartesian coordinates",
+        "Translation"
+      ],
+      "statement": "Problem:\nSuppose $ABC$ is a triangle with circumcenter $O$ and orthocenter $H$ such that $A$, $B$, $C$, $O$, and $H$ are all on distinct points with integer coordinates. What is the second smallest possible value of the circumradius of $ABC$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $\\sqrt{10}$\n\nAssume without loss of generality that the circumcenter is at the origin. By well known properties of the Euler line, the centroid $G$ is such that $O$, $G$, and $H$ are collinear, with $G$ in between $O$ and $H$, such that $GH = 2GO$. Thus, since $G = \\frac{1}{3}(A+B+C)$, and we are assuming $O$ is the origin, we have $H = A+B+C$. This means that as long as $A$, $B$, and $C$ are integer points, $H$ will be as well.\n\nHowever, since $H$ needs to be distinct from $A$, $B$, and $C$, we must have $\\triangle ABC$ not be a right triangle, since in right triangles, the orthocenter is the vertex where the right angle is.\n\nNow, if a circle centered at the origin has any integer points, it will have at least four integer points. (If it has a point of the form $(a, 0)$, then it will also have $(-a, 0)$, $(0, a)$, and $(0, -a)$. If it has a point of the form $(a, b)$, with $a, b \\neq 0$, it will have each point of the form $(\\pm a, \\pm b)$.) But in any of these cases where there are only four points, any triangle which can be made from those points is a right triangle.\n\nThus we need the circumcircle to contain at least eight lattice points. The smallest radius this occurs at is $\\sqrt{1^2+2^2}=\\sqrt{5}$, which contains the eight points $(\\pm 1, \\pm 2)$ and $(\\pm 2, \\pm 1)$. We get at least one valid triangle with this circumradius:\n$$\nA = (-1,2), \\quad B = (1,2), \\quad C = (2,1)\n$$\nThe next valid circumradius is $\\sqrt{1^2+3^2}=\\sqrt{10}$ which has the valid triangle\n$$\nA = (-1,3), \\quad B = (1,3), \\quad C = (3,1)\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-translation-auto-2358",
+      "name": "Team Selection Test Selection Test #0jc6",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle inequalities",
+        "Triangle trigonometry",
+        "Tangents",
+        "Trigonometry",
+        "Vectors",
+        "Rotation",
+        "Translation",
+        "Jensen/smoothing",
+        "Jensen / smoothing"
+      ],
+      "statement": "Let $\\triangle ABC$ be a triangle. Its excircles touch sides $BC$, $CA$, $AB$ at $D$, $E$, $F$, respectively. Prove that the perimeter of triangle $\\triangle ABC$ is at most twice that of triangle $DEF$.\n\n![](attached_image_1.png)\n\n![](attached_image_2.png)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "We consider the configuration shown in the diagram below. (Our proof uses directed lengths and can be easily modified for different configurations.)\n![](attached_image_1.png)\nLet $a, b, c$ denote the side lengths of $BC, CA, AB$, and let $A, B, C$ denote $\\angle A, \\angle B, \\angle C$, respectively. Suppose that the incircle touches sides $BC, CA, AB$ at $P, Q, R$, respectively. It is well known that\n$$\nFB = CE = QA = AR = \\frac{b+c-a}{2}. \\qquad (25)\n$$\nDenote by $E_a, F_a$ the feet of the perpendiculars from $E, F$ to line $BC$. It is clear that $EF \\ge E_aF_a$. By (25), we have\n$$\nFE \\ge F_aE_a = BC - (BF_a + E_aC) = a - \\frac{b+c-a}{2} (\\cos B + \\cos C).\n$$\nSumming the above inequality and its cyclic analogues yields\n$$\nEF + FD + DE \\ge a + b + c - \\sum_{\\text{cyc}} \\frac{b+c-a}{2} (\\cos B + \\cos C)\n$$\nor\n$$\nEF + FD + DE \\ge a + b + c - (a \\cos A + b \\cos B + c \\cos C). \\qquad (26)\n$$\nBy the sum-to-product formulas, we have\n$$\n\\frac{1}{2}(\\sin 2A + \\sin 2B) = \\sin(A+B)\\cos(A-B) = \\sin C \\cos(A-B) \\ge \\sin C.\n$$\nSumming this inequality and its cyclic analogues yields\n$$\n\\sin A + \\sin B + \\sin C \\ge 2\\sin A \\cos A + 2\\sin B \\cos B + 2\\sin C \\cos C\n$$\nMultiplying both sides by $2R$ and applying the extended Law of Sines, we obtain\n$$\na + b + c \\ge 2a \\cos A + 2b \\cos B + 2c \\cos C. \\qquad (27)\n$$\nSubstituting (27) into (26) yields the desired\n$$\nEF + FD + DE \\ge \\frac{a+b+c}{2}.\n$$\n\nWe maintain the notations of the first solution. The result clearly follows from the following two lemmas.\n\n**Lemma 1.** The sum of the perimeters of triangles $DEF$ and $PQR$ is at least the perimeter of triangle $ABC$.\n\n*Proof.* By symmetry, it suffices to show that $DE + PQ \\ge AB$. Let $M$ and $N$ be the midpoints of segments $CA$ and $CB$, respectively. We want to show that $DE + PQ \\ge AB = 2MN$. As in the first solution, we have $CE = AQ$ and $CD = BP$ so that $M$ and $N$ are midpoints of segments $PD$ and $QE$, respectively. Computing using vectors, we obtain\n$$\n\\begin{aligned}\n\\overrightarrow{MN} &= \\overrightarrow{MC} + \\overrightarrow{CN} = \\frac{1}{2}(\\overrightarrow{QC} + \\overrightarrow{EC}) + \\frac{1}{2}(\\overrightarrow{CP} + \\overrightarrow{CD}) \\\\\n&= \\frac{1}{2}(\\overrightarrow{QC} + \\overrightarrow{CP}) + \\frac{1}{2}(\\overrightarrow{EC} + \\overrightarrow{CD}) = \\frac{1}{2}(\\overrightarrow{QP} + \\overrightarrow{ED}).\n\\end{aligned}\n$$\nBy the triangle inequality, we have $MN \\le \\frac{1}{2}(QP + ED)$, which implies\n$$\nPQ + DE \\ge 2MN = AB. \\quad \\square\n$$\n\n**Lemma 2.** The perimeter of triangle $ABC$ is at least twice that of triangle $PQR$.\n\n*Proof.* Note that $PQ = 2CP \\sin \\frac{C}{2}$, $QR = 2AQ \\sin \\frac{A}{2}$, and $RP = 2BR \\sin \\frac{B}{2}$. The perimeter of triangle $PQR$ is equal to\n$$\nS_{PQR} = (b+c-a) \\sin \\frac{A}{2} + (c+a-b) \\sin \\frac{B}{2} + (a+b-c) \\sin \\frac{C}{2}.\n$$\nBy symmetry, we may assume that $a \\le b \\le c$. This yields the orderings\n$$\nA \\le B \\le C, \\quad b+c-a \\ge c+a-b \\ge a+b-c, \\quad \\text{and} \\quad \\sin \\frac{A}{2} \\le \\sin \\frac{B}{2} \\le \\sin \\frac{C}{2}.\n$$\nBy Chebyshev's inequality, we have\n$$\nS_{PQR} \\le \\frac{1}{3} \\left( (b+c-a) + (c+a-b) + (a+b-c) \\right) \\left( \\sin \\frac{A}{2} + \\sin \\frac{B}{2} + \\sin \\frac{C}{2} \\right),\n$$\nso it suffices to show that\n$$\n\\sin \\frac{A}{2} + \\sin \\frac{B}{2} + \\sin \\frac{C}{2} \\le \\frac{3}{2}. \\qquad (28)\n$$\nBut (28) follows from Jensen's inequality for $y = \\sin x$ (which is concave for $0 \\le x \\le \\frac{\\pi}{2}$). $\\square$\n\nConsider the following diagram, which contains several copies of $ABC$ rotated and translated so that $ABC$, $A_2B_2C_2$, $A_4B_4C_4$, and $A_6B_6C_6$ are congruent and $B$, $C = A_2$, $B_2 = C_4$, $A_4 = B_6$, and $C_6$ are collinear. Define $D_i$, $E_i$, and $F_i$ to be the images of $D$, $E$, and $F$ in $A_iB_iC_i$.\n![](attached_image_2.png)\n\nObserve that $\\triangle ECE_2 \\simeq \\triangle FBD$, $\\triangle D_2B_2D_4 \\simeq \\triangle EAF$, and $\\triangle F_4A_4F_6 \\simeq \\triangle DAE$. Using these congruences, the triangle inequality, and the fact that $FD \\parallel F_6D_6$, we obtain\n$$\n2(DE + EF + FA) \\ge FE + EE_2 + E_2D_2 + D_2D_4 + D_4F_4 + F_4F_6 \\ge FF_6 = AB + BC + CA.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-translation-auto-2413",
+      "name": "HMMT 2013 #0jdp",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2013",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Combinatorial Geometry",
+        "Translation",
+        "Cartesian coordinates"
+      ],
+      "statement": "Problem:\n\nChim Tu has a large rectangular table. On it, there are finitely many pieces of paper with nonoverlapping interiors, each one in the shape of a convex polygon. At each step, Chim Tu is allowed to slide one piece of paper in a straight line such that its interior does not touch any other piece of paper during the slide. Can Chim Tu always slide all the pieces of paper off the table in finitely many steps?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet the pieces of paper be $P_{1}, P_{2}, \\ldots, P_{n}$ in the Cartesian plane. It suffices to show that for any constant distance $D$, they can be slid so that each pairwise distance is at least $D$. Then, we can apply this using $D$ equal to the diameter of the rectangle, sliding all but at most one of the pieces of paper off the table, and then slide this last one off arbitrarily.\n\nWe show in particular that there is always a polygon $P_{i}$ which can be slid arbitrarily far to the right (i.e. in the positive $x$-direction). For each $P_{i}$ let $B_{i}$ be a bottommost (i.e. lowest $y$-coordinate) point on the boundary of $P_{i}$. Define a point $Q$ to be exposed if the ray starting at $Q$ in the positive $x$ direction meets the interior of no piece of paper.\n\nConsider the set of all exposed $B_{i}$; this set is nonempty because certainly the bottommost of all the $B_{i}$ is exposed. Of this set, let $B_{k}$ be the exposed $B_{i}$ with maximal $y$-coordinate, and if there are more than one such, choose the one with maximal $x$-coordinate. We claim that the corresponding $P_{k}$ can be slid arbitrarily far to the right.\n\nSuppose for the sake of contradiction that there is some polygon blocking this path. To be precise, if $A_{k}$ is the highest point of $P_{k}$, then the region $R$ formed by the right-side boundary of $P_{k}$ and the rays pointing in the positive $x$ direction from $A_{k}$ and $B_{k}$, must contain interior point(s) of some set of polygon(s) $P_{j}$ in its interior. All of their bottommost points $B_{j}$ must lie in $R$, since none of them can have boundary intersecting the ray from $B_{k}$, by the construction of $B_{k}$.\n\nBecause $B_{k}$ was chosen to be rightmost out of all the exposed $B_{i}$ with that $y$-coordinate, it must be that all of the $B_{j}$ corresponding to the blocking $P_{j}$ have larger $y$-coordinate. Now, choose of these the one with smallest $y$-coordinate - it must be exposed, and it has strictly higher $y$-coordinate than $B_{k}$, contradiction. It follows that the interior of $R$ intersects no pieces of paper.\n\nNow, for a fixed $D$ such that $D$ is at least the largest distance between any two points of two polygons, we can shift this exposed piece of paper $n D$ to the right, the next one of the remaining pieces $(n-1) D$, and so on, so that the pairwise distances between pieces of paper, even when projected onto the $x$-axis, are at least $D$ each. We're done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-translation-auto-2715",
+      "name": "HMMT November 2014 #0jm3",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2014",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Translation",
+        "Rotation",
+        "Cartesian coordinates",
+        "Vectors",
+        "Techniques: modulo, size analysis, order analysis, inequalities"
+      ],
+      "statement": "Problem:\n\nSammy has a wooden board, shaped as a rectangle with length $2^{2014}$ and height $3^{2014}$. The board is divided into a grid of unit squares. A termite starts at either the left or bottom edge of the rectangle, and walks along the gridlines by moving either to the right or upwards, until it reaches an edge opposite the one from which the termite started. Depicted below are two possible paths of the termite.\n\n![](attached_image_1.png)\n\nThe termite's path dissects the board into two parts. Sammy is surprised to find that he can still arrange the pieces to form a new rectangle not congruent to the original rectangle. This rectangle has perimeter $P$. How many possible values of $P$ are there?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: 4\n\nLet $R$ be the original rectangle and $R'$ the new rectangle which is different from $R$. We see that the perimeter of $R'$ depends on the possibilities for the side lengths of $R'$.\n\nWe will prove that the dividing line must have the following characterization: starting from the lower left corner of $R$, walk to the right by distance $a$, then walk up by distance $b$, for some positive number $a$ and $b$, and repeat the two steps until one reaches the upper right corner of $R$, with the condition that the last step is a walk to the right. (The directions stated here depends on the orientation of $R$, but we can always orient $R$ so as to fit the description.) Let there be $n+1$ walks to the right and $n$ walks to the top, then we have that this division would rearrange a rectangle of dimension $(n+1)a \\times n b$ into a rectangle of dimension $n a \\times (n+1) b$.\n\nLet us first assume the above. Now, according to the problem, it suffices to find $n, a, b$ such that $(n+1)a = 2^{2014}, n b = 3^{2014}$ or $(n+1)a = 3^{2014}, n b = 2^{2014}$. This means that $n+1$ and $n$ are a power of 3 and a power of 2, whose exponents do not exceed 2014. This corresponds to finding nonnegative integers $k, l \\leq 2014$ such that $|2^{k} - 3^{l}| = 1$. The only possible pairs of $(2^{k}, 3^{l})$ are $(2,1), (2,3), (3,4)$ and $(8,9)$. So there are 4 possible configurations of $R'$.\n\nNow, we prove our claim. For completeness, we will actually prove the claim more generally for any cut, not just ones that move right and up (hence the length of the solution which follows, but only the above two paragraphs are relevant for the purposes of finding the answer).\n\nFirst we show that the dividing boundary between the two pieces must meet the boundary of $R$ at two points, each being on opposite sides of $R$ as the other. To see why, consider that otherwise, there would be two consecutive sides of $R$ which belong to the same piece. Then, the smallest rectangle containing such a configuration must have each side being as large as each of the two sides, and thus it is $R$. Since this piece is also part of $R'$, $R'$ must contain $R$, but their areas are equal, so $R' = R$, a contradiction.\n\nNow, let the dividing boundary go from the top side to the bottom side of $R$, and call the right piece \"piece 1\" and the left piece \"piece 2.\" We orient $R'$ in such a way that piece 1 is fixed and piece 2 is moved from the original position in some way to create $R'$. We will show that piece 2 must be moved by translation by some vector $v$, $t_{v}$. Otherwise, piece 2 is affected by $t_{v}$ as well as a rotation by $90^{\\circ}$ or $180^{\\circ}$. We show that these cases are impossible.\n\nFirst, consider the case where there is a $90^{\\circ}$ rotation. Let the distance from the top side to the bottom side of $R$ be $x$. Then, the two pieces are contained between a pair of horizontal lines which are of distance $x$ apart from one another. If piece 2 is rotated by $90^{\\circ}$, then these horizontal lines become a pair of vertical lines which are of distance $x$ apart from one another. So $R'$ is contained within a union of regions between a pair of horizontal lines and a pair of vertical lines.\n\nNow, we show that $R'$ must be contained within only one of these regions. Consider if there exists points $(x_{1}, y_{1})$ and $(x_{2}, y_{2})$ in $R'$ such that $(x_{1}, y_{1})$ is not in the horizontal region (so that $y_{1}$ is out of range) and $(x_{2}, y_{2})$ is not in the vertical region (so that $x_{2}$ is out of range). Then, it follows that $(x_{2}, y_{1})$ is also in the rectangle $R'$. But $(x_{2}, y_{1})$ cannot be contained in either region, since both of its $x$ and $y$ coordinates are out of range, a contradiction.\n\nSo let us assume, without loss of generality, that $R'$ is contained in the vertical region (the one which contains piece 2). Then, the horizontal side of $R'$ cannot have length greater than $x$, the width of the region. However, piece 2 is contained in the region, and its width is exactly $x$. Therefore, the width of $R'$ must be exactly $x$, rendering it to be the same shape as $R$, a contradiction.\n\nNext, we show that the case with a $180^{\\circ}$ rotation is also impossible. We modify our considerations from the previous case by considering a half-region of the region between a pair of horizontal lines (which are still are of distance $x$ apart), which we define as a part of the region on the right or on the left of a certain vertical line. Then, piece 2 is contained within a certain half-region going to the right and piece 1 is contained within a certain half-region going to the left. Now, in $R'$, since piece 2 is rotated by $180^{\\circ}$, we would have both half-regions going to the left, and $R'$ is contained within a union of them.\n\nNow, consider the \"end\" of each half-region (the part of the boundary that is vertical). The ends of both half-regions must be contained in $R'$, since they are part of piece 1 and piece 2. Consider a vector that maps the end of one half-region to the other. If the vector is horizontal, then the union of the regions have vertical distance $x$. Similarly to the previous case, we deduce that the vertical side of $R$ must be of length no more than $x$, and so must be exactly $x$, but then $R' = R$, a contradiction.\n\nNow, if the vector has both nonzero horizontal and vertical components, then the parallelogram generated by the locus of the end of a half-region being translated by the vector to the end of the other half-region must be contained within $R'$ (since $R'$ is convex). However, the parallelogram is not contained within the union of the two half-regions, a contradiction.\n\nFinally, if the vector is vertical, then the two half-regions must be on top of one another, and so will have no region in common. Then, since $R'$ is a rectangle, the intersection of $R'$ with each half-region will also be a rectangle. So pieces 1 and 2 must be rectangles. But then a rotation of $180^{\\circ}$ would map piece 2 to itself. So this reduces to a case of pure translation.\n\nWe now consider the translation $t_{v}$ by a vector $v$ on piece 2. Since $R'$ must contain the ends of the half-regions (which retain their original orientations), the vertical side of $R'$ must be at least of length $x$. But $R' \\neq R$, so the vertical side of $R'$ has length strictly greater than $x$. This implies that the horizontal side of $R'$ must be strictly shorter than that of $R$, since they have equal area. However, the horizontal side of $R'$ is at least as long as the horizontal distance between the ends of the two half-regions, so the ends of the two half-regions must have moved closer to one another horizontally.\n\nThis implies that the vector $v$ has a positive $x$ component. Also, $v$ cannot be entirely horizontal, because there is no more space for piece 2 to move into. So $v$ has a nonzero $y$ component. Without loss of generality, let us assume that $v$ has a positive $y$ component.\n\nBefore we continue further, let us label the vertices of $R$ as $A, B, C, D$, going in counter-clockwise direction, with the left side of $R$ being $AB$ and the right side of $R$ being $CD$. So $AB$ is in piece 2 and $CD$ is in piece 1. Call the translated piece 2 that is part of the rectangle $R'$ piece $2'$, with the corresponding points $A'$ and $B'$.\n\nNow, consider the half-regions of piece 1 and piece 2. They are half-regions with the end $AB$ going to the right and the one with the end $CD$ going to the left. So, in $R'$, the half-regions are with end $A'B'$ going to the right and with end $CD$ going to the left, and $R'$ is contained within the union of these two. Now, there cannot be a point in $R'$ that is to the left of $A'B'$, since the smallest rectangle containing that point and $A'$ would not be contained in the union of the two half-regions. Similarly, there cannot be a point in $R'$ that is to the right of $CD$ for the same reason. These restrictions imply that $R'$ must be contained within the union of the two half-regions that lie horizontally between $A'B'$ and $CD$. However, since the smallest rectangle containing $A'$ and $C$ is precisely this region, $R'$ must be this region. Let $A'B'$ intersect $BC$ at $L$ and let $CD$ intersect the line passing through $A'$ which is parallel to $AD$ at $M$. We have $R' = A'LCM$.\n\nNow, consider the segments $BL$ and $LB'$. We know that $BL$ is a boundary of piece 2. Also, since $LB'$ is a boundary of $R'$ and it is below piece $2'$, it cannot be a boundary of piece $2'$. Therefore, it must be a boundary of piece 1. Since $LB'$ is not a boundary of $R$ but is a boundary of piece 1, it must be part of the dividing boundary between piece 1 and 2, and so must also be a boundary of piece 2.\n\nWe now prove that: from a sequence of $B, B', B'', \\ldots$, each being translated from the preceding one by $v$, one of them must eventually lie on $AD$. Also, if $L, L', L'', \\ldots$ is also a sequence of $L$ being successively translated by $v$, then, using $B_{i}$ and $L_{i}$ to designate the $i$th term of each sequence: $B_{i}L_{i}$ and $L_{i}B_{i+1}$ must be part of the boundary of piece 2 for all $i \\leq N-1$, where $B_{N}$ is the last point, the one that lies on $AD$.\n\nWe have already proved the assertion for $i=1$. We now set out to prove, by induction, that $B_{i}L_{i}$ and $L_{i}B_{i+1}$ must be part of the boundary of piece 2 for all $i$ such that $B_{i+1}$ is still within $R$ or on the edge of $R$.\n\nConsider, by induction hypothesis, that $B_{i-1}L_{i-1}$ and $L_{i-1}B_{i}$ are parts of the boundary of piece 2. Then, by mapping, $B_{i}L_{i}$ and $L_{i}B_{i+1}$ must be parts of the boundary of piece $2'$. Since the dividing boundary of $R$ go from top to bottom, $L_{i}B_{i+1}$ cannot be on the rightmost edge of $R$, which is also the rightmost edge of $R'$. This means that $L_{i}B_{i+1}$ is not a boundary of $R'$. So we have that $B_{i}L_{i}$ and $L_{i}B_{i+1}$ are not boundaries of $R'$ but are boundaries of piece $2'$, so they must be boundaries of piece 1. Now, since they are not boundaries of $R$ either but are boundaries of piece 1, they must be boundaries of piece 2, as desired.\n\nNow we are left to show that one of $B_{i}$ must lie exactly on $AD$. Let $B_{i}$ be the last term of the sequence that is contained within $R$ or its boundary. Then, by the previous result, $B_{i-1}L_{i-1}$ and $L_{i-1}B_{i}$ are boundaries of piece 2. Then, by mapping, $B_{i}L_{i}$ is a boundary of piece $2'$. Since $B_{i}L_{i}$ is on or below $AD$, it cannot be on the boundary of $R'$, but since it is a boundary of piece $2'$, it must also be a boundary of piece 1. Now, if $B_{i}$ is not on $AD$, then $B_{i}L_{i}$ will not be a boundary of $R$, but since it is a boundary of piece 1, it must also be a boundary of piece 2. By mapping, this implies that $B_{i+1}L_{i+1}$ must be a boundary of piece $2'$. However, $B_{i+1}L_{i+1}$ is not contained within $R$ or its boundary, and so cannot be on piece 1's boundary. Therefore, since $B_{i+1}L_{i+1}$ is a boundary of piece $2'$ but not of piece 1, it must be a boundary of $R'$. This means that $B_{i+1}L_{i+1}$ is on the upper edge of $R'$. Mapping back, we get that $B_{i}L_{i}$ must be on the upper edge of $R$, a contradiction to the assumption that $B_{i}$ is not on $AD$ (the upper edge of $R$). So $B_{i}$ is on $AD$, as desired.\n\nLet $B_{N}$ be the term of the sequence that is on $AD$. We have now shown that\n$$\nL_{1}B_{2}, B_{2}L_{2}, \\ldots, B_{N-1}L_{N-1}, L_{N-1}B_{N}\n$$\ncompletely defines the dividing line between piece 1 and piece 2. Moreover, $B_{1} = B$, defining the starting point of the dividing line. We now add the final description: $L_{N} = D$. To see why, note that $L_{N}$ must be on the upper edge of $R$, as it is in the same horizontal level as $B_{N}$. However, since $L_{N-1}$ is one of furthest points to the right of piece 2, by mapping, $L_{N}$ must be one of the furthest points to the right of piece $2'$, and so must be on the rightmost edge of piece $2'$, which is the rightmost edge of $R'$ and of $R$. Therefore, $L_{N}$ is on the upper edge and the rightmost edge of $R$, and so it must be $D$, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-translation-auto-3015",
+      "name": "HMMT November 2016 #0juf",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2016",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cartesian coordinates",
+        "Translation",
+        "Least common multiples (lcm)"
+      ],
+      "statement": "Problem:\n\nA rectangular pool table has vertices at $(0,0)$, $(12,0)$, $(0,10)$, and $(12,10)$. There are pockets only in the four corners. A ball is hit from $(0,0)$ along the line $y=x$ and bounces off several walls before eventually entering a pocket. Find the number of walls that the ball bounces off of before entering a pocket.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nConsider the tiling of the plane with the $12 \\times 10$ rectangle to form a grid. Then the reflection of the ball off a wall is equivalent to traveling along the straight line $y=x$ into another $12 \\times 10$ rectangle. Hence we want to find the number of walls of the grid that the line $y=x$ hits before it reaches the first corner it hits, $(60,60)$.\n\nThe line $y=x$ hits each of the horizontal lines $y=10,20,30,40,50$ and each of the vertical lines $x=12,24,36,48$. This gives a total of 9 walls hit before entering a pocket."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-translation-auto-3306",
+      "name": "HMMT November 2018 #0k2i",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2018",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Rotation",
+        "Translation",
+        "Triangle trigonometry"
+      ],
+      "statement": "Problem:\n\nPoints $E, F, G, H$ are chosen on segments $AB, BC, CD, DA$, respectively, of square $ABCD$. Given that segment $EG$ has length $7$, segment $FH$ has length $8$, and that $EG$ and $FH$ intersect inside $ABCD$ at an acute angle of $30^{\\circ}$, then compute the area of square $ABCD$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nRotate $EG$ by $90^{\\circ}$ about the center of the square to $E'G'$ with $E' \\in AD$ and $G' \\in BC$. Now $E'G'$ and $FH$ intersect at an angle of $60^{\\circ}$. Then consider the translation which takes $E'$ to $H$ and $G'$ to $I$. Triangle $FHI$ has $FH = 8$, $HI = 7$ and $\\angle FHI = 60^{\\circ}$. Furthermore, the height of this triangle is the side length of the square. Using the Law of Cosines,\n$$\nFI = \\sqrt{7^2 - 7 \\cdot 8 + 8^2} = \\sqrt{57}\n$$\nBy computing the area of $FHI$ in two ways, if $h$ is the height then\n$$\n\\frac{1}{2} \\times \\sqrt{57} \\times h = \\frac{1}{2} \\times \\frac{\\sqrt{3}}{2} \\times 7 \\times 8\n$$\nThen $h = \\frac{28}{\\sqrt{19}}$ and the area of the square is $h^2 = \\frac{784}{19}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-translation-auto-3416",
+      "name": "USA TSTST #0k5k",
+      "url": "https://usamoguide.com/",
+      "source": "USA TSTST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Translation",
+        "Vectors",
+        "Counting two ways"
+      ],
+      "statement": "Show that there is an absolute constant $c < 1$ with the following property: whenever $\\mathcal{P}$ is a polygon with area 1 in the plane, one can translate it by a distance of $\\frac{1}{100}$ in some direction to obtain a polygon $\\mathcal{Q}$, for which the intersection of the interiors of $\\mathcal{P}$ and $\\mathcal{Q}$ has total area at most $c$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "The following solution is due to Brian Lawrence. We will prove the result with the generality of any measurable set $\\mathcal{P}$ (rather than a polygon). For a vector $v$ in the plane, write $\\mathcal{P} + v$ for the translate of $\\mathcal{P}$ by $v$.\nSuppose $\\mathcal{P}$ is a polygon of area 1, and $\\varepsilon > 0$ is a constant, such that for any translate $Q = \\mathcal{P} + v$, where $v$ has length exactly $\\frac{1}{100}$, the intersection of $\\mathcal{P}$ and $Q$ has area at least $1 - \\varepsilon$. The problem asks us to prove a lower bound on $\\varepsilon$.\n\n**Lemma**\nFix a sequence of $n$ vectors $v_1, v_2, \\dots, v_n$, each of length $\\frac{1}{100}$. A grasshopper starts at a random point $x$ of $\\mathcal{P}$, and makes $n$ jumps to $x + v_1 + \\dots + v_n$. Then it remains in $\\mathcal{P}$ with probability at least $1 - n\\varepsilon$.\n*Proof.* In order for the grasshopper to leave $\\mathcal{P}$ at step $i$, the grasshopper's position before step $i$ must be inside the difference set $\\mathcal{P} \\setminus (\\mathcal{P} - v_i)$. Since this difference set has area at most $\\varepsilon$, the probability the grasshopper leaves $\\mathcal{P}$ at step $i$ is at most $\\varepsilon$. Summing over the $n$ steps, the probability that the grasshopper ever manages to leave $\\mathcal{P}$ is at most $n\\varepsilon$. $\\square$\n\n**Corollary**\nFix a vector $w$ of length at most 8. A grasshopper starts at a random point $x$ of $\\mathcal{P}$, and jumps to $x + w$. Then it remains in $\\mathcal{P}$ with probability at least $1 - 800\\varepsilon$.\n*Proof.* Apply the previous lemma with 800 jumps. Any vector $w$ of length at most 8 can be written as $w = v_1 + v_2 + \\dots + v_{800}$, where each $v_i$ has length exactly $\\frac{1}{100}$. $\\square$\n\nNow consider the process where we select a random starting point $x \\in \\mathcal{P}$ for our grasshopper, and a random vector $w$ of length at most 8 (sampled uniformly from the closed disk of radius 8). Let $q$ denote the probability of staying inside $\\mathcal{P}$ we will bound $q$ from above and below.\n* On the one hand, suppose we pick $w$ first. By the previous corollary, $q \\ge 1 - 800\\varepsilon$ (irrespective of the chosen $w$).\n* On the other hand, suppose we pick $x$ first. Then the possible landing points $x + w$ are uniformly distributed over a closed disk of radius 8, which has area $64\\pi$. The probability of landing in $\\mathcal{P}$ is certainly at most $\\frac{[\\mathcal{P}]}{64\\pi}$.\nConsequently, we deduce\n$$\n1 - 800\\varepsilon \\le q \\le \\frac{[\\mathcal{P}]}{64\\pi} \\implies \\varepsilon > \\frac{1 - \\frac{[\\mathcal{P}]}{64\\pi}}{800} > 0.001\n$$\nas desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-translation-auto-3429",
+      "name": "Berkeley Math Circle: Monthly Contest 5 #0k5x",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 5",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Translation",
+        "Rotation",
+        "Constructions and loci"
+      ],
+      "statement": "Problem:\n\nAn artist paints identical dragons on two circular discs of the same size. On the first disc, the dragon covers the center, but on the second it is not. Show that it is possible to cut the second disc into two pieces that can be reassembled so the dragon covers the center.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLay the second disc on top of the first disc so that the dragons are lined up, and cut off the piece of the second disc that hangs over the edge of the first disc. This piece is congruent to the piece of the first disc that is not covered by the second disc, so the two pieces can be glued together to form a disc with the dragon in the same place as on the first disc."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-translation-auto-3440",
+      "name": "HMMT February 2019 February 16, 2019 #0k68",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2019 February 16, 2019",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers in geometry",
+        "Rotation",
+        "Translation",
+        "Homothety",
+        "Trigonometry",
+        "Triangle trigonometry"
+      ],
+      "statement": "Problem:\n\nIn triangle $ABC$, $AB = 13$, $BC = 14$, $CA = 15$. Squares $ABB_1A_2$, $BCC_1B_2$, $CAA_1C_2$ are constructed outside the triangle. Squares $A_1A_2A_3A_4$, $B_1B_2B_3B_4$, $C_1C_2C_3C_4$ are constructed outside the hexagon $A_1A_2B_1B_2C_1C_2$. Squares $A_3B_4B_5A_6$, $B_3C_4C_5B_6$, $C_3A_4A_5C_6$ are constructed outside the hexagon $A_4A_3B_4B_3C_4C_3$. Find the area of the hexagon $A_5A_6B_5B_6C_5C_6$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe can use complex numbers to find synthetic observations. Let $A = a$, $B = b$, $C = c$. Notice that $B_2$ is a rotation by $-90^{\\circ}$ (counter-clockwise) of $C$ about $B$, and similarly $C_1$ is a rotation by $90^{\\circ}$ of $B$ about $C$. Since rotation by $90^{\\circ}$ corresponds to multiplication by $i$, we have $B_2 = (c-b) \\cdot (-i) + b = b(1+i) - c i$ and $C_1 = (b-c) \\cdot i + c = b i + c(1-i)$. Similarly, we get $C_2 = c(1+i) - a i$, $A_1 = c i + a(1-i)$, $A_2 = a(1+i) - b i$, $B_1 = a i + b(1-i)$. Repeating the same trick on $B_1B_2B_3B_4$ et al., we get $C_4 = -a + b(-1+i) + c(3-i)$, $C_3 = a(-1-i) - b + c(3+i)$, $A_4 = -b + c(-1+i) + a(3-i)$, $A_3 = b(-1-i) - c + a(3+i)$, $B_4 = -c + a(-1+i) + b(3-i)$, $B_3 = c(-1-i) - a + b(3+i)$. Finally, repeating the same trick on the outermost squares, we get $B_6 = -a + b(3+5i) + c(-3-3i)$, $C_5 = -a + b(-3+3i) + c(3-5i)$, $C_6 = -b + c(3+5i) + a(-3-3i)$, $A_5 = -b + c(-3+3i) + a(3-5i)$, $A_6 = -c + a(3+5i) + b(-3-3i)$, $B_5 = -c + a(-3+3i) + b(3-5i)$.\n\nFrom here, we observe the following synthetic observations.\n\nS1. $B_2C_1C_4B_3$, $C_2A_1A_4C_3$, $A_2B_1B_4A_3$ are trapezoids with bases of lengths $BC, 4BC$; $AC, 4AC$; $AB, 4AB$ and heights $h_a, h_b, h_c$ respectively (where $h_a$ is the length of the altitude from $A$ to $BC$, and likewise for $h_b, h_c$).\n\nS2. If we extend $B_5B_4$ and $B_6B_3$ to intersect at $B_7$, then $B_7B_4B_3 \\cong BB_1B_2 \\sim B_7B_5B_6$ with scale factor $1:5$. Likewise when we replace all $B$'s with $A$'s or $C$'s.\n\nProof of S1. Observe $C_1 - B_2 = c - b$ and $C_4 - B_3 = 4(c-b)$, hence $B_2C_1 \\parallel B_3C_4$ and $B_3C_4 = 4 B_2C_1$. Furthermore, since translation preserves properties of trapezoids, we can translate $B_2C_1C_4B_3$ such that $B_2$ coincides with $A$. Being a translation of $a - B_2$, we see that $B_3$ maps to $B_3' = 2b - c$ and $C_4$ maps to $C_4' = -2b + 3c$. Both $2b - c$ and $-2b + 3c$ lie on the line determined by $b$ and $c$ (since $-2 + 3 = 2 - 1 = 1$), so the altitude from $A$ to $BC$ is also the altitude from $A$ to $B_3'C_4'$. Thus $h_a$ equals the length of the altitude from $B_2$ to $B_3C_4$, which is the height of the trapezoid $B_2C_1C_4B_3$. This proves S1 for $B_2C_1C_4B_3$; the other trapezoids follow similarly.\n\nProof of S2. Notice a translation of $-a + 2b - c$ maps $B_1$ to $B_4$, $B_2$ to $B_3$, and $B$ to a point $B_8 = -a + 3b - c$. This means $B_8B_3B_4 \\cong BB_1B_2$. We can also verify that $4B_8 + B_6 = 5B_3$ and $4B_8 + B_5 = 5B_4$, showing that $B_8B_5B_6$ is a dilation of $B_8B_4B_3$ with scale factor $5$. We also get $B_8$ lies on $B_3B_6$ and $B_5B_4$, so $B_8 = B_7$. This proves S2 for $B_3B_4B_5B_6$, and similar arguments prove the likewise part.\n\nNow we are ready to attack the final computation. By S2, $[B_3B_4B_5B_6] + [BB_1B_2] = [B_7B_5B_6] = [BB_1B_2]$. But by the $\\frac{1}{2}ac\\sin B$ formula, $[BB_1B_2] = [ABC]$ (since $\\angle B_1BB_2 = 180^{\\circ} - \\angle ABC$). Hence,\n\n$[B_3B_4B_5B_6] + [BB_1B_2] = 25[ABC]$. Similarly, $[C_3C_4C_5C_6] + [CC_1C_2] = 25[ABC]$ and $[A_3A_4A_5A_6] + [AA_1A_2] = 25[ABC]$. Finally, the formula for area of a trapezoid shows $[B_2C_1C_4B_3] = \\frac{5BC}{2} \\cdot h_a = 5[ABC]$, and similarly the other small trapezoids have area $5[ABC]$. The trapezoids thus contribute area $(75 + 3 \\cdot 5) = 90[ABC]$. Finally, $ABC$ contributes area $[ABC] = 84$.\n\nBy S1, the outside squares have side lengths $4BC, 4CA, 4AB$, so the sum of areas of the outside squares is $16(AB^2 + AC^2 + BC^2)$. Furthermore, a Law of Cosines computation shows $A_1A_2^2 = AB^2 + AC^2 + 2 \\cdot AB \\cdot AC \\cdot \\cos \\angle BAC = 2AB^2 + 2AC^2 - BC^2$, and similarly $B_1B_2^2 = 2AB^2 + 2BC^2 - AC^2$ and $C_1C_2^2 = 2BC^2 + 2AC^2 - AB^2$. Thus the sum of the areas of $A_1A_2A_3A_4$ et al. is $3(AB^2 + AC^2 + BC^2)$. Finally, the small squares have area add up to $AB^2 + AC^2 + BC^2$. Aggregating all contributions from trapezoids, squares, and triangle, we get\n\n$$\n[A_5A_6B_5B_6C_5C_6] = 91[ABC] + 20(AB^2 + AC^2 + BC^2) = 7644 + 11800 = 19444\n$$\n\nSolution:\n\nLet $a = BC$, $b = CA$, $c = AB$. We can prove S1 and S2 using some trigonometry instead.\n\nProof of S1. The altitude from $B_3$ to $B_2C_1$ has length $B_2B_3 \\sin \\angle BB_2B_1 = B_1B_2 \\sin \\angle BB_2B_1 = BB_1 \\sin \\angle B_1BB_2 = AB \\sin \\angle ABC = h_a$ using Law of Sines. Similarly, we find the altitude from $C_4$ to $B_2C_1$ equals $h_a$, thus proving $B_2C_1C_4B_3$ is a trapezoid. Using $B_1B_2 = \\sqrt{2a^2 + 2c^2 - b^2}$ from end of Solution 1, we get the length of the projection of $B_2B_3$ onto $B_3C_4$ is $B_2B_3 \\cos BB_2B_1 = \\frac{(2a^2 + 2c^2 - b^2) + a^2 - c^2}{2a} = \\frac{3a^2 + c^2 - b^2}{2a}$, and similarly the projection of $C_1C_4$ onto $B_3C_4$ has length $\\frac{3a^2 + b^2 - c^2}{2a}$. It follows that $B_3C_4 = \\frac{3a^2 + c^2 - b^2}{2a} + a + \\frac{3a^2 + b^2 - c^2}{2a} = 4a$, proving S1 for $B_2C_1C_4B_3$; the other cases follow similarly.\n\nProof of S2. Define $B_8$ to be the image of $B$ under the translation taking $B_1B_2$ to $B_4B_3$. We claim $B_8$ lies on $B_3B_6$. Indeed, $B_8B_4B_3 \\cong BB_1B_2$, so $\\angle B_8B_3B_4 = \\angle BB_2B_1 = 180^{\\circ} - \\angle B_3B_2C_1 = \\angle B_2B_3C_4$. Thus $\\angle B_8B_3C_4 = \\angle B_4B_3B_2 = 90^{\\circ}$. But $\\angle B_6B_3C_4 = 90^{\\circ}$, hence $B_8, B_3, B_6$ are collinear. Similarly we can prove $B_5B_4$ passes through $B_8$, so $B_8 = B_7$. Finally, $\\frac{B_7B_3}{B_7B_6} = \\frac{B_7B_4}{B_7B_5} = \\frac{1}{5}$ (using $B_3B_6 = 4a$, $B_4B_5 = 4c$, $B_7B_3 = a$, $B_7B_4 = c$) shows $B_7B_4B_3 \\sim B_7B_5B_6$ with scale factor $1:5$, as desired. The likewise part follows similarly.\n\n$$\n[A_5A_6B_5B_6C_5C_6] = 91[ABC] + 20(AB^2 + AC^2 + BC^2) = 7644 + 11800 = 19444\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-translation-auto-4060",
+      "name": "HMMT Spring 2021 #0kng",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT Spring 2021",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Tangents",
+        "Brocard point, symmedians",
+        "Cyclic quadrilaterals",
+        "Angle chasing",
+        "Translation"
+      ],
+      "statement": "Problem:\n\nLet $ABCD$ be a trapezoid with $AB \\parallel CD$ and $AD = BD$. Let $M$ be the midpoint of $AB$, and let $P \\neq C$ be the second intersection of the circumcircle of $\\triangle BCD$ and the diagonal $AC$. Suppose that $BC = 27$, $CD = 25$, and $AP = 10$. If $MP = \\frac{a}{b}$ for relatively prime positive integers $a$ and $b$, compute $100a + b$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAs $\\angle PBD = \\angle PCD = \\angle PAB$, $DB$ is tangent to $(ABP)$. As $DA = DB$, $DA$ is also tangent to $(ABP)$. Let $CB$ intersect $(ABP)$ again at $X \\neq B$; it follows that $XD$ is the $X$-symmedian of $\\triangle AXB$. As $\\angle AXC = \\angle DAB = \\angle ADC$, $X$ also lies on $(ACD)$. Therefore $\\angle PXB = \\angle PAB = \\angle PCD = \\angle AXD$, so $XP$ is the median of $\\triangle AXB$, i.e. $XP$ passes through $M$.\n\nNow we have $\\triangle MPA \\sim \\triangle MBX$ and $\\triangle ABX \\sim \\triangle BCD$. Therefore\n$$\n\\frac{MP}{AP} = \\frac{MB}{XB} = \\frac{AB}{2XB} = \\frac{BC}{2DC} \\Longrightarrow MP = \\frac{BC \\cdot AP}{2DC} = \\frac{27 \\cdot 10}{2 \\cdot 25} = \\frac{27}{5}\n$$\n\nSolution:\n\nLet $E$ be the point such that $\\square BDCE$ is a parallelogram. Then $\\square ADCE$ is an isosceles trapezoid, therefore $\\angle PAB = \\angle CAB = \\angle BED = \\angle CDE$; this angle is also equal to $\\angle PBD = \\angle PCD$. Now, $\\angle ABP = \\angle ABD - \\angle PBD = \\angle BEC - \\angle BED = \\angle DEC$, therefore $\\triangle PAB \\sim \\triangle CDE$. Let $F$ be the midpoint of $DE$, which lies on $BC$ because $\\square BDCE$ is a parallelogram. It follows that $(\\triangle PAB, M) \\sim (\\triangle CDE, F)$, therefore\n$$\n\\frac{MP}{AP} = \\frac{FC}{DC} = \\frac{BC}{2DC}\n$$\nand again this gives $MP = \\frac{27}{5}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-translation-auto-4154",
+      "name": "HMMT February #0kq2",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Translation",
+        "Distance chasing"
+      ],
+      "statement": "Problem:\nLet $ABCD$ be an isosceles trapezoid such that $AB = 17$, $BC = DA = 25$, and $CD = 31$. Points $P$ and $Q$ are selected on sides $AD$ and $BC$, respectively, such that $AP = CQ$ and $PQ = 25$. Suppose that the circle with diameter $PQ$ intersects the sides $AB$ and $CD$ at four points which are vertices of a convex quadrilateral. Compute the area of this quadrilateral.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet the midpoint of $PQ$ be $M$; note that $M$ lies on the midline of $ABCD$. Let $B'$ and $C'$ be a translate of $BC$ (parallel to $AB$ and $CD$) so that $M$ is the midpoint of $B'$ and $C'$. Since $MB' = MC' = 25/2 = MP = MQ$, $B'$ and $C'$ are one of the four intersections of the circle with diameter $PQ$ and the sides $AB$ and $CD$. We may also define $A'$ and $D'$ similarly and get that they are also among the four points.\n\nIt follows that the desired quadrilateral is $B'D'C'A'$, which is a rectangle with height equal to the height of $ABCD$ (which is $24$), and width equal to $\\frac{1}{2}(31-17) = 7$. Thus the area is $24 \\cdot 7 = 168$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-translation-auto-4171",
+      "name": "Berkeley Math Circle Monthly Contest 8 #0kqj",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 8",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Translation",
+        "Angle chasing",
+        "Distance chasing"
+      ],
+      "statement": "Problem:\n\nUnit segments $A B$ and $C D$ are given such that $A B \\sharp C D$. If $M$ is the midpoint of $A C$, $N$ the midpoint of $B D$, and $X$ the intersection of lines $A B$ and $C D$, given $M \\neq N$ and $A \\neq X \\neq C$, show that the angle bisector of $\\angle A X C$ is either parallel or perpendicular to $M N$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $E$ be such that $A B E D$ is a parallelogram. $E D$ is then a unit segment parallel to $A B$, so the angle bisector of $\\angle C D E$ is parallel either to the internal or to the external angle bisector of $\\angle A X C$, the angle between lines $A B$ and $C D$. Furthermore, the midpoint of $B D$, $N$, is also the midpoint of $A E$, so $M N$ is the $A$-midline of triangle $C E$ and $M N$ is parallel to $C E$. Because $C D E$ is isosceles, the angle bisector of $\\angle C D E$ is the $D$-altitude perpendicular to $C E$. Combining the above observations gives that $M N$ is perpendicular to the angle bisector of $\\angle C D E$, which is either parallel or perpendicular to the angle bisector of $\\angle A X C$, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-translation-auto-4255",
+      "name": "HMMT February 2022 #0ksv",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2022",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Quadrilaterals with perpendicular diagonals",
+        "Translation",
+        "Angle chasing",
+        "Constructions and loci"
+      ],
+      "statement": "Problem:\n\nPoint $P$ is located inside a square $A B C D$ of side length $10$. Let $O_{1}, O_{2}, O_{3}, O_{4}$ be the circumcenters of $P A B$, $P B C$, $P C D$, and $P D A$, respectively. Given that $P A + P B + P C + P D = 23 \\sqrt{2}$ and the area of $O_{1} O_{2} O_{3} O_{4}$ is $50$, the second largest of the lengths $O_{1} O_{2}, O_{2} O_{3}, O_{3} O_{4}, O_{4} O_{1}$ can be written as $\\sqrt{\\frac{a}{b}}$, where $a$ and $b$ are relatively prime positive integers. Compute $100a + b$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nNote that $O_{1} O_{3}$ and $O_{2} O_{4}$ are perpendicular and intersect at $O$, the center of square $A B C D$. Also note that $O_{1} O_{2}, O_{2} O_{3}, O_{3} O_{4}, O_{4} O_{1}$ are the perpendiculars of $P B, P C, P D, P A$, respectively. Let $d_{1} = O O_{1}$, $d_{2} = O O_{2}$, $d_{3} = O O_{3}$, and $d_{4} = O O_{4}$. Note that since the area of $O_{1} O_{2} O_{3} O_{4} = 50$, we have that $(d_{1} + d_{3})(d_{2} + d_{4}) = 100$. Also note that the area of octagon $A O_{1} B O_{2} C O_{3} D O_{4}$ is twice the area of $O_{1} O_{2} O_{3} O_{4}$, which is the same as the area of $A B C D$. Note that the difference between the area of this octagon and $A B C D$ is $\\frac{1}{2} \\cdot 10 \\left[ (d_{1} - 5) + (d_{2} - 5) + (d_{3} - 5) + (d_{4} - 5) \\right]$. Since this must equal $0$, we have $d_{1} + d_{2} + d_{3} + d_{4} = 20$. Combining this with the fact that $(d_{1} + d_{3})(d_{2} + d_{4}) = 100$ gives us $d_{1} + d_{3} = d_{2} + d_{4} = 10$, so $O_{1} O_{3} = O_{2} O_{4} = 10$.\n\nNote that if we translate $A B$ by $10$ to coincide with $D C$, then $O_{1}$ would coincide with $O_{3}$, and thus if $P$ translates to $P'$, then $P C P' D$ is cyclic. In other words, we have $\\angle A P B$ and $\\angle C P D$ are supplementary.\n\nFix any $\\alpha \\in (0^{\\circ}, 180^{\\circ})$. There are at most two points $P$ in $A B C D$ such that $\\angle A P B = \\alpha$ and $\\angle C P D = 180^{\\circ} - \\alpha$ (two circular arcs intersect at most twice). Let $P'$ denote the unique point on $A C$ such that $\\angle A P' B = \\alpha$, and let $P^*$ denote the unique point on $B D$ such that $\\angle A P^* B = \\alpha$. Note that it is not hard to see that we have $\\angle C P' D = \\angle C P^* D = 180^{\\circ} - \\alpha$. Thus, we have $P = P'$ or $P = P^*$, so $P$ must lie on one of the diagonals. Without loss of generality, assume $P = P'$ ($P$ is on $A C$).\n\nNote that $O_{1} O_{2} O_{3} O_{4}$ is an isosceles trapezoid with bases $O_{1} O_{4}$ and $O_{2} O_{3}$. Additionally, the height of the trapezoid is $\\frac{A C}{2} = 5 \\sqrt{2}$. Since the area of the trapezoid is $O_{1} O_{2} O_{3} O_{4}$, we have the midlength of the trapezoid is $\\frac{50}{5 \\sqrt{2}} = 5 \\sqrt{2}$.\n\nAdditionally, note that $\\angle P O_{1} B = 2 \\angle P A B = 90^{\\circ}$. Similarly $\\angle P O_{2} B = 90^{\\circ}$. Combining this with the fact that $O_{1} O_{2}$ perpendicular bisects $P B$, we get that $P O_{1} B O_{2}$ is a square, so $O_{1} O_{2} = P B = \\frac{23 \\sqrt{2} - 10 \\sqrt{2}}{2} = \\frac{13 \\sqrt{2}}{2} = \\sqrt{\\frac{169}{2}}$.\n\nSince this is the second largest side of $O_{1} O_{2} O_{3} O_{4}$, we are done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-translation-auto-4282",
+      "name": "HMMT November 2022 #0ktm",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2022",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Translation",
+        "Angle chasing",
+        "Constructions and loci"
+      ],
+      "statement": "Problem:\n\nLet $ABCD$ be a trapezoid such that $AB \\parallel CD$, $\\angle BAC = 25^{\\circ}$, $\\angle ABC = 125^{\\circ}$, and $AB + AD = CD$. Compute $\\angle ADC$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nConstruct the parallelogram $ABED$. From the condition $AB + AD = CD$, we get that $EC = AD = EB$. Thus,\n$$\n\\angle ADC = \\angle BEC = 180^{\\circ} - 2 \\angle BCE = 180^{\\circ} - 2 \\cdot 55^{\\circ} = 70^{\\circ}.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-translation-auto-4465",
+      "name": "HMMT February 2024 #0kyp",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2024",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Tangents",
+        "Radical axis theorem",
+        "Reflection",
+        "Translation",
+        "Cyclic quadrilaterals",
+        "Angle chasing",
+        "Trigonometry"
+      ],
+      "statement": "Problem:\n\nSuppose point $P$ is inside quadrilateral $A B C D$ such that\n$$\n\\begin{aligned}\n& \\angle P A B = \\angle P D A \\\\\n& \\angle P A D = \\angle P D C, \\\\\n& \\angle P B A = \\angle P C B, \\text{ and } \\\\\n& \\angle P B C = \\angle P C D\n\\end{aligned}\n$$\n\nIf $P A = 4$, $P B = 5$, and $P C = 10$, compute the perimeter of $A B C D$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n![](attached_image_1.png)\n\nFirst of all, note that the angle conditions imply that $\\angle B A D + \\angle A B C = 180^{\\circ}$, so the quadrilateral is a trapezoid with $A D \\parallel B C$. Moreover, they imply $A B$ and $C D$ are both tangent to $(P A D)$ and $(P B C)$; in particular $A B = C D$ or $A B C D$ is isosceles trapezoid. Since the midpoints of $A D$ and $B C$ clearly lie on the radical axis of the two circles, $P$ is on the midline of the trapezoid.\n\nReflect $\\triangle P A B$ over the midline and translate it so that $D = B'$ and $C = A'$. Note that $P'$ is still on the midline. The angle conditions now imply $P D P' C$ is cyclic, and $P P'$ bisects $C D$. This means $10 \\cdot 4 = P C \\cdot C P' = P D \\cdot D P' = 5 \\cdot P D$, so $P D = 8$.\n\nNow $P D P' C$ is a cyclic quadrilateral with side lengths $10, 8, 5, 4$ in that order. Using standard cyclic quadrilateral facts (either law of cosines or three applications on Ptolemy on the three possible quadrilaterals formed with these side lengths) we get $C D = \\frac{2 \\sqrt{410}}{5}$ and $P P' = \\frac{\\sqrt{410}}{2}$. Finally, note that $P P'$ is equal to the midline of the trapezoid, so the final answer is\n$$\n2 \\cdot C D + 2 \\cdot P P' = \\frac{9 \\sqrt{410}}{5}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-translation-auto-4483",
+      "name": "AMC 10 A #0kz7",
+      "url": "https://usamoguide.com/",
+      "source": "AMC 10 A",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Translation",
+        "Rotation",
+        "Homothety",
+        "Cartesian coordinates"
+      ],
+      "statement": "Two transformations are said to *commute* if applying the first followed by the second gives the same result as applying the second followed by the first. Consider these four transformations of the coordinate plane:\n* a translation 2 units to the right,\n* a $90^\\circ$-rotation counterclockwise about the origin,\n* a reflection across the $x$-axis, and\n* a dilation centered at the origin with scale factor $2$.\nOf the $6$ pairs of distinct transformations from this list, how many commute?\n(A) $1$ (B) $2$ (C) $3$ (D) $4$ (E) $5$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Denote the transformations by $T$, $R$, $F$, and $D$ in the order given in the problem statement. Then the images of point $(x, y)$ are $T(x, y) = (x + 2, y)$, $R(x, y) = (-y, x)$, $F(x, y) = (x, -y)$, and $D(x, y) = (2x, 2y)$. The results of applying a pair of transformations in either order are as follows:\n* $T(R(x, y)) = T(-y, x) = (-y + 2, x)$ and $R(T(x, y)) = R(x + 2, y) = (-y, x + 2)$. The results are different, so $T$ and $R$ do not commute.\n* $T(F(x, y)) = T(x, -y) = (x + 2, -y)$ and $F(T(x, y)) = F(x + 2, y) = (x + 2, -y)$. The results are the same, so $T$ and $F$ do commute.\n\n* $T(D(x, y)) = T(2x, 2y) = (2x+2, 2y)$ and $D(T(x, y)) = D(x+2, y) = (2x+4, 2y)$. The results are different, so $T$ and $D$ do not commute.\n* $R(F(x, y)) = R(x, -y) = (y, x)$ and $F(R(x, y)) = F(-y, x) = (-y, -x)$. The results are different, so $R$ and $F$ do not commute.\n* $R(D(x, y)) = R(2x, 2y) = (-2y, 2x)$ and $D(R(x, y)) = D(-y, x) = (-2y, 2x)$. The results are the same, so $R$ and $D$ do commute.\n* $D(F(x, y)) = D(x, -y) = (2x, -2y)$ and $F(D(x, y)) = F(2x, 2y) = (2x, -2y)$. The results are the same, so $D$ and $F$ do commute.\nThus $3$ of the $6$ pairs commute."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-translation-auto-4583",
+      "name": "HMMT November #0l1z",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Translation",
+        "Optimization in geometry",
+        "Trigonometry"
+      ],
+      "statement": "Problem:\n\nRectangle $R$ with area $20$ and diagonal of length $7$ is translated $2$ units in some direction to form a new rectangle $R'$. The vertices of $R$ and $R'$ that are not contained in the other rectangle form a convex hexagon. Compute the maximum possible area of this hexagon.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n![](attached_image_1.png)\n\nDissect the hexagon as shown above, so that it consists of a parallelogram and two triangles which are each half the original rectangle. The parallelogram has side lengths $7$ and $2$, so its maximum possible area is $14$. As the two triangles combined always have the same area as the original rectangle, $20$, the answer is $14+20=34$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-transformations-translation-auto-4689",
+      "name": "HMMT February 2025 #0l4x",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2025",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Volume",
+        "Other 3D problems",
+        "Translation",
+        "Cartesian coordinates"
+      ],
+      "statement": "Problem:\nA plane $\\mathcal{P}$ intersects a rectangular prism at a hexagon which has side lengths $45$, $66$, $63$, $55$, $54$, and $77$, in that order. Compute the distance from the center of the rectangular prism to $\\mathcal{P}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution 1: Translate $\\mathcal{P}$ so that it contains the center. The intersection of the translated plane with the rectangular prism is a centrally symmetric hexagon. Let its side lengths be $a$, $b$, $c$, $a$, $b$, and $c$, in that order. Then, for some $t_{a}$, $t_{b}$, and $t_{c}$, the side lengths of the hexagon before the translation were\n$$(a - t_{a}, b + t_{b}, c - t_{c}, a + t_{a}, b - t_{b}, c + t_{c}) = (45, 66, 63, 55, 54, 77),$$\nfrom which it follows that $t_{a} = 5$, $t_{b} = 6$, and $t_{c} = 7$.\nNow, a translation of a plane can be written in one of three equivalent forms: it can be viewed as a translation in the $x$ direction by a distance $d_{x}$, a translation in the $y$ direction by a distance $d_{y}$, or a translation in the $z$ direction by a distance $d_{z}$ (with coordinate axes chosen as shown below).\n\n![](attached_image_1.png)\n\nAs shown above, we can express $t_{a}$, $t_{b}$, and $t_{c}$ in terms of $d_{x}$, $d_{y}$, and $d_{z}$ using the Pythagorean theorem, which yields $t_{a} = \\sqrt{d_{y}^{2} + d_{z}^{2}}$, $t_{b} = \\sqrt{d_{z}^{2} + d_{x}^{2}}$, and $t_{c} = \\sqrt{d_{x}^{2} + d_{y}^{2}}$. Hence,\n$$(d_{x}^{2}, d_{y}^{2}, d_{z}^{2}) = \\left(\\frac{5^{2} + 6^{2} - 7^{2}}{2}, \\frac{6^{2} + 7^{2} - 5^{2}}{2}, \\frac{7^{2} + 5^{2} - 6^{2}}{2}\\right) = (6, 30, 19).$$\nWe can draw a right pyramid with legs $d_{x}$, $d_{y}$, and $d_{z}$ which has the center of the prism as a vertex with opposite face on $\\mathcal{P}$. Then, the height of this pyramid, or the distance from the center to $\\mathcal{P}$, is\n$$\\sqrt{\\frac{1}{d_{x}^{-2} + d_{y}^{-2} + d_{z}^{-2}}} = \\sqrt{\\frac{1}{6^{-1} + 30^{-1} + 19^{-1}}} = \\sqrt{\\frac{95}{24}};$$\n\n\nSolution 2: Let the vertices of the hexagon be $ABCDEF$, where $AB = 45$, $BC = 66$, etc. Note that $AB \\parallel DE$, $BC \\parallel EF$, and $CD \\parallel FA$. Let $O$ be the center of the prism, and let $M$, $N$, and $P$ be the midpoints of $AD$, $BE$, and $CF$, respectively.\n\n![](attached_image_2.png)\n\nThe key observation is that $MN$ is the midline between $AB$ and $DE$. Hence, plane $OMN$ is the midplane between the faces of the prism containing sides $AB$ and $DE$. Similarly, planes $OMP$ and $ONP$ are the other two midplanes of the prism. Thus, $OM$, $ON$, and $OP$ are mutually orthogonal.\n\nObserve\n$$MN = \\frac{|AB - DE|}{2} = 5, \\quad NP = \\frac{|BC - EF|}{2} = 6, \\quad \\text{and} \\quad PM = \\frac{|CD - FA|}{2} = 7,$$\nso by Heron's formula, we can compute the area of $MNP$ to be $\\sqrt{9(9 - 5)(9 - 6)(9 - 7)} = 6\\sqrt{6}$.\n\nMoreover, if $x = OM$, $y = ON$, and $z = OP$, then,\n$$x^{2} + y^{2} = 5^{2}, \\quad y^{2} + z^{2} = 6^{2}, \\quad \\text{and} \\quad z^{2} + x^{2} = 7^{2}.$$ \nSolving this system of equations gives $x = \\sqrt{19}$, $y = \\sqrt{6}$, and $z = \\sqrt{30}$. Therefore, if $d$ is the distance from $O$ to plane $MNP$ (i.e., the answer), the volume of tetrahedron $OMNP$ can be written as\n$$\\frac{1}{6} \\cdot \\sqrt{19} \\cdot \\sqrt{6} \\cdot \\sqrt{30} = \\frac{1}{3} \\cdot (6\\sqrt{6}) \\cdot d,$$\nSO\n$$d = \\frac{\\sqrt{19 \\cdot 6 \\cdot 30}}{2 \\cdot 6 \\sqrt{6}} = \\sqrt{\\frac{95}{24}}.$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

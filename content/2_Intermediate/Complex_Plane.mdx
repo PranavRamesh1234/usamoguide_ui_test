@@ -1,0 +1,376 @@
+---
+id: complex-plane
+title: The Complex Plane
+author: Pranav Ramesh
+description: Geometry of complex numbers — the Argand plane, magnitude, vectors, and graphing
+prerequisites: [complex-numbers-intro]
+---
+
+## Introduction
+
+So far, complex numbers have been purely algebraic objects: symbols of the form $a + bi$ that we add, multiply, and conjugate by following rules. But there is a stunning geometric world hiding underneath all of that algebra, and unlocking it will make problems that look intractable suddenly obvious.
+
+The key idea is ~~surprisingly simple~~ this: a complex number $a + bi$ carries exactly two pieces of information — its real part $a$ and its imaginary part $b$. That is the same amount of information as a point $(a, b)$ in the plane. So we can *draw* complex numbers.
+
+**The Argand Plane (Complex Plane)**: A coordinate plane with a horizontal **real axis** (labeled $\text{Re}$) and a vertical **imaginary axis** (labeled $\text{Im}$). The complex number $z = a + bi$ corresponds to the point $(a, b)$.
+
+<div style={{ display: 'flex', justifyContent: 'center', margin: '2rem 0' }}>
+  <svg viewBox="0 0 420 340" width="100%" height="340" xmlns="http://www.w3.org/2000/svg">
+    {[60,100,140,180,220,260,300,340,380].map(x => (
+      <line key={x} x1={x} y1="20" x2={x} y2="310" stroke="rgba(255,255,255,0.07)" strokeWidth="1"/>
+    ))}
+    {[40,80,120,160,200,240,280].map(y => (
+      <line key={y} x1="30" y1={y} x2="400" y2={y} stroke="rgba(255,255,255,0.07)" strokeWidth="1"/>
+    ))}
+    <line x1="30" y1="160" x2="400" y2="160" stroke="white" strokeWidth="1.5"/>
+    <polygon points="400,156 410,160 400,164" fill="white"/>
+    <line x1="220" y1="310" x2="220" y2="20" stroke="white" strokeWidth="1.5"/>
+    <polygon points="216,20 220,10 224,20" fill="white"/>
+    <text x="405" y="165" fontFamily="sans-serif" fontSize="13" fill="white">Re</text>
+    <text x="226" y="18" fontFamily="sans-serif" fontSize="13" fill="white">Im</text>
+    {[-3,-2,-1,1,2,3,4].map(n => (
+      <g key={n}>
+        <line x1={220+n*40} y1="156" x2={220+n*40} y2="164" stroke="white" strokeWidth="1"/>
+        <text x={220+n*40} y="176" textAnchor="middle" fontFamily="sans-serif" fontSize="11" fill="rgba(255,255,255,0.6)">{n}</text>
+      </g>
+    ))}
+    {[-3,-2,-1,1,2,3].map(n => (
+      <g key={n}>
+        <line x1="216" y1={160-n*40} x2="224" y2={160-n*40} stroke="white" strokeWidth="1"/>
+        <text x="210" y={164-n*40} textAnchor="end" fontFamily="sans-serif" fontSize="11" fill="rgba(255,255,255,0.6)">{n}</text>
+      </g>
+    ))}
+    <line x1="220" y1="160" x2="258" y2="82" stroke="#818cf8" strokeWidth="1.2" strokeDasharray="4 3"/>
+    <circle cx="260" cy="80" r="5" fill="#818cf8"/>
+    <text x="268" y="76" fontFamily="sans-serif" fontSize="13" fill="#818cf8">1 + 2i</text>
+    <line x1="220" y1="160" x2="102" y2="238" stroke="#f87171" strokeWidth="1.2" strokeDasharray="4 3"/>
+    <circle cx="100" cy="240" r="5" fill="#f87171"/>
+    <text x="20" y="250" fontFamily="sans-serif" fontSize="13" fill="#f87171">−3 − 2i</text>
+    <line x1="220" y1="160" x2="338" y2="238" stroke="#34d399" strokeWidth="1.2" strokeDasharray="4 3"/>
+    <circle cx="340" cy="240" r="5" fill="#34d399"/>
+    <text x="348" y="256" fontFamily="sans-serif" fontSize="13" fill="#34d399">3 − 2i</text>
+    <circle cx="220" cy="160" r="3" fill="rgba(255,255,255,0.5)"/>
+    <text x="208" y="178" textAnchor="end" fontFamily="sans-serif" fontSize="11" fill="rgba(255,255,255,0.5)">O</text>
+  </svg>
+</div>
+
+Some notation to lock in immediately:
+
+- $\text{Re}(z)$ denotes the real part of $z$. So $\text{Re}(2 - 4i) = 2$.
+- $\text{Im}(z)$ denotes the imaginary part (the coefficient of $i$, which is a real number). So $\text{Im}(2 - 4i) = -4$.
+- Some sources write $\mathcal{R}(z)$ and $\mathcal{I}(z)$ for these same quantities.
+
+## Conjugate and Negation: Geometric Meaning
+
+For $z = a + bi$, recall the two cousins: $\bar{z} = a - bi$ (conjugate) and $-z = -a - bi$ (negation). Their algebraic definitions are easy, but the Argand plane reveals their geometry instantly.
+
+**Theorem**: For any complex number $z$:
+- $\bar{z}$ is the reflection of $z$ over the **real axis**.
+- $-\bar{z}$ is the reflection of $z$ over the **imaginary axis**.
+- $-z$ is the $180°$ rotation of $z$ about the origin.
+
+*Why?* If $z = a + bi$, then $\bar{z} = a + (-b)i$: same real part, opposite imaginary part. Flipping the imaginary coordinate is exactly a reflection over the real axis. Similarly, $-\bar{z} = -a + bi$: same imaginary part, opposite real part — a reflection over the imaginary axis. Finally, $-z = -a - bi$ has both coordinates negated, which is a $180°$ rotation about the origin.
+
+<div style={{ display: 'flex', justifyContent: 'center', margin: '2rem 0' }}>
+  <svg viewBox="0 0 400 360" width="100%" height="360" xmlns="http://www.w3.org/2000/svg">
+    <line x1="20" y1="180" x2="380" y2="180" stroke="white" strokeWidth="1.5"/>
+    <polygon points="380,176 390,180 380,184" fill="white"/>
+    <line x1="200" y1="350" x2="200" y2="20" stroke="white" strokeWidth="1.5"/>
+    <polygon points="196,20 200,10 204,20" fill="white"/>
+    <text x="385" y="185" fontFamily="sans-serif" fontSize="13" fill="white">Re</text>
+    <text x="206" y="18" fontFamily="sans-serif" fontSize="13" fill="white">Im</text>
+    <rect x="90" y="70" width="220" height="220" fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="1" strokeDasharray="4 4"/>
+    <line x1="310" y1="70" x2="310" y2="290" stroke="#818cf8" strokeWidth="1" strokeDasharray="5 4"/>
+    <line x1="90" y1="70" x2="310" y2="70" stroke="#fbbf24" strokeWidth="1" strokeDasharray="5 4"/>
+    <line x1="90" y1="290" x2="310" y2="70" stroke="#f87171" strokeWidth="1" strokeDasharray="5 4"/>
+    <circle cx="310" cy="70" r="7" fill="#818cf8"/>
+    <text x="318" y="66" fontFamily="sans-serif" fontSize="13" fill="#818cf8">z = 2+2i</text>
+    <circle cx="310" cy="290" r="7" fill="#34d399"/>
+    <text x="318" y="306" fontFamily="sans-serif" fontSize="13" fill="#34d399">z̄ = 2−2i</text>
+    <text x="340" y="186" fontFamily="sans-serif" fontSize="11" fill="#34d399">reflect</text>
+    <text x="340" y="200" fontFamily="sans-serif" fontSize="11" fill="#34d399">over Re</text>
+    <circle cx="90" cy="70" r="7" fill="#fbbf24"/>
+    <text x="5" y="66" fontFamily="sans-serif" fontSize="13" fill="#fbbf24">−z̄</text>
+    <text x="200" y="58" textAnchor="middle" fontFamily="sans-serif" fontSize="11" fill="#fbbf24">reflect over Im</text>
+    <circle cx="90" cy="290" r="7" fill="#f87171"/>
+    <text x="5" y="296" fontFamily="sans-serif" fontSize="13" fill="#f87171">−z</text>
+    <text x="168" y="222" fontFamily="sans-serif" fontSize="11" fill="#f87171">180°</text>
+    <text x="152" y="236" fontFamily="sans-serif" fontSize="11" fill="#f87171">rotation</text>
+    <circle cx="200" cy="180" r="3" fill="rgba(255,255,255,0.5)"/>
+    <text x="188" y="198" textAnchor="end" fontFamily="sans-serif" fontSize="11" fill="rgba(255,255,255,0.5)">O</text>
+  </svg>
+</div>
+
+> **Rule of thumb**: Don't memorize these as facts — derive them in five seconds from the definition. If you truly understand that $\bar{z}$ flips the imaginary part, the reflection over the real axis is immediate.
+
+A handy algebraic consequence: for any complex $z$,
+
+$$
+\text{Re}(z) = \frac{z + \bar{z}}{2}, \qquad \text{Im}(z) = \frac{z - \bar{z}}{2i}
+$$
+
+*Proof*: Let $z = a + bi$, so $\bar{z} = a - bi$. Then $z + \bar{z} = 2a$ and $z - \bar{z} = 2bi$, giving $\dfrac{z-\bar{z}}{2i} = \dfrac{2bi}{2i} = b$.
+
+These identities convert between expressions in $z, \bar{z}$ and geometric constraints on $\text{Re}(z), \text{Im}(z)$ — extremely useful for graphing.
+
+## Complex Numbers as Vectors
+
+Every complex number $z = a + bi$ corresponds to a point $(a, b)$, but also to the **vector** $\langle a, b \rangle$ from the origin to that point. Both views pay dividends.
+
+**Addition = vector addition.** If $w = a + bi$ and $z = c + di$, then $w + z = (a+c) + (b+d)i$ — the componentwise sum $\langle a,b \rangle + \langle c,d \rangle$. Geometrically, this is the parallelogram law.
+
+**Theorem (Parallelogram Law)**: For nonzero $w$ and $z$ where $w/z$ is not real, the four points $O$, $w$, $w + z$, and $z$ form a **parallelogram**.
+
+*Why?* The vector from $O$ to $w$ equals the vector from $z$ to $w+z$ (both are $\langle a, b\rangle$). Similarly, the vector from $O$ to $z$ equals the vector from $w$ to $w+z$. Two pairs of parallel, equal sides — that is a parallelogram by definition.
+
+<div style={{ display: 'flex', justifyContent: 'center', margin: '2rem 0' }}>
+  <svg viewBox="0 0 400 320" width="100%" height="320" xmlns="http://www.w3.org/2000/svg">
+    <line x1="40" y1="260" x2="390" y2="260" stroke="white" strokeWidth="1.5"/>
+    <polygon points="390,256 400,260 390,264" fill="white"/>
+    <line x1="60" y1="300" x2="60" y2="20" stroke="white" strokeWidth="1.5"/>
+    <polygon points="56,20 60,10 64,20" fill="white"/>
+    <text x="395" y="265" fontFamily="sans-serif" fontSize="13" fill="white">Re</text>
+    <text x="66" y="18" fontFamily="sans-serif" fontSize="13" fill="white">Im</text>
+    <polygon points="60,260 170,95 335,40 225,205" fill="rgba(129,140,248,0.08)" stroke="none"/>
+    <line x1="60" y1="260" x2="164" y2="101" stroke="#818cf8" strokeWidth="2.5" strokeLinecap="round"/>
+    <polygon points="164,101 170,95 158,97" fill="#818cf8"/>
+    <line x1="60" y1="260" x2="219" y2="211" stroke="#34d399" strokeWidth="2.5" strokeLinecap="round"/>
+    <polygon points="219,211 225,205 213,207" fill="#34d399"/>
+    <line x1="170" y1="95" x2="329" y2="46" stroke="#34d399" strokeWidth="2" strokeDasharray="6 4" strokeLinecap="round"/>
+    <polygon points="329,46 335,40 323,42" fill="#34d399"/>
+    <line x1="225" y1="205" x2="329" y2="46" stroke="#818cf8" strokeWidth="2" strokeDasharray="6 4" strokeLinecap="round"/>
+    <polygon points="329,46 335,40 323,42" fill="#818cf8"/>
+    <line x1="60" y1="260" x2="329" y2="46" stroke="rgba(255,255,255,0.2)" strokeWidth="1" strokeDasharray="4 4"/>
+    <circle cx="60" cy="260" r="4" fill="white"/>
+    <text x="48" y="276" fontFamily="sans-serif" fontSize="13" fill="white">O</text>
+    <circle cx="170" cy="95" r="6" fill="#818cf8"/>
+    <text x="118" y="88" fontFamily="sans-serif" fontSize="13" fill="#818cf8">w = 2+3i</text>
+    <circle cx="225" cy="205" r="6" fill="#34d399"/>
+    <text x="232" y="222" fontFamily="sans-serif" fontSize="13" fill="#34d399">z = 3+1i</text>
+    <circle cx="335" cy="40" r="6" fill="#fbbf24"/>
+    <text x="290" y="34" fontFamily="sans-serif" fontSize="13" fill="#fbbf24">w+z = 5+4i</text>
+    <text x="190" y="185" textAnchor="middle" fontFamily="sans-serif" fontSize="12" fill="rgba(255,255,255,0.35)" fontStyle="italic">parallelogram</text>
+  </svg>
+</div>
+
+The subtraction $w - z$ also has a clean geometric meaning: it is the vector **from $z$ to $w$**. This connects directly to distance.
+
+## Magnitude
+
+The **magnitude** (or **modulus**) of $z$, written $|z|$, is the distance from $z$ to the origin.
+
+$$
+|a + bi| = \sqrt{a^2 + b^2}
+$$
+
+This is just the Pythagorean theorem applied to the right triangle with legs $a$ and $b$.
+
+<div style={{ display: 'flex', justifyContent: 'center', margin: '2rem 0' }}>
+  <svg viewBox="0 0 360 280" width="100%" height="280" xmlns="http://www.w3.org/2000/svg">
+    <line x1="40" y1="220" x2="340" y2="220" stroke="white" strokeWidth="1.5"/>
+    <polygon points="340,216 350,220 340,224" fill="white"/>
+    <line x1="60" y1="260" x2="60" y2="30" stroke="white" strokeWidth="1.5"/>
+    <polygon points="56,30 60,20 64,30" fill="white"/>
+    <text x="345" y="225" fontFamily="sans-serif" fontSize="13" fill="white">Re</text>
+    <text x="66" y="28" fontFamily="sans-serif" fontSize="13" fill="white">Im</text>
+    <polygon points="60,220 210,220 210,70" fill="rgba(255,255,255,0.04)" stroke="none"/>
+    <line x1="60" y1="220" x2="210" y2="220" stroke="#60a5fa" strokeWidth="2.5" strokeLinecap="round"/>
+    <text x="135" y="242" textAnchor="middle" fontFamily="sans-serif" fontSize="13" fill="#60a5fa">Re(z) = 3</text>
+    <line x1="210" y1="220" x2="210" y2="70" stroke="#34d399" strokeWidth="2.5" strokeLinecap="round"/>
+    <text x="255" y="148" textAnchor="middle" fontFamily="sans-serif" fontSize="13" fill="#34d399">Im(z) = 3</text>
+    <line x1="60" y1="220" x2="210" y2="70" stroke="#818cf8" strokeWidth="2.5" strokeLinecap="round"/>
+    <text x="108" y="130" fontFamily="sans-serif" fontSize="13" fill="#818cf8" transform="rotate(-45,108,130)">|z| = 3√2</text>
+    <rect x="196" y="206" width="14" height="14" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="1"/>
+    <circle cx="210" cy="70" r="6" fill="#818cf8"/>
+    <text x="218" y="64" fontFamily="sans-serif" fontSize="13" fill="#818cf8">z = 3+3i</text>
+    <circle cx="60" cy="220" r="4" fill="rgba(255,255,255,0.5)"/>
+    <text x="48" y="238" fontFamily="sans-serif" fontSize="11" fill="rgba(255,255,255,0.5)">O</text>
+  </svg>
+</div>
+
+**Key properties** of magnitude:
+
+$$
+|z| \geq 0, \quad |z| = 0 \iff z = 0
+$$
+$$
+z\bar{z} = a^2 + b^2 = |z|^2
+$$
+$$
+|wz| = |w|\cdot|z|, \qquad \left|\frac{w}{z}\right| = \frac{|w|}{|z|}
+$$
+
+The last two say magnitude is **multiplicative** — one of its most useful properties in competition math.
+
+**Examples:**
+- $|5 - 12i| = \sqrt{25 + 144} = 13$
+- $|3 - 3i| = \sqrt{9 + 9} = 3\sqrt{2}$
+- $|(1+2i)(2+i)| = |1+2i|\cdot|2+i| = \sqrt{5}\cdot\sqrt{5} = 5$
+
+> **Competition tip**: When asked for $|f(z)|$ where $f$ is a product or quotient, split the magnitude immediately rather than expanding. $|(1+i)^{10}| = |1+i|^{10} = (\sqrt{2})^{10} = 32$ in two steps.
+
+## Distance in the Complex Plane
+
+The distance between two complex numbers $w$ and $z$ equals $|w - z|$.
+
+*Why?* In Cartesian terms, the distance between $(a, b)$ and $(c, d)$ is $\sqrt{(a-c)^2 + (b-d)^2}$. But $w - z = (a-c) + (b-d)i$, so $|w - z| = \sqrt{(a-c)^2 + (b-d)^2}$. They are the same expression.
+
+$$
+\boxed{\text{dist}(w, z) = |w - z|}
+$$
+
+This converts every geometric distance problem into an absolute value problem, and vice versa.
+
+**Example:** Distance between $w = 3 - 5i$ and $z = -2 + 7i$:
+
+$$
+w - z = 5 - 12i \implies |w - z| = \sqrt{25 + 144} = 13
+$$
+
+**Midpoint formula**: The midpoint of the segment joining $z_1$ and $z_2$ is $\dfrac{z_1 + z_2}{2}$.
+
+*Why?* The midpoint of $(a_1,b_1)$ and $(a_2,b_2)$ is $\left(\dfrac{a_1+a_2}{2}, \dfrac{b_1+b_2}{2}\right)$, which corresponds exactly to $\dfrac{z_1+z_2}{2}$. $\blacksquare$
+
+## Graphing Equations in the Complex Plane
+
+We graph equations involving $z$ the same way we graph equations in $x, y$: plot all values of $z$ satisfying the equation. The translation dictionary is:
+
+$$
+\text{Re}(z) = \frac{z + \bar{z}}{2} \longleftrightarrow x\text{-coordinate}, \qquad \text{Im}(z) = \frac{z - \bar{z}}{2i} \longleftrightarrow y\text{-coordinate}
+$$
+
+**Standard approach**: Write $z = a + bi$, substitute, reduce to a familiar $xy$-equation, then read off the curve.
+
+### Lines
+
+**Example:** Graph all $z$ satisfying $z + \bar{z} = 12$.
+
+Since $z + \bar{z} = 2\text{Re}(z)$, we get $\text{Re}(z) = 6$: a vertical line through $6$ on the real axis.
+
+**Example:** Graph all $z$ satisfying $(3 + 2i)z + (3 - 2i)\bar{z} = 36$.
+
+Write $z = a + bi$ and expand. Since $3 - 2i = \overline{3+2i}$, the left side simplifies to $2(3a - 2b)$, giving $3a - 2b = 18$, i.e. $3\text{Re}(z) - 2\text{Im}(z) = 18$ — a line.
+
+> **Pattern to memorize**: An equation of the form $\alpha z + \bar{\alpha}\bar{z} = c$ (with $\alpha \in \mathbb{C}$, $c \in \mathbb{R}$) always graphs as a **line**. Write $\alpha = p + qi$; the line has equation $2p \cdot \text{Re}(z) - 2q \cdot \text{Im}(z) = c$.
+
+### Circles
+
+The most important graphing result in this module:
+
+**Theorem**: $|z - w| = r$ (with $w \in \mathbb{C}$, $r \geq 0$) is the **circle of radius $r$ centered at $w$**.
+
+*Proof*: $|z - w| = r$ says the distance from $z$ to $w$ is $r$. That is literally the definition of a circle. $\blacksquare$
+
+<div style={{ display: 'flex', justifyContent: 'center', margin: '2rem 0' }}>
+  <svg viewBox="0 0 420 220" width="100%" height="220" xmlns="http://www.w3.org/2000/svg">
+    <line x1="30" y1="110" x2="195" y2="110" stroke="white" strokeWidth="1"/>
+    <polygon points="195,107 200,110 195,113" fill="white"/>
+    <line x1="105" y1="195" x2="105" y2="25" stroke="white" strokeWidth="1"/>
+    <polygon points="102,25 105,20 108,25" fill="white"/>
+    <circle cx="105" cy="110" r="55" fill="rgba(129,140,248,0.1)" stroke="#818cf8" strokeWidth="2"/>
+    <circle cx="105" cy="110" r="3" fill="#818cf8"/>
+    <line x1="105" y1="110" x2="144" y2="71" stroke="#818cf8" strokeWidth="1.5" strokeDasharray="4 3"/>
+    <text x="150" y="68" fontFamily="sans-serif" fontSize="11" fill="#818cf8">r=2</text>
+    <text x="105" y="212" textAnchor="middle" fontFamily="sans-serif" fontSize="12" fill="#818cf8">|z| = 2</text>
+    <line x1="210" y1="110" x2="410" y2="110" stroke="white" strokeWidth="1"/>
+    <polygon points="410,107 415,110 410,113" fill="white"/>
+    <line x1="245" y1="195" x2="245" y2="25" stroke="white" strokeWidth="1"/>
+    <polygon points="242,25 245,20 248,25" fill="white"/>
+    <circle cx="329" cy="110" r="56" fill="rgba(52,211,153,0.08)" stroke="#34d399" strokeWidth="2"/>
+    <circle cx="329" cy="110" r="3" fill="#34d399"/>
+    <line x1="329" y1="110" x2="368" y2="71" stroke="#34d399" strokeWidth="1.5" strokeDasharray="4 3"/>
+    <text x="373" y="68" fontFamily="sans-serif" fontSize="11" fill="#34d399">r=2</text>
+    <text x="329" y="124" textAnchor="middle" fontFamily="sans-serif" fontSize="11" fill="rgba(255,255,255,0.5)">3</text>
+    <text x="310" y="212" textAnchor="middle" fontFamily="sans-serif" fontSize="12" fill="#34d399">|z − 3| = 2</text>
+  </svg>
+</div>
+
+| Equation | Center | Radius |
+|---|---|---|
+| $\|z\| = 3$ | Origin | $3$ |
+| $\|z - 4\| = 3$ | $4$ (on real axis) | $3$ |
+| $\|z - (2+3i)\| = 5$ | $2 + 3i$ | $5$ |
+| $\|z + 5 - 4i\| = 2\sqrt{2}$ | $-5 + 4i$ | $2\sqrt{2}$ |
+
+### Perpendicular Bisectors
+
+**Example:** Find and graph all $z$ such that $|z - 3| = |z + 2i|$.
+
+**Geometric reading**: $|z - 3|$ is the distance from $z$ to $3$; $|z + 2i| = |z - (-2i)|$ is the distance from $z$ to $-2i$. So the equation says $z$ is equidistant from $3$ and $-2i$ — that is the **perpendicular bisector** of the segment joining $3$ and $-2i$.
+
+**Algebraic check**: Let $z = a + bi$.
+
+$$
+(a-3)^2 + b^2 = a^2 + (b+2)^2
+$$
+$$
+-6a + 9 = 4b + 4 \implies 6\text{Re}(z) + 4\text{Im}(z) = 5
+$$
+
+A line, as expected.
+
+> **Key insight**: $|z - \alpha| = |z - \beta|$ always graphs as the **perpendicular bisector** of $\alpha\beta$. Recognize this pattern and you save a page of algebra.
+
+**General principle**: Complex number equations have both algebraic and geometric readings. When the algebra looks messy, switch to the geometric picture. When the geometry is unclear, write $z = a + bi$ and expand.
+
+## Perpendicularity and the Imaginary Quotient
+
+A beautiful fact connects geometry to complex division:
+
+**Theorem**: Two nonzero vectors from the origin, $w$ and $z$, are **perpendicular** if and only if $w/z$ is **purely imaginary**.
+
+*Why?* Perpendicularity means the dot product is zero: $\text{Re}(w)\text{Re}(z) + \text{Im}(w)\text{Im}(z) = 0$. Now compute:
+
+$$
+\text{Re}\!\left(\frac{w}{z}\right) = \text{Re}\!\left(\frac{w\bar{z}}{|z|^2}\right) = \frac{\text{Re}(w\bar{z})}{|z|^2} = \frac{\text{Re}(w)\text{Re}(z) + \text{Im}(w)\text{Im}(z)}{|z|^2}
+$$
+
+This is zero exactly when the dot product is zero. And $\text{Re}(w/z) = 0$ is exactly the condition for $w/z$ to be purely imaginary. $\blacksquare$
+
+Likewise, $w \parallel z$ (same or opposite direction) if and only if $w/z$ is **purely real**.
+
+## Worked Examples
+
+> **AMC 12 — Four vertices of a square**
+>
+> Three vertices of a square in the complex plane are $1 + 2i$, $-2 + i$, and $-1 - 2i$. Find the fourth.
+>
+> Check: $(-1-2i) = -(1+2i)$, so these two are negatives of each other — they lie symmetrically about the origin, hence the origin is the center of the square. The fourth vertex must be the negative of $-2+i$, which is $\mathbf{2-i}$.
+
+> **AMC 12 — $S$ is real**
+>
+> Let $S$ be the set of $z$ such that $(3+4i)z$ is real. Describe $S$.
+>
+> Write $z = a+bi$. Then $(3+4i)(a+bi) = (3a-4b) + (4a+3b)i$. For this to be real: $4a + 3b = 0$, i.e. $4\text{Re}(z) + 3\text{Im}(z) = 0$. This is a line through the origin with slope $-4/3$.
+
+> **Distance computation**
+>
+> Distance between $4 + 7i$ and $-3 - 17i$:
+> $$|(4+7i) - (-3-17i)| = |7 + 24i| = \sqrt{49 + 576} = \sqrt{625} = 25$$
+
+## Summary
+
+| Object | Geometric meaning |
+|---|---|
+| $z = a + bi$ | Point $(a, b)$ / vector $\langle a,b\rangle$ |
+| $\bar{z}$ | Reflection over the real axis |
+| $-\bar{z}$ | Reflection over the imaginary axis |
+| $-z$ | $180°$ rotation about origin |
+| $\|z\|$ | Distance from $z$ to origin |
+| $\|w - z\|$ | Distance from $w$ to $z$ |
+| $\dfrac{z_1 + z_2}{2}$ | Midpoint of $z_1 z_2$ |
+| $w + z$ | Vector sum (parallelogram law) |
+| $\|z - w\| = r$ | Circle of radius $r$ centered at $w$ |
+| $\|z - \alpha\| = \|z - \beta\|$ | Perpendicular bisector of $\alpha\beta$ |
+| $w/z \in i\mathbb{R}$ | $w \perp z$ (from origin) |
+| $w/z \in \mathbb{R}$ | $w \parallel z$ (from origin) |
+
+## Remarks
+
+The geometric and algebraic viewpoints on complex numbers are ~~two alternatives~~ two lenses that work best in different situations. Some problems are cleanest algebraically (expand, separate real and imaginary parts, equate). Others become trivial once you draw the picture (perpendicular bisectors, circles, parallelograms). The skill to develop is recognizing which lens is sharper for the problem in front of you.
+
+In the next module, polar form and Euler's formula will reveal a third lens: the rotational and scaling interpretation of complex multiplication, which completes the picture entirely.
+
+## Practice Problems
+
+<Problems problems="practice" />

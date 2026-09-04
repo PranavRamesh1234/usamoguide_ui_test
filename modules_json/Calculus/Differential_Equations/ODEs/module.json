@@ -1,0 +1,237 @@
+{
+  "MODULE_ID": "calculus-differential-equations-odes",
+  "practice": [
+    {
+      "uniqueId": "calculus-differential-equations-odes-auto-0601",
+      "name": "Harvard-MIT Math Tournament #0hzd",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Derivatives",
+        "ODEs"
+      ],
+      "statement": "Problem:\nFind all twice differentiable functions $f(x)$ such that $f^{\\prime \\prime}(x)=0$, $f(0)=19$, and $f(1)=99$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nSince $f^{\\prime \\prime}(x)=0$ we must have $f(x)=a x + b$ for some real numbers $a, b$.\n\nThus $f(0) = b = 19$ and $f(1) = a + 19 = 99$, so $a = 80$.\n\nTherefore $f(x) = 80 x + 19$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-differential-equations-odes-auto-0766",
+      "name": "Harvard-MIT Math Tournament #0i3y",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "ODEs",
+        "Applications"
+      ],
+      "statement": "Problem:\n\nOn the planet Lemniscate, the people use the elliptic table of elements, a far more advanced version of our periodic table. They're not very good at calculus, though, so they've asked for your help. They know that Kr is somewhat radioactive and deteriorates into Pl, a very unstable element that deteriorates to form the stable element As. They started with a block of Kr of size 10 and nothing else. (Their units don't translate into English, sorry.) At time $t$, they let $x(t)$ be the amount of Kr, $y(t)$ the amount of Pl, and $z(t)$ the amount of As. They know that $x'(t) = -x$, and that, in the absence of Kr, $y'(t) = -2y$. Your job is to find at what time $t$ the quantity of Pl will be largest. You should assume that the entire amount of Kr that deteriorates has turned into Pl.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThis problem is long-winded since it's giving an autonomous linear system of differential equations without using any such language (and it includes a number of subtle references). The system we have is $x' = -x$, $y' = x - 2y$. It's not hard to see that $x = 10 e^{-t}$ satisfies the first equation and the initial condition. Plugging this into the second equation and using the integrating factor $e^{2t}$ (or using eigenvalues and eigenvectors to solve the system directly, though I don't want to begin to explain what that means) lets us solve for $y$. More precisely, we want to solve $y' + 2y = 10 e^{-t}$. Multiply by $e^{2t}$ and simplify the left hand side to get $(y e^{2t})' = 10 e^{t}$. Integrating both sides with respect to $t$ then yields $y e^{2t} = 10 e^{t} + C$, or $y = 10 e^{-t} + C e^{-2t}$. Since $y(0) = 0$, we find $C = -10$. Now to maximize $y$, we solve $y'(t) = 0$, or $-10 e^{-t} + 20 e^{-2t} = 0$, or $t = \\ln 2$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-differential-equations-odes-auto-0886",
+      "name": "Harvard-MIT Math Tournament #0i7a",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Derivatives",
+        "Single-variable",
+        "ODEs"
+      ],
+      "statement": "Problem:\n\nSuppose $f$ is a differentiable real function such that $f(x) + f'(x) \\leq 1$ for all $x$, and $f(0) = 0$. What is the largest possible value of $f(1)$? (Hint: consider the function $e^{x} f(x)$.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n$1 - 1/e$\n\nLet $g(x) = e^{x} f(x)$; then $g'(x) = e^{x} (f(x) + f'(x)) \\leq e^{x}$. Integrating from $0$ to $1$, we have\n$$\ng(1) - g(0) = \\int_{0}^{1} g'(x) \\, dx \\leq \\int_{0}^{1} e^{x} \\, dx = e - 1.\n$$\nBut $g(1) - g(0) = e \\cdot f(1)$, so we get $f(1) \\leq (e - 1)/e$.\n\nThis maximum is attained if we actually have $g'(x) = e^{x}$ everywhere; this entails the requirement $f(x) + f'(x) = 1$, which is met by $f(x) = 1 - e^{-x}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-differential-equations-odes-auto-1008",
+      "name": "Harvard-MIT Mathematics Tournament #0iao",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Derivatives",
+        "ODEs"
+      ],
+      "statement": "Problem:\n\nTwo differentiable real functions $f(x)$ and $g(x)$ satisfy\n$$\n\\frac{f^{\\prime}(x)}{g^{\\prime}(x)}=e^{f(x)-g(x)}\n$$\nfor all $x$, and $f(0)=g(2003)=1$. Find the largest constant $c$ such that $f(2003)>c$ for all such functions $f, g$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution: $1-\\ln 2$\n\nRearranging the given equation gives $f^{\\prime}(x) e^{-f(x)}=g^{\\prime}(x) e^{-g(x)}$ for all $x$, so\n$$\n\\frac{d}{d x}\\left(e^{-f(x)}-e^{-g(x)}\\right)=-f^{\\prime}(x) e^{-f(x)}+g^{\\prime}(x) e^{-g(x)}=0.\n$$\nThus, $e^{-f(x)}-e^{-g(x)}$ is a constant, and it must be less than $e^{-f(0)}=e^{-1}$. Thus,\n$$\ne^{-f(2003)}<e^{-g(2003)}+e^{-1}=2 e^{-1}=e^{\\ln 2-1} \\Rightarrow f(2003)>1-\\ln 2.\n$$\nOn the other hand, we can find positive-valued functions $e^{-f(x)}, e^{-g(x)}$ that take on the required values at $0$ and $2003$ and have constant difference arbitrarily close to $e^{-1}$. For example, for arbitrarily large $t$, we can set\n$$\ne^{-f(x)}=e^{-(t(2003-x)+1)}+e^{-1}-e^{-(2003 t+1)}\n$$\nand\n$$\ne^{-g(x)}=e^{-(t(2003-x)+1)},\n$$\nand we can check that the resulting functions $f, g$ satisfy the required conditions. Thus, we can make $f(2003)$ arbitrarily close to $1-\\ln 2$, so this is the answer."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-differential-equations-odes-auto-1144",
+      "name": "Harvard-MIT Mathematics Tournament #0ieg",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "ODEs",
+        "Trigonometric functions"
+      ],
+      "statement": "Problem:\nLet $f: \\mathbf{R} \\rightarrow \\mathbf{R}$ be a smooth function such that $f'(x) = f(1-x)$ for all $x$ and $f(0) = 1$. Find $f(1)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nDifferentiating the given equation gives $f''(x) = -f(x)$. This has solutions of the form $A \\cos(x) + B \\sin(x)$. Since $f(0) = 1$, $A = 1$. Then $f'(x) = B \\cos(x) - \\sin(x)$ and\n\n$$\n\\begin{aligned}\nf(1-x) & = \\cos(1-x) + B \\sin(1-x) \\\\\n& = \\cos 1 \\cos x + \\sin 1 \\sin x + B \\sin 1 \\cos x - B \\cos 1 \\sin x \\\\\n& = (\\cos 1 + B \\sin 1) \\cos x + (\\sin 1 - B \\cos 1) \\sin x\n\\end{aligned}\n$$\n\nTherefore, $B = \\cos 1 + B \\sin 1$ and $-1 = \\sin 1 - B \\cos 1$, both of which yield as solutions\n\n$$\nB = \\frac{\\cos 1}{1 - \\sin 1} = \\frac{1 + \\sin 1}{\\cos 1} = \\sec 1 + \\tan 1\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-differential-equations-odes-auto-1204",
+      "name": "Harvard-MIT Mathematics Tournament #0ig4",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "ODEs",
+        "Derivatives"
+      ],
+      "statement": "Problem:\nLet $f: \\mathbf{R} \\rightarrow \\mathbf{R}$ be a smooth function such that $f'(x)^2 = f(x) f''(x)$ for all $x$. Suppose $f(0) = 1$ and $f^{(4)}(0) = 9$. Find all possible values of $f'(0)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution: $\\pm \\sqrt{3}$\nLet $f'(0) = a$. Then the equation gives $f''(0) = a^2$. Differentiating the given equation gives\n$$\n2 f'(x) f''(x) = f(x) f'''(x) + f'(x) f''(x)\n$$\nor $f'(x) f''(x) = f(x) f'''(x)$. Differentiating once more gives\n$$\nf'(x) f'''(x) + f''(x)^2 = f(x) f^{(4)}(x) + f'(x) f'''(x)\n$$\nor $f''(x)^2 = f(x) f^{(4)}(x)$, giving $9 = f^{(4)}(0) = a^4$. Thus $a = \\pm \\sqrt{3}$. These are indeed both attainable by $f(x) = e^{\\pm x \\sqrt{3}}$.\n\nAlternative Solution: Rewrite the given equation as $\\frac{f''(x)}{f'(x)} = \\frac{f'(x)}{f(x)}$. Integrating both sides gives $\\ln f'(x) = \\ln f(x) + C_1$, and exponentiating gives $f'(x) = C f(x)$. This has solution $f(x) = A e^{C x}$ for constants $A$ and $C$. Since $f(0) = 1$, $A = 1$, and differentiating we find that $C^4 = f^{(4)}(0) = 9$, yielding $f'(0) = C = \\pm \\sqrt{3}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-differential-equations-odes-auto-1515",
+      "name": "Harvard-MIT Mathematics Tournament #0ior",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "ODEs",
+        "Limits",
+        "Trigonometric functions"
+      ],
+      "statement": "Problem:\n\ng is a twice differentiable function over the positive reals such that\n$$\n\\begin{aligned}\ng(x)+2 x^{3} g^{\\prime}(x)+x^{4} g^{\\prime \\prime}(x) & =0 \\quad \\text{ for all positive reals } x . \\\\\n\\lim _{x \\rightarrow \\infty} x g(x) & =1\n\\end{aligned}\n$$\nFind the real number $\\alpha>1$ such that $g(\\alpha)=1 / 2$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $\\frac{6}{\\pi}$.\n\nIn the first equation, we can convert the expression $2 x^{3} g^{\\prime}(x)+x^{4} g^{\\prime \\prime}(x)$ into the derivative of a product, and in fact a second derivative, by writing $y=1 / x$. Specifically,\n$$\n\\begin{aligned}\n0=g(x)+2 x^{3} g^{\\prime}(x)+x^{4} g^{\\prime \\prime}(x) & =g\\left(\\frac{1}{y}\\right)+2 y^{-3} g^{\\prime}\\left(\\frac{1}{y}\\right)+y^{-4} g^{\\prime \\prime}\\left(\\frac{1}{y}\\right) \\\\\n& =g\\left(\\frac{1}{y}\\right)+\\frac{\\mathrm{d}}{\\mathrm{~d} y}\\left[-y^{-2} g^{\\prime}\\left(\\frac{1}{y}\\right)\\right] \\\\\n& =g\\left(\\frac{1}{y}\\right)+\\frac{\\mathrm{d}^{2}}{\\mathrm{~d} y^{2}}\\left[g\\left(\\frac{1}{y}\\right)\\right]\n\\end{aligned}\n$$\nThus $g\\left(\\frac{1}{y}\\right)=c_{1} \\cos (y)+c_{2} \\sin (y)$ or $g(x)=c_{1} \\cos (1 / x)+c_{2} \\sin (1 / x)$.\n\nNow the second condition gives\n$$\n1=\\lim _{x \\rightarrow \\infty} c_{1} x+c_{2} \\cdot \\frac{\\sin (1 / x)}{1 / x}=c_{2}+\\lim _{x \\rightarrow \\infty} c_{1} x\n$$\nIt must be that $c_{1}=0, c_{2}=1$.\n\nNow since $0<1 / \\alpha<1$, the value of $\\alpha$ such that $g(\\alpha)=\\sin (1 / \\alpha)=1 / 2$ is given by $1 / \\alpha=\\pi / 6$ and so $\\alpha=6 / \\pi$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-differential-equations-odes-auto-1928",
+      "name": "Harvard-MIT Mathematics Tournament #0j08",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Derivatives",
+        "ODEs"
+      ],
+      "statement": "Problem:\nLet $f$ be a function such that $f(0)=1$, $f'(0)=2$, and\n$$\nf''(t)=4 f'(t)-3 f(t)+1\n$$\nfor all $t$. Compute the 4th derivative of $f$, evaluated at $0$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nPutting $t=0$ gives $f''(0)=6$.\n\nBy differentiating both sides, we get\n$$\nf^{(3)}(t)=4 f''(t)-3 f'(t)\n$$\nand\n$$\nf^{(3)}(0)=4 \\cdot 6 - 3 \\cdot 2 = 18.\n$$\nSimilarly,\n$$\nf^{(4)}(t)=4 f^{(3)}(t)-3 f''(t)\n$$\nand\n$$\nf^{(4)}(0)=4 \\cdot 18 - 3 \\cdot 6 = 54.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-differential-equations-odes-auto-2054",
+      "name": "Harvard-MIT Mathematics Tournament #0j3q",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "ODEs"
+      ],
+      "statement": "Problem:\nLet $x(t)$ be a solution to the differential equation\n$$\n\\left(x + x'\\right)^2 + x \\cdot x'' = \\cos t\n$$\nwith $x(0) = x'(0) = \\sqrt{\\frac{2}{5}}$. Compute $x\\left(\\frac{\\pi}{4}\\right)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $\\frac{\\sqrt[4]{450}}{5}$\n\nRewrite the equation as $x^2 + 2x x' + (x x')' = \\cos t$. Let $y = x^2$, so $y' = 2x x'$ and the equation becomes $y + y' + \\frac{1}{2} y'' = \\cos t$.\n\nThe term $\\cos t$ suggests that the particular solution should be in the form $A \\sin t + B \\cos t$. By substitution and coefficient comparison, we get $A = \\frac{4}{5}$ and $B = \\frac{2}{5}$.\n\nSince the function $y(t) = \\frac{4}{5} \\sin t + \\frac{2}{5} \\cos t$ already satisfies the initial conditions $y(0) = x(0)^2 = \\frac{2}{5}$ and $y'(0) = 2 x(0) x'(0) = \\frac{4}{5}$, the function $y$ also solves the initial value problem.\n\nNote that since $x$ is positive at $t = 0$ and $y = x^2$ never reaches zero before $t$ reaches $\\frac{\\pi}{4}$, the value of $x\\left(\\frac{\\pi}{4}\\right)$ must be positive. Therefore,\n$$\nx\\left(\\frac{\\pi}{4}\\right) = +\\sqrt{y\\left(\\frac{\\pi}{4}\\right)} = \\sqrt{\\frac{6}{5} \\cdot \\frac{\\sqrt{2}}{2}} = \\frac{\\sqrt[4]{450}}{5}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-differential-equations-odes-auto-2986",
+      "name": "HMMT February #0jtm",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other",
+        "ODEs",
+        "Single-variable"
+      ],
+      "statement": "Problem:\n\nKatherine has a piece of string that is $2016$ millimeters long. She cuts the string at a location chosen uniformly at random, and takes the left half. She continues this process until the remaining string is less than one millimeter long. What is the expected number of cuts that she makes?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLetting $f(x)$ be the expected number of cuts if the initial length of the string is $x$, we get the integral equation $f(x) = 1 + \\frac{1}{x} \\int_{1}^{x} f(y) d y$. Letting $g(x) = \\int_{1}^{x} f(y) d y$, we get $\\frac{d g}{d x} = 1 + \\frac{1}{x} g(x)$. Using integrating factors, we see that this has as its solution $g(x) = x \\log(x)$, and thus $f(x) = 1 + \\log(x)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

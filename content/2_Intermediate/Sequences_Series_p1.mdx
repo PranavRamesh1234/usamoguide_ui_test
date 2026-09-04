@@ -1,0 +1,171 @@
+---
+id: sequences-series-intermediate-p1
+title: Sequences and Series I
+author: Mehul Biala
+description: A comprehensive deep-dive into AMC 10/12 sequence strategies, including structure recognition, advanced telescoping, fixed-point recurrences, polynomial summation, and Fibonacci identities.
+prerequisites: ["algebraic-manipulations", "polynomials-fundamentals"]
+---
+
+## Overview
+
+This module heavily prioritizes high-yield contest techniques. While arithmetic and geometric progressions are foundational, partial fractions and telescoping form a massive portion of the AMC 10/12 sequence distribution.
+
+## 1. Pattern Recognition & Finite Differences
+
+Before utilizing advanced algebra, you must be able to spot classic sequences hidden in plain sight. If you do not recognize the sequence instantly, you will waste time trying to force a formula that doesn't fit.
+
+* **Geometric Progression (GP):** $2, 6, 18, 54, \dots$ (Constant ratio)
+* **Perfect Squares:** $1, 4, 9, 16, 25, \dots$
+* **Perfect Cubes:** $1, 8, 27, 64, \dots$
+* **Triangular Numbers:** $1, 3, 6, 10, 15, \dots$ (Formula: $T_n = \frac{n(n+1)}{2}$)
+
+AMC questions frequently disguise these inside larger expressions. If a sequence formula is not immediately obvious, build a **Finite Difference** table. 
+
+<div style={{ display: 'flex', justifyContent: 'center', margin: '2rem 0' }}>
+  <svg viewBox="0 0 400 120" width="100%" height="120" xmlns="http://www.w3.org/2000/svg">
+    <text x="40" y="20" textAnchor="middle" fontFamily="sans-serif" fill="white">2</text>
+    <text x="120" y="20" textAnchor="middle" fontFamily="sans-serif" fill="white">7</text>
+    <text x="200" y="20" textAnchor="middle" fontFamily="sans-serif" fill="white">16</text>
+    <text x="280" y="20" textAnchor="middle" fontFamily="sans-serif" fill="white">29</text>
+    <text x="360" y="20" textAnchor="middle" fontFamily="sans-serif" fill="white">46</text>
+
+    <line x1="55" y1="30" x2="65" y2="45" stroke="#60a5fa" strokeWidth="2" />
+    <line x1="105" y1="30" x2="95" y2="45" stroke="#60a5fa" strokeWidth="2" />
+    <text x="80" y="60" textAnchor="middle" fontFamily="sans-serif" fill="#60a5fa">5</text>
+
+    <line x1="135" y1="30" x2="145" y2="45" stroke="#60a5fa" strokeWidth="2" />
+    <line x1="185" y1="30" x2="175" y2="45" stroke="#60a5fa" strokeWidth="2" />
+    <text x="160" y="60" textAnchor="middle" fontFamily="sans-serif" fill="#60a5fa">9</text>
+
+    <line x1="215" y1="30" x2="225" y2="45" stroke="#60a5fa" strokeWidth="2" />
+    <line x1="265" y1="30" x2="255" y2="45" stroke="#60a5fa" strokeWidth="2" />
+    <text x="240" y="60" textAnchor="middle" fontFamily="sans-serif" fill="#60a5fa">13</text>
+
+    <line x1="295" y1="30" x2="305" y2="45" stroke="#60a5fa" strokeWidth="2" />
+    <line x1="345" y1="30" x2="335" y2="45" stroke="#60a5fa" strokeWidth="2" />
+    <text x="320" y="60" textAnchor="middle" fontFamily="sans-serif" fill="#60a5fa">17</text>
+
+    <line x1="95" y1="70" x2="105" y2="85" stroke="#f472b6" strokeWidth="2" />
+    <line x1="145" y1="70" x2="135" y2="85" stroke="#f472b6" strokeWidth="2" />
+    <text x="120" y="100" textAnchor="middle" fontFamily="sans-serif" fill="#f472b6">4</text>
+
+    <line x1="175" y1="70" x2="185" y2="85" stroke="#f472b6" strokeWidth="2" />
+    <line x1="225" y1="70" x2="215" y2="85" stroke="#f472b6" strokeWidth="2" />
+    <text x="200" y="100" textAnchor="middle" fontFamily="sans-serif" fill="#f472b6">4</text>
+
+    <line x1="255" y1="70" x2="265" y2="85" stroke="#f472b6" strokeWidth="2" />
+    <line x1="305" y1="70" x2="295" y2="85" stroke="#f472b6" strokeWidth="2" />
+    <text x="280" y="100" textAnchor="middle" fontFamily="sans-serif" fill="#f472b6">4</text>
+  </svg>
+</div>
+
+* If the **first difference** is constant, the sequence is Linear (an Arithmetic Progression).
+* If the **second difference** is constant, the sequence is Quadratic.
+* If the **third difference** is constant, the sequence is Cubic.
+
+### Sequence as a Polynomial
+Taking differences always lowers the degree of a polynomial sequence by 1. For example, if a sequence is defined by $a_n = n^3$, taking the difference of consecutive terms yields:
+$$
+a_{n+1} - a_n = (n+1)^3 - n^3 = 3n^2 + 3n + 1
+$$
+Notice how the cubic sequence produced a quadratic difference sequence!
+
+## 2. Sigma Manipulation & Power Sums
+You must be fluid in splitting sums apart using the linearity of summation. For example, $\sum_{k=1}^{n}(k^2 + 2k + 1)$ instantly becomes $\sum k^2 + 2\sum k + \sum 1$. 
+Memorize the foundational power sums:
+* **Sum of Integers:** $\sum_{k=1}^{n} k = \frac{n(n+1)}{2}$
+* **Sum of Squares:** $\sum_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}$
+* **Sum of Cubes:** $\sum_{k=1}^{n} k^3 = \left(\frac{n(n+1)}{2}\right)^2$
+### Summation by Pairing
+A surprisingly common AMC trick is evaluating large sequences by pairing symmetric terms. Gauss famously evaluated $1 + 2 + \dots + 100$ by pairing $(1+100) + (2+99) + \dots$, giving 50 pairs of 101.
+This applies to harder versions as well:
+$$
+\sum_{k=1}^{100} k(101-k)
+$$
+By recognizing that term $k=1$ equals term $k=100$, you can exploit the sequence's symmetry to halve the computation time or reduce it into paired blocks.
+
+## 3. Geometric Series & Arithmetico-Geometric Series
+### The Finite Geometric Series Derivation
+While the infinite geometric series formula ($S = \frac{a}{1-r}$) is well known, AMC problems test the **finite** derivation far more frequently.
+**The Derivation Method:**
+Let $S = 1 + r + r^2 + \dots + r^n$.
+1. Multiply the entire sum by the common ratio $r$:
+   $$
+   rS = r + r^2 + \dots + r^{n+1}
+   $$
+2. Subtract the second equation from the first. All the middle terms will perfectly cancel out:
+   $$
+   (1 - r)S = 1 - r^{n+1}
+   $$
+3. Isolate $S$:
+   $$
+   S = \frac{1 - r^{n+1}}{1 - r}
+   $$
+
+### Recognizing Hidden Geometric Series
+A common AMC trap is disguising a geometric series using offset exponents or combined bases. For example, evaluate $\sum_{k=1}^{\infty} \frac{5^k}{3^{k+1}}$. 
+Isolate the index $k$ into a single fraction:
+$$
+\frac{1}{3} \sum_{k=1}^{\infty} \left(\frac{5}{3}\right)^k
+$$
+*(Because $5/3 > 1$, this specific series diverges to infinity, demonstrating why isolating the ratio is critical!)*
+
+### The Arithmetico-Geometric Series (AGS)
+An AGS is formed by multiplying an Arithmetic Progression term-by-term with a Geometric Progression (e.g., $\sum \frac{n}{2^n}$). Never memorize the formula. Instead, apply the exact shift-and-subtract derivation used above for geometric series to eliminate the arithmetic component. 
+
+## 4. Telescoping & Partial Fractions
+Because AMC writers love partial fractions, they deserve major attention. When you see a polynomial denominator like $\sum \frac{3}{(k+1)(k+4)}$, immediately split it: $\frac{1}{k+1} - \frac{1}{k+4}$. 
+### How to Invent a Telescoping Series
+Most students only know how to recognize telescoping series. The elite AMC/AIME skill is *creating* them out of stubborn fractions. Use algebraic long division or $+0$ tricks:
+* **Trick 1:** $\frac{k}{k+1} = \frac{k+1-1}{k+1} = 1 - \frac{1}{k+1}$
+* **Trick 2:** $\frac{k+3}{k+1} = \frac{k+1+2}{k+1} = 1 + \frac{2}{k+1}$
+* **Trick 3:** $\frac{k^2}{k+1} = \frac{k^2-1+1}{k+1} = \frac{(k-1)(k+1)+1}{k+1} = k - 1 + \frac{1}{k+1}$
+
+### Non-Adjacent Telescoping (The Survival Trap)
+Not everything cancels perfectly. In the sum $\sum_{k=1}^{100} \left(\frac{1}{k} - \frac{1}{k+2}\right)$, many students incorrectly assume all middle terms vanish. 
+Write it out explicitly:
+$$
+\left(\frac{1}{1} - \frac{1}{3}\right) + \left(\frac{1}{2} - \frac{1}{4}\right) + \left(\frac{1}{3} - \frac{1}{5}\right) + \dots
+$$
+Notice that $\frac{1}{1}$ and $\frac{1}{2}$ survive at the beginning, while $-\frac{1}{101}$ and $-\frac{1}{102}$ survive at the end. 
+### Bounding and Estimation
+To estimate $\sum_{k=1}^{100} \frac{1}{k^2}$ without exact computation, bound it using a telescoping series you *can* compute: $\frac{1}{k^2} < \frac{1}{k(k-1)}$. Then telescope the larger bound to prove the original sum is strictly bounded.
+
+## 5. Sequence Transformations
+When a recurrence looks terrifying, the trick is to transform the sequence by measuring the distance from its fixed point.
+Take $a_{n+1} = \frac{a_n + 2}{a_n + 5}$. 
+Students often attack this directly and get bogged down in massive rational expressions. Instead:
+1. **Find the fixed point:** Set $L = \frac{L+2}{L+5} \implies L^2 + 5L = L + 2 \implies L^2 + 4L - 2 = 0$.
+2. **Measure distance from fixed point:** Let the roots be $\alpha$ and $\beta$. Transform the recurrence by evaluating $\frac{a_{n+1} - \alpha}{a_{n+1} - \beta}$. 
+3. This completely neutralizes the complex recurrence, turning it into a simple geometric progression. This is arguably more important than solving repeated characteristic roots on the AMC 12.
+
+## 6. Limits, Fixed Points, and Equilibrium
+While AMC 10 focuses on calculating specific terms, AMC 12 is obsessed with the asymptotic behavior of recurrences. The unifying theme for all these problems is **$L = f(L)$**. If a sequence converges, its infinite tail is identical to the whole.
+
+* **Infinite Nested Radicals:** $x = \sqrt{3 + \sqrt{3 + \sqrt{3 + \dots}}}$ 
+  Since the tail is identical to the whole, substitute $x$: $x = \sqrt{3 + x} \implies x^2 - x - 3 = 0$.
+* **Infinite Continued Fractions:** $x = 1 + \frac{1}{1 + \frac{1}{1 + \dots}}$
+  Substitute $x$: $x = 1 + \frac{1}{x} \implies x^2 - x - 1 = 0$.
+* **Recursive Limits:** $a_{n+1} = \frac{a_n + 2}{3}$. 
+  Assume convergence to $L$. Then $L = \frac{L+2}{3} \implies 3L = L + 2 \implies 2L = 2 \implies L = 1$.
+
+## 7. Fibonacci & Special Sequences
+The AMC 12 loves the Fibonacci sequence ($F_n = F_{n-1} + F_{n-2}$, where $F_1=1, F_2=1$). Do not rely on computing terms manually; you must know the structural identities:
+
+* **Sum Identity:** $\sum_{i=1}^n F_i = F_{n+2} - 1$
+* **Cassini's Identity:** $F_{n+1}F_{n-1} - F_n^2 = (-1)^n$
+* **Double Index Formula:** $F_{2n} = F_n L_n$ (where $L_n$ is the Lucas Number)
+* **Binet's Formula / Approximation:** $F_n = \frac{\phi^n - \psi^n}{\sqrt{5}}$. Because $\psi^n$ approaches zero rapidly, $F_n \approx \frac{\phi^n}{\sqrt{5}}$ (where $\phi = \frac{1+\sqrt{5}}{2}$).
+
+## 8. Periodicity & Roots of Unity
+
+Many seemingly infinite AMC 12 problems are actually periodicity problems.
+
+* **Linear Periodicity:** $a_{n+1} = 1 - a_n$. This implies $a_{n+2} = 1 - a_{n+1} = 1 - (1 - a_n) = a_n$. The sequence has Period 2.
+* **Modular Periodicity:** $2^n \pmod 7$. The sequence is $2, 4, 1, 2, 4, 1 \dots$. It has Period 3.
+* **Roots of Unity:** $1 + i + i^2 + \dots + i^{2025}$. 
+  Students should immediately recognize the powers of $i$ have cycle length 4 and sum to 0. 
+  Likewise, for the complex cube roots of unity: $1 + \omega + \omega^2 = 0$. These are extremely high-yield shortcuts.
+
+## Part 2:
+Some more concepts and all the example problems are presented in part 2 due to file-size constraints.

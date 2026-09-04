@@ -1,0 +1,69 @@
+---
+id: number-theory-advanced
+title: Strong Number Theory
+author: USAMO Guide Team
+description: Orders, lifting exponents, and tougher Diophantine equations for AIME.
+prerequisites: ["number-theory-intermediate"]
+---
+
+## Overview
+
+Advanced number theory uses structure in modular arithmetic and prime powers.
+Orders and lifting techniques often simplify exponent problems.
+
+## Key Ideas
+
+- If $a^k\equiv1\pmod n$, the least such $k$ is the order of $a$ mod $n$.
+- LTE (lifting the exponent) helps with $v_p(a^n-b^n)$ when $p$ divides $a-b$.
+- Factorization and parity arguments are constant companions.
+
+## Core Skills
+
+### Use Orders
+
+If $a^k\equiv 1\pmod n$, then $k$ divides $\varphi(n)$ when $\gcd(a,n)=1$.
+
+### Apply LTE Safely
+
+Check the hypotheses for LTE: typically $p\mid a-b$ and $p\nmid ab$.
+
+### Combine Moduli
+
+Use CRT to combine congruences after working modulo prime powers.
+
+## Worked Example
+
+Find the largest $k$ with $2^k \mid 3^{12}-1$.
+
+Because $3^2-1=8$, LTE gives $v_2(3^{12}-1)=v_2(3^2-1)+v_2(12)=3+2=5$.
+So $k=5$.
+
+## More Examples
+
+### Example 1: Order
+
+Find the order of $2$ modulo $7$.
+
+$2^1=2$, $2^2=4$, $2^3=1\pmod 7$, so the order is $3$.
+
+### Example 2: LTE
+
+Find $v_3(2^{10}-1)$.
+
+Since $2^2-1=3$, LTE gives $v_3(2^{10}-1)=v_3(2^2-1)+v_3(5)=1+0=1$.
+
+### Example 3: CRT
+
+Solve $x\equiv 1\pmod 4$, $x\equiv 2\pmod 5$.
+
+$x\equiv 6\pmod{20}$.
+
+## Strategy Checklist
+
+- Compute orders when exponents are involved.
+- Verify LTE conditions before applying it.
+- Use CRT to combine prime-power congruences.
+
+## Practice Problems
+
+<Problems problems="practice" />

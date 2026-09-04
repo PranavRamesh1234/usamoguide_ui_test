@@ -1,0 +1,1224 @@
+{
+  "MODULE_ID": "number-theory-modular-arithmetic-polynomials-mod-p",
+  "practice": [
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-0015",
+      "name": "Berkeley Math Circle Take-Home Contest #6 #0hj3",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Take-Home Contest #6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial operations",
+        "Polynomials mod p"
+      ],
+      "statement": "Problem:\n\nLet $g_{1}(x), g_{2}(x), \\ldots, g_{5}(x)$ be polynomials with integer coefficients. Suppose that their product $f(x) = g_{1}(x) g_{2}(x) \\cdots g_{5}(x)$ satisfies $f(1999) = 2000$. Prove that for some $i \\in \\{1,2,3,4,5\\}$, the sum of the coefficients of $g_{i}(x)$ is odd.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFor some $i$, $g_{i}(1999)$ is odd. Indeed, if this were false, each $g_{i}(1999)$ would be divisible by $2$, so their product, $f(1999) = 2000$, would be divisible by $2^{5}$, which is not the case.\n\nNow write $g_{i}(x) = c_{n} x^{n} + c_{n-1} x^{n-1} + \\cdots + c_{0}$. Then\n$$\ng_{i}(1999) - (c_{n} + \\cdots + c_{0}) = c_{n}(1999^{n} - 1) + c_{n-1}(1999^{n-1} - 1) + \\cdots + c_{0}(1 - 1),\n$$\nwhich is even since $1999^{k} - 1$ is even for each $k$. Since $g_{i}(1999)$ is odd, $c_{n} + \\cdots + c_{0}$ is also odd, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-0317",
+      "name": "Berkeley Math Circle Monthly Contest 1 #0hrh",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Chinese remainder theorem",
+        "Polynomials mod p",
+        "Greatest common divisors (gcd)"
+      ],
+      "statement": "Problem:\n\nDenote by $f(n)$ the integer obtained by reversing the digits of a positive integer $n$. Find the greatest integer that is certain to divide $n^{4}-f(n)^{4}$ regardless of the choice of $n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe answer is $99$.\n\nLet $x = \\overline{d_{n-1} \\ldots d_{2} d_{1} d_{0}}$, i.e. $x = 10^{n-1} d_{n-1} + \\cdots + 10^{2} d_{2} + 10 d_{1} + d_{0}$. Then $y = f(x) = 10^{n-1} d_{0} + 10^{n-2} d_{1} + \\cdots + 10 d_{n-2} + d_{n-1}$.\n\nLet us show separately that $9 \\mid x^{4} - y^{4}$ and that $11 \\mid x^{4} - y^{4}$.\n\nSince $10 \\equiv 1 \\pmod{9}$, $x \\equiv y \\equiv d_{n-1} + d_{n-2} + \\cdots + d_{1} + d_{0} \\pmod{9}$, so $9 \\mid x - y$ and therefore also $9 \\mid (x - y)(x^{3} + x^{2} y + x y^{2} + y^{3}) = x^{4} - y^{4}$.\n\nSince $10 \\equiv -1 \\pmod{11}$, $x \\equiv d_{n-1} - d_{n-2} + \\cdots \\mp d_{1} \\pm d_{0} \\pmod{11}$ and $y \\equiv d_{0} + d_{1} + \\cdots \\mp d_{n-2} \\pm d_{n-1} \\pmod{11}$, i.e. $x \\equiv \\pm y$. In either case $x^{4} \\equiv y^{4} \\pmod{11}$, so $11 \\mid x^{4} - y^{4}$.\n\nSince $9$ and $11$ are relatively prime, their product $99$ must divide $x^{4} - y^{4}$.\n\nTo see that there is no larger integer that always divides $n^{4} - f(n)^{4}$, let $n = 10$, so that $f(n) = 01 = 1$, $n^{4} - f(n)^{4} = 9999 = 3^{2} \\cdot 11 \\cdot 101$, and let $n = 21$, so that $f(n) = 12$ and $n^{4} - f(n)^{4} = 173745 = 3^{5} \\cdot 5 \\cdot 11 \\cdot 13$. The greatest common divisor of these two values of $n^{4} - f(n)^{4}$ is $3^{2} \\cdot 11 = 99$, so there is no larger integer certain to divide $n^{4} - f(n)^{4}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-0359",
+      "name": "MathNet #0hsn",
+      "url": "https://usamoguide.com/",
+      "source": "MathNet",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomials mod p"
+      ],
+      "statement": "Problem:\nWhat is the smallest positive integer $x$ for which $x^{2}+x+41$ is not a prime?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n40"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-0435",
+      "name": "Berkeley Math Circle Monthly Contest 1 #0hur",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomials",
+        "Polynomials mod p",
+        "Recurrence relations"
+      ],
+      "statement": "Problem:\n\nGiven a polynomial $P(x)$ with integer coefficients, assume that for every positive integer $n$ we have $P(n) > n$. Consider the sequence\n$$\nx_{1} = 1,\\quad x_{2} = P(x_{1}),\\quad \\ldots,\\quad x_{n} = P(x_{n-1}),\\quad \\ldots\n$$\nIf for every positive integer $N$ there exists a member of the sequence divisible by $N$, prove that $P(x) = x + 1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAssume the contrary. The polynomial $Q(x) = P(x) - x$ is non-decreasing for all $x$ greater than some $M$, as otherwise it wouldn't be positive, and it has to be bigger than $1$ for each $n$.\n\nIf there are infinitely many integers $n$ such that $P(n) = n + 1$ then we would have $P(x) = x + 1$ (nonzero polynomial $P(x) - x - 1$ can have only finitely many zeroes). Therefore there exists an index $k \\in \\mathbb{N}$ such that $x_{k} > M$ and $P(x_{l}) - x_{l} \\geq 2$ for $l \\geq k$.\n\nAssume that $d = x_{l+1} - x_{l} \\geq 2$. Then $d$ is a divisor of $P(x_{l+1}) - P(x_{l})$, i.e., of $x_{l+2} - x_{l+1}$. Since, if $a \\equiv b \\pmod{d}$, then $P(a) \\equiv P(b)$, by induction all the numbers $x_{l}, x_{l+1}, \\ldots$ have the same remainder modulo $d$. If that remainder is not zero then no term of the sequence could be divisible by $d^{m}$ for sufficiently large $m$, which would contradict the assumptions.\n\nHence $x_{l}$ is divisible by $x_{l+1} - x_{l}$ for all $l \\geq k$. Let $x_{l} = c_{l} (P(x_{l}) - x_{l})$. Then $P(x_{l}) = \\frac{c_{l} + 1}{c_{l}} x_{l}$ holds for infinitely many pairs of integers $(x_{l}, c_{l})$ such that $x_{l} \\to \\infty$. Because $\\frac{c_{l} + 1}{c_{l}} x_{l} = \\left(1 + \\frac{1}{c_{l}}\\right) x_{l} \\leq 2 x_{l}$, the degree of $P$ cannot exceed $1$ so that either $P(x) = 2x$ or $P(x) = x$. Neither of these polynomials satisfy the given condition, and this is a contradiction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-0462",
+      "name": "Berkeley Math Circle #0hvi",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Irreducibility: Rational Root Theorem, Gauss's Lemma, Eisenstein",
+        "Polynomials mod p",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\nShow that the polynomial $\\left(x^{2}+x\\right)^{2^{1000}}+1$ cannot be factored as the product of two nonconstant polynomials with integer coefficients.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAssume for contradiction this is not the case, and the polynomial can be written as\n$$\n\\left(x^{2}+x\\right)^{2^{1000}}+1=f(x) g(x)\n$$\nfor some nonconstant $f$ and $g$ with integer coefficients. Clearly we may assume $f$ and $g$ have leading coefficient one. Taking modulo 2 we obtain that\n$$\nf(x) g(x) \\equiv\\left(x^{2}+x\\right)^{2^{1000}}+1 \\equiv\\left(x^{2}+x+1\\right)^{2^{1000}} \\quad(\\bmod 2)\n$$\nwhere the last step follows by noticing that $(a+b)^{2} \\equiv a^{2}+b^{2}(\\bmod 2)$.\nAs $x^{2}+x+1$ is irreducible modulo 2, it follows that we must have\n$$\nf(x)=\\left(x^{2}+x+1\\right)^{\\alpha}+2 \\hat{f}(x)\n$$\nand\n$$\ng(x)=\\left(x^{2}+x+1\\right)^{\\beta}+2 \\hat{g}(x)\n$$\nfor some polynomials $\\hat{f}, \\hat{g}$ with integer coefficients, where $\\alpha+\\beta=1000$. By hypothesis, $\\alpha, \\beta \\geq 1$.\nLet $\\varepsilon$ be a root to $x^{2}+x+1$, namely $\\varepsilon=\\frac{1}{2}(-1+i \\sqrt{3})$. Substituting $\\varepsilon$ into the original relation, we derive\n$$\n2=(-1)^{2^{1000}}+1=4 \\hat{f}(\\varepsilon) \\hat{g}(\\varepsilon)\n$$\nand hence $\\frac{1}{2}=\\hat{f}(\\varepsilon) \\hat{g}(\\varepsilon)$. But we claim this is impossible. Indeed, the right-hand side is a polynomial in $\\varepsilon$ with integer coefficients. Repeatedly applying the identity $\\varepsilon^{2}=-(\\varepsilon+1)$, we find that the right-hand side must be of the form $a+b \\varepsilon$, where $a, b$ are integers. By equating real and imaginary parts this gives $a=\\frac{1}{2}$ and $b=0$, which is a contradiction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-0501",
+      "name": "Berkeley Math Circle Monthly Contest 6 #0hwl",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Prime numbers",
+        "Greatest common divisors (gcd)",
+        "Inverses mod n",
+        "Polynomials mod p",
+        "Multiplicative order"
+      ],
+      "statement": "Problem:\n\nDecide whether there exist positive integers $a, b, c$ such that $3(a b + b c + c a)$ divides $a^{2} + b^{2} + c^{2}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe answer is no: such integers do not exist. In what follows, $\\nu_{p}(n)$ will denote the exponent of $p$ in the prime factorization of $n$.\n\nAssume without loss of generality that $a, b, c$ do not have some common divisor, and $a^{2} + b^{2} + c^{2} = 3k(a b + b c + c a)$. Write\n$$\n(3k + 2)\\left(a^{2} + b^{2} + c^{2}\\right) = 3k \\cdot (a + b + c)^{2}.\n$$\n\nSince $3k + 2 \\equiv 2 \\pmod{3}$, there is a prime $p \\equiv 2 \\pmod{3}$ with $\\nu_{p}(3k + 2)$ odd (in particular, $p \\mid 3k + 2$).\nWe first show that $p \\neq 2$. Let us assume on the contrary that $\\nu_{2}(3k + 2)$ is odd (in particular, $k$ is even). Remark that since $a, b, c$ are not all even, $\\nu_{2}\\left(a^{2} + b^{2} + c^{2}\\right) \\leq 1$. Furthermore,\n$$\n\\nu_{2}(a + b + c) = 0 \\Longleftrightarrow \\nu_{2}\\left(a^{2} + b^{2} + c^{2}\\right) = 0.\n$$\n\nNow we consider two cases.\n- Assume $\\nu_{2}(k) \\geq 2$. Then $\\nu_{2}(3k + 2) = 1$, $\\nu_{2}\\left(a^{2} + b^{2} + c^{2}\\right) \\leq 1$. Therefore\n$$\n\\nu_{2}(k) + 2\\nu_{2}(a + b + c) \\geq 2 \\geq \\nu_{2}(3k + 2) + \\nu_{2}\\left(a^{2} + b^{2} + c^{2}\\right)\n$$\nbut equality cannot occur since the relations\n$$\n\\nu_{2}(a + b + c) = 0 \\quad \\text{and} \\quad \\nu_{2}\\left(a^{2} + b^{2} + c^{2}\\right) = 1\n$$\ncannot hold simultaneously.\n\n- Assume $\\nu_{2}(k) = 1$. Then $\\nu_{2}(3k + 2) > 1$ and is odd. Now\n$$\n\\nu_{2}(3k + 2) + \\nu_{2}\\left(a^{2} + b^{2} + c^{2}\\right) = 1 + 2\\nu_{2}(a + b + c).\n$$\nThus $\\nu_{2}\\left(a^{2} + b^{2} + c^{2}\\right)$ must be even, so it is zero; consequently $\\nu_{2}(a + b + c) = 0$ as well and we obtain $1 < v_{2}(3k + 2) = 1$.\n\nNow for the interesting part. Remark $p \\mid a + b + c$ and $p \\mid a^{2} + b^{2} + c^{2}$. Without loss of generality $b \\not\\equiv 0 \\pmod{p}$, so that\n$$\na^{2} + b^{2} + (a + b)^{2} \\equiv 0 \\pmod{p} \\Longrightarrow a^{2} + a b + b^{2} \\equiv 0 \\pmod{p}\n$$\nThen if $x = a b^{-1}$, we get that $x^{2} + x + 1 \\equiv 0 \\pmod{p}$. But the left-hand side is the third cyclotomic polynomial, so either $p = 3$ or $3 \\mid p - 1$, but neither is the case.\n\nTherefore, such a triple $(a, b, c)$ does not exist."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-0686",
+      "name": "Harvard-MIT Math Tournament #0i1q",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial operations",
+        "Irreducibility: Rational Root Theorem, Gauss's Lemma, Eisenstein",
+        "Polynomials mod p"
+      ],
+      "statement": "Problem:\n\nDefine a monic irreducible polynomial with integral coefficients to be a polynomial with leading coefficient 1 that cannot be factored, and the prime factorization of a polynomial with leading coefficient 1 as the factorization into monic irreducible polynomials. How many not necessarily distinct monic irreducible polynomials are there in the prime factorization of $\\left(x^{8}+x^{4}+1\\right)\\left(x^{8}+x+1\\right)$ (for instance, $(x+1)^{2}$ has two prime factors)?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n$x^{8}+x^{4}+1=\\left(x^{8}+2 x^{4}+1\\right)-x^{4}=\\left(x^{4}+1\\right)^{2}-\\left(x^{2}\\right)^{2}=\\left(x^{4}-x^{2}+1\\right)\\left(x^{4}+x^{2}+1\\right)=\\left(x^{4}-x^{2}+1\\right)\\left(x^{2}+x+1\\right)\\left(x^{2}-x+1\\right)$, and $x^{8}+x+1=\\left(x^{2}+x+1\\right)\\left(x^{6}-x^{5}+x^{3}-x^{2}+1\\right)$. If an integer polynomial $f(x)=a_{n} x^{n}+\\cdots+a_{0}(\\bmod p)$, where $p$ does not divide $a_{n}$, has no zeros, then $f$ has no rational roots. Taking $p=2$, we find $x^{6}-x^{5}+x^{3}-x^{2}+1$ is irreducible. The prime factorization of our polynomial is thus $\\left(x^{4}-x^{2}+1\\right)\\left(x^{2}-x+1\\right)\\left(x^{2}+x+1\\right)^{2}\\left(x^{6}-x^{5}+x^{3}-x^{2}+1\\right)$, so the answer is 5 ."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-0726",
+      "name": "USA IMO #0i2u",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Greatest common divisors (gcd)",
+        "Prime numbers",
+        "Polynomials mod p"
+      ],
+      "statement": "Let $S$ be a set of integers (not necessarily positive) such that\n\na. there exist $a, b \\in S$ with $\\gcd(a, b) = \\gcd(a - 2, b - 2) = 1$;\n\nb. if $x$ and $y$ are elements of $S$ (possibly equal), then $x^2 - y$ also belongs to $S$.\n\nProve that $S$ is the set of all integers.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "In the solution below we use the expression $S$ is stable under $x \\mapsto f(x)$ to mean that if $t$ belongs to $S$, then $f(t)$ also belongs to $S$. If $c, d \\in S$, then by condition (b), $S$ is stable under $x \\mapsto c^2 - x$ and $x \\mapsto d^2 - x$. Hence, it is stable under $x \\mapsto c^2 - (d^2 - x) = x + (c^2 - d^2)$. Similarly, $S$ is stable under $x \\mapsto x + (d^2 - c^2)$. Hence, $S$ is stable under $x \\mapsto x + n$ and $x \\mapsto x - n$, whenever $n$ is an integer linear combination of finitely many numbers in $T = \\{c^2 - d^2 \\mid c, d \\in S\\}$.\n\nBy condition (a), $S \\neq \\emptyset$ and hence $T \\neq \\emptyset$ as well. For the sake of contradiction, assume that some $p$ divides every element in $T$. Then $c^2 - d^2 \\equiv 0 \\pmod{p}$ for all $c, d \\in S$. In other words, for each $c, d \\in S$, either $d \\equiv c \\pmod{p}$ or $d \\equiv -c \\pmod{p}$. Given $c \\in S$, $c^2 - c \\in S$, by condition (b), so $c^2 - c \\equiv c \\pmod{p}$ or $c^2 - c \\equiv -c \\pmod{p}$. Hence,\n$$\nc \\equiv 0 \\pmod{p} \\text{ or } c \\equiv 2 \\pmod{p} \\quad (*)\n$$\nfor each $c \\in S$. By condition (a), there exist some $a$ and $b$ in $S$ such that $\\gcd(a, b) = 1$, that is, at least one of $a$ or $b$ cannot be divisible by $p$. Denote such an element of $S$ by $\\alpha$; thus, $\\alpha \\not\\equiv 0 \\pmod{p}$. Similarly, by condition (a), $\\gcd(a - 2, b - 2) = 1$, so $p$ cannot divide both $a - 2$ and $b - 2$. Thus, there is an element of $S$, call it $\\beta$, such that $\\beta \\not\\equiv 2 \\pmod{p}$. By (*), $\\alpha \\equiv 2 \\pmod{p}$ and $\\beta \\equiv 0 \\pmod{p}$. By condition (b), $\\beta^2 - \\alpha \\in S$. Taking $c = \\beta^2 - \\alpha$ in (*) yields either $-2 \\equiv 0 \\pmod{p}$ or $-2 \\equiv 2 \\pmod{p}$, so $p = 2$. Now (*) says that all elements of $S$ are even, contradicting condition (a). Hence, our assumption is false and no prime divides every element in $T$.\n\nIt follows that $T \\neq \\{0\\}$. Let $x$ be an arbitrary nonzero element of $T$. For each prime divisor of $x$, there exists an element in $T$ which is not divisible by that prime. The set $A$ consisting of $x$ and each of these elements is finite. By construction, $\\text{gcd}\\{y \\mid y \\in A\\} = 1$, and $1$ can be written as an integer linear combination of finitely many elements in $A$ and hence in $T$. Therefore, $S$ is stable under $x \\mapsto x+1$ and $x \\mapsto x-1$. Because $S$ is nonempty, it follows that $S$ is the set of all integers.\n\nDefine $T$, $a$, and $b$ as in the first solution. We present another proof that no prime divides every element in $T$. Suppose, for sake of contradiction, that such a prime $p$ does exist. By condition (b), $a^2 - a, b^2 - b \\in S$. Therefore, $p$ divides $a^2 - b^2$, $x_1 = (a^2 - a)^2 - a^2$, and $x_2 = (b^2 - b)^2 - b^2$. Because $\\text{gcd}(a, b) = 1$, both $\\text{gcd}(a^2 - b^2, a^3)$ and $\\text{gcd}(a^2 - b^2, b^3)$ equal 1, so $p$ does not divide $a^3$ or $b^3$. But $p$ does divide $x_1 = a^3(a - 2)$ and $x_2 = b^3(b - 2)$, so it must divide $a - 2$ and $b - 2$. Because $\\text{gcd}(a - 2, b - 2) = 1$ by condition (a), this implies $p \\mid 1$, a contradiction. Therefore our original assumption was false, and no such $p$ exists."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-1050",
+      "name": "Harvard-MIT Mathematics Tournament #0ibu",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Factorization techniques",
+        "Polynomials mod p"
+      ],
+      "statement": "Problem:\nFind the largest integer $n$ such that $3^{512}-1$ is divisible by $2^{n}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWrite\n$$\n\\begin{aligned}\n3^{512}-1 & =\\left(3^{256}+1\\right)\\left(3^{256}-1\\right)=\\left(3^{256}+1\\right)\\left(3^{128}+1\\right)\\left(3^{128}-1\\right) \\\\\n& =\\cdots=\\left(3^{256}+1\\right)\\left(3^{128}+1\\right) \\cdots(3+1)(3-1)\n\\end{aligned}\n$$\nNow each factor $3^{2^{k}}+1$, $k \\geq 1$, is divisible by just one factor of $2$, since $3^{2^{k}}+1=\\left(3^{2}\\right)^{2^{k-1}}+1 \\equiv 1^{2^{k-1}}+1=2 \\pmod{4}$. Thus we get $8$ factors of $2$ here, and the remaining terms $(3+1)(3-1)=8$ give us $3$ more factors of $2$, for a total of $11$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-1313",
+      "name": "USAMO #0ij5",
+      "url": "https://usamoguide.com/",
+      "source": "USAMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Prime numbers",
+        "Polynomials mod p",
+        "Polynomial operations",
+        "Pigeonhole principle"
+      ],
+      "statement": "For integral $m$, let $p(m)$ be the greatest prime divisor of $m$. By convention, we set $p(\\pm 1) = 1$ and $p(0) = \\infty$. Find all polynomials $f$ with integer coefficients such that the sequence $\\{p(f(n^2)) - 2n\\}_{n \\ge 0}$ is bounded above. (In particular, this requires $f(n^2) \\ne 0$ for $n \\ge 0$.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "The polynomial $f$ has the required properties if and only if\n$$\nf(x) = c(4x - a_1^2)(4x - a_2^2)\\cdots(4x - a_k^2), \\quad (*)\n$$\nwhere $a_1, a_2, \\dots, a_k$ are odd positive integers and $c$ is a nonzero integer. It is straightforward to verify that polynomials given by $(*)$ have the required property. If $p$ is a prime divisor of $f(n^2)$ but not of $c$, then $p|(2n-a_j)$ or $p|(2n+a_j)$ for some $j \\le k$. Hence $p-2n \\le \\max\\{a_1, a_2, \\dots, a_k\\}$. The prime divisors of $c$ form a finite set and do affect whether or not the given sequence is bounded above. The rest of the proof is devoted to showing that any $f$ for which $\\{p(f(n^2)) - 2n\\}_{n \\ge 0}$ is bounded above is given by $(*)$.\n\nLet $\\mathbb{Z}[x]$ denote the set of all polynomials with integral coefficients. Given $f \\in \\mathbb{Z}[x]$, let $\\mathcal{P}(f)$ denote the set of those primes that divide at least one of the numbers in the sequence $\\{f(n)\\}_{n \\ge 0}$. The solution is based on the following lemma.\n\n**Lemma** If $f \\in \\mathbb{Z}[x]$ is a nonconstant polynomial then $\\mathcal{P}(f)$ is infinite.\n\n*Proof:* Repeated use will be made of the following basic fact: if $a$ and $b$ are distinct integers and $f \\in \\mathbb{Z}[x]$, then $a-b$ divides $f(a)-f(b)$. If $f(0)=0$, then $p$ divides $f(p)$ for every prime $p$, so $\\mathcal{P}(f)$ is infinite. If $f(0)=1$, then every prime divisor $p$ of $f(n!)$ satisfies $p>n$. Otherwise $p$ divides $n!$, which in turn divides $f(n!)-f(0)=f(n!)-1$. This yields $p|1$, which is false. Hence $f(0)=1$ implies that $\\mathcal{P}(f)$ is infinite. To complete the proof, set $g(x) = f(f(0)x)/f(0)$ and observe that $g \\in \\mathbb{Z}[x]$ and $g(0)=1$. The preceding argument shows that $\\mathcal{P}(g)$ is infinite, and it follows that $\\mathcal{P}(f)$ is infinite. $\\blacksquare$\n\nSuppose $f \\in \\mathbb{Z}[x]$ is nonconstant and there exists a number $M$ such that $p(f(n^2)) - 2n \\le M$ for all $n \\ge 0$. Application of the lemma to $f(x^2)$ shows that there is an infinite sequence of distinct primes $\\{p_j\\}$ and a corresponding infinite sequence of nonnegative integers $\\{k_j\\}$ such that $p_j|f(k_j^2)$ for all $j \\ge 1$. Consider the sequence $\\{r_j\\}$ where $r_j = \\min\\{k_j \\pmod{p_j}, p_j - k_j \\pmod{p_j}\\}$. Then $0 \\le r_j \\le (p_j-1)/2$ and $p_j|f(r_j^2)$. Hence $2r_j+1 \\le p_j \\le p(f(r_j^2)) \\le M+2r_j$, so $1 \\le p_j - 2r_j \\le M$ for all $j \\ge 1$. It follows that there is an integer $a_1$ such that $1 \\le a_1 \\le M$ and $a_1 = p_j - 2r_j$ for infinitely many $j$. Let $m = \\deg f$. Then $p_j|4^m f((p_j-a_1)/2)^2)$ and $4^m f((x-a_1)/2)^2) \\in \\mathbb{Z}[x]$. Consequently, $p_j|f((a_1/2)^2)$ for infinitely many $j$, which shows that $(a_1/2)^2$ is a zero of $f$. Since $f(n^2) \\ne 0$ for $n \\ge 0$, $a_1$ must be odd. Then $f(x) = (4x-a_1^2)g(x)$ where $g \\in \\mathbb{Z}[x]$. (See the note below.) Observe that $\\{p(g(n^2)) - 2n\\}_{n \\ge 0}$ must be bounded above. If $g$ is constant, we are done. If $g$ is nonconstant, the argument can be repeated to show that $f$ is given by $(*)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-1662",
+      "name": "Team Selection Test #0isu",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Chinese remainder theorem",
+        "Polynomials mod p",
+        "Fermat / Euler / Wilson theorems",
+        "Polynomial interpolation: Newton, Lagrange",
+        "Determinants"
+      ],
+      "statement": "Let $n$ be a positive integer not divisible by the cube of a prime. Given an integer-coefficient polynomial $f(x)$, define its *signature modulo* $n$ to be the (ordered) sequence $f(1), \\dots, f(n)$ modulo $n$. Of the $n^n$ such $n$-term sequences of integers modulo $n$, how many are the signature of some polynomial $f(x)$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Let $p_1 \\cdots p_r q_1^2 \\cdots q_s$ be the prime factorization of $n$. Then the number of achievable signatures is $p_1^{p_1} \\cdots p_r^{p_r} q_1^{3q_1} \\cdots q_s^{3q_s}$.\n\nWe begin by reducing to the case in which $n$ is a prime or the square of a prime. Assume for now that our claim holds in these cases. Observe that the signature of a polynomial $f(x)$ modulo $n$ is completely determined by the collection of its signatures modulo $p_1, \\dots, p_r, q_1^2, \\dots, q_s^2$. Indeed, for each such modulus $m_i$, the sequence $f(1), \\dots, f(m_i)$ modulo $m_i$ determines the entire sequence $f(1), \\dots, f(n)$ modulo $m_i$ because $a \\equiv b \\pmod{m_i}$ implies $f(a) \\equiv f(b) \\pmod{m_i}$. Since the moduli $p_1, \\dots, p_r, q_1^2, \\dots, q_s^2$ are relatively prime with product $n$, it follows by the Chinese Remainder Theorem that specifying $f(1), \\dots, f(n)$ modulo all $m_i$ is equivalent to specifying the sequence modulo $n$.\n\nConversely, we need to show that every sequence $y_1, \\dots, y_n \\pmod{n}$ obtained by applying the above procedure to a collection of signatures $f_i(1), \\dots, f_i(m_i) \\pmod{m_i}$ is actually the signature of a polynomial $f(x)$. To do this, we apply the Chinese Remainder Theorem once more: define $f(x)$ by choosing its coefficients such that\n$$\n[x^k]f(x) \\equiv [x^k]f_i(x) \\pmod{m_i}\n$$\nfor all $i$. Then $f(x) \\equiv f_i(x) \\pmod{m_i}$ for all $i$, and the claim follows.\n\nBy the above, it suffices to show that the number of achievable signatures modulo $p$ is $p^p$ and the number of achievable signatures modulo $p^2$ is $p^{3p}$. In the first case, this amounts to showing that all $p$-term sequences modulo $p$ can be realized as $f(1), \\dots, f(p)$ for some polynomial $f(x)$. There are a number of quick proofs of this result, all of which ultimately use the fact that the integers modulo $p$ form a field. A direct approach is to use Lagrange interpolation; another method is to use Lagrange's theorem to deduce that no two polynomials in $\\mathbb{Z}/p\\mathbb{Z}$ of degree less than $p$ have the same signature modulo $p$. Yet another approach is to show that the linear transformation (over $\\mathbb{Z}/p\\mathbb{Z}$) that sends the coefficient vector ($[x^0]f(x), \\dots, [x^{p-1}]f(x)$) to the values ($f(1), \\dots, f(p)$) is nonsingular; this can be done by evaluating the Vandermonde determinant.\n\nThe modulus $p^2$ is trickier to handle. We begin by using an idea similar to Lagrange interpolation to exhibit a set of polynomials achieving $p^{3p}$ distinct signatures modulo $p^2$, thus obtaining a lower bound. We then establish a matching upper bound by finding a (different!) set of $p^{3p}$ polynomials such that all integer-coefficient polynomials can be easily “reduced” to one of these, keeping the signature fixed during the reduction.\n\nTo prove our lower bound, we begin by defining\n$$\nf_k(x) = ((x-1) \\cdots (x-(k-1))(x-(k+1)) \\cdots (x-p))^2\n$$\nand\n$$\ng_k(x) = (x-k)f_k(x).\n$$\nConsider all polynomials of the form\n$$\n\\sum_{k=1}^{p} a_k f_k(x) + b_k g_k(x)\n$$\nwhere $1 \\le a_k \\le p^2$ and $1 \\le b_k \\le p$. We claim that no two such polynomials have the same signature modulo $p^2$; this will establish our lower bound.\n\nBy subtracting, it is enough to show that the only polynomial\n$$\nf(x) = \\sum_{k=1}^{p} a_k f_k(x) + b_k g_k(x)\n$$\nsatisfying $f(1) \\equiv \\cdots \\equiv f(p^2) \\equiv 0 \\pmod{p^2}$ with $|a_k| < p^2$ and $|b_k| < p$ is the zero polynomial. In fact, it suffices to evaluate $f(x) \\pmod{p^2}$ at $x = 1, \\dots, 2p$. For $j = 1, \\dots, p$, we have $g_k(j) = 0$ for all $k$ and $f_k(j) = 0$ unless $k = j$, in which case $f_j(j)$ is invertible modulo $p^2$. It follows that $0 \\equiv f(j) = a_j f_j(j)$ and hence $a_j \\equiv 0 \\pmod{p^2}$, so $a_k = 0$ for all $k$.\n\nNext we evaluate $f(x)$ at $j = p + 1, \\dots, 2p$. This time, all $g_k(j)$ vanish modulo $p^2$ except when $k = j - p$, in which case $g_{j-p}(j)$ is divisible by $p$ but not $p^2$. Thus, $0 \\equiv f(j) \\equiv b_{j-p}g_{j-p}(j) \\pmod{p^2}$ and hence $b_{j-p} \\equiv 0 \\pmod{p}$, so $b_k = 0$ for all $k$, completing the proof of the lower bound.\n\nIt remains to prove that no more than $p^{3p}$ signatures modulo $p^2$ are attainable. Given two polynomials $f(x)$ and $g(x)$, we say that they are equivalent, denoted $f(x) \\sim g(x)$, if they have the same signature modulo $p^2$. It is easy to see that $f(x) \\sim g(x)$ implies $f(x)h(x) \\sim g(x)h(x)$ and $f(x) + h(x) \\sim g(x) + h(x)$ for any polynomial $h(x)$. We claim that every polynomial $f(x)$ is equivalent to a polynomial $g(x)$ such that\n$$\n[x^k]g(x) \\in \\{1, \\dots, p^2\\} \\quad \\text{for } 0 \\le k < p\n$$\nand\n$$\n[x^k]g(x) \\in \\{1, \\dots, p\\} \\quad \\text{for } p \\le k < 2p.\n$$\nThe key observation is that by Fermat, $x^p - x$ vanishes modulo $p$ when evaluated at any integer. Therefore, $(x^p - x)^2$ and $p(x^p - x)$ both vanish modulo $p^2$ at all integers, i.e.\n$$\nx^{2p} \\sim 2x^{p+1} - x^2 \\quad \\text{and} \\quad px^p \\sim px.\n$$\nUsing the properties of $\\sim$ stated above, the first relation allows us to reduce $f(x)$ to a polynomial of degree less than $p$; the second relation then allows us to further reduce to a polynomial with all coefficients of $x^p, \\dots, x^{2p-1}$ in $\\{1, \\dots, p\\}$. Finally, the remaining coefficients can be reduced modulo $p^2$ to lie in $\\{1, \\dots, p^2\\}$, completing the proof."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-1788",
+      "name": "12th Annual Harvard-MIT Mathematics Tournament #0iwc",
+      "url": "https://usamoguide.com/",
+      "source": "12th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomials mod p",
+        "Polynomial operations",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\n\nLet $f$ be a polynomial with integer coefficients such that the greatest common divisor of all its coefficients is $1$. For any $n \\in \\mathbb{N}$, $f(n)$ is a multiple of $85$. Find the smallest possible degree of $f$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nNotice that, if $p$ is a prime and $g$ is a polynomial with integer coefficients such that $g(n) \\equiv 0 \\pmod{p}$ for some $n$, then $g(n + m p)$ is divisible by $p$ as well for any integer multiple $m p$ of $p$. Therefore, it suffices to find the smallest possible degree of a polynomial $f$ for which $f(0), f(1), f(2), \\ldots, f(16)$ are divisible by $17$ and by $5$.\n\nThere is a polynomial of degree $17$ with integer coefficients having $f(0) = f(1) = \\cdots = f(16) = 0$, namely $f(x) = (x)(x-1)(x-2) \\cdots (x-16)$. Thus the minimal degree is no larger than $17$.\n\nNow, let $f$ be such a polynomial and consider $f$ modulo $17$. The polynomial has $17$ roots, so it must be at least degree $17$ when taken modulo $17$. Thus $f$ has degree at least $17$ as well."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-1882",
+      "name": "Team Selection Test 2010 #0iyy",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test 2010",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Greatest common divisors (gcd)",
+        "Polynomials mod p",
+        "Polynomial operations"
+      ],
+      "statement": "Let $P(x)$ be a polynomial with integer coefficients such that $P(0) = 0$ and\n$$\n\\text{gcd}(P(0), P(1), P(2), \\dots) = 1.\n$$\nProve that there are infinitely many positive integers $n$ such that\n$$\n\\text{gcd}(P(n) - P(0), P(n+1) - P(1), P(n+2) - P(2), \\dots) = n.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Write\n$$\nP(x) = a_{r}x^{r} + a_{r-1}x^{r-1} + \\dots + a_{1}x,\n$$\nand consider its formal derivative\n$$\nQ(x) = r a_{r} x^{r-1} + (r-1) a_{r-1} x^{r-2} + \\dots + a_{1}.\n$$\nSince $P$ is not identically zero, neither is $Q$, so we may choose some positive integer $m$ such that $Q(m) \\neq 0$. We claim that we may take $n$ to be any prime that does not divide $Q(m)$.\nLet $n$ be such a prime, and put\n$$\nd = \\text{gcd}(P(n) - P(0), P(n+1) - P(1), P(n+2) - P(2), \\dots).\n$$\nCertainly we have $n \\mid d$. On the other hand, if $q$ is any prime distinct from $n$, then we cannot have $q \\mid d$. For suppose that $q \\mid d$. Since $q$ and $n$ are relatively prime, there are integers $k, l > 0$ such that $kn - lq = 1$. Then, notice that\n$$\nP(m) \\equiv P(m+n) \\equiv P(m+2n) \\equiv \\dots \\equiv P(m+kn) \\equiv P(m+1) \\pmod{q}\n$$\nfor every nonnegative integer $m$. By induction, then, $q$ divides all of $P(0), P(1), P(2), \\dots$, contradicting the given.\nAlso, we cannot have $n^2 \\mid d$. Indeed,\n$$\n\\begin{aligned}\nP(m+n) - P(m) &= \\sum_{i=1}^{r} a_i [(m+n)^i - m^i] \\\\\n&= \\sum_{i=1}^{r} a_i [m^i + i m^{i-1} n + (\\text{terms divisible by } n^2) - m^i] \\\\\n&= \\sum_{i=1}^{r} a_i [i m^{i-1} n + (\\text{terms divisible by } n^2)] \\\\\n&\\equiv n \\cdot Q(m) \\pmod{n^2}.\n\\end{aligned}\n$$\nTherefore, $P(m+n) - P(m)$ cannot be divisible by $n^2$ since $Q(m)$ is not divisible by $n$.\n\nSo $d$ is divisible by $n$, but not by any other prime or by $n^2$; hence $d = n$, as required."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-2163",
+      "name": "Team Selection Test #0j6r",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Prime numbers",
+        "Polynomials mod p",
+        "Inclusion-exclusion",
+        "Counting two ways",
+        "Algebraic properties of binomial coefficients",
+        "Polynomial interpolation: Newton, Lagrange",
+        "Recurrence relations"
+      ],
+      "statement": "Let $p$ be a prime. We say that a sequence of integers $\\{z_n\\}_{n=0}^{\\infty}$ is a $p$-pod if for each $e \\ge 0$, there is an $N \\ge 0$ such that whenever $m \\ge N$, $p^e$ divides the sum\n$$\n\\sum_{k=0}^{m} (-1)^k \\binom{m}{k} z_k.\n$$\n\nProve that if both sequences $\\{x_n\\}_{n=0}^{\\infty}$ and $\\{y_n\\}_{n=0}^{\\infty}$ are $p$-pods, then the sequence $\\{x_n y_n\\}_{n=0}^{\\infty}$ is a $p$-pod.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Let\n$$\nX_n = \\sum_{i=0}^{n} (-1)^i \\binom{n}{i} x_i \\quad \\text{and} \\quad Y_n = \\sum_{i=0}^{n} (-1)^i \\binom{n}{i} y_i.\n$$\nFor nonnegative integers $i \\le j$, consider the expression\n$$\n\\sum_{k=i}^{j} (-1)^k \\binom{k}{i} \\binom{j}{k}.\n$$\nViewing $\\binom{j}{k}$ as the number of ways to choose a $k$-element subset of a $j$-element set and $\\binom{k}{i}$ as the number of ways to choose an $i$-element subset which is contained in this chosen $k$-element set, the principle of inclusion-exclusion shows that $(-1)^j$ times this sum is the number of ways to choose an $i$-element subset from a $j$-element set that coincides with the set itself. Thus, the sum is $(-1)^i$ if $i = j$ and $0$ otherwise. Therefore, we may write\n$$\n\\begin{aligned}\n\\sum_{r=0}^{n} (-1)^r \\binom{n}{r} x_r y_r &= \\sum_{i=0}^{n} \\sum_{j=0}^{n} (-1)^{i+j} x_i y_j \\sum_{r=0}^{n} (-1)^r \\binom{n}{r} \\left[ \\sum_{k=i}^{r} (-1)^k \\binom{k}{i} \\binom{r}{k} \\right] \\left[ \\sum_{\\ell=j}^{r} (-1)^\\ell \\binom{\\ell}{j} \\binom{r}{\\ell} \\right] \\\\\n&= \\sum_{k=0}^{n} \\sum_{\\ell=0}^{n} \\left[ \\sum_{i=0}^{k} (-1)^{k-i} \\binom{k}{i} x_i \\right] \\left[ \\sum_{j=0}^{\\ell} (-1)^{\\ell-j} \\binom{\\ell}{j} y_j \\right] \\left[ \\sum_{r=0}^{n} (-1)^r \\binom{n}{r} \\binom{r}{k} \\binom{r}{\\ell} \\right] \\\\\n&= \\sum_{k=0}^{n} \\sum_{\\ell=0}^{n} (-1)^{n+k+\\ell} X_k Y_\\ell \\left[ \\sum_{r=0}^{n} (-1)^{n-r} \\binom{n}{r} \\binom{r}{k} \\binom{r}{\\ell} \\right].\n\\end{aligned}\n$$\nAgain by the principle of inclusion-exclusion, the final expression in brackets counts the number of ways to choose a $k$-element subset and an $\\ell$-element subset of an $n$-element set whose union is the entire set (again by the principle of inclusion-exclusion), so it is $0$ if $k + \\ell < n$.\n\nNow, let $e$ be arbitrary, let $N$ be so large that $p^e$ divides both $X_m$ and $Y_m$ whenever $m \\ge N/2$ (such an $N$ exists by the definition of $p$-pod), and take $n \\ge N$. Then, whenever $k + \\ell \\ge n \\ge N$, at least one of $k$ or $\\ell$ is at least $N/2$, so $p^e$ will divide either $X_k$ or $Y_\\ell$. We conclude that $p^e$ divides every term in the sum, and that therefore for each $n \\ge N$, $p^e$ divides\n$$\n\\sum_{r=0}^{n} (-1)^r \\binom{n}{r} x_r y_r,\n$$\nhence $\\{x_n y_n\\}_{n=0}^\\infty$ is a $p$-pod.\n\n\nSolution 2:\n\nFor a sequence $\\{z_n\\}_{n=0}^\\infty$ and an integer $m \\ge 0$, define\n$$\n\\Delta^m z_n = \\sum_{k=0}^{m} (-1)^{m-k} \\binom{m}{k} z_{n+k},\n$$\nso that $\\{\\Delta^m z_n\\}_{n=0}^\\infty$ is the sequence of $m$-fold finite differences in $\\{z_n\\}$. With this notation, $\\{z_n\\}$ is a $p$-pod if and only if for every $e > 0$ there is an $N \\ge 0$ such that whenever $m \\ge N$, $p^e \\mid \\Delta^m z_0$.\n\nLemma 1. The sequence $\\{z_n\\}$ is a $p$-pod if and only if for every $e > 0$ there is an $N \\ge 0$ such that whenever $m \\ge N$, $p^e$ divides $\\Delta^m z_n$ for every $n \\ge 0$.\n\n*Proof.* Indeed, recall (or verify) that for any $m, n \\ge 0$, we have\n$$\n\\Delta^{m+1} z_n = \\Delta^m z_{n+1} - \\Delta^m z_n, \\quad \\text{or} \\quad \\Delta^m z_{n+1} = \\Delta^m z_n + \\Delta^{m+1} z_n. \\qquad (33)\n$$\nA trivial induction using (33) shows that the same $N$ as in the definition of $p$-pod works for all $n \\ge 0$. $\\square$\n\nNow, let $\\{x_n\\}$ and $\\{y_n\\}$ be $p$-pods. By Lemma 1, there exists an $N$ such that for all $n$, $\\Delta^m x_n \\equiv 0 \\pmod{p^e}$ for $m \\ge N$. Let $f(t)$ be the monic degree $N$ polynomial with rational coefficients such that $f(n) = x_n$ for $n = 0, 1, \\dots, N$. By definition, we see that $\\Delta^m x_0 = \\Delta^m f(0)$ for $m \\le N$; further, because $\\Delta^m f(n) = 0$ for $m \\ge N$, we see that $\\Delta^m x_0 \\equiv \\Delta^m f(0) \\pmod{p^e}$ for all $m \\ge 0$. An easy induction using (33) then shows that $\\Delta^m x_n \\equiv \\Delta^m f(n) \\pmod{p^e}$ for all $m, n \\ge 0$. Taking $m = 0$ in particular gives that $f(n) \\equiv x_n \\pmod{p^e}$ for all $n \\ge 0$. Similarly, we find a polynomial $g(t)$ such that $g(n) \\equiv y_n \\pmod{p^e}$ for all $n \\ge 0$.\n\nBut then $h(t) = f(t)g(t)$ has the property that $h(n) \\equiv x_n y_n \\pmod{p^e}$ for all $n \\ge 0$. Therefore, if $h(t)$ has degree $M$, then for any $m \\ge M$ and $n \\ge 0$ we have\n$$\n\\Delta^m \\{x_n y_n\\} \\equiv \\Delta^m h(n) \\equiv 0 \\pmod{p^e},\n$$\nand we are done by Lemma 1."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-2177",
+      "name": "Harvard-MIT Mathematics Tournament #0j75",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Counting two ways",
+        "Polynomial operations",
+        "Polynomials mod p"
+      ],
+      "statement": "Problem:\n\nLet $p$ be a prime positive integer. Define a mod-$p$ recurrence of degree $n$ to be a sequence $\\{a_k\\}_{k \\geq 0}$ of numbers modulo $p$ satisfying a relation of the form $a_{i+n} = c_{n-1} a_{i+n-1} + \\ldots + c_1 a_{i+1} + c_0 a_i$ for all $i \\geq 0$, where $c_0, c_1, \\ldots, c_{n-1}$ are integers and $c_0 \\not\\equiv 0 \\pmod{p}$. Compute the number of distinct linear recurrences of degree at most $n$ in terms of $p$ and $n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $1 - n \\frac{p-1}{p+1} + \\frac{p^{2}(p^{2n}-1)}{(p+1)^{2}}$\n\nIn the solution all polynomials are taken modulo $p$. Call a polynomial nice if it is monic with nonzero constant coefficient. We can associate each recurrence relation with a polynomial: associate\n$$\nc_{n} a_{i+n} + c_{n-1} a_{i+n-1} + \\ldots + c_{1} a_{i+1} + c_{0} a_{i} = 0\n$$\nwith\n$$\nc_{n} x^{n} + c_{n-1} x^{n-1} + \\ldots + c_{1} x + c_{0}.\n$$\nLet $D_{i}$ be the set of mod-$p$ recurrences $\\{a_{k}\\}_{k \\geq 0}$ where $i$ is the least integer so that $\\{a_{k}\\}_{k \\geq 0}$ has degree $i$, and let $d_{i} = |D_{i}|$.\nLet $S_{n}$ be the set of pairs $\\left(\\{a_{k}\\}_{k \\geq 0}, P\\right)$ where $\\{a_{k}\\}_{k \\geq 0}$ is a mod-$p$ recurrence, and $P$ is a nice polynomial associated to a recurrence relation of degree at most $n$ satisfied by $\\{a_{k}\\}_{k \\geq 0}$. To find $d_{n}$ generally, we count the number of elements in $S_{n}$ in two ways.\n\nOn the one hand, for each sequence $\\{a_{k}\\}_{k \\geq 0}$ in $D_{i}$, there exist $p^{n-i}$ polynomials $P$ such that $\\left(\\{a_{k}\\}_{k \\geq 0}, P\\right) \\in S$. Indeed, $\\{a_{k}\\}_{k \\geq 0}$ satisfies any recurrence relation associated with a polynomial multiple of $P$. When $j = i$ there is just one nice degree $j$ polynomial that is a multiple of $P$, $P$ itself. For $j > i$, there are $(p-1) p^{j-i-1}$ nice polynomials of degree $j$ that are multiples of $P$, namely $Q P$ where $Q$ is a nice polynomial of degree $j-i$. (There are $p$ choices for the coefficients of $x, \\ldots, x^{j-i-1}$ and $p-1$ choices for the constant term.) So the number of nice polynomial multiples of degree at most $n$ is\n$$\n1 + \\sum_{j=i+1}^{n} (p-1) p^{j-i-1} = 1 + (p-1)\\left(\\frac{p^{n-i}-1}{p-1}\\right) = p^{n-i}\n$$\nHence\n$$\n|S_{n}| = \\sum_{i=0}^{n} d_{i} p^{n-i}\n$$\n\nOn the other hand, given a monic polynomial $P$ of degree $i$, there are $p^{i}$ recurrences $\\{a_{k}\\}_{k \\geq 0}$ such that $\\left(\\{a_{k}\\}_{k \\geq 0}, P\\right) \\in S$, since $a_{0}, \\ldots, a_{i-1}$ can be chosen arbitrarily and the rest of the terms are determined. Since there are $(p-1) p^{i-1}$ nice polynomials of degree $i \\neq 0$ (and 1 nice polynomial for $i=0$), summing over $i$ gives\n$$\n|S_{n}| = 1 + \\sum_{i=1}^{n} (p-1) p^{2i-1}\n$$\n\nNow clearly $d_{0} = 1$. Setting (1) and (2) equal for $n$ and $n+1$ give\n$$\n\\begin{aligned}\n\\sum_{i=0}^{n+1} d_{i} p^{n+1-i} & = 1 + (p-1) \\sum_{i=1}^{n+1} p^{2i-1} \\\\\n\\sum_{i=0}^{n} d_{i} p^{n-i} & = 1 + (p-1) \\sum_{i=1}^{n} p^{2i-1} \\\\\n\\Longrightarrow \\sum_{i=0}^{n} d_{i} p^{n+1-i} & = p + (p-1) \\sum_{i=1}^{n} p^{2i}\n\\end{aligned}\n$$\nSubtracting (4) from (3) yields:\n$$\n\\begin{aligned}\nd_{n+1} & = 1 - p + (p-1) \\sum_{i=1}^{2n+1} (-1)^{i+1} p^{i} \\\\\n& = (p-1) \\sum_{i=0}^{2n+1} (-1)^{i+1} p^{i} \\\\\n& = (p-1)^{2} \\sum_{i=0}^{n} p^{2m} \\\\\n& = (p-1)^{2}\\left(\\frac{p^{2n+2}-1}{p^{2}-1}\\right) \\\\\n& = \\frac{(p-1)(p^{2n+2}-1)}{p+1}\n\\end{aligned}\n$$\nThus the answer is\n$$\n\\begin{aligned}\n\\sum_{i=0}^{n} d_{i} & = 1 + \\frac{p-1}{p+1} \\sum_{i=1}^{n} (p^{2i} - 1) \\\\\n& = 1 + \\frac{p-1}{p+1}(-n + p^{2} \\cdot \\frac{p^{2n}-1}{p^{2}-1}) \\\\\n& = 1 - n \\frac{p-1}{p+1} + \\frac{p^{2}(p^{2n}-1)}{(p+1)^{2}}\n\\end{aligned}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-2707",
+      "name": "IMO Team Selection Test #0jlv",
+      "url": "https://usamoguide.com/",
+      "source": "IMO Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Primitive roots mod p / p^n",
+        "Polynomials mod p",
+        "Roots of unity",
+        "Irreducibility: Rational Root Theorem, Gauss's Lemma, Eisenstein",
+        "Vieta's formulas",
+        "Group Theory"
+      ],
+      "statement": "For a prime $p$, a subset $S$ of residues modulo $p$ is called a *sum-free multiplicative subgroup of $\\mathbb{F}_p$* if:\n\n* there is a nonzero residue $\\alpha$ modulo $p$ such that $S = \\{1, \\alpha^1, \\alpha^2, \\dots\\}$ (all considered mod $p$), and\n* there are no $a, b, c \\in S$ (not necessarily distinct) such that $a + b \\equiv c \\pmod p$.\n\nProve that for every integer $N$, there is a prime $p$ and a sum-free multiplicative subgroup $S$ of $\\mathbb{F}_p$ such that $|S| \\ge N$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "We prove a stronger statement, generalizing the desired condition \"$0 \\notin S + S - S$\" to \"$0 \\notin a_1S + a_2S + \\dots + a_kS$\", for fixed integers $a_1, \\dots, a_k$ with nonzero sum $a_1 + \\dots + a_k$. (In the original problem we have $(a_1, \\dots, a_k) = (1, 1, -1)$ (so $k=3$).\n\nFix a positive integer $N$ (we will specify further later), and take a large prime $p \\equiv 1 \\pmod N$ (we don't need Dirichlet—there are infinitely many by a cyclotomic polynomial argument, along the lines of using $x^2 + 1$ for $N=4$).\n\nAgain, we will specify the size of $p$ later. Now let $\\alpha$ be an $N$th root of unity modulo $p$ (i.e. $\\alpha = g^{(p-1)/N}$ for a primitive root $g$, so $\\alpha$ has order $N$). Then the key is the following lemma:\n\n**Lemma.** If the sumset $a_1S + a_2S + \\dots + a_kS$ contains $0 \\pmod p$ for arbitrarily large primes $p \\equiv 1 \\pmod N$, then there exist indices $i_1, i_2, \\dots, i_k$ between $0$ and $N-1$ such that the polynomial $f(x) = a_1x^{i_1} + \\dots + a_kx^{i_k}$ is divisible by the $N$th cyclotomic polynomial $\\Phi_N(x)$ (over $\\mathbb{Q}$, and thus $\\mathbb{Z}$).\n\n(We will use the irreducibility of $\\Phi_N$, but we only need special cases such as $N$ prime, where the proof is easy.)\n\n*Proof.* The idea is to “transfer” from $N$th roots of unity modulo $p$ to “actual” $N$th roots of unity. First, the sumset’s containing $0$ is equivalent to the existence of $0 \\le i_1, i_2, \\dots, i_k \\le N-1$ (since $\\alpha^N \\equiv 1 \\pmod p$) such that $f(\\alpha) \\equiv 0 \\pmod p$.\n\nWe present two (similar) ways to do this. One is to use the Mobius-inversion-type definition of cyclotomic polynomials to show that in $\\mathbb{F}_p$, the roots of the polynomial $\\Phi_N(x)$ are precisely the residues of order $N$; in particular, $p$ divides $\\Phi_N(\\alpha)$. Now by Bezout's identity, there exist integer polynomials $A(x), B(x)$ and a nonzero integer $C$ such that $C \\gcd(\\Phi_N(x), f(x)) = A(x)f(x) + B(x)\\Phi_N(x)$, where the $\\gcd$ (over $\\mathbb{Q}$) is, without loss of generality, monic. Assume for the sake of contradiction that $\\gcd(\\Phi_N(x), f(x))$ is constant, so, without loss of generality, identically $1$. Then plugging in $\\alpha$, we get $p$ divides $C$ for arbitrarily large primes $p \\equiv 1 \\pmod N$, which is absurd. Thus $f(x)$ and $\\Phi_N(x)$ share a complex root, and by the irreducibility of $\\Phi_N(x)$, $f(x)$ is divisible by $\\Phi_N(x)$. ($*$)\n\nAlternatively, by counting roots, it is easy to show that in $\\mathbb{F}_p$, we have the polynomial identity $x^N-1 \\equiv (x-\\alpha)\\dots(x-\\alpha^N)$. If $z$ is a primitive $N$th root of unity, then in $\\mathbb{C}$, we have $x^N-1 = (x-z)\\dots(x-z^N)$, so the symmetric sums of $z, \\dots, z^N$ are congruent modulo $p$ to those of $\\alpha, \\dots, \\alpha^N$. It follows by the theorem of symmetric sums that the product of $f(\\alpha)$ over all valid indices $0 \\le i_1, \\dots, i_k \\le N-1$ (each choice determines some $f$) is an integer congruent modulo $p$ to the (integer) product of $f(z)$ over all valid indices $0 \\le i_1, \\dots, i_k \\le N-1$. Thus arbitrarily large primes $p$ divide the integer $\\prod_{[0,N-1]^k} f(z)$, which must therefore be $0$. Thus there exists a choice of indices such that $f(z)$ is identically $0$, and thus the minimal polynomial $\\Phi_N(x)$ (again, we use irreducibility as in $(*$)) of $z$ divides $f(x)$. $\\square$\n\nWith the lemma in hand, the rest is easy. Choose $N=q$ any prime. Then $\\Phi_N(x) = \\Phi_q(x) = (x^q-1)/(x-1)$ divides $f(x) = a_1x^{i_1} + \\dots + a_kx^{i_k}$, a $k$-term polynomial that is either identically zero or otherwise a nonzero polynomial of degree at most $N-1=q-1$. However, if $f$ is not identically zero, and $q>k$, then since $(x^q-1)/(x-1) = x^{q-1} + \\dots + 1$ has degree $q-1$ (which is at least the degree of $f$), the coefficients of $f$ must all be equal. Yet $i_1, \\dots, i_k$ cannot cover all of $0, 1, \\dots, q-1$, so one of the coefficients of $f$ must be $0$, and therefore all must be $0$.\n\nIt follows that $f$ is identically zero, so $f(1) = a_1 + \\dots + a_k = 0$, contradiction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-2744",
+      "name": "IMO Team Selection Team Selection Test #0jmw",
+      "url": "https://usamoguide.com/",
+      "source": "IMO Team Selection Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Rotation",
+        "Complex numbers in geometry",
+        "Polynomials",
+        "Polynomials mod p"
+      ],
+      "statement": "Let $r$ be a rational number in the interval $[-1, 1]$, and let $\\theta = \\cos^{-1} r$. Call a subset $S$ of the plane good if $S$ is unchanged upon rotation by $\\theta$ around any point of $S$ (in both clockwise and counterclockwise directions). Determine all values of $r$ satisfying the following property: The midpoint of any two points in a good set also lies in the set.\n\n(This problem was suggested by Ricky Liu.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "We claim the answer is $r = 1 - \\frac{1}{4k}$ for all positive integers $k$.\n\nSuppose $A$ and $B$ are points in $S$. Place $A$ and $B$ on the complex plane such that $A = 0$ and $B = 1$, and let $\\omega = \\cos\\theta + i\\sin\\theta = r + i\\sqrt{1-r^2}$. We claim that any good set containing $A$ and $B$ contains the good set $T$ of numbers of the form $f(\\omega)$, where $f(x)$ is a Laurent polynomial—that is, $x^n f(x)$ is a polynomial for some (possibly negative) integer $n$—with integer coefficients, and $f(1) = 0$ or $1$.\n\nWe first show that $T$ is good. Indeed, for any $p \\in T$, the rotation $R_p$ about $p$ by $\\theta$ sends $z \\mapsto R_p(z) = (z-p)\\omega + p$. If $p = f(\\omega)$ and $z = g(\\omega) \\in T$, then $h(x) = (g(x)-f(x)) \\cdot x + f(x)$ satisfies $R_p(z) = h(\\omega)$ and $h(1) = g(1) = 0$ or $1$, so $R_p(z) \\in T$. Similarly, $R_p^{-1}(z) = (z-p) \\cdot \\omega^{-1} + p \\in T$, so $T$ is good.\n\nNext we show that any good set $S$ containing $0$ and $1$ contains all of $T$. Let $f(x)$ be any Laurent polynomial with integer coefficients with $f(1) = 0$ or $1$. We will show that $f(\\omega) \\in S$. We induct on the sum $s$ of the absolute value of the coefficients of $f(x)$. The case $s=0$ is trivial. For $s=1$, $f(\\omega)$ must be a power of $\\omega$, which is of the form $R_0^k(1) \\in S$. For $s \\ge 2$, $f(x)$ must have at least one positive and one negative coefficient, so write $f(x) = x^a - x^b + g(x)$, where the sum of the absolute values of the coefficients of $g(x)$ is $s-2$. Since $g(1) = f(1)$, $g(\\omega) \\in S$ by induction. Then\n$$\nx^{-a}f(x) = (x^{-b}g(x) - 1) \\cdot x^{b-a} + 1,\n$$\nso $f(\\omega) = R_0^a \\circ R_1^{b-a} \\circ R_0^{-b}(g(\\omega)) \\in S$, completing the induction.\n\nIt follows that $r$ satisfies the desired condition if and only if we can write $\\frac{1}{2} = f(\\omega) \\in T$. Then there is a polynomial $g(x) = x^n(2f(x)-1)$, all but one of whose coefficients are even, that has $\\omega$ as a root. If $r = \\pm 1$, so $\\omega = \\pm 1$, this is clearly impossible. Otherwise, let $r = \\frac{a}{b}$ with $a$ and $b$ relatively prime. Then the minimal polynomial $p(x)$ of $\\omega$ over the integers is $bx^2 - 2ax + b$ if $b$ is odd and $\\frac{b}{2}x^2 - ax + \\frac{b}{2}$ if $b$ is even. This minimal polynomial must divide $g(x)$. But since $g(x)$ is congruent to a power of $x$ modulo 2, $p(x)$ must also be congruent to a power of $x$ modulo 2. The only possibility is for $b$ to be a multiple of 4 (and $a$ to be odd).\n\nFinally, since $g(1) = 2f(1) - 1 = \\pm 1$ and $p(1) | g(1)$, we must have that $p(1) = \\pm 1$ as well. Since $p(1) = \\frac{b}{2} - a + \\frac{b}{2} = b - a$, we must have $b = a \\pm 1$. Since $|r| \\le 1$, $|a| \\le |b|$. We find then that the only possibilities are $r = 1 - \\frac{1}{4k}$, where we can let $a = 4k-1$ and $b = 4k$, so $p(1) = 1$. Then letting $f(x) = \\frac{1}{2}(x^{-1}p(x) + 1) = kx - (2k-1) + kx^{-1}$, we find that $f(1) = 1$, so $\\frac{1}{2} = f(\\omega) \\in T$, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-2756",
+      "name": "HMMT February 2015 #0jn8",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2015",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial operations",
+        "Polynomials mod p"
+      ],
+      "statement": "Problem:\nLet $Q$ be a polynomial\n$$\nQ(x) = a_{0} + a_{1} x + \\cdots + a_{n} x^{n}\n$$\nwhere $a_{0}, \\ldots, a_{n}$ are nonnegative integers. Given that $Q(1) = 4$ and $Q(5) = 152$, find $Q(6)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nSince each $a_{i}$ is a nonnegative integer, $152 = Q(5) \\equiv a_{0} \\pmod{5}$ and $Q(1) = 4 \\Longrightarrow a_{i} \\leq 4$ for each $i$. Thus, $a_{0} = 2$. Also, since $5^{4} > 152 = Q(5)$, $a_{4}, a_{5}, \\ldots, a_{n} = 0$.\n\nNow we simply need to solve the system of equations\n$$\n\\begin{aligned}\n5 a_{1} + 5^{2} a_{2} + 5^{3} a_{3} & = 150 \\\\\na_{1} + a_{2} + a_{3} & = 2\n\\end{aligned}\n$$\nto get\n$$\na_{2} + 6 a_{3} = 7\n$$\nSince $a_{2}$ and $a_{3}$ are nonnegative integers, $a_{2} = 1$, $a_{3} = 1$, and $a_{1} = 0$. Therefore,\n$$\nQ(6) = 6^{3} + 6^{2} + 2 = 254.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-2783",
+      "name": "HMMT February #0jnz",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomials mod p",
+        "Polynomial operations",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\nFind the smallest positive integer $n$ such that the polynomial $(x+1)^{n}-1$ is \"divisible by $x^{2}+1$ modulo 3\", or more precisely, either of the following equivalent conditions holds:\n- there exist polynomials $P, Q$ with integer coefficients such that $(x+1)^{n}-1=\\left(x^{2}+1\\right) P(x)+3 Q(x)$;\n- or more conceptually, the remainder when (the polynomial) $(x+1)^{n}-1$ is divided by (the polynomial) $x^{2}+1$ is a polynomial with (integer) coefficients all divisible by 3.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: 8\n\nSolution 1. We have $(x+1)^{2}=x^{2}+2x+1 \\equiv 2x$, $(x+1)^{4} \\equiv (2x)^{2} \\equiv -4 \\equiv -1$, and $(x+1)^{8} \\equiv (-1)^{2}=1$. So the order $n$ divides 8, as $x+1$ and $x^{2}+1$ are relatively prime polynomials modulo 3 (or more conceptually, in $\\mathbb{F}_{3}[x]$), but cannot be smaller by our computations of the 2nd and 4th powers.\n\n\nSolution 2. Here's a solution avoiding the terminology of groups and fields. Let $R(x)=(x+1)^{n}-1-P(x)(x^{2}+1)=3Q(x)$ be the remainder (here $P$ is the quotient), whose coefficients (upon expansion) must all be divisible by 3. Now consider $R(i)$. The coefficients of the even and odd powers of $x$ are divisible by 3, so $R(i)$ must have real and imaginary parts divisible by 3. Notice that $(1+i)^{2}=2i$, $(1+i)^{4}=-4$, $(1+i)^{6}=-8i$, $(1+i)^{8}=16$, and that $(1+i)^{8}-1=15$, which has real and imaginary parts divisible by 3. Since any even power of $(1+i)$ (for $n \\leq 6$) yields a purely real or purely imaginary number with a coefficient not divisible by 3, multiplying it by $1+i$ will yield an imaginary part not divisible by 3. To see that $n=8$ works, notice that, when taken modulo 3,\n$$\n\\begin{aligned}\n(x+1)^{8}-1 & = x^{8} + 8x^{7} + 28x^{6} + 56x^{5} + 70x^{4} + 56x^{3} + 28x^{2} + 8x \\\\\n& \\equiv x^{8} - x^{7} + x^{6} - x^{5} + x^{4} - x^{3} + x^{2} - x \\\\\n& = (x^{2}+1)(x^{6} - x^{5} + x^{2} - x) \\quad (\\bmod 3),\n\\end{aligned}\n$$\nas desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-2793",
+      "name": "Berkeley Math Circle: Monthly Contest 2 #0jo9",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 2",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial operations",
+        "Polynomials mod p"
+      ],
+      "statement": "Problem:\n\nIs there a polynomial $P(n)$ with integer coefficients such that $P(2)=4$ and $P(P(2))=7$? Prove your answer.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe answer is no. Let $P(n) = c_n x^n + \\cdots + c_0$. We are given that $P(2) = 4$ and $P(4) = 7$. The first equation implies that $c_0$ is even while the second implies that $c_0$ is odd, which is a contradiction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-2822",
+      "name": "Berkeley Math Circle: Monthly Contest 2 #0jp2",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 2",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomials mod p",
+        "Techniques: modulo, size analysis, order analysis, inequalities"
+      ],
+      "statement": "Problem:\n\nAre there integers $a, b, c, d$ which satisfy $a^{4}+b^{4}+c^{4}+2016=10 d$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe answer is no. Look at the equation in base $5$. Observe that $0^{4}=0$, $1^{4}=1=1_{5}$, $2^{4}=16=31_{5}$, $3^{4}=81=311_{5}$, $4^{4}=256=2011_{5}$, so each of $a^{4}, b^{4}, c^{4}$ must end in $0$ or $1$ in base $5$. On the other hand $10 d - 2016$ ends with $4$ in base $5$. This is impossible."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-2897",
+      "name": "HMMT February 2015 #0jr5",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2015",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Chinese remainder theorem",
+        "Polynomials mod p",
+        "Quadratic residues",
+        "Field Theory"
+      ],
+      "statement": "Problem:\nFind the number of ordered pairs of integers $(a, b) \\in \\{1,2, \\ldots, 35\\}^2$ (not necessarily distinct) such that $a x+b$ is a \"quadratic residue modulo $x^2+1$ and 35\", i.e. there exists a polynomial $f(x)$ with integer coefficients such that either of the following equivalent conditions holds:\n- there exist polynomials $P, Q$ with integer coefficients such that $f(x)^2-(a x+b)=\\left(x^2+1\\right) P(x)+35 Q(x)$;\n- or more conceptually, the remainder when (the polynomial) $f(x)^2-(a x+b)$ is divided by (the polynomial) $x^2+1$ is a polynomial with (integer) coefficients all divisible by 35.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $225$\n\nBy the Chinese remainder theorem, we want the product of the answers modulo $5$ and modulo $7$ (i.e. when $35$ is replaced by $5$ and $7$, respectively).\n\nFirst we do the modulo $7$ case. Since $x^2+1$ is irreducible modulo $7$ (or more conceptually, in $\\mathbb{F}_7[x]$), exactly half of the nonzero residues modulo $x^2+1$ and $7$ (or just modulo $x^2+\\overline{1}$ if we're working in $\\mathbb{F}_7[x]$) are quadratic residues, i.e. our answer is $1+\\frac{7^2-1}{2}=25$ (where we add back one for the zero polynomial).\n\nNow we do the modulo $5$ case. Since $x^2+1$ factors as $(x+2)(x-2)$ modulo $5$ (or more conceptually, in $\\mathbb{F}_5[x]$), by the polynomial Chinese remainder theorem modulo $x^2+\\overline{1}$ (working in $\\mathbb{F}_5[x]$), we want the product of the number of polynomial quadratic residues modulo $x \\pm \\overline{2}$. By centering/evaluating polynomials at $\\mp \\overline{2}$ accordingly, the polynomial squares modulo these linear polynomials are just those reducing to integer squares modulo $5$. So we have an answer of $\\left(1+\\frac{5-1}{2}\\right)^2=9$ in this case.\n\nOur final answer is thus $25 \\cdot 9=225$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-2905",
+      "name": "HMMT February 2015 #0jrd",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2015",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomials mod p",
+        "Greatest common divisors (gcd)",
+        "Polynomial interpolation: Newton, Lagrange"
+      ],
+      "statement": "Problem:\nLet $N = 30^{2015}$. Find the number of ordered 4-tuples of integers $(A, B, C, D) \\in \\{1, 2, \\ldots, N\\}^4$ (not necessarily distinct) such that for every integer $n$, $A n^3 + B n^2 + 2 C n + D$ is divisible by $N$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: 24\n\nNote that $n^{0} = \\binom{n}{0}$, $n^{1} = \\binom{n}{1}$, $n^{2} = 2\\binom{n}{2} + \\binom{n}{1}$, $n^{3} = 6\\binom{n}{3} + 6\\binom{n}{2} + \\binom{n}{1}$ (generally see http://en.wikipedia.org/wiki/Stirling_numbers_of_the_second_kind). Thus the polynomial rewrites as\n$$\n6A \\binom{n}{3} + (6A + 2B) \\binom{n}{2} + (A + B + 2C) \\binom{n}{1} + D \\binom{n}{0},\n$$\nwhich by the classification of integer-valued polynomials is divisible by $N$ always if and only if $6A$, $6A + 2B$, $A + B + 2C$, $D$ are always divisible by $N$.\n\nWe can eliminate $B$ and (trivially) $D$ from the system: it's equivalent to the system $6A \\equiv 0 \\pmod{N}$, $4A - 4C \\equiv 0 \\pmod{N}$, $B \\equiv -A - 2C \\pmod{N}$, $D \\equiv 0 \\pmod{N}$. So we want $1^2$ times the number of $(A, C)$ with $A \\equiv 0 \\pmod{N/6}$, $C \\equiv A \\pmod{N/4}$. So there are $N/(N/6) = 6$ choices for $A$, and then given such a choice of $A$ there are $N/(N/4) = 4$ choices for $C$. So we have $6 \\cdot 4 \\cdot 1^2 = 24$ solutions total."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-2908",
+      "name": "HMMT February 2015 #0jrg",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2015",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Roots of unity",
+        "Symmetric functions",
+        "Polynomials mod p",
+        "Fermat / Euler / Wilson theorems",
+        "Algebraic numbers"
+      ],
+      "statement": "Problem:\nLet $z = e^{\\frac{2\\pi i}{101}}$ and let $\\omega = e^{\\frac{2\\pi i}{10}}$. Prove that\n$$\n\\prod_{a=0}^{9} \\prod_{b=0}^{100} \\prod_{c=0}^{100} \\left(\\omega^{a} + z^{b} + z^{c}\\right)\n$$\nis an integer and find (with proof) its remainder upon division by $101$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $p = 101$ and $r = 10$. Note that $p \\nmid r$.\n\nIn the sequel, we will repeatedly use the polynomial identities $\\prod_{k (\\bmod p)} (x - z^{k}) = x^{p} - 1$, and $\\prod_{j (\\bmod r)} (x - \\omega^{j}) = x^{r} - 1$.\n\nThe product is an integer by standard symmetric sum theory (concrete precursor to Galois theory, though one doesn't need the full language). More precisely, it expands into an integer-coefficient polynomial symmetric in the $\\omega^{j}$ (for the $r$ residues $j (\\bmod r)$), and also symmetric in the $z^{k}$ (for the $p$ residues $k (\\bmod p)$). So by the fundamental theorem of symmetric sums, it can be written as an integer-coefficient polynomial in the symmetric sums of the $\\omega^{j}$ together with the symmetric sums of the $z^{k}$. But these symmetric sums are integers themselves, so the original expression is indeed an integer.\n\nTo actually compute the remainder modulo $p$, note by the Frobenius endomorphism $(u + v)^{p} \\equiv u^{p} + v^{p} \\pmod{p}$ that\n$$\n\\begin{aligned}\n\\prod_{a, b, c} (\\omega^{a} + z^{b} + z^{c}) &= \\prod_{a, b} (-1)^{p} \\left( (-\\omega^{a} - z^{b})^{p} - 1 \\right) \\\\\n&\\equiv \\prod_{a, b} (\\omega^{p a} + z^{p b} - (-1)^{p}) = \\prod_{a, b} (\\omega^{p a} + 2) \\quad (\\bmod p)\n\\end{aligned}\n$$\nwhere we use $p \\equiv 1 \\pmod{2}$ in the last step. This simplifies further to\n$$\n\\begin{aligned}\n\\prod_{a} (-1)^{p} (-2 - \\omega^{p a})^{p} &= \\prod_{a} (-1)^{p} (-2 - \\omega^{a})^{p} \\\\\n&= (-1)^{p r} [(-2)^{r} - 1]^{p} \\equiv (-1)^{p r} [(-2)^{r} - 1] \\quad (\\bmod p)\n\\end{aligned}\n$$\nwhere we've used the fact that $\\{p a \\bmod r\\} = \\{a \\bmod r\\}$ (since $p$ is invertible $\\bmod r$), as well as Fermat's little theorem on $(-2)^{r} - 1$.\n\nFinally, we plug in the specific numbers:\n$$\n(-1)^{101 \\cdot 10} [(-2)^{10} - 1] = 1023 \\equiv 13 \\pmod{101}\n$$\n\nSolution:\nHere we sketch a better solution found by several teams, but missed by the author (primarily due to blindness from having first found the first solution). The proof of the first part (that the product is an integer) is the same, so we only sketch different proofs of the second part (computation of the remainder $\\bmod p$).\n\nFor example, we can use the algebraic integer formulation from the previous solution. Indeed, note that $D := \\prod_{a, b, c} (\\omega^{a} + z^{b} + z^{c}) - \\prod_{a, b, c} (\\omega^{a} + 1^{b} + 1^{c})$ is an algebraic integer divisible by $z - 1$. But $D$ is also a difference of integers, hence an integer itself. The only way $\\frac{D}{z - 1}$ can be an algebraic integer is if $p \\mid D$ (Why?), so it simply remains to compute the remainder when the integer $\\prod_{a, b, c} (\\omega^{a} + 1^{b} + 1^{c})$ is divided by $p$, which is quite easy.\n\nAlternatively (as some contestants/teams found), we can get rid of $\\omega$ first (rather than $z$ as in the previous solution), so (up to sign) we want to evaluate $\\prod_{b, c} (1 + (z^{b} + z^{c})^{r}) \\pmod{p}$. But we have a polynomial identity $\\prod_{b, c} (1 + (T^{b} + T^{c})^{r}) \\in \\Phi_{p}(T) \\cdot \\mathbb{Z}[x] + M$ for some constant integer $M$, where $\\Phi_{p}(T) = T^{p-1} + \\cdots + T + 1$ denotes the $p$th cyclotomic polynomial. But note that $\\Phi_{p}(z) = 0$ is congruent to $\\Phi_{p}(1) = p$ modulo $p$, so\n$$\n\\prod_{b, c} (1 + (z^{b} + z^{c})^{r}) - \\prod_{b, c} (1 + (1^{b} + 1^{c})^{r})\n$$\nis an integer divisible by $p$. The rest is easy.\n\nFinally, as before:\n$$\n(-1)^{101 \\cdot 10} [(-2)^{10} - 1] = 1023 \\equiv 13 \\pmod{101}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-3027",
+      "name": "HMMT February 2016 #0jur",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2016",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Quadratic residues",
+        "Polynomials mod p"
+      ],
+      "statement": "Problem:\nFind all prime numbers $p$ such that $y^{2}=x^{3}+4 x$ has exactly $p$ solutions in integers modulo $p$.\n\nIn other words, determine all prime numbers $p$ with the following property: there exist exactly $p$ ordered pairs of integers $(x, y)$ such that $x, y \\in \\{0,1, \\ldots, p-1\\}$ and\n$$\np \\text{ divides } y^{2}-x^{3}-4 x\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nClearly $p=2$ works with solutions $(0,0)$ and $(1,1)$ and not $(0,1)$ or $(1,0)$.\n\nIf $p \\equiv 3 \\pmod{4}$ then $-1$ is not a quadratic residue, so for $x^{3}+4 x \\neq 0$, exactly one of $x^{3}+4 x$ and $-x^{3}-4 x$ is a square and gives two solutions (for positive and negative $y$), so there's exactly two solutions for each such pair $\\{x,-x\\}$. If $x$ is such that $x^{3}+4 x=0$, there's exactly one solution.\n\nIf $p \\equiv 1 \\pmod{4}$, let $i$ be a square root of $-1 \\pmod{p}$. The right hand side factors as $x(x+2i)(x-2i)$. For $x=0,2i,-2i$ this is zero, there is one choice of $y$, namely zero. Otherwise, the right hand side is nonzero. For any fixed $x$, there are either $0$ or $2$ choices for $y$. Replacing $x$ by $-x$ negates the right hand side, again producing two choices for $y$ since $-1$ is a quadratic residue. So the total number of solutions $(x, y)$ is $3 \\pmod{4}$, and thus there cannot be exactly $p$ solutions."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-3094",
+      "name": "February 2017 #0jwm",
+      "url": "https://usamoguide.com/",
+      "source": "February 2017",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomials mod p",
+        "Quadratic residues",
+        "Fermat / Euler / Wilson theorems",
+        "Recursion, bijection"
+      ],
+      "statement": "Problem:\nLet $\\mathbb{N}$ denote the natural numbers. Compute the number of functions $f: \\mathbb{N} \\rightarrow \\{0,1, \\ldots, 16\\}$ such that\n$$\nf(x+17)=f(x) \\quad \\text{and} \\quad f\\left(x^{2}\\right) \\equiv f(x)^{2}+15 \\pmod{17}\n$$\nfor all integers $x \\geq 1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nBy plugging in $x=0$, we get that $f(0)$ can be either $-1,2$. As $f(0)$ is unrelated to all other values, we need to remember to multiply our answer by $2$ at the end. Similarly, $f(1)=-1$ or $2$.\n\nConsider the graph $x \\rightarrow x^{2}$. It is a binary tree rooted at $-1$, and there is an edge $-1 \\rightarrow 1$, and a loop $1 \\rightarrow 1$. Our first case is $f(1)=-1$. Note that if $x, y$ satisfy $x^{2}=y$, then $f(y) \\neq 1$. Otherwise, we would have $f(x)^{2}=3 \\pmod{17}$, a contradiction as $3$ is a nonresidue. So only the $8$ leaves can take the value $1$. This contributes $2^{8}$.\n\nFor $f(1)=2$, we can once again propagate down the tree. While it looks like we have $2$ choices at each node (for the square roots), this is wrong, as if $f(x)=-2$ and $y^{2}=x$, then $f(y)=0$ is forced.\n\nGiven this intuition, let $a_{n}$ denote the answer for a binary tree of height $n$ where the top is either $-2$ or $2$. Therefore, $a_{1}=2$, $a_{2}=5$. You can show the recurrence $a_{n}=a_{n-1}^{2}+2^{2^{n}-4}$. This is because if the top is $2$, then we get a contribution of $a_{n-1}^{2}$. If the top is $-2$, then both entries below it must be $0$. After that, you can show that each of the remaining $2^{n}-4$ vertices can be either of $2$ possible square roots. Therefore, we get the recurrence as claimed. One can compute that $a_{4}=5777$, so we get the final answer $2(256+5777)=12066$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-3113",
+      "name": "February 2017 #0jx5",
+      "url": "https://usamoguide.com/",
+      "source": "February 2017",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Determinants",
+        "Polynomials mod p",
+        "Polynomial operations"
+      ],
+      "statement": "Problem:\nFind (in terms of $n \\geq 1$) the number of terms with odd coefficients after expanding the product:\n$$\n\\prod_{1 \\leq i<j \\leq n}\\left(x_{i}+x_{j}\\right)\n$$\ne.g., for $n=3$ the expanded product is given by $x_{1}^{2} x_{2}+x_{1}^{2} x_{3}+x_{2}^{2} x_{3}+x_{2}^{2} x_{1}+x_{3}^{2} x_{1}+x_{3}^{2} x_{2}+2 x_{1} x_{2} x_{3}$ and so the answer would be 6.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nNote that if we take $(\\bmod\\ 2)$, we get that\n$$\n\\prod_{1 \\leq i<j \\leq n}\\left(x_{i}+x_{j}\\right) \\equiv \\prod_{1 \\leq i<j \\leq n}\\left(x_{j}-x_{i}\\right)=\\operatorname{det}(M)\n$$\nwhere $M$ is the matrix with $M_{ij}=x_{i}^{j-1}$. This is called a Vandermonde determinant. Expanding this determinant using the formula\n$$\n\\operatorname{det}(M)=\\sum_{\\sigma} \\prod_{i=1}^{n} x_{\\sigma(i)}^{i-1},\n$$\nwhere the sum is over all $n!$ permutations $\\sigma$, gives the result."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-3163",
+      "name": "HMMT November #0jyj",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomials mod p",
+        "Chinese remainder theorem",
+        "Polynomial operations"
+      ],
+      "statement": "Problem:\n\nLet $P$ be a polynomial with integer coefficients such that $P(0)+P(90)=2018$. Find the least possible value for $|P(20)+P(70)|$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFirst, note that $P(x) = x^{2} - 3041$ satisfies the condition and gives $|P(70) + P(20)| = |4900 + 400 - 6082| = 782$.\n\nTo show that $782$ is the minimum, we show $2800 \\mid P(90) - P(70) - P(20) + P(0)$ for every $P$, since $-782$ is the only number in the range $[-782, 782]$ that is congruent to $2018$ modulo $2800$.\n\nProof: It suffices to show that $2800 \\mid 90^{n} - 70^{n} - 20^{n} + 0^{n}$ for every $n \\geq 0$ (having $0^{0} = 1$).\n\nLet $Q(n) = 90^{n} - 70^{n} - 20^{n} + 0^{n}$, then we note that $Q(0) = Q(1) = 0$, $Q(2) = 2800$, and $Q(3) = (9^{3} - 7^{3} - 2^{3}) \\cdot 10^{3} = 378000 = 135 \\cdot 2800$.\n\nFor $n \\geq 4$, we note that $400$ divides $10^{4}$, and $90^{n} + 0^{n} \\equiv 70^{n} + 20^{n}$ $\\pmod{7}$. Therefore $2800 \\mid Q(n)$ for all $n$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-3209",
+      "name": "Berkeley Math Circle: Monthly Contest 7 #0jzt",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 7",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomials mod p",
+        "Multiplicative order",
+        "Roots of unity"
+      ],
+      "statement": "Problem:\nDetermine all primes $p$ such that there exists an integer $x$ satisfying $x^{2010} + x^{2009} + \\cdots + 1 \\equiv p^{2010} \\pmod{p^{2011}}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe answer is all $p \\equiv 1 \\pmod{2011}$.\n\nFirst, note that if $x$ satisfies the problem condition, then we in particular have $\\Phi_{2011}(x) \\equiv 0 \\pmod{p}$ which implies $p \\equiv 1 \\pmod{2011}$.\n\nConversely, suppose $p \\equiv 1 \\pmod{2011}$ and fix an $a \\pmod{p}$ with order $2011$ (hence $a \\not\\equiv 1 \\pmod{p}$). Let $A = \\{ x \\pmod{p^{2011}} \\mid x \\equiv a \\pmod{p} \\}$ and $B = \\{ x \\pmod{p^{2011}} \\mid x \\equiv 0 \\pmod{p} \\}$. We claim $\\Phi_{2011}: A \\to B$ is injective: indeed if $\\Phi_{2011}(x) \\equiv \\Phi_{2011}(y) \\pmod{p^{2011}}$ then\n$$\n(x^{2011} - 1)(y - 1) \\equiv (y^{2011} - 1)(x - 1) \\pmod{p^{2011}}\n$$\nhence\n$$\n(x - y)\\left(xy \\sum_{k} x^{2010 - k} y^{k} - \\sum_{k} x^{2011 - k} y^{k} + 1\\right) \\equiv 0 \\pmod{p^{2011}}.\n$$\nThe sum in parentheses is nonzero modulo $p$ because it equals\n$$\n\\begin{aligned}\na^{2} \\cdot 2011 a^{2010} - 2012 a^{2011} + 1 & = 2011 a^{2012} - 2012 a^{2011} + 1 \\\\\n& \\equiv 2011 a - 2012 + 1 \\pmod{p} \\\\\n& = 2011(a - 1) \\\\\n& \\not\\equiv 0 \\pmod{p}.\n\\end{aligned}\n$$\nThis proves $\\Phi_{2011}: A \\to B$ is injective; but now $|A| = |B|$ implies surjectivity too. Since $p^{2010} \\in B$, this completes the proof."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-3228",
+      "name": "February 2017 #0k0c",
+      "url": "https://usamoguide.com/",
+      "source": "February 2017",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomials mod p",
+        "Quadratic residues",
+        "Recurrence relations",
+        "Field Theory"
+      ],
+      "statement": "Problem:\n\nThe Fibonacci sequence is defined as follows: $F_{0}=0$, $F_{1}=1$, and $F_{n}=F_{n-1}+F_{n-2}$ for all integers $n \\geq 2$. Find the smallest positive integer $m$ such that $F_{m} \\equiv 0 \\pmod{127}$ and $F_{m+1} \\equiv 1 \\pmod{127}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFirst, note that $5$ is not a quadratic residue modulo $127$. We are looking for the period of the Fibonacci numbers $\\bmod\\ 127$. Let $p=127$. We work in $\\mathbb{F}_{p^{2}}$ for the remainder of this proof. Let $\\alpha$ and $\\beta$ be the roots of $x^{2}-x-1$. Then we know that $F_{n}=\\frac{\\alpha^{n}-\\beta^{n}}{\\alpha-\\beta}$. Note that since $x \\rightarrow x^{p}$ is an automorphism and since automorphisms cycle the roots of a polynomial we have that $\\alpha^{p}=\\beta$ and $\\beta^{p}=\\alpha$. Then $F_{p}=\\frac{\\alpha^{p}-\\beta^{p}}{\\alpha-\\beta}=-1$ and $F_{p+1}=\\frac{\\alpha \\beta-\\beta \\alpha}{\\alpha-\\beta}=0$ and similarly we obtain $F_{2p+1}=1$ and $F_{2p+2}=0$. Thus since $2p+2$ is a power of $2$ and since the period does not divide $p+1$, we must have the answer is $2p+2=256$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-3328",
+      "name": "HMMT February 2018 #0k34",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2018",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Inverses mod n",
+        "Polynomials mod p"
+      ],
+      "statement": "Problem:\nFind the number of unordered pairs $\\{a, b\\}$, where $a, b \\in\\{0,1,2, \\ldots, 108\\}$ such that $109$ divides $a^{3}+b^{3}-a b$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe start with the equation\n$$\na^{3}+b^{3} \\equiv a b \\pmod{109}\n$$\nIf either $a$ or $b$ are $0$, then we get $a^{3} \\equiv 0$, implying that both are $0$. Thus, $\\{0,0\\}$ is a pair. For the rest of the problem, let's assume that neither $a$ nor $b$ are $0$. Multiplying both sides by $a^{-1} b^{-2}$ yields\n$$\n\\left(a b^{-1}\\right)^{2}+a^{-1} b \\equiv b^{-1}\n$$\nfrom which we make the substitution\n$$\n\\begin{aligned}\na & =x y^{-1} \\\\\nb & =y^{-1}\n\\end{aligned}\n$$\nto get the equation\n$$\ny \\equiv x^{2}+x^{-1}\n$$\nPlugging this value back into $(a, b)$, we get that all solutions must be of the form\n$$\n(a, b)=\\left(\\left(x+x^{-2}\\right)^{-1},\\left(x^{2}+x^{-1}\\right)^{-1}\\right)\n$$\nwhere $1 \\leq x \\leq 108$. It now suffices to find all nonzero unordered pairs $\\{m, n\\}$ of the form $\\left\\{x+x^{-2}, x^{2}+x^{-1}\\right\\}$, where $1 \\leq x \\leq 108$. There are four values of $x$ for which $x+x^{-2} \\equiv x^{2}+x^{-1}$, and of these values, three of them give $x+x^{-2} \\equiv 0$. This is because we can re-arrange the equation at hand to get\n$$\nx^{4}-x^{3}+x-1 \\equiv 0\n$$\nwhich factors into\n$$\n(x-1)\\left(x^{3}+1\\right) \\equiv 0.\n$$\nIf $x=1$, then $\\{m, n\\}=\\{2,2\\}$, and if $x^{3}+1 \\equiv 0$ (which has three solutions: $46, 64$ and $108$), then\n$$\n\\{m, n\\}=\\left\\{x^{-1}\\left(x^{3}+1\\right), x^{-2}\\left(x^{3}+1\\right)\\right\\}=\\{0,0\\}\n$$\nTherefore, we keep $x=1$ and discard $x=46,64,108$. Of the remaining $104$ values of $x$, $m \\neq n$, and neither are $0$. We have to worry about collisions between distinct values of $x$. There are two ways a collision can occur: if there exists $x \\neq y$ such that\n$$\n\\left(x+x^{-2}, x^{2}+x^{-1}\\right)=\\left(y+y^{-2}, y^{2}+y^{-1}\\right)\n$$\nor if there exists $x \\neq y$ such that\n$$\n\\left(x+x^{-2}, x^{2}+x^{-1}\\right)=\\left(y^{2}+y^{-1}, y+y^{-2}\\right)\n$$\nThe first case cannot occur: if $x+x^{-2} \\equiv y+y^{-2}$, we have that $x^{2}+x^{-1}=x\\left(x+x^{-2}\\right) \\neq y\\left(x+x^{-2}\\right)=y\\left(y+y^{-2}\\right)=y^{2}+y^{-1}$. As a consequence of this, the second case only occurs if $y=x^{-1}$. Therefore, the remaining $104$ values of $x$ can be partitioned into $52$ pairs of $\\left(x, x^{-1}\\right)$, which ends up producing $52$ distinct unordered pairs $\\{m, n\\}$. Adding this to the $x=1$ case and $\\{0,0\\}$, we get a total of\n$$\n52+1+1=54\n$$\nunordered pairs."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-3366",
+      "name": "HMIC 2018 #0k46",
+      "url": "https://usamoguide.com/",
+      "source": "HMIC 2018",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Coloring schemes, extremal arguments",
+        "Induction / smoothing",
+        "Polynomial operations",
+        "Polynomials mod p",
+        "Other"
+      ],
+      "statement": "Problem:\n\nLet $G$ be an undirected simple graph. Let $f(G)$ be the number of ways to orient all of the edges of $G$ in one of the two possible directions so that the resulting directed graph has no directed cycles. Show that $f(G)$ is a multiple of $3$ if and only if $G$ has a cycle of odd length.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $f_{G}(q)$ be the number of ways to color $G$ with $q$ colors. This is the chromatic polynomial of $G$, and turns out to be polynomial in $q$. Indeed, choose an edge $e$ and let $G \\backslash e$ be the graph $G$ with $e$ removed and let $G / e$ be graph $G$ with the vertices on either side of $e$ merged together (multiple edges are removed). It is not hard to see that\n$$\nf_{G}(q) = f_{G \\backslash e}(q) - f_{G / e}(q)\n$$\nand that for an empty graph $E_{n}$ with $n$ vertices, we have $f_{E_{n}}(q) = q^{n}$. Induction finishes.\n\nNow we can also show that the desired number of ways to direct $G$ to avoid directed cycles is $c_{G} = (-1)^{n} f_{G}(-1)$ where $n$ is the number of vertices of $G$. The way to do it is to show that\n$$\nc_{G} = c_{G \\backslash e} + c_{G / e}\n$$\nand $c_{E_{n}} = 1$. Thus $(-1)^{n} c_{G}$ will satisfy the desired recurrence, after multiplying the above by $(-1)^{n}$, and satisfies the correct initial conditions.\n\nNow all we need to know is that $f_{G}(q)$ has integer coefficients, so that $(-1)^{n} c_{G} \\equiv f_{G}(-1) \\equiv f_{G}(2) \\pmod{3}$, and $f_{G}(2) = 0$ when $G$ is not bipartite and is $2^{c(G)}$ where $c(G)$ is the number of connected components of $G$ otherwise. The result follows."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-3607",
+      "name": "USA IMO TST #0kav",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO TST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomials mod p",
+        "Primitive roots mod p / p^n",
+        "Factorization techniques",
+        "φ (Euler's totient)",
+        "Sums and products"
+      ],
+      "statement": "Let $\\mathbb{Z}/n\\mathbb{Z}$ denote the set of integers considered modulo $n$ (hence $\\mathbb{Z}/n\\mathbb{Z}$ has $n$ elements). Find all positive integers $n$ for which there exists a bijective function $g: \\mathbb{Z}/n\\mathbb{Z} \\to \\mathbb{Z}/n\\mathbb{Z}$, such that the 101 functions\n$$\ng(x),\\ g(x) + x,\\ g(x) + 2x,\\ \\dots,\\ g(x) + 100x\n$$\nare all bijections on $\\mathbb{Z}/n\\mathbb{Z}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**First solution (original one)** The proof is split into two essentially orthogonal claims, which we state as lemmas.\n\n**Lemma (Lemma I: elimination of $g$)**\nAssume valiant $g: \\mathbb{Z}/n\\mathbb{Z} \\to \\mathbb{Z}/n\\mathbb{Z}$ exists. Then\n$$\nk! \\sum_{x \\in \\mathbb{Z}/n\\mathbb{Z}} x^k \\equiv 0 \\pmod{n}\n$$\nfor $k = 0, 1, \\dots, 100$.\n\n*Proof.* Define $g_x(T) = g(x) + Tx$ for any integer $T$. If we view $g_x(T)^k$ as a polynomial in $\\mathbb{Z}[T]$ of degree $k$ with leading coefficient $x^k$, then taking the $k$th finite difference implies that, for any $x$,\n$$\nk! x^k = \\binom{k}{0} g_x(k)^k - \\binom{k}{1} g_x(k-1)^k + \\binom{k}{2} g_x(k-2)^k - \\dots + (-1)^k \\binom{k}{k} g_x(0)^k.\n$$\nOn the other hand, for any $1 \\le k \\le 100$ we should have\n$$\n\\sum_x g_x(0)^k \\equiv \\sum_x g_x(1)^k \\equiv \\dots \\equiv \\sum_x g_x(k)^k \\\\\n\\equiv S_k \\stackrel{\\text{def}}{=} 0^k + \\dots + (n-1)^k \\pmod{n}\n$$\nby the hypothesis. Thus we find\n$$\nk! \\sum_x x^k \\equiv \\left[ \\binom{k}{0} - \\binom{k}{1} + \\binom{k}{2} - \\dots \\right] S_k \\equiv 0 \\pmod{n}\n$$\nfor any $1 \\le k \\le 100$, but also obviously for $k = 0$. $\\square$\n\nWe now prove the following self-contained lemma.\n\n**Lemma (Lemma II: power sum calculation)**\nLet $p$ be a prime, and let $n, M$ be positive integers such that\n$$\nM \\text{ divides } 1^k + 2^k + \\dots + n^k\n$$\nfor $k = 0, 1, \\dots, p-1$. If $p \\mid n$ then $\\nu_p(M) < \\nu_p(n)$.\n\n*Proof.* The hypothesis means that any polynomial $f(T) \\in \\mathbb{Z}[T]$ with $\\deg f \\le p-1$ will have $\\sum_{x=1}^n f(x) \\equiv 0 \\pmod{M}$. In particular, we have\n$$\n\\begin{aligned} 0 &\\equiv \\sum_{x=1}^{n} (x-1)(x-2)\\cdots(x-(p-1)) \\\\\n&= (p-1)! \\sum_{x=1}^{n} \\binom{x-1}{p-1} = (p-1)! \\binom{n}{p} \\pmod{M}. \\end{aligned}\n$$\nBut now $\\nu_p(M) \\le \\nu_p\\left(\\binom{n}{p}\\right) = \\nu_p(n) - 1$. $\\square$\n\nNow assume for contradiction that valiant $g: \\mathbb{Z}/n\\mathbb{Z} \\to \\mathbb{Z}/n\\mathbb{Z}$ exists, and $p \\le 101$ is the smallest prime dividing $n$. Lemma I implies that $k! \\sum_x x^k \\equiv 0 \\pmod{n}$ for $k = 1, \\dots, p-1$ and hence $\\sum_x x^k \\equiv 0 \\pmod{n}$ too. Thus $M=n$ holds in the previous lemma, impossible.\n\n\n**A second solution** Both lemmas above admit variations where we focus on working modulo $p^e$ rather than working modulo $n$.\n\n**Lemma (Lemma I')**\nAssume valiant $g: \\mathbb{Z}/n\\mathbb{Z} \\to \\mathbb{Z}/n\\mathbb{Z}$ exists. Let $p \\le 101$ be a prime, and $e = \\nu_p(n)$. Then\n$$\n\\sum_{x \\in \\mathbb{Z}/n\\mathbb{Z}} x^k \\equiv 0 \\pmod{p^e}\n$$\nfor $k = 0, 1, \\dots, p-1$.\n\n*Proof.* This is weaker than Lemma I, but we give an independent specialized proof. Begin by writing\n$$\n\\sum_x (g(x) + Tx)^k \\equiv \\sum_x x^k \\pmod{p^e}.\n$$\nBoth sides are integer polynomials in $T$, which vanish at $T = 0, 1, \\dots, p-1$ by hypothesis (since $p-1 \\le 100$).\nWe now prove the following more general fact: if $f(T) \\in \\mathbb{Z}[T]$ is an integer polynomial with $\\deg f \\le p-1$, such that $f(0) \\equiv \\dots \\equiv f(p-1) \\equiv 0 \\pmod{p^e}$, then all coefficients of $f$ are divisible by $p^e$. The proof is by induction on $e \\ge 1$. When $e=1$, this is just the assertion that the polynomial has at most $\\deg f$ roots modulo $p$. When $e \\ge 2$, we note that the previous result implies all coefficients are divisible by $p$, and then we divide all coefficients by $p$.\nApplied here, we have that all coefficients of\n$$\nf(T) \\stackrel{\\text{def}}{=} \\sum_x (g(x) + Tx)^k - \\sum_x x^k\n$$\nare divisible by $p^e$. The leading $T^k$ coefficient is $\\sum_k x^k$ as desired. $\\square$\n\n**Lemma (Lemma II')**\nIf $e \\ge 1$ is an integer, and $p$ is a prime, then\n$$\n\\nu_p (1^{p-1} + 2^{p-1} + \\dots + (p^e - 1)^{p-1}) = e - 1.\n$$\n*Proof.* First, note that the cases where $p=2$ or $e=1$ are easy; since if $p=2$ we have $\\sum_{x=0}^{2^e-1} x \\equiv 2^{e-1}(2^e-1) \\equiv -2^{e-1} \\pmod{2^e}$, while if $e=1$ we have $1^{p-1} + \\dots + (p-1)^{p-1} \\equiv -1 \\pmod{p}$. Henceforth assume that $p > 2, e > 1$.\nLet $g$ be an integer which is a primitive root modulo $p^e$. Then, we can sum the terms which are relatively prime to $p$ as\n$$\nS_0 \\stackrel{\\text{def}}{=} \\sum_{\\text{gcd}(x,p)=1} x^{p-1} \\equiv \\sum_{i=1}^{\\varphi(p^e)} g^{(p-1)\\cdot i} \\equiv \\frac{g^{p^{e-1}(p-1)^2} - 1}{g^{p-1} - 1} \\pmod{p^e}\n$$\nwhich implies $\\nu_p(S_0) = e-1$, by lifting the exponent. More generally, for $r \\ge 1$ we may set\n$$\nS_r \\stackrel{\\text{def}}{=} \\sum_{\\nu_p(x)=r} x^{p-1} \\equiv (p^r)^{p-1} \\sum_{i=1}^{\\varphi(p^{e-r})} g_r^{(p-1)\\cdot i} \\pmod{p^e}\n$$\nwhere $g_r$ is a primitive root modulo $p^{e-r}$. Repeating the exponent-lifting calculation shows that $\\nu_p(S_r) = r(p-1) + ((e-r)-1) > e$, as needed. $\\square$\n\nAssume to the contrary that $p \\le 101$ is a prime dividing $n$ and a valiant $g: \\mathbb{Z}/n\\mathbb{Z} \\to \\mathbb{Z}/n\\mathbb{Z}$ exists. Take $k = p-1$ in Lemma I' to contradict Lemma II'\n\n\n**A third remixed solution** We use Lemma I and Lemma II' from before. As before, assume $g: \\mathbb{Z}/n\\mathbb{Z} \\to \\mathbb{Z}/n\\mathbb{Z}$ is valiant, and $n$ has a prime divisor $p \\le 101$. Also, let $e = \\nu_p(n)$.\nThen $(p-1)! \\sum_{x} x^{p-1} \\equiv 0 \\pmod{n}$ by Lemma I, and now\n$$\n\\begin{aligned}\n0 &\\equiv \\sum_{x} x^{p-1} \\pmod{p^e} \\\\\n&\\equiv \\frac{n}{p^e} \\sum_{x=1}^{p^e-1} x^{p-1} \\not\\equiv 0 \\pmod{p^e}\n\\end{aligned}\n$$\nby Lemma II', contradiction.\n\n\n**A fourth remixed solution** We also can combine Lemma I' and Lemma II. As before, assume $g: \\mathbb{Z}/n\\mathbb{Z} \\to \\mathbb{Z}/n\\mathbb{Z}$ is valiant, and let $p$ be the smallest prime divisor of $n$.\nAssume for contradiction $p \\le 101$. By Lemma I' we have\n$$\n\\sum_{x} x^k \\equiv 0 \\pmod{p^e}\n$$\nfor $k=0, \\dots, p-1$. This directly contradicts Lemma II with $M = p^e$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-3720",
+      "name": "HMIC #0ke0",
+      "url": "https://usamoguide.com/",
+      "source": "HMIC",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomials mod p",
+        "Fermat / Euler / Wilson theorems",
+        "Quadratic residues",
+        "Generating functions",
+        "Algebraic properties of binomial coefficients"
+      ],
+      "statement": "Problem:\nLet $C_{k} = \\frac{1}{k+1} \\binom{2k}{k}$ denote the $k^{\\text{th}}$ Catalan number and $p$ be an odd prime. Prove that exactly half of the numbers in the set\n$$\n\\left\\{\\sum_{k=1}^{p-1} C_{k} n^{k} \\mid n \\in \\{1,2, \\ldots, p-1\\}\\right\\}\n$$\nare divisible by $p$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe work in $\\mathbb{F}_{p}[X]$.\nWe claim that\n$$\n(1-4 X)^{\\frac{p+1}{2}}-1+2 X^{p}+2 X \\sum_{k=0}^{p-1} C_{k} X^{k}=0\n$$\nThe solution follows from this claim, as\n$$\n\\sum_{k=1}^{p-1} C_{k} n^{k} \\equiv 0 \\quad(\\bmod p) \\Longleftrightarrow (1-4 n)^{\\frac{p+1}{2}}-1+2 n^{p}+2 n \\equiv 0 \\quad(\\bmod p)\n$$\nSince $n^{p} \\equiv n \\pmod{p}$, this is equivalent to $n \\equiv \\frac{1}{4} \\pmod{p}$ or $1-4 n$ being a non-zero quadratic residue in $\\mathbb{F}_{p}$. But we must omit the solution of $n=0$, so we get $1+\\left(\\frac{p-1}{2}-1\\right)=\\frac{p-1}{2}$ values of $n$ that work. Now we prove the claim. Observe the following facts:\n- $C_{p-1}=\\frac{1}{2p-1}\\binom{2p-1}{p}=-1$ by Lucas' theorem.\n- For $\\frac{p-1}{2}<k<p-1$,\n$$\n\\nu_{p}\\left(C_{k}\\right)=\\nu_{p}((2k)!)-\\nu_{p}((k+1)!)-\\nu_{p}(k!)=1\n$$\nsince $k+1<p \\leq 2k$, so $C_{k}=0$.\nWe show that the coefficient of $X^{k}$ in the LHS is 0 for $k=0, \\ldots, p$. This is obvious for $k>\\frac{p+1}{2}$ and $k=0$ by the above facts, as the coefficient is $2+2 C_{p-1}$ for $k=p$, $2 C_{k}$ for $\\frac{p+1}{2}<k<p$, and 0 for $k=0$.\nNow for $1 \\leq k \\leq \\frac{p+1}{2}$, the coefficient is $\\binom{\\frac{p+1}{2}}{k}(-4)^{k}+2 C_{k-1}=0$. Write\n$$\n\\begin{aligned}\n\\binom{\\frac{p+1}{2}}{k} & =\\frac{\\frac{p+1}{2} \\cdot \\frac{p-1}{2} \\cdot \\frac{p-3}{2} \\cdots \\frac{p-2k+3}{2}}{k!} \\\\\n& =\\frac{\\frac{1}{2} \\cdot\\left(-\\frac{1}{2}\\right) \\cdot\\left(-\\frac{3}{2}\\right) \\cdots\\left(-\\frac{2k-3}{2}\\right)}{k!} \\\\\n& =\\frac{(-1)^{k-1}}{2^{k}} \\cdot \\frac{1 \\cdot 3 \\cdots (2k-3)}{k!} \\\\\n& =\\frac{(-1)^{k-1}}{2^{k}} \\cdot \\frac{(2k-2)!}{2^{k-1}(k-1)!k!} \\\\\n& =-\\frac{2 C_{k-1}}{(-4)^{k}}\n\\end{aligned}\n$$\nso the coefficient is 0 .\n\nSolution:\nWe present an alternate proof of the key claim. Use the same starting facts as before.\nLet $Q(X) = -2 + \\sum_{k=0}^{\\frac{p-1}{2}} C_{k} X^{k} = -2 + X^{p-1} + \\sum_{k=0}^{p-1} C_{k} X^{k}$.\nSquare $Q$ and multiply by $X$ to get\n$$\n\\begin{aligned}\nX Q^{2} & = 4X - 4X \\sum_{k=0}^{\\frac{p-1}{2}} C_{k} X^{k} + X\\left(\\sum_{k=0}^{\\frac{p-1}{2}} C_{k} X^{k}\\right)^{2} \\\\\n& = -4X - 4X Q + X \\sum_{k=0}^{p-2} \\sum_{j=0}^{k} C_{j} C_{k-j} X^{k} + C_{\\frac{p-1}{2}}^{2} X^{p} \\\\\n& = -4X - 4X Q + \\sum_{k=0}^{p-2} C_{k+1} X^{k+1} + 4 X^{p} \\\\\n& = -4X - 4X Q + Q + 1 - X^{p-1} + 4 X^{p} \\\\\n& = (1-4X) Q - (1-4X)(X^{p-1} - 1)\n\\end{aligned}\n$$\nIt follows that\n$$\n\\begin{aligned}\n0 & = 4X \\cdot \\left(X Q^{2} - (1-4X) Q + (1-4X)(X^{p-1} - 1)\\right) \\\\\n& = 4X^{2} Q^{2} - 4X(1-4X) Q + 4(1-4X)(X^{p} - X) \\\\\n& = 4X^{2} Q^{2} - 4X(1-4X) Q + (1-4X)^{2} - (1-4X)^{p+1} \\\\\n& = \\left(2X Q + (1-4X)^{\\frac{p+1}{2}} - (1-4X)\\right) \\cdot \\left(2X Q - (1-4X)^{\\frac{p+1}{2}} - (1-4X)\\right) .\n\\end{aligned}\n$$\nEvaluating the second factor at 0 gives $-2$, so it is not the zero polynomial. Thus the first factor is the zero polynomial, from which the claim follows.\n\nSolution:\nWe prove the following generalization: Let $q$ be a power of $p$. Then the polynomial $\\sum_{k=1}^{q-1} C_{k} X^{k}$ has $\\frac{q+1}{2}$ roots in $\\mathbb{F}_{q}$ and $\\frac{p+1}{2}$ roots in $\\mathbb{F}_{p}$. It once again suffices to prove the key claim, just with $p$ replaced by $q$.\nWork in $\\mathbb{F}_{q}[[X]]$, the ring of formal power series over $\\mathbb{F}_{q}$. Then\n$$\n\\begin{aligned}\n\\sum_{k=0}^{\\infty} \\binom{2k}{k} X^{k} & = (1-4X)^{-\\frac{1}{2}} \\\\\n& = (1-4X)^{\\frac{q-1}{2}} \\left((1-4X)^{q}\\right)^{-\\frac{1}{2}} \\\\\n& = (1-4X)^{\\frac{q-1}{2}} \\left(1-4X^{q}\\right)^{-\\frac{1}{2}} \\\\\n& = (1-4X)^{\\frac{q-1}{2}} \\sum_{k=0}^{\\infty} \\binom{2k}{k} X^{qk}\n\\end{aligned}\n$$\nTaking both sides mod $X^{q}$,\n$$\n\\sum_{k=0}^{q-1} \\binom{2k}{k} X^{k} = (1-4X)^{\\frac{q-1}{2}}\n$$\nThen using $\\binom{2q}{q} = 2$, we have\n$$\n\\sqrt{1-4X} = (1-4X) \\cdot (1-4X)^{-\\frac{1}{2}} \\equiv (1-4X) \\cdot \\left((1-4X)^{\\frac{q-1}{2}} + 2 X^{q}\\right) \\quad \\left(\\bmod X^{q+1}\\right)\n$$\nso\n$$\nX \\sum_{k=0}^{\\infty} C_{k} X^{k} = \\frac{1-\\sqrt{1-4X}}{2} \\equiv \\frac{1-(1-4X)^{\\frac{q+1}{2}} - 2 X^{q}}{2} \\quad \\left(\\bmod X^{q+1}\\right)\n$$\nfrom which the claim follows.\nAlternatively, one can also finish by integrating $(1-4X)^{\\frac{p-1}{2}}$, noting that the \"constant of integration\" is no longer a constant but rather a polynomial of the form $a + b X^{p}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-3912",
+      "name": "Fall 2021 AMC 10 B #0kjc",
+      "url": "https://usamoguide.com/",
+      "source": "Fall 2021 AMC 10 B",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Sums and products",
+        "Polynomials mod p"
+      ],
+      "statement": "For each integer $n \\ge 2$, let $S_n$ be the sum of all products $jk$, where $j$ and $k$ are integers and $1 \\le j < k \\le n$. What is the sum of the 10 least values of $n$ such that $S_n$ is divisible by 3?\n(A) 196 (B) 197 (C) 198 (D) 199 (E) 200",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "$$\nU_n = (1 + 2 + 3 + \\dots + (n-1)) \\cdot n = \\frac{(n-1)n^2}{2}.\n$$\nThen $S_n = S_{n-1} + U_n$ for $n \\ge 3$. Note that $U_n$ is divisible by 3 if $n \\equiv 0 \\text{ or } 1 \\pmod 3$; and if $n \\equiv 2 \\pmod 3$, then $(n-1)n^2 \\equiv 1 \\pmod 3$ and is even, so $U_n \\equiv 2 \\pmod 3$. Hence $S_{n+3} \\equiv S_n + 2 \\pmod 3$ for $n \\ge 2$. It is readily verified that $S_2 \\equiv S_3 \\equiv S_4 \\equiv 2 \\pmod 3$, so $S_5 \\equiv S_6 \\equiv S_7 \\equiv 1 \\pmod 3$ and $S_8 \\equiv S_9 \\equiv S_{10} \\equiv 0 \\pmod 3$, and it follows that $S_n$ is divisible by 3 if and only if $n \\equiv 0 \\text{ or } \\pm 1 \\pmod 9$. Thus the sum of the 10 least values of $n$ that satisfy the required condition is\n$$\n8 + 9 + 10 + 17 + 18 + 19 + 26 + 27 + 28 + 35 = 197.\n$$\n\nThe sum of the products $jk$ as $j$ and $k$ run independently from 1 to $n$ is\n$$\n(1 + 2 + \\dots + n)^2 = \\left(\\frac{n(n+1)}{2}\\right)^2.\n$$\nTo eliminate the cases in which $j = k$, subtract\n$$\n1^2 + 2^2 + \\dots + n^2 = \\frac{n(n+1)(2n+1)}{6}.\n$$\nThus\n$$\n\\sum_{\\substack{1 \\le j \\le n \\\\ 1 \\le k \\le n \\\\ j \\ne k}} jk = \\frac{n^2(n+1)^2}{4} - \\frac{n(n+1)(2n+1)}{6} = \\frac{(n-1)n(n+1)(3n+2)}{12}.\n$$\nFor a given pair $j, k$ with $j \\ne k$ either $j < k$ or $j > k$, but their product is the same in either order. To impose the condition $j < k$, it suffices to divide by 2. Thus\n$$\nS_n = \\frac{(n-1)n(n+1)(3n+2)}{24}.\n$$\nThere is one factor of 3 in the denominator. For any $n$, exactly one of $n+1, n, n-1$ is divisible by 3, and $3n+2$ is not divisible by 3. In order that $S_n$ be divisible by 3 it is necessary and sufficient that the factor that is divisible by 3 should in fact be divisible by 9. That is, $n \\equiv 0 \\text{ or } \\pm 1 \\pmod 9$, and the answer can be calculated as above."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-4018",
+      "name": "Berkeley Math Circle: Monthly Contest 3 #0kma",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 3",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomials mod p",
+        "Polynomials"
+      ],
+      "statement": "Problem:\nLet $P$ be a polynomial with integer coefficients such that $P(2020) = P(2021) = 2021$. Prove that $P$ has no integer roots.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet\n$$\nP(x) = a_n x^n + a_{n-1} x^{n-1} + \\cdots + a_1 x + a_0.\n$$\nIf we plug in $x = 2020$, all terms except $a_0$ will be even, so since $P(2020)$ is odd, $a_0$ must be odd. But then if we plug in any other even number for $x$, $P(x)$ will still be odd since all the terms except $a_0$ will still be even, so $P(x)$ cannot be $0$. Thus, $P(x)$ can have no even roots.\n\nHowever, if we plug in an odd number for $x$, the term $a_i x^i$ in $P(x)$ has the same parity as the term $a_i \\cdot 2021^i$ in $P(2021)$ for each $i = 1, \\ldots, n$. Thus, the sum $P(x)$ has the same parity as the sum $P(2021)$. But $P(2021)$ is odd, so $P(x)$ must be odd as well, and so not $0$. Thus, $P(x)$ cannot have odd roots either, so it has no integer roots."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-4061",
+      "name": "USA IMO TST #0knh",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO TST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Factorization techniques",
+        "Prime numbers",
+        "Polynomials mod p",
+        "Field Theory"
+      ],
+      "statement": "Determine all integers $s \\ge 4$ for which there exist positive integers $a, b, c, d$ such that $s = a+b+c+d$ and $s$ divides $abc + abd + acd + bcd$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "The answer is $s$ composite.\n\n**Composite construction** Write $s = (w+x)(y+z)$, where $w, x, y, z$ are positive integers. Let $a = wy$, $b = wz$, $c = xy$, $d = xz$. Then\n$$\nabc + abd + acd + bcd = wxyz(w+x)(y+z)\n$$\nso this works.\n\n**Prime proof** Choose suitable $a, b, c, d$. Then\n$$\n(a+b)(a+c)(a+d) = (abc+abd+acd+bcd) + a^2(a+b+c+d) \\equiv 0 \\pmod{s}.\n$$\nHence $s$ divides a product of positive integers less than $s$, so $s$ is composite.\n\n**Remark.** Here is another proof that $s$ is composite.\nSuppose that $s$ is prime. Then the polynomial $(x-a)(x-b)(x-c)(x-d) \\in \\mathbb{F}_s[x]$ is even, so the roots come in two opposite pairs in $\\mathbb{F}_s$. Thus the sum of each pair is at least $s$, so the sum of all four is at least $2s > s$, contradiction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-4152",
+      "name": "HMMT February #0kq0",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial operations",
+        "Polynomials mod p",
+        "Chinese remainder theorem"
+      ],
+      "statement": "Problem:\nThe function $f(x)$ is of the form $a x^{2}+b x+c$ for some integers $a, b$, and $c$. Given that\n$$\n\\begin{aligned}\n\\{f(177883), f(348710), & f(796921), f(858522)\\} \\\\\n= & \\{1324754875645,1782225466694,1984194627862,4388794883485\\}\n\\end{aligned}\n$$\ncompute $a$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe first match the outputs to the inputs. To start, we observe that since $a \\geq 0$ (since the answer to the problem is nonnegative), we must either have $f(858522) \\approx 4.39 \\cdot 10^{12}$ or $f(177883) \\approx 4.39 \\cdot 10^{12}$. However, since $858522$ is relatively close to $796921$, the first case is unrealistic, meaning that the second case must be true.\n\nNow, looking mod $2$, we find that $f(796921) \\approx 1.32 \\cdot 10^{12}$. Additionally, we find that mod $5$, $f(1) \\equiv f(3) \\equiv 0 \\pmod{5}$, so $f(x) \\equiv a(x-1)(x-3) \\pmod{5}$. Modulo $5$, we now have $\\{3a, 4a\\} = \\{f(0), f(2)\\} = \\{2,4\\}$, so it follows that $a \\equiv 3 \\pmod{5}$, $f(349710) \\approx 1.78 \\cdot 10^{12}$ and $f(858522) \\approx 1.98 \\cdot 10^{12}$.\n\nThere are several ways to finish from here. One (somewhat tedious) method is to use mod $9$, which tells us that $f(7)=7$, $f(5)=8$, $f(3)=4$, which tells you that $a \\equiv 5 \\pmod{9}$ (take a finite difference). This tells you that $a \\equiv 23 \\pmod{45}$, and $a \\geq 68$ can be ruled out for being too large.\n\nAnother method is to work with the numbers themselves. One way to do this is to note that for quadratic polynomials,\n$$\nf'\\left(\\frac{x+y}{2}\\right) = \\frac{f(y)-f(x)}{y-x}\n$$\nUsing this for $\\{177883, 348710\\}$ and $\\{796921, 858522\\}$, we find that $f'(260000) \\approx -1500000$ and $f'(830000) \\approx 1000000$. Thus $f'$ (which we know must be linear with slope $2a$) has slope just less than $50$.\n\nEither way, we find that $a=23$. The actual polynomial is $8529708870514 - 27370172 x + 23 x^{2}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-4178",
+      "name": "Berkeley Math Circle Monthly Contest 7 #0kqq",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 7",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Techniques: modulo, size analysis, order analysis, inequalities",
+        "Polynomials mod p"
+      ],
+      "statement": "Problem:\nFind all solutions to $m^{4} = n^{3} + 137$ over the positive integers.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe fourth powers mod $13$ are $0, 1, 3, 9$ and the cubes mod $13$ are $0, 1, 5, 8, 12$. Therefore, $m^{4} - n^{3} \\equiv 7 \\pmod{13}$ is impossible, meaning that there are no solutions."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-4200",
+      "name": "HMIC #0krc",
+      "url": "https://usamoguide.com/",
+      "source": "HMIC",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Graph Theory",
+        "Coloring schemes, extremal arguments",
+        "Polynomials mod p"
+      ],
+      "statement": "Problem:\n\nCall a simple graph $G$ quasi-colorable if we can color each edge blue, red, green, and white such that\n- for each vertex $v$ of degree $3$ in $G$, the three edges containing $v$ as an endpoint are either colored blue, red, and green, or all three edges are white,\n- not all edges are white.\nA connected graph $G$ has $a$ vertices of degree $4$, $b$ vertices of degree $3$, and no other vertices, where $a$ and $b$ are positive integers. Find the smallest real number $c$ so that the following statement is true: \"If $a / b > c$, then $G$ is quasi-colorable.\"",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nConsider a graph $G$ such that $\\frac{a}{b} > \\frac{1}{4}$. Note that the number of edges is $\\frac{4a + 3b}{2}$. Additionally, if any two vertices of degree $4$ are adjacent, we can simply color that edge red and every other edge in $G$ white to get a valid quasi-coloring. Thus, suppose no two vertices of degree $4$ are adjacent. Then, consider the subgraph $G'$ resulting from removing all vertices of degree $4$. Note that $G'$ has $\\frac{4a + 3b}{2} - 4a = \\frac{3b - 4a}{2} < \\frac{3b - b}{2} = b$ edges. Thus, $G'$ has fewer edges than vertices, which means that one of its connected components must be a tree $T$. In this tree $T$, we can just select some arbitrary vertex $v$, and perform a breadth-first search on $T$, greedily coloring the edges as we go along. What this means is that we partition the vertices of $T$ into disjoint subsets $S_0 = \\{v\\}, S_1, S_2, \\ldots$, where $S_j$ contains all vertices of $T$ whose distance to $v$ is exactly $j$, and then we color edges between $S_0$ and $S_1$, and then greedily color the edges between $S_1$ and $S_2$, and so on. Once we color all the edges in $T$, we can color the edges between vertices in $T$ and the vertices of degree $4$ appropriately, and color the remaining edges white to get a valid quasi-coloring.\n\nTo show that $c = \\frac{1}{4}$ is indeed the smallest possible solution, consider the graph shown below. This graph is not quasi-colorable (one can see that coloring the tails of this graph is impossible).\n\n![](attached_image_1.png)\n\nIf there are $N$ vertices of degree $4$, there are $4N + 10$ vertices of degree $3$. Since $\\frac{N}{4N + 10} \\rightarrow \\frac{1}{4}$ as $N \\rightarrow \\infty$, we have that for each value $c < \\frac{1}{4}$, one can find a graph with $a = N_0$ vertices of degree $4$ and $b = 4N_0 + 10$ vertices of degree $3$ such that $\\frac{a}{b} = \\frac{N_0}{4N_0 + 10} > c$.\n\nSolution:\n\nConsider a graph $G$ such that $\\frac{a}{b} > \\frac{1}{4} \\Longleftrightarrow b < 4a$. Note that the number of edges is $\\frac{4a + 3b}{2}$. For each edge $e$ in the graph, create a variable $x_e$ in $\\mathbb{F}_7$. Then, for each vertex $v$ of degree $3$, if the edges incident with $v$ are $e_1, e_2, e_3$, then consider the polynomial\n$$\nP_v = x_{e_1}^2 + x_{e_2}^2 + x_{e_3}^2\n$$\nin $\\mathbb{F}_7$. There are $b$ such polynomials, each with total degree $2$. Thus, since $b < 4a$, we know that the sum of the total degrees over all polynomials, $2b$, is less than the total number of variables, $\\frac{4a + 3b}{2}$. By Chevalley's Theorem, it follows that there exists a nontrivial solution to the system $P_v \\equiv 0 \\pmod{7}$ for all vertices $v$ of degree $3$. Consider one such solution. For each edge $e$, if $x_e \\equiv 0 \\pmod{7}$, then color edge $e$ white. If $x_e^2 \\equiv 1 \\pmod{7}$, color edge $e$ blue. If $x_e^2 \\equiv 2 \\pmod{7}$, color edge $e$ red. If $x_e^2 \\equiv 4 \\pmod{7}$, color edge $e$ green. It is not hard to see that this is a valid quasi-coloring.\n\nTo show that $c = \\frac{1}{4}$ is indeed the smallest possible solution, we can use the graph shown in the previous solution."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-4371",
+      "name": "HMMT February 2023 #0kw3",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2023",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomials mod p",
+        "Polynomials",
+        "Field Theory"
+      ],
+      "statement": "Problem:\nLet\n$$\nP=\\prod_{i=0}^{2016}\\left(i^{3}-i-1\\right)^{2}\n$$\nThe remainder when $P$ is divided by the prime $2017$ is not zero. Compute this remainder.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $Q(x)=x^{3}-x-1=(x-a)(x-b)(x-c)$, for $a, b, c \\in \\mathbb{F}_{p^{3}}$. Then, we can write\n$$\nP=\\prod_{i=0}^{2016}(i-a)(i-b)(i-c)\n$$\nIf we consider each root separately, then\n$$\nP=-\\left(a^{2017}-a\\right)\\left(b^{2017}-b\\right)\\left(c^{2017}-c\\right)\n$$\nThe key observation is that $a^{2017}, b^{2017}, c^{2017}$ is some nontrivial cycle of $a, b, c$. This is because by Frobenius' identity, $(a+b)^{p}=a^{p}+b^{p}$. So, if $P(x)=0, P\\left(x^{2017}\\right)=0$. But, $x^{2017} \\neq x$, since $x \\notin \\mathbb{F}_{p}$. This implies the claim. So, in the end, we wish to compute\n$$\n(b-a)^{2}(c-b)^{2}(a-c)^{2}\n$$\nNote that $P^{\\prime}(x)=3 x^{2}-1=(x-b)(x-c)+(x-a)(x-b)+(x-c)(x-a)$. So it suffices to compute\n$$\n\\left(1-3 a^{2}\\right)\\left(1-3 b^{2}\\right)\\left(1-3 c^{2}\\right)=-27 P\\left(\\frac{1}{\\sqrt{3}}\\right) P\\left(-\\frac{1}{\\sqrt{3}}\\right)\n$$\nWe can compute this is equal to $-27\\left(1-\\frac{2}{3 \\sqrt{3}}\\right)\\left(1+\\frac{2}{3 \\sqrt{3}}\\right)=-23$.\n\nAlternatively, this is the discriminant of $P(x)$. We utilize the well-known formula that the discriminant of $x^{3}+a x+b$ is $-4 a^{3}-27 b^{2}=-23$. So, the answer is $1994$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-4436",
+      "name": "USA TSTST #0kxw",
+      "url": "https://usamoguide.com/",
+      "source": "USA TSTST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Chinese remainder theorem",
+        "Polynomials mod p",
+        "Algebraic properties of binomial coefficients",
+        "Polynomial operations",
+        "Recurrence relations"
+      ],
+      "statement": "Let $p$ be a fixed prime and let $a \\ge 2$ and $e \\ge 1$ be fixed integers. Given a function $f: \\mathbb{Z}/a\\mathbb{Z} \\to \\mathbb{Z}/p^e\\mathbb{Z}$ and an integer $k \\ge 0$, the $k$th finite difference, denoted $\\Delta^k f$, is the function from $\\mathbb{Z}/a\\mathbb{Z}$ to $\\mathbb{Z}/p^e\\mathbb{Z}$ defined recursively by\n$$\n\\begin{aligned}\n\\Delta^0 f(n) &= f(n) \\\\\n\\Delta^k f(n) &= \\Delta^{k-1} f(n+1) - \\Delta^{k-1} f(n) \\quad \\text{for } k = 1, 2, \\dots\n\\end{aligned}\n$$\nDetermine the number of functions $f$ such that there exists some $k \\ge 1$ for which $\\Delta^k f = f$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Let $d = \\nu_p(a)$, so $a = p^d \\cdot b$ with $p \\nmid b$. We call a function $f: \\mathbb{Z}/a\\mathbb{Z} \\to \\mathbb{Z}/p^e\\mathbb{Z}$ *essential* if $\\Delta^k f = f$ for some $k \\ge 1$.\n\n**Claim (Characterization of essential functions):**\nA function $f$ is essential if and only if\n$$\nf(x) + f(x + p^d) + \\dots + f(x + (b-1)p^d) = 0 \\tag{1}\n$$\nfor all $x$.\n\n**Proof that essential implies the equation:**\nSuppose $f$ is essential, with $\\Delta^N f = f$. Then $f$ is in the image of $\\Delta^k$ for any $k$, because $\\Delta^{mN} f = f$ for any $m$. The following lemma will be useful.\n\n**Lemma:**\nLet $g: \\mathbb{Z}/a\\mathbb{Z} \\to \\mathbb{Z}/p^e\\mathbb{Z}$ be any function, and let $h = \\Delta^{p^d} g$. Then\n$$\nh(x) + h(x + p^d) + \\dots + h(x + (b-1)p^d) \\equiv 0 \\pmod{p}\n$$\nfor all $x$.\n\n*Proof of Lemma.* By definition,\n$$\nh(x) = \\Delta^{p^d} g(x) = \\sum_{k=0}^{p^d} (-1)^k \\binom{p^d}{k} g(x + p^d - k).\n$$\nHowever, it is known that $\\binom{p^d}{k}$ is a multiple of $p$ if $1 \\le k \\le p^d - 1$, so\n$$\nh(x) \\equiv g(x + p^d) + (-1)^{p^d} g(x) \\pmod{p}.\n$$\nUsing this, we easily obtain\n$$\n\\begin{aligned}\n& h(x) + h(x + p^d) + \\dots + h(x + (b-1)p^d) \\\\\n& \\equiv \\begin{cases} 0 & p > 2 \\\\ 2(g(x) + g(x + p^d) + \\dots + g(x + (b-1)p^d)) & p = 2 \\end{cases} \\\\\n& \\equiv 0 \\pmod{p},\n\\end{aligned}\n$$\nso the lemma is proved.\n\n**Corollary:**\nLet $g: \\mathbb{Z}/a\\mathbb{Z} \\to \\mathbb{Z}/p^e\\mathbb{Z}$ be any function, and let $h = \\Delta^{ep^d}g$. Then\n$$\nh(x) + h(x + p^d) + \\dots + h(x + (b-1)p^d) = 0\n$$\nfor all $x$.\n\nThis immediately settles this direction, since $f$ is in the image of $\\Delta^{ep^d}$.\n\n**Proof the equation implies essential:**\nLet $S$ be the set of all functions satisfying (1); then it's easy to see that $\\Delta$ is a function on $S$. To show that all functions in $S$ are essential, it's equivalent to show that $\\Delta$ is a permutation on $S$.\n\nWe will show that $\\Delta$ is injective on $S$. Suppose otherwise, and consider two functions $f$, $g$ in $S$ with $\\Delta f = \\Delta g$. Then, we obtain that $f$ and $g$ differ by a constant; say $g = f + \\lambda$. However, then\n$$\n\\begin{aligned}\n& g(0) + g(p^d) + \\dots + g((b-1)p^d) \\\\\n&= (f(0) + \\lambda) + (f(p^d) + \\lambda) + \\dots + (f((b-1)p^d) + \\lambda) \\\\\n&= (f(0) + f(p^d) + \\dots + f((b-1)p^d)) + b\\lambda.\n\\end{aligned}\n$$\nThis should also be zero. Since $p \\nmid b$, we obtain $\\lambda = 0$, as desired.\n\n**Counting:**\nFinally, we can count the essential functions: all but the last $p^d$ entries can be chosen arbitrarily, and then each remaining entry has exactly one possible choice. This leads to a count of\n$$\np^{a-p^d}\n$$\nfor the number of essential functions when $e = 1$.\n\n---\n\n**Second solution (by Daniel Zhu):**\n\nThere are two parts to the proof: solving the $e = 1$ case, and using the $e = 1$ result to solve the general problem by induction on $e$. These parts are independent of each other.\n\n**The case $e=1$:**\nRepresent functions $f$ as elements\n$$\n\\alpha_f := \\sum_{k \\in \\mathbb{Z}/a\\mathbb{Z}} f(-k)x^k \\in \\mathbb{F}_p[x]/(x^a - 1)\n$$\nThen, since $\\alpha_{\\Delta f} = (x-1)\\alpha_f$, we wish to find the number of $\\alpha \\in \\mathbb{F}_p[x]/(x^a - 1)$ such that $(x-1)^m\\alpha = \\alpha$ for some $m$.\n\nNow, make the substitution $y = x - 1$ and let $P(y) = (y+1)^a - 1$; we want to find $\\alpha \\in \\mathbb{F}_p[y]/(P(y))$ such that $y^m\\alpha = \\alpha$ for some $m$.\n\nIf we write $P(y) = y^dQ(y)$ with $Q(0) \\neq 0$, then by the Chinese Remainder Theorem we have the ring isomorphism\n$$\n\\mathbb{F}_p[y]/(P(y)) \\cong \\mathbb{F}_p[y]/(y^d) \\times \\mathbb{F}_p[y]/(Q(y)).\n$$\nNote that $y$ is nilpotent in the first factor, while it is a unit in the second factor. So the $\\alpha$ that work are exactly those that are zero in the first factor; thus there are $p^{a-d}$ such $\\alpha$. We can calculate $d = p^{v_p(a)}$ (via, say, Lucas's Theorem), so we are done.\n\n**The general problem:**\nThe general idea is as follows: call a $f: \\mathbb{Z}/a\\mathbb{Z} \\to \\mathbb{Z}/p^e\\mathbb{Z}$ *e-good* if $\\Delta^m f = f$ for some $m$. Our result above allows us to count the 1-good functions. Then, if $e \\ge 1$, every $(e+1)$-good function, when reduced mod $p^e$, yields an *e*-good function, so we count $(e+1)$-good functions by counting how many reduce to any given *e*-good function.\n\nFormally, we use induction on $e$, with the $e=1$ case being treated above. Suppose now we have solved the problem for a given $e \\ge 1$, and we now wish to solve it for $e+1$. For any function $g: \\mathbb{Z}/a\\mathbb{Z} \\to \\mathbb{Z}/p^{e+1}\\mathbb{Z}$, let $\\bar{g}: \\mathbb{Z}/a\\mathbb{Z} \\to \\mathbb{Z}/p^e\\mathbb{Z}$ be its reduction mod $p^e$. For a given *e*-good $f$, let $n(f)$ be the number of $(e+1)$-good $g$ with $\\bar{g} = f$. The following two claims now finish the problem:\n\n**Claim 1:** If $f$ is *e*-good, then $n(f) > 0$.\n\n*Proof.* Suppose $m$ is such that $\\Delta^m f = f$. Pick any $g$ with $\\bar{g} = f$, and consider the sequence of functions\n$$\ng, \\Delta^m g, \\Delta^{2m} g, \\dots\n$$\nSince there are finitely many functions $\\mathbb{Z}/a\\mathbb{Z} \\to \\mathbb{Z}/p^{e+1}\\mathbb{Z}$, there must exist $a < b$ such that $\\Delta^{am}g = \\Delta^{bm}g$. We claim $\\Delta^{am}g$ is the desired $(e+1)$-good function. To see this, first note that since $\\overline{\\Delta^k g} = \\Delta^k \\bar{g}$, we must have $\\overline{\\Delta^{am}g} = \\Delta^{am}f = f$. Moreover,\n$$\n\\Delta^{(b-a)m}(\\Delta^{am}g) = \\Delta^{bm}g = \\Delta^{am}g,\n$$\nso $\\Delta^{am}g$ is $(e+1)$-good. $\\square$\n\n**Claim 2:** If $f$ is *e*-good, and $n(f) > 0$, then $n(f)$ is exactly the number of 1-good functions, i.e. $p^{a-p^{v_p(a)}}$.\n\n*Proof.* Let $g$ be any $(e+1)$-good function with $\\bar{g} = f$. We claim that the $(e+1)$-good $g_1$ with $\\bar{g}_1 = f$ are exactly the functions of the form $g + p^e h$ for any 1-good $h$. Since these functions are clearly distinct, this characterization will prove the claim.\n\nTo show that this condition is sufficient, note that $\\overline{g + p^e h} = \\bar{g} = f$. Moreover, if $\\Delta^m g = g$ and $\\Delta^{m'} h = h$, then\n$$\n\\Delta^{mm'}(g + p^e h) = \\Delta^{mm'}g + p^e \\Delta^{mm'}h = g + p^e h.\n$$\nTo show that this condition is necessary, let $g_1$ be any $(e+1)$-good function such that $\\bar{g}_1 = f$. Then $g_1 - g$ is also $(e+1)$-good, since if $\\Delta^m g = g$, $\\Delta^{m'} g_1 = g_1$, we have\n$$\n\\Delta^{mm'}(g_1 - g) = \\Delta^{mm'}g_1 - \\Delta^{mm'}g = g_1 - g.\n$$\nOn the other hand, we also know that $g_1 - g$ is divisible by $p^e$. This means that it must be $p^e h$ for some function $h: \\mathbb{Z}/a\\mathbb{Z} \\to \\mathbb{Z}/p\\mathbb{Z}$, and it is not hard to show that $g_1 - g$ being $(e+1)$-good means that $h$ is 1-good. $\\square$\n\n**Final answer:**\n\nThe number of functions $f: \\mathbb{Z}/a\\mathbb{Z} \\to \\mathbb{Z}/p^e\\mathbb{Z}$ such that $\\Delta^k f = f$ for some $k \\ge 1$ is\n$$\np^{e(a-p^{v_p(a)})}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-4473",
+      "name": "HMMT February 2024 #0kyx",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2024",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomials",
+        "Vieta's formulas",
+        "Polynomials mod p",
+        "Chinese remainder theorem",
+        "Quadratic residues",
+        "Quadratic reciprocity"
+      ],
+      "statement": "Problem:\n\nA polynomial $f \\in \\mathbb{Z}[x]$ is called splitty if and only if for every prime $p$, there exist polynomials $g_p, h_p \\in \\mathbb{Z}[x]$ with $\\operatorname{deg} g_p, \\operatorname{deg} h_p < \\operatorname{deg} f$ and all coefficients of $f - g_p h_p$ are divisible by $p$. Compute the sum of all positive integers $n \\leq 100$ such that the polynomial $x^4 + 16 x^2 + n$ is splitty.\n\nProposed by: Pitchayut Saengrungkongka",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe claim that $x^4 + a x^2 + b$ is splitty if and only if either $b$ or $a^2 - 4b$ is a perfect square. (The latter means that the polynomial splits into $(x^2 - r)(x^2 - s)$.)\n\nAssuming the characterization, one can easily extract the answer. For $a = 16$ and $b = n$, one of $n$ and $64 - n$ has to be a perfect square. The solutions to this that are at most $64$ form $8$ pairs that sum to $64$ (if we include $0$), and then we additionally have $81$ and $100$. This means the sum is $64 \\cdot 8 + 81 + 100 = 693$.\n\nNow, we move on to prove the characterization.\n\n## Necessity.\n\nTake a prime $p$ such that neither $a^2 - 4b$ nor $b$ is a quadratic residue modulo $p$ (exists by Dirichlet + CRT + QR). Work in $\\mathbb{F}_p$. Now, suppose that\n\n$$\nx^4 + a x^2 + b = (x^2 + m x + n)(x^2 + s x + t)\n$$\n\nThen, looking at the $x^3$-coefficient gives $m + s = 0$ or $s = -m$. Looking at the $x$-coefficient gives $m(n - t) = 0$.\n\n- If $m = 0$, then $s = 0$, so $x^4 + a x^2 + b = (x^2 + n)(x^2 + t)$, which means $a^2 - 4b = (n + t)^2 - 4 n t = (n - t)^2$, a quadratic residue modulo $p$, contradiction.\n- If $n = t$, then $b = n t$ is a square modulo $p$, a contradiction. (The major surprise of this problem is that this suffices, which will be shown below.)\n\n## Sufficiency.\n\nClearly, the polynomial splits in $p = 2$ because in $\\mathbb{F}_2[x]$, we have $x^4 + a x^2 + b = (x^2 + a x + b)^2$. Now, assume $p$ is odd.\n\nIf $a^2 - 4b$ is a perfect square, then $x^4 + a x^2 + b$ splits into $(x^2 - r)(x^2 - s)$ even in $\\mathbb{Z}[x]$.\n\nIf $b$ is a perfect square, then let $b = k^2$. We then note that\n\n- $x^4 + a x^2 + b$ splits in form $(x^2 - r)(x^2 - s)$ if $\\left(\\frac{a^2 - 4k^2}{p}\\right) = 1$.\n- $x^4 + a x^2 + b$ splits in form $(x^2 + r x + k)(x^2 - r x + k)$ if $a = 2k - r^2$, or $\\left(\\frac{2k - a}{p}\\right) = 1$.\n- $x^4 + a x^2 + b$ splits in form $(x^2 + r x - k)(x^2 - r x - k)$ if $a = -2k - r^2$, or $\\left(\\frac{-2k - a}{p}\\right) = 1$.\n\nSince $(2k - a)(-2k - a) = a^2 - 4k^2$, it follows that at least one of these must happen."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-4475",
+      "name": "AMC 12 A #0kyz",
+      "url": "https://usamoguide.com/",
+      "source": "AMC 12 A",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Factorization techniques",
+        "Polynomials mod p"
+      ],
+      "statement": "There are exactly $K$ positive integers $b$ with $5 \\le b \\le 2024$ such that the base-$b$ integer $2024_b$ is divisible by 16 (where 16 is in base ten). What is the sum of the digits of $K$?\n(A) 16 (B) 17 (C) 18 (D) 20 (E) 21",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**Answer (D):** Notice that $2024_b = 2b^3 + 2b + 4 = 2(b + 1)(b^2 - b + 2)$, and consider the residue classes of this number modulo 8. If $b \\equiv 7 \\pmod 8$, then $b + 1 \\equiv 0 \\pmod 8$, and if $b \\equiv 3 \\pmod 8$, then $b^2 - b + 2 \\equiv 0 \\pmod 8$. In each case $2024_b$ is divisible by 16.\nIn all other cases $2024_b$ is not divisible by 16. Indeed, if $b \\equiv 0, 2, \\text{ or } 4 \\pmod 8$, then $b + 1$ is odd, and $b^2 - b + 2 \\equiv b + 2 \\pmod 8$, so $2024_b$ is divisible by no power of 2 greater than $2^3$. If $b \\equiv 1 \\pmod 5$, then $b + 1$ and $b^2 - b + 2$ are both odd multiples of 2, so $2024_b$ is divisible by 8, but not by 16.\nBecause $2024 = 253 \\cdot 8$, there are $253 \\cdot 3 = 759$ positive integers $b \\le 2024$ that are congruent to 3, 6, or 7 modulo 8. The number 3 must be excluded from this total, because the problem statement requires $b$ to be at least 5. Thus $K = 759 - 1 = 758$, and the sum of the digits of $K$ is $7 + 5 + 8 = 20$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-4510",
+      "name": "AMC 10 A #0kzy",
+      "url": "https://usamoguide.com/",
+      "source": "AMC 10 A",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Factorization techniques",
+        "Polynomials mod p",
+        "Polynomial operations"
+      ],
+      "statement": "There are exactly $K$ positive integers $b$ with $5 \\le b \\le 2024$ such that the base-$b$ integer $2024_b$ is divisible by 16 (where 16 is in base ten). What is the sum of the digits of $K$?\n(A) 16 (B) 17 (C) 18 (D) 20 (E) 21",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Notice that $2024_b = 2b^3 + 2b + 4 = 2(b+1)(b^2 - b + 2)$, and consider the residue classes of this number modulo 8. If $b \\equiv 7 \\pmod{8}$, then $b+1 \\equiv 0 \\pmod{8}$, and if $b \\equiv 3 \\pmod{8}$, then $b^2 - b + 2 \\equiv 0 \\pmod{8}$. In each case $2024_b$ is divisible by 16.\nIn all other cases $2024_b$ is not divisible by 16. Indeed, if $b \\equiv 0, 2, \\text{ or } 4 \\pmod{8}$, then $b+1$ is odd, and $b^2 - b + 2 \\equiv b + 2 \\pmod{8}$, so $2024_b$ is divisible by no power of 2 greater than $2^3$. If $b \\equiv 1 \\pmod{8}$, then $b+1$ and $b^2 - b + 2$ are both odd multiples of 2, so $2024_b$ is divisible by 8, but not by 16.\nBecause $2024 = 253 \\cdot 8$, there are $253 \\cdot 3 = 759$ positive integers $b \\le 2024$ that are congruent to 3, 6, or 7 modulo 8. The number 3 must be excluded from this total, because the problem statement requires $b$ to be at least 5. Thus $K = 759 - 1 = 758$, and the sum of the digits of $K$ is $7+5+8 = 20$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-4569",
+      "name": "HMMT February 2024 Guts Round #0l1l",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2024 Guts Round",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vieta's formulas",
+        "Polynomials mod p",
+        "Pigeonhole principle"
+      ],
+      "statement": "Problem:\nFor each prime $p$, a polynomial $P(x)$ with rational coefficients is called $p$-good if and only if there exist three integers $a, b$, and $c$ such that $0 \\leq a < b < c < \\frac{p}{3}$ and $p$ divides all the numerators of $P(a)$, $P(b)$, and $P(c)$, when written in simplest form. Compute the number of ordered pairs $(r, s)$ of rational numbers such that the polynomial $x^{3} + 10 x^{2} + r x + s$ is $p$-good for infinitely many primes $p$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nBy Vieta, the sum of the roots is $-10 \\pmod{p}$. However, since the three roots are less than $p / 3$, it follows that the roots are $\\left(p - a'\\right) / 3$, $\\left(p - b'\\right) / 3$, and $\\left(p - c'\\right) / 3$, where there are finitely many choices $a' < b' < c'$. By pigeonhole, one choice, say $(u, v, w)$, must occur for infinitely many $p$. We then get that the roots of $P$ are $-u / 3$, $-v / 3$, and $-w / 3$. Moreover, we must have that $u, v, w$ are all $1 \\pmod{3}$ or all $2 \\pmod{3}$, and by Vieta, we have $u + v + w = 30$.\n\nThe polynomial is then uniquely determined by $u, v, w$. Thus, it suffices to count triples $u < v < w$ of positive integers such that $u, v, w$ are all $1 \\pmod{3}$ or all $2 \\pmod{3}$ and that $u + v + w = 30$. It's not very hard to list them all now.\n\nWhen $u, v, w \\equiv 1 \\pmod{3}$, there are 7 triples: $(1, 4, 25)$, $(1, 7, 22)$, $(1, 10, 19)$, $(1, 13, 16)$, $(4, 7, 19)$, $(4, 10, 16)$, and $(7, 10, 13)$.\n\nWhen $u, v, w \\equiv 2 \\pmod{3}$, there are 5 triples: $(2, 5, 23)$, $(2, 8, 20)$, $(2, 11, 17)$, $(5, 8, 17)$, and $(5, 11, 14)$.\n\nHence, the answer is $7 + 5 = 12$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-4647",
+      "name": "HMMT February 2024 #0l3r",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2024",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Greatest common divisors (gcd)",
+        "Prime numbers",
+        "Polynomials mod p",
+        "Multiplicative order"
+      ],
+      "statement": "Problem:\nLet $P(n)=\\left(n-1^{3}\\right)\\left(n-2^{3}\\right) \\ldots\\left(n-40^{3}\\right)$ for positive integers $n$. Suppose that $d$ is the largest positive integer that divides $P(n)$ for every integer $n>2023$. If $d$ is a product of $m$ (not necessarily distinct) prime numbers, compute $m$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe first investigate what primes divide $d$. Notice that a prime $p$ divides $P(n)$ for all $n \\geq 2024$ if and only if $\\left\\{1^{3}, 2^{3}, \\ldots, 40^{3}\\right\\}$ contains all residues in modulo $p$. Hence, $p \\leq 40$. Moreover, $x^{3} \\equiv 1$ must not have other solution in modulo $p$ than 1, so $p \\not \\equiv 1(\\bmod 3)$. Thus, the set of prime divisors of $d$ is $S=\\{2,3,5,11,17,23,29\\}$.\n\nNext, the main claim is that for all prime $p \\in S$, the minimum value of $\\nu_{p}(P(n))$ across all $n \\geq 2024$ is $\\left\\lfloor\\frac{40}{p}\\right\\rfloor$. To see why, note the following:\n\n- Lower Bound. Note that for all $n \\in \\mathbb{Z}$, one can group $n-1^{3}, n-2^{3}, \\ldots, n-40^{3}$ into $\\left\\lfloor\\frac{40}{p}\\right\\rfloor$ contiguous blocks of size $p$. Since $p \\not \\equiv 1(\\bmod 3)$, $x^{3}$ spans through all residues modulo $p$, so each block will have one number divisible by $p$. Hence, among $n-1^{3}, n-2^{3}, \\ldots, n-40^{3}$, at least $\\left\\lfloor\\frac{40}{p}\\right\\rfloor$ are divisible by $p$, implying that $\\nu_{p}(P(n)) \\geq \\left\\lfloor\\frac{40}{p}\\right\\rfloor$.\n\n- Upper Bound. We pick any $n$ such that $\\nu_{p}(n)=1$ so that only terms in the form $n-p^{3}, n-(2p)^{3}, \\ldots$ are divisible by $p$. Note that these terms are not divisible by $p^{2}$ either, so in this case, we have $\\nu_{p}(P(n))=\\left\\lfloor\\frac{40}{p}\\right\\rfloor$.\n\nHence, $\\nu_{p}(d)=\\left\\lfloor\\frac{40}{p}\\right\\rfloor$ for all prime $p \\in S$. Thus, the answer is\n\n$$\n\\sum_{p \\in S}\\left\\lfloor\\frac{40}{p}\\right\\rfloor=\\left\\lfloor\\frac{40}{2}\\right\\rfloor+\\left\\lfloor\\frac{40}{3}\\right\\rfloor+\\left\\lfloor\\frac{40}{5}\\right\\rfloor+\\left\\lfloor\\frac{40}{11}\\right\\rfloor+\\left\\lfloor\\frac{40}{17}\\right\\rfloor+\\left\\lfloor\\frac{40}{23}\\right\\rfloor+\\left\\lfloor\\frac{40}{29}\\right\\rfloor=48.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-4719",
+      "name": "HMMT February #0l5r",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomials mod p",
+        "Sums and products"
+      ],
+      "statement": "Problem:\n\nFor any integer $x$, let\n$$\n  f(x) = 100! \\left(1 + x + \\frac{x^{2}}{2!} + \\frac{x^{3}}{3!} + \\dots + \\frac{x^{100}}{100!}\\right).\n$$\nA positive integer $a$ is chosen such that $f(a) - 20$ is divisible by $101^{2}$. Compute the remainder when $f(a + 101)$ is divided by $101^{2}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nBy the binomial theorem,\n$$\n(a + 101)^{n} \\equiv a^{n} + \\binom{n}{1} a^{n - 1}101 = a^{n} + 101n a^{n - 1} \\pmod {101^{2}}.\n$$\nUsing this gives (all congruences are modulo $101^{2}$)\n$$\n\\begin{align*}\nf(a + 101) &= 100!\\sum_{n = 0}^{100}\\frac{(a + 101)^{n}}{n!} \\\\\n&\\equiv 100!\\sum_{n = 0}^{100}\\left(\\frac{a^{n}}{n!} +\\frac{101n a^{n - 1}}{n!}\\right) \\\\\n&\\equiv f(a) + 100!\\cdot 101\\sum_{n = 1}^{100}\\frac{a^{n - 1}}{(n - 1)!} \\\\\n&\\equiv f(a) + 101f(a) - 100!\\cdot 101\\frac{a^{100}}{100!} \\\\\n&\\equiv f(a) + 101(f(a) - 1) \\\\\n&\\equiv 20 + 101(20 - 1) = \\boxed{1939}\\quad (\\mathrm{mod}\\ 101^{2}).\n\\end{align*}\n$$\n\nSolution:\n\nThe above solution can be viewed as a consequence of Hensel's lemma as follows. Because $101$ is prime, for any integer $x$ not divisible by $101$, we have that\n$$\nf^{\\prime}(x) = 100!\\left(1 + x + \\frac{x^{2}}{2!} +\\dots +\\frac{x^{99}}{99!}\\right) = f(x) - x^{100}\\equiv f(x) - 1\\pmod {101}.\n$$\nClearly $101 \\nmid a$. Hence, by Hensel's lemma, we get that\n$$\nf(a + 101) \\equiv f(a) + 101f^{\\prime}(a) \\equiv 20 + 101 \\cdot 19 \\equiv \\boxed{1939} \\pmod {101^{2}}.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-4783",
+      "name": "HMMT February 2025 #0l7j",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2025",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Quadratic residues",
+        "Quadratic reciprocity",
+        "Fermat / Euler / Wilson theorems",
+        "Polynomials mod p",
+        "Injectivity / surjectivity",
+        "Recurrence relations"
+      ],
+      "statement": "Problem:\nLet $\\mathbb{Z}$ be the set of integers. Determine, with proof, all primes $p$ for which there exists a function $f\\colon \\mathbb{Z}\\to \\mathbb{Z}$ such that for any integer $x$,\n\n$f(x + p) = f(x)$ and $p$ divides $f(x + f(x)) - x$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe work in $\\mathbb{F}_p$, treating $f$ as a map from $\\mathbb{F}_p$ to itself. Clearly, $p = 2$ doesn't work. For $p > 2$ such that $5$ is a quadratic residue mod $p$, as well as $p = 5$ itself, there exists some $\\alpha$ such that $(2\\alpha + 1)^2\\equiv 5$ (mod $p$). Taking $f(x) = \\alpha x$ then works because\n\n$$\nf(x + f(x)) - x = (\\alpha^2 + \\alpha -1)x = \\frac{1}{4}\\left((2\\alpha +1)^2 - 5\\right)x\\equiv 0\\pmod {p}.\n$$\n\nTo prove no other primes satisfy the conditions in the problem statement, note that $f$ is surjective, as for any $x$, $f(x + f(x)) = x$. As $\\mathbb{F}_p$ is finite, $f$ is bijective. Plugging in $x = f(y)$ yields\n\n$$\nf(f(y) + f(f(y))) = f(y)\\implies f(y) + f(f(y)) = y.\n$$\n\nSince $f$ is bijective, there exists $z\\in \\mathbb{F}_p$ such that $f(z) = 0$, then $z = f(z + f(z)) = f(z) = 0$. Therefore, $f(0) = 0$. This is the only fixed point, as any fixed point $d$ would satisfy $d = f(d) + f(f(d)) = 2d$, which is impossible if $d \\neq 0$. Hence the remaining residues form nontrivial cycles $y$, $f(y)$, $f(f(y))$, etc. If the cycle containing $y$ is of length $n$, then\n\n$$\n\\begin{array}{rl}\n& f^{-1}(y) = y + f(y),\\\\\n& f^{-2}(y) = f^{-1}(y) + y = 2y + f(y),\\\\\n& \\qquad \\vdots\\\\\n& f^{-(n - 1)}(y) = f(y) = F_ny + F_{n - 1}f(y),\\\\\n& \\qquad y = F_{n + 1}y + F_n f(y),\n\\end{array} \\quad (\\text{by induction})\n$$\n\nwhere $F_k$ is the $k$-th Fibonacci number. As $y \\neq 0$ and $f(y) \\neq 0$, the last two equations tell us\n\n$$\nF_n^2 \\equiv \\left(\\frac{(1 - F_{n - 1})f(y)}{y}\\right) \\left(\\frac{(1 - F_{n + 1})y}{f(y)}\\right) \\equiv (F_{n + 1} - 1)(F_{n - 1} - 1) \\pmod {p}.\n$$\n\nLet $A = F_{n + 1} - 1$ and $B = F_{n - 1} - 1$ for brevity. The last equation becomes\n\n$$\n(A - B)^2 \\equiv AB \\equiv \\frac{1}{4} ((A + B)^2 - (A - B)^2) \\pmod {p} \\Longrightarrow (A + B)^2 \\equiv 5(A - B)^2 \\pmod {p}.\n$$\n\nAs $5$ is not a quadratic residue, this implies $F_{n + 1} \\equiv F_{n - 1} \\equiv 1 \\pmod {p}$. Hence, if $d$ is the smallest positive integer such that $F_d \\equiv 0 \\pmod {p}$ and $F_{d + 1} \\equiv 1 \\pmod {p}$, then the Fibonacci sequence is periodic modulo $p$ with period $d$, so $d \\mid n$. The sum of all cycle lengths (excluding the fixed point $0$) is $p - 1$, so $d \\mid p - 1$. The following well-known lemma will give us a contradiction.\n\n**Lemma 1.** If $5$ is not a quadratic residue modulo a prime $p$, then $p \\nmid F_{p - 1}$.\n\n**Proof 1.** Recall Binet's formula,\n\n$$\nF_{p - 1} = \\frac{1}{\\sqrt{5}} \\left(\\left(\\frac{1 + \\sqrt{5}}{2}\\right)^{p - 1} - \\left(\\frac{1 - \\sqrt{5}}{2}\\right)^{p - 1}\\right).\n$$\n\nMultiplying both sides by $2^{p - 1}$ and expanding via the binomial theorem, we have\n\n$$\n2^{p - 1}F_{p - 1} = 2\\sum_{k = 0}^{\\frac{p - 3}{2}}5^{k}\\binom{p - 1}{2k + 1}.\n$$\n\nHowever, $\\binom{p- 1}{2k+1} \\equiv(- 1)^{2k+1} \\equiv- 1 \\pmod{p}$ for all $k$, so\n\n$$\np \\mid F_{p - 1} \\quad \\text{if and only if} \\quad p \\left| \\sum_{k = 0}^{\\frac{p - 3}{2}} 5^{k} = \\frac{5^{\\frac{p - 1}{2}} - 1}{5 - 1} \\right.\n$$\n\nTherefore $p \\mid F_{p - 1}$ if and only if $5^{\\frac{p - 1}{2}} \\equiv 1 \\pmod {p}$, which doesn't hold if $5$ is not a quadratic residue modulo $p$, as desired. $\\square$\n\n**Proof 2.** Work in $\\mathbb{F}_{p^{2}} = \\mathbb{F}_{p}[\\sqrt{5}]$. Since $5$ is not a quadratic residue, we get that $(\\sqrt{5})^{p} = - \\sqrt{5}$. Using the fact that $(a + b)^{p} = a^{p} + b^{p}$ (because all other terms have coefficient divisible by $p$), we get that\n\n$$\n\\left(\\frac{1 + \\sqrt{5}}{2}\\right)^{p} = \\frac{1 - \\sqrt{5}}{2} \\implies \\left(\\frac{1 + \\sqrt{5}}{2}\\right)^{p - 1} = \\left(\\frac{1 - \\sqrt{5}}{2}\\right)^{2} = \\frac{3 - \\sqrt{5}}{2}.\n$$\n\nSimilarly, $\\left(\\frac{1 - \\sqrt{5}}{2}\\right)^{p - 1} = \\frac{3 + \\sqrt{5}}{2}$. Hence, by Binet's formula,\n\n$$\nF_{p - 1} = \\frac{1}{\\sqrt{5}}\\left(\\left(\\frac{1 + \\sqrt{5}}{2}\\right)^{p - 1} - \\left(\\frac{1 - \\sqrt{5}}{2}\\right)^{p - 1}\\right)\n= \\frac{1}{\\sqrt{5}}\\left(\\frac{3 - \\sqrt{5}}{2} -\\frac{3 + \\sqrt{5}}{2}\\right) = -1,\n$$\n\nso it is not divisible by $p$.\n\nHence, $F_{p - 1} \\neq 0$ (mod $p$) if $5$ is not a quadratic residue modulo $p$, which contradicts $d \\mid p - 1$ above. This completes the solution."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-modular-arithmetic-polynomials-mod-p-auto-4797",
+      "name": "2025 AIME I #0l7x",
+      "url": "https://usamoguide.com/",
+      "source": "2025 AIME I",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Factorization techniques",
+        "Polynomials mod p"
+      ],
+      "statement": "Let $N$ denote the number of ordered triples of positive integers $(a, b, c)$ such that $a, b, c \\le 3^6$ and $a^3 + b^3 + c^3$ is a multiple of $3^7$. Find the remainder when $N$ is divided by 1000.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

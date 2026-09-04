@@ -1,0 +1,577 @@
+{
+  "MODULE_ID": "newton-sums",
+  "practice": [
+    {
+      "uniqueId": "amc12a-2019-17",
+      "name": "Problem 17 (2019 AMC 12A)",
+      "url": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_12A_Problems/Problem_17",
+      "source": "AMC 12A",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Algebra",
+        "Polynomials",
+        "Newton Sums",
+        "Vieta's Formulas"
+      ],
+      "statement": "Let Sk denote the sum of the kth powers of the roots of the polynomial x³ + ax² + bx + c. In particular, S₁ = -a, S₂ = a² - 2b, and S₃ = -a³ + 3ab - 3c. Let a, b, c be real numbers such that for k = 1, 2, 3, Sk = 3^k. What is a + b + c?",
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "aime-2008-ii-7",
+      "name": "Problem 7 (2008 AIME II)",
+      "url": "https://artofproblemsolving.com/wiki/index.php/2008_AIME_II_Problems/Problem_7",
+      "source": "AIME II",
+      "difficulty": "Medium",
+      "isStarred": false,
+      "tags": [
+        "Algebra",
+        "Polynomials",
+        "Newton Sums",
+        "Vieta's Formulas"
+      ],
+      "statement": "Let r, s, and t be the three roots of the equation x³ - 15x² + 74x - 120 = 0. Find r²s + rs² + r²t + rt² + s²t + st².",
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "aime-2003-ii-9",
+      "name": "Problem 9 (2003 AIME II)",
+      "url": "https://artofproblemsolving.com/wiki/index.php?title=2003_AIME_II_Problems/Problem_9",
+      "source": "AIME II",
+      "difficulty": "Medium",
+      "isStarred": false,
+      "tags": [
+        "Algebra",
+        "Polynomials",
+        "Newton Sums",
+        "Vieta's Formulas"
+      ],
+      "statement": "Consider the polynomials x² + ax + b and x² + px + q. Given that a and b are the roots of x² + px + q = 0, find a² + b² in terms of p and q.",
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "newton-sums-custom-01",
+      "name": "Power Sums of a Cubic",
+      "url": "https://usamoguide.com/",
+      "source": "Custom",
+      "difficulty": "Normal",
+      "isStarred": false,
+      "tags": [
+        "Newton's Sums",
+        "Polynomials"
+      ],
+      "statement": "Let $P(x) = x^3 - 3x^2 + 5x - 7$ have roots $r_1, r_2, r_3$. Let $S_n = r_1^n + r_2^n + r_3^n$. Find $S_4$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "## Solution\n\nNewton's Sums for a cubic $x^3 + e_1x^2 + e_2x + e_3 = 0$ (where $e_1 = -3, e_2 = 5, e_3 = -7$) state:\n1. $S_1 + e_1 = 0 \\implies S_1 - 3 = 0 \\implies S_1 = 3$\n2. $S_2 + e_1 S_1 + 2e_2 = 0 \\implies S_2 - 3(3) + 2(5) = 0 \\implies S_2 - 9 + 10 = 0 \\implies S_2 = -1$\n3. $S_3 + e_1 S_2 + e_2 S_1 + 3e_3 = 0 \\implies S_3 - 3(-1) + 5(3) + 3(-7) = 0 \\implies S_3 + 3 + 15 - 21 = 0 \\implies S_3 = 3$\n4. $S_4 + e_1 S_3 + e_2 S_2 + e_3 S_1 = 0 \\implies S_4 - 3(3) + 5(-1) - 7(3) = 0 \\implies S_4 - 9 - 5 - 21 = 0 \\implies S_4 = 35$\n\nFinal Answer: **35**"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "newton-sums-custom-02",
+      "name": "Reciprocal Roots and Symmetry",
+      "url": "https://usamoguide.com/",
+      "source": "Custom",
+      "difficulty": "Hard",
+      "isStarred": true,
+      "tags": [
+        "Newton's Sums",
+        "Symmetric Polynomials"
+      ],
+      "statement": "Let $a, b, c$ be the roots of $x^3 - x - 1 = 0$. Determine the value of $a^{-4} + b^{-4} + c^{-4}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "## Solution\n\nLet $y = 1/x$. If $x$ is a root of $x^3 - x - 1 = 0$, then $y$ is a root of the reciprocal polynomial:\n$$(1/y)^3 - (1/y) - 1 = 0 \\implies 1 - y^2 - y^3 = 0 \\implies y^3 + y^2 - 1 = 0$$\n\nWe seek $S_4$ for the polynomial $y^3 + y^2 + 0y - 1 = 0$, where $e_1 = 1, e_2 = 0, e_3 = -1$:\n1. $S_1 + 1 = 0 \\implies S_1 = -1$\n2. $S_2 + 1(-1) + 2(0) = 0 \\implies S_2 = 1$\n3. $S_3 + 1(1) + 0(-1) + 3(-1) = 0 \\implies S_3 + 1 - 3 = 0 \\implies S_3 = 2$\n4. $S_4 + 1(2) + 0(1) - 1(-1) = 0 \\implies S_4 + 2 + 1 = 0 \\implies S_4 = -3$\n\nFinal Answer: **-3**"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "newton-sums-custom-03",
+      "name": "Unknown Coefficient Recovery",
+      "url": "https://usamoguide.com/",
+      "source": "Custom",
+      "difficulty": "Hard",
+      "isStarred": true,
+      "tags": [
+        "Newton's Sums",
+        "Vieta's Formulas"
+      ],
+      "statement": "Suppose $x^4 + ax^2 + bx + c = 0$ has roots $r_1, r_2, r_3, r_4$ such that $S_1 = 0, S_2 = -4,$ and $S_3 = 3$. Find $S_5$ in terms of $a, b,$ and $c$, and specifically evaluate it if $S_4 = 10$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "## Solution\n\nFor $x^4 + 0x^3 + ax^2 + bx + c = 0$, we have coefficients $e_1=0, e_2=a, e_3=b, e_4=c$.\n\nFrom Newton's Sums:\n1. $S_2 + 0S_1 + 2a = 0 \\implies -4 + 2a = 0 \\implies a = 2$\n2. $S_3 + 0S_2 + aS_1 + 3b = 0 \\implies 3 + 3b = 0 \\implies b = -1$\n3. $S_4 + 0S_3 + aS_2 + bS_1 + 4c = 0 \\implies 10 + 2(-4) + 0 + 4c = 0 \\implies 10 - 8 + 4c = 0 \\implies 4c = -2 \\implies c = -1/2$\n\nNow find $S_5$ using the recurrence:\n$S_5 + 0S_4 + aS_3 + bS_2 + cS_1 = 0$\n$S_5 + 2(3) + (-1)(-4) + (-1/2)(0) = 0$\n$S_5 + 6 + 4 = 0 \\implies S_5 = -10$\n\nFinal Answer: **-10**"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-polynomial-interpolation-newton-lagrange-auto-0717",
+      "name": "Harvard-MIT Math Tournament #0i2l",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial interpolation: Newton, Lagrange",
+        "Polynomial operations"
+      ],
+      "statement": "Problem:\n\n$P$ is a polynomial. When $P$ is divided by $x-1$, the remainder is $-4$. When $P$ is divided by $x-2$, the remainder is $-1$. When $P$ is divided by $x-3$, the remainder is $4$. Determine the remainder when $P$ is divided by $x^{3}-6x^{2}+11x-6$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe remainder polynomial is simply the order two polynomial that goes through the points $(1, -4)$, $(2, -1)$, and $(3, 4)$: $x^{2} - 5$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-polynomial-interpolation-newton-lagrange-auto-1197",
+      "name": "Harvard-MIT Mathematics Tournament #0ifx",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial interpolation: Newton, Lagrange",
+        "Polynomial operations"
+      ],
+      "statement": "Problem:\nLet $a_{1}, a_{2}, \\ldots, a_{2005}$ be real numbers such that\n$$\n\\begin{array}{ccccccccccc}\na_{1} \\cdot 1 & + & a_{2} \\cdot 2 & + & a_{3} \\cdot 3 & + & \\cdots & + & a_{2005} \\cdot 2005 & = & 0 \\\\\na_{1} \\cdot 1^{2} & + & a_{2} \\cdot 2^{2} & + & a_{3} \\cdot 3^{2} & + & \\cdots & + & a_{2005} \\cdot 2005^{2} & = & 0 \\\\\na_{1} \\cdot 1^{3} & + & a_{2} \\cdot 2^{3} & + & a_{3} \\cdot 3^{3} & + & \\cdots & + & a_{2005} \\cdot 2005^{3} & = & 0 \\\\\n\\vdots & & \\vdots & & \\vdots & & & & \\vdots & & \\vdots \\\\\na_{1} \\cdot 1^{2004} & + & a_{2} \\cdot 2^{2004} & + & a_{3} \\cdot 3^{2004} & + & \\cdots & + & a_{2005} \\cdot 2005^{2004} & = & 0\n\\end{array}\n$$\nand\n$$\na_{1} \\cdot 1^{2005}+a_{2} \\cdot 2^{2005}+a_{3} \\cdot 3^{2005}+\\cdots+a_{2005} \\cdot 2005^{2005}=1 .\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n$1 / 2004!$\n\nThe polynomial $p(x) = x(x-2)(x-3) \\cdots (x-2005) / 2004!$ has zero constant term, has the numbers $2, 3, \\ldots, 2005$ as roots, and satisfies $p(1) = 1$. Multiplying the $n$th equation by the coefficient of $x^{n}$ in the polynomial $p(x)$ and summing over all $n$ gives\n$$\na_{1} p(1) + a_{2} p(2) + a_{3} p(3) + \\cdots + a_{2005} p(2005) = 1 / 2004!\n$$\n(since the leading coefficient is $1 / 2004!$). The left side just reduces to $a_{1}$, so $1 / 2004!$ is the answer."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-polynomial-interpolation-newton-lagrange-auto-1414",
+      "name": "10th Annual Harvard-MIT Mathematics Tournament #0ily",
+      "url": "https://usamoguide.com/",
+      "source": "10th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial interpolation: Newton, Lagrange",
+        "Algebraic properties of binomial coefficients",
+        "Sums and products"
+      ],
+      "statement": "Problem:\nFind an explicit, closed form formula for\n$$\n\\sum_{k=1}^{n} \\frac{k \\cdot(-1)^{k} \\cdot\\binom{n}{k}}{n+k+1}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $\\frac{-1}{\\binom{2 n+1}{n}}$ or $-\\frac{n!(n+1)!}{(2 n+1)!}$ or obvious equivalent.\n\nConsider the interpolation of the polynomial $P(x)=x \\cdot n!$ at $x=0,1, \\ldots, n$. We obtain the identity\n$$\n\\begin{aligned}\nP(x) & =x \\cdot n!=\\sum_{k=0}^{n} k \\cdot n!\\prod_{j \\neq k} \\frac{x-j}{k-j} \\\\\n& =\\sum_{k=0}^{n} k \\cdot n!\\cdot \\frac{x(x-1) \\cdots(x-k+1)(x-k-1) \\cdots(x-n)}{k!(n-k)!(-1)^{n-k}} \\\\\n& =\\sum_{k=1}^{n} k \\cdot(-1)^{n-k} \\cdot\\binom{n}{k} \\cdot x(x-1) \\cdots(x-k+1)(x-k-1) \\cdots(x-n)\n\\end{aligned}\n$$\nThis identity is valid for all complex numbers $x$, but, to extract a factor $\\frac{1}{n+k+1}$ from the valid product of each summand, we set $x=-n-1$, so that\n\n$-(n+1)!=\\sum_{k=1}^{n} k(-1)^{n-k}\\binom{n}{k}(-n-1) \\cdots(-n-k)(-n-k-2) \\cdots(-2 n-1)=\\sum_{k=1}^{n} \\frac{k(-1)^{k}\\binom{n}{k}(2 n+1)!}{n!(n+k+1)}$.\n\nFinally,\n$$\n\\sum_{k=1}^{n} \\frac{k \\cdot(-1)^{k} \\cdot\\binom{n}{k}}{n+k+1}=\\frac{-n!(n+1)!}{(2 n+1)!}=\\frac{-1}{\\binom{2 n+1}{n}} \\cdot \\square\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-polynomial-interpolation-newton-lagrange-auto-1480",
+      "name": "IMO #0ins",
+      "url": "https://usamoguide.com/",
+      "source": "IMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other 3D problems",
+        "Polynomial operations",
+        "Polynomial interpolation: Newton, Lagrange",
+        "Determinants"
+      ],
+      "statement": "Let $n$ be a positive integer. Consider\n$$\nS = \\{(x, y, z) : x, y, z \\in \\{0, 1, \\dots, n\\}, x + y + z > 0\\}.\n$$\nas a set of $(n+1)^3 - 1$ points in three-dimensional space. Determine the smallest possible number of planes, the union of which contains $S$ but does not include $(0, 0, 0)$.\n(This problem was suggested by the Netherlands.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "We establish the following key lemma.\n\n**Lemma 1.** Consider a nonzero polynomial $P(x_1, \\dots, x_k)$ in $k$ variables. Suppose that $P$ vanishes at all points $(x_1, \\dots, x_k)$ such that $x_1, \\dots, x_k \\in \\{0, 1, \\dots, n\\}$ and $x_1 + \\dots + x_k > 0$, while $P(0, 0, \\dots, 0) \\ne 0$. Then $\\deg P \\ge kn$.\n\n*Proof.* We induct on $k$. The base case $k=0$ is clear since $P \\ne 0$. We assume that the statement is true for $k = \\ell - 1$ for some positive integer $\\ell$. Now we consider the case $k = \\ell$. Denote for clarity $y = x_k = x_\\ell$.\n\nLet $R(x_1, \\dots, x_{k-1}, y)$ be the residue of $P$ modulo $Q(y) = y(y-1)\\dots(y-n)$. Polynomial $Q(y)$ vanishes at each $y=0, 1, \\dots, n$, hence $P(x_1, \\dots, x_{k-1}, y) = R(x_1, \\dots, x_{k-1}, y)$ for all $x_1, \\dots, x_{k-1}, y \\in \\{0, 1, \\dots, n\\}$. Therefore, $R$ also satisfies the condition of the Lemma; moreover, $\\deg_y R \\le n$. Clearly, $\\deg R \\le \\deg P$, so it suffices to prove that $\\deg R \\ge nk$.\n\nNow, expand polynomial $R$ in the powers of $y$:\n$$\nR(x_1, \\dots, x_{k-1}, y) = R_n(x_1, \\dots, x_{k-1})y^n + R_{n-1}(x_1, \\dots, x_{k-1})y^{n-1} + \\dots + R_0(x_1, \\dots, x_{k-1}).\n$$\nWe show that the polynomial $R_n(x_1, \\dots, x_{k-1})$ satisfies the condition of the induction hypothesis.\n\nConsider the polynomial $T(y) = R(0, \\dots, 0, y)$ of degree $\\le n$. This polynomial has $n$ roots $y = 1, \\dots, n$; on the other hand, $T(y) \\ne 0$ since $T(0) \\ne 0$. Hence $\\deg T = n$, and its leading coefficient is $R_n(0, 0, \\dots, 0) \\ne 0$. (For example, in the case $k=1$ we obtain that coefficient $R_n$ is nonzero.)\n\nSimilarly, take any numbers $a_1, \\dots, a_{k-1} \\in \\{0, 1, \\dots, n\\}$ with $a_1 + \\dots + a_{k-1} > 0$. Substituting $x_i = a_i$ into $R(x_1, \\dots, x_{k-1}, y)$, we get a polynomial in $y$ which vanishes at all points $y = 0, \\dots, n$ and has degree $\\le n$. Therefore, this polynomial is null, hence $R_i(a_1, \\dots, a_{k-1}) = 0$ for all $i = 0, 1, \\dots, n$. In particular, $R_n(a_1, \\dots, a_{k-1}) = 0$.\n\nThus, the polynomial $R_n(x_1, \\dots, x_{k-1})$ satisfies the condition of the induction hypothesis. So, we have $\\deg R_n \\ge (k-1)n$ and $\\deg P \\ge \\deg R \\ge \\deg R_n + n \\ge kn$. $\\square$\n\nNow we can finish the solution. Suppose that there are $N$ planes covering all the points of $S$ but not containing the origin. Let their equations be $a_i x + b_i y + c_i z + d_i = 0$. Consider the polynomial\n$$\nP(x, y, z) = \\prod_{i=1}^{N} (a_i x + b_i y + c_i z + d_i).\n$$\nIt has total degree $N$. This polynomial has the property that $P(x_0, y_0, z_0) = 0$ for any $(x_0, y_0, z_0) \\in S$, while $P(0, 0, 0) \\ne 0$. Hence by Lemma 1 we get $N = \\deg P \\ge 3n$, as desired.\n\nSuppose $r$ planes are given. As in the first solution, let $A_1, \\dots, A_r$ be (nonzero) linear functions over $\\mathbb{R}^3$ such that the equations of the planes are $A_i(x, y, z) = 0$. Define the polynomial $P_0 = A_1A_2\\cdots A_r$, whose degree is $r$. If a lattice point $(x, y, z)$ satisfies $0 \\le x \\le a$, $0 \\le y \\le b$, $0 \\le z \\le c$, and $x + y + z > 0$, then $P_0(x, y, z) = 0$; however, $P_0(0, 0, 0) \\ne 0$.\n\nPolynomials $P_1, \\dots, P_a$ are defined recursively by $P_{i+1}(x, y, z) = P_i(x+1, y, z) - P_i(x, y, z)$. By induction, we see that $P_i(x, y, z) = 0$ if $0 \\le x \\le a-i$, $0 \\le y \\le b$, $0 \\le z \\le c$, and $x+y+z > 0$, while $P_i(0, 0, 0) \\ne 0$. Furthermore, if $P_i$ is a nonzero polynomial, then its degree is $r-i$.\n\nLet $Q_0 = P_a$, and construct polynomials $Q_1, \\dots, Q_b$ as above. Specifically, define $Q_{i+1}(x, y, z) = Q_i(x, y+1, z) - Q_i(x, y, z)$. Again, we have $Q_i(x, y, z) = 0$ provided $x = 0, 0 \\le y \\le b-i, 0 \\le z \\le c$, and $x+y+z > 0$, while $Q_i(0, 0, 0) \\ne 0$. If $Q_i$ is nonzero, then its degree is $r-a-i$.\n\nFinally, let $R_0 = Q_b$, and define $R_1, \\dots, R_c$ by $R_{i+1}(x, y, z) = R_i(x, y, z+1) - R_i(x, y, z)$. As above, $R_i(x, y, z) = 0$ if $x = y = 0, 0 \\le z \\le c-i$, and $x+y+z > 0$. If $R_i$ is nonzero then its degree is $r-a-b-i$.\n\nConsider the polynomial $R_c(x, y, z)$. Its value at $(0, 0, 0)$ is nonzero, so it is a nonzero polynomial. Its degree, which must be nonnegative, is $r-a-b-c$. Therefore, we have $r \\ge a+b+c$, as desired.\n\nTherefore, $a+b+c$ planes are necessary, and it is possible to cover all the points with $a+b+c$ planes. In the original problem, $a=b=c=n$, so the answer is $3n$.\n\nReal numbers $x_0, \\dots, x_a, y_0, \\dots, y_b, z_0, \\dots, z_c$ are given such that the $x_i$ are distinct, the $y_i$ are distinct, and the $z_i$ are distinct. If a collection of planes covers all points $(x_i, y_j, z_k)$ except $(x_0, y_0, z_0)$, the collection contains at least $a+b+c$ points.\n\nTo prove this we need a more general form of the method of finite differences used above.\n\n**Lemma 2.** Suppose distinct reals $t_0, \\dots, t_n$ are given. Then there exist weights $w_0, \\dots, w_n$, with $w_0 \\neq 0$, such that for each nonnegative integer $i < n$, we have $w_0 t_0^i + \\dots + w_n t_n^i = 0$, while $w_0 t_0^n + \\dots + w_n t_n^n \\neq 0$.\n\n*Proof.* The $n+1$ vectors $(1, t_j, t_j^2, \\dots, t_j^{n-1})$ are linearly dependent over $\\mathbb{R}^n$, so there exist weights $w_j$ such that $w_0 t_0^i + \\dots + w_n t_n^i = 0$ for each $i < n$. However, since the $t_j$ are distinct, the vectors $(1, t_j, t_j^2, \\dots, t_j^n)$ are linearly independent over $\\mathbb{R}^{n+1}$. (This follows from the fact that their determinant, the Vandermonde determinant, is nonzero.) Therefore, we must have $w_0 t_0^n + \\dots + w_n t_n^n \\neq 0$. Also, the vectors $(1, t_j, \\dots, t_j^{n-1})$, for $j = 1, \\dots, n$, are independent. Thus we cannot have $w_0 = 0$. $\\square$\n\nNext we prove an essential result about the weights found above.\n\n**Lemma 3.** Let reals $t_0, \\dots, t_n$ be given, and weights $w_0, \\dots, w_n$ be defined as above. Let $P(t)$ be any polynomial, and define $Q(t) = w_0 P(t+t_0) + \\dots + w_n P(t+t_n)$. If the degree of $P(t)$ is less than $n$, then $Q(t) = 0$; otherwise, the degree of $Q$ is $n$ less than the degree of $P$.\n\n*Proof.* First we prove the result for $P(t) = t^s$. The $t^r$ coefficient of $Q$ is $\\frac{s!}{r!(s-r)!} (w_0 t_0^{s-r} + \\dots + w_n t_n^{s-r})$. This is zero if $r > s-n$ and nonzero if $r \\le s-n$, provided $s \\ge n$. If $s < n$, then all coefficients of $Q$ are zero.\n\nNow suppose $P$ is a general polynomial of degree $s$. Then the $t^s$ term of $P$ is nonzero. Also, the $t^{s-n}$ term of $Q$ depends only on the $t^s$ term of $P$, so it is also nonzero. Thus the degree of $Q$ is $s-n$. $\\square$\n\nFinally, we solve the general form of IMO Problem 6. Suppose there are $r$ planes in the collection, so there exists a polynomial $P$ of degree $r$ such that $P(x_i, y_j, z_k) = 0$ unless $i = j = k = 0$. Apply Lemma 3 to $P$ (regarded as a polynomial in its first variable) with $t_0 = x_0, \\dots, t_a = x_a$, to obtain a polynomial $P_1$ of degree $r-a$ such that $P_1(0, y_j, z_k) = 0$ unless $j = k = 0$. Apply Lemma 3 again (this time on the second variable) to produce a polynomial $P_2$ of degree $r-a-b$ such that $P_2(0, 0, z_k) = 0$ unless $k = 0$. Apply Lemma 3 one more time (on the third variable) to produce a polynomial $P_3$ of degree $r-a-b-c$ such that $P_3(0, 0, 0) \\neq 0$. Since $P_3$ is a nonzero polynomial, we have $r \\ge a+b+c$. This completes the proof."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-polynomial-interpolation-newton-lagrange-auto-1547",
+      "name": "Harvard-MIT Mathematics Tournament #0ipn",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial interpolation: Newton, Lagrange",
+        "Polynomial operations"
+      ],
+      "statement": "Problem:\nLet $P(x)$ be a polynomial with degree $2008$ and leading coefficient $1$ such that\n$$\nP(0)=2007,\\ P(1)=2006,\\ P(2)=2005,\\ \\ldots,\\ P(2007)=0.\n$$\nDetermine the value of $P(2008)$. You may use factorials in your answer.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $2008! - 1$\n\nConsider the polynomial $Q(x) = P(x) + x - 2007$. The given conditions imply that $Q(x)$ is also a polynomial with degree $2008$ and leading coefficient $1$. It follows that\n$$\nQ(x) = x(x-1)(x-2)\\cdots(x-2007).\n$$\nThus,\n$$\nP(x) = x(x-1)(x-2)\\cdots(x-2007) - x + 2007.\n$$\nSetting $x = 2008$ gives the answer."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-polynomial-interpolation-newton-lagrange-auto-1662",
+      "name": "Team Selection Test #0isu",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Chinese remainder theorem",
+        "Polynomials mod p",
+        "Fermat / Euler / Wilson theorems",
+        "Polynomial interpolation: Newton, Lagrange",
+        "Determinants"
+      ],
+      "statement": "Let $n$ be a positive integer not divisible by the cube of a prime. Given an integer-coefficient polynomial $f(x)$, define its *signature modulo* $n$ to be the (ordered) sequence $f(1), \\dots, f(n)$ modulo $n$. Of the $n^n$ such $n$-term sequences of integers modulo $n$, how many are the signature of some polynomial $f(x)$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Let $p_1 \\cdots p_r q_1^2 \\cdots q_s$ be the prime factorization of $n$. Then the number of achievable signatures is $p_1^{p_1} \\cdots p_r^{p_r} q_1^{3q_1} \\cdots q_s^{3q_s}$.\n\nWe begin by reducing to the case in which $n$ is a prime or the square of a prime. Assume for now that our claim holds in these cases. Observe that the signature of a polynomial $f(x)$ modulo $n$ is completely determined by the collection of its signatures modulo $p_1, \\dots, p_r, q_1^2, \\dots, q_s^2$. Indeed, for each such modulus $m_i$, the sequence $f(1), \\dots, f(m_i)$ modulo $m_i$ determines the entire sequence $f(1), \\dots, f(n)$ modulo $m_i$ because $a \\equiv b \\pmod{m_i}$ implies $f(a) \\equiv f(b) \\pmod{m_i}$. Since the moduli $p_1, \\dots, p_r, q_1^2, \\dots, q_s^2$ are relatively prime with product $n$, it follows by the Chinese Remainder Theorem that specifying $f(1), \\dots, f(n)$ modulo all $m_i$ is equivalent to specifying the sequence modulo $n$.\n\nConversely, we need to show that every sequence $y_1, \\dots, y_n \\pmod{n}$ obtained by applying the above procedure to a collection of signatures $f_i(1), \\dots, f_i(m_i) \\pmod{m_i}$ is actually the signature of a polynomial $f(x)$. To do this, we apply the Chinese Remainder Theorem once more: define $f(x)$ by choosing its coefficients such that\n$$\n[x^k]f(x) \\equiv [x^k]f_i(x) \\pmod{m_i}\n$$\nfor all $i$. Then $f(x) \\equiv f_i(x) \\pmod{m_i}$ for all $i$, and the claim follows.\n\nBy the above, it suffices to show that the number of achievable signatures modulo $p$ is $p^p$ and the number of achievable signatures modulo $p^2$ is $p^{3p}$. In the first case, this amounts to showing that all $p$-term sequences modulo $p$ can be realized as $f(1), \\dots, f(p)$ for some polynomial $f(x)$. There are a number of quick proofs of this result, all of which ultimately use the fact that the integers modulo $p$ form a field. A direct approach is to use Lagrange interpolation; another method is to use Lagrange's theorem to deduce that no two polynomials in $\\mathbb{Z}/p\\mathbb{Z}$ of degree less than $p$ have the same signature modulo $p$. Yet another approach is to show that the linear transformation (over $\\mathbb{Z}/p\\mathbb{Z}$) that sends the coefficient vector ($[x^0]f(x), \\dots, [x^{p-1}]f(x)$) to the values ($f(1), \\dots, f(p)$) is nonsingular; this can be done by evaluating the Vandermonde determinant.\n\nThe modulus $p^2$ is trickier to handle. We begin by using an idea similar to Lagrange interpolation to exhibit a set of polynomials achieving $p^{3p}$ distinct signatures modulo $p^2$, thus obtaining a lower bound. We then establish a matching upper bound by finding a (different!) set of $p^{3p}$ polynomials such that all integer-coefficient polynomials can be easily “reduced” to one of these, keeping the signature fixed during the reduction.\n\nTo prove our lower bound, we begin by defining\n$$\nf_k(x) = ((x-1) \\cdots (x-(k-1))(x-(k+1)) \\cdots (x-p))^2\n$$\nand\n$$\ng_k(x) = (x-k)f_k(x).\n$$\nConsider all polynomials of the form\n$$\n\\sum_{k=1}^{p} a_k f_k(x) + b_k g_k(x)\n$$\nwhere $1 \\le a_k \\le p^2$ and $1 \\le b_k \\le p$. We claim that no two such polynomials have the same signature modulo $p^2$; this will establish our lower bound.\n\nBy subtracting, it is enough to show that the only polynomial\n$$\nf(x) = \\sum_{k=1}^{p} a_k f_k(x) + b_k g_k(x)\n$$\nsatisfying $f(1) \\equiv \\cdots \\equiv f(p^2) \\equiv 0 \\pmod{p^2}$ with $|a_k| < p^2$ and $|b_k| < p$ is the zero polynomial. In fact, it suffices to evaluate $f(x) \\pmod{p^2}$ at $x = 1, \\dots, 2p$. For $j = 1, \\dots, p$, we have $g_k(j) = 0$ for all $k$ and $f_k(j) = 0$ unless $k = j$, in which case $f_j(j)$ is invertible modulo $p^2$. It follows that $0 \\equiv f(j) = a_j f_j(j)$ and hence $a_j \\equiv 0 \\pmod{p^2}$, so $a_k = 0$ for all $k$.\n\nNext we evaluate $f(x)$ at $j = p + 1, \\dots, 2p$. This time, all $g_k(j)$ vanish modulo $p^2$ except when $k = j - p$, in which case $g_{j-p}(j)$ is divisible by $p$ but not $p^2$. Thus, $0 \\equiv f(j) \\equiv b_{j-p}g_{j-p}(j) \\pmod{p^2}$ and hence $b_{j-p} \\equiv 0 \\pmod{p}$, so $b_k = 0$ for all $k$, completing the proof of the lower bound.\n\nIt remains to prove that no more than $p^{3p}$ signatures modulo $p^2$ are attainable. Given two polynomials $f(x)$ and $g(x)$, we say that they are equivalent, denoted $f(x) \\sim g(x)$, if they have the same signature modulo $p^2$. It is easy to see that $f(x) \\sim g(x)$ implies $f(x)h(x) \\sim g(x)h(x)$ and $f(x) + h(x) \\sim g(x) + h(x)$ for any polynomial $h(x)$. We claim that every polynomial $f(x)$ is equivalent to a polynomial $g(x)$ such that\n$$\n[x^k]g(x) \\in \\{1, \\dots, p^2\\} \\quad \\text{for } 0 \\le k < p\n$$\nand\n$$\n[x^k]g(x) \\in \\{1, \\dots, p\\} \\quad \\text{for } p \\le k < 2p.\n$$\nThe key observation is that by Fermat, $x^p - x$ vanishes modulo $p$ when evaluated at any integer. Therefore, $(x^p - x)^2$ and $p(x^p - x)$ both vanish modulo $p^2$ at all integers, i.e.\n$$\nx^{2p} \\sim 2x^{p+1} - x^2 \\quad \\text{and} \\quad px^p \\sim px.\n$$\nUsing the properties of $\\sim$ stated above, the first relation allows us to reduce $f(x)$ to a polynomial of degree less than $p$; the second relation then allows us to further reduce to a polynomial with all coefficients of $x^p, \\dots, x^{2p-1}$ in $\\{1, \\dots, p\\}$. Finally, the remaining coefficients can be reduced modulo $p^2$ to lie in $\\{1, \\dots, p^2\\}$, completing the proof."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-polynomial-interpolation-newton-lagrange-auto-1772",
+      "name": "Team Selection Test 2009 #0ivw",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test 2009",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial interpolation: Newton, Lagrange",
+        "Algebraic properties of binomial coefficients",
+        "Greatest common divisors (gcd)",
+        "Least common multiples (lcm)"
+      ],
+      "statement": "For each positive integer $n$, let $c(n)$ be the largest real number such that\n$$\nc(n) \\leq \\left| \\frac{f(a) - f(b)}{a - b} \\right|\n$$\nfor all triples $(f, a, b)$ such that\n* $f$ is a polynomial of degree $n$ taking integers to integers, and\n* $a, b$ are integers with $f(a) \\neq f(b)$.\n\nFind $c(n)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Let $L(n) = \\operatorname{lcm}(1, 2, \\dots, n)$. We claim that $c(n) = \\frac{1}{L(n)}$.\n\nFirst we show that this $c(n)$ is a lower bound. For any choice of $f(x)$ and $(a, b)$, we can translate $f(x)$ vertically so that $f(b) = 0$, and then translate $f(x)$ horizontally so that $b = 0$. We only deal with this case. An $n$th degree polynomial with a root at $0$ which takes integers to integers can be written as\n$$\nf(x) = \\sum_{i=1}^{n} a_i \\binom{x}{i},\n$$\nwhere the $a_i$ are integers. Using this form for $f(x)$, we calculate $\\frac{f(a)}{a}$ for some nonzero $a$:\n$$\n\\frac{f(a)}{a} = \\frac{1}{a} \\sum_{i=1}^{n} a_i \\binom{a}{i} = \\sum_{i=1}^{n} a_i \\cdot \\frac{\\binom{a}{i}}{a} = \\sum_{i=1}^{n} a_i \\binom{a-1}{i-1} \\cdot \\frac{1}{i}\n$$\nThe $i$th summand in this sum is $\\frac{1}{i}$ times the integer $a_i \\binom{a-1}{i-1}$. Since $\\frac{1}{i}$ is an integer multiple of $\\frac{1}{L(n)}$, each summand in the sum is an integer multiple of $\\frac{1}{L(n)}$, so does the $\\frac{f(a)}{a}$. Hence for $f(a) \\neq f(0) = 0$, we have that $\\left| \\frac{f(a)-f(0)}{a-0} \\right| = \\frac{k}{L(n)} \\ge \\frac{1}{L(n)}$; that is, $c(n)$ is a lower bound.\n\nSecond, we show that $c(n)$ is achievable, by finding certain $a_i$'s for $x = L(n)^2$ in\n$$\nf(x) = \\sum_{i=1}^{n} a_i \\binom{x}{i}.\n$$\nIf $p$ is any prime that divides $L(n)$, then there is some $i \\le n$ such that $p \\nmid \\frac{L(n)}{i}$, by the definition of the least common multiple. Thus\n$$\n\\gcd\\left(\\frac{L(n)}{1}, \\frac{L(n)}{2}, \\dots, \\frac{L(n)}{i}, \\dots, \\frac{L(n)}{n}\\right) = 1.\n$$\nLet $1 \\le i \\le n$. We consider\n$$\n\\binom{L(n)^2 - 1}{i - 1} = \\frac{(L(n)^2 - 1)(L(n)^2 - 2) \\cdots (L(n)^2 - (i - 1))}{1 \\cdot 2 \\cdots (i - 1)}.\n$$\nFor any prime divisor $p$ of $i$, the power of $p$ which divides $L(n)^2$ is always larger than the power of $p$ which divides $k$, for any $k \\le n$. Therefore the same number of factors of $p$ divide $L(n)^2-k$ and $k$. By matching these factors in the numerator and denominator, we find that $p$ does not divide $\\binom{L(n)^2-1}{i-1}$; that is, $\\gcd(i, \\binom{L(n)^2-1}{i-1}) = 1$ for $1 \\le i \\le n$. Therefore, we conclude that\n$$\n\\gcd\\left(\\frac{L(n)}{1} \\cdot \\binom{L(n)^2 - 1}{1 - 1}, \\dots, \\frac{L(n)}{i} \\cdot \\binom{L(n)^2 - 1}{i - 1}, \\dots, \\frac{L(n)}{n} \\cdot \\binom{L(n)^2 - 1}{n - 1}\\right) = 1.\n$$\nBy Bézout's lemma, there are integers $a_i$ such that\n$$\n\\sum_{i=1}^{n} a_i \\frac{L(n)}{i} \\binom{L(n)^2 - 1}{i - 1} = 1.\n$$\nIt follows that, for these $a_i$'s, we have\n$$\nf(L(n)^2) = \\sum_{i=1}^{n} a_i \\binom{L(n)^2}{i} = \\sum_{i=1}^{n} a_i \\cdot \\frac{L(n)^2}{i} \\cdot \\binom{L(n)^2 - 1}{i - 1} = L(n)\n$$\nor\n$$\n\\frac{f(L(n)^2)}{L(n)^2} = \\frac{1}{L(n)} = c(n)\n$$\ncompleting our proof.\n\n(Technically, we also need $a_n \\ne 0$ to ensure that the polynomial has degree equal to $n$. However, if $a_n = 0$, then choose some $i$ with $a_i \\ne 0$, and replace $a_n$ and $a_i$ by $a_n + \\binom{L(n)^2}{i}$ and $a_i - \\binom{L(n)^2}{n}$, respectively. Clearly, the resulting sequence $a'_i$ also satisfies $\\sum_{i=1}^n a_i \\binom{L(n)^2}{i} = L(n)$.)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-polynomial-interpolation-newton-lagrange-auto-1899",
+      "name": "Harvard-MIT November Tournament #0izf",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial interpolation: Newton, Lagrange",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\nA function $f\\left(x_{1}, x_{2}, \\ldots, x_{n}\\right)$ is linear in each of the $x_{i}$ and $f\\left(x_{1}, x_{2}, \\ldots, x_{n}\\right)=\\frac{1}{x_{1} x_{2} \\cdots x_{n}}$ when $x_{i} \\in\\{3,4\\}$ for all $i$. In terms of $n$, what is $f(5,5, \\ldots, 5)$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $\\frac{1}{6^{n}}$\n\nLet $f_{n}\\left(x_{1}, x_{2}, \\ldots, x_{n}\\right)$ denote the $n$-variable version of the function. We will prove that $f_{n}(5, \\ldots, 5)=\\frac{1}{6^{n}}$ by induction.\n\nThe base case was done in the two previous problems. Suppose we know that $f_{n-1}(5,5, \\ldots, 5)=\\frac{1}{6^{n-1}}$. Let $g\\left(x_{1}, \\ldots, x_{n-1}\\right)=3 f_{n}\\left(x_{1}, \\ldots, x_{n-1}, 3\\right)$. We have that $g$ is linear in $x_{1}, \\ldots, x_{n-1}$ and $g\\left(x_{1}, \\ldots, x_{n-1}\\right)=\\frac{1}{x_{1} \\cdots x_{n-1}}$ for all $x_{1}, \\ldots, x_{n-1} \\in\\{3,4\\}$.\n\nBy the inductive hypothesis, we have $g(5, \\ldots, 5)=\\frac{1}{6^{n-1}}=f_{n-1}(5, \\ldots, 5)$. Therefore, $f_{n}(5, \\ldots, 5,3)=\\frac{f_{n-1}(5, \\ldots, 5)}{3}$. Similarly, $f_{n}(5, \\ldots, 5,4)=\\frac{f_{n-1}(5, \\ldots, 5)}{4}$.\n\n$$\n\\begin{aligned}\nf_{n}(5,5, \\ldots, 5,5) & =2 f_{n}(5,5, \\ldots, 5,4)-f_{n}(5,5, \\ldots, 5,3) \\\\\n& =2 \\cdot \\frac{f_{n-1}(5, \\ldots, 5)}{4} - \\frac{f_{n-1}(5, \\ldots, 5)}{3} \\\\\n& =\\frac{1}{2} f_{n-1}(5,5, \\ldots, 5)-\\frac{1}{3} f_{n-1}(5,5, \\ldots, 5) \\\\\n& =\\frac{1}{6} f_{n-1}(5,5, \\ldots, 5) \\\\\n& =\\frac{1}{6 \\cdot 6^{n-1}} \\\\\n& =\\frac{1}{6^{n}}\n\\end{aligned}\n$$\nand this proves our conjecture by induction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-polynomial-interpolation-newton-lagrange-auto-1942",
+      "name": "Harvard-MIT November Tournament #0j0m",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial interpolation: Newton, Lagrange"
+      ],
+      "statement": "Problem:\n\nLet $P(x)$ be a polynomial of degree at most $3$ such that $P(x) = \\frac{1}{1 + x + x^{2}}$ for $x = 1, 2, 3, 4$. What is $P(5)$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $\\frac{-3}{91}$\n\nThe forward difference of a polynomial $P$ is $\\Delta P(x) = P(x+1) - P(x)$, which is a new polynomial with degree reduced by one. Therefore, if we apply this operation three times we'll get a constant function, and we can work back up to get a value of $P(5)$. Practically, we create the following table of differences:\n$$\n\\begin{array}{ccccccc}\n\\frac{1}{3} & & \\frac{1}{7} & & \\frac{1}{13} & & \\frac{1}{21} \\\\\n& \\frac{-4}{21} & & \\frac{-6}{91} & & \\frac{-8}{273} & \\\\\n& \\frac{34}{273} & & \\frac{10}{273} & & \\\\\n& & \\frac{-24}{273} & & &\n\\end{array}\n$$\nThen extend it to be the following table:\n\n![](attached_image_1.png)\n\nSo our answer is $\\frac{-9}{273} = \\frac{-3}{91}$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-polynomial-interpolation-newton-lagrange-auto-1946",
+      "name": "Harvard-MIT November Tournament #0j0q",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial interpolation: Newton, Lagrange"
+      ],
+      "statement": "Problem:\n\n$w, x, y, z$ are real numbers such that\n$$\n\\begin{aligned}\nw+x+y+z & =5 \\\\\n2 w+4 x+8 y+16 z & =7 \\\\\n3 w+9 x+27 y+81 z & =11 \\\\\n4 w+16 x+64 y+256 z & =1\n\\end{aligned}\n$$\nWhat is the value of $5 w+25 x+125 y+625 z ?$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $-60$\n\nWe note this system of equations is equivalent to evaluating the polynomial (in $a$) $P(a) = w a + x a^{2} + y a^{3} + z a^{4}$ at $1, 2, 3$, and $4$. We know that $P(0) = 0$, $P(1) = 5$, $P(2) = 7$, $P(3) = 11$, $P(4) = 1$.\n\nThe finite difference of a polynomial $f$ is $f(n+1) - f(n)$, which is a polynomial with degree one less than the degree of $f$. The second, third, etc. finite differences come from applying this operation repeatedly. The fourth finite difference of this polynomial is constant because this is a fourth degree polynomial.\n\nRepeatedly applying finite differences, we get\n\n![](attached_image_1.png)\n\nand we see that the fourth finite difference is $-21$. We can extend this table, knowing that the fourth finite difference is always $-21$, and we find that $P(5) = -60$.\n\nThe complete table is\n\n| 0 |   | 5 |   | 7 |   | 11 |   | 1 |   | -60 |\n| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |\n|   | 5 | 2 |   | 4 |   | -10 |   | -61 |   |   |\n|   |   | -3 |   | 2 |   | -14 |   | -51 |   |   |\n|   |   | 5 |   | -16 |   | -37 |   |   |   |   |\n|   |   |   |   | -21 |   | -21 |   |   |   |   |"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-polynomial-interpolation-newton-lagrange-auto-2043",
+      "name": "13th Annual Harvard-MIT Mathematics Tournament #0j3f",
+      "url": "https://usamoguide.com/",
+      "source": "13th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial interpolation: Newton, Lagrange",
+        "Integers"
+      ],
+      "statement": "Problem:\n\nHow many polynomials of degree exactly $5$ with real coefficients send the set $\\{1,2,3,4,5,6\\}$ to a permutation of itself?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $714$\n\nFor every permutation $\\sigma$ of $\\{1,2,3,4,5,6\\}$, Lagrange Interpolation gives a polynomial of degree at most $5$ with $p(x) = \\sigma(x)$ for every $x = 1,2,3,4,5,6$. Additionally, this polynomial is unique: assume that there exist two polynomials $p, q$ of degree $\\leq 5$ such that they map $\\{1,2,3,4,5,6\\}$ to the same permutation. Then $p-q$ is a nonzero polynomial of degree $\\leq 5$ with $6$ distinct roots, a contradiction. Thus an upper bound for the answer is $6! = 720$ polynomials.\n\nHowever, not every polynomial obtained by Lagrange interpolation is of degree $5$ (for example, $p(x) = x$). We can count the number of invalid polynomials using finite differences. A polynomial has degree less than $5$ if and only if the sequence of $5$th finite differences is $0$. The $5$th finite difference of $p(1), p(2), p(3), p(4), p(5), p(6)$ is $p(1) - 5p(2) + 10p(3) - 10p(4) + 5p(5) - p(6)$; thus we want to solve $p(1) - 5p(2) + 10p(3) - 10p(4) + 5p(5) - p(6) = 0$ with $\\{p(1), p(2), p(3), p(4), p(5), p(6)\\} = \\{1,2,3,4,5,6\\}$.\n\nTaking the above equation modulo $5$, we get $p(1) = p(6) \\pmod{5} \\implies \\{p(1), p(6)\\} = \\{1,6\\}$. Note that $1 - 5p(2) + 10p(3) - 10p(4) + 5p(5) - 6 = 0$ if and only if $6 - 5p(5) + 10p(4) - 10p(3) + 5p(2) - 1 = 0$, so we may assume that $p(1) = 1$ and double our result later. Then we have $\\{p(2), p(3), p(4), p(5)\\} = \\{2,3,4,5\\}$ and\n$$\n-p(2) + 2p(3) - 2p(4) + p(5) = 1\n$$\nThe above equation taken modulo $2$ implies that $p(2), p(5)$ are of opposite parity, so $p(3), p(4)$ are of opposite parity. We do casework on $\\{p(2), p(5)\\}$:\n\n(a) $p(2) = 2, p(5) = 3$; $2p(3) - 2p(4) = 0$ is a contradiction\n\n(b) $p(2) = 2, p(5) = 5$; $2p(3) - 2p(4) = -2 \\implies p(3) - p(4) = -1 \\implies p(3) = 3, p(4) = 4$\n\n(c) $p(2) = 3, p(5) = 2$; $2p(3) - 2p(4) = -2 \\implies p(3) - p(4) = -1 \\implies p(3) = 4, p(4) = 5$\n\n(d) $p(2) = 3, p(5) = 4$; $2p(3) - 2p(4) = 0$ is a contradiction\n\n(e) $p(2) = 4, p(5) = 3$; $2p(3) - 2p(4) = 2 \\implies p(3) - p(4) = 1$ but $\\{p(3), p(4)\\} = \\{2,5\\}$, contradiction\n\n(f) $p(2) = 4, p(5) = 5$; $2p(3) - 2p(4) = 0$ is a contradiction\n\n(g) $p(2) = 5, p(5) = 2$; $2p(3) - 2p(4) = 4 \\implies p(3) - p(4) = 2$, contradiction\n\n(h) $p(2) = 5, p(5) = 4$; $2p(3) - 2p(4) = 2 \\implies p(3) - p(4) = 1 \\implies p(3) = 3, p(4) = 2$\n\nHence there are a total of $720 - 2(3) = 714$ polynomials."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-polynomial-interpolation-newton-lagrange-auto-2062",
+      "name": "Harvard-MIT Mathematics Tournament #0j3y",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other",
+        "Polynomial interpolation: Newton, Lagrange",
+        "Integers"
+      ],
+      "statement": "Problem:\n\nLet $S$ be the set of ordered pairs of integers $(x, y)$ with $1 \\leq x \\leq 5$ and $1 \\leq y \\leq 3$. How many subsets $R$ of $S$ have the property that all the points of $R$ lie on the graph of a single cubic? A cubic is a polynomial of the form $y=a x^{3}+b x^{2}+c x+d$, where $a, b, c$, and $d$ are real numbers (meaning that $a$ is allowed to be 0 ).",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: 796\n\nWe observe that $R$ must contain at most 1 point from each column of $S$, because no function can contain more than 1 point with the same $x$-coordinate. Therefore, $|R| \\leq 5$ ($|R|$ denotes the number of elements of $R$). Note that 4 points determine a cubic, so if $R$ is any subset of points in distinct columns and $|R| \\leq 4$, then $R$ has the desired property. There are $4^{5}$ ways to choose at most 1 point from each column and $3^{5}$ ways to choose exactly 1 point from each column. There are therefore $4^{5}-3^{5}=781$ subsets $R$ of $S$ such that $|R| \\leq 4$ and all points of $R$ lie in distinct columns. As noted, these sets all automatically have the desired property.\n\nNow we consider all sets $R$ of size 5. As before, each point in $R$ must come from a different column. Let us shift our origin to $(3,2)$, and let $p$ be the polynomial containing all 5 points of $R$. Then $R=\\{(-2, p(-2)),(-1, p(-1)),(0, p(0)),(1, p(1)),(2, p(2))\\}$.\n\nBy the method of finite differences $3^{3}$ or alternately by Lagrange Interpolation there is a unique polynomial $p$ of degree less than 5 going through 5 specified points, and this polynomial is of degree less than 4 if and only if $p(-2)-4 p(-1)+6 p(0)-4 p(1)+p(2)=0$.\n\nThen $p(-2)+p(2)+6 p(0)=4(p(-1)+p(1))$, where $p(-2)+p(2) \\in\\{-2,-1,0,1,2\\}$, $p(-1)+p(1) \\in \\{-2,-1,0,1,2\\}$, and $p(0) \\in\\{-1,0,1\\}$. We know that $6 p(0)$ and $4(p(-1)+p(1))$ are necessarily even, thus we must have $p(-2)+p(2) \\in\\{-2,0,2\\}$ in order for the equation to be satisfied.\n\nLet $(a, b, c)=(p(-2)+p(2), 6 p(0), 4(p(-1)+p(1)))$. The possible values of $(a, b, c)$ that are solutions to $a+b=c$ are then $\\{(-2,-6,-8),(-2,6,4),(0,0,0),(2,-6,-4),(2,6,8)\\}$.\n\nIf $(a, b, c)=(-2,-6,-8)$, then we need $p(-2)+p(2)=-2$, $p(0)=-1$, $p(-1)+p(1)=-2$. There is only 1 possible solution to each of these equations: $(p(-2), p(2))=(-1,-1)$ for the first one, $p(0)=-1$ for the second, and $(p(-1), p(1))=(-1,-1)$ for the third. Hence there is 1 possible subset $R$ for the case $(a, b, c)=(-2,-6,-8)$.\n\nIf $(a, b, c)=(-2,6,4)$, then there is again 1 possible solution to $p(-2)+p(2)=-2$. There are two solutions to $p(-1)+p(1)=1$: $(p(-1), p(1))=(0,1),(1,0)$. Also, $p(0)$ can only be 1, so there are 2 possible subsets for this case.\n\nIf $(a, b, c)=(0,0,0)$, then there are 3 possible solutions to $p(-2)+p(2)=0$: $(p(-2), p(2))=(-1,1),(0,0),(1,-1)$. Similarly, there are 3 possible solutions to $p(-1)+p(1)=0$. Also, $p(0)$ can only be 0, so there are 9 possible subsets for this case.\n\nIf $(a, b, c)=(2,-6,-4)$, then there is 1 possible solution to $p(-2)+p(2)=2$: $(p(-2), p(2))=(1,1)$. There are 2 possible solutions to $p(-1)+p(1)=-1$: $(p(-1), p(1))=(0,-1),(-1,0)$. Also, $p(0)$ can only be -1, so there are 2 possible subsets for this case.\n\nIf $(a, b, c)=(2,6,8)$, then there is 1 possible solution to $p(-2)+p(2)=2$, as shown above. There is 1 solution to $p(-1)+p(1)=2$: $(p(-1), p(1))=(1,1)$. Also, $p(0)$ can only be 1, so there is 1 possible subset for this case.\n\nThen there are $1+2+9+2+1=15$ total possible subsets of size 5 that can be fit to a polynomial of degree less than 4. Hence there are $781+15=796$ possible subsets total."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-polynomial-interpolation-newton-lagrange-auto-2095",
+      "name": "Harvard-MIT Mathematics Tournament #0j4v",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial interpolation: Newton, Lagrange",
+        "Modular Arithmetic"
+      ],
+      "statement": "Problem:\nHow many polynomials $P$ with integer coefficients and degree at most $5$ satisfy $0 \\leq P(x) < 120$ for all $x \\in \\{0,1,2,3,4,5\\}$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFor each nonnegative integer $i$, let $x^{\\underline{i}} = x(x-1) \\cdots (x-i+1)$. (Define $x^{0} = 1$.)\n\nLemma: Each polynomial with integer coefficients $f$ can be uniquely written in the form\n$$\nf(x) = a_{n} x^{\\underline{n}} + \\ldots + a_{1} x^{\\underline{1}} + a_{0} x^{\\underline{0}}, \\quad a_{n} \\neq 0\n$$\nProof: Induct on the degree. The base case (degree $0$) is clear. If $f$ has degree $m$ with leading coefficient $c$, then by matching leading coefficients we must have $m = n$ and $a_{n} = c$. By the induction hypothesis, $f(x) - c x^{\\underline{n}}$ can be uniquely written as $a_{n-1} x^{\\underline{n-1}} + \\ldots + a_{1} x^{\\underline{1}} + a_{0} x^{\\underline{0}}$.\n\nThere are $120$ possible choices for $a_{0}$, namely any integer in $[0,120)$. Once $a_{0}, \\ldots, a_{i-1}$ have been chosen so $0 \\leq P(0), \\ldots, P(i-1) < 120$, for some $0 \\leq i \\leq 5$, then we have\n$$\nP(i) = a_{i} i! + a_{i-1} i^{\\underline{i-1}} + \\cdots + a_{0}\n$$\nso by choosing $a_{i}$ we can make $P(i)$ any number congruent to $a_{i-1} i^{\\underline{i-1}} + \\cdots + a_{0}$ modulo $i!$. Thus there are $\\frac{120}{i!}$ choices for $a_{i}$. Note the choice of $a_{i}$ does not affect the value of $P(0), \\ldots, P(i-1)$. Thus all polynomials we obtain in this way are valid. The answer is\n$$\n\\prod_{i=0}^{5} \\frac{120}{i!} = 86400000\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-polynomial-interpolation-newton-lagrange-auto-2104",
+      "name": "Harvard-MIT Mathematics Tournament #0j54",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial interpolation: Newton, Lagrange"
+      ],
+      "statement": "Problem:\n\nHow many polynomials $P$ with integer coefficients and degree at most $5$ satisfy $0 \\leq P(x) < 120$ for all $x \\in \\{0,1,2,3,4,5\\}$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $86400000$\n\nFor each nonnegative integer $i$, let $x^{\\underline{i}} = x(x-1) \\cdots (x-i+1)$. (Define $x^{0} = 1$.)\n\nLemma: Each polynomial with integer coefficients $f$ can be uniquely written in the form\n$$\nf(x) = a_{n} x^{\\underline{n}} + \\ldots + a_{1} x^{\\underline{1}} + a_{0} x^{\\underline{0}}, \\quad a_{n} \\neq 0\n$$\nProof: Induct on the degree. The base case (degree $0$) is clear. If $f$ has degree $m$ with leading coefficient $c$, then by matching leading coefficients we must have $m = n$ and $a_{n} = c$. By the induction hypothesis, $f(x) - c x^{\\underline{n}}$ can be uniquely written as $a_{n-1} x^{\\underline{n-1}} + \\ldots + a_{1} x^{\\underline{1}} + a_{0} x^{\\underline{0}}$.\n\nThere are $120$ possible choices for $a_{0}$, namely any integer in $[0,120)$. Once $a_{0}, \\ldots, a_{i-1}$ have been chosen so $0 \\leq P(0), \\ldots, P(i-1) < 120$, for some $0 \\leq i \\leq 5$, then we have\n$$\nP(i) = a_{i} i! + a_{i-1} i^{\\underline{i-1}} + \\cdots + a_{0}\n$$\nso by choosing $a_{i}$ we can make $P(i)$ any number congruent to $a_{i-1} i^{\\underline{i-1}} + \\cdots + a_{0}$ modulo $i!$. Thus there are $\\frac{120}{i!}$ choices for $a_{i}$. Note the choice of $a_{i}$ does not affect the value of $P(0), \\ldots, P(i-1)$. Thus all polynomials we obtain in this way are valid. The answer is\n$$\n\\prod_{i=0}^{5} \\frac{120}{i!} = 86400000\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-polynomial-interpolation-newton-lagrange-auto-2163",
+      "name": "Team Selection Test #0j6r",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Prime numbers",
+        "Polynomials mod p",
+        "Inclusion-exclusion",
+        "Counting two ways",
+        "Algebraic properties of binomial coefficients",
+        "Polynomial interpolation: Newton, Lagrange",
+        "Recurrence relations"
+      ],
+      "statement": "Let $p$ be a prime. We say that a sequence of integers $\\{z_n\\}_{n=0}^{\\infty}$ is a $p$-pod if for each $e \\ge 0$, there is an $N \\ge 0$ such that whenever $m \\ge N$, $p^e$ divides the sum\n$$\n\\sum_{k=0}^{m} (-1)^k \\binom{m}{k} z_k.\n$$\n\nProve that if both sequences $\\{x_n\\}_{n=0}^{\\infty}$ and $\\{y_n\\}_{n=0}^{\\infty}$ are $p$-pods, then the sequence $\\{x_n y_n\\}_{n=0}^{\\infty}$ is a $p$-pod.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Let\n$$\nX_n = \\sum_{i=0}^{n} (-1)^i \\binom{n}{i} x_i \\quad \\text{and} \\quad Y_n = \\sum_{i=0}^{n} (-1)^i \\binom{n}{i} y_i.\n$$\nFor nonnegative integers $i \\le j$, consider the expression\n$$\n\\sum_{k=i}^{j} (-1)^k \\binom{k}{i} \\binom{j}{k}.\n$$\nViewing $\\binom{j}{k}$ as the number of ways to choose a $k$-element subset of a $j$-element set and $\\binom{k}{i}$ as the number of ways to choose an $i$-element subset which is contained in this chosen $k$-element set, the principle of inclusion-exclusion shows that $(-1)^j$ times this sum is the number of ways to choose an $i$-element subset from a $j$-element set that coincides with the set itself. Thus, the sum is $(-1)^i$ if $i = j$ and $0$ otherwise. Therefore, we may write\n$$\n\\begin{aligned}\n\\sum_{r=0}^{n} (-1)^r \\binom{n}{r} x_r y_r &= \\sum_{i=0}^{n} \\sum_{j=0}^{n} (-1)^{i+j} x_i y_j \\sum_{r=0}^{n} (-1)^r \\binom{n}{r} \\left[ \\sum_{k=i}^{r} (-1)^k \\binom{k}{i} \\binom{r}{k} \\right] \\left[ \\sum_{\\ell=j}^{r} (-1)^\\ell \\binom{\\ell}{j} \\binom{r}{\\ell} \\right] \\\\\n&= \\sum_{k=0}^{n} \\sum_{\\ell=0}^{n} \\left[ \\sum_{i=0}^{k} (-1)^{k-i} \\binom{k}{i} x_i \\right] \\left[ \\sum_{j=0}^{\\ell} (-1)^{\\ell-j} \\binom{\\ell}{j} y_j \\right] \\left[ \\sum_{r=0}^{n} (-1)^r \\binom{n}{r} \\binom{r}{k} \\binom{r}{\\ell} \\right] \\\\\n&= \\sum_{k=0}^{n} \\sum_{\\ell=0}^{n} (-1)^{n+k+\\ell} X_k Y_\\ell \\left[ \\sum_{r=0}^{n} (-1)^{n-r} \\binom{n}{r} \\binom{r}{k} \\binom{r}{\\ell} \\right].\n\\end{aligned}\n$$\nAgain by the principle of inclusion-exclusion, the final expression in brackets counts the number of ways to choose a $k$-element subset and an $\\ell$-element subset of an $n$-element set whose union is the entire set (again by the principle of inclusion-exclusion), so it is $0$ if $k + \\ell < n$.\n\nNow, let $e$ be arbitrary, let $N$ be so large that $p^e$ divides both $X_m$ and $Y_m$ whenever $m \\ge N/2$ (such an $N$ exists by the definition of $p$-pod), and take $n \\ge N$. Then, whenever $k + \\ell \\ge n \\ge N$, at least one of $k$ or $\\ell$ is at least $N/2$, so $p^e$ will divide either $X_k$ or $Y_\\ell$. We conclude that $p^e$ divides every term in the sum, and that therefore for each $n \\ge N$, $p^e$ divides\n$$\n\\sum_{r=0}^{n} (-1)^r \\binom{n}{r} x_r y_r,\n$$\nhence $\\{x_n y_n\\}_{n=0}^\\infty$ is a $p$-pod.\n\n\nSolution 2:\n\nFor a sequence $\\{z_n\\}_{n=0}^\\infty$ and an integer $m \\ge 0$, define\n$$\n\\Delta^m z_n = \\sum_{k=0}^{m} (-1)^{m-k} \\binom{m}{k} z_{n+k},\n$$\nso that $\\{\\Delta^m z_n\\}_{n=0}^\\infty$ is the sequence of $m$-fold finite differences in $\\{z_n\\}$. With this notation, $\\{z_n\\}$ is a $p$-pod if and only if for every $e > 0$ there is an $N \\ge 0$ such that whenever $m \\ge N$, $p^e \\mid \\Delta^m z_0$.\n\nLemma 1. The sequence $\\{z_n\\}$ is a $p$-pod if and only if for every $e > 0$ there is an $N \\ge 0$ such that whenever $m \\ge N$, $p^e$ divides $\\Delta^m z_n$ for every $n \\ge 0$.\n\n*Proof.* Indeed, recall (or verify) that for any $m, n \\ge 0$, we have\n$$\n\\Delta^{m+1} z_n = \\Delta^m z_{n+1} - \\Delta^m z_n, \\quad \\text{or} \\quad \\Delta^m z_{n+1} = \\Delta^m z_n + \\Delta^{m+1} z_n. \\qquad (33)\n$$\nA trivial induction using (33) shows that the same $N$ as in the definition of $p$-pod works for all $n \\ge 0$. $\\square$\n\nNow, let $\\{x_n\\}$ and $\\{y_n\\}$ be $p$-pods. By Lemma 1, there exists an $N$ such that for all $n$, $\\Delta^m x_n \\equiv 0 \\pmod{p^e}$ for $m \\ge N$. Let $f(t)$ be the monic degree $N$ polynomial with rational coefficients such that $f(n) = x_n$ for $n = 0, 1, \\dots, N$. By definition, we see that $\\Delta^m x_0 = \\Delta^m f(0)$ for $m \\le N$; further, because $\\Delta^m f(n) = 0$ for $m \\ge N$, we see that $\\Delta^m x_0 \\equiv \\Delta^m f(0) \\pmod{p^e}$ for all $m \\ge 0$. An easy induction using (33) then shows that $\\Delta^m x_n \\equiv \\Delta^m f(n) \\pmod{p^e}$ for all $m, n \\ge 0$. Taking $m = 0$ in particular gives that $f(n) \\equiv x_n \\pmod{p^e}$ for all $n \\ge 0$. Similarly, we find a polynomial $g(t)$ such that $g(n) \\equiv y_n \\pmod{p^e}$ for all $n \\ge 0$.\n\nBut then $h(t) = f(t)g(t)$ has the property that $h(n) \\equiv x_n y_n \\pmod{p^e}$ for all $n \\ge 0$. Therefore, if $h(t)$ has degree $M$, then for any $m \\ge M$ and $n \\ge 0$ we have\n$$\n\\Delta^m \\{x_n y_n\\} \\equiv \\Delta^m h(n) \\equiv 0 \\pmod{p^e},\n$$\nand we are done by Lemma 1."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-polynomial-interpolation-newton-lagrange-auto-2275",
+      "name": "15th Annual Harvard-MIT Mathematics Tournament #0j9v",
+      "url": "https://usamoguide.com/",
+      "source": "15th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial interpolation: Newton, Lagrange",
+        "Quadratic functions"
+      ],
+      "statement": "Problem:\nGiven that $P$ is a real polynomial of degree at most $2012$ such that $P(n) = 2^{n}$ for $n = 1, 2, \\ldots, 2012$, what choice(s) of $P(0)$ produce the minimal possible value of $P(0)^{2} + P(2013)^{2}$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $1 - 2^{2012}$\n\nDefine $\\Delta^{1}(n) = P(n+1) - P(n)$ and $\\Delta^{i}(n) = \\Delta^{i-1}(n+1) - \\Delta^{i-1}(n)$ for $i > 1$. Since $P(n)$ has degree at most $2012$, we know that $\\Delta^{2012}(n)$ is constant. Computing, we obtain $\\Delta^{1}(0) = 2 - P(0)$ and $\\Delta^{i}(0) = 2^{i-1}$ for $1 < i \\leq 2012$. We see that continuing on gives $\\Delta^{2012}(0) = \\Delta^{2012}(1) = P(0)$ and $\\Delta^{i}(2012-i) = 2^{2013-i}$ for $1 \\leq i \\leq 2011$. Then,\n\n$P(2013) = P(2012) + \\Delta^{1}(2012) = \\ldots = P(2012) + \\Delta^{1}(2011) + \\ldots + \\Delta^{2012}(0) = P(0) + 2^{2013} - 2$.\n\nNow, we want to minimize the value of $P(0)^{2} + P(2013)^{2} = 2 P(0)^{2} + 2 P(0)\\left(2^{2013} - 2\\right) + \\left(2^{2013} - 2\\right)^{2}$, but this occurs simply when $P(0) = -\\frac{1}{2}\\left(2^{2013} - 2\\right) = 1 - 2^{2012}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-polynomial-interpolation-newton-lagrange-auto-2541",
+      "name": "Berkeley Math Circle #0jh9",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial interpolation: Newton, Lagrange",
+        "Algebraic properties of binomial coefficients",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\nA polynomial $f(x)=\\sum_{i=0}^{n} a_{i} x^{i}$ of degree $n$ or less is called happy if\n(i) Each coefficient $a_{i}$ satisfies $0 \\leq a_{i}<1$;\n(ii) $f(x)$ is an integer for all integers $x$.\nFind the number of happy polynomials of degree $n$ or less.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe answer is the \"superfactorial\"\n$$\n1! \\cdot 2! \\cdots n! = 1^{n} 2^{n-1} \\cdots n^{1}\n$$\nFor $n=1$, the result is clear. We will prove as an induction step that there are $n!$ times as many happy polynomials of degree at most $n$ as of degree at most $n-1$.\n\nLet $f(x)$ be a happy polynomial of degree at most $n$. We claim that the leading coefficient of $f$ is $c / n!$ for some integer $c$. One way to see this is using \"Lagrange interpolation\": let\n$$\nf_{0}(x)=\\sum_{0 \\leq k \\leq n}\\left(f(k) \\prod_{\\substack{0 \\leq j \\leq n \\\\ j \\neq k}} \\frac{x-j}{k-j}\\right)\n$$\nOn the one hand, $f_{0}(x)$ is clearly a polynomial of degree at most $n$ with rational coefficients. On the other hand, for each $x=0, \\ldots, n$, we have $f_{0}(x)=f(x)$ since all terms for $k \\neq x$ are zero and the remaining term is $f(x) \\cdot 1$. Therefore $f_{0}=f$ since two distinct polynomials of degree $n$ can have at most $n$ common values. The leading coefficient of $f=f_{0}$ is a sum of terms of the form\n$$\n\\frac{1}{(-k)(-k+1) \\cdots(-2)(-1) \\cdot 1 \\cdot 2 \\cdots(n-k)} \\cdot f(k)=\\frac{ \\pm 1}{k !(n-k) !} f(k)=\\frac{ \\pm\\left(\\begin{array}{l}\nn \\\\\nk\n\\end{array}\\right)}{n !} f(k)\n$$\nso it has the form $c / n!$ for $c \\in \\mathbb{Z}$.\n\nBy the given inequalities, we know that $0 \\leq c < n!$. Given $f(x)$, let\n$$\ng(x)=f(x)-c \\cdot \\frac{x(x-1) \\cdots(x-n+1)}{n!},\n$$\na polynomial of degree at most $n-1$. For integers $x \\geq n$, the fraction in the definition of $g(x)$ is the integer $\\left(\\begin{array}{l}x \\\\ n\\end{array}\\right)$, from which it is easy to see that $g(x)$ is an integer for all integers $x$. Let $h(x)$ be the polynomial obtained by reducing each coefficient of $g$ mod 1 so as to lie in the interval $[0,1)$. Then $f(x) \\mapsto h(x)$ defines a bijection between\n- happy polynomials of degree $\\leq n$ with $n$th-degree coefficient $c / n!$, and\n- happy polynomials of degree $\\leq n-1$.\n\nSince there are $n!$ possible values of $c$, it follows that there are $n!$ times as many happy polynomials of degree $\\leq n$ as of degree $\\leq n-1$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-polynomial-interpolation-newton-lagrange-auto-2596",
+      "name": "HMMT November 2014 #0jis",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2014",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers",
+        "Polynomial interpolation: Newton, Lagrange"
+      ],
+      "statement": "Problem:\n\nLet $z$ be a complex number and $k$ a positive integer such that $z^{k}$ is a positive real number other than $1$. Let $f(n)$ denote the real part of the complex number $z^{n}$. Assume the parabola $p(n) = a n^{2} + b n + c$ intersects $f(n)$ four times, at $n = 0, 1, 2, 3$. Assuming the smallest possible value of $k$, find the largest possible value of $a$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $\\boxed{\\frac{1}{3}}$\n\nLet $r = |z|$, $\\theta = \\arg z$, and $C = \\frac{\\Re z}{|z|} = \\cos \\theta = \\cos \\frac{2\\pi j}{k}$ for some $j$ with $\\gcd(j, k) = 1$. The condition of the four consecutive points lying on a parabola is equivalent to having the finite difference\n$$\nf(3) - 3 f(2) + 3 f(1) - f(0) = 0\n$$\nThis implies\n$$\n\\begin{aligned}\nf(3) - f(0) & = 3 [f(2) - f(1)] \\\\\n\\Longleftrightarrow r^{3} \\cos (3 \\theta) - 1 & = 3 \\left(r^{2} \\cos (2 \\theta) - r \\cos (\\theta)\\right) \\\\\n\\Longleftrightarrow r^{3} \\left(4 C^{3} - 3 C\\right) - 1 & = 3 \\left(r^{2} (2 C^{2} - 1) - r C\\right)\n\\end{aligned}\n$$\nNow we simply test the first few possible values of $k$.\n\n$k = 1$ implies $C = 1$, which gives $r^{3} - 1 = 3(r^{2} - r) \\Longrightarrow (r - 1)^{3} = 0 \\Longrightarrow r = 1$. This is not allowed since $r = 1$ implies a periodic function.\n\n$k = 2$ implies $C = -1$, which gives $-r^{3} - 1 = 3 r^{2} + r \\Longrightarrow (r + 1)^{3} = 0$, again not allowed since $r > 0$.\n\n$k = 3$ implies $C = -\\frac{1}{2}$. This gives $r^{3} - 1 = \\frac{-3}{2}(r^{2} - r) \\Longrightarrow (r - 1)\\left(r + \\frac{1}{2}\\right)(r + 2) = 0$. These roots are either negative or $1$, again not allowed.\n\n$k = 4$ implies $C = 0$. This gives $-1 = -3 r^{2} \\Longrightarrow r = \\pm \\frac{1}{\\sqrt{3}}$. $r = \\frac{1}{\\sqrt{3}}$ is allowed, so this will generate our answer.\n\nAgain by finite differences (or by any other method of interpolating with a quadratic), we get $2a = f(0) + f(2) - 2 f(1) = \\frac{2}{3}$, so $a = \\frac{1}{3}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-polynomial-interpolation-newton-lagrange-auto-2647",
+      "name": "HMMT 2014 #0jk7",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2014",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial interpolation: Newton, Lagrange",
+        "Sums and products"
+      ],
+      "statement": "Problem:\nFor $1 \\leq j \\leq 2014$, define\n\n$$\nb_{j} = j^{2014} \\prod_{i=1, i \\neq j}^{2014} (i^{2014} - j^{2014})\n$$\n\nwhere the product is over all $i \\in \\{1, \\ldots, 2014\\}$ except $i = j$. Evaluate\n$$\n\\frac{1}{b_{1}} + \\frac{1}{b_{2}} + \\cdots + \\frac{1}{b_{2014}}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $\\frac{1}{2014!^{2014}}$\n\nWe perform Lagrange interpolation on the polynomial $P(x) = 1$ through the points $1^{2014}, 2^{2014}, \\ldots, 2014^{2014}$. We have\n\n$$\n1 = P(x) = \\sum_{j=1}^{2014} \\frac{\\prod_{i=1, i \\neq j}^{2014} (x - i^{2014})}{\\prod_{i=1, i \\neq j}^{2014} (j^{2014} - i^{2014})}.\n$$\n\nThus,\n$$\n1 = P(0) = \\sum_{j=1}^{2014} \\frac{\\left((-1)^{2013}\\right) \\frac{2014!^{2014}}{j^{2014}}}{(-1)^{2013} \\prod_{i=1, i \\neq j}^{2014} (i^{2014} - j^{2014})}\n$$\n\nwhich equals\n$$\n2014!^{2014} \\sum_{j=1}^{2014} \\frac{1}{j^{2014} \\prod_{i=1, i \\neq j}^{2014} (i^{2014} - j^{2014})} = 2014!^{2014} \\left(\\frac{1}{b_{1}} + \\frac{1}{b_{2}} + \\cdots + \\frac{1}{b_{2014}}\\right)\n$$\n\nso the desired sum is $\\frac{1}{2014!^{2014}}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

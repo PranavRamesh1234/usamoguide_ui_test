@@ -1,0 +1,51 @@
+{
+  "MODULE_ID": "discrete-mathematics-graph-theory-menger-s-theorem-max-flow-min-cut",
+  "practice": [
+    {
+      "uniqueId": "discrete-mathematics-graph-theory-menger-s-theorem-max-flow-min-cut-auto-0332",
+      "name": "Berkeley Math Circle Take-Home Contest #0hrw",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Take-Home Contest",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Menger's theorem / max-flow, min-cut"
+      ],
+      "statement": "Problem:\n\nCertain cities are connected by roads connecting pairs of them. The roads intersect only at the cities. A subset of the roads is called important if destroying those roads would make it so that there are two cities such that it is impossible to go from the first to the second. A subset $S$ of the roads is called strategic if it is important and no proper subset of $S$ is important. Let $S$ and $T$ be distinct strategic sets of roads. Let $U$ be the set of roads that are either in $S$ or $T$, but not both. Prove that $U$ is important.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $G$ be the graph having the cities as its vertices and the roads as its edges. (This just restates the problem in graph-theoretic language, which we use from now on.) We will look at the components of the graph $G$ and its subgraphs, where a component of a graph is defined to be a maximal connected subset: two vertices are in the same component if and only if it is possible to get from one to the other by following the edges.\n\nThe graph $G-S$ has more than one component, since it is disconnected. On the other hand, adding one edge of $S$ to $G-S$ can only connect two of these components; if $G-S$ had more than two components, adding this edge would still leave a disconnected graph and $S$ would not be strategic. So $G-S$ has exactly two components; call them $A, B$. Since these components are not connected to each other in $G-S$, every edge of $G$ connecting $A$ to $B$ must lie in $S$. Conversely, every edge of $S$ must connect $A$ to $B$, since, if it were entirely within $A$ or $B$, it could be added to $G-S$ while leaving the graph disconnected, and $S$ would not be strategic. Thus, $S$ consists exactly of those edges of $G$ which connect $A$ to $B$. Similarly, $G-T$ has two components $C, D$, and $T$ consists precisely of the edges of $G$ which connect $C$ to $D$.\n\nNow, the vertices of $G$ can be represented as a disjoint union of the four sets of vertices $A \\cap C, A \\cap D, B \\cap C$, and $B \\cap D$. From our characterizations of $S$ and $T$, we see that $U$ consists of precisely those edges of $G$ which link $A$ to $B$ or $C$ to $D$, but not both. It follows that, when we remove $U$ from $G$, all the remaining edges either link neither pair - and therefore lie entirely within one of our four sets of vertices - or both pairs, in which case they connect $A \\cap C$ to $B \\cap D$ or $A \\cap D$ to $B \\cap C$. Thus, $G-U$ contains no edges connecting the set of vertices $(A \\cap C) \\cup (B \\cap D)$ with the vertices $(A \\cap D) \\cup (B \\cap C)$. Furthermore, neither set of vertices is empty: we know that all the edges in $U$ connect these two sets, and $U$ is nonempty because $S \\neq T$. So we can choose one vertex from each set, and these two vertices are not connected by any path in $G-U$; thus, $U$ is important."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-graph-theory-menger-s-theorem-max-flow-min-cut-auto-4760",
+      "name": "USAMO #0l6w",
+      "url": "https://usamoguide.com/",
+      "source": "USAMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Matchings, Marriage Lemma, Tutte's theorem",
+        "Menger's theorem / max-flow, min-cut",
+        "Coloring schemes, extremal arguments"
+      ],
+      "statement": "Let $m$ and $n$ be positive integers with $m \\ge n$. There are $m$ cupcakes of different flavors arranged around a circle and $n$ people who like cupcakes. Each person assigns a nonnegative real number score to each cupcake, depending on how much they like the cupcake. Suppose that for each person $P$, it is possible to partition the circle of $m$ cupcakes into $n$ groups of consecutive cupcakes so that the sum of $P$'s scores of the cupcakes in each group is at least 1. Prove that it is possible to distribute the $m$ cupcakes to the $n$ people so that each person $P$ receives cupcakes of total score at least 1 with respect to $P$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

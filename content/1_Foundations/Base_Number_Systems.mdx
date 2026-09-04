@@ -1,0 +1,253 @@
+---
+id: base-number-systems
+title: Number Bases
+author: Neronvain, Pranav Ramesh
+description: Understand positional notation, convert between bases, and use base representations to solve competition problems.
+prerequisites: ["modular-arithmetic"]
+---
+
+## Overview
+
+We normally write numbers in base $10$, using ten digits $0$ through $9$.
+But there is nothing special about ten. Any positive integer $b \ge 2$ can
+serve as a base, and understanding how bases work opens up a family of
+techniques that appear regularly on the AMC, AIME, etc.
+
+The main idea is that a number's representation in base $b$ directly encodes
+its remainders and quotients when divided by powers of $b$. This connects
+base representations to modular arithmetic.
+
+## What Is a Base?
+
+In base $b$, we write a number using digits $0, 1, 2, \ldots, b-1$ and
+place values that are powers of $b$.
+
+The base $b$ representation
+
+$$
+\overline{a_n a_{n-1} \cdots a_1 a_0}_{\,b}
+$$
+
+stands for the value
+
+$$
+a_n(b^n) + a_{n-1}(b^{n-1}) + \cdots + a_1(b) + a_0.
+$$
+
+Each digit $a_i$ satisfies $0 \le a_i \le b-1$.
+
+For example, in base $10$:
+
+$$
+3472 = 3(10^3) + 4(10^2) + 7(10) + 2.
+$$
+
+In base $2$ (binary):
+
+$$
+1101_2 = 1(2^3) + 1(2^2) + 0(2) + 1 = 8 + 4 + 0 + 1 = 13.
+$$
+
+## Common Bases
+
+A few bases come up often in competition math:
+- Base $2$ (binary): digits are $0$ and $1$. Useful in combinatorics and
+  problems about subsets.
+- Base $3$ (ternary): digits are $0, 1, 2$. Appears in balanced ternary
+  and weighing problems.
+- Base $8$ (octal) and base $16$ (hexadecimal): occasionally appear in
+  digit manipulation problems.
+
+However, contest problems can use any base, including large or variable ones.
+
+## Converting Base $b$ to Base $10$
+
+Expand using the definition:
+
+$$
+2031_5 = 2(5^3) + 0(5^2) + 3(5) + 1 = 250 + 0 + 15 + 1 = 266.
+$$
+
+Another example:
+
+$$
+1A3_{16} = 1(16^2) + 10(16) + 3 = 256 + 160 + 3 = 419
+$$
+
+where $A$ represents the digit $10$ in hexadecimal.
+
+## Converting Base $10$ to Base $b$
+
+Repeatedly divide by $b$ and record the remainders. The remainders, read
+from bottom to top, give the base $b$ digits.
+
+Convert $83$ to base $3$:
+
+$$
+83 = 27(3) + 2
+$$
+
+$$
+27 = 9(3) + 0
+$$
+
+$$
+9 = 3(3) + 0
+$$
+
+$$
+3 = 1(3) + 0
+$$
+
+$$
+1 = 0(3) + 1
+$$
+
+Reading the remainders from bottom to top: $83 = 10002_3$.
+
+We can verify: $1(3^4) + 0 + 0 + 0 + 2 = 81 + 2 = 83$.
+
+## The Last Digit Rule
+
+This is one of the most useful facts about bases in competition math:
+
+The last digit of $N$ in base $b$ is the remainder when $N$ is divided by $b$.
+
+In symbols,
+
+$$
+N \equiv a_0 \pmod{b}
+$$
+
+where $a_0$ is the units digit of the base $b$ representation of $N$.
+
+This follows directly from the expansion, every term except $a_0$ is a
+multiple of $b$.
+
+Similarly, the last two digits of $N$ in base $b$ encode $N \pmod{b^2}$, and
+so on.
+
+## The Digit Sum and Casting Out
+
+In base $10$, we know a number is divisible by $9$ when its digit sum is
+divisible by $9$. This generalises:
+
+In base $b$, a number is divisible by $b-1$ if and only if the sum of its
+base-$b$ digits is divisible by $b-1$.
+
+This is because $b \equiv 1 \pmod{b-1}$, so every power $b^k \equiv 1
+\pmod{b-1}$, and therefore
+
+$$
+\overline{a_n \cdots a_0}_{\,b} \equiv a_n + \cdots + a_0 \pmod{b-1}.
+$$
+
+## Counting Digits
+
+A positive integer $N$ has exactly $d$ digits in base $b$ if and only if
+
+$$
+b^{d-1} \le N < b^d.
+$$
+
+Equivalently,
+
+$$
+d = \lfloor \log_b N \rfloor + 1.
+$$
+
+For example, $100$ in base $2$ has $\lfloor \log_2 100 \rfloor + 1 = 6 + 1 = 7$ digits, since $2^6 = 64 \le 100 < 128 = 2^7$.
+
+## Worked Examples
+
+### Example 1
+
+> Convert $345$ to base $7$.
+
+$$
+345 = 49(7) + 2
+$$
+
+$$
+49 = 7(7) + 0
+$$
+
+$$
+7 = 1(7) + 0
+$$
+
+$$
+1 = 0(7) + 1
+$$
+
+Reading remainders bottom to top: $345 = 1002_7$.
+
+Check: $1(7^3) + 0 + 0 + 2 = 343 + 2 = 345$. 
+
+### Example 2 (2013 AMC 10A Problem 19)
+
+> In base $10$, the number $2013$ ends in the digit $3$. In base $9$, the same
+> number is written as $(2676)_9$ and ends in the digit $6$. For how many
+> positive integers $b$ does the base-$b$ representation of $2013$ end in
+> the digit $3$?
+
+By the last digit rule, the base-$b$ representation of $2013$ ends in $3$ if
+and only if
+
+$$
+2013 \equiv 3 \pmod{b}.
+$$
+
+This means $b \mid 2010$. We also need $b \ge 4$ since the digit $3$ must be
+a valid digit in base $b$ (digits go from $0$ to $b-1$, so $b > 3$).
+
+Now $2010 = 2 \times 3 \times 5 \times 67$. The number of positive divisors
+of $2010$ is $(1+1)^4 = 16$. Three of these divisors ($1, 2, 3$) are less
+than $4$, so the answer is $16 - 3 = 13$.
+
+### Example 3
+
+> What is the sum of the digits of $999$ in base $8$?
+
+First convert, $999 = 124(8) + 7$, then $124 = 15(8) + 4$, then
+$15 = 1(8) + 7$, then $1 = 0(8) + 1$.
+
+So $999 = 1747_8$.
+
+The digit sum is $1 + 7 + 4 + 7 = 19$.
+
+## Key Contest Insight
+
+The connection between bases and modular arithmetic is the single most
+important idea:
+- The last digit of $N$ in base $b$ equals $N \bmod b$.
+- The last $k$ digits of $N$ in base $b$ encode $N \bmod b^k$.
+- The digit sum in base $b$ relates to $N \bmod (b-1)$.
+
+Whenever a problem mentions a specific base, ask yourself what modular information the base representation is encoding.
+
+## Strategy Tips
+
+- When a problem asks about a number's representation in an unknown base $b$,
+  translate digit conditions into divisibility or modular conditions on $b$.
+- To count integers whose base $b$ digits satisfy some restriction, think of
+  each digit position as an independent choice (possibly with constraints on
+  the leading digit).
+- Base $2$ representations connect naturally to subsets, each subset of
+  $\{1, 2, \ldots, n\}$ corresponds to an $n$ digit binary string.
+- If a problem involves both base $b$ and base $c$, rewrite everything in
+  base $10$ to find common ground, then work modularly.
+
+## Common Pitfalls
+
+- Forgetting that digits in base $b$ must satisfy $0 \le a_i \le b-1$.
+  The digit $3$ does not exist in base $3$.
+- Reading remainders in the wrong order when converting from base $10$ to
+  base $b$. Remainders are read bottom to top.
+- Confusing 'the number $123$ in base $5$' (which equals $38$ in base $10$)
+  with 'the number $123$ converted to base $5$.'
+- Assuming a number has the same number of digits in every base.
+
+## Practice Problems
+
+<Problems problems="practice" />

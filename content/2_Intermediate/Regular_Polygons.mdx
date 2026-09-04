@@ -1,0 +1,205 @@
+---
+id: regular-polygons
+title: Regular Polygons
+author: Wonwoo Choi 
+description: Interior and exterior angles, diagonals, area, circumradius, inradius, and competition applications.
+prerequisites: [geometry-basics, triangle-area-formulas, special-triangles]
+---
+
+## Brief Introduction 
+
+First, a regular polygon has all sides equal and all interior angles equal.
+These two conditions are equivalent for convex polygons, and there are many strategies using these such as angle chasing, and computing areas.
+
+The key is having the right formulas memorized and knowing when to exploit
+symmetry rather than brute-forcing coordinates.
+
+## Angles
+
+### Interior Angle
+
+The sum of interior angles of any $n$-gon is $(n-2) \cdot 180°$. Since all
+angles in a regular $n$-gon are equal, we find that each interior angle is
+
+$$
+\theta = \frac{(n-2)*180}{n}.
+$$
+
+### Exterior Angle
+
+At each vertex, the interior and exterior angles are supplementary to each other. The
+exterior angle of a regular $n$-gon is
+
+$$
+\phi = 180° - \theta = \frac{360}{n}.
+$$
+
+An important fact to understand is that all exterior angles of any convex polygon always sum to exactly $360°$. 
+hence why the exterior angle formula is $360°/n$. (Because all $n$ exterior angles
+are equal and they sum to $360°$, each must be $360°/n$.)
+
+### Table of Polygons
+
+| $n$ | Name | Interior angle | Exterior angle |
+|-----|------|---------------|---------------|
+| 3 | Triangle | 60° | 120° |
+| 4 | Square | 90° | 90° |
+| 5 | Pentagon | 108° | 72° |
+| 6 | Hexagon | 120° | 60° |
+| 7 | Heptagon | ≈128.57° | ≈51.43° |
+| 8 | Octagon | 135° | 45° |
+| 10 | Decagon | 144° | 36° |
+| 12 | Dodecagon | 150° | 30° |
+
+
+## Side Length, Circumradius, and Inradius
+
+We have a regular $n$-gon with center $O$, side length $s$, and circumradius $R$
+(center to vertex), and inradius $r$ (center to midpoint of a side, also
+called the apothem).
+
+Then, we connect the center to two adjacent vertices creates an isoceles triangle
+with two sides of length $R$ and a base of length $s$, and the central angle
+is $360°/n$. From this triangle,
+
+$$
+s = 2R\sin\!\left(\frac{\pi}{n}\right), \qquad
+R = \frac{s}{2\sin(\pi/n)}.
+$$
+
+Furthermore, the apothem is the height from the center to a side:
+
+$$
+r = R\cos\!\left(\frac{\pi}{n}\right) = \frac{s}{2\tan(\pi/n)}.
+$$
+
+$$
+r = R\cos\!\left(\frac{\pi}{n}\right), \qquad R^2 = r^2 + \left(\frac{s}{2}\right)^2.
+$$
+
+The second identity follows from the Pythagorean theorem applied to the right triangle formed by $R$, $r$, and $s/2$.
+
+## Area of Polygons
+
+The area formula comes from dividing the polygon into $n$ congruent isoceles
+triangles from the center. Each triangle has base $s$ and height $r$ (the apothem), so therefore, 
+
+$$
+A = n \cdot \frac{1}{2} \cdot s \cdot r = \frac{1}{2} \cdot P \cdot r
+$$
+
+where $P = ns$ is the perimeter. A useful form of the formula is that the area equals half the perimeter times the apothem.
+
+Hence in terms of side length alone, we find that 
+
+$$
+A = \frac{ns^2}{4}\cot\!\left(\frac{\pi}{n}\right).
+$$
+
+In terms of the circumradius,
+
+$$
+A = \frac{1}{2}nR^2\sin\!\left(\frac{2\pi}{n}\right).
+$$
+
+Some special cases of is for an equilateral triangle with side $s$, where
+$$
+A = \frac{s^2\sqrt{3}}{4}, \quad R = \frac{s}{\sqrt{3}}, \quad r = \frac{s}{2\sqrt{3}}.
+$$
+
+For a square with side $s$, 
+$$
+A = s^2, \quad R = \frac{s\sqrt{2}}{2}, \quad r = \frac{s}{2}.
+$$
+
+For a regular hexagon with side $s$, 
+$$
+A = \frac{3s^2\sqrt{3}}{2}, \quad R = s, \quad r = \frac{s\sqrt{3}}{2}.
+$$
+
+For hexagons, $R = s$, where the circumradius equals the side length.
+
+## Diagonals
+
+Another important concept when talking about regular $n$-gon is that it has $\binom{n}{2} - n = \dfrac{n(n-3)}{2}$ diagonals.
+
+The length of a diagonal connecting vertices $k$ positions apart (where
+$1 \leq k \leq \lfloor n/2 \rfloor$) is
+
+$$
+d_k = 2R\sin\!\left(\frac{k\pi}{n}\right).
+$$
+
+We can prove this identity because the central angle subtended is $2\pi k/n$, and from the
+chord length formula, we get $d_k = 2R\sin(k\pi/n)$.
+
+## Symmetry
+
+A regular $n$-gon has:
+- $n$ lines of symmetry (through each vertex and the midpoint of the opposite
+  side for even $n$), in each vertex and midpoint of the opposite side for
+  odd $n$).
+- We also see a rotational symmetry of order $n$, where there are rotations by $360°k/n$ for $k=0,1,\ldots,n-1$
+  all map the polygon to itself.
+- Dihedral group $D_n$ of order $2n$ as its symmetry group. The concept of dihedral groups can be found in the USAMO Series. 
+
+## Examples
+
+### Example 1: Finding Exterior Angles 
+
+**Problem.** A regular polygon has an interior angle of $150°$. How many sides does it have?
+
+**Solution.** Exterior angle $= 180° - 150° = 30°$. Since exterior angles
+sum to $360°$: $n = 360°/30° = \mathbf{12}$ sides.
+
+### Example 2: Finding Diagonals of a Hexagon 
+
+**Problem.** A regular hexagon has side length $2$. What is the area of the
+triangle formed by every other vertex?
+
+**Solution.** The vertices of a regular hexagon at distance $R = 2$ from
+the center form two equilateral triangles when alternated. Each such triangle
+connects vertices $2$ apart, therefore its side length is $d_2 = 2R\sin(2\pi/6)
+= 2(2)\sin(60°) = 4 \cdot \frac{\sqrt{3}}{2} = 2\sqrt{3}$.
+
+Hence the area of equilateral triangle with side $2\sqrt{3}$:
+$$
+A = \frac{(2\sqrt{3})^2 \sqrt{3}}{4} = \frac{12\sqrt{3}}{4} = \mathbf{3\sqrt{3}}.
+$$
+
+### Example 3: Area via Apothem 
+
+**Problem.** A regular octagon is inscribed in a circle of radius $5$.
+Find the area of the octagon.
+
+**Solution.** Use $A = \frac{1}{2}nR^2\sin(2\pi/n)$ with $n=8$, $R=5$:
+
+$$
+A = \frac{1}{2}(8)(25)\sin(45°) = 100 \cdot \frac{\sqrt{2}}{2} = \mathbf{50\sqrt{2}}.
+$$
+
+### Example 4: Using Pentagons and its Golden Ratio 
+
+**Problem.** In a regular pentagon with side length $1$, find the length of
+a diagonal.
+
+**Solution.** First, we label the vertices $A,B,C,D,E$. The diagonal $AC$ and side $AB$
+form the base of an isoceles triangle $ABC$ with $\angle ABC = 108°$ and
+base angles $36°$ each. By the sine rule,
+
+$$
+\frac{AC}{\sin 108°} = \frac{AB}{\sin 36°} \implies AC = \frac{\sin 108°}{\sin 36°}.
+$$
+
+Since $\sin 108° = \sin 72° = \cos 18°$ and using the identity
+$\frac{\sin 72°}{\sin 36°} = 2\cos 36° = 1 + \frac{1}{\phi}$.
+
+We let $d$ be the diagonal. The triangle $ABC$ has $AB = 1$ and $AC = d$.
+By the similarity of the golden gnomon: $d/1 = 1/(d-1)$, giving
+$d^2 - d - 1 = 0$, so $d = \frac{1+\sqrt{5}}{2} = \phi \approx \mathbf{1.618}$.
+
+
+
+## Practice Problems
+
+<Problems problems="practice" />

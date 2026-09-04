@@ -1,0 +1,210 @@
+---
+id: differentiation-rules
+title: Rules of Differentiation
+author: Pranav Ramesh
+description: Rules of Differentiation
+prerequisites: []
+---
+
+# Trigonometric Derivatives
+
+Trigonometric derivatives are mostly formulaic, and require an understanding of trig derivative rules in order to solve differentiation problems involving trig functions. Here are the derivatives of common trigonometric functions:
+
+$$
+\frac{d}{dx}\sin(x) = \cos(x)
+$$
+
+$$
+\frac{d}{dx}\cos(x) = -\sin(x)
+$$
+
+$$
+\frac{d}{dx}\tan(x) = \sec^2(x)
+$$
+
+$$
+\frac{d}{dx}\cot(x) = -\csc^2(x)
+$$
+
+$$
+\frac{d}{dx}\sec(x) = \sec(x)\tan(x)
+$$
+
+$$
+\frac{d}{dx}\csc(x) = -\csc(x)\cot(x)
+$$
+
+> **Example 1:** Consider the trigonometric function $f(x) = -\sin(x) - \cos(x)$. Apply trig differentiation rules to compute the derivative.
+>
+> **Solution:**
+>
+> Step 1: Using the rule $\frac{d}{dx}(\sin(x)) = \cos(x)$, the derivative of $-\sin(x)$ is $-\cos(x)$.
+>
+> Step 2: Using the rule $\frac{d}{dx}(\cos(x)) = -\sin(x)$, the derivative of $-\cos(x)$ is $\sin(x)$.
+>
+> Now, we have found the derivatives of the individual terms:
+>
+> $$\frac{d}{dx}(-\sin(x)) = -\cos(x)$$
+>
+> $$\frac{d}{dx}(-\cos(x)) = \sin(x)$$
+>
+> So, the derivative of $f(x) = -\sin(x) - \cos(x)$ is the sum of the derivatives:
+>
+> $$\boxed{\frac{d}{dx}(-\sin(x) - \cos(x)) = -\cos(x) + \sin(x)}$$
+
+# Power Rule
+
+The power rule is a fundamental rule that allows us to differentiate functions of the form $f(x) = x^n$, where $n$ is a constant exponent.
+
+The **Power Rule** states that if $f(x) = x^n$, then:
+
+$$
+\frac{d}{dx}(x^n) = nx^{n-1}
+$$
+
+When we differentiate a term with an exponent $n$, we bring down the exponent as the new coefficient and reduce the exponent by 1. For example, if $g(x) = x^3$, the power rule gives:
+
+$$
+g'(x) = 3x^{3-1} = 3x^2
+$$
+
+> **Example 2:** Consider the function $g(x) = x^{-2}$. Apply the power rule to calculate the derivative.
+>
+> **Solution:** Using the power rule:
+>
+> $$g'(x) = -2x^{-2-1} = -2x^{-3} = \frac{-2}{x^3}$$
+>
+> Therefore, the derivative of $g(x) = x^{-2}$ is $\boxed{g'(x) = \dfrac{-2}{x^3}}$.
+
+# Product Rule
+
+The product rule allows us to find the derivative of a product of two functions.
+
+The **Product Rule** states that if $h(x) = f(x) \cdot g(x)$, then:
+
+$$
+h'(x) = f'(x) \cdot g(x) + f(x) \cdot g'(x)
+$$
+
+To find the derivative of a product: take the derivative of the first function times the second, then add the first function times the derivative of the second.
+
+For example, with $f(x) = x^2$ and $g(x) = \sin(x)$:
+
+$$
+h'(x) = (x^2)' \cdot \sin(x) + x^2 \cdot (\sin(x))' = 2x\sin(x) + x^2\cos(x)
+$$
+
+<Info title="Mnemonic">
+
+A helpful way to remember the product rule: **"first d-second + second d-first"**, where *first* and *second* refer to $f(x)$ and $g(x)$, and the *d* prefix means that function is differentiated.
+
+</Info>
+
+> **Example 3:** Consider the function $g(x) = (2x + 6)\sin(x)$. Apply the product rule to calculate the derivative.
+>
+> **Solution:** Recall the product rule:
+>
+> $$\frac{d}{dx}[f(x)g(x)] = f'(x)g(x) + f(x)g'(x)$$
+>
+> **Step 1:** Identify $f(x)$ and $g(x)$:
+>
+> $$f(x) = 2x + 6, \quad g(x) = \sin(x)$$
+>
+> **Step 2:** Find the derivatives:
+>
+> $$f'(x) = \frac{d}{dx}(2x + 6) = 2, \quad g'(x) = \frac{d}{dx}(\sin(x)) = \cos(x)$$
+>
+> **Step 3:** Apply the product rule:
+>
+> $$g'(x) = 2\sin(x) + (2x + 6)\cos(x)$$
+>
+> The derivative of $g(x) = (2x+6)\sin(x)$ is $\boxed{g'(x) = 2\sin(x) + (2x+6)\cos(x)}$.
+
+# Quotient Rule
+
+The **Quotient Rule** states that if $h(x) = \dfrac{f(x)}{g(x)}$, then:
+
+$$
+h'(x) = \frac{f'(x) \cdot g(x) - f(x) \cdot g'(x)}{(g(x))^2}
+$$
+
+To find the derivative of a quotient: take the derivative of the numerator times the denominator, subtract the numerator times the derivative of the denominator, then divide by the square of the denominator.
+
+For example, with $f(x) = \sin(x)$ and $g(x) = x^2$:
+
+$$
+h'(x) = \frac{(\sin x)' \cdot x^2 - \sin(x) \cdot (x^2)'}{(x^2)^2} = \frac{\cos(x) \cdot x^2 - \sin(x) \cdot 2x}{x^4}
+$$
+
+> **Example 4:** Consider the function $h(x) = \dfrac{x^3}{\cos(x)}$. Apply the quotient rule to calculate the derivative.
+>
+> **Solution:**
+>
+> **Step 1:** Identify $f(x)$ and $g(x)$:
+>
+> $$f(x) = x^3, \quad g(x) = \cos(x)$$
+>
+> **Step 2:** Find the derivatives:
+>
+> $$(x^3)' = 3x^2, \quad (\cos x)' = -\sin(x)$$
+>
+> **Step 3:** Apply the quotient rule:
+>
+> $$h'(x) = \frac{3x^2 \cdot \cos(x) - x^3 \cdot (-\sin(x))}{\cos^2(x)}$$
+>
+> Simplifying:
+>
+> $$\boxed{h'(x) = \frac{3x^2\cos(x) + x^3\sin(x)}{\cos^2(x)}}$$
+
+# Multiple Derivatives
+
+The **second derivative**, denoted $f''(x)$, represents the rate of change of a function's derivative — in other words, how the slope of a function is changing as we move along the x-axis. It provides information about the curvature and concavity of a function.
+
+Mathematically, the second derivative is the derivative of the first derivative:
+
+$$
+f''(x) = \frac{d}{dx}\left(\frac{d}{dx}f(x)\right) = \frac{d^2}{dx^2}f(x)
+$$
+
+This can be extended to a third derivative, and beyond:
+
+$$
+f'''(x) = \frac{d}{dx}\left(\frac{d}{dx}\left(\frac{d}{dx}f(x)\right)\right) = \frac{d^3}{dx^3}f(x)
+$$
+
+**Example:** For $f(x) = 3x^3 + 2x^2 - 5x + 1$:
+
+**Step 1:** First derivative:
+
+$$
+f'(x) = \frac{d}{dx}(3x^3 + 2x^2 - 5x + 1) = 9x^2 + 4x - 5
+$$
+
+**Step 2:** Second derivative:
+
+$$
+f''(x) = \frac{d}{dx}(9x^2 + 4x - 5) = 18x + 4
+$$
+
+A **positive** value of $f''(x)$ indicates the function is concave up $(\cup)$, while a **negative** value indicates concave down $(\cap)$.
+
+> **Example 5:** Compute the third derivative of $f(x) = \sin(x)$.
+>
+> **Solution:**
+>
+> **Step 1:** First derivative:
+>
+> $$f'(x) = \frac{d}{dx}(\sin(x)) = \cos(x)$$
+>
+> **Step 2:** Second derivative:
+>
+> $$f''(x) = \frac{d^2}{dx^2}(\sin(x)) = \frac{d}{dx}(\cos(x)) = -\sin(x)$$
+>
+> **Step 3:** Third derivative:
+>
+> $$f'''(x) = \frac{d^3}{dx^3}(\sin(x)) = \frac{d}{dx}(-\sin(x)) = \boxed{-\cos(x)}$$
+
+
+## Practice Problems
+
+<Problems problems="practice" />

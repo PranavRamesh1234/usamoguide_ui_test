@@ -1,0 +1,223 @@
+.link-with-progress-container {
+  @apply relative block;
+
+  /* Single source of truth for the spine geometry. The marker and the line
+     are both positioned from this, which is what keeps them concentric at
+     every breakpoint — they previously used two unrelated origins. */
+  --spine-x: 28px;
+  --marker-size: 8px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: calc(var(--spine-x) - var(--marker-size) / 2);
+    top: 18px;
+    height: var(--marker-size);
+    width: var(--marker-size);
+    border-radius: 100%;
+    background-color: var(--dot-and-line-color);
+    transition:
+      transform 250ms cubic-bezier(0.22, 1, 0.36, 1),
+      background-color 250ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 250ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 2px;
+    left: calc(var(--spine-x) - 1px);
+    top: 0;
+    bottom: 0;
+    background-color: var(--dot-and-line-color);
+  }
+
+  &:first-of-type::before {
+    top: 22px;
+  }
+
+  &:last-of-type::before {
+    bottom: calc(100% - 22px);
+  }
+}
+
+.link-with-progress-container--syllabus {
+  /* The module column carries `pl-7 md:pl-12`, so the spine sits in that
+     gutter: half a rem in from the column edge on mobile, three rem on
+     desktop. One variable moves both the line and the marker together.
+
+     On desktop the offset is read straight off --syllabus-gutter, the same
+     number syllabus.css uses to place the dashed rule, so the dots always land
+     on the dashes rather than beside them. */
+  --spine-x: -0.875rem;
+  --marker-size: 18px;
+
+  @media (min-width: 768px) {
+    --spine-x: calc(-1 * var(--syllabus-gutter, 1.5rem));
+  }
+
+  &::after {
+    top: calc(1.5rem - var(--marker-size) / 2);
+    /* Rimmed in the page ground so the marker punches a hole in the line it
+       sits on, rather than smudging into it. */
+    border: 2px solid var(--bg-page);
+  }
+
+  /* Ignition: an enhancement on an already-visible marker, never the thing
+     that makes it visible. */
+  &.is-lit::after {
+    background-color: var(--text-primary);
+    box-shadow: 0 0 0 5px var(--accent-soft);
+  }
+
+  &.is-lit::before {
+    background-color: var(--text-primary);
+    opacity: 0.5;
+  }
+
+  &.is-lit .link-with-progress-link {
+    color: var(--text-primary);
+  }
+
+}
+
+/* Not-started and ignored modules get a hollow marker: a ring on the line
+   rather than a bead on it. Previously these differed only by being 5px
+   smaller, which is not a difference you can read without a filled dot next to
+   it for comparison — and on a syllabus where almost every row is Not Started,
+   there usually isn't one. Hollow vs. filled states it outright.
+
+   Only the fill and the size are overridden; the position still derives from
+   --spine-x, so it stays centred on the line. Setting `left` here
+   independently is what put the two out of register in the first place. */
+.link-with-progress-container--syllabus--small {
+  --marker-size: 14px;
+
+  &::after {
+    /* Filled with the card ground, not transparent: the solid segment runs
+       behind the marker, and a see-through centre let it show as a bright bar
+       down the middle — a bullseye rather than a ring. */
+    background-color: var(--card-bg);
+    box-shadow: inset 0 0 0 2px var(--dot-and-line-color);
+  }
+
+  /* Ignition brightens the ring, so a lit row still reads as "reached" while
+     staying hollow — filled stays reserved for started modules. */
+  &.is-lit::after {
+    background-color: var(--card-bg);
+    box-shadow:
+      inset 0 0 0 2px var(--text-primary),
+      0 0 0 5px var(--accent-soft);
+  }
+}
+
+/* Progress states, in the same ink vocabulary the dashboard readouts use:
+   weight, not hue. These were previously yellow / orange / green / blue / grey
+   — five hues from outside the palette, for five states the dashboard was
+   already expressing as one ramp. Same state, same appearance, everywhere.
+
+   The dot is never the only signal: the sidebar labels the state in text and
+   the module row carries its own styling, so this survives colour removal. */
+.link-with-progress-container--reading {
+  --dot-and-line-color: var(--heatmap-3);
+  --active-text-color: var(--text-secondary);
+}
+
+.link-with-progress-container--practicing {
+  --dot-and-line-color: var(--heatmap-3);
+  --active-text-color: var(--text-secondary);
+}
+
+.link-with-progress-container--complete {
+  --dot-and-line-color: var(--heatmap-4);
+  --active-text-color: var(--text-primary);
+}
+
+.link-with-progress-container--skipped {
+  --dot-and-line-color: var(--heatmap-2);
+  --active-text-color: var(--text-muted);
+}
+
+.link-with-progress-container--active {
+  --dot-and-line-color: var(--text-primary);
+  --active-text-color: var(--text-primary);
+}
+
+.link-with-progress-container--ignored {
+  --dot-and-line-color: var(--heatmap-empty);
+  --active-text-color: var(--text-muted);
+}
+
+.link-with-progress-container--default {
+  /* Must be legible with no JavaScript at all. The ignition observer only
+     ever adds the track colour on top — it never brings the marker into
+     existence, so a hidden tab, a headless render or a failed script still
+     leaves a readable spine. */
+  --dot-and-line-color: var(--border-strong);
+  --active-text-color: var(--text-primary);
+}
+
+.link-with-progress-link {
+  transition:
+    color 150ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 150ms cubic-bezier(0.22, 1, 0.36, 1);
+
+  color: var(--text-secondary);
+
+  &:hover {
+    color: var(--text-primary);
+  }
+
+  /* Replaces `focus:outline-hidden`, which removed the ring without a
+     replacement — these are the primary navigation links of the syllabus. */
+  &:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  .link-with-progress-container--ignored & {
+    color: var(--text-muted);
+  }
+
+  &.link-with-progress-link--active {
+    color: var(--active-text-color);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+
+    transform: scale(0);
+    border-radius: 100%;
+    z-index: 1;
+
+    /* The hover ring is a third thing that has to sit on the spine, so it
+       derives from --spine-x like the other two rather than carrying its own
+       offset. --ring-size is just the marker plus a halo. */
+    --ring-size: calc(var(--marker-size) + 10px);
+    left: calc(var(--spine-x) - var(--ring-size) / 2);
+    top: calc(18px + var(--marker-size) / 2 - var(--ring-size) / 2);
+    height: var(--ring-size);
+    width: var(--ring-size);
+  }
+
+  &.link-with-progress-link--syllabus::before {
+    top: calc(1.5rem - var(--ring-size) / 2);
+  }
+
+  &:hover {
+    &::before {
+      transform: scale(1);
+      @apply bg-blue-600;
+    }
+  }
+
+  .dark &:hover {
+    &::before {
+      @apply bg-gray-400;
+    }
+  }
+}

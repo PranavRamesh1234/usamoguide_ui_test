@@ -1,0 +1,320 @@
+{
+  "MODULE_ID": "algebra-algebraic-expressions-polynomials-irreducibility-rational-root-theorem-gauss-s-lemma-eisenstein",
+  "practice": [
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-irreducibility-rational-root-theorem-gauss-s-lemma-eisenstein-auto-0390",
+      "name": "Berkeley Math Circle Monthly Contest 3 #0hti",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 3",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Irreducibility: Rational Root Theorem, Gauss's Lemma, Eisenstein"
+      ],
+      "statement": "Problem:\nSuppose $a, b, c$ are rational numbers such that\n$$\n\\begin{aligned}\n& \\left(a^{2}+1\\right)^{3}=b+1 \\\\\n& \\left(b^{2}+1\\right)^{3}=c+1 \\\\\n& \\left(c^{2}+1\\right)^{3}=a+1\n\\end{aligned}\n$$\nProve that $a=b=c=0$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe have that $b=\\left(a^{2}+1\\right)^{3}-1$, $c=\\left(b^{2}+1\\right)^{3}-1$, and $a=\\left(c^{2}+1\\right)^{3}-1$. By direct substitution we derive that $a$ satisfies the following polynomial equation of degree 216:\n$$\n\\left(\\left(\\left(\\left(\\left(a^{2}+1\\right)^{3}-1\\right)^{2}+1\\right)^{3}-1\\right)^{2}+1\\right)^{3}-(a+1)=0\n$$\nWe observe that the polynomial can be rewritten as\n$$\na^{216}+c_{215} a^{215}+\\cdots+c_{2} a^{2}-a=0\n$$\nfor some integers $c_{2}, \\ldots, c_{215}$. Hence by the Rational Root Theorem, if $a \\neq 0$ then it follows that $a= \\pm 1$. So $a \\in\\{-1,0,1\\}$. Similarly, $b, c \\in\\{-1,0,1\\}$ as well.\n\nBut if $a= \\pm 1$, then we have $b=(1+1)^{3}-1=7$, which is impossible. Hence only $a=0$ can occur. Thus $a=b=c=0$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-irreducibility-rational-root-theorem-gauss-s-lemma-eisenstein-auto-0436",
+      "name": "Berkeley Math Circle: Monthly Contest 6 #0hus",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Irreducibility: Rational Root Theorem, Gauss's Lemma, Eisenstein"
+      ],
+      "statement": "Problem:\nShow that $\\sin 10^{\\circ}$ is irrational.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nOne can show the triple-angle identity\n$$\n\\sin (3 \\theta) = 3 \\sin \\theta - 4 \\sin^{3} \\theta.\n$$\nThus letting $x = 2 \\sin (10^{\\circ})$ we derive\n$$\nx^{3} - 3x + 1 = 0.\n$$\nThis polynomial has no rational roots (by, say, Rational Root Theorem), hence $x$ is irrational, whence $\\sin 10^{\\circ}$ is irrational."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-irreducibility-rational-root-theorem-gauss-s-lemma-eisenstein-auto-0462",
+      "name": "Berkeley Math Circle #0hvi",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Irreducibility: Rational Root Theorem, Gauss's Lemma, Eisenstein",
+        "Polynomials mod p",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\nShow that the polynomial $\\left(x^{2}+x\\right)^{2^{1000}}+1$ cannot be factored as the product of two nonconstant polynomials with integer coefficients.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAssume for contradiction this is not the case, and the polynomial can be written as\n$$\n\\left(x^{2}+x\\right)^{2^{1000}}+1=f(x) g(x)\n$$\nfor some nonconstant $f$ and $g$ with integer coefficients. Clearly we may assume $f$ and $g$ have leading coefficient one. Taking modulo 2 we obtain that\n$$\nf(x) g(x) \\equiv\\left(x^{2}+x\\right)^{2^{1000}}+1 \\equiv\\left(x^{2}+x+1\\right)^{2^{1000}} \\quad(\\bmod 2)\n$$\nwhere the last step follows by noticing that $(a+b)^{2} \\equiv a^{2}+b^{2}(\\bmod 2)$.\nAs $x^{2}+x+1$ is irreducible modulo 2, it follows that we must have\n$$\nf(x)=\\left(x^{2}+x+1\\right)^{\\alpha}+2 \\hat{f}(x)\n$$\nand\n$$\ng(x)=\\left(x^{2}+x+1\\right)^{\\beta}+2 \\hat{g}(x)\n$$\nfor some polynomials $\\hat{f}, \\hat{g}$ with integer coefficients, where $\\alpha+\\beta=1000$. By hypothesis, $\\alpha, \\beta \\geq 1$.\nLet $\\varepsilon$ be a root to $x^{2}+x+1$, namely $\\varepsilon=\\frac{1}{2}(-1+i \\sqrt{3})$. Substituting $\\varepsilon$ into the original relation, we derive\n$$\n2=(-1)^{2^{1000}}+1=4 \\hat{f}(\\varepsilon) \\hat{g}(\\varepsilon)\n$$\nand hence $\\frac{1}{2}=\\hat{f}(\\varepsilon) \\hat{g}(\\varepsilon)$. But we claim this is impossible. Indeed, the right-hand side is a polynomial in $\\varepsilon$ with integer coefficients. Repeatedly applying the identity $\\varepsilon^{2}=-(\\varepsilon+1)$, we find that the right-hand side must be of the form $a+b \\varepsilon$, where $a, b$ are integers. By equating real and imaginary parts this gives $a=\\frac{1}{2}$ and $b=0$, which is a contradiction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-irreducibility-rational-root-theorem-gauss-s-lemma-eisenstein-auto-0523",
+      "name": "Berkeley Math Circle Monthly Contest 1 #0hx7",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Irreducibility: Rational Root Theorem, Gauss's Lemma, Eisenstein",
+        "Polynomial operations"
+      ],
+      "statement": "Problem:\nLet $a_{1}, \\ldots, a_{n}$ be distinct integers. Prove that the polynomial\n$$\n\\left(x-a_{1}\\right)\\left(x-a_{2}\\right) \\ldots\\left(x-a_{n}\\right)-1\n$$\ncannot be written as the product of two nonconstant polynomials with integer coefficients (i.e. it is irreducible over the integers).",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAssume there exist polynomials $f$ and $g$ satisfying\n$$\nf(x) g(x)=\\left(x-a_{1}\\right) \\ldots\\left(x-a_{n}\\right)-1 .\n$$\nLet $h(x)=f(x)+g(x)$. Now, for every $a_{i}$ we have $f\\left(a_{i}\\right) g\\left(a_{i}\\right)=-1$, so\n$$\nh\\left(a_{i}\\right)=f\\left(a_{i}\\right)+g\\left(a_{i}\\right)=0 .\n$$\nThus $h(x)$ has at least $n$ distinct roots, so it has degree at least $n$. But since $\\operatorname{deg} f+\\operatorname{deg} g=n$, this can only occur if one of $f$ and $g$ is a constant polynomial, which is what we wanted to prove."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-irreducibility-rational-root-theorem-gauss-s-lemma-eisenstein-auto-0686",
+      "name": "Harvard-MIT Math Tournament #0i1q",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial operations",
+        "Irreducibility: Rational Root Theorem, Gauss's Lemma, Eisenstein",
+        "Polynomials mod p"
+      ],
+      "statement": "Problem:\n\nDefine a monic irreducible polynomial with integral coefficients to be a polynomial with leading coefficient 1 that cannot be factored, and the prime factorization of a polynomial with leading coefficient 1 as the factorization into monic irreducible polynomials. How many not necessarily distinct monic irreducible polynomials are there in the prime factorization of $\\left(x^{8}+x^{4}+1\\right)\\left(x^{8}+x+1\\right)$ (for instance, $(x+1)^{2}$ has two prime factors)?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n$x^{8}+x^{4}+1=\\left(x^{8}+2 x^{4}+1\\right)-x^{4}=\\left(x^{4}+1\\right)^{2}-\\left(x^{2}\\right)^{2}=\\left(x^{4}-x^{2}+1\\right)\\left(x^{4}+x^{2}+1\\right)=\\left(x^{4}-x^{2}+1\\right)\\left(x^{2}+x+1\\right)\\left(x^{2}-x+1\\right)$, and $x^{8}+x+1=\\left(x^{2}+x+1\\right)\\left(x^{6}-x^{5}+x^{3}-x^{2}+1\\right)$. If an integer polynomial $f(x)=a_{n} x^{n}+\\cdots+a_{0}(\\bmod p)$, where $p$ does not divide $a_{n}$, has no zeros, then $f$ has no rational roots. Taking $p=2$, we find $x^{6}-x^{5}+x^{3}-x^{2}+1$ is irreducible. The prime factorization of our polynomial is thus $\\left(x^{4}-x^{2}+1\\right)\\left(x^{2}-x+1\\right)\\left(x^{2}+x+1\\right)^{2}\\left(x^{6}-x^{5}+x^{3}-x^{2}+1\\right)$, so the answer is 5 ."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-irreducibility-rational-root-theorem-gauss-s-lemma-eisenstein-auto-1093",
+      "name": "Bay Area Mathematical Olympiad #0id1",
+      "url": "https://usamoguide.com/",
+      "source": "Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Irreducibility: Rational Root Theorem, Gauss's Lemma, Eisenstein",
+        "Intermediate Value Theorem",
+        "Prime numbers"
+      ],
+      "statement": "Problem:\nFind (with proof) all monic polynomials $f(x)$ with integer coefficients that satisfy the following two conditions.\n1. $f(0)=2004$.\n2. If $x$ is irrational, then $f(x)$ is also irrational.\n\n(Notes: A polynomial is monic if its highest degree term has coefficient 1. Thus, $f(x)=x^{4}-5 x^{3}-4 x+7$ is an example of a monic polynomial with integer coefficients.\nA number $x$ is rational if it can be written as a fraction of two integers. A number $x$ is irrational if it is a real number which cannot be written as a fraction of two integers. For example, $2 / 5$ and $-9$ are rational, while $\\sqrt{2}$ and $\\pi$ are well known to be irrational.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe polynomial $x+2004$ certainly meets the two conditions. In fact, this is the only one. We will prove this using three ingredients: the infinitude of primes, the Rational Roots Theorem for polynomials, and the approximation principle that $x^{n}$ dominates any polynomial of lower degree, for large enough $x$.\n\nNote that the only monic constant polynomial is $f(x)=1$, which fails Condition 1; and that the only monic degree 1 polynomial satisfying Condition 1 is $f(x)=x+2004$. Thus, we need to eliminate all polynomials of degree 2 or more. To this end, it is sufficient to show that, given any monic polynomial $f(x)$ with integer coefficients of degree 2 or more, there exists an integer $a$ such that $f(x)+a=0$ has an irrational solution $x$ (for then $f(x)=-a$ is rational for an irrational number $x$).\n\nLet $f(x)=x^{n}+c_{n-1} x^{n-1}+\\cdots+c_{1} x+c_{0}$ be a polynomial with integer coefficients, with $n \\geq 2$. It may be the case that $f(x)$ has no real roots, for example, if $n$ is even and the graph of $y=f(x)$ lies above the $x$-axis. But certainly, if $a$ is a sufficiently large negative integer, we can guarantee that $f(x)+a=0$ will have at least one real solution. In fact, by further making $a$ a larger negative number, we can ensure that, say, the largest of the solutions of $f(x)+a=0$ has absolute value bigger than 1: $|x|>1$.\n\nMoreover, regardless of how large a negative number $a$ needs to be, we can choose $a$ so that $c_{0}+a=-p$ where $p$ is prime. This is because there are infinitely many prime numbers. Now we can apply the Rational Roots Theorem, according to which all rational solutions $\\frac{r}{s}$ of the monic integer coefficient polynomial $f(x)+a$ must satisfy: $s$ divides the leading coefficient of $f(x)$ and $r$ divides the last (free term) of $f(x)$; in other words, $s$ divides 1 and $r$ divides $p$. Since $p$ is prime, this gives only four possible rational solutions: $x= \\pm 1, \\pm p$. Since we have ensured that $|x|>1$, we are left with $x= \\pm p$.\n\nLet $g(x)=f(x)+a$. From the well known inequalities of absolute values $|y+z| \\geq |y|-|z|$ and $|y+z| \\leq |y|+|z|$, we obtain:\n$$\n|g(x)|=\\left|x^{n}+c_{n-1} x^{n-1}+\\ldots+c_{1} x-p\\right| \\geq \\left|x^{n}\\right|-\\left|c_{n-1} x^{n-1}+\\ldots+c_{1} x-p\\right|\n$$\nand as long as $|x|>1$ and $n \\geq 2$:\n$$\n\\begin{aligned}\n\\left|c_{n-1} x^{n-1}+\\cdots+c_{1} x-p\\right| & \\leq \\left|c_{n-1}\\right||x|^{n-1}+\\cdots+\\left|c_{1}\\right||x|+p \\\\\n& \\leq \\left(\\left|c_{n-1}\\right|+\\cdots+\\left|c_{1}\\right|\\right)|x|^{n-1}+p^{n-1}\n\\end{aligned}\n$$\nIf we let $S=\\left|c_{n-1}\\right|+\\cdots+\\left|c_{1}\\right|$, we can put everything together:\n$$\n|g( \\pm p)| \\geq p^{n}-(S+1) p^{n-1}=p^{n-1}(p-(S+1))\n$$\nSince $S$ is fixed, we can choose the prime $p$ large enough so that $p>S+1$, and hence the quantity $p-(S+1)$ is positive. Therefore, $g( \\pm p) \\neq 0$.\n\nThus $g(x)$ has a real zero $x$, which cannot be rational since the only possibilities for rational zeros $\\pm p$ fail to be zeros by the above. We conclude that $x$ is an irrational root of $g(x)$, whereas $f(x)=-a$ is an integer, hence rational. This contradicts Condition 2, and eliminates all polynomials of degree 2 or more.\n\nFinally, we are left with only one possible solution: $f(x)=x+2004$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-irreducibility-rational-root-theorem-gauss-s-lemma-eisenstein-auto-1618",
+      "name": "Harvard-MIT Mathematics Tournament #0irm",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cyclic quadrilaterals",
+        "Triangle trigonometry",
+        "Angle chasing",
+        "Irreducibility: Rational Root Theorem, Gauss's Lemma, Eisenstein"
+      ],
+      "statement": "Problem:\n\nCyclic pentagon $ABCD E$ has side lengths $AB = BC = 5$, $CD = DE = 12$, and $AE = 14$. Determine the radius of its circumcircle.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $C'$ be the point on minor arc $BCD$ such that $BC' = 12$ and $C'D = 5$, and write $AC' = BD = C'E = x$, $AD = y$, and $BD = z$. Ptolemy applied to quadrilaterals $ABC'D$, $BC'DE$, and $ABDE$ gives\n$$\n\\begin{aligned}\n& x^2 = 12y + 5^2 \\\\\n& x^2 = 5z + 12^2 \\\\\n& yz = 14x + 5 \\cdot 12\n\\end{aligned}\n$$\nThen\n$$\n\\left(x^2 - 5^2\\right)\\left(x^2 - 12^2\\right) = 5 \\cdot 12 yz = 5 \\cdot 12 \\cdot 14x + 5^2 \\cdot 12^2\n$$\nfrom which $x^3 - 169x - 5 \\cdot 12 \\cdot 14 = 0$. Noting that $x > 13$, the rational root theorem leads quickly to the root $x = 15$. Then triangle $BCD$ has area $\\sqrt{16 \\cdot 1 \\cdot 4 \\cdot 11} = 8\\sqrt{11}$ and circumradius $R = \\frac{5 \\cdot 12 \\cdot 15}{4 \\cdot 8 \\sqrt{11}} = \\frac{225 \\sqrt{11}}{88}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-irreducibility-rational-root-theorem-gauss-s-lemma-eisenstein-auto-1832",
+      "name": "USAMO 2009 #0ixk",
+      "url": "https://usamoguide.com/",
+      "source": "USAMO 2009",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Factorization techniques",
+        "Techniques: modulo, size analysis, order analysis, inequalities",
+        "Irreducibility: Rational Root Theorem, Gauss's Lemma, Eisenstein",
+        "Polynomial operations"
+      ],
+      "statement": "Let $s_1, s_2, s_3, \\dots$ be an infinite, non-constant sequence of rational numbers, meaning it is not the case that $s_1 = s_2 = s_3 = \\dots$. Suppose that $t_1, t_2, t_3, \\dots$ is also an infinite, non-constant sequence of rational numbers with the property that $(s_i - s_j)(t_i - t_j)$ is an integer for all $i$ and $j$. Prove that there exists a rational number $r$ such that $(s_i - s_j)r$ and $(t_i - t_j)/r$ are integers for all $i$ and $j$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**Solution 1 (By Gabriel Carroll).** First, we claim there exist $i, j$ such that $(s_i-s_j)(t_i-t_j) \\neq 0$. Indeed, for any fixed $i$, because the sequence $s_1, s_2, \\dots$ is non-constant, there is some $j$ such that $s_j \\neq s_i$. If $t_j \\neq t_i$ the claim follows, so suppose $t_j = t_i$. Because the sequence $t_1, t_2, \\dots$ is nonconstant, there exists $k$ such that $t_k \\neq t_i$. If $s_k \\neq s_i$ the claim again follows, so suppose $s_k = s_i$. Then $(s_j - s_k)(t_j - t_k) = (s_j - s_i)(t_i - t_k) \\neq 0$, and the claim is proven. We can reorder the pairs $(s_i, t_i)$ relative to each other without affecting either the hypothesis or the conclusion of the problem. So by a suitable reordering, we may assume that $(s_1 - s_2)(t_1 - t_2) \\neq 0$.\n\nSecond, for any constants $a$ and $b$, we can replace $s_i$ by $s_i - a$ and $t_i$ by $t_i - b$ for all $i$ without affecting either the hypothesis or the conclusion of the problem (since all the differences $s_i - s_j$ and $t_i - t_j$ remain unchanged). In particular, by taking $a = s_1$ and $b = t_1$, we may assume that $s_1 = t_1 = 0$. So we have reduced the problem to the case $s_1 = t_1 = 0$, $s_2 \\neq 0$, $t_2 \\neq 0$.\n\nCall a pair of positive rational numbers $(A, B)$ good if $AB$ is an integer, and $As_j$ and $Bt_j$ are also integers for all $j$.\n\nThird, we show that a good pair exists. We know that for all $i \\ge 2$, $(s_i - s_1)(t_i - t_1) = s_i t_i$ is an integer; and for all $i, j \\ge 2$, $(s_i - s_j)(t_i - t_j) = s_i t_i - s_i t_j - s_j t_i + s_j t_j$ is an integer, which implies $s_i t_j + s_j t_i$ is an integer. Write the rational numbers $s_j, t_j$ in lowest terms as $s_j = p_j/q_j$ and $t_j = u_j/v_j$. We know that, for each $j$, $s_j t_j = p_j u_j / q_j v_j$ is an integer. Because $u_j$ is relatively prime to $v_j$, then, $p_j$ is divisible by $v_j$, say $p_j = d_j v_j$ for some integer $d_j$. We also know that\n$$\ns_2 t_j + s_j t_2 = \\frac{p_2 u_j}{q_2 v_j} + \\frac{p_j u_2}{q_j v_2} = \\frac{p_2 u_j q_j v_2 + p_j u_2 q_2 v_j}{q_2 v_j q_j v_2}\n$$\nis an integer. In particular, $q_j$, being a factor of the denominator, must divide the numerator. But $q_j$ divides $p_2 u_j q_j v_2$, so it also divides the other term, $p_j u_2 q_2 v_j = d_j u_2 q_2 v_j^2$. Since $q_j$ is relatively prime to $p_j = d_j v_j$, it must divide $u_2 q_2$. Moreover, $u_2 q_2 \\neq 0$, because of our assumption $t_2 \\neq 0$. So we have a positive integer $A = |u_2 q_2|$ such that $As_j$ is an integer for all $j$. Analogously, we can find a positive integer $B$ such that $Bt_j$ is an integer for all $j$. This $(A, B)$ constitute a good pair, proving existence.\n\nNow we are ready to complete our proof. We know that some good pair exists. We consider a good pair for which the product $AB$ is as small as possible. We will show that $AB = 1$. Suppose that, for the minimal good pair, $AB > 1$; then $AB$ has a prime factor $p$. If the integer $As_i$ is divisible by $p$ for all $i$, then we can divide $A$ by $p$ and obtain a new good pair $(A/p, B)$ having a smaller product than before — a contradiction. So for some $i$, $As_i$ is not divisible by $p$. Then $Bt_i$ must be divisible by $p$, because $s_i t_i$ is an integer and so $(As_i)(Bt_i) = (AB)(s_i t_i)$ is an integer divisible by $p$. Likewise, there exists some $j$ such that $Bt_j$ is not divisible by $p$, but $As_j$ is. Now write\n$$\n(AB)(s_i t_j + s_j t_i) - (As_j)(Bt_i) = (As_i)(Bt_j).\n$$\nAll the parenthesized factors are integers, and the left-hand side is divisible by $p$, but the right-hand side is not. This contradiction completes the proof that the minimal good pair satisfies $AB = 1$.\n\nBut now take the minimal good pair $(A, B)$, and let $r = A$. We have that $s_i r = As_i$ and $t_i / r = Bt_i$ are integers for all $i$, from which our desired conclusion follows.\n\n\n**Solution 2 (By Lenhard Ng).** For $p$ a prime, define the $p$-adic norm $\\| \\cdot \\|_p$ on rational numbers as follows: for $r \\neq 0$, $\\|r\\|_p$ is the unique integer $n$ for which we can write $r = p^n a/b$ with $a, b$ integers not divisible by $p$. (By convention, $\\|0\\|_p = +\\infty$.) We will repeatedly use the well-known (or easy to prove) fact that for any rational numbers $r_1, r_2$, we have $\\|r_1 \\pm r_2\\|_p \\ge \\min(\\|r_1\\|_p, \\|r_2\\|_p)$, with equality whenever $\\|r_1\\|_p \\neq \\|r_2\\|_p$. The condition of the problem implies that\n$$\n\\|s_i - s_j\\|_p \\ge -\\|t_i - t_j\\|_p \\qquad (1)\n$$\nfor all $i, j$ and all primes $p$.\n\nWe claim in fact that\n$$\n\\|s_i - s_j\\|_p \\geq -\\|t_k - t_l\\|_p\n$$\nfor all $i, j, k, l$ and all prime $p$. Suppose otherwise; then there exist $i, j, k, l, p$ for which $\\|s_i - s_j\\|_p < -\\|t_k - t_l\\|_p$. Since $\\|s_i - s_j\\|_p = \\|(s_i - s_k) - (s_j - s_k)\\|_p \\geq \\min(\\|s_i - s_k\\|_p, \\|s_j - s_k\\|_p)$, at least one of $\\|s_i - s_k\\|_p$ and $\\|s_j - s_k\\|_p$, say the former, is strictly less than $-\\|t_k - t_l\\|_p$. By (1), it follows that $\\|t_i - t_k\\|_p > \\|t_k - t_l\\|_p$, and thus $\\|t_i - t_l\\|_p = \\|(t_i - t_k) + (t_k - t_l)\\|_p = \\|t_k - t_l\\|_p$. Then by (1) again, $\\|s_i - s_l\\|_p \\geq -\\|t_k - t_l\\|_p$ and $\\|s_k - s_l\\|_p \\geq -\\|t_k - t_l\\|_p$, whence $\\|s_i - s_k\\|_p = \\|(s_i - s_l) - (s_k - s_l)\\|_p \\geq -\\|t_k - t_l\\|_p$, contradicting the assumption that $\\|s_i - s_k\\|_p < -\\|t_k - t_l\\|_p$. This proves the claim.\n\nNow for each prime $p$, define the integer $f(p) = \\min_{i,j} \\|s_i - s_j\\|_p$. Choose $i_0, j_0, k_0, l_0$ such that $s_{i_0} \\neq s_{j_0}$ and $t_{k_0} \\neq t_{l_0}$; then $f(p)$ exists since it is bounded below by $-\\|t_{k_0} - t_{l_0}\\|_p$ (by the claim) and above by $\\|s_{i_0} - s_{j_0}\\|_p$. Moreover, if $p$ does not divide the numerator or denominator of either $s_{i_0} - s_{j_0}$ or $t_{k_0} - t_{l_0}$, then $\\|s_{i_0} - s_{j_0}\\|_p = \\|t_{k_0} - t_{l_0}\\|_p = 0$ and thus $f(p) = 0$. It follows that $f(p) = 0$ for all but finitely many primes.\n\nWe can now define $r = \\prod_p p^{-f(p)}$, where the product is over all primes. For any $i, j$, we have $\\|s_i - s_j\\|_p \\geq f(p)$ for all $p$ by construction, and so $(s_i - s_j)r$ is an integer. On the other hand, for any $k, l$ and any prime $p$, $\\|t_k - t_l\\|_p \\geq -\\|s_i - s_j\\|_p$ for all $i, j$ by the claim, and so $\\|t_k - t_l\\|_p \\geq -f(p)$. It follows that $(t_k - t_l)/r$ is an integer for all $k, l$, whence $r$ is the desired rational number.\n\n\n**Solution 3** (Based on work by Evan O'Dorney). As in the first solution, we reduce to the case $s_1 = t_1 = 0$ and conclude that $s_i t_j + s_j t_i$ is an integer for $i, j \\geq 2$. For each positive integer $n \\geq 2$, let $S_n$ be the set of rational numbers $r$ such that $s_i r$ and $t_i/r$ are integers for $i = 2, 3, \\dots, n$. Clearly, we have $S_{n+1} \\subseteq S_n$. On the other hand, since neither sequence is constant, there exists some $n$ such that $s_i$ and $t_j$ are nonzero for some indices $i, j$ in $\\{2, 3, \\dots, n\\}$. If we write $s_i = a/b$ and $t_j = c/d$ in lowest terms, then for any $r = e/f \\in S_n$ written in lowest terms, $f$ must divide $a$ and $e$ must divide $c$. This proves that $S_n$ is a finite set, and therefore so is $S_k$ for $k > n$.\n\nNow form the polynomials\n$$\nP(x) = s_2 + s_3 x + \\dots + s_n x^{n-1} \\quad \\text{and} \\quad Q(x) = t_2 + t_3 x + \\dots + t_n x^{n-1}\n$$\nand note that $P(x)Q(x)$ has integer coefficients (because its coefficients are sums of terms of the form $s_i t_j + s_j t_i$ and $s_i t_i$). By Gauss' lemma, there exists a rational number $r$ such that $P(x)r$ and $Q(x)/r$ have integer coefficients, so $r \\in S_n$ and $S_n$ is non-empty.\n\nWe now have a decreasing sequence of finite sets $S_2 \\supseteq S_3 \\supseteq \\dots$, each of which is non-empty. Their intersection must then be non-empty (e.g., because there is a least cardinality, and once that is achieved the sets are all equal). For any $r$ in that intersection, then, we have that $s_i r$ and $t_i/r$ are integers for all $i$, giving the desired conclusion."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-irreducibility-rational-root-theorem-gauss-s-lemma-eisenstein-auto-2707",
+      "name": "IMO Team Selection Test #0jlv",
+      "url": "https://usamoguide.com/",
+      "source": "IMO Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Primitive roots mod p / p^n",
+        "Polynomials mod p",
+        "Roots of unity",
+        "Irreducibility: Rational Root Theorem, Gauss's Lemma, Eisenstein",
+        "Vieta's formulas",
+        "Group Theory"
+      ],
+      "statement": "For a prime $p$, a subset $S$ of residues modulo $p$ is called a *sum-free multiplicative subgroup of $\\mathbb{F}_p$* if:\n\n* there is a nonzero residue $\\alpha$ modulo $p$ such that $S = \\{1, \\alpha^1, \\alpha^2, \\dots\\}$ (all considered mod $p$), and\n* there are no $a, b, c \\in S$ (not necessarily distinct) such that $a + b \\equiv c \\pmod p$.\n\nProve that for every integer $N$, there is a prime $p$ and a sum-free multiplicative subgroup $S$ of $\\mathbb{F}_p$ such that $|S| \\ge N$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "We prove a stronger statement, generalizing the desired condition \"$0 \\notin S + S - S$\" to \"$0 \\notin a_1S + a_2S + \\dots + a_kS$\", for fixed integers $a_1, \\dots, a_k$ with nonzero sum $a_1 + \\dots + a_k$. (In the original problem we have $(a_1, \\dots, a_k) = (1, 1, -1)$ (so $k=3$).\n\nFix a positive integer $N$ (we will specify further later), and take a large prime $p \\equiv 1 \\pmod N$ (we don't need Dirichlet—there are infinitely many by a cyclotomic polynomial argument, along the lines of using $x^2 + 1$ for $N=4$).\n\nAgain, we will specify the size of $p$ later. Now let $\\alpha$ be an $N$th root of unity modulo $p$ (i.e. $\\alpha = g^{(p-1)/N}$ for a primitive root $g$, so $\\alpha$ has order $N$). Then the key is the following lemma:\n\n**Lemma.** If the sumset $a_1S + a_2S + \\dots + a_kS$ contains $0 \\pmod p$ for arbitrarily large primes $p \\equiv 1 \\pmod N$, then there exist indices $i_1, i_2, \\dots, i_k$ between $0$ and $N-1$ such that the polynomial $f(x) = a_1x^{i_1} + \\dots + a_kx^{i_k}$ is divisible by the $N$th cyclotomic polynomial $\\Phi_N(x)$ (over $\\mathbb{Q}$, and thus $\\mathbb{Z}$).\n\n(We will use the irreducibility of $\\Phi_N$, but we only need special cases such as $N$ prime, where the proof is easy.)\n\n*Proof.* The idea is to “transfer” from $N$th roots of unity modulo $p$ to “actual” $N$th roots of unity. First, the sumset’s containing $0$ is equivalent to the existence of $0 \\le i_1, i_2, \\dots, i_k \\le N-1$ (since $\\alpha^N \\equiv 1 \\pmod p$) such that $f(\\alpha) \\equiv 0 \\pmod p$.\n\nWe present two (similar) ways to do this. One is to use the Mobius-inversion-type definition of cyclotomic polynomials to show that in $\\mathbb{F}_p$, the roots of the polynomial $\\Phi_N(x)$ are precisely the residues of order $N$; in particular, $p$ divides $\\Phi_N(\\alpha)$. Now by Bezout's identity, there exist integer polynomials $A(x), B(x)$ and a nonzero integer $C$ such that $C \\gcd(\\Phi_N(x), f(x)) = A(x)f(x) + B(x)\\Phi_N(x)$, where the $\\gcd$ (over $\\mathbb{Q}$) is, without loss of generality, monic. Assume for the sake of contradiction that $\\gcd(\\Phi_N(x), f(x))$ is constant, so, without loss of generality, identically $1$. Then plugging in $\\alpha$, we get $p$ divides $C$ for arbitrarily large primes $p \\equiv 1 \\pmod N$, which is absurd. Thus $f(x)$ and $\\Phi_N(x)$ share a complex root, and by the irreducibility of $\\Phi_N(x)$, $f(x)$ is divisible by $\\Phi_N(x)$. ($*$)\n\nAlternatively, by counting roots, it is easy to show that in $\\mathbb{F}_p$, we have the polynomial identity $x^N-1 \\equiv (x-\\alpha)\\dots(x-\\alpha^N)$. If $z$ is a primitive $N$th root of unity, then in $\\mathbb{C}$, we have $x^N-1 = (x-z)\\dots(x-z^N)$, so the symmetric sums of $z, \\dots, z^N$ are congruent modulo $p$ to those of $\\alpha, \\dots, \\alpha^N$. It follows by the theorem of symmetric sums that the product of $f(\\alpha)$ over all valid indices $0 \\le i_1, \\dots, i_k \\le N-1$ (each choice determines some $f$) is an integer congruent modulo $p$ to the (integer) product of $f(z)$ over all valid indices $0 \\le i_1, \\dots, i_k \\le N-1$. Thus arbitrarily large primes $p$ divide the integer $\\prod_{[0,N-1]^k} f(z)$, which must therefore be $0$. Thus there exists a choice of indices such that $f(z)$ is identically $0$, and thus the minimal polynomial $\\Phi_N(x)$ (again, we use irreducibility as in $(*$)) of $z$ divides $f(x)$. $\\square$\n\nWith the lemma in hand, the rest is easy. Choose $N=q$ any prime. Then $\\Phi_N(x) = \\Phi_q(x) = (x^q-1)/(x-1)$ divides $f(x) = a_1x^{i_1} + \\dots + a_kx^{i_k}$, a $k$-term polynomial that is either identically zero or otherwise a nonzero polynomial of degree at most $N-1=q-1$. However, if $f$ is not identically zero, and $q>k$, then since $(x^q-1)/(x-1) = x^{q-1} + \\dots + 1$ has degree $q-1$ (which is at least the degree of $f$), the coefficients of $f$ must all be equal. Yet $i_1, \\dots, i_k$ cannot cover all of $0, 1, \\dots, q-1$, so one of the coefficients of $f$ must be $0$, and therefore all must be $0$.\n\nIt follows that $f$ is identically zero, so $f(1) = a_1 + \\dots + a_k = 0$, contradiction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-irreducibility-rational-root-theorem-gauss-s-lemma-eisenstein-auto-3162",
+      "name": "HMMT November #0jyi",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Angle chasing",
+        "Distance chasing",
+        "Irreducibility: Rational Root Theorem, Gauss's Lemma, Eisenstein"
+      ],
+      "statement": "Problem:\n\nIn unit square $ABCD$, points $E, F, G$ are chosen on side $BC, CD, DA$ respectively such that $AE$ is perpendicular to $EF$ and $EF$ is perpendicular to $FG$. Given that $GA=\\frac{404}{1331}$, find all possible values of the length of $BE$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $BE = x$, then since triangles $ABE, ECF, FDG$ are all similar, we have $CE = 1 - x$, $CF = x(1 - x)$, $FD = 1 - x(1 - x)$, $DG = x - x^{2}(1 - x)$, $GA = 1 - x + x^{2}(1 - x) = (1 - x)(x^{2} + 1)$, therefore it remains to solve the equation\n$$\n(1 - x)(x^{2} + 1) = \\frac{404}{1331}\n$$\nWe first seek rational solutions $x = \\frac{p}{q}$ for relatively prime positive integers $p, q$. Therefore we have $\\frac{(q - p)(p^{2} + q^{2})}{q^{3}} = \\frac{404}{1331}$. Since both $q - p$ and $p^{2} + q^{2}$ are relatively prime to $q^{3}$, we have $q^{3} = 1331 \\Rightarrow q = 11$, so $(11 - p)(p^{2} + 121) = 404 = 2^{2} \\cdot 101$, and it is not difficult to see that $p = 9$ is the only integral solution. We can therefore rewrite the original equation as\n$$\n\\left(x - \\frac{9}{11}\\right)\\left(x^{2} - \\frac{2}{11}x + \\frac{103}{121}\\right) = 0.\n$$\nIt is not difficult to check that the quadratic factor has no zeroes, therefore $BE = x = \\frac{9}{11}$ is the only solution."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-irreducibility-rational-root-theorem-gauss-s-lemma-eisenstein-auto-3384",
+      "name": "Bay Area Mathematical Olympiad #0k4o",
+      "url": "https://usamoguide.com/",
+      "source": "Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Trigonometry",
+        "Angle chasing",
+        "Triangle trigonometry",
+        "Irreducibility: Rational Root Theorem, Gauss's Lemma, Eisenstein"
+      ],
+      "statement": "Problem:\n\nTo dissect a polygon means to divide it into several regions by cutting along finitely many line segments. For example, the diagram below shows a dissection of a hexagon into two triangles and two quadrilaterals:\n\n![](attached_image_1.png)\n\nAn integer-ratio right triangle is a right triangle whose side lengths are in an integer ratio. For example, a triangle with sides $3, 4, 5$ is an integer-ratio right triangle, and so is a triangle with sides $\\frac{5}{2} \\sqrt{3}, 6 \\sqrt{3}, \\frac{13}{2} \\sqrt{3}$. On the other hand, the right triangle with sides $\\sqrt{2}, \\sqrt{5}, \\sqrt{7}$ is not an integer-ratio right triangle.\n\nDetermine, with proof, all integers $n$ for which it is possible to completely dissect a regular $n$-sided polygon into integer-ratio right triangles.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAbbreviate integer-ratio right triangle by IRRT.\n\nThe square $(n=4)$ has such a decomposition. For example, a $12 \\times 12$ square can be cut into twenty-four 3-4-5 triangles as shown below:\n\n![](attached_image_2.png)\n\nNow we show that $n=4$ is the only solution. The proof is by contradiction. Suppose an $n$-gon with $n \\neq 4$ (and $n \\geq 3$) has a dissection into IRRTs. Choose an arbitrary vertex $P$ of the $n$-gon. One or more IRRTs meet at $P$; let their internal angles at $P$ be $\\theta_{1}, \\theta_{2}, \\ldots, \\theta_{k}$, where we have\n$$\n\\theta_{1}+\\theta_{2}+\\cdots+\\theta_{k}=\\frac{n-2}{n} \\cdot \\pi .\n$$\nObserve that $\\sin \\theta_{i}$ and $\\cos \\theta_{i}$ are rational for each $i=1, \\ldots, k$. By applying angle-sum identities, we may infer that the sine and cosine of $\\frac{n-2}{n} \\cdot \\pi$, and thus of $2 \\pi / n$, are rational as well. Applying angle-sum identities again, it follows that for any divisor $m$ of $n$, the sine and cosine of $2 \\pi / m$ are also rational. Since $n \\neq 4$ and $n \\geq 3, n$ has a divisor which is either 8 or an odd prime. So, we can restrict our attention to these two cases.\n\nFor $n=8$, we have $\\sin (2 \\pi / 8)=\\sqrt{2} / 2$. This is irrational, so we have our contradiction.\n\nNow we consider the case $n=p$ where $p$ is an odd prime. Let $t=\\tan (2 \\pi / p)$, which must be rational. By the multiple-angle identity for tangents, $t$ satisfies\n$$\np t-\\left(\\begin{array}{l}\np \\\\\n3\n\\end{array}\\right) t^{3}+\\left(\\begin{array}{c}\np \\\\\n5\n\\end{array}\\right) t^{5}-\\cdots \\pm t^{p}=0\n$$\nBy the Rational Root Theorem, the only possible rational values of $t$ are $t= \\pm 1$ and $t= \\pm p$. But $t \\neq \\pm 1$, because $\\frac{2 \\pi}{p} \\neq \\frac{\\pi}{4}, \\frac{3 \\pi}{4}, \\frac{5 \\pi}{4}, \\frac{7 \\pi}{4}$. If $t= \\pm p$, then the left-hand side of (2) is congruent to $p^{2}\\left(\\bmod p^{3}\\right)$ and thus cannot equal 0. Again, we have a contradiction.\n\nIt follows that no $n$-gon with $n \\neq 4$ has a dissection into IRRTs."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-irreducibility-rational-root-theorem-gauss-s-lemma-eisenstein-auto-3791",
+      "name": "USA TSTST #0kfz",
+      "url": "https://usamoguide.com/",
+      "source": "USA TSTST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle trigonometry",
+        "Trigonometry",
+        "Chebyshev polynomials",
+        "Irreducibility: Rational Root Theorem, Gauss's Lemma, Eisenstein",
+        "Greatest common divisors (gcd)"
+      ],
+      "statement": "We say a nondegenerate triangle whose angles have measures $\\theta_1, \\theta_2, \\theta_3$ is *quirky* if there exists integers $r_1, r_2, r_3$, not all zero, such that\n$$\nr_1\\theta_1 + r_2\\theta_2 + r_3\\theta_3 = 0.\n$$\nFind all integers $n \\ge 3$ for which a triangle with side lengths $n-1, n, n+1$ is quirky.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "The answer is $n = 3, 4, 5, 7$.\nWe first introduce a variant of the $k$th Chebyshev polynomials in the following lemma (which is standard, and easily shown by induction).\n\n**Lemma**\nFor each $k \\ge 0$ there exists $P_k(X) \\in \\mathbb{Z}[X]$, monic for $k \\ge 1$ and with degree $k$, such that\n$$\nP_k(X + X^{-1}) \\equiv X^k + X^{-k}.\n$$\nThe first few are $P_0(X) \\equiv 2$, $P_1(X) \\equiv X$, $P_2(X) \\equiv X^2 - 2$, $P_3(X) \\equiv X^3 - 3X$.\n\nSuppose the angles of the triangle are $\\alpha < \\beta < \\gamma$, so the law of cosines implies that\n$$\n2 \\cos \\alpha = \\frac{n+4}{n+1} \\quad \\text{and} \\quad 2 \\cos \\gamma = \\frac{n-4}{n-1}.\n$$\n\n**Claim** — The triangle is quirky iff there exists $r, s \\in \\mathbb{Z}_{\\ge 0}$ not both zero such that\n$$\n\\cos(r\\alpha) = \\pm \\cos(s\\gamma) \\quad \\text{or equivalently} \\quad P_r\\left(\\frac{n+4}{n+1}\\right) = \\pm P_s\\left(\\frac{n-4}{n-1}\\right).\n$$\n*Proof.* If there are integers $x, y, z$ for which $x\\alpha + y\\beta + z\\gamma = 0$, then we have that $(x - y)\\alpha = (y - z)\\gamma - \\pi y$, whence it follows that we may take $r = |x - y|$ and $s = |y - z|$ (noting $r = s = 0$ implies the absurd $x = y = z$). Conversely, given such $r$ and $s$ with $\\cos(r\\alpha) = \\pm \\cos(s\\gamma)$, then it follows that $r\\alpha \\pm s\\gamma = k\\pi = k(\\alpha + \\beta + \\gamma)$ for some $k$, so the triangle is quirky. $\\square$\n\nIf $r = 0$, then by rational root theorem on $P_s(X) \\pm 2$ it follows $\\frac{n-4}{n-1}$ must be an integer which occurs only when $n = 4$ (recall $n \\ge 3$). Similarly we may discard the case $s = 0$.\n\nThus in what follows assume $n \\ne 4$ and $r, s > 0$. Then, from the fact that $P_r$ and $P_s$ are nonconstant monic polynomials, we find\n\n**Corollary**\nIf $n \\ne 4$ works, then when $\\frac{n+4}{n+1}$ and $\\frac{n-4}{n-1}$ are written as fractions in lowest terms, the denominators have the same set of prime factors.\n\nBut $\\gcd(n+1, n-1)$ divides 2, and $\\gcd(n+4, n+1)$, $\\gcd(n-4, n-1)$ divide 3. So we only have three possibilities:\n\n* $n + 1 = 2^u$ and $n - 1 = 2^v$ for some $u, v \\ge 0$. This is only possible if $n = 3$. Here $2 \\cos \\alpha = \\frac{7}{4}$ and $2 \\cos \\gamma = -\\frac{1}{2}$, and indeed $P_2(-1/2) = -7/4$.\n\n* $n + 1 = 3 \\cdot 2^u$ and $n - 1 = 2^v$ for some $u, v \\ge 0$, which implies $n = 5$. Here $2 \\cos \\alpha = \\frac{3}{2}$ and $2 \\cos \\gamma = \\frac{1}{4}$, and indeed $P_2(3/2) = 1/4$.\n\n* $n + 1 = 2^u$ and $n - 1 = 3 \\cdot 2^v$ for some $u, v \\ge 0$, which implies $n = 7$. Here $2 \\cos \\alpha = \\frac{11}{8}$ and $2 \\cos \\gamma = \\frac{1}{2}$, and indeed $P_3(1/2) = -11/8$.\n\nFinally, $n = 4$ works because the triangle is right, completing the solution."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-irreducibility-rational-root-theorem-gauss-s-lemma-eisenstein-auto-4017",
+      "name": "Berkeley Math Circle: Monthly Contest 5 #0km9",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 5",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Irreducibility: Rational Root Theorem, Gauss's Lemma, Eisenstein",
+        "Vieta's formulas",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\n\nCan $x^{2020}-8$ be written as the product of two nonconstant polynomials with integer coefficients?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe answer is no. Indeed, suppose we had $x^{2020}-8 = f \\cdot g$. Since every complex root of $f$ has absolute value $\\sqrt[2020]{8}$, and the product of these roots is an integer (by Vieta's formula), we conclude that\n$$\n8^{\\frac{\\operatorname{deg} f}{2020}} = 2^{\\frac{3 \\operatorname{deg} f}{2020}}\n$$\nmust be an integer, which could only occur if $\\operatorname{deg} f \\in \\{0, 2020\\}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

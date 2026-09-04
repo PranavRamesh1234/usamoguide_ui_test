@@ -1,0 +1,128 @@
+---
+id: intro-probability
+title: Introduction to Probability
+author: USAMO Guide Team
+description: Basic probability, complements, and simple counting-based models.
+prerequisites: []
+---
+
+## Overview
+
+Probability questions often reduce to counting. Define a clear sample space,
+count favorable outcomes, and use complements when easier.
+
+When outcomes are not equally likely, use conditional probability, tree
+diagrams, or symmetry to compute probabilities directly.
+
+## Key Ideas
+
+- For equally likely outcomes, use $P(A) =$ favorable outcomes / total outcomes.
+- $P(A^c) = 1 - P(A)$ is often simpler to compute.
+- Use the rule of product to count outcomes in multi-step experiments.
+- Conditional probability: $P(A\mid B) = P(A\cap B)/P(B)$.
+- Independence: $P(A\cap B) = P(A)P(B)$.
+- Distinguish dependent events (without replacement) from independent events
+	(with replacement, or separate trials).
+
+## Core Skills
+
+### Define the Sample Space
+
+List the outcomes or count them with a method like the rule of product. Every
+probability is a ratio of favorable to total outcomes.
+
+### Use Complements Early
+
+If the event is "at least" or "not equal", count the opposite event first.
+
+### Track Conditional Events
+
+After a condition occurs, update the sample space before counting.
+
+### Distinguishability and Cases
+
+If outcomes are generated in stages, check whether order creates different
+outcomes. If yes, use ordered counting and then convert to probability.
+
+For non-uniform sample spaces, split into clean cases, compute each case
+probability, and add.
+
+### Expected value
+For a random variable $X$ with outcomes $x_1, x_2, \ldots, x_n$ occurring with probabilities $p_1, p_2, \ldots, p_n$
+is the weighted average:
+ 
+$$
+E[X] \;=\; \sum_{i=1}^{n} x_i \, p_i.
+$$
+ 
+The single most important property is the linearity of expectation, for any
+random variables $X$ and $Y$ (even dependent ones),
+ 
+$$
+E[X + Y] \;=\; E[X] + E[Y].
+$$
+
+## Worked Example
+
+Two fair dice are rolled. What is the probability the sum is $7$?
+
+There are $36$ equally likely outcomes. The favorable pairs are
+$(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)$, so the probability is $6/36 = 1/6$.
+
+## More Examples
+
+### Example 1: Conditional Probability
+
+A bag has 3 red and 2 blue marbles. Two marbles are drawn without replacement.
+What is the probability the second marble is red given the first is red?
+
+After drawing one red, the bag has 2 red and 2 blue left, so the probability is
+$2/4 = 1/2$.
+
+### Example 2: Independence Check
+
+Flip a fair coin twice. Let $A$ be "first flip is heads" and $B$ be
+"second flip is heads". Then $P(A)=P(B)=1/2$ and
+$P(A\cap B)=1/4 = P(A)P(B)$, so $A$ and $B$ are independent.
+
+### Example 3: Complement
+
+What is the probability that at least one of two fair dice shows a $6$?
+
+Complement: no $6$ on either die. That is $(5/6)^2 = 25/36$.
+So the probability is $1 - 25/36 = 11/36$.
+
+### Example 5: Dependent vs. Independent
+
+Two marbles are drawn from a bag with 4 red and 3 blue marbles.
+
+- With replacement: $P(\text{red then red}) = \frac{4}{7}\cdot\frac{4}{7}$.
+- Without replacement: $P(\text{red then red}) = \frac{4}{7}\cdot\frac{3}{6}$.
+
+The denominators change only in the dependent case.
+
+### Example 4: Expected Value
+
+A fair die is rolled once. If it shows $k$, you win $k^2$ dollars. What is the
+expected winnings?
+
+$\frac{1+4+9+16+25+36}{6} = \frac{91}{6}$ 
+
+
+## Strategy Checklist
+
+- Decide if outcomes are equally likely.
+- Use complements for "at least" or "not" statements.
+- Rebuild the sample space after conditioning.
+- Check independence before multiplying probabilities.
+
+## Common Pitfalls
+
+- Assuming outcomes are equally likely without checking.
+- Forgetting to count order when it matters.
+- Using $P(A\mid B) = P(A) / P(B)$ by mistake.
+- Treating dependent events as independent.
+
+## Practice Problems
+
+<Problems problems="practice" />

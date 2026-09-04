@@ -1,0 +1,116 @@
+---
+id: venn-diagrams-sets
+title: Venn Diagrams and Basic Sets
+author: Siddhant Arora
+description: Visually organizing overlapping data categories.
+prerequisites: []
+---
+
+<IncompleteSection />
+
+## Visualize!
+
+Managing information is hard! There are many problems which concern a number of certain things that match certain criteria, which can simply be a mess to solve algebraically. Luckily, Venn diagrams allow us to organize our counting and effectively solve such types of problems.
+
+## Sets
+
+Throughout this module, you should know a little bit of set notation. To give a refresher:
+
+
+A **set** is a collection of distinct objects, called its **elements**, written inside curly braces like $A = \{1, 2, 3\}$. Order doesn't matter and repeats don't count.
+ 
+1) $x \in A$ means "$x$ is an element of $A$"; $x \notin A$ means it isn't.
+2) $|A|$ is the **cardinality** — the number of elements in $A$.
+3) $\varnothing$ is the **empty set**, with $|\varnothing| = 0$.
+4) $A \subseteq B$ means every element of $A$ is also in $B$ ($A$ is a **subset** of $B$).
+5) $U$ is the **universal set**: everything under consideration in the problem.
+6) $A \cup B$ (**union**) is everything in $A$ or $B$; $A \cap B$ (**intersection**) is everything in both.
+7) $\overline{A}$ (**complement**) is everything in $U$ not in $A$, so $|\overline{A}| = |U| - |A|$.
+8) A two-circle Venn diagram has four regions: only $A$, only $B$, both $A$ and $B$, and neither.
+9) $|A \cup B| = |A| + |B| - |A \cap B|$ (inclusion-exclusion for two sets).
+
+## Use Cases
+
+In roughly 90% of problems involving several types of criteria (people who take a certain amount of subjects, a deck of cards, etc.), Venn diagrams help in effectively and efficiently solving the problem. However, there is the occasional problem that can be solved quite intuitively without needing a Venn diagram to visualize.
+
+The key steps you should take are:
+
+1) Initialize categories as circles (usually named with letters: *A, B, C*, ...)
+2) Overlap the categories (sometimes two categories shouldn't be overlapped if the problem explicitly states that; however, in your diagram it is still fine to overlap them as long as you remember that the overlap may have length 0)
+3) Use conditions given in the problem to label areas (areas being regions in the diagram where a certain number of categories have that property, i.e., a region of overlap)
+
+## Techniques
+
+Here are a couple of useful techniques that are nice to know for pattern recognition:
+
+### Inclusion-Exclusion
+ 
+For two sets,
+$$
+|A \cup B| = |A| + |B| - |A \cap B|,
+$$
+and for three,
+$$
+|A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C|.
+$$
+The pattern continues for more sets: add all single sets, subtract all pairwise intersections, add all triples, subtract all quadruples, and so on, alternating signs. This is also known as the **Principle of Inclusion-Exclusion** or **PIE**.
+ 
+### Complementary Counting
+ 
+Often "at least one" is annoying to count directly, but "none" is easy. Since every element is either in $A \cup B$ or outside it,
+$$
+|A \cup B| = |U| - |\overline{A} \cap \overline{B}|.
+$$
+Whenever a problem gives you the "neither" count (or asks for it), use this!
+ 
+### Watch the Wording
+ 
+A few phrases that trip people up:
+- "$|A|$" usually means *everyone* in $A$, including those also in $B$ — not the "only $A$" region.
+- "exactly one of $A$, $B$" means $|A| + |B| - 2|A \cap B|$, since the overlap is removed from both $|A|$ and $|B|$ — that is, *twice*.
+- "at least two of $A$, $B$, $C$" means add the three pairwise overlaps but subtract $2|A \cap B \cap C|$, since the triple region was counted three times.
+ 
+## Demonstration
+
+Like most concepts, Venn diagrams are best explained through example problems. Consider this one:
+ 
+> **(2002 AMC 8)** At Euler Middle School, $198$ students voted on two issues in a school referendum with the following results: $149$ voted in favor of the first issue and $119$ voted in favor of the second issue. If there were exactly $29$ students who voted against both issues, how many students voted in favor of both issues?
+ 
+This is the inclusion-exclusion formula run *backwards*: we are handed the two totals and the "neither" count, and asked for the overlap.
+ 
+First, the number of students who voted in favor of **at least one** issue is everyone except the $29$ who opposed both:
+$$
+|A \cup B| = 198 - 29 = 169.
+$$
+ 
+Now apply $|A \cup B| = |A| + |B| - |A \cap B|$ and solve for the overlap:
+$$
+|A \cap B| = |A| + |B| - |A \cup B| = 149 + 119 - 169 = \boxed{99}.
+$$
+ 
+It helps to see where every student lands. Once the overlap is $99$, the "only Issue 1" region is $149 - 99 = 50$ and the "only Issue 2" region is $119 - 99 = 20$. As a check, all four regions sum back to the total: $50 + 99 + 20 + 29 = 198$.
+ 
+<svg width="100%" viewBox="0 0 680 380" role="img" aria-label="Venn diagram of the Euler Middle School referendum">
+  <rect x="40" y="40" width="600" height="300" rx="12" fill="none" stroke="#888780" stroke-width="1" opacity="0.5"/>
+  <text x="56" y="64" font-family="sans-serif" font-size="14" fill="#888780">U = 198 students</text>
+  <circle cx="290" cy="200" r="130" fill="#378ADD" fill-opacity="0.18" stroke="#185FA5" stroke-width="1"/>
+  <circle cx="410" cy="200" r="130" fill="#D85A30" fill-opacity="0.18" stroke="#993C1D" stroke-width="1"/>
+  <text x="215" y="95" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="500" fill="#0C447C">Issue 1</text>
+  <text x="215" y="113" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#185FA5">149 in favor</text>
+  <text x="485" y="95" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="500" fill="#712B13">Issue 2</text>
+  <text x="485" y="113" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#993C1D">119 in favor</text>
+  <text x="215" y="200" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="14" fill="#2C2C2A">50</text>
+  <text x="215" y="218" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="12" fill="#5F5E5A">only Issue 1</text>
+  <text x="350" y="200" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="14" fill="#2C2C2A">99</text>
+  <text x="350" y="218" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="12" fill="#5F5E5A">both</text>
+  <text x="485" y="200" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="14" fill="#2C2C2A">20</text>
+  <text x="485" y="218" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="12" fill="#5F5E5A">only Issue 2</text>
+  <text x="585" y="305" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="14" fill="#2C2C2A">29</text>
+  <text x="585" y="323" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="12" fill="#5F5E5A">neither</text>
+</svg>
+
+
+
+## Practice Problems
+
+<Problems problems="practice" />

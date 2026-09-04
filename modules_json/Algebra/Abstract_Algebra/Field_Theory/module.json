@@ -1,0 +1,200 @@
+{
+  "MODULE_ID": "algebra-abstract-algebra-field-theory",
+  "practice": [
+    {
+      "uniqueId": "algebra-abstract-algebra-field-theory-auto-1859",
+      "name": "Team Selection Test 2009 #0iyb",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test 2009",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Fermat / Euler / Wilson theorems",
+        "Polynomial operations",
+        "Field Theory"
+      ],
+      "statement": "Fix a prime number $p > 5$. Let $a, b, c$ be integers no two of which have their difference divisible by $p$. Let $i, j, k$ be nonnegative integers such that $i + j + k$ is divisible by $p-1$. Suppose that for all integers $x$, the quantity\n$$\n(x-a)(x-b)(x-c)[(x-a)^i(x-b)^j(x-c)^k - 1]\n$$\nis divisible by $p$. Prove that each of $i, j, k$ must be divisible by $p-1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "We first prove that $k$ is congruent to one of $1, 0, -1$ modulo $(p-1)$. We rephrase the hypothesis in terms of modular arithmetic: If $x \\not\\equiv a, b, c \\pmod p$, then\n$$\n(x - a)^i (x - b)^j \\equiv (x - c)^{-k} \\pmod{p}.\n$$\nBy Fermat's little theorem, there is no harm in shifting $i, j, k$ by multiples of $p-1$, so we may assume $i, j, -k$ are elements of the set $\\{0, 1, 2, \\dots, p-2\\}$. If $i + j \\le p-2$, then the condition $i + j + k \\equiv 0 \\pmod{p-1}$ forces $-k = i + j$. In this case, the polynomial $(x-c)^{-k} - (x-a)^i(x-b)^j$ has degree at most $-k-1$ (since it is the difference of two monic polynomials of degree $-k$), but modulo $p$ it has at least $p-3$ distinct roots (namely the values of $x$ other than $a, b, c$). The only ways to avoid a contradiction are either to have $i+j = -k = p-2$ or to have the polynomial $(x-c)^{-k} - (x-a)^i(x-b)^j$ be identically zero modulo $p$. The former gives $k \\equiv 1 \\pmod{p-1}$ and we are done. The latter forces $i = j = -k = 0$ by unique factorization of polynomials modulo $p$, so we are again done.\n\nIf on the other hand $i + j \\ge p - 1$, then we also have\n$$\n(x - a)^{p-1-i} (x - b)^{p-1-j} \\equiv (x - c)^{k} \\pmod{p}\n$$\nfor all $x$ not congruent to $a, b, c$ modulo $p$. If $k \\equiv 0 \\pmod{(p-1)}$, we are done; otherwise, the fact that $i+j \\equiv -k \\not\\equiv 0 \\pmod{(p-1)}$ forces $i+j \\ge p$, so $(p-1-i) + (p-1-j) \\le p-2$. Thus the previous paragraph implies either $k \\equiv 0 \\pmod{(p-1)}$ or $k \\equiv -1 \\pmod{(p-1)}$.\n\nBy symmetry, each of $i$, $j$, $k$ is congruent to one of $-1$, $0$, $1$ modulo $(p-1)$. Because $i + j + k \\equiv 0$ (mod $(p-1)$) and $p - 1 > 3$, the only possibilities (up to permutations) are $\\{i, j, k\\} \\equiv \\{0, 0, 0\\}$ (mod $(p-1)$) or $\\{i, j, k\\} \\equiv \\{1, 0, -1\\}$ (mod $(p-1)$). However, the latter implies that $x - a \\equiv x - c$ (mod $p$) for all $x \\ne a, b, c$ (mod $p$), which is impossible as soon as there is at least one such $x$ (which is true since $p > 3$). This contradiction leaves only the possibility $\\{i, j, k\\} \\equiv \\{0, 0, 0\\}$ (mod $(p-1)$), proving the desired result."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-abstract-algebra-field-theory-auto-2683",
+      "name": "HMMT 2014 HMIC #0jl7",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2014 HMIC",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Roots of unity",
+        "Algebraic numbers",
+        "Field Theory"
+      ],
+      "statement": "Problem:\n\nLet $\\omega$ be a root of unity and $f$ be a polynomial with integer coefficients. Show that if $|f(\\omega)|=1$, then $f(\\omega)$ is also a root of unity.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSuppose $\\omega$ is a primitive $n$th root, so that $\\Phi_{n}(x)$ is the minimal polynomial of $\\omega$ (over $\\mathbb{Q}$). Thus $f(\\omega) f\\left(\\omega^{-1}\\right)=1$ implies $\\Phi_{n}(x) \\mid f(x) f\\left(x^{-1}\\right)-1$ (divisibility as Laurent polynomials). Hence $\\left|f\\left(\\omega^{k}\\right)\\right|=1$ whenever $\\operatorname{gcd}(k, n)=1$, and $\\prod_{\\operatorname{gcd}(k, n)=1}\\left(t-f\\left(\\omega^{k}\\right)\\right)$ is a monic integer-coefficient polynomial with all roots within the unit disk, so its roots must all be roots of unity (since 0 is clearly not a root), and we're done.\n\nSolution:\n\nWe follow the paper here, but fill in some of the details to make the ideas as accessible as possible. We will use the fact that if $A$ is a finitely generated abelian group, then any subgroup $B$ is also finitely generated, and furthermore, $\\operatorname{rank}(B) \\leq \\operatorname{rank}(A)$. (For instance, see Theorem 14.6.5 in Artin's Algebra, 3rd ed. for a proof of finite generation, which for our particular case of modules over a PID (namely, $\\mathbb{Z}$) can be done in parallel to the $\\operatorname{rank}(B) \\leq \\operatorname{rank}(A)$ proof—the proof is very similar to Gaussian elimination.)\n\nLet $K=\\mathbb{Q}(\\omega)$, $V$ the set of algebraic integers in $K$ of modulus 1 (which must be units of $K$), $U \\supseteq V$ the set of units in $K$, $R=U \\cap \\mathbb{R}$ the set of real units in $K$ (which, importantly, is also the set of units in $K \\cap \\mathbb{R}$), and $L=K \\cap \\mathbb{R}$ denote the maximal real subfield of $K$.\n\nThe key is that $\\operatorname{rank}(V)=\\operatorname{rank}(U)-\\operatorname{rank}(R)$. To prove this, we note that for $u \\in U$, $\\bar{u} \\in U$ as well (since $\\bar{K}=K$), so $u \\bar{u}=|u|^{2} \\in R$ and $u / \\bar{u} \\in V$, which gives $u^{2}=(u \\bar{u})(u / \\bar{u}) \\in R V$. Thus $S:=\\left\\{u^{2}: u \\in U\\right\\} \\subseteq R V \\subseteq U$. But $U$ is a finitely generated abelian group by Dirichlet's unit theorem, so $S, R V$ are as well, and furthermore $\\operatorname{rank}(S) \\leq \\operatorname{rank}(R V) \\leq \\operatorname{rank}(U)$. Now take multiplicatively independent $u_{1}, \\ldots, u_{\\operatorname{rank}(U)} \\in U$; then clearly $u_{1}^{2}, \\ldots, u_{\\operatorname{rank}(U)}^{2} \\in S$ are multiplicatively independent as well, so $\\operatorname{rank}(U) \\leq \\operatorname{rank}(S)$, whence $\\operatorname{rank}(R V)=\\operatorname{rank}(U)$. Of course, $R \\cap V=\\{ \\pm 1\\}$, so $\\operatorname{rank}(R V)=\\operatorname{rank}(R)+\\operatorname{rank}(V)-\\operatorname{rank}(R \\cap V)=\\operatorname{rank}(R)+\\operatorname{rank}(V)$ (the proof here for $\\mathbb{Z}$-modules is essentially the same as that for $\\mathbb{Q}$-vector spaces), finishing the proof.\n\n$V$ contains only roots of unity if and only if $\\operatorname{rank}(V)=0$ (no free elements), so we must prove $\\operatorname{rank}(U)=\\operatorname{rank}(R)$. Let $r, s$ denote the number of real and complex embeddings of a number field, so $[K: \\mathbb{Q}]=r(K)+2 s(K)$, $[L: \\mathbb{Q}]=r(L)+2 s(L)$, and thus $r(K)+2 s(K)=[K: L](r(L)+2 s(L))$. By Dirichlet's unit theorem, $\\operatorname{rank}(U)=r(K)+s(K)-1$ and $\\operatorname{rank}(R)=r(L)+s(L)-1$.\n\nIf $K=L$ (equivalently, $K$ is totally real), we're trivially done. Otherwise, if $[K: L]>1$, it's easy to check that we have $\\operatorname{rank}(U)=\\operatorname{rank}(R)$ if and only if $[K: L]=2$ and $r(K)=s(L)=0$ ($K$ is totally imaginary and $L$ is totally real)—then $r(L)=s(K)$ automatically holds. This is precisely the condition that $K$ is a CM-field.\n\n(CM-field $K$ just means $K$ is totally imaginary (no real embeddings), and $K$ is a quadratic extension of $K \\cap \\mathbb{R}$.)\n\nIn particular, the cyclotomic field $K=\\mathbb{Q}(\\omega)=\\mathbb{Q}[\\omega]$ is a totally imaginary quadratic extension of the totally real field $\\mathbb{Q}\\left(\\omega+\\omega^{-1}\\right)=\\mathbb{Q}\\left[\\omega+\\omega^{-1}\\right]$. Indeed, it is easy to check that the latter is simply $K \\cap \\mathbb{R}$, and $K=\\mathbb{Q}\\left(\\omega+\\omega^{-1}, \\omega-\\omega^{-1}= \\pm \\sqrt{\\left(\\omega+\\omega^{-1}\\right)^{2}-4}\\right)$. So we're done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-abstract-algebra-field-theory-auto-2897",
+      "name": "HMMT February 2015 #0jr5",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2015",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Chinese remainder theorem",
+        "Polynomials mod p",
+        "Quadratic residues",
+        "Field Theory"
+      ],
+      "statement": "Problem:\nFind the number of ordered pairs of integers $(a, b) \\in \\{1,2, \\ldots, 35\\}^2$ (not necessarily distinct) such that $a x+b$ is a \"quadratic residue modulo $x^2+1$ and 35\", i.e. there exists a polynomial $f(x)$ with integer coefficients such that either of the following equivalent conditions holds:\n- there exist polynomials $P, Q$ with integer coefficients such that $f(x)^2-(a x+b)=\\left(x^2+1\\right) P(x)+35 Q(x)$;\n- or more conceptually, the remainder when (the polynomial) $f(x)^2-(a x+b)$ is divided by (the polynomial) $x^2+1$ is a polynomial with (integer) coefficients all divisible by 35.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $225$\n\nBy the Chinese remainder theorem, we want the product of the answers modulo $5$ and modulo $7$ (i.e. when $35$ is replaced by $5$ and $7$, respectively).\n\nFirst we do the modulo $7$ case. Since $x^2+1$ is irreducible modulo $7$ (or more conceptually, in $\\mathbb{F}_7[x]$), exactly half of the nonzero residues modulo $x^2+1$ and $7$ (or just modulo $x^2+\\overline{1}$ if we're working in $\\mathbb{F}_7[x]$) are quadratic residues, i.e. our answer is $1+\\frac{7^2-1}{2}=25$ (where we add back one for the zero polynomial).\n\nNow we do the modulo $5$ case. Since $x^2+1$ factors as $(x+2)(x-2)$ modulo $5$ (or more conceptually, in $\\mathbb{F}_5[x]$), by the polynomial Chinese remainder theorem modulo $x^2+\\overline{1}$ (working in $\\mathbb{F}_5[x]$), we want the product of the number of polynomial quadratic residues modulo $x \\pm \\overline{2}$. By centering/evaluating polynomials at $\\mp \\overline{2}$ accordingly, the polynomial squares modulo these linear polynomials are just those reducing to integer squares modulo $5$. So we have an answer of $\\left(1+\\frac{5-1}{2}\\right)^2=9$ in this case.\n\nOur final answer is thus $25 \\cdot 9=225$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-abstract-algebra-field-theory-auto-3228",
+      "name": "February 2017 #0k0c",
+      "url": "https://usamoguide.com/",
+      "source": "February 2017",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomials mod p",
+        "Quadratic residues",
+        "Recurrence relations",
+        "Field Theory"
+      ],
+      "statement": "Problem:\n\nThe Fibonacci sequence is defined as follows: $F_{0}=0$, $F_{1}=1$, and $F_{n}=F_{n-1}+F_{n-2}$ for all integers $n \\geq 2$. Find the smallest positive integer $m$ such that $F_{m} \\equiv 0 \\pmod{127}$ and $F_{m+1} \\equiv 1 \\pmod{127}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFirst, note that $5$ is not a quadratic residue modulo $127$. We are looking for the period of the Fibonacci numbers $\\bmod\\ 127$. Let $p=127$. We work in $\\mathbb{F}_{p^{2}}$ for the remainder of this proof. Let $\\alpha$ and $\\beta$ be the roots of $x^{2}-x-1$. Then we know that $F_{n}=\\frac{\\alpha^{n}-\\beta^{n}}{\\alpha-\\beta}$. Note that since $x \\rightarrow x^{p}$ is an automorphism and since automorphisms cycle the roots of a polynomial we have that $\\alpha^{p}=\\beta$ and $\\beta^{p}=\\alpha$. Then $F_{p}=\\frac{\\alpha^{p}-\\beta^{p}}{\\alpha-\\beta}=-1$ and $F_{p+1}=\\frac{\\alpha \\beta-\\beta \\alpha}{\\alpha-\\beta}=0$ and similarly we obtain $F_{2p+1}=1$ and $F_{2p+2}=0$. Thus since $2p+2$ is a power of $2$ and since the period does not divide $p+1$, we must have the answer is $2p+2=256$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-abstract-algebra-field-theory-auto-3587",
+      "name": "HMMT February 2019 Team Round #0kab",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2019 Team Round",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial operations",
+        "Field Theory"
+      ],
+      "statement": "Problem:\nLet $p > 2$ be a prime number. $\\mathbb{F}_p[x]$ is defined as the set of all polynomials in $x$ with coefficients in $\\mathbb{F}_p$ (the integers modulo $p$ with usual addition and subtraction), so that two polynomials are equal if and only if the coefficients of $x^k$ are equal in $\\mathbb{F}_p$ for each nonnegative integer $k$. For example, $(x+2)(2x+3) = 2x^2 + 2x + 1$ in $\\mathbb{F}_5[x]$ because the corresponding coefficients are equal modulo $5$.\nLet $f, g \\in \\mathbb{F}_p[x]$. The pair $(f, g)$ is called compositional if\n$$\nf(g(x)) \\equiv x^{p^2} - x\n$$\nin $\\mathbb{F}_p[x]$. Find, with proof, the number of compositional pairs (in terms of $p$).",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $4p(p-1)$\n\nFirst, notice that $(\\operatorname{deg} f)(\\operatorname{deg} g) = p^{2}$ and both polynomials are clearly nonconstant. Therefore there are three possibilities for the ordered pair $(\\operatorname{deg} f, \\operatorname{deg} g)$, which are $(1, p^{2})$, $(p^{2}, 1)$, and $(p, p)$.\n\nIn the subsequent parts of the solution, equalities are modulo $p$. If $f(x) = a x + b$, $a \\neq 0$ is linear, then it is invertible so then $g$ is uniquely determined as $g(x) = f^{-1}(f(g(x))) = \\frac{x^{p^{2}} - x - b}{a}$. Similarly, if $g(x) = c x + d$, $c \\neq 0$ $(\\bmod p)$ is linear then $f$ is uniquely determined as $f(x) = f\\left(g\\left(g^{-1}(x)\\right)\\right) = \\left(\\frac{x-d}{c}\\right)^{p^{2}} - \\left(\\frac{x-d}{c}\\right)$. In each case there are $p(p-1)$ compositional pairs.\n\nThe last case is $\\operatorname{deg} f = \\operatorname{deg} g = p$. We take the derivative of both sides (we use the formal derivative $D_{x} f(x) = \\sum_{n \\geq 1} n f_{n} x^{n-1}$, which satisfies the usual chain and product rules but can be used on arbitrary polynomials, including those in $\\mathbb{F}_p[x]$).\n\nThus\n$$\nf'(g(x)) g'(x) = p^{2} x^{p^{2}-1} - 1 = -1,\n$$\nusing that $p = 0$ in $\\mathbb{F}_p$. Now $g'(x)$ and $f'(g(x))$ must both be constant polynomials. Since $g$ is nonconstant, this means that $f'(x)$ is also a constant polynomial. We must be careful here, as unlike in $\\mathbb{R}$, nonlinear polynomials can have constant derivatives. From the formula of derivative, we see that $h'(x) = 0$ as a polynomial exactly when $h(x)$ is a linear combination of $1, x^{p}, x^{2p}, \\ldots$ (remember that $p = 0$). Thus $f', g'$ both being constant and $f, g$ being of degree $p$ tells us\n$$\nf(x) = a x^{p} + b x + c, \\quad g(x) = d x^{p} + e x + f\n$$\nwhere $a, b, c, d, e, f$ are some elements of $\\mathbb{F}_p$. Now we must have\n$$\na\\left(d x^{p} + e x + f\\right)^{p} + b\\left(d x^{p} + e x + f\\right) + c = x^{p^{2}} - x\n$$\nover $\\mathbb{F}_p[x]$. We use the fact that $(x+y)^{p} = x^{p} + y^{p}$ as polynomials in $\\mathbb{F}_p$, since the binomial coefficients $\\binom{p}{j} \\equiv 0 (\\bmod p)$ for $1 \\leq j \\leq p-1$. This implies $(x+y+z)^{p} = x^{p} + y^{p} + z^{p}$. Therefore we can expand the previous equation as\n$$\na\\left(d^{p} x^{p^{2}} + e^{p} x^{p} + f^{p}\\right) + b\\left(d x^{p} + e x + f\\right) + c = x^{p^{2}} - x.\n$$\nEquating coefficients, we see that\n$$\n\\begin{aligned}\na d^{p} & = 1, \\\\\na e^{p} + b d & = 0, \\\\\nb e & = -1, \\\\\na f^{p} + b f + c & = 0.\n\\end{aligned}\n$$\nThe first and third equations imply that $a, d, b, e$ are nonzero $(\\bmod p)$ and $a = d^{-p}$, $b = -e^{-1}$. Then $a e^{p} + b d = 0$ gives\n$$\nd^{-p} e^{p} - e^{-1} d = 0\n$$\nor $e^{p+1} = d^{p+1}$. Recalling that $e^{p-1} = d^{p-1} = 1$ in $(\\bmod p)$, this tells us $d^{2} = e^{2}$ so $d = \\pm e$. Furthermore, any choice of such $(d, e)$ give unique $(a, b)$ which satisfy the first three equations. Finally, once we have determined $a, b, d, e$, any choice of $f$ gives a unique valid choice of $c$.\nThus we have $p-1$ choices for $d$, two choices for $e$ after choosing $d$ (n.b. for $p=2$ there is only one choice for $e$, so the assumption $p>2$ is used here), and then $p$ choices for $f$, for a total of $2p(p-1)$ compositional pairs in this case.\n\nFinally, adding the number of compositional pairs from all three cases, we obtain $4p(p-1)$ compositional pairs in total.\n\nSolution:\nThe key step is obtaining\n$$\nf(x) = a x^{p} + b x + c, \\quad g(x) = d x^{p} + e x + f\n$$\nin the case where $\\operatorname{deg} f = \\operatorname{deg} g = p$. We present an alternative method of obtaining this, with the rest of the solution being the same as the first solution. Let\n$$\n\\begin{aligned}\n& f(x) = f_{p} x^{p} + f_{p-1} x^{p-1} + \\cdots + f_{0} \\\\\n& g(x) = g_{p} x^{p} + g_{p-1} x^{p-1} + \\cdots + g_{0}\n\\end{aligned}\n$$\nwhere $f_{p}, g_{p}$ are nonzero. Like before, we have $g(x)^{p} = g\\left(x^{p}\\right)$ in $\\mathbb{F}_p[x]$, so\n$$\nx^{p^{2}} - x = f_{p} g\\left(x^{p}\\right) + f_{p-1} g(x)^{p-1} + \\cdots + f_{0}\n$$\nConsider the maximal $k < p$ for which $f_{k} \\neq 0$. (It is not hard to see that in fact $k \\geq 1$, as $f_{p} g\\left(x^{p}\\right) + f_{0}$ cannot be $x^{p^{2}} - x$.) First assume that $k > 1$. We look at the $x^{k p - 1}$ coefficient, which is affected only by the $f_{k} g(x)^{k}$ term. By expanding, the coefficient is $k f_{k} g_{p}^{k-1} g_{p-1}$. Therefore $g_{p-1} = 0$. Then we look at the $x^{k p - 2}$ coefficient, then the $x^{k p - 3}$ coefficient, etc. down to the $x^{k p - p + 1}$ coefficient to conclude that $g_{p-1} = g_{p-2} = \\cdots = g_{1} = 0$. However, then the $x$ coefficient of $f(g(x))$ is zero, contradiction.\n\nTherefore we must have $k = 1$, so $f$ is of the form $a x^{p} + b x + c$. Using the same method as we used when $k > 1$, we get $g_{p-1} = g_{p-2} = \\cdots = g_{2} = 0$, though the $x^{k p - p + 1}$ coefficient is now the $x$ coefficient which we want to be nonzero. Hence we do not obtain $g_{1} = 0$ anymore and we find that $g$ is of the form $d x^{p} + e x + f$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-abstract-algebra-field-theory-auto-3635",
+      "name": "HMMT February 2020 #0kbn",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2020",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Field Theory",
+        "Linear transformations",
+        "Chinese remainder theorem",
+        "Roots of unity"
+      ],
+      "statement": "Problem:\nWe define $\\mathbb{F}_{101}[x]$ as the set of all polynomials in $x$ with coefficients in $\\mathbb{F}_{101}$ (the integers modulo $101$ with usual addition and subtraction), so that two polynomials are equal if and only if the coefficients of $x^{k}$ are equal in $\\mathbb{F}_{101}$ for each nonnegative integer $k$. For example, $(x+3)(100 x+5)=100 x^{2}+2 x+15$ in $\\mathbb{F}_{101}[x]$ because the corresponding coefficients are equal modulo $101$.\nWe say that $f(x) \\in \\mathbb{F}_{101}[x]$ is lucky if it has degree at most $1000$ and there exist $g(x), h(x) \\in \\mathbb{F}_{101}[x]$ such that\n$$\nf(x)=g(x)\\left(x^{1001}-1\\right)+h(x)^{101}-h(x)\n$$\nin $\\mathbb{F}_{101}[x]$. Find the number of lucky polynomials.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $p=101$, $m=1001$, and work in the ring $R:=\\mathbb{F}_{p}[x] /\\left(x^{m}-1\\right)$. We want to find the number of elements $a$ of this ring that are of the form $x^{p}-x$. We first solve this question for a field extension $\\mathbb{F}_{p^{d}}$ of $\\mathbb{F}_{p}$. Note that $(x+n)^{p}-(x+n)=x^{p}-x$ for any $n \\in \\mathbb{F}_{p}$, and the polynomial $t^{p}-t=b$ has at most $p$ solutions in $\\mathbb{F}_{p^{d}}$ for any $b \\in \\mathbb{F}_{p^{d}}$. Combining these implies that $t^{p}-t=b$ always has either $p$ or $0$ solutions in $\\mathbb{F}_{p^{d}}$, so there are $p^{d-1}$ elements of $\\mathbb{F}_{p^{d}}$ expressible in the form $x^{p}-x$.\n\nNow, note that we may factor $R$ into a product of field extensions of $\\mathbb{F}_{p}$, each corresponding to an irreducible factor of $x^{m}-1$ in $\\mathbb{F}_{p}$, as the polynomial $x^{m}-1$ has no double roots in $\\mathbb{F}_{p}$ as $p \\nmid m$. By the Chinese Remainder Theorem, we may multiply the number of lucky polynomials for each of the field extensions to find the final answer. A field extension of degree $d$ will yield $p^{d-1}$ lucky polynomials. Thus, the final answer is $p^{m-q}$, where $q$ is the number of fields in the factorization of $R$ into fields.\n\nTo do determine $q$, we first factor\n$$\nx^{m}-1=\\prod_{k \\mid m} \\Phi_{k}(x)\n$$\nin $\\mathbb{Z}[x]$ where $\\Phi_{k}(x)$ are the cyclotomic polynomials. Then we compute the number of irreducible divisors of the cyclotomic polynomial $\\Phi_{k}(x)$ in $\\mathbb{F}_{p}[x]$. We claim that this is equal to $\\frac{\\varphi(k)}{\\operatorname{ord}_{k}(p)}$. Indeed, note that given a root $\\omega$ of $\\Phi_{k}$ in the algebraic closure of $\\mathbb{F}_{p}$, the roots of its minimal polynomial are $\\omega, \\omega^{p}, \\omega^{p^{2}}, \\ldots$, and this will cycle after the numerator repeats modulo $k$, from which it follows that the degree of the minimal polynomial of $\\omega$ is $\\operatorname{ord}_{k}(p)$. Thus, $\\Phi_{k}(x)$ factors into $\\frac{\\varphi(k)}{\\operatorname{ord}_{k}(p)}$ irreducible polynomials.\n\nIt remains to compute orders. We have that\n$$\n\\begin{aligned}\n\\operatorname{ord}_{7}(101)=\\operatorname{ord}_{7}(3) & =6 \\\\\n\\operatorname{ord}_{11}(101)=\\operatorname{ord}_{11}(2) & =10 \\\\\n\\operatorname{ord}_{13}(101)=\\operatorname{ord}_{13}(10) & =6\n\\end{aligned}\n$$\nThus,\n$$\n\\begin{aligned}\n\\operatorname{ord}_{77}(101) & =30 \\\\\n\\operatorname{ord}_{91}(101) & =6 \\\\\n\\operatorname{ord}_{143}(101) & =30 \\\\\n\\operatorname{ord}_{1001}(101) & =30 \\\\\n\\operatorname{ord}_{1}(101) & =1\n\\end{aligned}\n$$\nThe number of factors of $x^{1001}-1$ in $\\mathbb{F}_{101}[x]$ is thus\n$$\n\\frac{1}{1}+\\frac{6}{6}+\\frac{10}{10}+\\frac{12}{6}+\\frac{60}{30}+\\frac{72}{6}+\\frac{120}{30}+\\frac{720}{30}=1+1+1+2+2+12+4+24=47\n$$\nso the total number of lucky polynomials is $101^{1001-47}=101^{954}$.\n\nSolution:\nAs in the previous solution, we work in the ring $R=\\mathbb{F}_{p} /\\left(x^{m}-1\\right)$, which we can treat as the set of polynomials in $\\mathbb{F}_{p}[x]$ with degree less than $m$. The problem is asking us for the number of elements of the map $\\alpha: h \\mapsto h^{p}-h$ in $R$. Note that this map is linear because $(a+b)^{p}=a^{p}+b^{p}$ in any field where $p=0$ (which $R$ is an example of). Hence it suffices to determine the size of the kernel of $\\alpha$.\n\nWe can directly compute that if\n$$\nh(x)=a_{m-1} x^{m-1}+a_{m-2} x^{m-2}+\\cdots+a_{1} x+a_{0}\n$$\nthen\n$$\nh(x)^{p}=a_{m-1} x^{p(m-1)}+a_{m-2} x^{p(m-2)}+\\cdots+a_{1} x^{p}+a_{0}\n$$\nwhere exponents are taken modulo $m$. Therefore $h$ is in the kernel if and only if $a_{k}=a_{p k}$ for all $k$ where indices are taken modulo $m$. Letting $q$ denote the number of orbits of the map $x \\mapsto p x$ in $\\mathbb{Z} / m \\mathbb{Z}$, the size of the kernel is then $p^{q}$ so the size of the image is $p^{m-q}$. It remains to compute $q$, which will end up being the same computation as in the previous solution."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-abstract-algebra-field-theory-auto-4061",
+      "name": "USA IMO TST #0knh",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO TST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Factorization techniques",
+        "Prime numbers",
+        "Polynomials mod p",
+        "Field Theory"
+      ],
+      "statement": "Determine all integers $s \\ge 4$ for which there exist positive integers $a, b, c, d$ such that $s = a+b+c+d$ and $s$ divides $abc + abd + acd + bcd$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "The answer is $s$ composite.\n\n**Composite construction** Write $s = (w+x)(y+z)$, where $w, x, y, z$ are positive integers. Let $a = wy$, $b = wz$, $c = xy$, $d = xz$. Then\n$$\nabc + abd + acd + bcd = wxyz(w+x)(y+z)\n$$\nso this works.\n\n**Prime proof** Choose suitable $a, b, c, d$. Then\n$$\n(a+b)(a+c)(a+d) = (abc+abd+acd+bcd) + a^2(a+b+c+d) \\equiv 0 \\pmod{s}.\n$$\nHence $s$ divides a product of positive integers less than $s$, so $s$ is composite.\n\n**Remark.** Here is another proof that $s$ is composite.\nSuppose that $s$ is prime. Then the polynomial $(x-a)(x-b)(x-c)(x-d) \\in \\mathbb{F}_s[x]$ is even, so the roots come in two opposite pairs in $\\mathbb{F}_s$. Thus the sum of each pair is at least $s$, so the sum of all four is at least $2s > s$, contradiction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-abstract-algebra-field-theory-auto-4371",
+      "name": "HMMT February 2023 #0kw3",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2023",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomials mod p",
+        "Polynomials",
+        "Field Theory"
+      ],
+      "statement": "Problem:\nLet\n$$\nP=\\prod_{i=0}^{2016}\\left(i^{3}-i-1\\right)^{2}\n$$\nThe remainder when $P$ is divided by the prime $2017$ is not zero. Compute this remainder.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $Q(x)=x^{3}-x-1=(x-a)(x-b)(x-c)$, for $a, b, c \\in \\mathbb{F}_{p^{3}}$. Then, we can write\n$$\nP=\\prod_{i=0}^{2016}(i-a)(i-b)(i-c)\n$$\nIf we consider each root separately, then\n$$\nP=-\\left(a^{2017}-a\\right)\\left(b^{2017}-b\\right)\\left(c^{2017}-c\\right)\n$$\nThe key observation is that $a^{2017}, b^{2017}, c^{2017}$ is some nontrivial cycle of $a, b, c$. This is because by Frobenius' identity, $(a+b)^{p}=a^{p}+b^{p}$. So, if $P(x)=0, P\\left(x^{2017}\\right)=0$. But, $x^{2017} \\neq x$, since $x \\notin \\mathbb{F}_{p}$. This implies the claim. So, in the end, we wish to compute\n$$\n(b-a)^{2}(c-b)^{2}(a-c)^{2}\n$$\nNote that $P^{\\prime}(x)=3 x^{2}-1=(x-b)(x-c)+(x-a)(x-b)+(x-c)(x-a)$. So it suffices to compute\n$$\n\\left(1-3 a^{2}\\right)\\left(1-3 b^{2}\\right)\\left(1-3 c^{2}\\right)=-27 P\\left(\\frac{1}{\\sqrt{3}}\\right) P\\left(-\\frac{1}{\\sqrt{3}}\\right)\n$$\nWe can compute this is equal to $-27\\left(1-\\frac{2}{3 \\sqrt{3}}\\right)\\left(1+\\frac{2}{3 \\sqrt{3}}\\right)=-23$.\n\nAlternatively, this is the discriminant of $P(x)$. We utilize the well-known formula that the discriminant of $x^{3}+a x+b$ is $-4 a^{3}-27 b^{2}=-23$. So, the answer is $1994$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

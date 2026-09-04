@@ -1,0 +1,100 @@
+---
+id: newton-sums
+title: Newton's Sums
+author: Sanjay Krishnan
+description: Recurrences that compute power sums from coefficients.
+prerequisites: []
+---
+
+## Overview
+Newton's sums are a powerful tool in algebra when trying to evaluate expressions of the form $r^n + s^n + t^n + \cdots$, where $r$, $s$, and $t$ are roots of a monic polynomial.
+Newton's sums can be extended to polynomials of any degree.
+They allow you to directly evaluate powers of sums without having to undergo heavy algebraic manipulation.
+
+## Key Ideas
+
+- For a polynomial $x^n + a_1x^{n-1} + a_2x^{n-2} + \cdots+ a_n$, let $S_n$ be the sum of the roots to the $nth$ power
+- From Newton's sums, $S_1 + a_1 = 0$, $S_2 + a_1S_1 + 2a_2 = 0$, and in general, $S_n + a_1S_{n-1} + a_2S_{n-2} + \cdots + na_n = 0$.
+- Newton's sums follow a recursive pattern, so do not forget any previous terms needed to find a following term.
+
+## Core Skills
+
+### Make the Polynomial Monic
+
+Divide by the leading coefficient so that the Newton sum recurrence applies
+cleanly.
+
+### Build a Recurrence
+
+Use the relation between coefficients and power sums to compute future sums $S_n, S_{n+1}$ from previous sums $S_{n-2}, S_{n-1}$.
+
+### Combine with Symmetric Identities
+
+Convert $r^k+s^k$ into expressions involving $r+s$ and $rs$ when a direct
+recurrence is shorter.
+
+## Worked Example
+
+Let $x^2-5x+6=0$ have roots $r,s$. Find $r^3+s^3$.
+
+We have $S_1 - 5 = 0$, so $S_1 = 5$.
+
+From here, we have $S_2 - 5S_1 + 12 = 0$, or $S_2 = 5(5)-12 = 13$.
+
+Now, going into our final relation, we have $S_3 - 5S_2 + 6S_1 = 0$.
+
+Notice that we do not have a $na_n$ term in this relation since we have no other terms left.
+
+Therefore, $S_3 = 5(13)-6(5) = 35$, which is our answer.
+
+Notice that $x^2-5x+6=0$ can be factored as $(x-3)(x-2)$. If it is simpler to directly compute the roots and apply powers to them individually, that would be a faster solution. 
+
+However, not all polynomials have roots that can be easily computed, as seen with the next example.
+## More Examples
+
+### Example 1: Irrational Cubic Root Sum
+
+If the cubic polynomial $5x^3 - 4x^2 + 3x + 2 = 0$ has roots $r, s, t$, find $r^3 + s^3 + t^3$.
+
+This polynomial doesn't have a leading coefficient of 1, so we must make it monic.
+
+We first must make the polynomial monic by dividing all coefficients by 5. After doing so, we get the monic cubic $x^3 - \frac{4}{5}x^2+\frac{3}{5}x + \frac{2}{5}$.
+
+From here, we have $S_1 - \frac{4}{5} = 0$, so $S_1 = \frac{4}{5}$.
+
+We can just keep using our recursive relation to find $S_3$.
+
+$S_2 = \frac{4}{5}S_1-\frac{6}{5}$, so $S_2 = \frac{-14}{25}$.
+
+Notice how the sum of the squares of the roots is negative; this indicates we have complex roots, which would be hard to find if we were to manually compute each root.
+
+Finally, we have $S_3-\frac{4}{5}S_2+\frac{3}{5}S_1+\frac{6}{5}=0$, so $S_3 = \frac{-98}{25}$
+
+### Example 2: Artificial Polynomial
+If two numbers $x,y$ follow $x+y=6$ and $x^3+y^3=100$, find $xy$.
+
+The sums of powers of two numbers indicate that we can use Newton's sums. However, we aren't given a polynomial; to fix this, we can just make one that obeys the problem statement.
+
+We can create $x^2-6x+a$ as our polynomial and apply Newton's sums to it.
+
+$S_2 - 6S_1 + 2a = 0, S_2 = 36-2a$
+
+$S_3-6S_2+aS_1=0, S_3 = 216-18a$
+
+Setting our given values of $S_3$ equal to the one we just obtained, we have $216-18a=100$, or $a = 58/9$. Therefore, $xy = 58/9$.
+
+## Strategy Checklist
+
+- Make the polynomial monic first.
+- Compute lower powers first before higher powers.
+- Avoid arithmetic mistakes; one small accidental sign flip can lead to a sum that is completely off.
+
+## Common Pitfalls
+
+- Forgetting to convert to monic form first.
+- Skipping earlier power sums needed for the recurrence.
+- Lazy arithmetic mistakes.
+## Practice Problems
+
+<Problems problems="practice" />
+<Problems problems="practice" />

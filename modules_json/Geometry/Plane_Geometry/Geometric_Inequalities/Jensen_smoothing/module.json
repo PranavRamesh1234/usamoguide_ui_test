@@ -1,0 +1,88 @@
+{
+  "MODULE_ID": "geometry-plane-geometry-geometric-inequalities-jensen-smoothing",
+  "practice": [
+    {
+      "uniqueId": "geometry-plane-geometry-geometric-inequalities-jensen-smoothing-auto-1846",
+      "name": "Bay Area Mathematical Olympiad #0ixy",
+      "url": "https://usamoguide.com/",
+      "source": "Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle trigonometry",
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Trigonometry",
+        "Angle chasing",
+        "Jensen/smoothing",
+        "Cauchy-Schwarz",
+        "QM-AM-GM-HM / Power Mean",
+        "Jensen / smoothing"
+      ],
+      "statement": "Problem:\nLet $\\triangle ABC$ be an acute triangle with angles $\\alpha, \\beta$, and $\\gamma$. Prove that\n$$\n\\frac{\\cos \\alpha}{\\cos (\\beta-\\gamma)}+\\frac{\\cos \\beta}{\\cos (\\gamma-\\alpha)}+\\frac{\\cos \\gamma}{\\cos (\\alpha-\\beta)} \\geq \\frac{3}{2}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nSince $\\cos \\gamma = -\\cos (\\alpha+\\beta) = -\\cos \\alpha \\cos \\beta + \\sin \\alpha \\sin \\beta$, and $\\cos (\\alpha-\\beta) = \\cos \\alpha \\cos \\beta + \\sin \\alpha \\sin \\beta$ the given inequality transforms to\n$$\n\\begin{aligned}\n& \\frac{\\sin \\beta \\sin \\gamma - \\cos \\beta \\cos \\gamma}{\\sin \\beta \\sin \\gamma + \\cos \\beta \\cos \\gamma} + \\frac{\\sin \\gamma \\sin \\alpha - \\cos \\gamma \\cos \\alpha}{\\sin \\gamma \\sin \\alpha + \\cos \\gamma \\cos \\alpha} \\\\\n& + \\frac{\\sin \\alpha \\sin \\beta - \\cos \\alpha \\cos \\beta}{\\sin \\alpha \\sin \\beta + \\cos \\alpha \\cos \\beta} \\geq \\frac{3}{2} \\\\\n& \\frac{\\tan \\beta \\tan \\gamma - 1}{\\tan \\beta \\tan \\gamma + 1} + \\frac{\\tan \\gamma \\tan \\alpha - 1}{\\tan \\gamma \\tan \\alpha + 1} + \\frac{\\tan \\alpha \\tan \\beta - 1}{\\tan \\alpha \\tan \\beta + 1} \\geq \\frac{3}{2}.\n\\end{aligned}\n$$\nSome elementary trigonometry yields\n$$\n\\begin{aligned}\n\\tan \\alpha + \\tan \\beta + \\tan \\gamma &= \\frac{\\sin \\alpha \\cos \\beta \\cos \\gamma + \\sin \\beta \\cos \\alpha \\cos \\gamma + \\sin \\gamma \\cos \\alpha \\cos \\beta}{\\cos \\alpha \\cos \\beta \\cos \\gamma} \\\\\n&= \\frac{\\sin \\alpha \\cos \\beta \\cos \\gamma + \\cos \\alpha (\\sin \\beta \\cos \\gamma + \\sin \\gamma \\cos \\beta)}{\\cos \\alpha \\cos \\beta \\cos \\gamma} \\\\\n&= \\frac{\\sin \\alpha \\cos \\beta \\cos \\gamma + \\cos \\alpha \\sin (\\beta+\\gamma)}{\\cos \\alpha \\cos \\beta \\cos \\gamma}\n\\end{aligned}\n$$\nNow we use the fact that the angles add to $180^\\circ$ to see that $\\sin (\\beta+\\gamma) = \\sin (\\alpha)$, so\n$$\n\\begin{aligned}\n\\frac{\\sin \\alpha \\cos \\beta \\cos \\gamma + \\cos \\alpha \\sin (\\beta+\\gamma)}{\\cos \\alpha \\cos \\beta \\cos \\gamma} &= \\frac{\\sin \\alpha \\cos \\beta \\cos \\gamma + \\cos \\alpha \\sin \\alpha}{\\cos \\alpha \\cos \\beta \\cos \\gamma} \\\\\n&= \\frac{\\sin \\alpha \\cdot (\\cos \\beta \\cos \\gamma + \\cos \\alpha)}{\\cos \\alpha \\cos \\beta \\cos \\gamma} \\\\\n&= \\frac{\\sin \\alpha \\cdot (\\cos \\beta \\cos \\gamma - \\cos (\\beta+\\gamma))}{\\cos \\alpha \\cos \\beta \\cos \\gamma} \\\\\n&= \\frac{\\sin \\alpha \\cdot (\\cos \\beta \\cos \\gamma - (\\cos \\beta \\cos \\gamma - \\sin \\beta \\sin \\gamma))}{\\cos \\alpha \\cos \\beta \\cos \\gamma} \\\\\n&= \\tan \\alpha \\tan \\beta \\tan \\gamma\n\\end{aligned}\n$$\nNow, setting $x = \\tan \\alpha$ and so on, our inequality\n$$\n\\frac{y z - 1}{y z + 1} + \\frac{z x - 1}{z x + 1} + \\frac{x y - 1}{x y + 1} \\geq \\frac{3}{2}\n$$\nhas the property that $x, y, z$ are positive real numbers satisfying $x + y + z = x y z$.\nMultiplying the numerator and the denominator of the first fraction by $x$, second by $y$ and third by $z$ the inequality becomes\n$$\n\\frac{S - x}{S + x} + \\frac{S - y}{S + y} + \\frac{S - z}{S + z} \\geq \\frac{3}{2}\n$$\nfor $S = x y z$. Using the substitution $S + x = a, S + y = b, S + z = c$ and solving for $S, x, y, z$ we get $S = \\frac{a + b + c}{4}$, $x = \\frac{3a - b - c}{4}$, $y = \\frac{3b - a - c}{4}$, $z = \\frac{3c - a - b}{4}$, $S - x = \\frac{b + c - a}{2}$, $S - y = \\frac{c + a - b}{2}$, $S - z = \\frac{a + b - c}{2}$, and (1) becomes\n$$\n\\frac{1}{2}\\left(\\frac{b}{a} + \\frac{c}{a} - 1 + \\frac{a}{b} + \\frac{c}{b} - 1 + \\frac{a}{c} + \\frac{b}{c} - 1\\right) \\geq \\frac{3}{2}\n$$\nThis immediately follows from $\\frac{b}{a} + \\frac{a}{b} \\geq 2$, $\\frac{a}{c} + \\frac{c}{a} \\geq 2$, and $\\frac{c}{b} + \\frac{b}{c} \\geq 2$.\n\nLet $O$ be the circumcenter of $\\triangle ABC$. Extend $AO$ to meet $BC$ at $X$, and similarly $BO$ extends to $Y$ and $CO$ to $Z$.\nAs shown in the diagram at left below, draw $AA'$ parallel to $BC$, drop the altitude $AH$ from point $A$, and also draw $MO$, the perpendicular bisector of $BC$, meeting $AA'$ at $N$.\nNow $AHMN$ is a rectangle, so $AH = MN$. Also, $ABCA'$ is a cyclic trapezoid and thus isosceles, so $\\angle A'BC = \\angle ACB = \\gamma$. Thus $\\angle ABA' = \\angle ABC = \\angle ACB = \\beta - \\gamma$, so the measure of $\\operatorname{arc} AA' = 2(\\beta - \\gamma)$, which means that $\\angle AON = \\beta - \\gamma$. Using right triangle $ONA$, we have $ON = OA \\cos (\\beta - \\gamma)$.\nAgain using central and inscribed angles, $\\operatorname{arc} BC = 2\\alpha$ so $\\angle BOM = \\alpha$ and $OM = OB \\cos \\alpha$. Dividing $OM$ by $ON$,\n$$\n\\frac{OM}{ON} = \\frac{OB \\cos \\alpha}{OA \\cos (\\beta - \\gamma)} = \\frac{\\cos \\alpha}{\\cos (\\beta - \\gamma)}\n$$\nFinally, because $AA' \\parallel BC, \\triangle ANO \\sim \\triangle XMO$, which gives $\\frac{OX}{OA} = \\frac{OM}{ON}$.\nNow by symmetry, we can find similar relationships for all three fractions in the original inequality, so our goal now is to prove that\n$$\n\\frac{OX}{OA} + \\frac{OY}{OB} + \\frac{OZ}{OC} \\geq \\frac{3}{2}\n$$\n\n![](attached_image_1.png)\n\nIn the figure at right above, the area ratio $\\frac{AO}{AX} = \\frac{[ABOC]}{[ABC]}$, so adding analogous terms for each of the three ratios,\n$$\n\\frac{AO}{AX} + \\frac{BO}{BY} + \\frac{CO}{CZ} = \\frac{[ABOC] + [BCOA] + [AOBC]}{[ABC]} = 2,\n$$\nsince the numerator counts the area of each piece exactly twice.\nNext, by the arithmetic mean - harmonic mean inequality (or Cauchy-Schwarz if you prefer),\n$$\n\\left(\\frac{AO}{AX} + \\frac{BO}{BY} + \\frac{CO}{CZ}\\right)\\left(\\frac{AX}{AO} + \\frac{BY}{BO} + \\frac{CZ}{CO}\\right) \\geq 9\n$$\nFinally, since $\\frac{AX}{AO} = 1 + \\frac{OX}{AO}$ and similarly for the other two fractions, we can first divide by 2 and then subtract 3 from each side,\n$$\n\\frac{OX}{OA} + \\frac{OY}{OB} + \\frac{OZ}{OC} \\geq \\frac{9}{2} - 3 = \\frac{3}{2}\n$$\n\nSolution:\nRemark. Once the inequality is transformed to (1) we can use the convexity of the function $f(t) = \\frac{S-t}{S+t}$ and Jensen's inequality:\n$$\n\\frac{1}{3}(f(x) + f(y) + f(z)) \\geq f\\left(\\frac{x+y+z}{3}\\right).\n$$\nIt can be easily seen that the previous inequality is exactly (1).\n\nSolution 2, earning a Brilliancy award for Amol Aggarwal of Saratoga HS:\n$$\n\\frac{OX}{OA} + \\frac{OY}{OB} + \\frac{OZ}{OC} \\geq \\frac{3}{2}\n$$\n![](attached_image_2.png)\n\nIn the figure at right above, the area ratio $\\frac{AO}{AX} = \\frac{[ABOC]}{[ABC]}$, so adding analogous terms for each of the three ratios,\n$$\n\\frac{AO}{AX} + \\frac{BO}{BY} + \\frac{CO}{CZ} = \\frac{[ABOC] + [BCOA] + [AOBC]}{[ABC]} = 2,\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-geometric-inequalities-jensen-smoothing-auto-2358",
+      "name": "Team Selection Test Selection Test #0jc6",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle inequalities",
+        "Triangle trigonometry",
+        "Tangents",
+        "Trigonometry",
+        "Vectors",
+        "Rotation",
+        "Translation",
+        "Jensen/smoothing",
+        "Jensen / smoothing"
+      ],
+      "statement": "Let $\\triangle ABC$ be a triangle. Its excircles touch sides $BC$, $CA$, $AB$ at $D$, $E$, $F$, respectively. Prove that the perimeter of triangle $\\triangle ABC$ is at most twice that of triangle $DEF$.\n\n![](attached_image_1.png)\n\n![](attached_image_2.png)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "We consider the configuration shown in the diagram below. (Our proof uses directed lengths and can be easily modified for different configurations.)\n![](attached_image_1.png)\nLet $a, b, c$ denote the side lengths of $BC, CA, AB$, and let $A, B, C$ denote $\\angle A, \\angle B, \\angle C$, respectively. Suppose that the incircle touches sides $BC, CA, AB$ at $P, Q, R$, respectively. It is well known that\n$$\nFB = CE = QA = AR = \\frac{b+c-a}{2}. \\qquad (25)\n$$\nDenote by $E_a, F_a$ the feet of the perpendiculars from $E, F$ to line $BC$. It is clear that $EF \\ge E_aF_a$. By (25), we have\n$$\nFE \\ge F_aE_a = BC - (BF_a + E_aC) = a - \\frac{b+c-a}{2} (\\cos B + \\cos C).\n$$\nSumming the above inequality and its cyclic analogues yields\n$$\nEF + FD + DE \\ge a + b + c - \\sum_{\\text{cyc}} \\frac{b+c-a}{2} (\\cos B + \\cos C)\n$$\nor\n$$\nEF + FD + DE \\ge a + b + c - (a \\cos A + b \\cos B + c \\cos C). \\qquad (26)\n$$\nBy the sum-to-product formulas, we have\n$$\n\\frac{1}{2}(\\sin 2A + \\sin 2B) = \\sin(A+B)\\cos(A-B) = \\sin C \\cos(A-B) \\ge \\sin C.\n$$\nSumming this inequality and its cyclic analogues yields\n$$\n\\sin A + \\sin B + \\sin C \\ge 2\\sin A \\cos A + 2\\sin B \\cos B + 2\\sin C \\cos C\n$$\nMultiplying both sides by $2R$ and applying the extended Law of Sines, we obtain\n$$\na + b + c \\ge 2a \\cos A + 2b \\cos B + 2c \\cos C. \\qquad (27)\n$$\nSubstituting (27) into (26) yields the desired\n$$\nEF + FD + DE \\ge \\frac{a+b+c}{2}.\n$$\n\nWe maintain the notations of the first solution. The result clearly follows from the following two lemmas.\n\n**Lemma 1.** The sum of the perimeters of triangles $DEF$ and $PQR$ is at least the perimeter of triangle $ABC$.\n\n*Proof.* By symmetry, it suffices to show that $DE + PQ \\ge AB$. Let $M$ and $N$ be the midpoints of segments $CA$ and $CB$, respectively. We want to show that $DE + PQ \\ge AB = 2MN$. As in the first solution, we have $CE = AQ$ and $CD = BP$ so that $M$ and $N$ are midpoints of segments $PD$ and $QE$, respectively. Computing using vectors, we obtain\n$$\n\\begin{aligned}\n\\overrightarrow{MN} &= \\overrightarrow{MC} + \\overrightarrow{CN} = \\frac{1}{2}(\\overrightarrow{QC} + \\overrightarrow{EC}) + \\frac{1}{2}(\\overrightarrow{CP} + \\overrightarrow{CD}) \\\\\n&= \\frac{1}{2}(\\overrightarrow{QC} + \\overrightarrow{CP}) + \\frac{1}{2}(\\overrightarrow{EC} + \\overrightarrow{CD}) = \\frac{1}{2}(\\overrightarrow{QP} + \\overrightarrow{ED}).\n\\end{aligned}\n$$\nBy the triangle inequality, we have $MN \\le \\frac{1}{2}(QP + ED)$, which implies\n$$\nPQ + DE \\ge 2MN = AB. \\quad \\square\n$$\n\n**Lemma 2.** The perimeter of triangle $ABC$ is at least twice that of triangle $PQR$.\n\n*Proof.* Note that $PQ = 2CP \\sin \\frac{C}{2}$, $QR = 2AQ \\sin \\frac{A}{2}$, and $RP = 2BR \\sin \\frac{B}{2}$. The perimeter of triangle $PQR$ is equal to\n$$\nS_{PQR} = (b+c-a) \\sin \\frac{A}{2} + (c+a-b) \\sin \\frac{B}{2} + (a+b-c) \\sin \\frac{C}{2}.\n$$\nBy symmetry, we may assume that $a \\le b \\le c$. This yields the orderings\n$$\nA \\le B \\le C, \\quad b+c-a \\ge c+a-b \\ge a+b-c, \\quad \\text{and} \\quad \\sin \\frac{A}{2} \\le \\sin \\frac{B}{2} \\le \\sin \\frac{C}{2}.\n$$\nBy Chebyshev's inequality, we have\n$$\nS_{PQR} \\le \\frac{1}{3} \\left( (b+c-a) + (c+a-b) + (a+b-c) \\right) \\left( \\sin \\frac{A}{2} + \\sin \\frac{B}{2} + \\sin \\frac{C}{2} \\right),\n$$\nso it suffices to show that\n$$\n\\sin \\frac{A}{2} + \\sin \\frac{B}{2} + \\sin \\frac{C}{2} \\le \\frac{3}{2}. \\qquad (28)\n$$\nBut (28) follows from Jensen's inequality for $y = \\sin x$ (which is concave for $0 \\le x \\le \\frac{\\pi}{2}$). $\\square$\n\nConsider the following diagram, which contains several copies of $ABC$ rotated and translated so that $ABC$, $A_2B_2C_2$, $A_4B_4C_4$, and $A_6B_6C_6$ are congruent and $B$, $C = A_2$, $B_2 = C_4$, $A_4 = B_6$, and $C_6$ are collinear. Define $D_i$, $E_i$, and $F_i$ to be the images of $D$, $E$, and $F$ in $A_iB_iC_i$.\n![](attached_image_2.png)\n\nObserve that $\\triangle ECE_2 \\simeq \\triangle FBD$, $\\triangle D_2B_2D_4 \\simeq \\triangle EAF$, and $\\triangle F_4A_4F_6 \\simeq \\triangle DAE$. Using these congruences, the triangle inequality, and the fact that $FD \\parallel F_6D_6$, we obtain\n$$\n2(DE + EF + FA) \\ge FE + EE_2 + E_2D_2 + D_2D_4 + D_4F_4 + F_4F_6 \\ge FF_6 = AB + BC + CA.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-geometric-inequalities-jensen-smoothing-auto-3569",
+      "name": "HMMT November 2019 #0k9t",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2019",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle trigonometry",
+        "Jensen/smoothing",
+        "Trigonometry"
+      ],
+      "statement": "Problem:\nLet $S$ be the set of all nondegenerate triangles formed from the vertices of a regular octagon with side length $1$. Find the ratio of the largest area of any triangle in $S$ to the smallest area of any triangle in $S$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nBy a smoothing argument, the largest triangle is that where the sides span $3$, $3$, and $2$ sides of the octagon respectively (i.e. it has angles $45^{\\circ}$, $67.5^{\\circ}$, and $67.5^{\\circ}$), and the smallest triangle is that formed by three adjacent vertices of the octagon. Scaling so that the circumradius of the octagon is $1$, our answer is\n$$\n\\frac{\\sin \\left(90^{\\circ}\\right)+2 \\sin \\left(135^{\\circ}\\right)}{2 \\sin \\left(45^{\\circ}\\right)-\\sin \\left(90^{\\circ}\\right)}=\\frac{1+\\sqrt{2}}{\\sqrt{2}-1}=3+2 \\sqrt{2}\n$$\nwhere the numerator is derived from splitting the large triangle by the circumradii, and the denominator is derived from adding the areas of the two triangles formed by the circumradii, then subtracting the area not in the small triangle."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

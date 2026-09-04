@@ -1,0 +1,97 @@
+{
+  "MODULE_ID": "discrete-mathematics-combinatorics-functional-equations",
+  "practice": [
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-functional-equations-auto-1733",
+      "name": "Harvard-MIT November Tournament #0iut",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recurrence relations",
+        "Functional equations"
+      ],
+      "statement": "Problem:\n\nLet $f$ be a function that takes in a triple of integers and outputs a real number. Suppose that $f$ satisfies the equations\n\n$$\n\\begin{aligned}\nf(a, b, c) & = \\frac{f(a+1, b, c) + f(a-1, b, c)}{2} \\\\\nf(a, b, c) & = \\frac{f(a, b+1, c) + f(a, b-1, c)}{2} \\\\\nf(a, b, c) & = \\frac{f(a, b, c+1) + f(a, b, c-1)}{2}\n\\end{aligned}\n$$\n\nfor all integers $a, b, c$. What is the minimum number of triples at which we need to evaluate $f$ in order to know its value everywhere?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: 8\n\nNote that if we have the value of $f$ at the 8 points: $(0,0,0)$, $(1,0,0)$, $(0,1,0)$, $(0,0,1)$, $(0,1,1)$, $(1,0,1)$, $(1,1,0)$, $(1,1,1)$, we can calculate the value for any triple of points because we have that $f(a+1, b, c) - f(a, b, c)$ is constant for any $a$, if $b$ and $c$ are fixed (and similarly for the other coordinates). To see why we cannot do this with fewer points, notice that we need to determine what the value of these 8 points is anyway, and there is no more efficient way to determine them all in fewer evaluations."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-functional-equations-auto-2053",
+      "name": "Harvard-MIT November Tournament #0j3p",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional equations",
+        "Enumeration with symmetry"
+      ],
+      "statement": "Problem:\nHow many functions $f:\\{1,2, \\ldots, 10\\} \\rightarrow \\{1,2, \\ldots, 10\\}$ satisfy the property that $f(i)+f(j)=11$ for all values of $i$ and $j$ such that $i+j=11$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nTo construct such a function $f$, we just need to choose a value for $f(x)$ from $\\{1,2, \\ldots, 10\\}$ for each $x \\in \\{1,2, \\ldots, 10\\}$. But the condition that $f(i)+f(j)=11$ whenever $i+j=11$ means that\n$$\n\\begin{aligned}\nf(10) & = 11 - f(1) \\\\\nf(9) & = 11 - f(2) \\\\\n& \\vdots \\\\\nf(6) & = 11 - f(5)\n\\end{aligned}\n$$\nThis means that once we have chosen $f(1), f(2), f(3), f(4)$, and $f(5)$, the five remaining values of $f(6), f(7), f(8), f(9)$, and $f(10)$ are already determined. The answer is therefore just the number of ways to choose these first five values. Since there are 10 possibilities for each one, we get that the answer is $10^5 = 100000$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-functional-equations-auto-2279",
+      "name": "Harvard-MIT Mathematics Tournament #0j9z",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional equations",
+        "Invariants / monovariants"
+      ],
+      "statement": "Problem:\n\nFor what positive integers $n$ do there exist functions $f, g:\\{1,2, \\ldots, n\\} \\rightarrow \\{1,2, \\ldots, n\\}$ such that for each $1 \\leq i \\leq n$, either $f(g(i))=i$ or $g(f(i))=i$, but not both?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $n$ even\n\nWe claim that this is possible for all even $n$. First, a construction: set $f(2m-1) = f(2m) = 2m-1$ and $g(2m-1) = g(2m) = 2m$ for $m = 1, \\ldots, \\frac{n}{2}$. It is easy to verify that this solution works.\n\nNow, we show that this is impossible for odd $n$. Without loss of generality, suppose that $f(g(1))=1$ and that $g(1)=a \\Rightarrow f(a)=1$. Then, we have $g(f(a))=g(a)=1$. Consequently, $a \\neq 1$. In this case, call $1$ and $a$ a pair (we likewise regard $i$ and $j$ as a pair when $g(f(i))=i$ and $f(i)=j$). Now, to show that $n$ is even it suffices to show that all pairs are disjoint. Suppose for the sake of contradiction that some integer $b \\neq a$ is also in a pair with $1$ (note that $1$ is arbitrary). Then, we have $f(g(b))=b$, $g(b)=1$ or $g(f(b))=b$, $f(b)=1$. But we already know that $g(1)=a$, so we must have $f(g(b))=b$, $g(b)=1$. But that would mean that both $f(g(1))=1$ and $g(f(1))=1$, a contradiction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-functional-equations-auto-3192",
+      "name": "HMIC #0jzc",
+      "url": "https://usamoguide.com/",
+      "source": "HMIC",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional equations",
+        "Vectors"
+      ],
+      "statement": "Problem:\n\nLet $S$ be the set $\\{-1,1\\}^n$, that is, $n$-tuples such that each coordinate is either $-1$ or $1$. For\n$$\ns = (s_1, s_2, \\ldots, s_n),\\ t = (t_1, t_2, \\ldots, t_n) \\in \\{-1,1\\}^n\n$$\ndefine $s \\odot t = (s_1 t_1, s_2 t_2, \\ldots, s_n t_n)$.\nLet $c$ be a positive constant, and let $f: S \\rightarrow \\{-1,1\\}$ be a function such that there are at least $(1-c) \\cdot 2^{2n}$ pairs $(s, t)$ with $s, t \\in S$ such that $f(s \\odot t) = f(s) f(t)$. Show that there exists a function $f'$ such that $f'(s \\odot t) = f'(s) f'(t)$ for all $s, t \\in S$ and $f(s) = f'(s)$ for at least $(1-10c) \\cdot 2^n$ values of $s \\in S$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe use finite Fourier analysis, which we explain the setup for below. For a subset $T \\subseteq S$, define the function $\\chi_T: S \\rightarrow \\{-1,1\\}$ to satisfy $\\chi_T(s) = \\prod_{t \\in T} s_t$. Note that $\\chi_T(s \\odot t) = \\chi_T(s) \\chi_T(t)$ for all $s, t \\in S$. Therefore, we should show that there exists a subset $T$ such that taking $f' = \\chi_T$ satisfies the constraint. This subset $T$ also has to exist, as the $\\chi_T$ are all the multiplicative functions from $S \\rightarrow \\{-1,1\\}$.\n\nAlso, for two functions $f, g: S \\rightarrow \\mathbb{R}$ define\n$$\n\\langle f, g \\rangle = \\frac{1}{2^n} \\sum_{s \\in S} f(s) g(s)\n$$\nNow we claim a few facts below that are easy to verify. One, for any subsets $T_1, T_2 \\subseteq S$ we have that\n$$\n\\left\\langle \\chi_{T_1}, \\chi_{T_2} \\right\\rangle = \\begin{cases}\n0 & \\text{if } T_1 \\neq T_2 \\\\\n1 & \\text{if } T_1 = T_2\n\\end{cases}\n$$\nWe will refer to this claim as orthogonality. Also, note that for any function $f: S \\rightarrow \\mathbb{R}$, we can write\n$$\nf = \\sum_{T \\subseteq S} \\langle f, \\chi_T \\rangle \\chi_T\n$$\nThis is called expressing $f$ by its Fourier basis. By the given condition, we have that\n$$\n\\sum_{s, t \\in S} f(s \\odot t) f(s) f(t) = 1 - 2c\n$$\nExpanding the left-hand side in terms of the Fourier basis, we get that\n$$\n\\begin{gathered}\n1 - 2c = \\frac{1}{2^{2n}} \\sum_{s, t \\in S} f(s \\odot t) f(s) f(t) = \\frac{1}{2^{2n}} \\sum_{T_1, T_2, T_3 \\subseteq S} \\sum_{s, t \\in S} \\langle f, \\chi_{T_1} \\rangle \\langle f, \\chi_{T_2} \\rangle \\langle f, \\chi_{T_3} \\rangle \\chi_{T_1}(s) \\chi_{T_1}(t) \\chi_{T_2}(s) \\chi_{T_3}(t) \\\\\n= \\sum_{T_1, T_2, T_3 \\subseteq S} \\langle f, \\chi_{T_1} \\rangle \\langle f, \\chi_{T_2} \\rangle \\langle f, \\chi_{T_3} \\rangle \\langle \\chi_{T_1}, \\chi_{T_2} \\rangle \\langle \\chi_{T_1}, \\chi_{T_3} \\rangle = \\sum_{T \\subseteq S} \\langle f, \\chi_T \\rangle^3\n\\end{gathered}\n$$\nby orthogonality. Also note by orthogonality that\n$$\n1 = \\langle f, f \\rangle = \\left\\langle \\sum_{T_1 \\subseteq S} \\langle f, T_1 \\rangle \\chi_{T_1}(s), \\sum_{T_2 \\subseteq S} \\langle f, T_2 \\rangle \\chi_{T_2}(s) \\right\\rangle = \\sum_{T \\subseteq S} \\langle f, \\chi_T \\rangle^2\n$$\nFinally, from above we have that\n$$\n1 - 2c = \\sum_{T \\subseteq S} \\langle f, \\chi_T \\rangle^3 \\leq \\left(\\max_{T \\subseteq S} \\langle f, \\chi_T \\rangle\\right) \\sum_{T \\subseteq S} \\langle f, \\chi_T \\rangle^2 = \\max_{T \\subseteq S} \\langle f, \\chi_T \\rangle\n$$\nThis last equation implies that some $\\chi_T$ and $f$ agree on $(1-c) \\cdot 2^n$ values, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

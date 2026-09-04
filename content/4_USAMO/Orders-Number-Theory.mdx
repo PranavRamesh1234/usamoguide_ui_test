@@ -1,0 +1,112 @@
+---
+id: orders-number-theory
+title: orders
+author: Nico Young
+description: Orders 
+prerequisites: ["number-theory-advanced", "proof-writing-basics"]
+---
+
+resource: evan's handout, MONT, etc. 
+
+## Overview
+
+This is a module about orders, which deals with exponents in NT. 
+
+## Definition 
+
+The **order** of $a\pmod p$, sometimes written as $\text{ord}_p (a)$, is the **smallest** positive integer $m$ such that $a^m\equiv 1\pmod p$.
+
+The idea is quite similar to the logarithm function, but in Number Theory.
+
+## Fermat's Little Theorem
+
+First, you may question how do you know this value exists. After all, what if, for all integers $m$, $a^m \not\equiv 1 \pmod p$? To do this, we must first show the famous Fermat's Little Theorem.
+
+**Fermat's Little Theorem.** $a^{p-1} \equiv 1 \pmod p$ for all integers $a$ and primes $p$ where $\gcd(a,p) = 1$.
+
+To prove this, consider two sets $A = \{1,2,\ldots, p-1\}$ and $B = \{a\cdot 1, a\cdot 2,\ldots, a\cdot (p-1)\}$. We will show all elements of $B$ are distinct. 
+
+Consider two elements $\epsilon_1,\epsilon_2 \in A$. For the sake of contradiction, suppose $a\cdot \epsilon_1$ and $a\cdot \epsilon_2$ are the same. Then,
+
+$$
+a\cdot \epsilon_1 - a\cdot \epsilon_2 \equiv a(\epsilon_1 - \epsilon_2) \equiv 0 \pmod p.
+$$
+
+As $\gcd(a,p) = 1$, then $\epsilon_1 - \epsilon_2 \equiv 0 \pmod p$, and so $\epsilon_1 \equiv \epsilon_2 \pmod p$. But, $0 \leq \epsilon_1, \epsilon_2 \leq p-1$, impossible, unless $\epsilon_1 = \epsilon_2$. Hence, all elements of $B$ are distinct. Nicely enough, we can multiply the elements of $A$ and $B$, and upon taking the results modulo $p$, they must be equal:
+
+$$
+\prod_A \equiv \prod_B \implies (p-1)! \equiv a^{p-1} \cdot (p-1)! \pmod p \implies (p-1)! \cdot \left(a^{p-1}-1\right) \equiv 0 \pmod p.
+$$
+
+Note that $p$ is relatively prime to all elements of $A$, and so $\gcd(p, (p-1)!) = 1$. So, $a^{p-1} \equiv 1 \pmod p$, as desired. $\blacksquare$
+
+With that conclusion, it is safe to conclude there exists an integer $m$ such that $a^m \equiv 1 \pmod p$.
+
+## Power of Orders
+
+The power of orders is its minimality. To be more precise: 
+
+**Theorem 1.** If $k$ is a nonnegative integer such that $a^k\equiv 1\pmod p$, then $\text{ord}_p(a) \mid k$.
+
+Write $m = ord_p(a)$. To prove this, note that due to Divison Algorithm, we can write $k = mq+r$ for integers $m$, $q$, and $r$ where $0 \leq r < m. Notice, 
+
+$$
+a^k\equiv 1\pmod p \implies \left(a^{m}\right)^q\cdot a^r \equiv 1 \pmod p \implies a^r \equiv 1 \pmod p.
+$$
+
+But, if $0 < r < m$ then we contradict the minimality of order. So, $r = 0$ and so $m \mid k$, as desired. $\blacksquare$
+
+In conjunction with Fermat's Little Theorem, it is clear that $a^{p-1} \equiv 1 \pmod p$, and so $\text{ord}_p(a) \mid (p-1)$.
+
+## Primitive Roots 
+
+The converse also holds for a prime: there **exists** an integer $a$ such that $\text{ord}_p (a)=p-1$. In particular, the sequence
+
+$$
+a^1 \pmod p, \ \ a^2 \pmod p\ , \ \ldots\ \ , \ a^{p-1} \pmod p
+$$
+
+cycles through all elements from $1$ to $p-1$.
+
+For example, $2$ is a primitive root modulo $3$ as $2^1 \equiv 2 \pmod 3$ and $2^2 \equiv 1 \pmod 3$, and so $\text{ord}_3(2) = 2$. To sum, primitive roots always **exist** for a prime $p$, oftenly denoted by $g$. However, to our surprise, we do not know how to determine the exact value of $g$. 
+
+I will leave it to you to check that $2$ is a primitive root modulo $11$ and $13$. 
+
+## Warm-Up Examples
+
+### Example 1: Product of Primitive Roots (worth remembering!)
+
+Your goal is to prove that the product of all primitive roots mod an odd prime $p$ is congruent to $1 \pmod p$.
+
+Pair each primitive root $g^k$ with $g^{p-1-k}$ since $\gcd(k, p-1) = 1 \iff \gcd(p-1-k, p-1) = 1$. The product of each pair is $g^{k + (p-1-k)} = g^{p-1} \equiv 1 \pmod p$. Since $\phi(p-1) > 1$, we pair them into distinct terms, giving a total product of $1 \pmod p$.
+
+### Example 2: Primitive Roots + Euler's Criterion
+
+Your job is to find all primes $p \equiv 1 \pmod 4$ such that $2$ is a primitive root modulo $p$, and also $p$ divides $2^{(p-1)/2} + 1$.
+
+Realize that since $2$ is a primitive root, its order is $p-1$. This satisfies the condition $2^{(p-1)/2} \equiv -1 \pmod p$. Via Euler's criterion, we get: $p \equiv 5 \pmod 8$.
+
+### Example 3: Interesting Property (also worth remembering!)
+
+Let $n$ be a positive integer such that the order of $2$ modulo $n$ is $n-1$. Your goal is to prove that $n$ must be a prime number.
+
+By ETT, we know that $2^{\phi(n)} \equiv 1 \pmod n$, and so the order $n-1$ must divide $\phi(n)$. Now, because $\phi(n) \le n-1$ always holds, we must have $\phi(n) = n-1$. This holds if and only if $n$ is prime (why?).
+
+### Example 4: Skibidi Characterization of primitive roots
+
+Let $p$ be an odd prime. Your goal is to prove that $g$ is a primitive root mod $p$ if and only if $g^{(p-1)/q} \not\equiv 1 \pmod p$ for all prime divisors $q$ of $p-1$.
+
+Firstly, you can assume the order $d$ is less than $p-1$. Then the quotient $\frac{p-1}{d} > 1$ must have some prime factor $q$. This means that $d$ divides $\frac{p-1}{q}$, which would force $g^{(p-1)/q} \equiv 1 \pmod p$. However, this contradicts the problem statement, meaning the order must equal $p-1$.
+
+### Example 5: Product of Quadratic Residues (also also worth remembering!)
+
+Let $p \equiv 3 \pmod 4$ be a prime greater than 3. Your job is to prove that the product of all quadratic residues modulo $p$ is congruent to $1 \pmod p$.
+
+We can represent all the quadratic residues as the even powers of a primitive root: $g^2, g^4, \dots, g^{p-1}$. The sum of these exponents simplifies to $\frac{p-1}{2} \cdot \frac{p+1}{2}$. Now, because $p \equiv 3 \pmod 4$, $\frac{p+1}{2}$ is an even integer, which means the sum is a multiple of $p-1$ and the final product $\equiv 1 \pmod p$.
+
+### Example 6: Fun Problem
+
+Let $p$ be an odd prime. Your job is to prove that a primitive root $g$ modulo $p$ is also a primitive root modulo $p^2$ if and only if $g^{p-1} \not\equiv 1 \pmod {p^2}$.
+
+First observe that the order $d$ modulo $p^2$ must divide $\phi(p^2) = p(p-1)$ and also satisfy $g^d \equiv 1 \pmod p$, meaning $(p-1) \mid d$. This means the possible values are$d = p-1$ or $d = p(p-1)$. Since $g^{p-1} \not\equiv 1 \pmod {p^2}$, the order cannot be $p-1$, leaving $p(p-1) = \phi(p^2)$.
+

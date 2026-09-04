@@ -1,0 +1,646 @@
+{
+  "MODULE_ID": "calculus-integral-calculus-techniques-single-variable",
+  "practice": [
+    {
+      "uniqueId": "calculus-integral-calculus-techniques-single-variable-auto-0547",
+      "name": "HMMT #0hxv",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Applications",
+        "Single-variable"
+      ],
+      "statement": "Problem:\nFind the area of the region bounded by the graphs of $y = x^{2}$, $y = x$, and $x = 2$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThere are two regions to consider. First, there is the region bounded by $y = x^{2}$ and $y = x$, in the interval $[0, 1]$. In this interval, the values of $y = x$ are greater than the values of $y = x^{2}$, thus the area is calculated by\n$$\n\\int_{0}^{1} (x - x^{2}) \\, dx\n$$\nSecond, there is the region bounded by $y = x^{2}$ and $y = x$ and $x = 2$, in the interval $[1, 2]$. In this interval, the values of $y = x^{2}$ are greater than the values of $y = x$, thus the area is calculated by\n$$\n\\int_{1}^{2} (x^{2} - x) \\, dx\n$$\nThen the total area of the region bounded by the three graphs is\n$$\n\\int_{0}^{1} (x - x^{2}) \\, dx + \\int_{1}^{2} (x^{2} - x) \\, dx = 1\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-integral-calculus-techniques-single-variable-auto-0604",
+      "name": "Harvard-MIT Math Tournament #0hzg",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Single-variable"
+      ],
+      "statement": "Problem:\nFind\n$$\n\\int_{-4 \\pi \\sqrt{2}}^{4 \\pi \\sqrt{2}}\\left(\\frac{\\sin x}{1+x^{4}}+1\\right) d x\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe function $\\frac{\\sin x}{1+x^{4}}$ is odd, so its integral over this interval is $0$. Thus we get the same answer if we just integrate $d x$, namely, $8 \\pi \\sqrt{2}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-integral-calculus-techniques-single-variable-auto-0609",
+      "name": "Harvard-MIT Math Tournament #0hzl",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other",
+        "Single-variable"
+      ],
+      "statement": "Problem:\nA circle is randomly chosen in a circle of radius $1$ in the sense that a point is randomly chosen for its center, then a radius is chosen at random so that the new circle is contained in the original circle. What is the probability that the new circle contains the center of the original circle?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nIf the center of the new circle is more than $1/2$ away from the center of the original circle then the new circle cannot possibly contain the center of the original one. Let $x$ be the distance between the centers (by symmetry this is all we need to consider), then for $0 \\leq x \\leq 1/2$ the probability of the new circle containing the center of the original one is $1-\\frac{x}{1-x}$. Hence we need to compute\n$$\n\\int_{0}^{1/2}\\left(1-\\frac{x}{1-x}\\right) dx = \\frac{1}{2} - \\int_{0}^{1/2} \\frac{x}{1-x} dx.\n$$\nTo evaluate the integral, we can integrate by parts to get\n$$\n-\\left. x \\ln (1-x) \\right|_{0}^{1/2} - \\int_{0}^{1/2} -\\ln (1-x) dx = -\\frac{1}{2} \\ln \\left(\\frac{1}{2}\\right) - [(1-x) \\ln (1-x) - (1-x)]_{0}^{1/2} = \\ln 2 - \\frac{1}{2}.\n$$\nAlternatively, we can use polynomial division to find that $\\frac{x}{1-x} = -1 + \\frac{1}{1-x}$, so\n$$\n\\int_{0}^{1/2} \\frac{x}{1-x} dx = \\int_{0}^{1/2} \\left(-1 + \\frac{1}{1-x}\\right) dx = \\ln 2 - \\frac{1}{2}.\n$$\nTherefore the probability is $\\frac{1}{2} - (\\ln 2 - \\frac{1}{2}) = 1 - \\ln 2$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-integral-calculus-techniques-single-variable-auto-0685",
+      "name": "Harvard-MIT Math Tournament #0i1p",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Single-variable",
+        "Trigonometric functions"
+      ],
+      "statement": "Problem:\n\nEvaluate the definite integral\n$$\\int_{-1}^{+1} \\frac{2 u^{332}+u^{998}+4 u^{1664} \\sin u^{691}}{1+u^{666}} \\, \\mathrm{d}u.$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe term $\\frac{4 u^{1664} \\sin u^{691}}{1+u^{666}}$ is odd in $u$, so its integral is $0$.\n\nNow make the substitution $u = v^{1/333} \\Rightarrow \\mathrm{d}u = \\frac{1}{333} v^{-332/333} \\mathrm{d}v$ to find that\n$$\n\\int_{-1}^{+1} \\frac{2 u^{332} + u^{998}}{1 + u^{666}} \\, \\mathrm{d}u = \\frac{1}{333} \\int_{-1}^{+1} \\frac{2 + v^{2}}{1 + v^{2}} \\, \\mathrm{d}v = \\frac{1}{333} \\int_{-1}^{+1} \\left(1 + \\frac{1}{1 + v^{2}}\\right) \\mathrm{d}v.\n$$\n\nThis equals\n$$\n\\frac{2}{333} \\int_{0}^{1} \\left(1 + \\frac{1}{1 + v^{2}}\\right) \\mathrm{d}v = \\frac{2}{333} \\left(1 + \\int_{0}^{1} \\frac{1}{1 + v^{2}} \\, \\mathrm{d}v\\right) = \\frac{2}{333} \\left(1 + \\tan^{-1} 1\\right) = \\frac{2}{333} \\left(1 + \\frac{\\pi}{4}\\right).\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-integral-calculus-techniques-single-variable-auto-0826",
+      "name": "Harvard-MIT Math Tournament #0i5m",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Applications",
+        "Single-variable",
+        "Trigonometric functions"
+      ],
+      "statement": "Problem:\nFind the area of the region in the first quadrant $x>0, y>0$ bounded above the graph of $y=\\arcsin (x)$ and below the graph of $y=\\arccos (x)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe can integrate over $y$ rather than $x$. In particular, the solution is\n$$\n\\int_{0}^{\\pi / 4} \\sin y \\, dy + \\int_{\\pi / 4}^{\\pi / 2} \\cos y \\, dy = \\left(1 - \\frac{1}{\\sqrt{2}}\\right) 2 = 2 - \\sqrt{2}.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-integral-calculus-techniques-single-variable-auto-0865",
+      "name": "Harvard-MIT Math Tournament #0i6p",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Applications",
+        "Single-variable"
+      ],
+      "statement": "Problem:\nDetermine the positive value of $a$ such that the parabola $y = x^{2} + 1$ bisects the area of the rectangle with vertices $(0,0)$, $(a, 0)$, $(0, a^{2} + 1)$, and $(a, a^{2} + 1)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n$\\sqrt{3}$\n\nThe area of the rectangle is $a^{3} + a$. The portion under the parabola has area $\\int_{0}^{a} x^{2} + 1\\, dx = a^{3} / 3 + a$. Thus we wish to solve the equation $a^{3} + a = 2\\left(a^{3} / 3 + a\\right)$; dividing by $a$ and rearranging gives $a^{2} / 3 = 1$, so $a = \\sqrt{3}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-integral-calculus-techniques-single-variable-auto-0883",
+      "name": "Harvard-MIT Math Tournament #0i77",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Single-variable"
+      ],
+      "statement": "Problem:\n\nEvaluate $\\int_{0}^{(\\sqrt{2}-1) / 2} \\frac{\\mathrm{~d} x}{(2 x+1) \\sqrt{x^{2}+x}}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $u=\\sqrt{x^{2}+x}$. Then $d u=\\frac{2 x+1}{2 \\sqrt{x^{2}+x}} d x$. So the integral becomes $2 \\int \\frac{d u}{4 x^{2}+4 x+1}$, or $2 \\int \\frac{d u}{4 u^{2}+1}$. This is $\\tan^{-1}(2 u)$, yielding a final answer of $\\tan^{-1}\\left(2 \\sqrt{x^{2}+x}\\right)+C$ for the indefinite integral. The definite integral becomes $\\tan^{-1}(1)-\\tan^{-1}(0)=\\frac{\\pi}{4}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-integral-calculus-techniques-single-variable-auto-0886",
+      "name": "Harvard-MIT Math Tournament #0i7a",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Derivatives",
+        "Single-variable",
+        "ODEs"
+      ],
+      "statement": "Problem:\n\nSuppose $f$ is a differentiable real function such that $f(x) + f'(x) \\leq 1$ for all $x$, and $f(0) = 0$. What is the largest possible value of $f(1)$? (Hint: consider the function $e^{x} f(x)$.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n$1 - 1/e$\n\nLet $g(x) = e^{x} f(x)$; then $g'(x) = e^{x} (f(x) + f'(x)) \\leq e^{x}$. Integrating from $0$ to $1$, we have\n$$\ng(1) - g(0) = \\int_{0}^{1} g'(x) \\, dx \\leq \\int_{0}^{1} e^{x} \\, dx = e - 1.\n$$\nBut $g(1) - g(0) = e \\cdot f(1)$, so we get $f(1) \\leq (e - 1)/e$.\n\nThis maximum is attained if we actually have $g'(x) = e^{x}$ everywhere; this entails the requirement $f(x) + f'(x) = 1$, which is met by $f(x) = 1 - e^{-x}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-integral-calculus-techniques-single-variable-auto-0903",
+      "name": "Harvard-MIT Mathematics Tournament #0i7r",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Single-variable",
+        "Functions"
+      ],
+      "statement": "Problem:\n\nEvaluate\n\n$$\n\\int_{-\\infty}^{\\infty} \\frac{1-x^{2}}{1+x^{4}} d x\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n$0$\n\nLet $S=\\int_{0}^{\\infty} \\frac{1}{x^{4}+1} d x$; note that the integral converges absolutely. Substituting $x=1/u$, so that $d x=-1/u^{2} d u$, we have\n\n$$\n\\begin{gathered}\nS=\\int_{0}^{\\infty} \\frac{1}{1+x^{4}} d x=\\int_{\\infty}^{0} \\frac{1}{1+u^{-4}} \\frac{d u}{-u^{2}}=\\int_{\\infty}^{0} \\frac{-u^{2}}{u^{4}+1} d u \\\\\n=\\int_{0}^{\\infty} \\frac{u^{2}}{1+u^{4}} d u=\\int_{0}^{\\infty} \\frac{x^{2}}{1+x^{4}} d x\n\\end{gathered}\n$$\n\n(the manipulations are justified by absolute convergence), from which we see that\n$$\n\\int_{0}^{\\infty}\\frac{1-x^{2}}{1+x^{4}} d x=0.\n$$\nSince the integrand is an even function, it follows that the integral from $-\\infty$ to $\\infty$ is zero as well."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-integral-calculus-techniques-single-variable-auto-0942",
+      "name": "Harvard-MIT Mathematics Tournament #0i8u",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Applications",
+        "Single-variable"
+      ],
+      "statement": "Problem:\nWhat is the area of the region bounded by the curves $y = x^{2003}$ and $y = x^{1 / 2003}$ and lying above the $x$-axis?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe two curves intersect at $(0, 0)$ and $(1, 1)$, so the desired area is\n\n$$\n\\int_{0}^{1} \\left( x^{1 / 2003} - x^{2003} \\right) dx = \\left[ \\frac{x^{2004 / 2003}}{2004 / 2003} - \\frac{x^{2004}}{2004} \\right]_{0}^{1} = \\frac{1001}{1002}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-integral-calculus-techniques-single-variable-auto-0984",
+      "name": "Harvard-MIT Mathematics Tournament #0ia0",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Single-variable",
+        "Limits"
+      ],
+      "statement": "Problem:\nFor $n$ an integer, evaluate\n$$\n\\lim_{n \\rightarrow \\infty}\\left(\\frac{1}{\\sqrt{n^{2}-0^{2}}}+\\frac{1}{\\sqrt{n^{2}-1^{2}}}+\\cdots+\\frac{1}{\\sqrt{n^{2}-(n-1)^{2}}}\\right)\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nNote that $\\frac{1}{\\sqrt{n^{2}-i^{2}}}=\\frac{1}{n} \\cdot \\frac{1}{\\sqrt{1-\\left(\\frac{i}{n}\\right)^{2}}}$, so that the sum we wish to evaluate is just a Riemann sum. Then,\n\n$$\n\\lim_{n \\rightarrow \\infty}\\left(\\frac{1}{n} \\sum_{i=0}^{n-1} \\frac{1}{\\sqrt{1-\\left(\\frac{i}{n}\\right)^{2}}}\\right)=\\int_{0}^{1} \\frac{1}{\\sqrt{1-x^{2}}} \\, dx=\\left[\\sin^{-1} x\\right]_{0}^{1}=\\frac{\\pi}{2}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-integral-calculus-techniques-single-variable-auto-0992",
+      "name": "Harvard-MIT Mathematics Tournament #0ia8",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Single-variable",
+        "Derivatives"
+      ],
+      "statement": "Problem:\nFor what value of $a > 1$ is\n\n$$\n\\int_{a}^{a^{2}} \\frac{1}{x} \\log \\frac{x-1}{32} \\, dx\n$$\nminimum?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $f(a) = \\int_{a}^{a^{2}} \\frac{1}{x} \\log \\frac{x-1}{32} \\, dx$. Then we want $\\frac{d f}{d a} = 0$; by the Fundamental Theorem of Calculus and the chain rule, this implies that\n\n$$\n2a \\left( \\frac{1}{a^{2}} \\log \\frac{a^{2}-1}{32} \\right) - \\frac{1}{a} \\log \\frac{a-1}{32} = \\frac{d}{d a} \\left( \\int_{c}^{a^{2}} \\frac{1}{x} \\log \\frac{x-1}{32} \\, dx - \\int_{c}^{a} \\frac{1}{x} \\log \\frac{x-1}{32} \\, dx \\right) = 0,\n$$\nwhere $c$ is any constant with $1 < c < a$. Then $2 \\log \\frac{a^{2}-1}{32} = \\log \\frac{a-1}{32}$, so that $\\left( \\frac{a^{2}-1}{32} \\right)^{2} = \\frac{a-1}{32}$. After canceling factors of $(a-1)/32$ (since $a > 1$), this simplifies to $\\left(a^{2}-1\\right)(a+1) = 32 \\Rightarrow a^{3} + a^{2} - a - 33 = 0$, which in turn factors as $(a-3)(a^{2} + 4a + 11) = 0$. The quadratic factor has no real solutions, so this leaves only $a = 3$. However, we have that $a > 1$, and we can check that $f(1) = 0$, $\\lim_{a \\rightarrow \\infty} f(a) > 0$, and $f(3) < 0$, so the global minimum does occur at $a = 3$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-integral-calculus-techniques-single-variable-auto-1096",
+      "name": "Harvard-MIT Mathematics Tournament #0id4",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Applications",
+        "Single-variable"
+      ],
+      "statement": "Problem:\nA mouse is sitting in a toy car on a negligibly small turntable. The car cannot turn on its own, but the mouse can control when the car is launched and when the car stops (the car has brakes). When the mouse chooses to launch, the car will immediately leave the turntable on a straight trajectory at $1$ meter per second.\n\nSuddenly someone turns on the turntable; it spins at $30$ rpm. Consider the set $S$ of points the mouse can reach in his car within $1$ second after the turntable is set in motion. (For example, the arrows in the figure below represent two possible paths the mouse can take.) What is the area of $S$, in square meters?\n\n![](attached_image_1.png)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe mouse can wait while the table rotates through some angle $\\theta$ and then spend the remainder of the time moving along that ray at $1~\\mathrm{m}/\\mathrm{s}$. He can reach any point between the starting point and the furthest reachable point along the ray, $(1-\\theta/\\pi)$ meters out. So the area is given by the polar integral\n$$\n\\int_{0}^{\\pi} \\frac{(1-\\theta/\\pi)^{2}}{2} d\\theta = \\frac{1}{2} \\cdot \\frac{1}{\\pi^{2}} \\int_{0}^{\\pi} \\phi^{2} d\\phi = \\pi/6\n$$\n(where we have used the change of variables $\\phi = \\pi - \\theta$)."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-integral-calculus-techniques-single-variable-auto-1166",
+      "name": "Harvard-MIT Mathematics Tournament #0if2",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Applications",
+        "Single-variable",
+        "Trigonometric functions"
+      ],
+      "statement": "Problem:\nA plane curve is parameterized by $x(t) = \\int_{t}^{\\infty} \\frac{\\cos u}{u} du$ and $y(t) = \\int_{t}^{\\infty} \\frac{\\sin u}{u} du$ for $1 \\leq t \\leq 2$. What is the length of the curve?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution: $\\ln 2$\nBy the Second Fundamental Theorem of Calculus, $\\frac{d x}{d t} = -\\frac{\\cos t}{t}$ and $\\frac{d y}{d t} = -\\frac{\\sin t}{t}$. Therefore, the length of the curve is\n$$\n\\int_{1}^{2} \\sqrt{\\left(\\frac{d x}{d t}\\right)^{2} + \\left(\\frac{d y}{d t}\\right)^{2}} d t = \\int_{1}^{2} \\sqrt{\\frac{\\cos^{2} t}{t^{2}} + \\frac{\\sin^{2} t}{t^{2}}} d t = \\int_{1}^{2} \\frac{1}{t} d t = [\\ln t]_{1}^{2} = \\ln 2\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-integral-calculus-techniques-single-variable-auto-1184",
+      "name": "Harvard-MIT Mathematics Tournament #0ifk",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Single-variable"
+      ],
+      "statement": "Problem:\n\nLet $f: \\mathbf{R} \\rightarrow \\mathbf{R}$ be a continuous function with $\\int_{0}^{1} f(x) f^{\\prime}(x) d x=0$ and $\\int_{0}^{1} f(x)^{2} f^{\\prime}(x) d x=18$. What is $\\int_{0}^{1} f(x)^{4} f^{\\prime}(x) d x$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n$0=\\int_{0}^{1} f(x) f^{\\prime}(x) d x=\\int_{f(0)}^{f(1)} u d u=\\frac{1}{2}\\left(f(1)^{2}-f(0)^{2}\\right)$, and\n\n$18=\\int_{0}^{1} f(x)^{2} f^{\\prime}(x) d x=\\int_{f(0)}^{f(1)} u^{2} d u=\\frac{1}{3}\\left(f(1)^{3}-f(0)^{3}\\right)$.\n\nThe first equation implies $f(0)= \\pm f(1)$. The second equation shows that $f(0) \\neq f(1)$, and in fact $54=f(1)^{3}-f(0)^{3}=2 f(1)^{3}$, so $f(1)=3$ and $f(0)=-3$. Then\n\n$\\int_{0}^{1} f(x)^{4} f^{\\prime}(x) d x=\\int_{f(0)}^{f(1)} u^{4} d u=\\frac{1}{5}\\left(f(1)^{5}-f(0)^{5}\\right)=\\frac{1}{5}(243+243)=\\frac{486}{5}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-integral-calculus-techniques-single-variable-auto-1354",
+      "name": "Harvard-MIT Mathematics Tournament #0ika",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Single-variable"
+      ],
+      "statement": "Problem:\nCompute\n$$\n\\int_{0}^{1} \\frac{d x}{\\sqrt{x}+\\sqrt[3]{x}}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWriting $x = u^{6}$ so that $d x = 6 u^{5} d u$, we have\n$$\n\\begin{aligned}\n\\int_{0}^{1} \\frac{d x}{\\sqrt{x}+\\sqrt[3]{x}} & = \\int_{0}^{1} \\frac{6 u^{5} d u}{u^{3}+u^{2}} \\\\\n& = 6 \\int_{0}^{1} \\frac{u^{3} d u}{u+1} \\\\\n& = 6 \\int_{0}^{1}\\left(u^{2}-u+1-\\frac{1}{u+1}\\right) d u \\\\\n& = 6\\left(\\frac{u^{3}}{3}-\\frac{u^{2}}{2}+u-\\left.\\ln |u+1|\\right|_{0} ^{1}\\right)=5-6 \\ln (2)\n\\end{aligned}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-integral-calculus-techniques-single-variable-auto-1381",
+      "name": "Harvard-MIT Mathematics Tournament #0il1",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Single-variable",
+        "Trigonometric functions"
+      ],
+      "statement": "Problem:\nCompute\n$$\n\\int_{0}^{\\pi / 3} x \\tan^{2}(x) \\, dx\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n$$\n\\begin{aligned}\n\\int_{0}^{\\pi / 3} x \\tan^{2}(x) \\, dx & = \\int_{0}^{\\pi / 3} x\\left(-1+\\frac{1}{\\cos^{2}(x)}\\right) dx \\\\\n& = -\\left.\\frac{x^{2}}{2}\\right|_{0}^{\\pi / 3} + \\int_{0}^{\\pi / 3} \\frac{x \\, dx}{\\cos^{2}(x)} \\\\\n& = -\\left.\\frac{x^{2}}{2}\\right|_{0}^{\\pi / 3} + \\left(\\left. x \\tan(x) \\right|_{0}^{\\pi / 3} - \\int_{0}^{\\pi / 3} \\tan(x) dx \\right) \\quad (u = x; \\ dv = \\frac{dx}{\\cos^{2}(x)}) \\\\\n& = -\\frac{x^{2}}{2} + x \\tan(x) + \\left. \\ln |\\cos(x)| \\right|_{0}^{\\pi / 3} = -\\frac{\\pi^{2}}{18} + \\frac{\\pi \\sqrt{3}}{3} - \\ln(2)\n\\end{aligned}"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-integral-calculus-techniques-single-variable-auto-1453",
+      "name": "Harvard-MIT Mathematics Tournament #0in1",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Single-variable"
+      ],
+      "statement": "Problem:\nCompute\n$$\n\\int_{1}^{2} \\frac{9x+4}{x^{5}+3x^{2}+x} \\, dx\n$$\n(No, your TI-89 doesn't know how to do this one. Yes, the end is near.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $\\ln \\frac{80}{23}$. We break the given integral into two pieces:\n$$\n\\int_{1}^{2} \\frac{9x+4}{x^{5}+3x^{2}+x} \\, dx = 5 \\int_{1}^{2} \\frac{x^{4}+3x+1}{x^{5}+3x^{2}+x} \\, dx - \\int_{1}^{2} \\frac{5x^{4}+6x+1}{x^{5}+3x^{2}+x} \\, dx\n$$\nThese two new integrals are easily computed; for, the first integrand reduces to $1/x$ and the second is of the form $f'(x)/f(x)$. We obtain\n$$\n\\left[5 \\ln |x| - \\ln \\left|x^{5}+3x^{2}+x\\right|\\right]_{1}^{2} = \\ln 32 - \\ln 46 + \\ln 5 = \\ln \\frac{80}{23}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-integral-calculus-techniques-single-variable-auto-1600",
+      "name": "Harvard-MIT Mathematics Tournament #0ir4",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Single-variable"
+      ],
+      "statement": "Problem:\n\nFind all $y > 1$ satisfying\n$$\n\\int_{1}^{y} x \\ln x \\, dx = \\frac{1}{4}.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nApplying integration by parts with $u = \\ln x$ and $dv = x \\, dx$, we get\n$$\n\\int_{1}^{y} x \\ln x \\, dx = \\left.\\frac{1}{2} x^{2} \\ln x\\right|_{1}^{y} - \\frac{1}{2} \\int_{1}^{y} x \\, dx = \\frac{1}{2} y^{2} \\ln y - \\frac{1}{4} y^{2} + \\frac{1}{4}\n$$\nSo $y^{2} \\ln y = \\frac{1}{2} y^{2}$. Since $y > 1$, we obtain $\\ln y = \\frac{1}{2}$, and thus $y = \\sqrt{e}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-integral-calculus-techniques-single-variable-auto-1686",
+      "name": "Harvard-MIT Mathematics Tournament #0iti",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Single-variable",
+        "Derivatives"
+      ],
+      "statement": "Problem:\nLet $T = \\int_{0}^{\\ln 2} \\frac{2 e^{3x} + e^{2x} - 1}{e^{3x} + e^{2x} - e^{x} + 1} \\, dx$. Evaluate $e^{T}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nDivide the top and bottom by $e^{x}$ to obtain that\n$$\nT = \\int_{0}^{\\ln 2} \\frac{2 e^{2x} + e^{x} - e^{-x}}{e^{2x} + e^{x} - 1 + e^{-x}} \\, dx\n$$\nNotice that $2 e^{2x} + e^{x} - e^{-x}$ is the derivative of $e^{2x} + e^{x} - 1 + e^{-x}$, and so\n$$\nT = \\left[ \\ln \\left| e^{2x} + e^{x} - 1 + e^{-x} \\right| \\right]_{0}^{\\ln 2} = \\ln \\left( 4 + 2 - 1 + \\frac{1}{2} \\right) - \\ln 2 = \\ln \\left( \\frac{11}{4} \\right)\n$$\nTherefore, $e^{T} = \\frac{11}{4}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-integral-calculus-techniques-single-variable-auto-1741",
+      "name": "Harvard-MIT Mathematics Tournament #0iv1",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Derivatives",
+        "Single-variable"
+      ],
+      "statement": "Problem:\n\nThe differentiable function $F: \\mathbb{R} \\rightarrow \\mathbb{R}$ satisfies $F(0) = -1$ and\n$$\n\\frac{d}{d x} F(x) = \\sin (\\sin (\\sin (\\sin (x)))) \\cdot \\cos (\\sin (\\sin (x))) \\cdot \\cos (\\sin (x)) \\cdot \\cos (x)\n$$\nFind $F(x)$ as a function of $x$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSubstituting $u = \\sin (\\sin (\\sin (x)))$, we find\n$$\nF(x) = \\int \\sin (u) \\, d u = -\\cos (u) + C\n$$\nfor some $C$. Since $F(0) = -1$ we find $C = 0$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-integral-calculus-techniques-single-variable-auto-1779",
+      "name": "Harvard-MIT Mathematics Tournament #0iw3",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Single-variable"
+      ],
+      "statement": "Problem:\nCompute $e^{A}$ where $A$ is defined as\n$$\n\\int_{3 / 4}^{4 / 3} \\frac{2 x^{2}+x+1}{x^{3}+x^{2}+x+1} d x\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe can use partial fractions to decompose the integrand to $\\frac{1}{x+1}+\\frac{x}{x^{2}+1}$, and then integrate the addends separately by substituting $u=x+1$ for the former and $u=x^{2}+1$ for latter, to obtain $\\ln (x+1)+\\left.\\frac{1}{2} \\ln \\left(x^{2}+1\\right)\\right|_{3 / 4} ^{4 / 3}=\\left.\\ln \\left((x+1) \\sqrt{x^{2}+1}\\right)\\right|_{3 / 4} ^{4 / 3}=\\ln \\frac{16}{9}$. Thus $e^{A}=16 / 9$.\n\nAlternate solution: Substituting $u=1 / x$, we find\n$$\nA=\\int_{4 / 3}^{3 / 4} \\frac{2 u+u^{2}+u^{3}}{1+u+u^{2}+u^{3}}\\left(-\\frac{1}{u^{2}}\\right) d u=\\int_{3 / 4}^{4 / 3} \\frac{2 / u+1+u}{1+u+u^{2}+u^{3}} d u\n$$\nAdding this to the original integral, we find\n$$\n2 A=\\int_{3 / 4}^{4 / 3} \\frac{2 / u+2+2 u+2 u^{2}}{1+u+u^{2}+u^{3}} d u=\\int_{3 / 4}^{4 / 3} \\frac{2}{u} d u\n$$\nThus $A=\\ln \\frac{16}{9}$ and $e^{A}=\\frac{16}{9}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-integral-calculus-techniques-single-variable-auto-1864",
+      "name": "Harvard-MIT Mathematics Tournament #0iyg",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Single-variable"
+      ],
+      "statement": "Problem:\n\nCompute\n$$\n\\int_{1}^{\\sqrt{3}} x^{2 x^{2}+1}+\\ln \\left(x^{2 x^{2 x^{2}+1}}\\right) d x\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nUsing the fact that $x=e^{\\ln (x)}$, we evaluate the integral as follows:\n$$\n\\begin{aligned}\n\\int x^{2 x^{2}+1}+\\ln \\left(x^{2 x^{2 x^{2}+1}}\\right) d x & =\\int x^{2 x^{2}+1}+x^{2 x^{2}+1} \\ln \\left(x^{2}\\right) d x \\\\\n& =\\int e^{\\ln (x)\\left(2 x^{2}+1\\right)}\\left(1+\\ln \\left(x^{2}\\right)\\right) d x \\\\\n& =\\int x e^{x^{2} \\ln \\left(x^{2}\\right)}\\left(1+\\ln \\left(x^{2}\\right)\\right) d x\n\\end{aligned}\n$$\nNoticing that the derivative of $x^{2} \\ln \\left(x^{2}\\right)$ is $2 x\\left(1+\\ln \\left(x^{2}\\right)\\right)$, it follows that the integral evaluates to\n$$\n\\frac{1}{2} e^{x^{2} \\ln \\left(x^{2}\\right)}=\\frac{1}{2} x^{2 x^{2}}\n$$\nEvaluating this from $1$ to $\\sqrt{3}$ we obtain the answer."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-integral-calculus-techniques-single-variable-auto-2082",
+      "name": "Harvard-MIT Mathematics Tournament #0j4i",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Single-variable",
+        "Derivatives"
+      ],
+      "statement": "Problem:\n\nEvaluate\n$$\n\\int_{1}^{\\infty}\\left(\\frac{\\ln x}{x}\\right)^{2011} dx.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $\\frac{2011!}{2010^{2012}}$\n\nBy the chain rule, $\\frac{d}{dx}(\\ln x)^{n}=\\frac{n (\\ln x)^{n-1}}{x}$.\n\nWe calculate the definite integral using integration by parts:\n$$\n\\int_{x=1}^{\\infty} \\frac{(\\ln x)^{n}}{x^{2011}} dx=\\left[\\frac{(\\ln x)^{n}}{-2010 x^{2010}}\\right]_{x=1}^{x=\\infty}-\\int_{x=1}^{\\infty} \\frac{n(\\ln x)^{n-1}}{-2010 x^{2011}} dx\n$$\nBut $\\ln (1)=0$, and $\\lim _{x \\rightarrow \\infty} \\frac{(\\ln x)^{n}}{x^{2010}}=0$ for all $n>0$. So\n$$\n\\int_{x=1}^{\\infty} \\frac{(\\ln x)^{n}}{x^{2011}} dx=\\int_{x=1}^{\\infty} \\frac{n(\\ln x)^{n-1}}{2010 x^{2011}} dx\n$$\nIt follows that\n$$\n\\int_{x=1}^{\\infty} \\frac{(\\ln x)^{n}}{x^{2011}} dx=\\frac{n!}{2010^{n}} \\int_{x=1}^{\\infty} \\frac{1}{x^{2011}} dx=\\frac{n!}{2010^{n+1}}\n$$\nSo the answer is $\\frac{2011!}{2010^{2012}}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-integral-calculus-techniques-single-variable-auto-2172",
+      "name": "Harvard-MIT Mathematics Tournament #0j70",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Derivatives",
+        "Applications",
+        "Single-variable"
+      ],
+      "statement": "Problem:\n\nLet $f: \\mathbb{R} \\rightarrow \\mathbb{R}$ be a differentiable function such that $f(0)=0$, $f(1)=1$, and $\\left|f^{\\prime}(x)\\right| \\leq 2$ for all real numbers $x$. If $a$ and $b$ are real numbers such that the set of possible values of $\\int_{0}^{1} f(x) d x$ is the open interval $(a, b)$, determine $b-a$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $\\frac{3}{4}$\n\nDraw lines of slope $\\pm 2$ passing through $(0,0)$ and $(1,1)$. These form a parallelogram with vertices $(0,0)$, $(.75,1.5)$, $(1,1)$, $(.25,-.5)$. By the mean value theorem, no point of $(x, f(x))$ lies outside this parallelogram, but we can construct functions arbitrarily close to the top or the bottom of the parallelogram while satisfying the condition of the problem. So $(b-a)$ is the area of this parallelogram, which is $\\frac{3}{4}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-integral-calculus-techniques-single-variable-auto-2311",
+      "name": "15th Annual Harvard-MIT Mathematics Tournament #0jav",
+      "url": "https://usamoguide.com/",
+      "source": "15th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other",
+        "Single-variable"
+      ],
+      "statement": "Problem:\n\nYou have a twig of length $1$. You repeatedly do the following: select two points on the twig independently and uniformly at random, make cuts on these two points, and keep only the largest piece. After $2012$ repetitions, what is the expected length of the remaining piece?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe answer is $\\left(\\dfrac{11}{18}\\right)^{2012}$.\n\nFirst, let $p(x)$ be the probability density of $x$ being the longest length.\nLet $a_n$ be the expected length after $n$ cuts. Then\n$$\na_n = \\int_0^1 p(x) \\cdot (x a_{n-1}) \\, dx = a_{n-1} \\int_0^1 x p(x) \\, dx = a_1 a_{n-1}.\n$$\nIt follows that $a_n = a_1^n$, so our answer is $\\left(a_1\\right)^{2012}$.\n\nWe now calculate $a_1$.\nLet $P(z)$ be the probability that the longest section is $\\leq z$. Clearly $P(z) = 0$ for $z \\leq \\frac{1}{3}$.\n\nTo simulate making two cuts, we pick two random numbers $x, y$ from $[0,1]$, and assume without loss of generality that $x \\leq y$. Then picking two such points is equivalent to picking a point in the top left triangle half of the unit square. This figure has area $\\frac{1}{2}$, so our $P(z)$ will be double the area where $x \\leq z$, $y \\geq 1-z$, and $y-x \\leq z$.\n\nFor $\\frac{1}{3} \\leq z \\leq \\frac{1}{2}$, the probability is double the area bounded by $x = z$, $y = 1-z$, $y-x = z$. This is\n$$\n2\\left(\\frac{1}{2}(3z-1)^2\\right) = (3z-1)^2.\n$$\nFor $\\frac{1}{2} \\leq z \\leq 1$, this value is double the hexagon bounded by $x=0$, $y=1-z$, $y=x$, $x=z$, $y=1$, $y=x+z$. The complement of this set, however, is three triangles of area $\\frac{(1-z)^2}{2}$, so\n$$\nP(z) = 1 - 3(1-z)^2 \\quad \\text{for} \\quad \\frac{1}{2} \\leq z \\leq 1.\n$$\nNow note that $P'(z) = p(z)$. Therefore, by integration by parts,\n$$\na_1 = \\int_0^1 z p(z) \\, dz = \\int_0^1 z P'(z) \\, dz = \\left. z P(z) \\right|_0^1 - \\int_0^1 P(z) \\, dz.\n$$\nThis equals\n$$\n\\begin{gathered}\n1 - \\int_{1/3}^{1/2} (3z-1)^2 \\, dz - \\int_{1/2}^1 [1 - 3(1-z)^2] \\, dz \\\\\n= 1 - \\left[ \\frac{(3z-1)^3}{9} \\right]_{1/3}^{1/2} - \\left[ z - 3 \\int (1-z)^2 dz \\right]_{1/2}^1 \\\\\n= 1 - \\frac{1}{72} - \\frac{1}{2} + \\frac{1}{8} = \\frac{1}{2} + \\frac{1}{9} = \\frac{11}{18}\n\\end{gathered}\n$$\nSo the answer is $\\left(\\dfrac{11}{18}\\right)^{2012}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-integral-calculus-techniques-single-variable-auto-2986",
+      "name": "HMMT February #0jtm",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other",
+        "ODEs",
+        "Single-variable"
+      ],
+      "statement": "Problem:\n\nKatherine has a piece of string that is $2016$ millimeters long. She cuts the string at a location chosen uniformly at random, and takes the left half. She continues this process until the remaining string is less than one millimeter long. What is the expected number of cuts that she makes?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLetting $f(x)$ be the expected number of cuts if the initial length of the string is $x$, we get the integral equation $f(x) = 1 + \\frac{1}{x} \\int_{1}^{x} f(y) d y$. Letting $g(x) = \\int_{1}^{x} f(y) d y$, we get $\\frac{d g}{d x} = 1 + \\frac{1}{x} g(x)$. Using integrating factors, we see that this has as its solution $g(x) = x \\log(x)$, and thus $f(x) = 1 + \\log(x)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "calculus-integral-calculus-techniques-single-variable-auto-3062",
+      "name": "HMMT February 2016 #0jvq",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2016",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Single-variable",
+        "Trigonometric functions"
+      ],
+      "statement": "Problem:\nCompute\n$$\n\\int_{0}^{\\pi} \\frac{2 \\sin \\theta+3 \\cos \\theta-3}{13 \\cos \\theta-5} \\, d\\theta .\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe have\n$$\n\\begin{aligned}\n\\int_{0}^{\\pi} \\frac{2 \\sin \\theta+3 \\cos \\theta-3}{13 \\cos \\theta-5} \\, d\\theta & =2 \\int_{0}^{\\pi / 2} \\frac{2 \\sin 2x+3 \\cos 2x-3}{13 \\cos 2x-5} \\, dx \\\\\n& =2 \\int_{0}^{\\pi / 2} \\frac{4 \\sin x \\cos x-6 \\sin^{2} x}{8 \\cos^{2} x-18 \\sin^{2} x} \\, dx \\\\\n& =2 \\int_{0}^{\\pi / 2} \\frac{\\sin x(2 \\cos x-3 \\sin x)}{(2 \\cos x+3 \\sin x)(2 \\cos x-3 \\sin x)} \\, dx \\\\\n& =2 \\int_{0}^{\\pi / 2} \\frac{\\sin x}{2 \\cos x+3 \\sin x}\n\\end{aligned}\n$$\nTo compute the above integral we want to write $\\sin x$ as a linear combination of the denominator and its derivative:\n$$\n\\begin{aligned}\n2 \\int_{0}^{\\pi / 2} \\frac{\\sin x}{2 \\cos x+3 \\sin x} & =2 \\int_{0}^{\\pi / 2} \\frac{-\\frac{1}{13}[-3(2 \\cos x+3 \\sin x)+2(3 \\cos x-2 \\sin x)]}{2 \\cos x+3 \\sin x} \\\\\n& =-\\frac{2}{13}\\left[\\int_{0}^{\\pi / 2}(-3)+2 \\int_{0}^{\\pi} \\frac{-2 \\sin x+3 \\cos x}{2 \\cos x+3 \\sin x}\\right] \\\\\n& =-\\frac{2}{13}\\left[-\\frac{3 \\pi}{2}+\\left.2 \\log (3 \\sin x+2 \\cos x)\\right|_{0} ^{\\pi / 2}\\right] \\\\\n& =-\\frac{2}{13}\\left[-\\frac{3 \\pi}{2}+2 \\log \\frac{3}{2}\\right] \\\\\n& =\\frac{3 \\pi}{13}-\\frac{4}{13} \\log \\frac{3}{2} .\n\\end{aligned}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

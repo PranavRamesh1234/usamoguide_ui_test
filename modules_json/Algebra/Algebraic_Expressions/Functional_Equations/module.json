@@ -1,0 +1,1598 @@
+{
+  "MODULE_ID": "algebra-algebraic-expressions-functional-equations",
+  "practice": [
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-0074",
+      "name": "Berkeley Math Circle #0hkq",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\nFind all functions $f: \\mathbb{R} \\rightarrow \\mathbb{R}$ satisfying $f(x)+f(y) \\neq 0$ and\n$$\n\\frac{f(x)-f(x-y)}{f(x)+f(x+y)}+\\frac{f(x)-f(x+y)}{f(x)+f(x-y)}=0\n$$\nfor all $x, y \\in \\mathbb{R}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAny function of the form $f(x)=c$, where $c$ is a nonzero constant, clearly satisfies the requirements; we will show these are the only solutions. Bringing the original equation to a common denominator yields $2 f(x)^2 - f(x-y)^2 - f(x+y)^2 = 0$ for all $x$, $y$. Define $g(x)=f(x)^2$; clearly $g(x) \\geq 0$ for all $x$. Our equation states that $2 g(x) = g(x-y) + g(x+y)$. We will show this forces $g$ to be constant.\n\nIf $g$ is not constant, there exist some $a, b$ with $g(a) < g(b)$. We claim that $g(n a - (n-1) b) = n g(a) - (n-1) g(b)$ for all nonnegative integers $n$. This is shown by induction: the base cases $n=0,1$ are clear; if $n>1$ then our equation (with $x=(n-1)a-(n-2)b$, $y=a-b$) yields\n$$\n2 g((n-1)a-(n-2)b) = g(n a-(n-1) b) + g((n-2)a-(n-3)b)\n$$\n$\\Rightarrow 2(n-1) g(a) - 2(n-2) g(b) = g(n a-(n-1) b) + (n-2) g(a) - (n-3) g(b)$ (by induction hypothesis)\n$$\n\\Rightarrow g(n a-(n-1) b) = n g(a) - (n-1) g(b)\n$$\nand the induction step is complete. However, if $n > g(b)/(g(b)-g(a))$ then $g(n a-(n-1) b) = n g(a) - (n-1) g(b) < 0$ and we have a contradiction. This shows that $g$ must be constant.\n\nSo $g(x) = d$ for some constant $d \\geq 0$; then $f(x) = \\pm \\sqrt{d}$ for all $x$. If both values occur, then the $f(x)+f(y) \\neq 0$ constraint is violated; hence we must have $f(x) = \\sqrt{d}$ for all $x$ or $f(x) = -\\sqrt{d}$ for all $x$ (and $d \\neq 0$)."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-0123",
+      "name": "Berkeley Math Circle: Monthly Contest 7 #0hm3",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 7",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Simple Equations",
+        "Functional Equations"
+      ],
+      "statement": "Problem:\nFind the value of the infinite continued fraction\n$$\n1 + \\frac{1}{2 + \\frac{1}{2 + \\frac{1}{2 + \\frac{1}{\\ldots}}}}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet the value of the fraction be $x$. Then we get\n$$\nx = 1 + \\frac{1}{x + 1} \\Longrightarrow x(x + 1) = (x + 1) + 1 \\Longrightarrow x^{2} = 2\n$$\nThus, since $x$ is positive, we must have $x = \\sqrt{2}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-0244",
+      "name": "Berkeley Math Circle #0hpg",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Quadratic functions"
+      ],
+      "statement": "Problem:\nFind all functions $f: \\mathbb{R} \\rightarrow \\mathbb{R}$ which satisfy\n$$\nf(x+y)=f(x-y)+4 x y\n$$\nfor all real numbers $x$ and $y$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe answer is the functions $f(x)=x^{2}+c$, where $c$ is a constant. It is easy to check that all such functions work, since\n$$\n(x+y)^{2}+c=(x-y)^{2}+c+4 x y\n$$\nis trivially true.\n\nNow, we prove these are the only functions. Put $x=y=\\frac{1}{2} a$ to obtain\n$$\nf(a)=f(0)+a^{2}\n$$\nfor all real numbers $a$, which implies the conclusion."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-0297",
+      "name": "Berkeley Math Circle #0hqx",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial operations",
+        "Functional Equations"
+      ],
+      "statement": "Problem:\nFind all polynomials $f$ that satisfy the equation\n$$\n\\frac{f(9 x)}{f(3 x)} = \\frac{243 x - 729}{x - 81}\n$$\nfor infinitely many values of $x$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe have\n$$\n(x-81) f(9 x) = (243 x - 729) f(3 x)\n$$\nfor infinitely many values of $x$. Since both sides of this equation are polynomials, they must then be equal for all $x$.\n\nPlugging in $x=3$, we get $f(27)=0$. Plugging in $x=9$ then gives $f(81)=0$. Plugging in $x=27$ then gives $f(243)=0$. Thus we have that $f(x) = g(x) \\cdot (x-27)(x-81)(x-243)$ for some polynomial $g(x)$.\n\nPlugging this into the original equation, we get that for infinitely many $x$,\n$$\n243 \\frac{x-3}{x-81} = \\frac{f(9 x)}{f(3 x)} = \\frac{g(9 x)}{g(3 x)} \\cdot \\frac{(9 x-27)(9 x-81)(9 x-243)}{(3 x-27)(3 x-81)(3 x-243)} = \\frac{g(9 x)}{g(3 x)} \\cdot 27 \\frac{x-3}{x-81},\n$$\nso $\\frac{g(9 x)}{g(3 x)} = \\frac{243}{27} = 9$ and thus $f$ works if and only if $g(9 x) = 9 g(3 x)$ for all $x$. Thus, the roots of $g(9 x)$ are those of $g(3 x)$, so they must all be zero, so $g$ must be of the form $a x^{n}$. Plugging in $x=1$ then gives $9^{n} = 9 \\cdot 3^{n}$, so $n=2$. Indeed, $g(x) = x^{2}$ works.\n\nThe solutions are then\n$$\nf(x) = a x^{2} (x-27)(x-81)(x-243)\n$$\nfor real constants $a$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-0365",
+      "name": "Berkeley Math Circle Monthly Contest 3 #0hst",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 3",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Existential quantifiers"
+      ],
+      "statement": "Problem:\nLet $\\ominus$ be an operation on the set of real numbers such that\n$$\n(x \\ominus y)+(y \\ominus z)+(z \\ominus x)=0\n$$\nfor all real $x$, $y$, and $z$. Prove that there is a function $f: \\mathbb{R} \\rightarrow \\mathbb{R}$ such that\n$$\nx \\ominus y=f(x)-f(y)\n$$\nfor all real $x$ and $y$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFirst we plug in $x=y=z=0$ to get\n$$\n(0 \\ominus 0)+(0 \\ominus 0)+(0 \\ominus 0)=0\n$$\nthat is, $0 \\ominus 0=0$. Then we plug $y=z=0$, keeping $x$ undetermined, into the original equation to get\n$$\n(x \\ominus 0)+0+(0 \\ominus x)+0=0 .\n$$\nSo $0 \\ominus x=-(x \\ominus 0)$. Define $g(x)=x \\ominus 0$. Plugging $z=0$ into the original equation gives\n$$\n\\begin{aligned}\n(x \\ominus y)+(y \\ominus 0)+(0 \\ominus x) & =0 \\\\\n(x \\ominus y)+(y \\ominus 0)-(x \\ominus 0) & =0 \\\\\n(x \\ominus y) & =(x \\ominus 0)-(y \\ominus 0) \\\\\n& =g(x)-g(y)\n\\end{aligned}\n$$\nas desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-0369",
+      "name": "Berkeley Math Circle Monthly Contest 6 #0hsx",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Recurrence relations"
+      ],
+      "statement": "Problem:\nDefine a function $f$ on the real numbers by\n$$\nf(x)= \\begin{cases}2 x & \\text{ if } x<1 / 2 \\\\ 2 x-1 & \\text{ if } x \\geq 1 / 2\\end{cases}\n$$\nDetermine all values $x$ satisfying $f(f(f(f(f(x)))))=x$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe answer is the 32 values $0, \\frac{1}{31}, \\frac{2}{31}, \\ldots, \\frac{30}{31}, 1$.\n\nIf $x<0$, then $f(x)=2 x<x$ so the sequence $x, f(x), f(f(x)), \\ldots$ is strictly decreasing and cannot return to $x$.\n\nIf $x>1$, similarly $f(x)=2 x-1>x$ so the sequence $x, f(x), f(f(x)), \\ldots$ is strictly increasing and cannot return to $x$.\n\nIf $x=1$, then $f(x)=1$ and we have $1$ as a solution.\n\nFinally, we assume that $0 \\leq x<1$, so $0 \\leq f(x)<1$ as well. For simplicity let $x_{0}=x$ and $x_{n+1}=f\\left(x_{n}\\right)$ so the equation we are trying to solve is $x_{5}=x_{0}$. Note that $2 x_{n}-x_{n+1}$ is an integer (either $0$ or $1$) for each $n$, so\n$$\n32 x_{0}-x_{5}=16\\left(2 x_{0}-x_{1}\\right)+8\\left(2 x_{1}-x_{2}\\right)+4\\left(2 x_{2}-x_{3}\\right)+2\\left(2 x_{3}-x_{4}\\right)+\\left(2 x_{4}-x_{5}\\right)\n$$\nmust be an integer as well. If we assume $x_{5}=x_{0}$ we deduce that $31 x_{0}$ is an integer. Conversely, if $31 x_{0}$ is an integer, then $x_{5}-x_{0}$ is an integer and this integer must be $0$ because $0 \\leq x_{0}, x_{5}<1$. Thus the solutions in this range are exactly the multiples of $\\frac{1}{31}$: $0, \\frac{1}{31}, \\frac{2}{31}, \\ldots, \\frac{30}{31}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-0370",
+      "name": "Berkeley Math Circle #0hsy",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations"
+      ],
+      "statement": "Problem:\nProve that the functional equations\n$$\n\\begin{aligned}\nf(x+y) &= f(x) + f(y) \\\\\n\\text{and}\\quad f(x+y+xy) &= f(x) + f(y) + f(xy) \\quad (x, y \\in \\mathbb{R})\n\\end{aligned}\n$$\nare equivalent.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet us assume that $f(x+y) = f(x) + f(y)$ for all reals. In this case we trivially apply the equation to get $f(x+y+xy) = f(x+y) + f(xy) = f(x) + f(y) + f(xy)$. Hence the equivalence is proved in the first direction.\n\nNow let us assume that $f(x+y+xy) = f(x) + f(y) + f(xy)$ for all reals. Plugging in $x = y = 0$ we get $f(0) = 0$. Plugging in $y = -1$ we get $f(x) = -f(-x)$. Plugging in $y = 1$ we get $f(2x+1) = 2f(x) + f(1)$ and hence $f(2(u+v+uv)+1) = 2f(u+v+uv) + f(1) = 2f(uv) + 2f(u) + 2f(v) + f(1)$ for all real $u$ and $v$. On the other hand, plugging in $x = u$ and $y = 2v+1$ we get $f(2(u+v+uv)+1) = f(u + (2v+1) + u(2v+1)) = f(u) + 2f(v) + f(1) + f(2uv + u)$. Hence it follows that $2f(uv) + 2f(u) + 2f(v) + f(1) = f(u) + 2f(v) + f(1) + f(2uv + u)$, i.e.,\n$$\nf(2uv + u) = 2f(uv) + f(u).\n$$\nPlugging in $v = -1/2$ we get $0 = 2f(-u/2) + f(u) = -2f(u/2) + f(u)$. Hence, $f(u) = 2f(u/2)$ and consequently $f(2x) = 2f(x)$ for all reals. Now (1) reduces to $f(2uv + u) = f(2uv) + f(u)$. Plugging in $u = y$ and $x = 2uv$, we obtain $f(x) + f(y) = f(x + y)$ for all nonzero reals $x$ and $y$. Since $f(0) = 0$, it trivially holds that $f(x + y) = f(x) + f(y)$ when one of $x$ and $y$ is $0$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-0428",
+      "name": "Berkeley Math Circle Monthly Contest 1 #0huk",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Injectivity / surjectivity",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\n\nFind all functions $f: \\mathbb{Z} \\rightarrow \\mathbb{Z}$ such that $f(f(x)+y+1)=x+f(y)+1$ for every two integers $x$ and $y$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSubstituting $x=0$ we get $f(f(0)+y+1)=f(y)+1$.\n\nNow we have $x+f(y)+1=f(f(x)+y+1)=f[(f(x)+1)+y]=f[f(f(0)+x+1)+(y-1)+1]=f(y-1)+(f(0)+x+1)+1$ from where we conclude that\n\n$$\nf(y)=f(y-1)+f(0)+1 .\n$$\n\nUsing induction we obtain $f(n)=f(0)+n(f(0)+1)$ for all integers $n$.\n\nIf we set $y=0$ in (1) we get $f(-1)=-1$ and substituting $y=-1$ in the original equation yields $f(f(x))=x$.\n\nIf we apply $f$ to both sides of $f(n)=f(0)+n(f(0)+1)$ we get $n=f(0)+[f(0)+n(f(0)+1)](f(0)+1)$ which is equivalent to $n=f(0)(f(0)+2)+n(f(0)+1)^2$ and this can be satisfied for all integers $n$ if and only if $f(0)=0$ or $f(0)=-2$.\n\nIn the first case we get $f(n)=n$ and in the second $f(n)=-n-2$.\n\nIt is easy to verify that both functions satisfy the required conditions."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-0471",
+      "name": "Berkeley Math Circle: Monthly Contest 6 #0hvr",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Polynomials",
+        "Recurrence relations"
+      ],
+      "statement": "Problem:\nFind all functions $f: \\mathbb{Q} \\rightarrow \\mathbb{R}$ from rational to real numbers such that for all rational $p, q$,\n$$\nf(p+2q) - f(p-2q) = 2(f(p+q) - f(p-q)).\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $P(p, q)$ be the given condition. Expanding $P(p-q, q) + 2P(p, q) + P(p+q, q)$ gives\n$$\nf(p+3q) - f(p-3q) = 3(f(p+q) - f(p-q)).\n$$\nLet $F$ be the quadratic that equals $f$ at $-1, 0, 1$. Plugging in $p=0.5, q=0.5$, we get that it also intersects $f$ at $2$. Plugging in $p=1.5, q=0.5$ then gives that it also intersects $f$ at $3$, and continuing this induction gives that it is equal to $f$ for all positive integers. Continuing this reasoning in the other direction gives that it is equal to $f$ for all negative integers as well.\n\nWe now claim that $f$ is in fact equal to $F$. Let $r/s$ be a rational number. Consider the arithmetic sequence from $-r$ to $r$ with difference $r/s$. By similar reasoning, $f$ is a quadratic over this sequence. However, $F$ contains three of the terms: $-r, 0, r$. Therefore, $f$ is equal to $F$ over this sequence; in particular, $f(r/s) = F(r/s)$.\n\nTherefore, $f$ is a quadratic, and all quadratics work, so the answer is all quadratics."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-0477",
+      "name": "Berkeley Math Circle Monthly Contest 4 #0hvx",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 4",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\nFind all functions $f: \\mathbb{R} \\rightarrow \\mathbb{R}$ such that\n$$\nf(x y+z)=f(x) f(y)+f(z)\n$$\nfor all real numbers $x$, $y$, and $z$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $f(x)=0$ or $f(x)=x$. Both of these trivially satisfy the equation.\n\nWe plug in $x=y=z=0$ to get\n$$\n\\begin{array}{r}\nf(0)=f(0)^{2}+f(0) \\\\\n0=f(0)^{2} \\\\\n0=f(0)\n\\end{array}\n$$\nThen we plug in $x=y=1$, $z=0$ to get\n$$\n\\begin{aligned}\nf(1) & =f(1)^{2}+f(0) \\\\\n0 & =f(1)^{2}-f(1)\n\\end{aligned}\n$$\nso $f(1)=0$ or $f(1)=1$. If $f(1)=0$, we can immediately plug in $y=1$ and $z=0$ to conclude that\n$$\nf(x)=f(x) \\cdot 0+0=0\n$$\nfor all $x$.\n\nIf $f(1)=1$, then we can derive that $f$ has two simple properties: the addition property from plugging in $y=1$,\n$$\nf(x+z)=f(x)+f(z)\n$$\nand the multiplication property from plugging in $z=0$,\n$$\nf(x y)=f(x) f(y) .\n$$\nPlugging $z=-x$ into the addition property tells us that $f(-x)=-f(x)$, i.e. $f$ is an odd function. Also, the addition property lends itself to use for an induction, starting at $f(1)=1$, that proves $f(n)=n$ for all positive integers $n$.\n\nSuppose that $f$ is not the identity function. Then there is a number $x$ such that $f(x) \\neq x$. Changing $x$ to $-x$ if necessary, we can assume that $f(x)<x$. We can then double $x$ repeatedly, which will also double $f(x)$ by the addition property, until the difference $x-f(x)$ becomes at least $2$. Then there is an integer $n$ between $f(x)$ and $x$:\n$$\nf(x)<n<x \\text{.}\n$$\nWe note that $x-n$ is positive, while $f(x)-n=f(x-n)$ is negative. Thus we have a number $u>0$ such that $f(u)<0$. This is impossible by the multiplication property, since for $u>0$,\n$$\nf(u)=f(\\sqrt{u} \\cdot \\sqrt{u})=f(\\sqrt{u}) \\cdot f(\\sqrt{u}) \\geq 0 .\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-0483",
+      "name": "Berkeley Math Circle Monthly Contest 8 #0hw3",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 8",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Recurrence relations"
+      ],
+      "statement": "Problem:\nLet $f: \\mathbb{Z} \\rightarrow \\mathbb{Z}$ be a function such that $f(0)=2$ and for all integers $x$,\n$$\nf(x+1)+f(x-1)=f(x) f(1) .\n$$\nProve that for all integers $x$ and $y$,\n$$\nf(x+y)+f(x-y)=f(x) f(y) .\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet us first prove the result for nonnegative $y$ by strong induction on $y$. If $y=0$, (2) becomes\n$$\nf(x)+f(x)=f(x) f(0),\n$$\nwhich is true since $f(0)=2$, and if $y=1$, (2) is the same as (1). Let us assume (2) for $y=z-1$ and $y=z$ and try to prove it for $y=z+1$. We have\n$$\n\\begin{gathered}\nf(x+z-1)+f(x-z+1)=f(x) f(z-1) \\\\\nf(x+z)+f(x-z)=f(x) f(z)\n\\end{gathered}\n$$\nMultiplying (4) by $f(1)$ and subtracting (3) yields\n$$\n\\begin{gathered}\nf(x+z) f(1)-f(x+z-1)+f(x-z) f(1)-f(x-z+1)=f(x)[f(z) f(1)-f(z-1)] \\\\\nf(x+z+1)+f(x-z-1)=f(x) f(z+1)\n\\end{gathered}\n$$\nas desired.\nIt remains to prove (2) for $y<0$. If $y=-z$ and $z>0$, (2) becomes\n$$\nf(x-z)+f(x+z)=f(x) f(-z)\n$$\nwhich would follow from (2) for $y=z$ if $f(-z)=f(z)$. To prove this, let $x=0$ and $y=z$ in (2), getting\n$$\n\\begin{aligned}\nf(z)+f(-z) & =f(0) f(z) \\\\\nf(z)+f(-z) & =2 f(z) \\\\\nf(-z) & =f(z) .\n\\end{aligned}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-0560",
+      "name": "Harvard-MIT Mathematics Tournament #0hy8",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations"
+      ],
+      "statement": "Problem:\n\nGiven any two positive real numbers $x$ and $y$, then $x \\diamond y$ is a positive real number defined in terms of $x$ and $y$ by some fixed rule. Suppose the operation $x \\diamond y$ satisfies the equations $(x \\cdot y) \\diamond y = x(y \\diamond y)$ and $(x \\diamond 1) \\diamond x = x \\diamond 1$ for all $x, y > 0$. Given that $1 \\diamond 1 = 1$, find $19 \\diamond 98$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nNote first that $x \\diamond 1 = (x \\cdot 1) \\diamond 1 = x \\cdot (1 \\diamond 1) = x \\cdot 1 = x$.\n\nAlso, $x \\diamond x = (x \\diamond 1) \\diamond x = x \\diamond 1 = x$.\n\nNow, we have $(x \\cdot y) \\diamond y = x \\cdot (y \\diamond y) = x \\cdot y$.\n\nSo $19 \\diamond 98 = \\left(\\frac{19}{98} \\cdot 98\\right) \\diamond 98 = \\frac{19}{98} \\cdot (98 \\diamond 98) = \\frac{19}{98} \\cdot 98 = 19$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-0565",
+      "name": "HMMT 1998 #0hyd",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 1998",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations"
+      ],
+      "statement": "Problem:\nSuppose $f(x)$ is a rational function such that $3 f\\left(\\frac{1}{x}\\right)+\\frac{2 f(x)}{x}=x^{2}$ for $x \\neq 0$. Find $f(-2)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $x=\\frac{-1}{2}$. Then\n$$\n\\begin{aligned}\n& 3 f(-2)+\\frac{2 f\\left(\\frac{-1}{2}\\right)}{\\frac{-1}{2}}=\\frac{1}{4} \\\\\n& \\Rightarrow 3 f(-2)-4 f\\left(\\frac{-1}{2}\\right)= \\frac{1}{4}\n\\end{aligned}\n$$\nLet $x=-2$. Then\n$$\n\\begin{aligned}\n& 3 f\\left(\\frac{-1}{2}\\right)+\\frac{2 f(-2)}{-2}=4 \\\\\n\\Rightarrow 3 f\\left(\\frac{-1}{2}\\right)-f(-2) & =4\n\\end{aligned}\n$$\nSolving this system of equations $\\{(1),(2)\\}$ for $f(-2)$ yields $f(-2)=\\frac{67}{20}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-0605",
+      "name": "Harvard-MIT Math Tournament #0hzh",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations"
+      ],
+      "statement": "Problem:\n\n$f$ is a continuous real-valued function such that $f(x+y)=f(x) f(y)$ for all real $x, y$. If $f(2)=5$, find $f(5)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSince $f(n x)=f(x)^{n}$ for all integers $n$, $f(5)=f(1)^{5}$ and $f(2)=f(1)^{2}$, so $f(5)=f(2)^{5 / 2}=25 \\sqrt{5}$.\n\nSolution:\n\nMore generally, since $f(n x)=f(x)^{n}$ for all integers $n$, $f(1)=c=f(1 / n)^{n}$ for some constant $c$ and all integers $n$. Thus $f(k / n)=f(1 / n)^{k}=f(1)^{k / n}=c^{k / n}$ for all rational numbers $k / n$. By continuity, it follows that $f(x)=c^{x}$ for all real numbers $x$. Since $f(2)=5$, $c=\\sqrt{5}$, so $f(5)=25 \\sqrt{5}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-0651",
+      "name": "Berkeley Math Circle Monthly Contest #1 #0i0r",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest #1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations"
+      ],
+      "statement": "Problem:\nFind all functions $f$ from the set $\\mathbf{R}$ of real numbers to itself such that $f(x y+1)=x f(y)+2$ for all $x, y \\in \\mathbf{R}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe only such function is $f(x)=2 x$. First, we note that this function really is a solution of the equation, since $2(x y+1)=2 x y+2=x(2 y)+2$ for all $x, y$.\n\nNow let $f$ be any function satisfying the equation. First put $x=y=0$; the equation gives $f(0 \\cdot 0+1)=0 f(0)+2$ or $f(1)=2$. Now suppose $y=1$ (and $x$ may be anything); we have $f(1 x+1)=x f(1)+2$ or $f(x+1)=2 x+2$ for all $x \\in \\mathbf{R}$. Equivalently, $f(x)=f((x-1)+1)=2(x-1)+2=2 x$ for all $x$, so we have verified that this is the only function satisfying the equation."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-0840",
+      "name": "Harvard-MIT Math Tournament #0i60",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations"
+      ],
+      "statement": "Problem:\n\nThe real function $f$ has the property that, whenever $a$, $b$, $n$ are positive integers such that $a + b = 2^{n}$, the equation $f(a) + f(b) = n^{2}$ holds. What is $f(2002)$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe know $f(a) = n^{2} - f\\left(2^{n} - a\\right)$ for any $a$, $n$ with $2^{n} > a$; repeated application gives\n$$\n\\begin{gathered}\nf(2002) = 11^{2} - f(46) = 11^{2} - \\left(6^{2} - f(18)\\right) = 11^{2} - \\left(6^{2} - \\left(5^{2} - f(14)\\right)\\right) \\\\\n= 11^{2} - \\left(6^{2} - \\left(5^{2} - \\left(4^{2} - f(2)\\right)\\right)\\right) .\n\\end{gathered}\n$$\nBut $f(2) = 2^{2} - f(2)$, giving $f(2) = 2$, so the above simplifies to $11^{2} - \\left(6^{2} - \\left(5^{2} - \\left(4^{2} - 2\\right)\\right)\\right) = 96$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-0956",
+      "name": "USA IMO 2003 #0i98",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO 2003",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations"
+      ],
+      "statement": "Let $\\mathbb{N}$ denote the set of positive integers. Find all functions $f : \\mathbb{N} \\to \\mathbb{N}$ such that\n$$\nf(m+n)f(m-n) = f(m^2)\n$$\nfor all $m, n \\in \\mathbb{N}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Function $f(n) = 1$, for all $n \\in \\mathbb{N}$, is the only function satisfying the conditions of the problem.\n\nNote that\n$$\nf(1)f(2n-1) = f(n^2) \\quad \\text{and} \\quad f(3)f(2n-1) = f((n+1)^2)\n$$\nfor $n \\ge 3$. Thus\n$$\n\\frac{f(3)}{f(1)} = \\frac{f((n+1)^2)}{f(n^2)}.\n$$\nSetting $\\frac{f(3)}{f(1)} = k$ yields $f(n^2) = k^{n-3}f(9)$ for $n \\ge 3$. Similarly, for all $h \\ge 1$,\n$$\n\\frac{f(h+2)}{f(h)} = \\frac{f((m+1)^2)}{f(m^2)}\n$$\nfor sufficiently large $m$ and is thus also $k$. Hence $f(2h) = k^{h-1}f(2)$ and $f(2h+1) = k^h f(1)$.\n\nBut\n$$\n\\frac{f(25)}{f(9)} = \\frac{f(25)}{f(23)} \\cdots \\frac{f(11)}{f(9)} = k^8\n$$\nand\n$$\n\\frac{f(25)}{f(9)} = \\frac{f(25)}{f(16)} \\cdot \\frac{f(16)}{f(9)} = k^2,\n$$\nso $k = 1$ and $f(16) = f(9)$. This implies that $f(2h+1) = f(1) = f(2) = f(2j)$ for all $j, h$, so $f$ is constant. From the original functional equation it is then clear that $f(n) = 1$ for all $n \\in \\mathbb{N}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-1006",
+      "name": "Harvard-MIT Mathematics Tournament #0iam",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Linear and quadratic inequalities"
+      ],
+      "statement": "Problem:\n\nFor $x$ a real number, let $f(x)=0$ if $x<1$ and $f(x)=2x-2$ if $x \\geq 1$. How many solutions are there to the equation\n$$\nf(f(f(f(x))))=x ?\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nCertainly $0, 2$ are fixed points of $f$ and therefore solutions. On the other hand, there can be no solutions for $x<0$, since $f$ is nonnegative-valued; for $0 < x < 2$, we have $0 \\leq f(x) < x < 2$ (and $f(0) = 0$), so iteration only produces values below $x$, and for $x > 2$, $f(x) > x$, and iteration produces higher values. So there are no other solutions."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-1064",
+      "name": "Harvard-MIT Mathematics Tournament #0ic8",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Simple Equations"
+      ],
+      "statement": "Problem:\nSuppose $f$ is a function that assigns to each real number $x$ a value $f(x)$, and suppose the equation\n$$\nf\\left(x_{1}+x_{2}+x_{3}+x_{4}+x_{5}\\right)=f\\left(x_{1}\\right)+f\\left(x_{2}\\right)+f\\left(x_{3}\\right)+f\\left(x_{4}\\right)+f\\left(x_{5}\\right)-8\n$$\nholds for all real numbers $x_{1}, x_{2}, x_{3}, x_{4}, x_{5}$. What is $f(0)$ ?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nPlug in $x_{1}=x_{2}=x_{3}=x_{4}=x_{5}=0$. Then the equation reads $f(0)=5 f(0)-8$, so $4 f(0)=8$, so $f(0)=2$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-1242",
+      "name": "Harvard-MIT Mathematics Tournament #0ih6",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations"
+      ],
+      "statement": "Problem:\n\nIf $f$ is a continuous real function such that $f(x-1)+f(x+1) \\geq x+f(x)$ for all $x$, what is the minimum possible value of $\\int_{1}^{2005} f(x) d x$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $g(x) = f(x) - x$. Then\n$$\ng(x-1) + x - 1 + g(x+1) + x + 1 \\geq x + g(x) + x\n$$\nor $g(x-1) + g(x+1) \\geq g(x)$. But now,\n$$\ng(x+3) \\geq g(x+2) - g(x+1) \\geq -g(x)\n$$\nTherefore\n$$\n\\begin{aligned}\n\\int_{a}^{a+6} g(x) d x & = \\int_{a}^{a+3} g(x) d x + \\int_{a+3}^{a+6} g(x) d x \\\\\n& = \\int_{a}^{a+3} (g(x) + g(x+3)) d x \\geq 0\n\\end{aligned}\n$$\nIt follows that\n$$\n\\int_{1}^{2005} g(x) = \\sum_{n=0}^{333} \\int_{6n+1}^{6n+7} g(x) d x \\geq 0\n$$\nso that\n$$\n\\int_{1}^{2005} f(x) d x = \\int_{1}^{2005} (g(x) + x) d x \\geq \\int_{1}^{2005} x d x = \\left[\\frac{x^{2}}{2}\\right]_{1}^{2005} = \\frac{2005^{2} - 1}{2} = 2010012\n$$\nEquality holds for $f(x) = x$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-1268",
+      "name": "Harvard-MIT Mathematics Tournament #0ihw",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations"
+      ],
+      "statement": "Problem:\nSuppose $f$ and $g$ are differentiable functions such that\n$$\nx g(f(x)) f'(g(x)) g'(x) = f(g(x)) g'(f(x)) f'(x)\n$$\nfor all real $x$. Moreover, $f$ is nonnegative and $g$ is positive. Furthermore,\n$$\n\\int_{0}^{a} f(g(x)) dx = 1 - \\frac{e^{-2a}}{2}\n$$\nfor all reals $a$. Given that $g(f(0)) = 1$, compute the value of $g(f(4))$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nDifferentiating the given integral with respect to $a$ gives $f(g(a)) = e^{-2a}$. Now\n$$\nx \\frac{d[\\ln (f(g(x)))]}{dx} = x \\frac{f'(g(x)) g'(x)}{f(g(x))} = \\frac{g'(f(x)) f'(x)}{g(f(x))} = \\frac{d[\\ln (g(f(x)))]}{dx}\n$$\nwhere the second equals sign follows from the given. Since $\\ln (f(g(x))) = -2x$, we have $-x^2 + C = \\ln (g(f(x)))$, so $g(f(x)) = K e^{-x^2}$. It follows that $K = 1$ and $g(f(4)) = e^{-16}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-1475",
+      "name": "Harvard-MIT Mathematics Tournament #0inn",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations"
+      ],
+      "statement": "Problem:\n\nThe function $f: \\mathbb{R} \\rightarrow \\mathbb{R}$ satisfies $f\\left(x^{2}\\right) f^{\\prime\\prime}(x) = f^{\\prime}(x) f^{\\prime}\\left(x^{2}\\right)$ for all real $x$. Given that $f(1) = 1$ and $f^{\\prime\\prime\\prime}(1) = 8$, determine $f^{\\prime}(1) + f^{\\prime\\prime}(1)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $f^{\\prime}(1) = a$ and $f^{\\prime\\prime}(1) = b$. Then setting $x = 1$ in the given equation, $b = a^{2}$.\n\nDifferentiating the given yields\n$$\n2x f^{\\prime}\\left(x^{2}\\right) f^{\\prime\\prime}(x) + f\\left(x^{2}\\right) f^{\\prime\\prime\\prime}(x) = f^{\\prime\\prime}(x) f^{\\prime}\\left(x^{2}\\right) + 2x f^{\\prime}(x) f^{\\prime\\prime}\\left(x^{2}\\right)\n$$\nPlugging $x = 1$ into this equation gives $2ab + 8 = ab + 2ab$, or $ab = 8$. Then because $a$ and $b$ are real, we obtain the solution $(a, b) = (2, 4)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-1504",
+      "name": "Harvard-MIT Mathematics Tournament #0iog",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations"
+      ],
+      "statement": "Problem:\nLet $A := \\mathbb{Q} \\setminus \\{0, 1\\}$ denote the set of all rationals other than $0$ and $1$. A function $f: A \\rightarrow \\mathbb{R}$ has the property that for all $x \\in A$,\n$$\nf(x) + f\\left(1 - \\frac{1}{x}\\right) = \\log |x|\n$$\nCompute the value of $f(2007)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $\\log (2007 / 2006)$.\nLet $g: A \\rightarrow A$ be defined by $g(x) := 1 - 1 / x$; the key property is that\n$$\ng(g(g(x))) = 1 - \\frac{1}{1 - \\frac{1}{1 - \\frac{1}{x}}} = x\n$$\nThe given equation rewrites as $f(x) + f(g(x)) = \\log |x|$. Substituting $x = g(y)$ and $x = g(g(z))$ gives the further equations $f(g(y)) + f(g(g(y))) = \\log |g(x)|$ and $f(g(g(z))) + f(z) = \\log |g(g(x))|$. Setting $y$ and $z$ to $x$ and solving the system of three equations for $f(x)$ gives\n$$\nf(x) = \\frac{1}{2} \\cdot (\\log |x| - \\log |g(x)| + \\log |g(g(x))|)\n$$\nFor $x = 2007$, we have $g(x) = \\frac{2006}{2007}$ and $g(g(x)) = \\frac{-1}{2006}$, so that\n$$\nf(2007) = \\frac{\\log |2007| - \\log \\left|\\frac{2006}{2007}\\right| + \\log \\left|\\frac{-1}{2006}\\right|}{2} = \\log (2007 / 2006)\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-1586",
+      "name": "1st Annual Harvard-MIT November Tournament #0iqq",
+      "url": "https://usamoguide.com/",
+      "source": "1st Annual Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations"
+      ],
+      "statement": "Problem:\n\nLet $f(x)=\\frac{1}{1-x}$. Let $f^{k+1}(x)=f\\left(f^{k}(x)\\right)$, with $f^{1}(x)=f(x)$. What is $f^{2008}(2008)$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n$\\boxed{\\frac{-1}{2007}}$ Notice that, if $x \\neq 0,1$, then $f^{2}(x)=\\frac{1}{1-\\frac{1}{1-x}}=\\frac{x-1}{x}$, which means that $f^{3}(x)=\\frac{1}{1-\\frac{x-1}{x}}=x$. So $f^{n}$ is periodic with period $n=3$, which means that $f^{2007}(x)=x$ so $f^{2008}(2008)=f(2008)=\\frac{-1}{2007}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-1629",
+      "name": "IMO 2008 #0irx",
+      "url": "https://usamoguide.com/",
+      "source": "IMO 2008",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations"
+      ],
+      "statement": "Determine all functions $f : (0, \\infty) \\to (0, \\infty)$ such that\n$$\n\\frac{(f(p))^2 + (f(q))^2}{f(r^2) + f(s^2)} = \\frac{p^2 + q^2}{r^2 + s^2}\n$$\nfor all positive real numbers $p$, $q$, $r$, $s$ satisfying $pq = rs$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "$$\nf(x) = x \\quad \\text{and} \\quad f(x) = \\frac{1}{x}.\n$$\nIt is easy to check that these two functions satisfy the conditions of the problem. We now show that they are the only functions satisfying the conditions of the problem.\nSetting $p = q = r = s = 1$ in $(*)$ gives\n$$\nf(1) = \\frac{(f(1))^2 + (f(1))^2}{f(1) + f(1)} = \\frac{1^2 + 1^2}{1^1 + 1^2} = 1.\n$$\nFor positive real numbers $x$, setting $(p, q, r, s) = (1, x, \\sqrt{x}, \\sqrt{x})$ in $(*)$ yields\n$$\n\\frac{1 + (f(x))^2}{2f(x)} = \\frac{(f(1))^2 + (f(x))^2}{2f(x)} = \\frac{1 + x^2}{2x} \\quad \\text{or} \\quad 2x + 2x(f(x))^2 = 2f(x) + 2x^2f(x).\n$$\nWe deduce that\n$$\n0 = x(f(x))^2 - x^2 f(x) + x - f(x) = (x - f(x))(1 - x f(x)).\n$$\nIt follows that for positive real numbers $x$,\n$$\n\\text{either } f(x) = x \\quad \\text{or} \\quad f(x) = \\frac{1}{x}.\n$$\nLet us assume that $f(x) \\neq x$ and $f(x) \\neq \\frac{1}{x}$. Then there are positive real numbers $a$ and $b$ such that $f(a) \\neq a$ and $f(b) \\neq \\frac{1}{b}$. We deduce that $f(a) = \\frac{1}{a}$ and $f(b) = b$. Setting $(p, q, r, s) = (a, b, \\sqrt{ab}, \\sqrt{ab})$ in $(*)$ gives\n$$\n\\frac{\\frac{1}{a^2} + b^2}{2f(ab)} = \\frac{(f(a))^2 + (f(b))^2}{2f(ab)} = \\frac{a^2 + b^2}{2ab}\n$$\nor\n$$\n\\frac{f(ab)}{ab} = \\frac{1 + a^2 b^2}{a^2(a^2 + b^2)} = \\frac{1 + a^2 b^2}{a^4 + a^2 b^2}. \\qquad (\\dagger)\n$$\nWe know that either $f(ab) = ab$ or $f(ab) = \\frac{1}{ab}$. If $f(ab) = ab$, then $(\\dagger)$ implies that $a^4 = 1$ or $a = 1$, but then $f(a) = f(1) = 1 = a$, violating our assumption of $f(a) \\neq a$. If $f(ab) = \\frac{1}{ab}$, then $(\\dagger)$ implies that $b^2 + a^2 b^4 = a^2 + b^2$ or $b = 1$, but then $f(b) = f(1) = 1 = \\frac{1}{b}$, violating our assumption of $f(b) \\neq \\frac{1}{b}$. We reach contradictions in both cases. Thus, our assumption was wrong and no such $a$ and $b$ exist. In other words, $f(x) = x$ and $f(x) = \\frac{1}{x}$ are the only solutions of the problem."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-1639",
+      "name": "11th Annual Harvard-MIT Mathematics Tournament #0is7",
+      "url": "https://usamoguide.com/",
+      "source": "11th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations"
+      ],
+      "statement": "Problem:\n\nThe function $f$ satisfies\n$$\nf(x)+f(2x+y)+5xy = f(3x-y)+2x^{2}+1\n$$\nfor all real numbers $x, y$. Determine the value of $f(10)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSetting $x=10$ and $y=5$ gives $f(10)+f(25)+250=f(25)+200+1$, from which we get $f(10)=-49$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-1652",
+      "name": "Harvard-MIT Mathematics Tournament #0isk",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations"
+      ],
+      "statement": "Problem:\n\nThe function $f$ satisfies\n\n$$\nf(x)+f(2x+y)+5xy = f(3x-y)+2x^{2}+1\n$$\n\nfor all real numbers $x, y$. Determine the value of $f(10)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-1902",
+      "name": "13th Annual Harvard-MIT Mathematics Tournament #0izi",
+      "url": "https://usamoguide.com/",
+      "source": "13th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial operations",
+        "Functional Equations"
+      ],
+      "statement": "Problem:\nLet $p(x)$ and $q(x)$ be two cubic polynomials such that $p(0) = -24$, $q(0) = 30$, and\n$$\np(q(x)) = q(p(x))\n$$\nfor all real numbers $x$. Find the ordered pair $(p(3), q(6))$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $(3, -24)$\n\nNote that the polynomials $f(x) = a x^{3}$ and $g(x) = -a x^{3}$ commute under composition. Let $h(x) = x + b$ be a linear polynomial, and note that its inverse $h^{-1}(x) = x - b$ is also a linear polynomial. The composite polynomials $h^{-1} f h$ and $h^{-1} g h$ commute, since function composition is associative, and these polynomials are also cubic.\n\nWe solve for the $a$ and $b$ such that $\\left(h^{-1} f h\\right)(0) = -24$ and $\\left(h^{-1} g h\\right)(0) = 30$. We must have:\n$$\na b^{3} - b = -24,\\quad -a b^{3} - b = 30 \\Rightarrow a = 1,\\ b = -3\n$$\nThese values of $a$ and $b$ yield the polynomials $p(x) = (x - 3)^{3} + 3$ and $q(x) = -(x - 3)^{3} + 3$. The polynomials take on the values $p(3) = 3$ and $q(6) = -24$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-2040",
+      "name": "Harvard-MIT November Tournament #0j3c",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Recurrence relations"
+      ],
+      "statement": "Problem:\nA function $f(x, y)$ is linear in $x$ and in $y$. $f(x, y) = \\frac{1}{x y}$ for $x, y \\in \\{3, 4\\}$. What is $f(5,5)$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe main fact that we will use in solving this problem is that $f(x+2, y) - f(x+1, y) = f(x+1, y) - f(x, y)$ whenever $f$ is linear in $x$ and $y$. Suppose that $f(x, y) = a x y + b y + c x + d = x(a y + c) + (b y + d)$ for some constants $a, b, c$, and $d$. Then it is easy to see that\n$$\n\\begin{aligned}\nf(x+2, y) - f(x+1, y) & = (x+2)(a y + c) + (b y + d) - (x+1)(a y + c) - (b y + d) = a y + c \\\\\nf(x+1, y) - f(x, y) & = (x+1)(a y + c) + (b y + d) - x(a y + c) - (b y + d) = a y + c\n\\end{aligned}\n$$\nwhich implies that $f(x+2, y) - f(x+1, y) = f(x+1, y) - f(x, y)$. In particular, $f(5, y) - f(4, y) = f(4, y) - f(3, y)$, so $f(5, y) = 2 f(4, y) - f(3, y)$. Similarly, $f(x, 5) = 2 f(x, 4) - f(x, 3)$. Now we see that:\n$$\n\\begin{aligned}\nf(5,5) & = 2 f(5,4) - f(5,3) \\\\\n& = 2[2 f(4,4) - f(3,4)] - [2 f(4,3) - f(3,3)] \\\\\n& = 4 f(4,4) - 2 f(3,4) - 2 f(4,3) + f(3,3) \\\\\n& = \\frac{4}{16} - \\frac{4}{12} + \\frac{1}{9} \\\\\n& = \\frac{1}{4} - \\frac{1}{3} + \\frac{1}{9} \\\\\n& = \\frac{1}{9} - \\frac{1}{12} \\\\\n& = \\frac{1}{36}\n\\end{aligned}\n$$\nso the answer is $\\frac{1}{36}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-2060",
+      "name": "Harvard-MIT November Tournament #0j3w",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations"
+      ],
+      "statement": "Problem:\nA function $f(x, y, z)$ is linear in $x$, $y$, and $z$ such that $f(x, y, z) = \\frac{1}{x y z}$ for $x, y, z \\in \\{3,4\\}$. What is $f(5,5,5)$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $\\frac{1}{216}$ We use a similar method to the previous problem. Notice that $f(x, y, 5) = 2 f(x, y, 4) - f(x, y, 3)$. Let $f_{2}$ denote the function from the previous problem and $f_{3}$ the function from this problem.\nSince $3 f_{3}(x, y, 3)$ is linear in $x$ and $y$, and $3 f_{3}(x, y, 3) = \\frac{1}{x y}$ for all $x, y \\in \\{3,4\\}$, the previous problem implies that $3 f_{3}(5,5,3) = \\frac{1}{36} = f_{2}(5,5)$. Similarly, $4 f_{3}(5,5,4) = f_{2}(5,5)$. Now we have\n$$\n\\begin{aligned}\nf_{3}(5,5,5) & = 2 f_{3}(5,5,4) - f_{3}(5,5,3) \\\\\n& = \\frac{1}{2} f_{2}(5,5) - \\frac{1}{3} f_{2}(5,5) \\\\\n& = \\frac{1}{6} f_{2}(5,5) \\\\\n& = \\frac{1}{6 \\cdot 36} \\\\\n& = \\frac{1}{216}\n\\end{aligned}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-2076",
+      "name": "Harvard-MIT Mathematics Tournament #0j4c",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations"
+      ],
+      "statement": "Problem:\nFor all real numbers $x$, let\n$$\nf(x) = \\frac{1}{\\sqrt[2011]{1 - x^{2011}}}\n$$\nEvaluate $(f(f(\\ldots(f(2011)) \\ldots)))^{2011}$, where $f$ is applied 2010 times.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nDirect calculation shows that $f(f(x)) = \\frac{\\sqrt[2011]{1 - x^{2011}}}{-x}$ and $f(f(f(x))) = x$. Hence $(f(f(\\ldots(f(x)) \\ldots))) = x$, where $f$ is applied 2010 times. So $(f(f(\\ldots(f(2011)) \\ldots)))^{2011} = 2011^{2011}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-2108",
+      "name": "Harvard-MIT Mathematics Tournament #0j58",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations"
+      ],
+      "statement": "Problem:\nLet $f:[0,1] \\rightarrow [0,1]$ be a continuous function such that $f(f(x)) = 1$ for all $x \\in [0,1]$. Determine the set of possible values of $\\int_{0}^{1} f(x) \\, dx$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $\\left(\\frac{3}{4}, 1\\right]$\n\nSince the maximum value of $f$ is $1$, $\\int_{0}^{1} f(x) \\, dx \\leq 1$.\n\nBy our condition $f(f(x)) = 1$, $f$ is $1$ at any point within the range of $f$. Clearly, $1$ is in the range of $f$, so $f(1) = 1$. Now $f(x)$ is continuous on a closed interval so it attains a minimum value $c$. Since $c$ is in the range of $f$, $f(c) = 1$.\n\nIf $c = 1$, $f(x) = 1$ for all $x$ and $\\int_{0}^{1} f(x) \\, dx = 1$.\n\nNow assume $c < 1$. By the intermediate value theorem, since $f$ is continuous it attains all values between $c$ and $1$. So for all $x \\geq c$, $f(x) = 1$. Therefore,\n$$\n\\int_{0}^{1} f(x) \\, dx = \\int_{0}^{c} f(x) \\, dx + (1-c)\n$$\nSince $f(x) \\geq c$, $\\int_{0}^{c} f(x) \\, dx > c^{2}$, and the equality is strict because $f$ is continuous and thus cannot be $c$ for all $x < c$ and $1$ at $c$. So\n$$\n\\int_{0}^{1} f(x) \\, dx > c^{2} + (1-c) = \\left(c - \\frac{1}{2}\\right)^{2} + \\frac{3}{4} \\geq \\frac{3}{4}\n$$\nTherefore $\\frac{3}{4} < \\int_{0}^{1} f(x) \\, dx \\leq 1$, and it is easy to show that every value in this interval can be reached."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-2247",
+      "name": "Team Selection Test Selection Test #0j93",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations"
+      ],
+      "statement": "Find all real-valued functions $f$ defined on pairs of real numbers, having the following property: for all real numbers $a, b, c$, the median of $f(a, b)$, $f(b, c)$, $f(c, a)$ equals the median of $a, b, c$. (The median of three real numbers, not necessarily distinct, is the number that is in the middle when the three numbers are arranged in non-decreasing order.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "There are two solutions:\n* $f(a, b) = a$ for all $a, b$, and\n* $f(a, b) = b$ for all $a, b$.\nClearly these functions meet the condition. We must show there are no others.\n\nBy setting $a = b = c$ we get $f(a, a) = a$ for all $a$. Next, for all $a, b$, the median of $f(a, a)$, $f(a, b)$, $f(b, a)$ must equal the median of $a, a, b$, namely $a$, so for all $a, b$, one of $f(a, b)$, $f(b, a)$ is at most $a$ and the other is at least $a$. Switching $a, b$, we also see that one of $f(a, b)$, $f(b, a)$ is at most $b$ and the other is at least $b$. Therefore, we have\n$$\n\\min\\{f(a, b), f(b, a)\\} \\le \\min\\{a, b\\} \\qquad (13)\n$$\nand\n$$\n\\max\\{f(a, b), f(b, a)\\} \\ge \\max\\{a, b\\}. \\qquad (14)\n$$\nNext, consider any three numbers $a < b < c$. The median of $f(a, b)$, $f(b, c)$, $f(c, a)$ must equal $b$, so one of $f(a, b)$, $f(b, c)$ equals $b$ (since $f(c, a)$ must be either at most $a$ or at least $c$). Similarly, considering $f(a, c)$, $f(c, b)$, $f(b, a)$, we see that one of $f(c, b)$, $f(b, a)$ equals $b$. The numbers $f(a, b)$, $f(b, a)$ cannot both be $b$, by (13), and $f(b, c)$, $f(c, b)$ cannot both be $b$, by (13). We conclude that either\n$$\nf(a, b) = f(c, b) = b \\qquad (15)\n$$\nor\n$$\nf(b, c) = f(b, a) = b. \\qquad (16)\n$$\nIn particular, for any $a < b$, choosing $c > b$ arbitrarily, we see that one of $f(a, b)$, $f(b, a)$ must equal $a$. Likewise, for any $b < c$, choosing $a < b$ arbitrarily, we see that one of $f(b, c)$, $f(c, b)$ must equal $b$.\n\nPutting these two conclusions together, for any $a \\ne b$, one of $f(a, b)$, $f(b, a)$ equals $\\min\\{a, b\\}$ and the other equals $\\max\\{a, b\\}$. In other words, for $a \\ne b$, $\\{f(a, b), f(b, a)\\}$ and $\\{a, b\\}$ are equal as sets. Call $\\{a, b\\}$ a first-pair if $f(a, b) = a$ and $f(b, a) = b$, and a second-pair if $f(a, b) = b$ and $f(b, a) = a$.\n\nNow again consider any three numbers $a < b < c$. If either $\\{a, b\\}$ or $\\{b, c\\}$ is a first-pair, then (15) cannot hold, so (16) holds, and $\\{a, b\\}$ and $\\{b, c\\}$ are both first-pairs. That is, $\\{a, b\\}$ is a first-pair if and only if $\\{b, c\\}$ is. Pick any other numbers $a'$ and $c'$ such that $a' < b$ and $c' > b$. The same logic gives\n$$\n\\begin{align*}\n\\{a', b\\} \\text{ is a first-pair} &\\iff \\{b, c\\} \\text{ is a first-pair} \\\\\n&\\iff \\{a, b\\} \\text{ is a first-pair} \\\\\n&\\iff \\{b, c'\\} \\text{ is a first-pair.}\n\\end{align*}\n$$\nThis shows that, given any $p, q \\ne b$, $\\{p, b\\}$ is a first-pair if and only if $\\{q, b\\}$ is. Since $b$ is arbitrary, we have for any distinct $p, q, r, s$ that\n$$\n\\begin{align*}\n\\{p, q\\} \\text{ is a first-pair} &\\iff \\{s, q\\} = \\{q, s\\} \\text{ is a first-pair} \\\\\n&\\iff \\{r, s\\} \\text{ is a first-pair.}\n\\end{align*}\n$$\nThat is, if some first-pair exists, then every pair is a first-pair, so $f(a, b) = a$ for all $a, b$. Otherwise, every pair is a second-pair, so $f(a, b) = b$ for all $a, b$. Thus, the only possibilities for the function $f$ are the two solutions we initially identified."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-2263",
+      "name": "15th Annual Harvard-MIT Mathematics Tournament #0j9j",
+      "url": "https://usamoguide.com/",
+      "source": "15th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial operations",
+        "Functional Equations"
+      ],
+      "statement": "Problem:\nLet $P$ be a polynomial such that $P(x) = P(0) + P(1) x + P(2) x^{2}$ and $P(-1) = 1$. Compute $P(3)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nPlugging in $x = -1, 1, 2$ results in the trio of equations\n$1 = P(-1) = P(0) - P(1) + P(2)$,\n$P(1) = P(0) + P(1) + P(2) \\Rightarrow P(1) + P(2) = 0$,\nand $P(2) = P(0) + 2 P(1) + 4 P(2)$.\nSolving these as a system of equations in $P(0), P(1), P(2)$ gives $P(0) = -1, P(1) = -1, P(2) = 1$.\nConsequently, $P(x) = x^{2} - x - 1 \\Rightarrow P(3) = 5$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-2360",
+      "name": "Harvard-MIT Mathematics Tournament #0jc8",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Exponential functions",
+        "Logarithmic functions"
+      ],
+      "statement": "Problem:\n\nLet $\\otimes$ be a binary operation that takes two positive real numbers and returns a positive real number. Suppose further that $\\otimes$ is continuous, commutative $(a \\otimes b = b \\otimes a)$, distributive across multiplication $(a \\otimes (b c) = (a \\otimes b)(a \\otimes c))$, and that $2 \\otimes 2 = 4$. Solve the equation $x \\otimes y = x$ for $y$ in terms of $x$ for $x > 1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $y = \\sqrt{2}$\n\nWe note that $\\left(a \\otimes b^{k}\\right) = (a \\otimes b)^{k}$ for all positive integers $k$. Then for all rational numbers $\\frac{p}{q}$ we have $a \\otimes b^{\\frac{p}{q}} = \\left(a \\otimes b^{\\frac{1}{q}}\\right)^{p} = (a \\otimes b)^{\\frac{p}{q}}$. So by continuity, for all real numbers $a, b$, it follows that $2^{a} \\otimes 2^{b} = (2 \\otimes 2)^{a b} = 4^{a b}$. Therefore given positive reals $x, y$, we have\n\n$x \\otimes y = 2^{\\log_{2}(x)} \\otimes 2^{\\log_{2}(y)} = 4^{\\log_{2}(x) \\log_{2}(y)}$.\n\nIf $x = 4^{\\log_{2}(x) \\log_{2}(y)} = 2^{2 \\log_{2}(x) \\log_{2}(y)}$ then $\\log_{2}(x) = 2 \\log_{2}(x) \\log_{2}(y)$ and $1 = 2 \\log_{2}(y) = \\log_{2}\\left(y^{2}\\right)$. Thus $y = \\sqrt{2}$ regardless of $x$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-2444",
+      "name": "HMIC #0jek",
+      "url": "https://usamoguide.com/",
+      "source": "HMIC",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Injectivity / surjectivity"
+      ],
+      "statement": "Problem:\nFind all functions $f: \\mathbb{R} \\rightarrow \\mathbb{R}$ such that, for all real numbers $x, y$,\n$$\n(x-y)(f(x)-f(y))=f(x-f(y)) f(f(x)-y)\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $\\quad f(x)=0, f(x)=x$\n\nFirst, suppose that $f(0) \\neq 0$. Then, by letting $x=y=0$, we get that either $f(f(0))$ or $f(-f(0))$ is zero. The former gives a contradiction by plugging in $x=f(0), y=0$ into the original equation. Thus, $f(-f(0))=0$.\n\nNow plugging in $x=0, y=-f(0)$ gives that $f(2 f(0))=f(0)$. Finally, we note that by symmetry of the left hand side of the functional equation, $f(x-f(y)) f(f(x)-y)=f(y-f(x)) f(f(y)-x)$, and letting $y=0$ and $x=2 f(0)$ we get $f(f(0)) f(f(0))=f(-f(0)) f(-f(0))=0$, giving and so $f(f(0))=0$, again a contradiction. Therefore, $f(0)=0$.\n\nSetting $y=0$ yields $x f(x)=f(x) f(f(x))$, so if $f(x) \\neq 0$, then $f(f(x))=x$. On the other hand, setting $y=f(x)$ yields $(x-f(x))(f(x)-f(f(x)))=f(x-f(f(x))) f(0)$, so in fact $f(f(x))=f(x) \\rightarrow f(x)=x$. Thus, for all $x, f(x)=0$ or $f(x)=x$.\n\nClearly, $f \\equiv 0$ satisfies the original equation, so suppose there exists a non-zero $x$ with $f(x)=x$. Then, for all $y \\neq x$, if $f(y) \\neq 0$, the original equation yields $x(x-y)=x f(x-y)$. Thus, $f(x-y)=x-y$. Similarly, if $f(y)=y$, we find $(x-y)^{2}=f(x-y)^{2}$, so $f(x-y)=x-y$. It follows that $f$ must be the identity, which indeed is a solution to the original equation. The proof is complete."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-2526",
+      "name": "Berkeley Math Circle Monthly Contest 4 #0jgu",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 4",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial operations",
+        "Sums and products",
+        "Functional Equations",
+        "Induction / smoothing"
+      ],
+      "statement": "Problem:\nLet $P(x)$ be a polynomial such that for all integers $x \\geq 1$,\n$$\nP(x)=\\sum_{n=1}^{x} n^{2012}\n$$\n(a) Find $P(-2)$.\n(b) Find $P(1 / 2)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n(a) Consider the relation\n$$\nP(x)=P(x-1)+x^{2012} .\n$$\nIf $x$ is an integer greater than $1$, then (1) clearly holds. Therefore (1) holds for all real $x$ (two polynomials cannot have infinitely many common values unless they are the same). We can therefore use the recurrence $P(x-1)=P(x)-x^{2012}$ to compute\n$$\n\\begin{aligned}\nP(0) & =P(1)-1^{2012}=1-1=0 \\\\\nP(-1) & =P(0)-0^{2012}=0-0=0 \\\\\nP(-2) & =P(-1)-(-1)^{2012}=0-1=-1 .\n\\end{aligned}\n$$\n\n(b) Consider the relation\n$$\nP(-1-x)=-P(x) \\text{.}\n$$\nThe $x=0$ case of this follows easily from the computations performed in part (a). Given this, we can easily prove (2) by induction for all nonnegative integers $x$ using (1):\n$$\n\\begin{aligned}\nP(-2-x) & =P(-1-x)-(-1-x)^{2012} \\\\\n& =-P(x)-(x+1)^{2012} \\\\\n& =-P(x+1)\n\\end{aligned}\n$$\nPlugging $x=-1 / 2$ into (2) yields $P(-1 / 2)=0$, so by (1),\n$$\nP(1 / 2)=P(-1 / 2)+\\left(\\frac{1}{2}\\right)^{2012}=\\frac{1}{2^{2012}}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-2537",
+      "name": "Berkeley Math Circle Monthly Contest 4 #0jh5",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 4",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recurrence relations",
+        "Roots of unity",
+        "Complex numbers",
+        "Functional Equations"
+      ],
+      "statement": "Problem:\n\nHow many functions $f: \\mathbb{Z} \\rightarrow \\mathbb{R}$ satisfy the following three properties?\n(a) $f(1)=1$;\n(b) For all $m, n \\in \\mathbb{Z}$, $f(m)^2 - f(n)^2 = f(m+n) f(m-n)$;\n(c) For all $n \\in \\mathbb{Z}$, $f(n) = f(n+2013)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nBy plugging $m=n=0$ into (b) we easily get $f(0)=0$. For any $u \\in \\mathbb{Z}$, we have\n$$\n\\begin{aligned}\nf(u+1)^2 - f(u-1)^2 & = f(2u) f(2) \\\\\nf(u+1)^2 - f(u)^2 & = f(2u+1) f(1) = f(2u+1) \\\\\nf(u)^2 - f(u-1)^2 & = f(2u-1) f(1) = f(2u-1)\n\\end{aligned}\n$$\nwhence\n$$\nf(2u) f(2) = f(2u+1) + f(2u-1) .\n$$\nWe would like to conclude that\n$$\nf(n+1) + f(n-1) = f(2) f(n)\n$$\nfor all $n \\in \\mathbb{Z}$. This is indubitable if $n$ is even; otherwise we may use (c) and the fact that $n+2013$ is even.\nFor any given value of $t = f(2)$, there is a unique function $f$ satisfying the recursive definition\n$$\nf(1) = 1, \\quad f(2) = t, \\quad f(n+1) + f(n-1) = t f(n) .\n$$\nIf $t \\neq \\pm 2$, this solution is given by\n$$\nf(n) = \\frac{\\lambda_1^n - \\lambda_2^n}{\\lambda_1 - \\lambda_2} \\quad \\text{ where } \\lambda_{1,2} \\in \\mathbb{C} \\text{ are the roots of } \\lambda^2 - t \\lambda + 1 = 0\n$$\nThose familiar with the theory of linear recurrences will know a heuristic derivation of this formula. For our purposes it suffices to note that this function $f$ does indeed satisfy definition (3) and in fact the condition (b) as well; thus the problem is to find out how many values of $t$ cause condition (c) to hold.\nIf $t = \\pm 2$, the solution (4) is invalid due to the fact that $\\lambda_1 = \\lambda_2$. In these cases the corresponding functions $f$ satisfying (3) are $f(n) = n$ and $f(n) = (-1)^{n+1} n$, both of which fail condition (c) and hence can be discarded.\nFrom the condition $f(2013) = f(0) = 0$, we derive that $\\lambda_1^{2013} = \\lambda_2^{2013} = \\lambda_1^{-2013}$, so $\\lambda_1^{4026} = 1$. We must have $\\lambda^{2013} = 1$ or $\\lambda^{2013} = -1$. If the latter holds, then from $f(2014) = f(1)$ we get\n$$\n\\begin{aligned}\n\\lambda_1^{2014} - \\lambda_2^{2014} & = \\lambda_1 - \\lambda_2 \\\\\n\\lambda_1 \\cdot \\lambda_1^{2013} - \\lambda_2 \\cdot \\lambda_2^{2013} & = \\lambda_1 - \\lambda_2 \\\\\n-\\lambda_1 + \\lambda_2 & = \\lambda_1 - \\lambda_2 \\\\\n\\lambda_1 & = \\lambda_2,\n\\end{aligned}\n$$\na contradiction. So $\\lambda_1$, and hence its reciprocal $\\lambda_2$, are 2013th roots of unity, a condition that is clearly sufficient to imply (c).\nThe trivial root $\\lambda_1 = \\lambda_2 = 1$ must be discarded. The remaining roots come in 1006 conjugate pairs yielding 1006 distinct real values of $t$. We conclude that there are 1006 such functions $f$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-2617",
+      "name": "HMMT 2014 #0jjd",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2014",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Recursion, bijection"
+      ],
+      "statement": "Problem:\n\nLet $f: \\mathbb{N} \\rightarrow \\mathbb{N}$ be a function satisfying the following conditions:\n(a) $f(1)=1$.\n(b) $f(a) \\leq f(b)$ whenever $a$ and $b$ are positive integers with $a \\leq b$.\n(c) $f(2 a)=f(a)+1$ for all positive integers $a$.\n\nHow many possible values can the 2014-tuple $(f(1), f(2), \\ldots, f(2014))$ take?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $1007$\n\nNote that $f(2014)=f(1007)+1$, so there must be exactly one index $1008 \\leq i \\leq 2014$ such that $f(i)=f(i-1)+1$, and for all $1008 \\leq j \\leq 2014$, $j \\neq i$ we must have $f(j)=f(j-1)$. We first claim that each value of $i$ corresponds to exactly one 2014-tuple $(f(1), \\ldots, f(2014))$. To prove this, note that $f(1024)=11$, so each $i$ uniquely determines the values of $f(1007), \\ldots, f(2014)$. Then all of $f(1), \\ldots, f(1006)$ can be uniquely determined from these values because for any $1 \\leq k \\leq 1006$, there exists a unique $n$ such that $1007 \\leq k \\cdot 2^{n} \\leq 2014$. It's also clear that these values satisfy the condition that $f$ is nondecreasing, so we have a correspondence from each $1008 \\leq i \\leq 2014$ to a unique 2014-tuple.\n\nAlso, given any valid 2014-tuple $(f(1), \\ldots, f(2014))$, we know that $f(1), \\ldots, f(1006)$ can be uniquely determined by $f(1007), \\ldots, f(2014)$, which yields some $1008 \\leq i \\leq 2014$ where $f(i)=f(i-1)+1$, so we actually have a bijection between possible values of $i$ and 2014-tuples. Therefore, the total number of possible 2014-tuples is $1007$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-2703",
+      "name": "IMO Team Selection Team Selection Test #0jlr",
+      "url": "https://usamoguide.com/",
+      "source": "IMO Team Selection Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations"
+      ],
+      "statement": "Let $\\mathbb{N}$ be the set of positive integers. Find all functions $f : \\mathbb{N} \\to \\mathbb{N}$ that satisfy the equation\n$$\nf^{abc-a}(abc) + f^{abc-b}(abc) + f^{abc-c}(abc) = a + b + c\n$$\nfor all $a, b, c \\ge 2$.\n(Here $f^1(n) = f(n)$ and $f^k(n) = f(f^{k-1}(n))$ for every integer $k$ greater than 1.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Clearly if $f(n) = n - 1$ for $n > 1$, the desired identity will be satisfied. In fact one can easily check that the value of $f(2)$ is also irrelevant, so any $f$ such that $f(n) = n - 1$ for all $n > 2$ will work. We show that these are the only such functions.\nPlug in $a = b = c$ to obtain $f^{a^3-a}(a^3) = a$ for all $a$. Using this twice, $f^{a^9-a}(a^9) = a$. Then, $b = c = a^4$ gives $f^{a^9-a^4}(a^9) = a^4$. Meanwhile $b = a^3, c = a^5$ gives $f^{a^9-a^5}(a^9) = a^5$; consequently, we get $f^{a^5-a^4}(a^5) = a^4$.\n\n$$\nf^{bc-b}(bc) + f^{bc-c}(bc) = b + c. \\qquad (19)\n$$\nNow fix a large number $N$, and for all divisors $d \\mid N$ with $1 < d < N$, define $g(d)$ by $g(d) = f^{N-d}(N)-d$. We claim that $g(bc) = g(b) + g(c)$ whenever $bc$ is still a proper divisor of $N$. Proof: put $a = N/bc$, and write\n$$\n\\begin{aligned}\ng(bc) &= f^{abc-bc}(abc) - bc \\\\\n&= (a + bc - f^{abc-a}(abc)) - bc \\quad (\\text{by (19)}) \\\\\n&= a - f^{abc-a}(abc) \\\\\n&= f^{abc-b}(abc) - b + f^{abc-c}(abc) - c \\\\\n&= g(b) + g(c).\n\\end{aligned}\n$$\nThis holds for any $N$. In particular, fix any $b \\ge 2$, and put $N = (b^r(b+1)^s)^3$, where $r, s$ are any relatively prime integers both greater than $b+1$. Repeatedly using the multiplicative property of $g$ defined above, we get\n$$\nrg(b) + sg(b+1) = g(b^r(b+1)^s) = 0.\n$$\nThe only solution to this with integers $g(b), g(b+1)$ satisfying $g(b) \\ge -b$ and $g(b+1) \\ge -(b+1)$ is $g(b) = g(b+1) = 0$. Hence,\n$$\nf^{N-b}(N) = b, \\quad f^{N-(b+1)}(N) = b+1\n$$\nand comparing gives $f(b+1) = b$, which is what we set out to prove."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-2735",
+      "name": "HMMT November 2014 #0jmn",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2014",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations"
+      ],
+      "statement": "Problem:\n\nLet $f$ be a function from the nonnegative integers to the positive reals such that $f(x+y) = f(x) \\cdot f(y)$ holds for all nonnegative integers $x$ and $y$. If $f(19) = 524288 k$, find $f(4)$ in terms of $k$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $16 k^{4 / 19}$\n\nThe given condition implies $f(m n) = f(m)^n$, so\n$$\nf(4)^{19} = f(4 \\cdot 19) = f(19 \\cdot 4) = f(19)^4\n$$\nand it follows that $f(4) = 16 k^{4 / 19}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-2781",
+      "name": "HMMT February #0jnx",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "QM-AM-GM-HM / Power Mean",
+        "Factorization techniques"
+      ],
+      "statement": "Problem:\nLet $f: \\mathbb{Z} \\rightarrow \\mathbb{Z}$ be a function such that for any integers $x, y$, we have\n$$\nf\\left(x^{2}-3 y^{2}\\right)+f\\left(x^{2}+y^{2}\\right)=2(x+y) f(x-y)\n$$\nSuppose that $f(n)>0$ for all $n>0$ and that $f(2015) \\cdot f(2016)$ is a perfect square. Find the minimum possible value of $f(1)+f(2)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nPlugging in $-y$ in place of $y$ in the equation and comparing the result with the original equation gives\n$$\n(x-y) f(x+y)=(x+y) f(x-y)\n$$\nThis shows that whenever $a, b \\in \\mathbb{Z}-\\{0\\}$ with $a \\equiv b (\\bmod 2)$, we have\n$$\n\\frac{f(a)}{a}=\\frac{f(b)}{b}\n$$\nwhich implies that there are constants $\\alpha=f(1) \\in \\mathbb{Z}_{>0}, \\beta=f(2) \\in \\mathbb{Z}_{>0}$ for which $f$ satisfies the equation $(*)$ :\n$$\nf(n)= \\begin{cases}n \\cdot \\alpha & \\text{ when } 2 \\nmid n \\\\ \\frac{n}{2} \\cdot \\beta & \\text{ when } 2 \\mid n\\end{cases}\n$$\nTherefore, $f(2015) f(2016)=2015 \\alpha \\cdot 1008 \\beta=2^{4} \\cdot 3^{2} \\cdot 5 \\cdot 7 \\cdot 13 \\cdot 31 \\alpha \\beta$, so $\\alpha \\beta=5 \\cdot 7 \\cdot 13 \\cdot 31 \\cdot t^{2}$ for some $t \\in \\mathbb{Z}_{>0}$. We claim that $(\\alpha, \\beta, t)=(5 \\cdot 31,7 \\cdot 13,1)$ is a triple which gives the minimum $\\alpha+\\beta$. In particular, we claim $\\alpha+\\beta \\geq 246$.\n\nConsider the case $t \\geq 2$ first. We have, by AM-GM, $\\alpha+\\beta \\geq 2 \\cdot \\sqrt{\\alpha \\beta} \\geq 4 \\cdot \\sqrt{14105}>246$. Suppose $t=1$. We have $\\alpha \\cdot \\beta=5 \\cdot 7 \\cdot 13 \\cdot 31$. Because $(\\alpha+\\beta)^{2}-(\\alpha-\\beta)^{2}=4 \\alpha \\beta$ is fixed, we want to have $\\alpha$ as close as $\\beta$ as possible. This happens when one of $\\alpha, \\beta$ is $5 \\cdot 31$ and the other is $7 \\cdot 13$. In this case, $\\alpha+\\beta=91+155=246$.\n\nFinally, we note that the equality $f(1)+f(2)=246$ can be attained. Consider $f: \\mathbb{Z} \\rightarrow \\mathbb{Z}$ such that $f(n)=91 n$ for every odd $n \\in \\mathbb{Z}$ and $f(n)=\\frac{155}{2} n$ for every even $n \\in \\mathbb{Z}$. It can be verified that $f$ satisfies the condition in the problem and $f(1)+f(2)=246$ as claimed."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-2782",
+      "name": "HMMT November 2015 #0jny",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2015",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Recurrence relations",
+        "Greatest common divisors (gcd)"
+      ],
+      "statement": "Problem:\nA function $f$ satisfies, for all nonnegative integers $x$ and $y$:\n- $f(0, x) = f(x, 0) = x$\n- If $x \\geq y \\geq 0$, $f(x, y) = f(x - y, y) + 1$\n- If $y \\geq x \\geq 0$, $f(x, y) = f(x, y - x) + 1$\nFind the maximum value of $f$ over $0 \\leq x, y \\leq 100$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $101$\n\nFirstly, $f(100, 100) = 101$.\n\nTo see this is maximal, note that $f(x, y) \\leq \\max \\{x, y\\} + 1$, say by induction on $x + y$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-2811",
+      "name": "HMMT November 2015 #0jor",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2015",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Logarithmic functions"
+      ],
+      "statement": "Problem:\nLet $f: \\mathbb{R}^{+} \\rightarrow \\mathbb{R}$ be a continuous function satisfying $f(x y)=f(x)+f(y)+1$ for all positive reals $x, y$. If $f(2)=0$, compute $f(2015)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $\\log_{2} 2015-1$\nLet $g(x)=f(x)+1$. Substituting $g$ into the functional equation, we get that\n$$\n\\begin{gathered}\ng(x y)-1=g(x)-1+g(y)-1+1 \\\\\ng(x y)=g(x)+g(y)\n\\end{gathered}\n$$\nAlso, $g(2)=1$. Now substitute $x=e^{x'}$, $y=e^{y'}$, which is possible because $x, y \\in \\mathbb{R}^{+}$. Then set $h(x)=g\\left(e^{x}\\right)$. This gives us that\n$$\ng\\left(e^{x'+y'}\\right)=g\\left(e^{x'}\\right)+g\\left(e^{y'}\\right) \\Longrightarrow h\\left(x'+y'\\right)=h\\left(x'\\right)+h\\left(y'\\right)\n$$\nfor all $x', y' \\in \\mathbb{R}$. Also $h$ is continuous. Therefore, by Cauchy's functional equation, $h(x)=c x$ for a real number $c$. Going all the way back to $g$, we can get that $g(x)=c \\log x$. Since $g(2)=1$, $c=\\frac{1}{\\log 2}$. Therefore, $g(2015)=c \\log 2015=\\frac{\\log 2015}{\\log 2}=\\log_{2} 2015$.\nFinally, $f(2015)=g(2015)-1=\\log_{2} 2015-1$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-2973",
+      "name": "HMMT November #0jt9",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Recurrence relations"
+      ],
+      "statement": "Problem:\nLet the function $f: \\mathbb{Z} \\rightarrow \\mathbb{Z}$ take only integer inputs and have integer outputs. For any integers $x$ and $y$, $f$ satisfies\n$$\nf(x)+f(y)=f(x+1)+f(y-1)\n$$\nIf $f(2016)=6102$ and $f(6102)=2016$, what is $f(1)$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe have\n$$\nf(x+1)=f(x)+f(y)-f(y-1)\n$$\nIf $y$ is fixed, we have\n$$\nf(x+1)=f(x)+\\text{ constant }\n$$\nimplying $f$ is linear. Using our two points, then, we get $f(x)=8118-x$, so $f(1)=8117$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-3020",
+      "name": "Berkeley Math Circle: Monthly Contest 2 #0juk",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 2",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations"
+      ],
+      "statement": "Problem:\nFind all triples of continuous functions $f, g, h$ from $\\mathbb{R}$ to $\\mathbb{R}$ such that $f(x+y) = g(x) + h(y)$ for all real numbers $x$ and $y$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe answer is $f(x) = c x + a + b$, $g(x) = c x + a$, $h(x) = c x + b$, where $a$, $b$, $c$ are real numbers. Obviously these solutions work, so we wish to show they are the only ones.\n\nFirst, put $y = 0$ to get $f(x+0) = g(x) + h(0)$, so $g(x) = f(x) - h(0)$. Similarly, $h(y) = f(y) - g(0)$. Therefore, the functional equation boils down to $f(x+y) = f(x) + f(y) - (g(0) + h(0))$. By shifting and appealing to Cauchy's functional equation (with $f$ continuous) we get $f(x) = c x + g(0) + h(0)$, $g(x) = c x + g(0)$ and $h(x) = c x + h(0)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-3051",
+      "name": "Berkeley Math Circle: Monthly Contest 2 #0jvf",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 2",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations"
+      ],
+      "statement": "Problem:\nFind all twice differentiable functions $f: \\mathbb{R} \\rightarrow \\mathbb{R}$ satisfying\n$$\nf(x)^2 - f(y)^2 = f(x+y) f(x-y)\n$$\nfor all real numbers $x$ and $y$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe answer is $f(x) = kx$, $f(x) = a \\sin(c x)$, $f(x) = a \\sinh(c x)$, where $a, c \\in \\mathbb{R}$. The given functional equation is\n$$\nf(x)^2 - f(y)^2 = f(x+y) f(x-y).\n$$\nObserve that $x = y = 0$ gives $f(0) = 0$.\nSince $f$ is smooth, we may differentiate with respect to $x$ and obtain\n$$\n2 f'(x) f(x) = f'(x+y) f(x-y) + f(x+y) f'(x-y).\n$$\nNow differentiate this with respect to $y$ to obtain\n$$\n\\begin{aligned}\n0 &= \\left[f''(x+y) f(x-y) - f'(x+y) f'(x-y)\\right] \\\\\n&\\quad + \\left[f'(x+y) f'(x-y) - f(x+y) f''(x-y)\\right] \\\\\n&= f''(x+y) f(x-y) - f(x+y) f''(x-y)\n\\end{aligned}\n$$\nFrom this we conclude the key relation: for any real numbers $X$ and $Y$:\n$$\nf''(X) f(Y) = f(X) f''(Y).\n$$\nAssume $f$ isn't identically zero. Then we deduce there's a constant $k$ such that\n$$\nf''(x) = k f(x)\n$$\nfor all $x$.\nThis is a standard differential equation with cases on $k$.\n- If $k = 0$, the solution set is $f(x) = a x + b$. Then $f(0) = 0 \\Longrightarrow b = 0$, and we can check $f(x) = a x$ works.\n- If $k < 0$, the solution set is $f(x) = a \\sin(-k x) + b \\cos(-k x)$. Again $f(0) = 0 \\Longrightarrow b = 0$, and we can check $f(x) = a \\sin(-k x)$ works.\n- If $k > 0$, the solution set is $f(x) = a \\sinh(-k x) + b \\cosh(-k x)$. Again $f(0) = 0 \\Longrightarrow b = 0$, and we can check $f(x) = a \\sinh(k x)$ works."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-3147",
+      "name": "February 2017 #0jy3",
+      "url": "https://usamoguide.com/",
+      "source": "February 2017",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations"
+      ],
+      "statement": "Problem:\nLet $f: \\mathbb{R} \\rightarrow \\mathbb{R}$ be a function satisfying $f(x) f(y) = f(x-y)$. Find all possible values of $f(2017)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $P(x, y)$ be the given assertion. From $P(0,0)$ we get $f(0)^2 = f(0) \\Longrightarrow f(0) = 0, 1$.\nFrom $P(x, x)$ we get $f(x)^2 = f(0)$. Thus, if $f(0) = 0$, we have $f(x) = 0$ for all $x$, which satisfies the given constraints. Thus $f(2017) = 0$ is one possibility.\n\nNow suppose $f(0) = 1$. We then have $P(0, y) \\Longrightarrow f(-y) = f(y)$, so that $P(x, -y) \\Longrightarrow f(x) f(y) = f(x-y) = f(x) f(-y) = f(x+y)$. Thus $f(x-y) = f(x+y)$, and in particular $f(0) = f\\left(\\frac{x}{2} - \\frac{x}{2}\\right) = f\\left(\\frac{x}{2} + \\frac{x}{2}\\right) = f(x)$. It follows that $f(x) = 1$ for all $x$, which also satisfies all given constraints.\n\nThus the two possibilities are $f(2017) = 0, 1$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-3408",
+      "name": "USA TSTST #0k5c",
+      "url": "https://usamoguide.com/",
+      "source": "USA TSTST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Polynomials",
+        "Divisibility / Factorization"
+      ],
+      "statement": "As usual, let $\\mathbb{Z}[x]$ denote the set of single-variable polynomials in $x$ with integer coefficients.\nFind all functions $\\theta : \\mathbb{Z}[x] \\to \\mathbb{Z}$ such that for any polynomials $p, q \\in \\mathbb{Z}[x]$,\n* $\\theta(p + 1) = \\theta(p) + 1$, and\n* if $\\theta(p) \\neq 0$ then $\\theta(p)$ divides $\\theta(p \\cdot q)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "The answer is $\\theta : p \\mapsto p(c)$, for each choice of $c \\in \\mathbb{Z}$. Obviously these work, so we prove these are the only ones. In what follows, $x \\in \\mathbb{Z}[x]$ is the identity polynomial, and $c = \\theta(x)$.\n\n**First solution (Merlijn Staps)** Consider an integer $n \\neq c$. Because $x - n \\mid p(x) - p(n)$, we have\n$$\n\\theta(x-n) \\mid \\theta(p(x)-p(n)) \\implies c-n \\mid \\theta(p(x))-p(n).\n$$\nOn the other hand, $c-n \\mid p(c)-p(n)$. Combining the previous two gives $c-n \\mid \\theta(p(x))-p(c)$, and by letting $n$ large we conclude $\\theta(p(x))-p(c) = 0$, so $\\theta(p(x)) = p(c)$.\n\n\n**Second solution** First, we settle the case $\\deg p = 0$. In that case, from the second property, $\\theta(m) = m + \\theta(0)$ for every integer $m \\in \\mathbb{Z}$ (viewed as a constant polynomial). Thus $m + \\theta(0) \\mid 2m + \\theta(0)$, hence $m + \\theta(0) \\mid -\\theta(0)$, so $\\theta(0) = 0$ by taking $m$ large. Thus $\\theta(m) = m$ for $m \\in \\mathbb{Z}$.\nNext, we address the case of $\\deg p = 1$. We know $\\theta(x+b) = c+b$ for $b \\in \\mathbb{Z}$. Now for each particular $a \\in \\mathbb{Z}$, we have\n$$\nc+k \\mid \\theta(x+k) \\mid \\theta(ax+ak) = \\theta(ax) + ak \\implies c+k \\mid \\theta(ax) - ac.\n$$\nfor any $k \\neq -c$. Since this is true for large enough $k$, we conclude $\\theta(ax) = ac$. Thus $\\theta(ax+b) = ac+b$.\nWe now proceed by induction on $\\deg p$. Fix a polynomial $p$ and assume it's true for all $p$ of smaller degree. Choose a large integer $n$ (to be determined later) for which $p(n) \\neq p(c)$. We then have\n$$\n\\frac{p(c)-p(n)}{c-n} = \\theta\\left(\\frac{p-p(n)}{x-n}\\right) \\mid \\theta(p-p(n)) = \\theta(p)-p(n).\n$$\nSubtracting off $c-n$ times the left-hand side gives\n$$\n\\frac{p(c)-p(n)}{c-n} \\mid \\theta(p)-p(c).\n$$\nThe left-hand side can be made arbitrarily large by letting $n \\to \\infty$, since $\\deg p \\geq 2$. Thus $\\theta(p) = p(c)$, concluding the proof."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-3442",
+      "name": "HMMT November 2019 #0k6a",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2019",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations"
+      ],
+      "statement": "Problem:\nLet $a$, $b$, $c$, $d$ be real numbers such that\n$$\n\\min (20x+19, 19x+20) = (a x + b) - |c x + d|\n$$\nfor all real numbers $x$. Find $a b + c d$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nIn general, $\\min(p, q) = \\frac{p+q}{2} - \\left|\\frac{p-q}{2}\\right|$. Letting $p = 20x + 19$ and $q = 19x + 20$ gives $a = b = 19.5$ and $c = d = \\pm 0.5$. Then the answer is $19.5^2 - 0.5^2 = 19 \\cdot 20 = 380$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-3451",
+      "name": "HMMT February 2019 #0k6j",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2019",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations"
+      ],
+      "statement": "Problem:\nLet $\\mathbb{R}$ be the set of real numbers. Let $f: \\mathbb{R} \\rightarrow \\mathbb{R}$ be a function such that for all real numbers $x$ and $y$, we have\n$$\nf\\left(x^{2}\\right)+f\\left(y^{2}\\right)=f(x+y)^{2}-2 x y\n$$\nLet $S=\\sum_{n=-2019}^{2019} f(n)$. Determine the number of possible values of $S$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLetting $y=-x$ gives\n$$\nf\\left(x^{2}\\right)+f\\left(x^{2}\\right)=f(0)^{2}+2 x^{2}\n$$\nfor all $x$. When $x=0$ the equation above gives $f(0)=0$ or $f(0)=2$.\nIf $f(0)=2$, then $f(x)=x+2$ for all nonegative $x$, so the LHS becomes $x^{2}+y^{2}+4$, and RHS becomes $x^{2}+y^{2}+4 x+4 y+4$ for all $x+y \\geq 0$, which cannot be equal to LHS if $x+y>0$.\nIf $f(0)=0$ then $f(x)=x$ for all nonnegative $x$. Moreover, letting $y=0$ gives\n$$\nf\\left(x^{2}\\right)=f(x)^{2} \\Rightarrow f(x)= \\pm x\n$$\nfor all $x$. Since negative values are never used as inputs on the LHS and the output on the RHS is always squared, we may conclude that for all negative $x, f(x)=x$ and $f(x)=-x$ are both possible (and the values are independent). Therefore, the value of $S$ can be written as\n$$\nS=f(0)+(f(1)+f(-1))+(f(2)+f(-2))+\\cdots+(f(2019)+f(-2019))=2 \\sum_{i=1}^{2019} i \\delta_{i}\n$$\nfor $\\delta_{1}, \\delta_{2}, \\ldots, \\delta_{2019} \\in\\{0,1\\}$. It is not difficult to see that $\\frac{S}{2}$ can take any integer value between 0 and $\\frac{2020 \\cdot 2019}{2}=2039190$ inclusive, so there are 2039191 possible values of $S$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-3522",
+      "name": "HMMT February 2019 #0k8i",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2019",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Recurrence relations"
+      ],
+      "statement": "Problem:\nLet $\\mathbb{N}$ be the set of positive integers, and let $f: \\mathbb{N} \\rightarrow \\mathbb{N}$ be a function satisfying\n- $f(1)=1$;\n- for $n \\in \\mathbb{N}$, $f(2n)=2f(n)$ and $f(2n+1)=2f(n)-1$.\nDetermine the sum of all positive integer solutions to $f(x)=19$ that do not exceed $2019$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFor $n=2^{a_{0}}+2^{a_{1}}+\\cdots+2^{a_{k}}$ where $a_{0}>a_{1}>\\cdots>a_{k}$, we can show that $f(n)=2^{a_{0}}-2^{a_{1}}-\\cdots-2^{a_{k}}=2^{a_{0}+1}-n$ by induction: the base case $f(1)=1$ clearly holds; for the inductive step, when $n$ is even\nwe note that $f(n)=2 f\\left(\\frac{n}{2}\\right)=2\\left(2^{a_{0}}-\\frac{n}{2}\\right)=2^{a_{0}+1}-n$ as desired, and when $n$ is odd we also have $f(n)=2 f\\left(\\frac{n-1}{2}\\right)-1=2\\left(2^{a_{0}}-\\frac{n-1}{2}\\right)-1=2^{a_{0}+1}-n$, again as desired.\n\nSince $19=f(n) \\leq 2^{a_{0}} \\leq n$, we have $a_{0} \\geq 5$ and $n=2^{a_{0}+1}-19 \\leq 2019$ gives $a_{0} \\leq 9$. So the answer is $\\sum_{a=5}^{9}\\left(2^{a+1}-19\\right)=\\left(2^{11}-2^{6}\\right)-19 \\cdot 5=1889$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-3538",
+      "name": "Berkeley Math Circle: Monthly Contest 6 #0k8y",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations"
+      ],
+      "statement": "Problem:\nFind all functions $f: \\mathbb{R} \\rightarrow \\mathbb{R}$ such that for any real numbers $x$ and $y$,\n$$\nf(x+y)=\\max (f(x), y)+\\min (f(y), x) .\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe claim the only answer is the identity function $f(x) \\equiv x$, which clearly works.\nLet $(x, y)=(a, 0)$ and $(x, y)=(0, a)$ so that\n$$\n\\begin{aligned}\n& f(a)=\\max (f(a), 0)+\\min (f(0), a) \\\\\n& f(a)=\\max (f(0), a)+\\min (f(a), 0) .\n\\end{aligned}\n$$\nSum:\n$$\n2 f(a)=(f(a)+0)+(f(0)+a)\n$$\nso $f(a)=a+f(0)$.\nIt is easy to check from here $f$ is identity."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-3539",
+      "name": "HMMT February 2019 #0k8z",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2019",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recursion, bijection",
+        "Functional Equations"
+      ],
+      "statement": "Problem:\n\nContessa is taking a random lattice walk in the plane, starting at $(1,1)$. (In a random lattice walk, one moves up, down, left, or right 1 unit with equal probability at each step.) If she lands on a point of the form $(6m, 6n)$ for $m, n \\in \\mathbb{Z}$, she ascends to heaven, but if she lands on a point of the form $(6m+3, 6n+3)$ for $m, n \\in \\mathbb{Z}$, she descends to hell. What is the probability that she ascends to heaven?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $P(m, n)$ be the probability that she ascends to heaven from point $(m, n)$. Then $P(6m, 6n) = 1$ and $P(6m+3, 6n+3) = 0$ for all integers $m, n \\in \\mathbb{Z}$. At all other points,\n$$\n4P(m, n) = P(m-1, n) + P(m+1, n) + P(m, n-1) + P(m, n+1)\n$$\nThis gives an infinite system of equations. However, we can apply symmetry arguments to cut down the number of variables to something more manageable. We have $P(m, n) = P(m+6a, n+6b)$ for $a, b \\in \\mathbb{Z}$, and $P(m, n) = P(n, m)$, and $P(m, n) = P(-m, n)$, and $P(m, n) = 1 - P(m+3, n+3)$ (since any path from the latter point to heaven corresponds with a path from the former point to hell, and vice versa).\nThus for example we have\n$$\nP(1,2) = P(-1,-2) = 1 - P(2,1) = 1 - P(1,2),\n$$\nso $P(1,2) = 1/2$.\nApplying Equation (1) to points $(1,1)$, $(0,1)$, and $(0,2)$, and using the above symmetries, we get the equations\n$$\n\\begin{gathered}\n4P(1,1) = 2P(0,1) + 1 \\\\\n4P(0,1) = P(0,2) + 2P(1,1) + 1 \\\\\n4P(0,2) = P(0,1) + 3/2\n\\end{gathered}\n$$\nSolving yields $P(1,1) = 13/22$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-3601",
+      "name": "Bay Area Mathematical Olympiad #0kap",
+      "url": "https://usamoguide.com/",
+      "source": "Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Invariants / monovariants",
+        "Coloring schemes, extremal arguments"
+      ],
+      "statement": "Problem:\nLet $S$ be a finite set of nonzero real numbers, and let $f: S \\rightarrow S$ be a function with the following property: for each $x \\in S$, either\n$$\nf(f(x))=x+f(x) \\quad \\text{or} \\quad f(f(x))=\\frac{x+f(x)}{2}\n$$\nProve that $f(x)=x$ for all $x \\in S$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe will use the notation $f^{n}(x)$ to denote $f(f(\\cdots f(x) \\cdots))$, where we iterate the function $n$ times. Suppose, to the contrary, that $f(x) \\neq x$ for some $x \\in S$. This implies that $f(f(x)) \\neq f(x)$ as well, since $f(f(x))$ is either the sum or the average of $x$ and $f(x)$ and these are distinct non-zero real numbers. Likewise, $f(f(x)) \\neq f(x)$ implies that $f^{3}(x) \\neq f(f(x))$. We can keep iterating the function to create a sequence\n$$\nx, f(x), f(f(x)), f^{3}(x), f^{4}(x) \\cdots\n$$\nwhere no term is equal to the term preceding it. However, since $S$ is finite, eventually there has to be a repeating value. In other words, there exists $m, n$, with $n>m+1$, such that $f^{m}(x)=f^{n}(x)$.\nLet $a=f^{m}(x)$. Then $a, f(a), f(f(a)), \\cdots, f^{n-m}(a)=a$ is a cycle of length $n-m$. Since $f(f(x))$ cannot equal $x$ (the sum of $x$ and $f(x)$ cannot equal $x$ since $f(x)$ is nonzero and the average of $x$ and $f(x)$ cannot equal $x$ because $f(x) \\neq x$ ), the cycle has length at least 3. Since the cycle is finite, and the terms are nonzero, there must be a term of maximum absolute value. Call this $M$, and without loss of generality, assume that $M$ is positive.\nWe know that the cycle has at least three terms, so consider the consecutive terms $U, V, M$ in the cycle (since it is a cycle, it can start \"anywhere\"). We have $V=f(U)$ and $M=f(V)=f(f(U))$. We claim that $V$ is positive, for if it were negative, then $M$ would be either the average of $U$ and $V$ or the sum of $U$ and $V$, which would force $U$ to be larger than $M$, contradicting the fact that $M$ is the largest term in the cycle.\nBut if $V$ is positive, then $f(M)=f(f(V))$ must be greater than $M / 2$, since it is either the sum or average of a positive number and $M$. Likewise, $f(f(M))$ must also be greater than $M / 2$, since it is either the sum or average of $M$ and a value that is greater than $M / 2$. Once we have two consecutive terms in the cycle that are greater than $M / 2$, all subsequent terms in the cycle will be greater than $M / 2$. In other words, the cycle starting at $M$,\n$$\nM, f(M), f(f(M)), f^{3}(M), \\cdots\n$$\nconsists entirely of terms whose value is greater than $M / 2$. Also, starting with the third term, each term is either the sum or average of the two terms preceding it. But since it is a cycle, eventually it will come back to the value of $M$, and that is impossible: $M$ is neither the sum nor the average of two terms greater than $M / 2$. We have achieved a contradiction, and conclude that there are no $x \\in S$ such that $f(x) \\neq x$; i.e. $f(x)=x$ for all $x \\in S$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-3612",
+      "name": "USA TSTST #0kb0",
+      "url": "https://usamoguide.com/",
+      "source": "USA TSTST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations"
+      ],
+      "statement": "Find all binary operations $\\diamond$: $\\mathbb{R}_{>0} \\times \\mathbb{R}_{>0} \\to \\mathbb{R}_{>0}$ (meaning $\\diamond$ takes pairs of positive real numbers to positive real numbers) such that for any real numbers $a, b, c > 0$,\n* the equation $a \\diamond (b \\diamond c) = (a \\diamond b) \\cdot c$ holds; and\n* if $a \\ge 1$ then $a \\diamond a \\ge 1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**First solution using Cauchy FE** We prove:\n**Claim** — We have $a \\diamond b = af(b)$ where $f$ is some involutive and totally multiplicative function. (In fact, this classifies all functions satisfying the first condition completely.)\n*Proof*. Let $P(a, b, c)$ denote the assertion $a \\diamond (b \\diamond c) = (a \\diamond b) \\cdot c$.\n* Note that for any $x$, the function $y \\mapsto x \\diamond y$ is injective, because if $x \\diamond y_1 = x \\diamond y_2$ then take $P(1, x, y_i)$ to get $y_1 = y_2$.\n* Take $P(1, x, 1)$ and injectivity to get $x \\diamond 1 = x$.\n* Take $P(1, 1, y)$ to get $1 \\diamond (1 \\diamond y) = y$.\n* Take $P(x, 1, 1 \\diamond y)$ to get\n$$\nx \\diamond y = x \\cdot (1 \\diamond y).\n$$\nHenceforth let us define $f(y) = 1 \\diamond y$, so $f(1) = 1$, $f$ is involutive and\n$$\nx \\diamond y = xf(y).\n$$\nPlugging this into the original condition now gives $f(bf(c)) = f(b)c$, which (since $f$ is an involution) gives $f$ completely multiplicative. $\\square$\nIn particular, $f(1) = 1$. We are now interested only in the second condition, which reads $f(x) \\ge 1/x$ for $x \\ge 1$.\nDefine the function\n$$\ng(t) = \\log f(e^t)\n$$\nso that $g$ is additive, and also $g(t) \\ge -t$ for all $t \\ge 0$. We appeal to the following theorem:\n**Lemma**\nIf $h: \\mathbb{R} \\to \\mathbb{R}$ is an additive function which is not linear, then it is *dense* in the plane: for any point $(x_0, y_0)$ and $\\varepsilon > 0$ there exists $(x, y)$ such that $h(x) = y$ and $\\sqrt{(x - x_0)^2 + (y - y_0)^2} < \\varepsilon$.\nApplying this lemma with the fact that $g(t) \\ge -t$ implies readily that $g$ is linear. In other words, $f$ is of the form $f(x) = x^r$ for some fixed real number $r$. It is easy to check $r = \\pm 1$ which finishes.\n\n\n**Second solution manually** As before we arrive at $a \\diamond b = af(b)$, with $f$ an involutive and totally multiplicative function.\nWe prove that:\n**Claim** — For any $a > 0$, we have $f(a) \\in \\{1/a, a\\}$.\n*Proof.* WLOG $b > 1$, and suppose $f(b) = a \\ge 1/b$ hence $f(a) = b$.\nAssume that $ab > 1$; we show $a = b$. Note that for integers $m$ and $n$ with $a^m b^n \\ge 1$, we must have\n$$\na^m b^n = f(b)^m f(a)^n = f(a^m b^n) \\ge \\frac{1}{a^m b^n} \\implies (ab)^{m+n} \\ge 1\n$$\nand thus we have arrived at the proposition\n$$\nm + n < 0 \\implies n \\log_b a + m < 0\n$$\nfor all integers $m$ and $n$. Due to the density of $\\mathbb{Q}$ in the real numbers, this can only happen if $\\log_b a = 1$ or $a = b$. $\\square$\n**Claim** — The function $f$ is continuous.\n*Proof.* Indeed, it's equivalent to show $g(t) = \\log f(e^t)$ is continuous, and we have that\n$$\n|g(t) - g(s)| = |\\log f(e^{t-s})| = |t - s|\n$$\nsince $f(e^{t-s}) = e^{\\pm|t-s|}$. Therefore $g$ is Lipschitz. Hence $g$ continuous, and $f$ is too. $\\square$\nFinally, we have from $f$ multiplicative that\n$$\nf(2^q) = f(2)^q\n$$\nfor every rational number $q$, say. As $f$ is continuous this implies $f(x) \\equiv x$ or $f(x) \\equiv 1/x$ identically (depending on whether $f(2) = 2$ or $f(2) = 1/2$, respectively).\nTherefore, $a \\diamond b = ab$ or $a \\diamond b = a \\div b$, as needed."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-3746",
+      "name": "Berkeley Math Circle: Monthly Contest 5 #0keq",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 5",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations"
+      ],
+      "statement": "Problem:\nFind all functions $f: \\mathbb{R} \\rightarrow \\mathbb{R}$ such that for all real numbers $x \\neq 0$,\n$$\nf(x)+2 f\\left(\\frac{x-1}{x}\\right)=3 x .\n$$\n(Note that the function must be defined for all $x \\in \\mathbb{R}$, including $x=0$.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nPlugging $\\frac{x-1}{x}$ in for $x$ in the functional equation gives\n$$\nf\\left(\\frac{x-1}{x}\\right)+2 f\\left(\\frac{\\frac{x-1}{x}-1}{\\frac{x-1}{x}}\\right)=f\\left(\\frac{x-1}{x}\\right)+2 f\\left(\\frac{1}{1-x}\\right)=\\frac{3(x-1)}{x} .\n$$\nNow plugging $\\frac{1}{1-x}$ in for $x$ gives\n$$\nf\\left(\\frac{1}{1-x}\\right)+2 f\\left(\\frac{\\frac{1}{1-x}-1}{\\frac{1}{1-x}}\\right)=f\\left(\\frac{1}{1-x}\\right)+2 f(x)=\\frac{3}{1-x} .\n$$\nWe now have three equations in three \"variables\":\n$$\n\\begin{aligned}\nf(x)+2 f\\left(\\frac{x-1}{x}\\right) & =3 x, \\\\\nf\\left(\\frac{x-1}{x}\\right)+2 f\\left(\\frac{1}{1-x}\\right) & =\\frac{3(1-x)}{x}, \\\\\nf\\left(\\frac{1}{1-x}\\right)+2 f(x) & =\\frac{3}{1-x} .\n\\end{aligned}\n$$\nTo isolate $f(x)$, we take equation (1) minus 2 times equation (2) plus 4 times equation (3), which makes the $f\\left(\\frac{x-1}{x}\\right)$ and $f\\left(\\frac{1}{1-x}\\right)$ terms on the left cancel and gives\n$$\n9 f(x)=3 x-2 \\cdot \\frac{3(x-1)}{x}+4 \\cdot \\frac{3}{1-x} .\n$$\nDividing by 9 on both sides and combining terms on the right with a common denominator gives\n$$\n\\begin{aligned}\nf(x) & =\\frac{x^{2}(1-x)+2(1-x)^{2}+4 x}{3 x(1-x)} \\\\\n& =\\frac{-x^{3}+3 x^{2}+2}{3 x(1-x)} .\n\\end{aligned}\n$$\nHowever, we note that this function is not defined for $x=0$ or $x=1$, while the domain of $f$ should be all real numbers. The only constraint on $f(0)$ and $f(1)$ comes from plugging $x=1$ into the functional equation, giving\n$$\nf(1)+2 f(0)=3 .\n$$\nThus, $f(0)$ can be any real number $c$, and $f(1)$ must be $3-2 c$. Putting this together gives the solutions\n$$\nf(x)= \\begin{cases}\\frac{-x^{3}+3 x^{2}+2}{3 x(1-x)} & x \\neq 0,1 \\\\ c & x=0, \\\\ 3-2 c & x=1\\end{cases}\n$$\nfor any real number $c$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-3760",
+      "name": "HMMT February 2020 #0kf4",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2020",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations"
+      ],
+      "statement": "Problem:\n\nPositive real numbers $x$ and $y$ satisfy\n\n$$\n||\\cdots|||x|-y|-x| \\cdots-y|-x|=||\\cdots|||y|-x|-y| \\cdots-x|-y|\n$$\n\nwhere there are 2019 absolute value signs $|\\cdot|$ on each side. Determine, with proof, all possible values of $\\frac{x}{y}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nClearly $x = y$ works.\n\nElse, WLOG $x < y$, define $d = y - x$, and define $f(z) := ||z - y| - x|$ so our expression reduces to\n$$\nf^{1009}(x) = \\left|f^{1009}(0) - y\\right|\n$$\nNow note that for $z \\in [0, y]$, $f(z)$ can be written as\n$$\nf(z) = \\begin{cases} d - z, & 0 \\leq z \\leq d \\\\ z - d, & d < z \\leq y \\end{cases}\n$$\nHence $f(f(z)) = f(d - z) = z$ for all $z \\in [0, d]$. Therefore\n$$\n\\left|f^{1009}(0) - y\\right| = |f(0) - y| = x\n$$\nIf $x > d$ then $f^{1009}(x) < x$ which is impossible (if $f^{1009}(x) \\leq d$ then the conclusion trivially holds, and if $f^{1009}(x) > d$ we must have $f^{1009}(x) = x - 1009 d < x$). Therefore $x \\leq d$, so $f^{1009}(x) = f(x) = d - x$ and we must have $d - x = x$. Hence $y = 3x$ which is easily seen to work.\n\nTo summarize, the possible values of $\\frac{x}{y}$ are $\\frac{1}{3}, 1, 3$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-3923",
+      "name": "HMMT Spring 2021 Guts Round #0kjn",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT Spring 2021 Guts Round",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Recurrence relations"
+      ],
+      "statement": "Problem:\nLet $f: \\mathbb{N} \\rightarrow \\mathbb{N}$ be a strictly increasing function such that $f(1)=1$ and $f(2 n) f(2 n+1)=9 f(n)^2+3 f(n)$ for all $n \\in \\mathbb{N}$. Compute $f(137)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nPlugging in $n=1$ gives $f(2) f(3)=12$, therefore $(f(2), f(3))=(2,6)$ or $(3,4)$. However, the former implies\n$$\nf(4) f(5) \\geq (6+1)(6+2)>42=9 \\cdot 2^2+3 \\cdot 2\n$$\nwhich is impossible; therefore $f(2)=3$ and $f(3)=4$. We now show by induction with step size 2 that $f(2 n)=3 f(n)$ and $f(2 n+1)=3 f(n)+1$ for all $n$; the base case $n=1$ has already been proven.\nAssume the statement is true for $n<2 k$. Applying the given and the inductive hypothesis, we have\n$$\n\\begin{aligned}\nf(4 k) f(4 k+1) & =(3 f(2 k))(3 f(2 k)+1)=(9 f(k))(9 f(k)+1) \\\\\nf(4 k+2) f(4 k+3) & =(3 f(2 k+1))(3 f(2 k+1)+1)=(9 f(k)+3)(9 f(k)+4)\n\\end{aligned}\n$$\nLet $x=f(4 k+1)$. Since $f$ is strictly increasing, this implies $x \\geq \\sqrt{f(4 k) f(4 k+1)}>9 f(k)$ and $x \\leq \\sqrt{f(4 k+2) f(4 k+3)}-1<9 f(k)+3$. So $x=9 f(k)+1$ or $x=9 f(k)+2$. Since $9 f(k)+2$ does not divide $9 f(k)(9 f(k)+1)$, we must have $f(4 k+1)=x=9 f(k)+1$ and $f(4 k)=9 f(k)$. A similar argument shows that $f(4 k+2)=9 f(k)+3$ and $f(4 k+3)=9 f(k)+4$, and this completes the inductive step.\nNow it is a straightforward induction to show that $f$ is the function that takes a number's binary digits and treats it as base 3. Since $137=10001001_{2}$ in binary, $f(137)=10001001_{3}=3^{7}+3^{3}+1=2215$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-4062",
+      "name": "USAJMO #0kni",
+      "url": "https://usamoguide.com/",
+      "source": "USAJMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Other"
+      ],
+      "statement": "Let $\\mathbb{N}$ denote the set of positive integers. Find all functions $f: \\mathbb{N} \\to \\mathbb{N}$ such that for all positive integers $a$ and $b$,\n$$\nf(a^2 + b^2) = f(a)f(b) \\quad \\text{and} \\quad f(a^2) = f(a)^2.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-4087",
+      "name": "HMMT November 2022 #0ko7",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2022",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations"
+      ],
+      "statement": "Problem:\n\nTwo linear functions $f(x)$ and $g(x)$ satisfy the properties that for all $x$,\n- $f(x) + g(x) = 2$\n- $f(f(x)) = g(g(x))$\nand $f(0) = 2022$. Compute $f(1)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFirstly, $f(x)$ and $g(x)$ must intersect - otherwise, $f(x) = g(x) = 1$, which can't be true.\n\nSecondly, suppose they intersect at $a$, so that $f(a) = g(a) = c$. Then $f(c) = g(c) \\Longrightarrow f(c) = g(c) = 1$. But then, $a = c$, and $c = 1$. So $f(1) = 1$, and we're done.\n\nSolution:\n\nWe will solve the problem manually, setting $f(x) = a x + 2022$ and $g(x) = -a x - 2020$. Then $f(f(x)) = a^{2} x + 2022 a + 2022$, while $g(g(x)) = a^{2} x + 2020 a - 2020$.\n\nThen, $a = -2021$, so then $f(1) = 1$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-4186",
+      "name": "HMMT November 2022 #0kqy",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2022",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Sums and products"
+      ],
+      "statement": "Problem:\nGiven positive integers $a_{1}, a_{2}, \\ldots, a_{2023}$ such that\n$$\na_{k}=\\sum_{i=1}^{2023}\\left|a_{k}-a_{i}\\right|\n$$\nfor all $1 \\leq k \\leq 2023$, find the minimum possible value of $a_{1}+a_{2}+\\cdots+a_{2023}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWithout loss of generality, let $a_{1} \\leq a_{2} \\leq \\cdots \\leq a_{2023}$. Then, note that\n$$\n\\begin{aligned}\na_{k+1}-a_{k} & =\\sum_{i=1}^{2023}\\left|a_{k+1}-a_{i}\\right|-\\left|a_{k}-a_{i}\\right| \\\\\n& =k\\left(a_{k+1}-a_{k}\\right)-(2023-k)\\left(a_{k+1}-a_{k}\\right) \\\\\n& =(2 k-2023)\\left(a_{k+1}-a_{k}\\right)\n\\end{aligned}\n$$\nThus, $a_{k+1}=a_{k}$ unless $k=1012$, so $a_{1}=a_{2}=\\cdots=a_{1012}$ and $a_{1013}=\\cdots=a_{2023}$, and we can check that they must be in a ratio of $1011: 1012$. Thus, $a_{1}, \\ldots, a_{2023}$ must consist of 1012 copies of $1011 c$, and 1011 copies of $1012 c$ for some $c$, so for everything to be a positive integer, we need $c \\geq 1$. This gives us the final answer of $1011 \\cdot 1012+1012 \\cdot 1011=2046264$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-4201",
+      "name": "Berkeley Math Circle #0krd",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Injectivity / surjectivity"
+      ],
+      "statement": "Problem:\nFind all functions $f: \\mathbb{Z} \\rightarrow \\mathbb{Z}$ from the integers to the integers satisfying\n$$\nf(m+f(n))-f(m)=n\n$$\nfor all integers $m, n \\in \\mathbb{Z}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAdding $f(m)$ to both sides, we get $f(m+f(n))=n+f(m)$. Swapping $m$ and $n$ gives $m+f(n)=f(n+f(m))=f(f(m+f(n)))$. By fixing $n$ and varying $m$, we can get $m+f(n)$ to be any integer $x$. Thus, $x=f(f(x))$.\nPlugging in $1$ for $m$ and $f(x)$ for $n$ to the original equation then gives $f(x)+f(1)=f(1+f(f(x)))=f(1+x)$, so $f(x)$ is linear, of the form $c x$ for some constant $c$.\n\nPlugging in $0$ for $m$ then gives $n=f(f(n))-f(0)=c^{2} n$, so $c^{2}= \\pm 1$. It is easily seen that both $f(x)=x$ and $f(x)=-x$ indeed work."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-4256",
+      "name": "HMMT February 2022 #0ksw",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2022",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Symmetric functions"
+      ],
+      "statement": "Problem:\nFind, with proof, all functions $f: \\mathbb{R} \\setminus \\{0\\} \\to \\mathbb{R}$ such that\n$$\nf(x)^2 - f(y) f(z) = x(x+y+z)(f(x) + f(y) + f(z))\n$$\nfor all real $x, y, z$ such that $x y z = 1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe answer is either $f(x) = 0$ for all $x$ or $f(x) = x^2 - \\frac{1}{x}$ for all $x$. These can be checked to work.\n\nNow, I will prove that these are the only solutions. Let $P(x, y, z)$ be the assertion of the problem statement.\n\nLemma 1. $f(x) \\in \\{0, x^2 - \\frac{1}{x}\\}$ for all $x \\in \\mathbb{R} \\setminus \\{0\\}$.\n\nProof. $P(1,1,1)$ yields $f(1) = 0$. Then, $P\\left(x, 1, \\frac{1}{x}\\right)$ and $P\\left(1, x, \\frac{1}{x}\\right)$ yield\n$$\n\\begin{aligned}\nf(x)^2 &= x\\left(x + \\frac{1}{x} + 1\\right)\\left(f(x) + f\\left(\\frac{1}{x}\\right)\\right) \\\\\n-f(x) f\\left(\\frac{1}{x}\\right) &= \\left(x + \\frac{1}{x} + 1\\right)\\left(f(x) + f\\left(\\frac{1}{x}\\right)\\right)\n\\end{aligned}\n$$\nThus, we have $f(x)^2 = -x f(x) f\\left(\\frac{1}{x}\\right)$, so we have $f(x) = 0$ or $f\\left(\\frac{1}{x}\\right) = -\\frac{f(x)}{x}$. Plugging in the latter into the first equation above gives us\n$$\nf(x)^2 = x\\left(x + \\frac{1}{x} + 1\\right)\\left(f(x) - \\frac{f(x)}{x}\\right)\n$$\nwhich gives us $f(x) = 0$ or $f(x) = x^2 - \\frac{1}{x}$. This proves Lemma 1.\n\nLemma 2. If $f(t) = 0$ for some $t \\neq 1$, then we have $f(x) = 0$ for all $x$.\n\nProof. $P\\left(x, t, \\frac{1}{t x}\\right)$ and $P\\left(t, x, \\frac{1}{t x}\\right)$ give us\n$$\n\\begin{aligned}\nf(x)^2 &= x\\left(x + \\frac{1}{t x} + t\\right)\\left(f(x) + f\\left(\\frac{1}{t x}\\right)\\right) \\\\\n-f(x) f\\left(\\frac{1}{t x}\\right) &= t\\left(x + \\frac{1}{t x} + t\\right)\\left(f(x) + f\\left(\\frac{1}{t x}\\right)\\right)\n\\end{aligned}\n$$\nThus we have $t f(x)^2 = -x f(x) f\\left(\\frac{1}{t x}\\right)$, so $f(x) = 0$ or $f\\left(\\frac{1}{t x}\\right) = -\\frac{t}{x} f(x)$. Plugging in the latter into the first equation gives us\n$$\nf(x)^2 = x\\left(x + \\frac{1}{t x} + t\\right)\\left(f(x) - \\frac{t f(x)}{x}\\right)\n$$\nwhich gives us either $f(x) = 0$ or $f(x) = x\\left(x + t + \\frac{1}{t x}\\right)\\left(1 - \\frac{t}{x}\\right) = x^2 - \\frac{1}{x} - \\left(t^2 - \\frac{1}{t}\\right)$. Note that since the latter expression doesn't equal $x^2 - \\frac{1}{x}$, since $t \\neq 1$, we must have that $f(x) = 0$. Thus, we have proved Lemma 2.\n\nCombining these lemmas finishes the problem.\n\nSolution:\nSuppose $x y z = 1$ and $x + y + z \\neq 0$ and that $x, y, z$ are not all the same. Then we have\n$$\n\\begin{aligned}\n& f(x)^2 - f(y) f(z) = x(x + y + z)(f(x) + f(y) + f(z)) \\\\\n& f(y)^2 - f(z) f(x) = y(x + y + z)(f(x) + f(y) + f(z)) \\\\\n& f(z)^2 - f(x) f(y) = z(x + y + z)(f(x) + f(y) + f(z))\n\\end{aligned}\n$$\nSquaring the first equation and subtracting the second equation times the third gives us: $f(x) F(x, y, z) = (x^2 - y z) G(x, y, z)^2$, where $F(x, y, z) = f(x)^3 + f(y)^3 + f(z)^3 - 3 f(x) f(y) f(z)$ and $G(x, y, z) = (x + y + z)(f(x) + f(y) + f(z))$. If $F(x, y, z) = 0$, it is not too hard to see that we get $f(x) = f(y) = f(z) = 0$. If not, then we can let $K = \\frac{G^2}{F}$ and we substitute $(f(x), f(y), f(z)) = (K(x^2 - y z), K(y^2 - x z), K(z^2 - x y))$ into the first equation to get $K^2 x(x^3 + y^3 + z^3 - 3 x y z) = K x(x^3 + y^3 + z^3 - 3 x y z)$. Thus, we have $K = 0$ or $K = 1$. Thus, we have either $(f(x), f(y), f(z)) = (0, 0, 0)$ or $(f(x), f(y), f(z)) = (x^2 - y z, y^2 - z x, z^2 - x y)$.\n\nThus, $f(0.5) = 0$ or $f(0.5) = 0.5^2 - \\frac{1}{0.5}$. If the former is true, then for all $y$ and $z$ such that $y z = 2$ and $y + z \\neq 0.5$, we have $f(y) = 0$. However, this gives that $f(y) = 0$ for all $y$. Likewise, if the latter were true, we would have $f(y) = y^2 - \\frac{1}{y}$ for all $y$, so we are done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-4290",
+      "name": "HMIC 2023 #0ktu",
+      "url": "https://usamoguide.com/",
+      "source": "HMIC 2023",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Injectivity / surjectivity"
+      ],
+      "statement": "Problem:\nLet $\\mathbb{Q}^{+}$ denote the set of positive rational numbers. Find, with proof, all functions $f: \\mathbb{Q}^{+} \\rightarrow \\mathbb{Q}^{+}$ such that, for all positive rational numbers $x$ and $y$, we have\n$$\nf(x)=f(x+y)+f\\left(x+x^{2} f(y)\\right)\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $f(x)=\\frac{1}{x}$.\n\nIt is straightforward to check that $f(x)=\\frac{1}{x}$ works. We then focus on proving that there are no other solutions. Let $P(x, y)$ denote the given functional equation. First note that for all $x, y \\in \\mathbb{Q}^{+}$, $f(x)>f(x+y)$, so $f$ is strictly decreasing and hence injective. Now, for all $x, y \\in \\mathbb{Q}^{+}$,\n$$\n\\begin{aligned}\nP(x, y) & \\Longrightarrow f(x)=f(x+y)+f\\left(x+x^{2} f(y)\\right) \\\\\nP\\left(x, x^{2} f(y)\\right) & \\Longrightarrow f(x)=f\\left(x+x^{2} f(y)\\right)+f\\left(x+x^{2} f\\left(x^{2} f(y)\\right)\\right)\n\\end{aligned}\n$$\nEquating these two equations gives\n$$\n\\begin{aligned}\nf\\left(x+x^{2} f\\left(x^{2} f(y)\\right)\\right) & =f(x+y) \\\\\nx+x^{2} f\\left(x^{2} f(y)\\right) & =x+y \\\\\nf\\left(x^{2} f(y)\\right) & =\\frac{y}{x^{2}}\n\\end{aligned}\n$$\nfor all $x, y \\in \\mathbb{Q}^{+}$. In particular, plugging in $x=1$ gives $f(f(y))=y$, and replacing $y$ with $f(y)$ gives $f\\left(x^{2} y\\right)=\\frac{f(y)}{x^{2}}$ for all $x, y \\in \\mathbb{Q}^{+}$. There are two ways to finish.\n\nFinish 1: The above implies that $f\\left(x^{2}\\right)=\\frac{f(1)}{x^{2}}$ for all $x \\in \\mathbb{Q}^{+}$. Since $\\left\\{x^{2}: x \\in \\mathbb{Q}^{+}\\right\\}$ is dense in $\\mathbb{Q}^{+}$ and $f$ is decreasing we find that $f(x)=c / x$ for some constant $c$. Plugging back in now gives $c=1$.\n\nFinish 2: For all $x \\in \\mathbb{Q}^{+}$,\n$$\n\\begin{aligned}\nP\\left(x, \\frac{9 x}{16}\\right) \\Longrightarrow f(x) & =f\\left(\\frac{25 x}{16}\\right)+f\\left(x+x^{2} f\\left(\\frac{9 x}{16}\\right)\\right) . \\\\\n& =\\frac{16 f(x)}{25}+f\\left(x+\\frac{16 x^{2} f(x)}{9}\\right)\n\\end{aligned}\n$$\nHence, we have\n$$\n\\begin{aligned}\nf\\left(\\frac{25 x}{9}\\right)=\\frac{9 f(x)}{25} & =f\\left(x+\\frac{16 x^{2} f(x)}{9}\\right) \\\\\n\\frac{25 x}{9} & =x+\\frac{16 x^{2} f(x)}{9} \\Longrightarrow f(x)=\\frac{1}{x}\n\\end{aligned}\n$$\nas desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-4387",
+      "name": "HMMT February #0kwj",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Polynomial operations",
+        "Quadratic functions"
+      ],
+      "statement": "Problem:\n\nSuppose $P(x)$ is a polynomial with real coefficients such that $P(t) = P(1) t^{2} + P(P(1)) t + P(P(P(1)))$ for all real numbers $t$. Compute the largest possible value of $P(P(P(1)))$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $(a, b, c) := (P(1), P(P(1)), P(P(P(1))))$, so $P(t) = a t^{2} + b t + c$ and we wish to maximize $P(c)$. Then we have that\n$$\n\\begin{aligned}\na & = P(1) \\\\\nb & = a + b + c \\\\\nc & = P(b) = a b^{2} + b b + c\n\\end{aligned}\n$$\nThe first equation implies $c = -b$. The third equation implies $b^{2}(a + 1) = 0$, so $a = -1$ or $b = 0$. If $b = 0$, then $(a, b, c) = (0, 0, 0)$. If $a = -1$, then $b = (-1) b^{2} + (-1) b + (-b)$ or $b = -\\frac{1}{3}$, so $c = \\frac{1}{3}$ and $(a, b, c) = \\left(-1, -\\frac{1}{3}, \\frac{1}{3}\\right)$.\n\nThe first tuple gives $P(c) = 0$, while the second tuple gives $P(c) = -\\frac{1}{3^{2}} - \\frac{1}{3^{2}} + \\frac{1}{3} = \\frac{1}{9}$, which is the answer."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-4432",
+      "name": "HMMT February #0kxs",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial operations",
+        "Functional Equations",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\n\nFind, with proof, all nonconstant polynomials $P(x)$ with real coefficients such that, for all nonzero real numbers $z$ with $P(z) \\neq 0$ and $P\\left(\\frac{1}{z}\\right) \\neq 0$, we have\n$$\n\\frac{1}{P(z)}+\\frac{1}{P\\left(\\frac{1}{z}\\right)}=z+\\frac{1}{z}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nIt is straightforward to plug in and verify the above answers. Hence, we focus on showing that these are all possible solutions. The key claim is the following.\n\nClaim: If $r \\neq 0$ is a root of $P(z)$ with multiplicity $n$, then $1 / r$ is also a root of $P(z)$ with multiplicity $n$.\n\nProof 1 (Elementary). Let $n'$ be the multiplicity of $1 / r$. It suffices to show that $n \\leq n'$ because we can apply the same assertion on $1 / r$ to obtain that $n' \\leq n$.\nTo that end, suppose that $(z-r)^n$ divides $P(z)$. From the equation, we have\n$$\nz^{N}\\left[P\\left(\\frac{1}{z}\\right)+P(z)\\right]=z^{N}\\left[\\left(z+\\frac{1}{z}\\right) P(z) P\\left(\\frac{1}{z}\\right)\\right]\n$$\nwhere $N \\gg \\operatorname{deg} P+1$ to guarantee that both sides are polynomial. Notice that the factor $z^{N} P(z)$ and the right-hand side is divisible by $(z-r)^n$, so $(z-r)^n$ must also divide $z^{N} P\\left(\\frac{1}{z}\\right)$. This means that there exists a polynomial $Q(z)$ such that $z^{N} P\\left(\\frac{1}{z}\\right)=(z-r)^n Q(z)$. Replacing $z$ with $\\frac{1}{z}$, we get\n$$\n\\frac{P(z)}{z^{N}}=\\left(\\frac{1}{z}-r\\right)^n Q\\left(\\frac{1}{z}\\right) \\Longrightarrow P(z)=z^{N-n}(1-r z)^n Q\\left(\\frac{1}{z}\\right)\n$$\nimplying that $P(z)$ is divisible by $(z-1 / r)^n$.\n\nProof 2 (Complex Analysis). Here is more advanced proof of the main claim.\nView both sides of the equations as meromorphic functions in the complex plane. Then, a root $r$ with multiplicity $n$ of $P(z)$ is a pole of $\\frac{1}{P(z)}$ of order $n$. Since the right-hand side is analytic around $r$, it follows that the other term $\\frac{1}{P(1 / z)}$ has a pole at $r$ with order $n$ as well. By replacing $z$ with $1 / z$, we find that $\\frac{1}{P(z)}$ has a pole at $1 / r$ of order $n$. This finishes the claim.\n\nThe claim implies that there exists an integer $k$ and a constant $\\epsilon$ such that\n$$\nP(z)=\\epsilon z^{k} P\\left(\\frac{1}{z}\\right)\n$$\nBy replacing $z$ with $1 / z$, we get that\n$$\nz^{k} P\\left(\\frac{1}{z}\\right)=\\epsilon P(z)\n$$\nTherefore, $\\epsilon= \\pm 1$. Moreover, using the main equation, we get that\n$$\n\\frac{1}{P(z)}+\\frac{\\epsilon z^{k}}{P(z)}=z+\\frac{1}{z} \\Longrightarrow P(z)=\\frac{z\\left(1+\\epsilon z^{k}\\right)}{1+z^{2}}\n$$\nThis is a polynomial if and only if $(\\epsilon=1$ and $k \\equiv 2(\\bmod 4))$ or $(\\epsilon=-1$ and $k \\equiv 0(\\bmod 4))$, so we are done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-4620",
+      "name": "HMMT November #0l30",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Integers"
+      ],
+      "statement": "Problem:\nLet $f$ be a function on nonnegative integers such that $f(0)=0$ and\n$$\nf(3 n+2)=f(3 n+1)=f(3 n)+1=3 f(n)+1\n$$\nfor all integers $n \\geq 0$. Compute the sum of all nonnegative integers $m$ such that $f(m)=13$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $\\underline{x}_{k}$ denote the number $x$ in base $k$. Observe that if $f\\left(\\underline{x}_{3}\\right)=\\underline{y}_{3}$, then\n$$\nf\\left(\\underline{x 0}_{3}\\right)=f(3 x)=3 f(x)=\\underline{y 0}_{3}\n$$\nand\n$$\nf\\left(\\underline{x 1}_{3}\\right)=f\\left(\\underline{x 2}_{3}\\right)=3 f(x)+1=\\underline{y 1}_{3} .\n$$\nThus, $\\underline{f(n)}_{3}$ is simply $\\underline{n}_{3}$ with all 2's replaced with 1's. We also see that $13=111_{3}$. Thus, $f(m)=13$ if and only if $m=\\underline{a b c_{3}}$ for digits $a, b, c \\in\\{1,2\\}$. Each of $a, b$, and $c$ takes on each possible value exactly 4 times, so the sum is\n$$\n(4 \\cdot 1+4 \\cdot 2)\\left(3^{2}+3^{1}+3^{0}\\right)=156\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-4799",
+      "name": "USA TST Selection Test for 67th IMO and 15th EGMO #0l7z",
+      "url": "https://usamoguide.com/",
+      "source": "USA TST Selection Test for 67th IMO and 15th EGMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Existential quantifiers"
+      ],
+      "statement": "Let $f: \\mathbb{R} \\to \\mathbb{Z}$ be a function satisfying\n$$\nf(x - y) - 2f(x) + f(x + y) \\geq -1\n$$\nfor all $x, y \\in \\mathbb{R}$. Find all possible values of the set $\\{f(x) \\mid x \\in \\mathbb{R}\\}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-functional-equations-auto-4815",
+      "name": "United States of America — TST Selection Test #0l8f",
+      "url": "https://usamoguide.com/",
+      "source": "United States of America — TST Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Jensen / smoothing",
+        "Floors and ceilings"
+      ],
+      "statement": "Let $f: \\mathbb{R} \\to \\mathbb{Z}$ be a function satisfying\n$$\nf(x - y) - 2f(x) + f(x + y) \\geq -1\n$$\nfor all $x, y \\in \\mathbb{R}$. Find all possible values of the set $\\{f(x) \\mid x \\in \\mathbb{R}\\}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "The answer is $\\{a\\}$, $\\{a, a+1\\}$, $\\{a, a+1, a+2, \\dots\\}$, and $\\mathbb{Z}$, for arbitrary $a \\in \\mathbb{Z}$. For constructions, it is not hard to show that if $g: \\mathbb{R} \\to \\mathbb{R}$ is a convex function, then $\\lfloor g \\rfloor$ satisfies the functional equation. Thus $f(x) = a$, $f(x) = \\lfloor x \\rfloor$, and $f(x) = \\lfloor x^2 \\rfloor + a$ work, covering the first, fourth, and third class of answers respectively. Furthermore, it is not hard to show that $f(x) = a + \\mathbf{1}_{x>0}$ also works to cover the second class.\n\nLet $P(x, y)$ denote the condition. To prove that nothing else works, the key result is to prove an \"intermediate value theorem\": if $a$ and $b$ are in the range of $f$, then so is every integer between $a$ and $b$. Let's first see how this finishes. If we assume the intermediate value theorem, then all we need to show is that if the range of $f$ is at least 2, then the range of $f$ is unbounded above. Indeed, if $f(x) - f(y) \\ge 2$, then $P(x, y - x)$ gives us that $f(2x - y) > f(x)$, so iterating this procedure finishes.\n\nWe will now prove the intermediate value theorem. We will repeatedly use the fact that if $f(x)$ is a solution, so is $f(ax + b) + c$ for $a, b \\in \\mathbb{R}$ and $c \\in \\mathbb{Z}$.\n\n**Lemma 1.1**\nIf $f(0) \\le -1$, then $f(2^k) \\ge 2^k f(1)$ for $k \\ge 0$.\n*Proof.* $P(2^k, 2^k)$ yields that $f(2^{k+1}) \\ge 2f(2^k)$. $\\square$\n\n**Lemma 1.2**\nIf $f(-1) \\le -2$ and $f(0) = 0$, then $f(2^k) \\ge 2^k - 1$ for all positive integers $k$.\n*Proof.* Applying Lemma 1.1 to $f(x-1)+1$ yields that $f(2^k-1) \\ge 2^k-1$. Then, applying Lemma 1.1 to $f(2^k-x) - f(2^k)-1$ yields that\n$$\nf(0) - f(2^k) - 1 \\ge 2^k(f(2^k - 1) - f(2^k) - 1) \\implies f(2^k) + 1 \\ge \\frac{2^k f(2^k - 1)}{2^k - 1} \\ge 2^k. \\quad \\square\n$$\n\nNow to prove the intermediate value theorem, scale and shift such that $f(-1) \\le -2$ and $f(0) = 0$; it suffices to show that there exists some number strictly between $f(-1)$ and $f(0)$ in the range of $f$ (since by iteration we can then get all values). Suppose not and let $a_k = f(-1/2^k)$. If $k$ is minimal such that $a_k \\ge 0$, then $P(-1/2^k, 1/2^k)$ yields a contradiction. Thus $a_k \\le -2$ for all $k$. However, applying Lemma 1.2 to $f(x/2^k)$ yields that $a_k \\le -2 \\implies f(1) \\ge 2^k - 1$, which cannot hold for all $k$ since $f(1)$ is constant."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

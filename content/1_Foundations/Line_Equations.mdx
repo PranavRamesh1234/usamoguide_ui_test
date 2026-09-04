@@ -1,0 +1,141 @@
+---
+id: line-equations
+title: Line Equations
+author: Sanjay Krishnan
+description: Point-slope, slope-intercept, and perpendicular slopes.
+prerequisites: [coordinate-geometry-basics]
+---
+
+## Overview
+
+Lines are the simplest coordinate objects. Many geometry problems reduce to finding a line and intersecting it with another curve. This module covers line representations, switching between forms, and problem‑solving techniques (perpendicular bisectors, vertical/horizontal cases, intersections).
+
+A line is determined by:
+- two points, or
+- one point and a slope (including zero or undefined slope).
+
+## Key Ideas
+
+- **Point‑slope:** $y - y_1 = m(x - x_1)$ – use when you know a point and slope.  
+  Example: $(2,3)$ with slope $4$ → $y-3 = 4(x-2)$.
+
+- **Slope‑intercept:** $y = mx + b$ – use when you know slope $m$ and / or $y$-intercept $b$.  
+  Example: $y = -2x + 5$ has slope $-2$, intercept $(0,5)$.
+
+- **Standard form:** $ax + by = c$ (this form is less common, but still useful to know)
+  Example: $3x - 2y = 7$ → convert to $y = \frac{3}{2}x - \frac{7}{2}$.
+
+- **Perpendicular slopes:** $m_1 \cdot m_2 = -1$ (negative reciprocal).  
+  Horizontal ($m=0$) ⟂ vertical (undefined slope).
+
+- **Horizontal lines:** $y = c$ (slope $0$).  
+- **Vertical lines:** $x = c$ (slope undefined).
+
+## Core Skills
+- Recognizing when you have enough information to use one of the various slope equations
+- Recognizing when you can use lines to aid with geometry (this is known as coordbashing)
+- Setting variables for unknown values within a line equation
+## Worked Example
+Line $l$ passes through the points $(-1,2)$ and $(5,m)$, where $m$ is a real number. If $l$ has a slope of $3$, find $m$.
+Putting our equation into point-slope form, we obtain the following:
+$y-2 = 3(x+1)$
+Converting into slope-intercept form, we get the following:
+$y=3x+5$
+Plugging in $5$ for $x$, we get that $m = 20$.
+
+Alternatively, you could have noticed that the difference between the $x$ values of the first and second point are $6$, implying that $m = 2 + 3(6) = 20$.
+
+## More Examples
+
+### Example 1: Geometry
+
+$\triangle ABC$ has coordinates $A, B, C$, which are located at $(0,0)$, $(8,0)$, and $(4,3)$ respectively.  
+If the perpendicular bisector of $\overline{AB}$ passes through the line $y = -5x + 2$ at the ordered pair $(m,n)$, compute $m + n$.
+
+First, find the perpendicular bisector of $\overline{AB}$. The midpoint of $AB$ is $(4,0)$. Since $A$ and $B$ lie on a horizontal line ($y=0$), the perpendicular bisector is vertical: $x = 4$.  
+To find where $x = 4$ intersects $y = -5x + 2$, plug in $x=4$:  
+$y = -5(4) + 2 = -18$.  
+The ordered pair is $(4,-18)$, so $m + n = 4 + (-18) = -14$.
+
+### Example 2: Perpendicularity
+
+If line segment $\overline{AB}$ has endpoints $A(0,8)$ and $B(8,0)$, find the equation of the perpendicular bisector of $\overline{AB}$.
+
+Midpoint of $\overline{AB}$ is $(4,4)$.  
+Slope of $\overline{AB}$ is $\frac{0-8}{8-0} = -1$, so the perpendicular slope is $1$.  
+Using point-slope form: $y - 4 = 1(x - 4)$ → $y = x$.
+
+### Example 3: Vertical Line
+
+Find the equation of the line through $(2,-3)$ with undefined slope.
+
+Undefined slope means a vertical line: $x = 2$.
+
+### Example 4: Intersection of Perpendicular Bisector with Another Line
+
+Triangle $\triangle ABC$ has vertices $A(1,2)$, $B(7,6)$, and $C(3,8)$.  
+Find the equation of the perpendicular bisector of $\overline{AB}$.  
+Then determine the intersection point of this perpendicular bisector with the line $y = \frac{1}{2}x - 4$, and compute the sum of the coordinates of the intersection point.
+
+Midpoint of $AB$: $\left(\frac{1+7}{2}, \frac{2+6}{2}\right) = (4,4)$.  
+Slope of $AB$: $\frac{6-2}{7-1} = \frac{4}{6} = \frac{2}{3}$.  
+Perpendicular slope: $-\frac{3}{2}$.  
+Equation: $y - 4 = -\frac{3}{2}(x - 4)$ → $y = -\frac{3}{2}x + 10$.  
+Intersect with $y = \frac{1}{2}x - 4$:  
+$-\frac{3}{2}x + 10 = \frac{1}{2}x - 4$ → multiply by 2: $-3x + 20 = x - 8$ → $-4x = -28$ → $x = 7$.  
+Then $y = \frac{1}{2}(7) - 4 = -0.5$.  
+Sum: $7 + (-0.5) = 6.5$.
+
+### Example 5: Finding an Endpoint from the Perpendicular Bisector
+
+The perpendicular bisector of segment $\overline{PQ}$ is given by $2x - y = 5$.  
+If $P = (2,1)$, find the coordinates of $Q$.
+
+Rewrite bisector as $y = 2x - 5$, so slope m_bis = 2.
+So slope of $\overline{PQ}$ must be $-\frac{1}{2}$ (negative reciprocal).  
+Let $Q = (x,y)$. Slope condition: $\frac{y-1}{x-2} = -\frac{1}{2}$ → $2(y-1) = -(x-2)$ → $x + 2y = 4$. (1)  
+Midpoint $M = \left(\frac{x+2}{2}, \frac{y+1}{2}\right)$ lies on bisector: $2\left(\frac{x+2}{2}\right) - \frac{y+1}{2} = 5$ → $(x+2) - \frac{y+1}{2} = 5$.  
+Multiply by 2: $2x+4 - (y+1) = 10$ → $2x - y = 7$. (2)  
+Solve (1) and (2): From (1), $x = 4 - 2y$. Substitute into (2): $2(4-2y) - y = 7$ → $8 - 4y - y = 7$ → $8 -5y = 7$ → $y = \frac{1}{5}$.  
+Then $x = 4 - 2\cdot\frac{1}{5} = \frac{18}{5}$. Thus $Q = \left(\frac{18}{5}, \frac{1}{5}\right)$.
+
+### Example 6: Perpendicular Bisector Crossing a Vertical Line
+
+Find the equation of the perpendicular bisector of the segment joining $(2,5)$ and $(8,3)$.  
+Then determine the point where this perpendicular bisector crosses the vertical line $x = 5$, and give the $y$-coordinate.
+
+Midpoint: $\left(\frac{2+8}{2}, \frac{5+3}{2}\right) = (5,4)$.  
+Slope of segment: $\frac{3-5}{8-2} = \frac{-2}{6} = -\frac{1}{3}$.  
+Perpendicular slope: $3$.  
+Equation: $y - 4 = 3(x - 5)$ → $y = 3x - 11$.  
+Intersect with $x = 5$: $y = 3(5) - 11 = 4$.  
+Point: $(5,4)$ → $y$-coordinate is $4$.
+
+
+## Strategy Checklist
+
+- Compute the slope of the original segment unless the segment is vertical or horizontal.
+- Determine the midpoint correctly: average of $x$-coordinates and $y$-coordinates.
+- For a perpendicular bisector: slope is the **negative reciprocal** of the original slope.  
+- If original slope is $0$ (horizontal) → perpendicular bisector is vertical (undefined slope).  
+- If original slope is undefined (vertical) → perpendicular bisector is horizontal (slope $0$).
+- Use point-slope form $y - y_1 = m(x - x_1)$ when you know a point and the slope.
+- Simplify equations to slope-intercept form $y = mx + b$ or standard form as needed.
+- To find an intersection, substitute one equation into the other or solve the system.
+- Check if the line is vertical or horizontal before writing an equation (avoid undefined slope errors).
+- Always verify that your computed intersection satisfies both original equations.
+- When an endpoint is unknown, set up equations using the midpoint formula and the perpendicular slope condition.
+
+## Common Pitfalls
+
+- Mixing up the negative reciprocal: forgetting the negative sign or taking the reciprocal only.
+- Using the original slope instead of the perpendicular slope for the bisector.
+- Dropping a sign when distributing in point-slope form, especially with negative fractions.
+- Forgetting that a perpendicular bisector must pass through the midpoint (not just be perpendicular).
+- Using vertical lines in slope form (slope undefined).
+- Arithmetic errors when averaging coordinates or solving linear equations with fractions.
+- Assuming the perpendicular bisector is unique: it always is, but be careful with degenerate cases (segment length zero).
+
+## Practice Problems
+
+<Problems problems="practice" />

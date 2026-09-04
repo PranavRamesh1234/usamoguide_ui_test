@@ -1,0 +1,77 @@
+{
+  "MODULE_ID": "number-theory-number-theoretic-functions-m-bius-inversion",
+  "practice": [
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-m-bius-inversion-auto-1496",
+      "name": "10th Annual Harvard-MIT Mathematics Tournament #0io8",
+      "url": "https://usamoguide.com/",
+      "source": "10th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "φ (Euler's totient)",
+        "Möbius inversion"
+      ],
+      "statement": "Problem:\nShow that for positive integers $n$,\n$$\n\\sum_{d \\mid n} \\frac{\\mu(d)}{d} = \\frac{\\phi(n)}{n}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nOn the grounds of the previous problem, Möbius inversion with $f(k) = \\phi(k)$ and $g(k) = k$ gives:\n$$\n\\phi(n) = f(n) = \\sum_{d \\mid n} g(d) \\mu\\left(\\frac{n}{d}\\right) = \\sum_{d' \\mid n} g\\left(\\frac{n}{d'}\\right) \\mu(d') = \\sum_{d' \\mid n} \\frac{n}{d'} \\mu(d')\n$$\nDividing both sides by $n$ yields:\n$$\n\\frac{\\phi(n)}{n} = \\sum_{d' \\mid n} \\frac{\\mu(d')}{d'}\n$$\nAlternatively, one uses the convolution of the functions $f(k) = n$ and $g(k) = \\frac{\\mu(d)}{d}$. The strategy is the same as the previous convolution proof. For $n = p^{k}$ with $k$ a positive integer, we have $\\phi(n) = p^{k} - p^{k-1}$, while the series reduces to $p^{k} \\cdot \\mu(1) + p^{k} \\cdot \\mu(p) / p = p^{k} - p^{k-1}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-m-bius-inversion-auto-2315",
+      "name": "15th Annual Harvard-MIT Mathematics Tournament #0jaz",
+      "url": "https://usamoguide.com/",
+      "source": "15th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "φ (Euler's totient)",
+        "Möbius inversion",
+        "Sums and products"
+      ],
+      "statement": "Problem:\nLet $N$ be the number of distinct roots of $\\prod_{k=1}^{2012}\\left(x^{k}-1\\right)$. Give lower and upper bounds $L$ and $U$ on $N$. If $0<L \\leq N \\leq U$, then your score will be $\\left\\lfloor\\frac{23}{(U / L)^{1.7}}\\right\\rfloor$. Otherwise, your score will be 0.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFor $x$ to be such a number is equivalent to $x$ being a $k^{\\text{th}}$ root of unity for some $k$ up to $2012$. For each $k$, there are $\\varphi(k)$ primitive $k^{\\text{th}}$ roots of unity, so the total number of roots is $\\sum_{k=1}^{2012} \\varphi(k)$.\n\nWe will give a good approximation of this number using well known facts about the Möbius function, defined by $\\mu(n)=\\left\\{\\begin{array}{ll}0 & \\text{ if } n \\text{ is not squarefree } \\\\ (-1)^{r} & \\text{ if } n \\text{ has } r \\text{ distinct prime factors }\\end{array}\\right.$. It turns out that if $f(n)=\\sum_{d \\mid n} g(d)$, then $g(n)=\\sum_{d \\mid n} \\mu(d) f\\left(\\frac{n}{d}\\right)$. Using this fact, since $n=\\sum_{d \\mid n} \\varphi(d)$, we have that $\\varphi(n)=\\sum_{d \\mid n} \\mu(d) \\frac{n}{d}$. Now we have reduced the problem to estimating $\\sum_{k=1}^{2012} \\sum_{d \\mid k} \\mu(d) \\frac{k}{d}$. Let $a=\\frac{k}{d}$, so we obtain $\\sum_{k=1}^{2012} \\sum_{d \\mid k} a \\mu(d)$.\n\nWe can interchange the order of summation by writing\n$$\n\\begin{aligned}\n\\sum_{d=1}^{2012} \\sum_{a=1}^{\\left\\lfloor\\frac{2012}{d}\\right\\rfloor} a \\mu(d) & \\approx \\sum_{d=1}^{2012} \\mu(d) \\frac{1}{2}\\left(\\left\\lfloor\\frac{2012}{d}\\right\\rfloor\\right)^{2} \\\\\n& \\approx \\sum_{d=1}^{2012} \\mu(d) \\frac{2012^{2}}{2 d^{2}} \\\\\n& =\\frac{2012^{2}}{2} \\sum_{d=1}^{2012} \\frac{\\mu(d)}{d^{2}} \\\\\n& \\approx \\frac{2012^{2}}{2} \\sum_{d=1}^{\\infty} \\frac{\\mu(d)}{d^{2}}\n\\end{aligned}\n$$\nThe Möbius function also satisfies the property that $\\sum_{d \\mid n} \\mu(d)=\\left\\{\\begin{array}{ll}1 & \\text{ if } n=1 \\\\ 0 & \\text{ otherwise }\\end{array}\\right.$, which can be seen as a special case of the theorem above (letting $f(n)=1, g(n)=\\left\\{\\begin{array}{ll}1 & \\text{ if } n=1 \\\\ 0 & \\text{ otherwise }\\end{array}\\right.$ ). We can then see that $\\left(\\sum_{d=1}^{\\infty} \\frac{\\mu(d)}{d^{2}}\\right)\\left(\\sum_{c=1}^{\\infty} \\frac{1}{c^{2}}\\right)=\\frac{1}{1^{2}}=1$, so $\\sum_{d=1}^{\\infty} \\frac{\\mu(d)}{d^{2}}=\\frac{6}{\\pi^{2}}$. Therefore, we have $\\sum_{k=1}^{2012} \\varphi(k) \\approx \\frac{3}{\\pi^{2}} \\cdot 2012^{2}=$ 1230488.266... 2012 is large enough that all of our approximations are pretty accurate and we should be comfortable perturbing this estimate by a small factor to give bounding values."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "number-theory-number-theoretic-functions-m-bius-inversion-auto-4378",
+      "name": "HMMT November 2023 #0kwa",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2023",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Möbius inversion",
+        "Abel summation",
+        "Inclusion-exclusion",
+        "Other"
+      ],
+      "statement": "Problem:\n\nIsabella writes the expression $\\sqrt{d}$ for each positive integer $d$ not exceeding $8!$ on the board. Seeing that these expressions might not be worth points on HMMT, Vidur simplifies each expression to the form $a \\sqrt{b}$, where $a$ and $b$ are integers such that $b$ is not divisible by the square of a prime number. (For example, $\\sqrt{20}$, $\\sqrt{16}$, and $\\sqrt{6}$ simplify to $2 \\sqrt{5}$, $4 \\sqrt{1}$, and $1 \\sqrt{6}$, respectively.) Compute the sum of $a+b$ across all expressions that Vidur writes.\n\nSubmit a positive real number $A$. If the correct answer is $C$ and your answer is $A$, you get $\\max \\left(0,\\left\\lceil 20\\left(1-|\\log (A / C)|^{1 / 5}\\right)\\right\\rceil\\right)$ points.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $\\sqrt{n}$ simplify to $a_{n} \\sqrt{b_{n}}$, and replace $8!$ by $x$. First, notice that $\\sum_{n \\leq x} a_{n}$ is small $\\left(O\\left(x^{3 / 2}\\right)\\right.$ in particular) because each term cannot exceed $\\sqrt{x}$. On the other hand, $\\sum_{n \\leq x} b_{n}$ will be large; we have $b_{n}=n$ when $n$ is squarefree, and squarefree numbers occur $\\frac{6}{\\pi^{2}}$ of the time. Thus, it suffices to consider $\\sum_{n \\leq x} b_{n}$.\n\nWe first explain how to derive the formula heuristically. Then, we will provide a rigorous proof that\n$$\nB(x):=\\sum_{n \\leq x} b_{n}=\\frac{\\pi^{2}}{30} x^{2}+O\\left(x^{3 / 2}\\right)\n$$\nFor heuristic explanation, we first rewrite the sum as\n$$\nB(x)=\\sum_{\\substack{a^{2} b \\leq x \\\\ b \\text{ squarefree }}} b=\\sum_{a \\leq x} \\sum_{\\substack{b \\leq x / a^{2} \\\\ b \\text{ squarefree }}} b\n$$\nWe estimate the inner sum as follows: first, recall that the density of squarefree numbers is $\\frac{6}{\\pi^{2}}$. The sum of first $k$ positive integers is approximately $k^{2} / 2$, so the sum of squarefree numbers from $1,2, \\ldots, k$ should roughly be about $\\frac{6}{\\pi^{2}} \\cdot \\frac{k^{2}}{2}=\\frac{3}{\\pi^{2}} k^{2}$. Knowing this, we estimate\n$$\n\\begin{aligned}\nB(x) & \\approx \\sum_{a \\leq x} \\frac{3}{\\pi^{2}}\\left(\\frac{x}{a^{2}}\\right)^{2} \\\\\n& =x^{2} \\sum_{a \\leq x} \\frac{3}{\\pi^{2}} \\frac{1}{a^{4}} \\\\\n& \\approx \\frac{3}{\\pi^{2}} x^{2} \\sum_{a=1}^{\\infty} \\frac{1}{a^{4}} \\\\\n& =\\frac{3}{\\pi^{2}} x^{2} \\cdot \\frac{\\pi^{4}}{90}=\\frac{\\pi^{2}}{30} x^{2}\n\\end{aligned}\n$$\nThe estimate $\\frac{\\pi^{2}}{30} \\cdot(8!)^{2}=534834652$ is good enough for 18 points.\n\nWe now give a rigorous proof, which is essentially the above proof, but the errors are properly treated. To do that, we need several lemmas and some standard techniques in analytic number theory.\n\nLemma 1. The number of squarefree integers not exceeding $x$ is $\\frac{6}{\\pi^{2}} x+O(\\sqrt{x})$.\n\nProof. This is a standard result in analytic number theory, but we give the full proof for completeness.\n$$\n\\mu(n)= \\begin{cases}(-1)^{r} & n \\text{ is the product of } r \\geq 0 \\text{ distinct primes } \\\\ 0 & \\text{ otherwise }\\end{cases}\n$$\nThen, by Inclusion-Exclusion, we have\n$$\n\\begin{aligned}\n\\#\\{\\text{ squarefree } \\leq x\\} & =\\sum_{k \\leq \\sqrt{x}} \\mu(k)\\left\\lfloor\\frac{x}{k^{2}}\\right\\rfloor \\\\\n& =\\sum_{k \\leq \\sqrt{x}} \\mu(k) \\frac{x}{k^{2}}+O(\\sqrt{x}) \\\\\n& =x\\left(\\sum_{k \\leq \\sqrt{x}} \\frac{\\mu(k)}{k^{2}}\\right)+O(\\sqrt{x})\n\\end{aligned}\n$$\nThe inner summation is\n$$\n\\begin{aligned}\n\\sum_{k=1}^{\\infty} \\frac{\\mu(k)}{k^{2}}+O\\left(\\sum_{k \\geq \\sqrt{x}} \\frac{1}{k^{2}}\\right) & =\\prod_{p \\text{ prime }}\\left(1-\\frac{1}{p^{2}}\\right)+O\\left(\\frac{1}{\\sqrt{x}}\\right) \\\\\n& =\\frac{1}{1+\\frac{1}{2^{2}}+\\frac{1}{3^{2}}+\\ldots}+O\\left(\\frac{1}{\\sqrt{x}}\\right) \\\\\n& =\\frac{6}{\\pi^{2}}+O\\left(\\frac{1}{\\sqrt{x}}\\right)\n\\end{aligned}\n$$\nso putting it together, we get that\n$$\n\\#\\{\\text{ squarefree } \\leq x\\}=x\\left(\\frac{6}{\\pi^{2}}+O\\left(\\frac{1}{\\sqrt{x}}\\right)\\right)+O(\\sqrt{x})=\\frac{6}{\\pi^{2}} x+O(\\sqrt{x})\n$$\n\nLemma 2. We have\n$$\n\\sum_{\\substack{n \\text{ squarefree } \\\\ n \\leq x}} n=\\frac{3}{\\pi^{2}} x^{2}+O\\left(x^{3 / 2}\\right)\n$$\nProof. We apply Abel's summation formula on the sequence $a_{n}=\\mathbf{1}_{\\text{squarefree }}(n)$ and weight $\\phi(n)=n$. Define the partial summation $A(x)=\\sum_{n \\leq x} a_{n}$. Applying Abel's summation, we get that\n$$\n\\begin{aligned}\n\\sum_{\\substack{n \\text{ squarefree } \\\\\n n \\leq x}} n & =\\sum_{n \\leq x} a_{n} \\phi(n) \\\\\n& =A(x) \\phi(x)-\\int_{1}^{x} A(t) \\phi^{\\prime}(t) d t \\\\\n& =\\left(\\frac{6}{\\pi^{2}} x+O(\\sqrt{x})\\right) x-\\int_{1}^{x}\\left(\\frac{6}{\\pi^{2}} t+O(\\sqrt{t})\\right) d t \\\\\n& =\\left(\\frac{6}{\\pi^{2}} x^{2}+O\\left(x^{3 / 2}\\right)\\right)-\\left(\\frac{6}{\\pi^{2}} \\cdot \\frac{x^{2}}{2}+O\\left(x^{3 / 2}\\right)\\right) \\\\\n& =\\frac{3}{\\pi^{2}} x^{2}+O\\left(x^{3 / 2}\\right)\n\\end{aligned}\n$$\n\nMain Proof. Once we have Lemma 2., it is easy to get the desired estimate. We have\n$$\n\\begin{aligned}\nB(x) & =\\sum_{\\substack{a^{2} b \\leq x \\\\\n b \\text{ squarefree }}} b \\\\\n& =\\sum_{a \\leq x} \\sum_{\\substack{b \\leq x / a^{2} \\\\\n b \\text{ squarefree }}} b \\\\\n& =\\sum_{a \\leq x} \\frac{3}{\\pi^{2}} \\frac{x^{2}}{a^{4}}+O\\left(\\frac{x^{3 / 2}}{a^{3}}\\right) \\\\\n& =\\frac{3}{\\pi^{2}} x^{2}\\left(\\sum_{a \\leq x} \\frac{1}{a^{4}}\\right)+O\\left(x^{3 / 2} \\sum_{a \\leq x} \\frac{1}{a^{3}}\\right) .\n\\end{aligned}\n$$\nSince $\\sum_{a=1}^{\\infty} \\frac{1}{a^{3}}$ converges, we get that the big-$O$ term is indeed $O\\left(x^{3 / 2}\\right)$. Now, we only need to deal with the main term. Note the estimate\n$$\n\\sum_{a \\leq x} \\frac{1}{a^{4}}=\\sum_{a=1}^{\\infty} \\frac{1}{a^{4}}-\\sum_{a \\geq x} \\frac{1}{a^{4}}=\\frac{\\pi^{4}}{90}+O\\left(\\frac{1}{x^{3}}\\right)\n$$\nHence, we have\n$$\nB(x)=\\frac{3}{\\pi^{2}} x^{2} \\cdot \\frac{\\pi^{4}}{90}+O\\left(x^{3 / 2}\\right)=\\frac{\\pi^{2}}{30} x^{2}+O\\left(x^{3 / 2}\\right)\n$$\n\nHere is the code that gives the exact answer:\n\n```\nimport math\nn=40320\na=[1 for i in range(n+1)]\nfor d in range(1, math.ceil(math.sqrt(n))):\n    for x in range(d**2, n+1, d**2):\n        a[x] = d\nb=[i//a[i]**2 for i in range(1, n+1)]\nprint(sum(a)+sum(b))\n```"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

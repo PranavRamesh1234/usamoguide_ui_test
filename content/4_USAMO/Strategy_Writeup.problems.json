@@ -1,0 +1,420 @@
+{
+  "MODULE_ID": "strategy-writeup",
+  "practice": [
+    {
+      "uniqueId": "custom-writeup-2",
+      "name": "Write-up outline: geometry problem",
+      "url": "https://usamoguide.com/#custom-writeup-2",
+      "source": "Custom",
+      "difficulty": "Normal",
+      "isStarred": false,
+      "tags": [
+        "Proof",
+        "Strategy"
+      ],
+      "statement": "This is a custom write-up outline exercise focusing on geometry problem strategies and solution organization.",
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-games-greedy-algorithms-auto-0002",
+      "name": "Berkeley Math Circle Monthly Contest 3 #0hiq",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 3",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Games / greedy algorithms",
+        "Invariants / monovariants"
+      ],
+      "statement": "Problem:\n\nFifty counters are on a table. Two players alternate taking away 1, 2, 3, 4, or 5 of them. Whoever picks up the last counter is the loser. Who has a winning strategy, the first player or the second?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nNote that if you make a turn and there is 1 counter left, you have won since the other player must pick up that counter.\n\nIf you make a turn and there are 7 counters left, you can win: if your opponent picks up 1, 2, 3, 4, or 5 of them, you can respectively take $5, 4, 3, 2$, or $1$ of them to leave $1$.\n\nLikewise, if you play and there are $13$ counters left, you can in the same way play to leave $7$ on your next turn.\n\nContinuing in this way, we see that the first player can win by removing $1$ counter, leaving $49$, and then playing on the succeeding turns to leave $43, 37, 31, 25, 19, 13, 7$, and $1$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-games-greedy-algorithms-auto-0027",
+      "name": "Berkeley Math Circle: Monthly Contest 7 #0hjf",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 7",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Games / greedy algorithms",
+        "Coloring schemes, extremal arguments",
+        "Combinatorial optimization"
+      ],
+      "statement": "Problem:\n\nSeveral weights are given, each of which is not heavier than $1 \\mathrm{lb}$. It is known that they cannot be divided into two groups such that the weight of each group is greater than $1 \\mathrm{lb}$. Find the maximum possible total weight of these weights.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSuppose you start putting weights into two pans of a scale and stop when you cannot add another weight to either pan without it exceeding $1 \\mathrm{lb}$. At this point, you have put at most $2 \\mathrm{lb}$ of weight on the scale, and there can only be one weight left, otherwise you could add a weight to each pan and both would exceed $1 \\mathrm{lb}$. This remaining weight weighs at most $1 \\mathrm{lb}$, so the weights add up to at most $3 \\mathrm{lb}$ total. It is possible to have exactly $3 \\mathrm{lb}$ with three $1 \\mathrm{lb}$ weights, so this is the largest possible."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-games-greedy-algorithms-auto-0034",
+      "name": "Berkeley Math Circle Monthly Contest 6 #0hjm",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Games / greedy algorithms",
+        "Euler characteristic: V-E+F"
+      ],
+      "statement": "Problem:\n\nTen different points are marked on a circle. Two players $A$ and $B$ play the following game. $A$ moves first and the players alternate their moves. In each of the moves a player connects two of the points with a straight line segment. A player whose segment crosses a segment previously drawn will lose the game. Which player has a winning strategy and what is the strategy.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nNotice that a player can draw a line segment if and only if the $10$-gon is not partitioned into triangles. Since there is a total of $17$ segments for any partition of $10$-gon into triangles, the first player will win the game no matter how he plays."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-games-greedy-algorithms-auto-0037",
+      "name": "Berkeley Math Circle #0hjp",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Games / greedy algorithms",
+        "Rotation"
+      ],
+      "statement": "Problem:\n\nTwo players play a game with pennies, which are circles of radius $1$, on an $m \\times n$ rectangular table. Each player takes turns putting a penny on the table so that it touches no other penny. The first player who is unable to do so loses. The table starts with no pennies on it. Assuming that there is an infinite supply of pennies, for what values of $m$ and $n$ does the first player have a winning strategy?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nIf $m<2$ or $n<2$, then it is not possible to fit even one penny on the table, so the first player loses immediately. On the other hand, if $m \\geq 2$ and $n \\geq 2$, we will show that the first player can win. Let $O$ denote the center of the table, and let the first player place his first penny so that it is centered at $O$. The resulting configuration is centrally symmetric (i.e. it remains the same under a rotation of $180^{\\circ}$ about $O$). Now, whenever the second player places a penny with some center $A$, the first player should respond with a penny centered at $B$, the $180^{\\circ}$ rotation of $A$ about $O$. It is evident that the first player always leaves a centrally symmetric configuration; we must show that this move is actually legal.\n\nSince placing the penny with center $A$ was legal, the symmetry of the previous configuration means that, before this penny was placed, a move centered at $B$ was also legal. So, after the second player's move at $A$, the first player can still legally move at $B$ unless the penny centered at $B$ intersects the penny centered at $A$. If $P$ is an intersection point, then $AP \\leq 1$ and $PB \\leq 1$, so $AB \\leq 2$. But $O$ is the midpoint of $AB$, so $AO = AB / 2 \\leq 1$. This means that $A$ lies inside the penny placed with center $O$; this is a contradiction. Hence, the move with center $B$ is, in fact, legal.\n\nThus, the first player can always legally move so as to preserve central symmetry. This move's availability means that the first player never loses. But since only a finite number of pennies can be placed without overlap, the game eventually ends, and it is the second player who loses."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-games-greedy-algorithms-auto-0108",
+      "name": "Berkeley Math Circle Monthly Contest #0hlo",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Invariants / monovariants",
+        "Coloring schemes, extremal arguments",
+        "Games / greedy algorithms"
+      ],
+      "statement": "Problem:\n\nTwo players, Cat and Mouse, play the following game on a $4 \\times 4$ checkerboard. Each player places a checker on a cell of the board (Cat goes first). Then, the two players take turns moving their checkers to an adjacent square, either vertically or horizontally (Cat again goes first). If, after either player's move, the two checkers occupy the same square, Cat wins. Otherwise, if each checker has made 2013 moves without this happening, Mouse wins. Determine, with proof, which player has a winning strategy.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nMouse has a winning strategy. Color the cells of the checkerboard black and white alternately, in standard checkerboard fashion, so that adjacent cells are opposite colors. Whichever color Cat places his checker on, Mouse places his checker on a different cell of the same color. Then each time Cat moves, the checkers will be on opposite colors, and each time Mouse moves, the checkers will be on the same color. So Cat can never land on Mouse; it remains for Mouse to avoid landing on Cat. Since each cell has at least two neighbors, this is easy to do."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-games-greedy-algorithms-auto-0151",
+      "name": "Berkeley Math Circle: Monthly Contest 8 #0hmv",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 8",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Games / greedy algorithms",
+        "Invariants / monovariants"
+      ],
+      "statement": "Problem:\n\nIn a certain two-player game, you start with a rectangular $m \\times n$ grid of squares. On each turn, a player either makes a horizontal cut and takes away the portion of the rectangle above the cut, or makes a vertical cut and takes away the portion to the right. Whichever player takes the last square (in the bottom left corner) loses. If both players play perfectly, determine for which values of $m$ and $n$ the first player will win.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe first player wins whenever the grid is not a square (i.e. $m \\neq n$). The strategy is to always leave the other player with a square grid (where $m = n$), since then they will eventually be left with a $1 \\times 1$ square and will lose. This works since starting from a square, it is impossible to get to a smaller square, but starting from a non-square, it is always possible to get to a square. Thus, the first player wins whenever the starting grid is not a square, and the second player wins whenever the starting grid is a square."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-games-greedy-algorithms-auto-0192",
+      "name": "Berkeley Math Circle Monthly Contest 5 #0ho0",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 5",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Invariants / monovariants",
+        "Games / greedy algorithms"
+      ],
+      "statement": "Problem:\n\nAlice and Bob play the following game on the whiteboard. First, Alice writes an odd number in binary on the board. Then, beginning with Bob, the players take turns modifying the number in one of two ways: subtracting $1$ from it (preserving the binary notation), or erasing its last digit. When the whiteboard is blank, the last player to have played wins. Which player has a winning strategy?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nBob can win using the following strategy: Play so as to leave an empty whiteboard or a number with an odd number of terminal zeros (preceded by a $1$). We claim that Bob can fulfill this requirement at every move.\n\nOn his first move, or indeed any move in which Alice leaves an odd number on the board, it is easy to see how the requirement can be fulfilled. Unless the number on the board is $1$ (in which case Bob wins instantly), it ends in a $1$ followed by either an even or an odd number of zeros; in these two cases Bob should subtract one and erase the $1$ respectively.\n\nIf Alice leaves an even number on the board, it must be by erasing a final $0$ from a number left by Bob. Bob can then erase another zero, and the number of terminal zeros will remain odd."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-games-greedy-algorithms-auto-0225",
+      "name": "Berkeley Math Circle Monthly Contest 3 #0hox",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 3",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Coloring schemes, extremal arguments",
+        "Invariants / monovariants",
+        "Games / greedy algorithms"
+      ],
+      "statement": "Problem:\n\nLet $n>3$ be an integer which is not divisible by $3$. Two players $A$ and $B$ play the following game with an $n \\times n$ chocolate table. First, player $A$ has to choose and remove one piece of the chocolate, without breaking other pieces. After his move, player $B$ tries to partition the remaining chocolate into $3 \\times 1$ (and $1 \\times 3$) rectangles. If $B$ manages to do so, then he/she is the winner. Otherwise the winner is $A$. Determine which player has a winning strategy and describe the strategy.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe player $A$ has a winning strategy. Imagine that the chocolate is painted in $3$ colors, $R$ (red), $G$ (green), and $B$ (blue) as shown in the table\n\n$$\n\\begin{array}{cccccccc}\nR & G & B & R & G & B & R & \\cdots \\\\\nB & R & G & B & R & G & B & \\cdots \\\\\nG & B & R & G & B & R & G & \\cdots \\\\\nR & G & B & R & G & B & R & \\cdots \\\\\nB & R & G & B & R & G & B & \\cdots \\\\\nG & B & R & G & B & R & G & \\cdots \\\\\nR & G & B & R & G & B & R & \\cdots \\\\\n& \\vdots & & & \\vdots & & & \\vdots\n\\end{array}\n$$\n\nNotice that every $1 \\times 3$ rectangle will contain exactly one red, one green, and one blue piece. Moreover, the original table had equal numbers of green and blue pieces, and one red piece extra. If $A$ takes out any green or blue piece, player $B$ won't be able to fulfill the requirement, and $A$ is the winner."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-games-greedy-algorithms-auto-0235",
+      "name": "Berkeley Math Circle Monthly Contest 4 #0hp7",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 4",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Games / greedy algorithms",
+        "Invariants / monovariants"
+      ],
+      "statement": "Problem:\n\nThe sequence of numbers $1, 2, 3, \\ldots, 100$ is written on the blackboard. Between each two consecutive numbers a square box is drawn. Player $A$ starts the game and the players $A$ and $B$ alternate the moves. In each turn a player chooses an empty box and places \"+\" or \".\" sign in it. After all the boxes are filled the expression on the blackboard is evaluated and if the result is an odd number the winner is $A$. Otherwise the winner is $B$. Determine which of the players has a winning strategy and what the strategy is.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n$A$ has the winning strategy. She should first place the sign \"+\" between the numbers $1$ and $2$. After that she should group the square boxes into pairs: each pair consisting of two boxes adjacent to the same odd number. Then the player $A$ should make sure that there is at least one sign \".\" in each pair of boxes. Since $\\cdot$ has the priority over $+$, after all products of numbers are calculated, $1$ will be the only odd summand in the whole expression, hence the sum is odd. $A$ can achieve this goal by placing $\\cdot$ sign in the box of the pair where $B$ has previously put his sign."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-games-greedy-algorithms-auto-0251",
+      "name": "Berkeley Math Circle Monthly Contest 3 #0hpn",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 3",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Invariants / monovariants",
+        "Games / greedy algorithms"
+      ],
+      "statement": "Problem:\n\nArt and Ben play a game while sharing an $m \\times n$ chocolate bar. They take turns breaking the bar into two rectangular pieces along one of the lines and eating the smaller piece. (If the two pieces are equal, they can choose which piece to eat.) Whoever is left with the last $1 \\times 1$ square of chocolate loses. If Art moves first, describe all pairs $(m, n)$ for which Ben has a winning strategy.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe answer is all pairs $(m, n)$ such that the ratio\n$$\nR=\\frac{m+1}{n+1}\n$$\nis an integer power of two, that is, the pairs $\\left(a-1,2^{k} a-1\\right)$ and $\\left(2^{k} a-1, a-1\\right)$ for $a \\geq 2$ and $k \\geq 0$. We will show that\n\na. If $R$ is a power of two, then it will not remain so after one move;\n\nb. If $R$ is not a power of two, then some move will make it one.\n\nTo prove (a), simply note that at each move, one of the dimensions is decreased at most by half, so either $m+1$ or $n+1$ is diminished by a factor strictly between 1 and 2. Thus the new value of $R$ is sandwiched between two powers of two: $R / 2$ and $R$ in the first case, $R$ and $2 R$ in the second.\n\nAs for (b), assume $m \\geq n$ (the other case is symmetric) so $2^{k}<R<2^{k+1}$ for some $k \\geq 0$. We have\n$$\n2^{k}(n+1)<m+1<2^{k+1}(n+1) \\text{.}\n$$\nThese inequalities imply that one can move to a bar that is $\\left[2^{k}(n+1)-1\\right] \\times(n+1)$, with $R$-value $2^{k}$.\n\nIf $R$ is initially a power of two, Ben wins by making it that way at each move; otherwise Art wins by the same strategy (in either case ending at the $1 \\times 1$ square, where $R=1$ )."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-games-greedy-algorithms-auto-0253",
+      "name": "Berkeley Math Circle Monthly Contest 1 #0hpp",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Games / greedy algorithms"
+      ],
+      "statement": "Problem:\n\nGiven a square table $n \\times n$, two players $A$ and $B$ are playing the following game: At the beginning all cells of the table are empty, and the players alternate playing with coins. Player $A$ has the first move, and in each of the moves a player will put a coin on some of the cells that doesn't contain a coin and is not adjacent to any of the cells that already contains a coin. The player who makes the last move is the winner. Which player has a winning strategy and what is the strategy?\n\nRemark. The cells are adjacent if they share an edge.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nIf $n$ is even, $B$ has the winning strategy - he just needs to put the coin in the centrally symmetric cell to the cell where $A$ has put the coin in his previous move. Following this strategy, $B$ will always have a free cell to put his coin, and thus he can never lose. Since the game has to end, $A$ is the loser.\n\nIf $n$ is odd, $A$ has a winning strategy: first he needs to put a coin in the central cell, and after that he puts the coin in the centrally symmetric cell to the cell where $B$ has put his coin."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-games-greedy-algorithms-auto-0267",
+      "name": "MathNet #0hq3",
+      "url": "https://usamoguide.com/",
+      "source": "MathNet",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Games / greedy algorithms",
+        "Invariants / monovariants"
+      ],
+      "statement": "Problem:\n\nAlex and Bob have $30$ matches. Alex picks up somewhere between one and six matches (inclusive), then Bob picks up somewhere between one and six matches, and so on. The player who picks up the last match wins. How many matches should Alex pick up at the beginning to guarantee that he will be able to win?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n$2$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-games-greedy-algorithms-auto-0308",
+      "name": "Berkeley Math Circle: Monthly Contest 8 #0hr8",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 8",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Games / greedy algorithms",
+        "Invariants / monovariants"
+      ],
+      "statement": "Problem:\n\nAerith and Bob take turns picking a nonnegative integer, each time changing exactly one digit from the other's last number. The first person to pick a number that (s)he picked before loses. If Aerith goes first, and both play optimally, who wins?\n\n(Note: There are no leading zeroes, except in the number $0$ itself. For instance, if one person picks $2020$, the other could respond by picking $0020=20$, however the reverse does not hold.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nBob wins. One winning strategy for Bob is: each time Aerith picks an even number, add one, and each time Aerith picks an odd number, subtract one. This only changes the last digit, since there are no carryovers in either case.\n\nBob would only get into a situation where he repeated an even number if Aerith had repeated the succeeding number twice, and similarly he would only need to repeat an odd number if Aerith had picked the preceding number twice. In either case, Aerith would have already lost."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-games-greedy-algorithms-auto-0335",
+      "name": "Berkeley Math Circle Monthly Contest 6 #0hrz",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 6",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Pigeonhole principle",
+        "Algorithms",
+        "Games / greedy algorithms",
+        "Sums and products"
+      ],
+      "statement": "Problem:\n\nThe Moria Indestructible Phone Co. has hired you to test the hardiness of their newest smartphone model, the Mithril II. Your assignment is to determine the lowest floor of the Burj Khalifa tower (the world's tallest building, with 163 floors) from which the phone must be dropped to break it. You can ride the elevator to any floor, drop the phone to the ground, and then test whether it is intact. You may assume that if the phone breaks at a given floor, it consistently breaks at that floor and all higher floors. But the company has given you only two Mithril II's to test, and once one of them breaks, it remains broken.\nWhat is the minimum number of drops needed to determine the minimum floor of breaking, or else to conclude that the phone will withstand dropping from any of the floors?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nHere is a strategy requiring at most 18 drops. Drop the first phone from the 18th floor. If it breaks, drop the second phone from floors $1, 2, \\ldots, 17$ in that order to determine the minimum breaking floor. Otherwise, drop the first phone from the $18+17=35$th floor. If it breaks, use the 16 remaining drops to test the second phone on floors 19 through 34. Otherwise, drop the first phone from the $18+17+16$th floor, and so on. If the first phone makes it to the $18+17+\\cdots+5=161$st floor, then there are 4 drops left, more than enough to test it on the last two floors.\n\nSuppose that there existed a strategy requiring at most 17 drops. There are 164 possible \"strengths\" of the Mithril II (the breaking floor could be $1, 2, \\ldots, 163$ or undefined). When the strategy is applied to one of these strengths, the result is a sequence of intact (I) or broken (B) outcomes containing at most two B's and having length at most 17. In fact, we can arrange for the sequence to have length exactly 17 by declaring that, if at a given point the strategy stops and declares the phone strength, the outcomes of any unused drops are arbitrarily designated I. Then each phone strength has a \"signature\" of 17 letters, each B or I, with at most two B's. But the number of possible signatures is only\n$$\n\\binom{17}{0} + \\binom{17}{1} + \\binom{17}{2} = 1 + 17 + 136 = 154\n$$\nThis shows that there are some two phone strengths that have the same signature and therefore cannot be distinguished by the claimed strategy."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-games-greedy-algorithms-auto-0350",
+      "name": "Berkeley Math Circle Monthly Contest 8 #0hse",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 8",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Games / greedy algorithms",
+        "Invariants / monovariants",
+        "Algorithms"
+      ],
+      "statement": "Problem:\n\nSuppose $2011$ light bulbs are arranged in a row. Each bulb has a button under it. Pressing the button will change the state of the bulb above it (on to off or vice versa) and will also change the two neighboring bulbs, or the single neighboring bulb in the case of one of the two end buttons. Is it always possible, regardless of the initial state of the bulbs, to turn them all off by pressing some buttons?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe answer is yes.\nLet us number the bulbs $1$ to $2011$ from left to right. Given any initial state of the bulbs, let us begin by following this algorithm: As long as at least one bulb other than bulb $1$ is on, let $n$ be the number of the rightmost lit bulb and push the button for bulb $n-1$. This will turn bulb $n$ off and move the location of the rightmost lit bulb to the left. We may continue until either (1) all bulbs are off or (2) only bulb $1$ is on. In the former case, we are done; in the latter case we then push the buttons marked $\\times$ :\n\n| 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | $\\cdots$ | 2007 | 2008 | 2009 | 2010 | 2011 |\n| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |\n| $\\times$ |  | $\\times$ | $\\times$ |  | $\\times$ | $\\times$ |  |  | $\\times$ | $\\times$ |  | $\\times$ | $\\times$ |\n\nIt is evident that every bulb will then change state twice, except the first, which will change state once. Thus all the bulbs will be turned off."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-games-greedy-algorithms-auto-0393",
+      "name": "Berkeley Math Circle: Monthly Contest 8 #0htl",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 8",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Games / greedy algorithms",
+        "Invariants / monovariants",
+        "Algorithms"
+      ],
+      "statement": "Problem:\n\nIt's a week before Thanksgiving, and a family is trying to find their turkey. There are 5 boxes in a row, and the turkey is hiding in one of the 5 boxes.\n\nEvery day, the family is allowed to check one box to try to find the turkey, and every night, the turkey moves to a box right next to the box it was in. For example, from box 3 it could move to box 2 or 4, and from box 5 it must move to box 4. Determine a strategy for the family to catch the turkey before Thanksgiving.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nOne strategy is as follows:\n\nFirst assume the turkey starts in an even numbered box (box 2 or 4). On day 1, check box 2. If the turkey is not there, he must have been in box 4 to begin with, so tomorrow he will be in box 3 or box 5. On day 2, check box 3. If the turkey is not there, then he must currently be in box 5 (since he started in box 4), so tomorrow he will be in box 4. Thus, on day 3, check box 4.\n\nIf he is not there, then the assumption that he began in an even numbered box must have been wrong. Thus, he started in an odd numbered box, which means on day 4 he will be in an even numbered box. Thus, we can repeat the same strategy of checking boxes 2, 3, and 4 on days 4, 5, and 6, and we are guaranteed to find the turkey in at most 6 days."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "discrete-mathematics-combinatorics-games-greedy-algorithms-auto-0735",
+      "name": "Berkeley Math Circle Monthly Contest #7 #0i33",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest #7",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Greatest common divisors (gcd)",
+        "Pigeonhole principle",
+        "Induction / smoothing",
+        "Games / greedy algorithms"
+      ],
+      "statement": "Problem:\nLet $a_{1}, a_{2}, a_{3}, \\ldots$ be a sequence of positive integers with the following property: if $S$ is any nonempty set of positive integers, there exists $s \\in S$ with $a_{s} \\leq \\operatorname{gcd}(S)$. Prove that $n!$ is divisible by $a_{1} a_{2} \\cdots a_{n}$ for every positive integer $n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFix $n$. Arrange the integers $a_{1}, \\ldots, a_{n}$ in nonincreasing order, $a_{i_{1}} \\geq a_{i_{2}} \\geq \\cdots \\geq a_{i_{n}}$. We claim there exists a bijective function $f:\\{1,2, \\ldots, n\\} \\rightarrow \\{1,2, \\ldots, n\\}$ such that $a_{i_{k}} \\mid f(k)$ for each $k=1,2, \\ldots, n$. To demonstrate this, we construct $f$ inductively. Suppose that $f(k)$ has been defined for all values of $k$ less than some $j$, and we wish to define $f(j)$. Let $d$ be the greatest common divisor of $i_{1}, i_{2}, \\ldots, i_{j}$. By the hypothesis, there exists some $i \\in \\{i_{1}, i_{2}, \\ldots, i_{j}\\}$ such that $a_{i} \\leq d$; since $a_{i_{j}} = \\min \\{a_{i_{1}}, a_{i_{2}}, \\ldots, a_{i_{j}}\\}$, we have $a_{i_{j}} \\leq a_{i} \\leq d$. Now, we know of $j$ distinct multiples of $d$ lying in the set $\\{1,2, \\ldots, n\\}$ (namely, $i_{1}, i_{2}, \\ldots, i_{j}$); this many multiples can only exist if $j d \\leq n$. Then, the numbers $a_{i_{j}}, 2 a_{i_{j}}, \\ldots, j a_{i_{j}}$ are also all in $\\{1,2, \\ldots, n\\}$, since $j a_{i_{j}} \\leq j d \\leq n$. At most $j-1$ of these can have been used up by the previously defined values $f(1), f(2), \\ldots, f(j-1)$, so some value is left over; we define $f(j)$ to be such a value. Then $a_{i_{j}} \\mid f(j)$, as required.\n\nSo we can recursively define $f(1), f(2), \\ldots, f(n)$ by the above method, and our construction ensures that $f$ is injective. Since it maps the finite set $\\{1,2, \\ldots, n\\}$ to itself, it must actually be bijective. Since $a_{i_{k}} \\mid f(k)$ for each $k$, we have\n$$\na_{1} a_{2} \\cdots a_{n} = a_{i_{1}} a_{i_{2}} \\cdots a_{i_{n}} \\mid f(1) f(2) \\cdots f(n) = 1 \\cdot 2 \\cdots n = n!$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

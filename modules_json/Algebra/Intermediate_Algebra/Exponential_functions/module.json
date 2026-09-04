@@ -1,0 +1,1194 @@
+{
+  "MODULE_ID": "algebra-intermediate-algebra-exponential-functions",
+  "practice": [
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-0009",
+      "name": "Berkeley Math Circle #0hix",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Exponential functions"
+      ],
+      "statement": "Problem:\n\nWhich is larger, $A=20^{19^{20}}$ or $B=19^{20^{19}}$? (Here, $a^{b^{c}}$ means $a^{\\left(b^{c}\right)}$ and not $\\left(a^{b}\right)^{c}$.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe answer is that $A$ is larger. First,\n$$\n\\begin{aligned}\n\\left(\\frac{19}{20}\\right)^{20} & = 0.95^{20} = 0.9025^{10} > 0.9^{10} \\\\\n& = 0.81^{5} = 0.8^{5} = 0.32768 > 0.05 = \\frac{1}{20}\n\\end{aligned}\n$$\nwhich implies that $19^{20} > 20^{19}$. Thus, $A = 20^{19^{20}} > 20^{20^{19}} > 19^{20^{19}} = B$, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-0065",
+      "name": "Berkeley Math Circle Monthly Contest 2 #0hkh",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 2",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Exponential functions"
+      ],
+      "statement": "Problem:\n\nArrange the following number from smallest to largest: $2^{1000}, 3^{750}, 5^{500}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSince all the numbers are positive, taking the $250$th root of each number will not change their ordering. The resulting numbers are $2^{4} = 16$, $3^{3} = 27$, and $5^{2} = 25$. These have the ordering $2^{4} < 5^{2} < 3^{3}$, so the ordering of the original numbers is $2^{1000} < 5^{500} < 3^{750}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-0078",
+      "name": "Berkeley Math Circle #0hku",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Exponential functions"
+      ],
+      "statement": "Problem:\nWhich is larger,\n$$\n3^{3^{3^{3}}} \\text{ or } 2^{2^{2^{2^{2}}}} ?\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nStarting to evaluate, the first expression becomes\n$$\nA = 3^{3^{3^{3}}} = 3^{3^{27}}.\n$$\nThe second expression is\n$$\nB = 2^{2^{2^{2^{2}}}} = 2^{2^{2^{4}}} = 2^{2^{16}}.\n$$\nIt is now obvious that\n$$\nA = 3^{3^{27}} > 3^{3^{16}} > 3^{2^{16}} > 2^{2^{16}} = B\n$$\nso the first expression is the larger one."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-0273",
+      "name": "Berkeley Math Circle #0hq9",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Diophantine Equations",
+        "Exponential functions"
+      ],
+      "statement": "Problem:\nLet $n$ be a positive integer. Prove that there exist distinct positive integers $x$, $y$, $z$ such that\n$$\nx^{n-1} + y^n = z^{n+1}.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nOne solution is\n$$\nx = 2^{n^2} 3^{n+1}, \\quad y = 2^{n^2 - n} 3^n, \\quad z = 2^{n^2 - 2n + 2} 3^{n-1}.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-0301",
+      "name": "Berkeley Math Circle Monthly Contest 3 #0hr1",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 3",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Techniques: modulo, size analysis, order analysis, inequalities",
+        "Exponential functions"
+      ],
+      "statement": "Problem:\nShow that there exist infinitely many triples of positive integers $x, y, z$ which satisfy $x^{999} + y^{1000} = z^{1001}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe will choose $x$, $y$, and $z$ to be powers of $2$ such that the terms $x^{999}$ and $y^{1000}$ are equal and $z^{1001}$ is their sum. Writing $x = 2^{a}$, $y = 2^{b}$, $z = 2^{c}$, we have the conditions\n$$\n999a = 1000b = 1001c - 1.\n$$\nThe first equation suggests that we try $a = 1000d$, $b = 999d$, which yields the equation\n$$\n999000d = 1001c - 1.\n$$\nSince $999000 = 1001 \\cdot 998 + 2$, we can rewrite this as\n$$\n2d = 1001(c - 998d) - 1.\n$$\nIt is now clear that we can plug any odd positive integer $2k + 1$ for $c - 998d$ and get an integer for $d$, and hence for $c$. The results are as follows:\n$$\n\\begin{aligned}\na & = 1000(1001k + 500) \\\\\nb & = 999(1001k + 500) \\\\\nc & = 999000k + 499001.\n\\end{aligned}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-0448",
+      "name": "MathNet #0hv4",
+      "url": "https://usamoguide.com/",
+      "source": "MathNet",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Exponential functions",
+        "Other"
+      ],
+      "statement": "Problem:\nLet $x = 2001^{1002} - 2001^{-1002}$ and $y = 2001^{1002} + 2001^{-1002}$. Find $x^2 - y^2$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe are given $x = 2001^{1002} - 2001^{-1002}$ and $y = 2001^{1002} + 2001^{-1002}$. We are to find $x^2 - y^2$.\n\nRecall that $x^2 - y^2 = (x - y)(x + y)$.\n\nCompute $x + y$ and $x - y$:\n\n$x + y = (2001^{1002} - 2001^{-1002}) + (2001^{1002} + 2001^{-1002}) = 2 \\times 2001^{1002}$\n\n$x - y = (2001^{1002} - 2001^{-1002}) - (2001^{1002} + 2001^{-1002}) = -2 \\times 2001^{-1002}$\n\nTherefore,\n\n$x^2 - y^2 = (x + y)(x - y) = [2 \\times 2001^{1002}] \\times [-2 \\times 2001^{-1002}] = -4 \\times 2001^{1002} \\times 2001^{-1002}$\n\n$2001^{1002} \\times 2001^{-1002} = 2001^{1002 - 1002} = 2001^0 = 1$\n\nSo,\n\n$x^2 - y^2 = -4 \\times 1 = -4$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-0511",
+      "name": "Berkeley Math Circle Monthly Contest 5 #0hwv",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 5",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Exponential functions",
+        "Factorization techniques"
+      ],
+      "statement": "Problem:\n\nDetermine if there exist positive integers $a, b, m, n$ such that $a \\neq b$, $m \\geq 2$, $n \\geq 2$, and\n$$\n\\underbrace{a^{a^{\\cdots a}}}_{m} = \\underbrace{b^{b^{\\cdots b}}}_{n}.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThere do not exist such positive integers. Assume for a contradiction that there do, however. We may assume $m > n$, so that $b > a$. Since we have equality between a power of $a$ and a power of $b$, $b$ is a rational power of $a$. We write $b = a^{x}$, where we know that $x \\geq 1$ is a rational number. Then we may rewrite the $b$ power tower (using $n \\geq 2$) as\n$$\n\\underbrace{b^{b^{\\cdots}}}_{n\\ b\\ \\text{'s}} = \\underbrace{a^{x a^{x b} \\cdots^{\\cdot b}}}_{n-2\\ b\\ \\text{'s}}\n$$\nOn the other hand, we know that this is equal to the power tower of $a$'s in the given equation, so removing the bottom $a$ gives\n$$\n\\underbrace{a^{a^{\\cdots a}}}_{m-1\\ a'\\mathrm{s}} = \\underbrace{x a^{x b^{\\cdots b}}}_{n-2\\ b\\ b'\\mathrm{s}}\n$$\nIn particular, this tells us that $x$ is a rational power of $a$, $x = a^{y}$ for some nonnegative rational number $y$. Substituting and again removing the bottom $a$ gives\n$$\n\\underbrace{a^{a^{\\cdots}}}_{m-2} = y + a^{y} \\underbrace{b^{b^{\\cdots}}}_{n-2}\n$$\nObserve that the right side is $y$ plus a rational power of $a$ (simply $a^{y}$ if $n=2$). Now consider the possibilities for this power $a^{p/q}$. If $p/q < 0$, then $y < 0$ and the right side of (2) is less than 1, an impossibility. So either $a^{p/q}$ is irrational (again impossible) or it is the $q$th root of a $q$th power, which is necessarily a positive integer. Then $y$ is also an integer, namely, the difference between the tower of $m-2$ $a$'s on the left and another power of $a$. Dividing both sides of (2) by $y$ indicates that $y$ is at least $1 - \\frac{1}{a} = \\frac{a-1}{a}$ times the tower of $m-2$ $a$'s, which is certainly larger than a power tower of $m-3$ $a$'s. But then $a^{y}$ is larger than a power tower of $m-2$ $a$'s, and clearly the right side of (2) is even larger than this, so we have a contradiction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-0551",
+      "name": "HMMT #0hxz",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Sums and products",
+        "Exponential functions",
+        "Logarithmic functions"
+      ],
+      "statement": "Problem:\nLet $f(x) = 1 + \\frac{x}{2} + \\frac{x^{2}}{4} + \\frac{x^{3}}{8} + \\ldots$, for $-1 \\leq x \\leq 1$. Find $\\sqrt{e^{\\int_{0}^{1} f(x) d x}}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nObserve that $f(x)$ is merely an infinite geometric series. Thus $f(x) = \\frac{1}{1 - \\frac{x}{2}} = \\frac{2}{2 - x}$.\n\nThen\n$$\n\\int_{0}^{1} \\frac{2}{2 - x} \\, dx = 2 \\int_{0}^{1} \\frac{1}{2 - x} \\, dx = 2 [ -\\ln|2 - x| ]_{0}^{1} = 2 ( -\\ln(1) + \\ln(2) ) = 2 \\ln 2.\n$$\n\nThen\n$$\n\\sqrt{e^{2 \\ln 2}} = \\sqrt{2^{2}} = 2.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-0748",
+      "name": "Harvard-MIT Math Tournament #0i3g",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Exponential functions"
+      ],
+      "statement": "Problem:\nOrder these four numbers from least to greatest: $5^{56}, 10^{51}, 17^{35}, 31^{28}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n$10^{51} > 9^{51} = 3^{102} = 27^{34} > 17^{35} > 16^{35} = 32^{28} > 31^{28} > 25^{28} = 5^{56}$, so the ordering is $5^{56}, 31^{28}, 17^{35}, 10^{51}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-0767",
+      "name": "Harvard-MIT Math Tournament #0i3z",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Techniques: modulo, size analysis, order analysis, inequalities",
+        "Exponential functions"
+      ],
+      "statement": "Problem:\nFind the number of positive integer solutions to $n^{x} + n^{y} = n^{z}$ with $n^{z} < 2001$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nIf $n = 1$, the relation cannot hold, so assume otherwise. If $x > y$, the left hand side factors as $n^{y} (n^{x-y} + 1)$ so $n^{x-y} + 1$ is a power of $n$. But it leaves a remainder of $1$ when divided by $n$ and is greater than $1$, a contradiction. We reach a similar contradiction if $y > x$. So $y = x$ and $2 n^{x} = n^{z}$, so $2$ is a power of $n$ and $n = 2$. So all solutions are of the form $2^{x} + 2^{x} = 2^{x+1}$, which holds for all $x$. $2^{x+1} < 2001$ implies $x < 11$, so there are $10$ solutions."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-1159",
+      "name": "Harvard-MIT Mathematics Tournament #0iev",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Exponential functions",
+        "Logarithmic functions",
+        "Sums and products"
+      ],
+      "statement": "Problem:\nCompute\n$$\n\\sqrt[{2 \\sqrt{2 \\sqrt[3]{2 \\sqrt[4]{2 \\sqrt[5]{2 \\cdots}}}}}]{ }\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nTaking the base $2$ logarithm of the expression gives\n$$\n1+\\frac{1}{2}\\left(1+\\frac{1}{3}\\left(1+\\frac{1}{4}(1+\\cdots)\\right)\\right)=1+\\frac{1}{2!}+\\frac{1}{3!}+\\frac{1}{4!}+\\cdots=e-1.\n$$\nTherefore the expression is just $2^{e-1}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-1163",
+      "name": "Harvard-MIT Mathematics Tournament #0iez",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Exponential functions"
+      ],
+      "statement": "Problem:\nHow many real numbers $x$ are solutions to the following equation?\n$$\n2003^{x} + 2004^{x} = 2005^{x}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nRewrite the equation as $(2003 / 2005)^{x} + (2004 / 2005)^{x} = 1$. The left side is strictly decreasing in $x$, so there cannot be more than one solution. On the other hand, the left side equals $2 > 1$ when $x = 0$ and goes to $0$ when $x$ is very large, so it must equal $1$ somewhere in between. Therefore there is one solution."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-1173",
+      "name": "Harvard-MIT Mathematics Tournament #0if9",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Exponential functions",
+        "Logarithmic functions",
+        "Polynomial operations",
+        "Sums and products"
+      ],
+      "statement": "Problem:\nFind\n$$\n\\{\\ln (1+e)\\}+\\left\\{\\ln \\left(1+e^{2}\\right)\\right\\}+\\left\\{\\ln \\left(1+e^{4}\\right)\\right\\}+\\left\\{\\ln \\left(1+e^{8}\\right)\\right\\}+\\cdots,\n$$\nwhere $\\{x\\}=x-\\lfloor x\\rfloor$ denotes the fractional part of $x$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n$1-\\ln (e-1)$\n\nSince $\\ln \\left(1+e^{2^{k}}\\right)$ is just larger than $2^{k}$, its fractional part is $\\ln \\left(1+e^{2^{k}}\\right)-\\ln e^{2^{k}}=\\ln \\left(1+e^{-2^{k}}\\right)$. But now notice that\n$$\n\\prod_{k=0}^{n}\\left(1+x^{2^{k}}\\right)=1+x+x^{2}+\\cdots+x^{2^{n+1}-1}\n$$\n(This is easily proven by induction or by noting that every nonnegative integer less than $2^{n+1}$ has a unique ( $n+1$ )-bit binary expansion.) If $|x|<1$, this product converges to $\\frac{1}{1-x}$ as $n$ goes to infinity. Therefore,\n$$\n\\sum_{k=0}^{\\infty} \\ln \\left(1+e^{-2^{k}}\\right)=\\ln \\prod_{k=0}^{\\infty}\\left(1+\\left(e^{-1}\\right)^{2^{k}}\\right)=\\ln \\frac{1}{1-e^{-1}}=\\ln \\frac{e}{e-1}=1-\\ln (e-1)\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-1248",
+      "name": "Harvard-MIT Mathematics Tournament #0ihc",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Sums and products",
+        "Exponential functions"
+      ],
+      "statement": "Problem:\nCompute\n$$\n\\sum_{k=0}^{\\infty} \\frac{4}{(4 k)!}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution: $e + 1 / e + 2 \\cos 1$\nThis is the power series\n$$\n4 + \\frac{4 x^{4}}{4!} + \\frac{4 x^{8}}{8!} + \\cdots\n$$\nevaluated at $x = 1$. But this power series can be written as the sum\n$$\n\\begin{aligned}\n& \\left(1 + \\frac{x}{1!} + \\frac{x^{2}}{2!} + \\frac{x^{3}}{3!} + \\frac{x^{4}}{4!} + \\frac{x^{5}}{5!} + \\frac{x^{6}}{6!} + \\frac{x^{7}}{7!} + \\cdots\\right) \\\\\n+ & \\left(1 - \\frac{x}{1!} + \\frac{x^{2}}{2!} - \\frac{x^{3}}{3!} + \\frac{x^{4}}{4!} - \\frac{x^{5}}{5!} + \\frac{x^{6}}{6!} - \\frac{x^{7}}{7!} + \\cdots\\right) \\\\\n+ & 2\\left(1 - \\frac{x^{2}}{2!} + \\frac{x^{4}}{4!} - \\frac{x^{6}}{6!} + \\cdots\\right) \\\\\n= & e^{x} + e^{-x} + 2 \\cos x .\n\\end{aligned}\n$$\nIt follows that the quantity is $e + 1 / e + 2 \\cos 1$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-1566",
+      "name": "11th Annual Harvard-MIT Mathematics Tournament #0iq6",
+      "url": "https://usamoguide.com/",
+      "source": "11th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Exponential functions",
+        "Integers"
+      ],
+      "statement": "Problem:\nLet $f(n)$ be the number of times you have to hit the $\\sqrt{\\ }$ key on a calculator to get a number less than $2$ starting from $n$. For instance, $f(2)=1$, $f(5)=2$. For how many $1 < m < 2008$ is $f(m)$ odd?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $242$ This is $[2^{1}, 2^{2}) \\cup [2^{4}, 2^{8}) \\cup [2^{16}, 2^{32}) \\ldots$, and $2^{8} < 2008 < 2^{16}$ so we have exactly the first two intervals."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-1611",
+      "name": "Berkeley Math Circle Monthly Contest 2 #0irf",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 2",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Exponential functions"
+      ],
+      "statement": "Problem:\n\nLet $a$, $b$, and $c$ be positive real numbers satisfying $a^{b} > b^{a}$ and $b^{c} > c^{b}$. Does it follow that $a^{c} > c^{a}$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nYes. We have\n$$\n\\left(a^{c}\\right)^{b} = \\left(a^{b}\\right)^{c} > \\left(b^{a}\\right)^{c} = \\left(b^{c}\\right)^{a} > \\left(c^{b}\\right)^{a} = \\left(c^{a}\\right)^{b} ;\n$$\nthe desired inequality follows by taking the $b$th root."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-1669",
+      "name": "1st Annual Harvard-MIT November Tournament #0it1",
+      "url": "https://usamoguide.com/",
+      "source": "1st Annual Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Exponential functions"
+      ],
+      "statement": "Problem:\n\nWe say \"$s$ grows to $r$\" if there exists some integer $n > 0$ such that $s^{n} = r$. Call a real number $r$ \"sparse\" if there are only finitely many real numbers $s$ that grow to $r$. Find all real numbers that are sparse.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $-1, 0, 1$\n\nFor any number $x$, other than these, $3, x, \\sqrt[3]{x}, \\sqrt[5]{x}, \\sqrt[7]{x}, \\ldots$ provide infinitely many possible values of $s$, so these are the only possible sparse numbers. On the other hand, $-1$ is the only possible value of $s$ for $r = -1$, $0$ is the only value for $r = 0$, and $-1$ and $1$ are the only values for $r = 1$. Therefore, $-1, 0$, and $1$ are all sparse."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-1689",
+      "name": "1st Annual Harvard-MIT November Tournament #0itl",
+      "url": "https://usamoguide.com/",
+      "source": "1st Annual Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Exponential functions"
+      ],
+      "statement": "Problem:\nFind the product of all real $x$ for which\n$$\n2^{3x+1} - 17 \\cdot 2^{2x} + 2^{x+3} = 0\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe can re-write the equation as $2^{x}\\left(2 \\cdot (2^{x})^{2} - 17 \\cdot 2^{x} + 8\\right) = 0$, or $2 \\cdot (2^{x})^{2} - 17 \\cdot 2^{x} + 8 = 0$. Make the substitution $y = 2^{x}$. Then we have $2y^{2} - 17y + 8 = 0$, which has solutions (by the quadratic formula) $y = \\frac{17 \\pm \\sqrt{289 - 64}}{4} = \\frac{17 \\pm 15}{4} = 8, \\frac{1}{2}$, so $2^{x} = 8, \\frac{1}{2}$ and $x = 3, -1$. The product of these numbers is $-3$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-1839",
+      "name": "Harvard-MIT Mathematics Tournament #0ixr",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial operations",
+        "Sums and products",
+        "Exponential functions"
+      ],
+      "statement": "Problem:\nLet $p_{0}(x), p_{1}(x), p_{2}(x), \\ldots$ be polynomials such that $p_{0}(x) = x$ and for all positive integers $n$, $\\frac{d}{dx} p_{n}(x) = p_{n-1}(x)$. Define the function $p(x): [0, \\infty) \\to \\mathbb{R}$ by $p(x) = p_{n}(x)$ for all $x \\in [n, n+1]$. Given that $p(x)$ is continuous on $[0, \\infty)$, compute\n$$\n\\sum_{n=0}^{\\infty} p_{n}(2009)\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nBy writing out the first few polynomials, one can guess and then show by induction that $p_{n}(x) = \\frac{1}{(n+1)!}(x+1)^{n+1} - \\frac{1}{n!} x^{n}$. Thus the sum evaluates to $e^{2010} - e^{2009} - 1$ by the series expansion of $e^{x}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-1993",
+      "name": "Harvard-MIT Mathematics Tournament #0j21",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Exponential functions",
+        "Determinants"
+      ],
+      "statement": "Problem:\nLet\n$$\n\\begin{gathered}\ne^{x}+e^{y}=A \\\\\nx e^{x}+y e^{y}=B \\\\\nx^{2} e^{x}+y^{2} e^{y}=C \\\\\nx^{3} e^{x}+y^{3} e^{y}=D \\\\\nx^{4} e^{x}+y^{4} e^{y}=E .\n\\end{gathered}\n$$\nProve that if $A, B, C$, and $D$ are all rational, then so is $E$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe can express $x+y$ in two ways:\n$$\n\\begin{aligned}\n& x+y=\\frac{A D-B C}{A C-B^{2}} \\\\\n& x+y=\\frac{A E-C^{2}}{A D-B C}\n\\end{aligned}\n$$\n(We have to be careful if $A C-B^{2}$ or $A D-B C$ is zero. We'll deal with that case later.) It is easy to check that these equations hold by substituting the expressions for $A, B, C, D$, and $E$. Setting these two expressions for $x+y$ equal to each other, we get\n$$\n\\frac{A D-B C}{A C-B^{2}}=\\frac{A E-C^{2}}{A D-B C}\n$$\nwhich we can easily solve for $E$ as a rational function of $A, B, C$, and $D$. Therefore if $A, B, C$, and $D$ are all rational, then $E$ will be rational as well.\n\nNow, we have to check what happens if $A C-B^{2}=0$ or $A D-B C=0$. If $A C-B^{2}=0$, then writing down the expressions for $A, B$, and $C$ gives us that $(x-y)^{2} e^{x+y}=0$, meaning that $x=y$. If $x=y$, and $x \\neq 0, A$ and $D$ are also non-zero, and $\\frac{B}{A}=\\frac{E}{D}=x$. Since $\\frac{B}{A}$ is rational and $D$ is rational, this implies that $E$ is rational. If $x=y=0$, then $E=0$ and so is certainly rational.\n\nWe finally must check what happens if $A D-B C=0$. Since $A D-B C=(x+y)\\left(A C-B^{2}\\right)$, either $A C-B^{2}=0$ (a case we have already dealt with), or $x+y=0$. But if $x+y=0$ then $A E-C^{2}=0$, which implies that $E=\\frac{C^{2}}{A}$ (we know that $A \\neq 0$ because $e^{x}$ and $e^{y}$ are both positive). Since $A$ and $C$ are rational, this implies that $E$ is also rational.\n\nSo, we have shown $E$ to be rational in all cases, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-2166",
+      "name": "Harvard-MIT November Tournament #0j6u",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Exponential functions"
+      ],
+      "statement": "Problem:\n\nLet $x$ be a real number such that $2^{x} = 3$. Determine the value of $4^{3x+2}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe have\n$$\n4^{3x+2} = 4^{3x} \\cdot 4^{2} = \\left(2^{2}\\right)^{3x} \\cdot 16 = 2^{6x} \\cdot 16 = \\left(2^{x}\\right)^{6} \\cdot 16 = 3^{6} \\cdot 16 = 11664\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-2252",
+      "name": "HMMT November 2012 #0j98",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2012",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Exponential functions"
+      ],
+      "statement": "Problem:\nIf $4^{4^{4}} = \\sqrt[128]{2^{2^{2^{n}}}}$, find $n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe rewrite the left hand side as\n$$\n\\left(2^{2}\\right)^{4^{4}} = 2^{2 \\cdot 4^{4}} = 2^{2^{9}},\n$$\nand the right hand side as\n$$\n\\left(2^{2^{2^{n}}}\\right)^{\\frac{1}{128}} = 2^{2^{2^{n}} \\cdot \\frac{1}{128}} = 2^{2^{2^{n} - 7}}.\n$$\nEquating, we find $2^{n} - 7 = 9$, yielding $n = 4$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-2273",
+      "name": "15th Annual Harvard-MIT Mathematics Tournament #0j9t",
+      "url": "https://usamoguide.com/",
+      "source": "15th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Exponential functions"
+      ],
+      "statement": "Problem:\n\nMark and William are playing a game. Two walls are placed 1 meter apart, with Mark and William each starting an orb at one of the walls. Simultaneously, they release their orbs directly toward the other. Both orbs are enchanted such that, upon colliding with each other, they instantly reverse direction and go at double their previous speed. Furthermore, Mark has enchanted his orb so that when it collides with a wall it instantly reverses direction and goes at double its previous speed (William's reverses direction at the same speed). Initially, Mark's orb is moving at $\\frac{1}{1000}$ meters/s, and William's orb is moving at 1 meter/s. Mark wins when his orb passes the halfway point between the two walls. How fast, in meters/s, is his orb going when this first happens?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n$2^{17} / 125$ If the two orbs leave their respective walls at the same time, then they will return to their walls at the same time (because colliding affects both their speeds). After returning to the wall $n$ times, Mark's orb will travel at $\\frac{4^{n}}{1000}$ meter/s and William's will travel at $2^{n}$ meter/s. Mark wins when his orb is traveling faster at $n=10$. $\\frac{4^{10}}{1000}=\\frac{2^{17}}{125}$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-2280",
+      "name": "HMMT November 2012 #0ja0",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2012",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Exponential functions"
+      ],
+      "statement": "Problem:\nIf $x^{x} = 2012^{2012^{2013}}$, find $x$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $2012^{2012}$\nWe have\n$$\n2012^{2012^{2013}} = 2012^{2012 \\cdot 2012^{2012}} = \\left(2012^{2012}\\right)^{2012^{2012}}.\n$$\nThus, $x = 2012^{2012}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-2302",
+      "name": "HMMT November 2012 #0jam",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2012",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Exponential functions"
+      ],
+      "statement": "Problem:\nFind the smallest positive integer $n$ such that $\\underbrace{2^{2^{2 \\cdots}}}_{n} > 3^{3^{3^{3}}}$. (The notation $\\underbrace{2^{2^{2 \\cdots}}}_{n}$ is used to denote a power tower with $n$ $2$'s. For example, $\\underbrace{2^{2^{2^{2}}}}_{n=4}$ would equal $2^{2^{2^{2}}}$.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: 6\n\nClearly, $n \\geq 5$. When we take $n=5$, we have\n$$\n2^{2^{2^{2^{2}}}} = 2^{2^{16}} < 3^{3^{27}} = 3^{3^{3^{3}}}.\n$$\nOn the other hand, when $n=6$, we have\n$$\n2^{2^{2^{2^{2^{2}}}}} = 2^{2^{65536}} = 4^{2^{65535}} > 4^{4^{27}} > 3^{3^{2^{27}}} = 3^{3^{3^{3}}}.\n$$\nOur answer is thus $n=6$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-2360",
+      "name": "Harvard-MIT Mathematics Tournament #0jc8",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Exponential functions",
+        "Logarithmic functions"
+      ],
+      "statement": "Problem:\n\nLet $\\otimes$ be a binary operation that takes two positive real numbers and returns a positive real number. Suppose further that $\\otimes$ is continuous, commutative $(a \\otimes b = b \\otimes a)$, distributive across multiplication $(a \\otimes (b c) = (a \\otimes b)(a \\otimes c))$, and that $2 \\otimes 2 = 4$. Solve the equation $x \\otimes y = x$ for $y$ in terms of $x$ for $x > 1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $y = \\sqrt{2}$\n\nWe note that $\\left(a \\otimes b^{k}\\right) = (a \\otimes b)^{k}$ for all positive integers $k$. Then for all rational numbers $\\frac{p}{q}$ we have $a \\otimes b^{\\frac{p}{q}} = \\left(a \\otimes b^{\\frac{1}{q}}\\right)^{p} = (a \\otimes b)^{\\frac{p}{q}}$. So by continuity, for all real numbers $a, b$, it follows that $2^{a} \\otimes 2^{b} = (2 \\otimes 2)^{a b} = 4^{a b}$. Therefore given positive reals $x, y$, we have\n\n$x \\otimes y = 2^{\\log_{2}(x)} \\otimes 2^{\\log_{2}(y)} = 4^{\\log_{2}(x) \\log_{2}(y)}$.\n\nIf $x = 4^{\\log_{2}(x) \\log_{2}(y)} = 2^{2 \\log_{2}(x) \\log_{2}(y)}$ then $\\log_{2}(x) = 2 \\log_{2}(x) \\log_{2}(y)$ and $1 = 2 \\log_{2}(y) = \\log_{2}\\left(y^{2}\\right)$. Thus $y = \\sqrt{2}$ regardless of $x$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-2418",
+      "name": "HMMT 2013 #0jdu",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2013",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Exponential functions"
+      ],
+      "statement": "Problem:\nFind the smallest positive integer $n$ such that\n$$\n\\frac{5^{n+1} + 2^{n+1}}{5^{n} + 2^{n}} > 4.99.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWriting $5^{n+1} = 5 \\cdot 5^{n}$ and $2^{n+1} = 2 \\cdot 2^{n}$ and cross-multiplying yields $0.01 \\cdot 5^{n} > 2.99 \\cdot 2^{n}$, and re-arranging yields $(2.5)^{n} > 299$. A straightforward calculation shows that the smallest $n$ for which this is true is $n = 7$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-2492",
+      "name": "HMMT 2013 #0jfw",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2013",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Sums and products",
+        "Exponential functions",
+        "Logarithmic functions"
+      ],
+      "statement": "Problem:\n\nCompute the value of $1^{25} + 2^{24} + 3^{23} + \\ldots + 24^{2} + 25^{1}$. If your answer is $A$ and the correct answer is $C$, then your score on this problem will be $\\left\\lfloor 25 \\min \\left(\\left(\\frac{A}{C}\\right)^{2}, \\left(\\frac{C}{A}\\right)^{2}\\right)\\right\\rfloor$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: 66071772829247409\n\nThe sum is extremely unimodal, so we want to approximate it using its largest term. Taking logs of each term, we see that the max occurs when $(26-n) \\log n$ peaks, and taking derivatives gives\n$$\nx + x \\log x = 26\n$$\nFrom here it's easy to see that the answer is around $10$, and slightly less (it's actually about $8.3$, but in any case it's hard to find powers of anything except $10$). Thus the largest term will be something like $10^{16}$, which is already an order of magnitude within the desired answer $6.6 \\times 10^{16}$.\n\nTo do better we'd really need to understand the behavior of the function $x^{26-x}$, but what approximately happens is that only the four or five largest terms in the sum are of any substantial size; thus it is reasonable here to pick some constant from $4$ to $20$ to multiply our guess $10^{16}$; any guess between $4.0 \\times 10^{16}$ and $2.0 \\times 10^{17}$ is reasonable."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-2497",
+      "name": "HMMT November 2013 #0jg1",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2013",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Exponential functions",
+        "Logarithmic functions"
+      ],
+      "statement": "Problem:\nPick a subset of at least four of the following seven numbers, order them from least to greatest, and write down their labels (corresponding letters from $A$ through $G$) in that order:\n\n$(A)$ $\\pi$;\n\n$(B)$ $\\sqrt{2}+\\sqrt{3}$;\n\n$(C)$ $\\sqrt{10}$;\n\n$(D)$ $\\frac{355}{113}$;\n\n$(E)$ $16 \\tan^{-1} \\frac{1}{5} - 4 \\tan^{-1} \\frac{1}{240}$;\n\n$(F)$ $\\ln(23)$;\n\n$(G)$ $2^{\\sqrt{e}}$.\n\nIf the ordering of the numbers you picked is correct and you picked at least 4 numbers, then your score for this problem will be $(N-2)(N-3)$, where $N$ is the size of your subset; otherwise, your score is $0$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $F, G, A, D, E, B, C$ OR $F<G<A<D<E<B<C$ OR $C>B>E>D>A>G>F$\n\nWe have $\\ln(23) < 2^{\\sqrt{e}} < \\pi < \\frac{355}{113} < 16 \\tan^{-1} \\frac{1}{5} - 4 \\tan^{-1} \\frac{1}{240} < \\sqrt{2} + \\sqrt{3} < \\sqrt{10}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-2732",
+      "name": "HMMT November 2014 #0jmk",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2014",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Exponential functions",
+        "Logarithmic functions"
+      ],
+      "statement": "Problem:\nFind the number of digits in the decimal representation of $2^{41}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $13$\n\nNoticing that $2^{10} = 1024 \\approx 1000$ allows for a good estimate. Alternatively, the number of decimal digits of $n$ is given by $\\left\\lfloor \\log_{10}(n) \\right\\rfloor + 1$. Using $\\log_{10}(2) \\approx 0.31$ also gives the correct answer. The exact value of $2^{41}$ is $2199023255552$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-2975",
+      "name": "HMMT February #0jtb",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Sums and products",
+        "Exponential functions",
+        "Logarithmic functions"
+      ],
+      "statement": "Problem:\nLet $t=2016$ and $p=\\ln 2$. Evaluate in closed form the sum\n$$\n\\sum_{k=1}^{\\infty}\\left(1-\\sum_{n=0}^{k-1} \\frac{e^{-t} t^{n}}{n!}\\right)(1-p)^{k-1} p\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $q=1-p$. Then\n$$\n\\begin{aligned}\n\\sum_{k=1}^{\\infty}\\left(1-\\sum_{n=0}^{k-1} \\frac{e^{-t} t^{n}}{n!}\\right) q^{k-1} p & =\\sum_{k=1}^{\\infty} q^{k-1} p-\\sum_{k=1}^{\\infty} \\sum_{n=0}^{k-1} \\frac{e^{-t} t^{n}}{n!} q^{k-1} p \\\\\n& =1-\\sum_{k=1}^{\\infty} \\sum_{n=0}^{k-1} \\frac{e^{-t} t^{n}}{n!} q^{k-1} p \\\\\n& =1-\\sum_{n=0}^{\\infty} \\sum_{k=n+1}^{\\infty} \\frac{e^{-t} t^{n}}{n!} q^{k-1} p \\\\\n& =1-\\sum_{n=0}^{\\infty} \\frac{e^{-t} t^{n}}{n!} q^{n} \\\\\n& =1-\\sum_{n=0}^{\\infty} \\frac{e^{-t}(q t)^{n}}{n!}=1-e^{-t} e^{q t}=1-e^{-p t}\n\\end{aligned}\n$$\nThus the answer is $1-\\left(\\frac{1}{2}\\right)^{2016}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-3179",
+      "name": "HMMT November 2017 #0jyz",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2017",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Exponential functions"
+      ],
+      "statement": "Problem:\n\nMary has a sequence $m_{2}, m_{3}, m_{4}, \\ldots$, such that for each $b \\geq 2$, $m_{b}$ is the least positive integer $m$ for which none of the base-$b$ logarithms $\\log_{b}(m), \\log_{b}(m+1), \\ldots, \\log_{b}(m+2017)$ are integers. Find the largest number in her sequence.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nIt is not difficult to see that for all of the logarithms to be non-integers, they must lie strictly between $n$ and $n+1$ for some integer $n$. Therefore, we require $b^{n+1} - b^{n} > 2018$, and so $m_{b} = b^{n} + 1$ where $n$ is the smallest integer that satisfies the inequality. In particular, this means that $b^{n} - b^{n-1} \\leq 2018$.\n\nNote that $m_{2} = 2^{11} + 1 = 2049$ (since $2^{12} - 2^{11} = 2048 > 2018$) and $m_{3} = 3^{7} + 1 = 2188$ (since $3^{8} - 3^{7} = 4374 > 2018$). We now show that $2188$ is the maximum possible value for $m_{b}$.\n\nIf $n = 0$, then $m_{b} = 1 + 1 = 2$.\n\nIf $n = 1$, then $b - 1 \\leq 2018$ and thus $m_{b} = b + 1 \\leq 2020$.\n\nIf $n = 2$, then $b^{2} - b \\leq 2018$, which gives $b \\leq 45$, and thus $m_{b} = b^{2} + 1 \\leq 2018 + b + 1 \\leq 2065$.\n\nIf $n = 3$, then $b^{3} - b^{2} \\leq 2018$, which gives $b \\leq 12$, and thus $m_{b} = b^{3} + 1 \\leq 12^{3} + 1 = 1729$.\n\nIf $n = 4$, then $b^{4} - b^{3} \\leq 2018$, which gives $b \\leq 6$, and thus $m_{b} = b^{4} + 1 \\leq 6^{4} + 1 = 1297$.\n\nIt then remains to check the value of $m_{4}$ and $m_{5}$. Indeed, $m_{4} = 4^{5} + 1 = 1025$ and $m_{5} = 5^{4} + 1 = 626$, so no values of $m_{b}$ exceeds $2188$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-3441",
+      "name": "HMMT February 2019 #0k69",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2019",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recurrence relations",
+        "Sums and products",
+        "Linear and quadratic inequalities",
+        "Exponential functions"
+      ],
+      "statement": "Problem:\n\nIn the Year $0$ of Cambridge there is one squirrel and one rabbit. Both animals multiply in numbers quickly. In particular, if there are $m$ squirrels and $n$ rabbits in Year $k$, then there will be $2 m + 2019$ squirrels and $4 n - 2$ rabbits in Year $k+1$. What is the first year in which there will be strictly more rabbits than squirrels?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nIn year $k$, the number of squirrels is\n$$\n2(2(\\cdots(2 \\cdot 1 + 2019) + 2019) + \\cdots) + 2019 = 2^{k} + 2019 \\cdot \\left(2^{k-1} + 2^{k-2} + \\cdots + 1\\right) = 2020 \\cdot 2^{k} - 2019\n$$\nand the number of rabbits is\n$$\n4(4(\\cdots(4 \\cdot 1 - 2) - 2) - \\cdots) - 2 = 4^{k} - 2 \\cdot \\left(4^{k-1} + 4^{k-2} + \\cdots + 1\\right) = \\frac{4^{k} + 2}{3}\n$$\nFor the number of rabbits to exceed that of squirrels, we need\n$$\n4^{k} + 2 > 6060 \\cdot 2^{k} - 6057 \\Leftrightarrow 2^{k} > 6059\n$$\nSince $2^{13} > 6059 > 2^{12}$, $k = 13$ is the first year for which there are more rabbits than squirrels."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-3466",
+      "name": "HMMT February 2019 #0k6y",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2019",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Exponential functions"
+      ],
+      "statement": "Problem:\nLet $N=2^{\\left(2^{2}\\right)}$ and $x$ be a real number such that $N^{\\left(N^{N}\\right)}=2^{\\left(2^{x}\\right)}$. Find $x$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe compute\n$$\nN^{\\left(N^{N}\\right\\)}=16^{16^{16}}=2^{4 \\cdot 2^{4 \\cdot 2^{4}}}=2^{2^{2^{6}+2}}=2^{2^{66}}\n$$\nso $x=66$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-3479",
+      "name": "HMMT February 2019 #0k7b",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2019",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Exponential functions",
+        "Other"
+      ],
+      "statement": "Problem:\nFind the smallest positive integer $n$ such that\n$$\n\\underbrace{2^{2^{2} \\cdots^{2}}}_{n\\ 2\\text{\\prime}s} > \\underbrace{((\\cdots((100!)!)!\\cdots)!)!}_{100 \\text{ factorials }}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nNote that $2^{2^{2^{2}}} > 100^{2}$. We claim that $a > b^{2} \\Longrightarrow 2^{a} > (b!)^{2}$, for $b > 2$. This is because\n$$\n2^{a} > b^{2b} \\Longleftrightarrow a > 2b \\log_{2}(b)\n$$\nand $\\log_{2}(b) < b^{2}/2$ for $b > 2$. Then since $b^{b} > b!$ this bound works. Then\n$$\n\\underbrace{\\left(2^{2^{2^{\\cdots 2}}}\\right)}_{m\\ 2\\text{\\prime}s} > \\underbrace{((((100!)!)!)!\\ldots)^{2}}_{m-4 \\text{ factorials }}\n$$\nfor all $m \\geq 4$ by induction. So $n = 104$ works. The lower bound follows from the fact that $n! > 2^{n}$ for $n > 3$, and since $100 > 2^{2^{2}}$, we have\n$$\n\\underbrace{(((100!)!)!)!\\ldots)}_{100 \\text{ factorials }} > \\underbrace{2^{2 \\cdots^{2^{100}}}}_{100\\ 2\\text{\\prime}s} > \\underbrace{2^{2^{2}}}_{103\\ 2\\text{\\prime}s}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-3709",
+      "name": "HMMT February 2020 #0kdp",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2020",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Sums and products",
+        "Exponential functions",
+        "Logarithmic functions"
+      ],
+      "statement": "Problem:\nEstimate\n$$\nN = \\prod_{n=1}^{\\infty} n^{n^{-1.25}}\n$$\nAn estimate of $E > 0$ will receive $\\lfloor 22 \\min (N / E, E / N) \\rfloor$ points.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe approximate\n$$\n\\ln N = \\sum_{n=1}^{\\infty} \\frac{\\ln n}{n^{5/4}}\n$$\nwith an integral as\n$$\n\\begin{aligned}\n\\int_{1}^{\\infty} \\frac{\\ln x}{x^{5/4}} \\, dx & = \\left.\\left(-4 x^{-1/4} \\ln x - 16 x^{-1/4}\\right)\\right|_{1}^{\\infty} \\\\\n& = 16\n\\end{aligned}\n$$\nTherefore $e^{16}$ is a good approximation. We can estimate $e^{16}$ by repeated squaring:\n$$\n\\begin{aligned}\ne & \\approx 2.72 \\\\\ne^{2} & \\approx 7.4 \\\\\ne^{4} & \\approx 55 \\\\\ne^{8} & \\approx 3000 \\\\\ne^{16} & \\approx 9000000\n\\end{aligned}\n$$\nThe true value of $e^{16}$ is around 8886111, which is reasonably close to the value of $N$. Both $e^{16}$ and 9000000 would be worth 20 points."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-3738",
+      "name": "HMMT February 2020 #0kei",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2020",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "φ (Euler's totient)",
+        "Exponential functions",
+        "Floors and ceilings"
+      ],
+      "statement": "Problem:\nA positive integer $N$ is piquant if there exists a positive integer $m$ such that if $n_{i}$ denotes the number of digits in $m^{i}$ (in base 10), then $n_{1}+n_{2}+\\cdots+n_{10}=N$. Let $p_{M}$ denote the fraction of the first $M$ positive integers that are piquant. Find $\\lim _{M \\rightarrow \\infty} p_{M}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFor notation, let $n_{i}(m)$ denote the number of digits of $m^{i}$ and $N(m)=n_{1}(m)+n_{2}(m)+\\cdots+n_{10}(m)$. Observe that $n_{i}(10 m)=n_{i}(m)+i$ so $N(10 m)=N(m)+55$. We will determine, for $k \\rightarrow \\infty$, how many of the integers from $N\\left(10^{k}\\right)$ to $N\\left(10^{k+1}\\right)-1$, inclusive, are piquant.\n\nIncrement $m$ by 1 from $10^{k}$ to $10^{k+1}$. The number of digits of $m^{i}$ increases by one if $m^{i}<10^{h} \\leq (m+1)^{i}$, or $m<10^{\\frac{h}{i}} \\leq m+1$ for some integer $h$. This means that, as we increment $m$ by 1, the sum $n_{1}+n_{2}+\\cdots+n_{10}$ increases when $m$ \"jumps over\" $10^{\\frac{h}{i}}$ for $i \\leq 10$. Furthermore, when $m$ is big enough, all \"jumps\" are distinguishable, i.e. there does not exist two $\\frac{h_{1}}{i_{1}} \\neq \\frac{h_{2}}{i_{2}}$ such that $m<10^{h_{1} / i_{1}}<10^{h_{2} / i_{2}} \\leq m+1$.\n\nThus, for large $k$, the number of times $n_{1}(m)+n_{2}(m)+\\cdots+n_{10}(m)$ increases as $m$ increments by 1 from $10^{k}$ to $10^{k+1}$ is the number of different $10^{\\frac{h}{i}}$ in the range $\\left(10^{k}, 10^{k+1}\\right.]$. If we take the fractional part of the exponent, this is equivalent to the number of distinct fractions $0<\\frac{j}{i} \\leq 1$ where $1 \\leq i \\leq 10$. The number of such fractions with denominator $i$ is $\\varphi(i)$, so the total number of such fractions is $\\varphi(1)+\\varphi(2)+\\cdots+\\varphi(10)=32$.\n\nWe have shown that for sufficiently large $k, N\\left(10^{k+1}\\right)-N\\left(10^{k}\\right)=55$ and exactly 32 integers in the range $\\left[N\\left(10^{k}\\right), N\\left(10^{k+1}\\right)\\right)$ are piquant. This implies that $\\lim _{M \\rightarrow \\infty} p_{M}=\\frac{32}{55}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-3803",
+      "name": "Berkeley Math Circle: Monthly Contest 1 #0kgb",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Exponential functions"
+      ],
+      "statement": "Problem:\n\nOrder the numbers $2^{300}$, $10^{100}$, and $3^{200}$ from least to greatest, and prove that your ordering is correct.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe note that $2^{300} = (2^{3})^{100} = 8^{100}$ and $3^{200} = (3^{2})^{100} = 9^{100}$. Since $8^{100} < 9^{100} < 10^{100}$, the ordering is $2^{300} < 3^{200} < 10^{100}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-3878",
+      "name": "2021 AMC 10 B Fall #0kie",
+      "url": "https://usamoguide.com/",
+      "source": "2021 AMC 10 B Fall",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Logarithmic functions",
+        "Exponential functions",
+        "Decimals"
+      ],
+      "statement": "Let $N$ be the positive integer $7777\\ldots777$, a $313$-digit number where each digit is a $7$. Let $f(r)$ be the leading digit of the $r$th root of $N$. What is $f(2) + f(3) + f(4) + f(5) + f(6)$?\n\n(A) 8 (B) 9 (C) 11 (D) 22 (E) 29",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-3888",
+      "name": "HMMT Spring 2021 #0kio",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT Spring 2021",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Logarithmic functions",
+        "Exponential functions",
+        "Polynomial operations"
+      ],
+      "statement": "Problem:\n\nCompute the number of ordered pairs of integers $(a, b)$, with $2 \\leq a, b \\leq 2021$, that satisfy the equation\n$$\na^{\\log_{b}\\left(a^{-4}\\right)} = b^{\\log_{a}\\left(b a^{-3}\\right)}.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nTaking $\\log_{a}$ of both sides and simplifying gives\n$$\n-4 \\log_{b} a = \\left(\\log_{a} b\\right)^2 - 3 \\log_{a} b\n$$\nPlugging in $x = \\log_{a} b$ and using $\\log_{b} a = \\frac{1}{\\log_{a} b}$ gives\n$$\nx^3 - 3x^2 + 4 = 0\n$$\nWe can factor the polynomial as $(x-2)(x-2)(x+1)$, meaning $b = a^2$ or $b = a^{-1}$. The second case is impossible since both $a$ and $b$ are positive integers. So, we need only count the number of $1 < a, b \\leq 2021$ for which $b = a^2$, which is $\\lfloor \\sqrt{2021} \\rfloor - 1 = 43$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-3973",
+      "name": "AMC 12 B #0kl1",
+      "url": "https://usamoguide.com/",
+      "source": "AMC 12 B",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Exponential functions"
+      ],
+      "statement": "Let $n = 8^{2022}$. Which of the following is equal to $\\frac{n}{4}$?\n(A) $4^{1010}$ (B) $2^{2022}$ (C) $8^{2018}$ (D) $4^{3031}$ (E) $4^{3032}$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n**Answer (E):** Note that $8 = 2^3$, so\n$$\nn = 8^{2022} = (2^3)^{2022} = 2^{6066} = (2^2)^{3033} = 4^{3033}.\n$$\nThus\n$$\n\\frac{n}{4} = \\frac{4^{3033}}{4} = 4^{3032}.\n$$\nAll the other choices are less than $4^{3032}$. Choices (A) and (D) have the same base but a lesser exponent. Choice (B) is incorrect because $2^{2022} < 4^{2022} < 4^{3032}$. Choice (C) is incorrect because\n$$\n8^{2018} = (4^{\\frac{3}{2}})^{2018} = 4^{3027} < 4^{3032}.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-3988",
+      "name": "Fall 2021 AMC 10 B #0klg",
+      "url": "https://usamoguide.com/",
+      "source": "Fall 2021 AMC 10 B",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Exponential functions"
+      ],
+      "statement": "Let $n = 8^{2022}$. Which of the following is equal to $\\frac{n}{4}$?\n(A) $4^{1010}$ (B) $2^{2022}$ (C) $8^{2018}$ (D) $4^{3031}$ (E) $4^{3032}$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**Answer (E):** Note that $8 = 2^3$, so\n$$\nn = 8^{2022} = (2^3)^{2022} = 2^{6066} = (2^2)^{3033} = 4^{3033}.\n$$\nThus\n$$\n\\frac{n}{4} = \\frac{4^{3033}}{4} = 4^{3032}.\n$$\n\nAll the other choices are less than $4^{3032}$. Choices (A) and (D) have the same base but a lesser exponent. Choice (B) is incorrect because $2^{2022} < 4^{2022} < 4^{3032}$. Choice (C) is incorrect because\n$$\n8^{2018} = (4^{\\frac{3}{2}})^{2018} = 4^{3027} < 4^{3032}.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-4088",
+      "name": "Berkeley Math Circle Monthly Contest 7 #0ko8",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 7",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Exponential functions"
+      ],
+      "statement": "Problem:\n\nAerith thinks $(1.4)^{(1.4)^{(1.4)}}$ is well-defined, but Bob thinks it diverges. Who is right?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nBecause $(1.4)^2 = 1.96 < 2$, the tetrations of $1.4$ can never surpass $2$, so the expression does not diverge to infinity; Aerith is right."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-4116",
+      "name": "HMMT November 2022 #0kp0",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2022",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Exponential functions",
+        "Logarithmic functions"
+      ],
+      "statement": "Problem:\n\nReal numbers $x$ and $y$ satisfy the following equations:\n$$\n\\begin{aligned}\nx & = \\log_{10}\\left(10^{y-1}+1\\right)-1 \\\\\ny & = \\log_{10}\\left(10^{x}+1\\right)-1\n\\end{aligned}\n$$\nCompute $10^{x-y}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nTaking 10 to the power of both sides in each equation, these equations become:\n$$\n\\begin{aligned}\n& 10^{x} = \\left(10^{y-1} + 1\\right) \\cdot 10^{-1} \\\\\n& 10^{y} = \\left(10^{x} + 1\\right) \\cdot 10^{-1}\n\\end{aligned}\n$$\nLet $a = 10^{x}$ and $b = 10^{y}$. Our equations become:\n$$\n\\begin{aligned}\n10a & = b/10 + 1 \\\\\n10b & = a + 1\n\\end{aligned}\n$$\nand we are asked to compute $a / b$. Subtracting the equations gives\n$$\n10a - 10b = b/10 - a \\Longrightarrow 11a = 101b/10\n$$\ngiving an answer of $\\frac{101}{110}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-4124",
+      "name": "HMMT February #0kp8",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Floors and ceilings",
+        "Logarithmic functions",
+        "Exponential functions"
+      ],
+      "statement": "Problem:\nCompute the number of positive real numbers $x$ that satisfy\n$$\n\\left(3 \\cdot 2^{\\left\\lfloor\\log _{2} x\\right\\rfloor}-x\\right)^{16}=2022 x^{13}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $f(x)=3 \\cdot 2^{\\left\\lfloor\\log _{2} x\\right\\rfloor}-x$. Note that for each integer $i$, if $x \\in\\left[2^{i}, 2^{i+1}\\right)$, then $f(x)=3 \\cdot 2^{i}-x$. This is a line segment from $\\left(2^{i}, 2^{i+1}\\right)$ to $\\left(2^{i+1}, 2^{i}\\right)$, including the first endpoint but not the second.\n\nNow consider the function $f(x)^{16} / x^{13}$. This consists of segments of decreasing functions connecting $\\left(2^{i}, 2^{3 i+16}\\right)$ and $\\left(2^{i+1}, 2^{3 i-13}\\right)$. Note that for each $-1 \\leq i \\leq 7$, we have that $2^{3 i-13} \\leq 2^{10}<2022<2^{11} \\leq 2^{3 i+16}$. This gives us 9 solutions in total."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-4146",
+      "name": "HMMT November 2022 #0kpu",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2022",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Exponential functions"
+      ],
+      "statement": "Problem:\n\nAlice is thinking of a positive real number $x$, and Bob is thinking of a positive real number $y$. Given that $x^{\\sqrt{y}}=27$ and $(\\sqrt{x})^{y}=9$, compute $x y$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nNote that\n$$\n27^{\\sqrt{y}}=\\left(x^{\\sqrt{y}}\\right)^{\\sqrt{y}}=x^{y}=(\\sqrt{x})^{2 y}=81,\n$$\nso $\\sqrt{y}=4 / 3$ or $y=16 / 9$. It follows that $x^{4 / 3}=27$ or $x=9 \\sqrt[4]{3}$. The final answer is $9 \\sqrt[4]{3} \\cdot 16 / 9=16 \\sqrt[4]{3}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-4286",
+      "name": "HMMT February 2023 #0ktq",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2023",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Exponential functions",
+        "Integers"
+      ],
+      "statement": "Problem:\nSuppose $a$ and $b$ are positive integers such that $a^{b} = 2^{2023}$. Compute the smallest possible value of $b^{a}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nBy taking $a = 2^{2023}$ and $b = 1$, we get $b^{a} = 1$, which is clearly the minimum."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-4311",
+      "name": "HMMT November 2023 #0kuf",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2023",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Logarithmic functions",
+        "Exponential functions"
+      ],
+      "statement": "Problem:\nSuppose $x$, $y$, and $z$ are real numbers greater than $1$ such that\n$$\n\\begin{aligned}\n& x^{\\log_{y} z} = 2 \\\\\n& y^{\\log_{z} x} = 4, \\text{ and } \\\\\n& z^{\\log_{x} y} = 8\n\\end{aligned}\n$$\nCompute $\\log_{x} y$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nTaking $\\log_{2}$ both sides of the first equation gives\n$$\n\\begin{aligned}\n& \\log_{2} x \\log_{y} z = 1 \\\\\n& \\frac{\\log_{2} x \\log_{2} z}{\\log_{2} y} = 1\n\\end{aligned}\n$$\nPerforming similar manipulations on the other two equations, we get\n$$\n\\begin{aligned}\n& \\frac{\\log_{2} x \\log_{2} z}{\\log_{2} y} = 1 \\\\\n& \\frac{\\log_{2} y \\log_{2} x}{\\log_{2} z} = 2 \\\\\n& \\frac{\\log_{2} z \\log_{2} y}{\\log_{2} x} = 3\n\\end{aligned}\n$$\nMultiplying the first and second equation gives $\\left(\\log_{2} x\\right)^{2} = 2$ or $\\log_{2} x = \\pm \\sqrt{2}$. Multiplying the second and third equation gives $\\left(\\log_{2} y\\right)^{2} = 6$ or $\\log_{2} y = \\pm \\sqrt{6}$. Thus, we have\n$$\n\\log_{x} y = \\frac{\\log_{2} y}{\\log_{2} x} = \\pm \\frac{\\sqrt{6}}{\\sqrt{2}} = \\pm \\sqrt{3}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-4333",
+      "name": "HMMT November 2023 #0kv1",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2023",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Exponential functions",
+        "Logarithmic functions"
+      ],
+      "statement": "Problem:\nA real number $x$ satisfies $9^{x} + 3^{x} = 6$. Compute the value of $16^{1 / x} + 4^{1 / x}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nSetting $y = 3^{x}$ in the given equation yields\n\n$$\ny^{2} + y = 6 \\Longrightarrow y^{2} + y - 6 = 0 \\Longrightarrow y = -3, 2\n$$\n\nSince $y > 0$ we must have\n\n$$\n3^{x} = 2 \\Longrightarrow x = \\log_{3}(2) \\Longrightarrow 1 / x = \\log_{2}(3)\n$$\n\nThis means that\n\n$$\n16^{1 / x} + 4^{1 / x} = \\left(2^{1 / x}\\right)^{4} + \\left(2^{1 / x}\\right)^{2} = 3^{4} + 3^{2} = 90.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-4396",
+      "name": "HMMT February 2023 #0kws",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2023",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Exponential functions",
+        "Logarithmic functions"
+      ],
+      "statement": "Problem:\n\nIf $a$ and $b$ are positive real numbers such that $a \\cdot 2^{b} = 8$ and $a^{b} = 2$, compute $a^{\\log_{2} a} 2^{b^{2}}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nTaking $\\log_{2}$ of both equations gives $\\log_{2} a + b = 3$ and $b \\log_{2} a = 1$.\n\nWe wish to find $a^{\\log_{2} a} 2^{b^{2}}$; taking $\\log_{2}$ of that gives $\\left(\\log_{2} a\\right)^{2} + b^{2}$, which is equal to $\\left(\\log_{2} a + b\\right)^{2} - 2 b \\log_{2} a = 3^{2} - 2 = 7$.\n\nHence, our answer is $2^{7} = 128$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-4484",
+      "name": "AMC 12 A #0kz8",
+      "url": "https://usamoguide.com/",
+      "source": "AMC 12 A",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Exponential functions"
+      ],
+      "statement": "The graph of $y = e^{x+1} + e^{-x} - 2$ has an axis of symmetry. What is the reflection of the point $(-1, \\frac{1}{2})$ over this axis?\n(A) $(-1, -\\frac{3}{2})$ (B) $(-1, 0)$ (C) $(-1, \\frac{1}{2})$ (D) $(0, \\frac{1}{2})$ (E) $(3, \\frac{1}{2})$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Let $f(x) = e^{x+1} + e^{-x} - 2$. Because $f(x)$ approaches infinity as $|x|$ increases without bound, the only possible axis of symmetry is a vertical line. If the axis of symmetry has equation $x = c$, then $f(x) = f(2c-x)$ for every real $x$, which is equivalent to $e \\cdot e^x + e^{-x} = e^{2c+1}e^{-x} + e^{-2c}e^x$. Multiplying through by $e^x$ and simplifying gives $(e - e^{-2c})e^{2x} = e^{2c+1} - 1$. Because this equation holds for all $x$, it follows that $e - e^{-2c} = 0$ and $e^{2c+1} - 1 = 0$. Thus $c = -\\frac{1}{2}$. The reflection of $(-1, \\frac{1}{2})$ with respect to the vertical line $x = -\\frac{1}{2}$ is $(0, \\frac{1}{2})$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-intermediate-algebra-exponential-functions-auto-4730",
+      "name": "HMMT February #0l62",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Logarithmic functions",
+        "Exponential functions"
+      ],
+      "statement": "Problem:\nGiven that $x$, $y$, and $z$ are positive real numbers such that\n$$x^{\\log_{2}(yz)} = 2^{8} \\cdot 3^{4}, \\quad y^{\\log_{2}(zx)} = 2^{9} \\cdot 3^{6}, \\quad \\text{and} \\quad z^{\\log_{2}(xy)} = 2^{5} \\cdot 3^{10},$$\ncompute the smallest possible value of $xyz$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $k = \\log_{2} 3$ for brevity. Taking the base-$2$ log of each equation gives\n$$(\\log_{2} x)(\\log_{2} y + \\log_{2} z) = 8 + 4k,$$\n$$(\\log_{2} y)(\\log_{2} z + \\log_{2} x) = 9 + 6k,$$\n$$(\\log_{2} z)(\\log_{2} x + \\log_{2} y) = 5 + 10k.$$\nAdding the first two equations and subtracting the third yields $2 \\log_{2} x \\log_{2} y = 12$, so $\\log_{2} x \\log_{2} y = 6$. Similarly, we get\n$$\\log_{2} x \\log_{2} y = 6,$$\n$$\\log_{2} y \\log_{2} z = 3 + 6k,$$\n$$\\log_{2} z \\log_{2} x = 2 + 4k.$$\nMultiplying the first two equations and dividing by the third yields $(\\log_{2} y)^{2} = 9$, so $\\log_{2} y = \\pm 3$. Then, the first and last equations tell us $\\log_{2} x = \\pm 2$ and $\\log_{2} z = \\pm (1 + 2k)$, with all signs matching. Thus\n$$\\log_{2} x + \\log_{2} y + \\log_{2} z = \\pm (3 + 2 + (1 + 2k)) = \\pm (6 + 2k),$$\nso\n$$x y z = 2^{\\pm (6 + 2k)} = 2^{6} \\cdot 3^{2} \\quad \\text{or} \\quad 2^{-6} \\cdot 3^{-2}.$$ \nClearly, the smallest solution is $2^{-6} \\cdot 3^{-2} = \\left[\\frac{1}{576}\\right]$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

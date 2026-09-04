@@ -1,0 +1,1865 @@
+{
+  "MODULE_ID": "algebra-algebraic-expressions-polynomials-symmetric-functions",
+  "practice": [
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-0120",
+      "name": "Berkeley Math Circle Monthly Contest 5 #0hm0",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 5",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle inequalities",
+        "Constructions and loci",
+        "Symmetric functions"
+      ],
+      "statement": "Problem:\nProve that there exists a polynomial $f(x, y, z)$ with the following property: the numbers $|x|, |y|$, and $|z|$ are the sides of a triangle if and only if $f(x, y, z) > 0$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n$$\nf(x, y, z) = (x + y + z)(-x + y + z)(x - y + z)(x + y - z) \\quad \\left[= x^{2} y^{2} + y^{2} z^{2} + z^{2} x^{2} - x^{4} - y^{4} - z^{4}\\right]\n$$\nIt is easily seen that the transformation $x \\mapsto -x$, and symmetrically $y \\mapsto -y$ and $z \\mapsto -z$, do not change $f$, so it is enough to prove the following statement: If $x, y$, and $z$ are nonnegative reals, then $x, y$, and $z$ are the sides of a triangle if and only if $f(x, y, z) > 0$.\n\nMoreover, changing the order of $x, y$, and $z$ does not change $f$, so we may assume that $x \\leq y \\leq z$. Now three of the factors of $f(x, y, z)$, namely $x + y + z$, $-x + y + z$, and $x - y + z$, are clearly nonnegative.\n\nIf $x, y$, and $z$ are the sides of a triangle, the familiar triangle inequality $x + y \\geq z$ implies that the fourth factor $x + y - z$ is positive. Also, a side of a triangle cannot be zero, from which we get $x + y + z > 0$, $-x + y + z > 0$, $x - y + z > 0$, and hence $f(x, y, z) > 0$.\n\nConversely, if $f(x, y, z) > 0$, then the four factors must be positive, so $x, y$, and $z$ are positive and the triangle inequality $x + y > z$ holds. To construct the triangle, we may draw two circles of radii $x$ and $y$ whose centers $Y$, $X$ are a distance $z$ apart. Because each circle passes both inside and outside the other, the circles intersect at two points. Let $Z$ be one. Then $X Y Z$ is the desired triangle."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-0295",
+      "name": "Berkeley Math Circle Monthly Contest 5 #0hqv",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 5",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vieta's formulas",
+        "Symmetric functions",
+        "Polynomial operations"
+      ],
+      "statement": "Problem:\n\nLet $a \\leq b \\leq c \\leq d$ be real numbers such that\n\n$$\na+b+c+d=0 \\quad \\text{ and } \\quad \\frac{1}{a}+\\frac{1}{b}+\\frac{1}{c}+\\frac{1}{d}=0\n$$\n\nProve that $a+d=0$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet us rearrange the first equation to read\n$$\na+b=-(c+d)\n$$\nand the second to give\n$$\n\\begin{aligned}\n\\frac{1}{a}+\\frac{1}{b} & =-\\frac{1}{c}-\\frac{1}{d} \\\\\n\\frac{a+b}{a b} & =-\\frac{c+d}{c d}\n\\end{aligned}\n$$\nIf $a+b \\neq 0$, then we can divide (1) by (2) to yield $a b=c d$. So we conclude that\n$$\na+b=0 \\quad \\text{ or } \\quad a b=c d\n$$\nIn exactly the same manner, we derive that\n$$\na+c=0 \\quad \\text{ or } \\quad a c=b d\n$$\nand\n$$\na+d=0 \\quad \\text{ or } \\quad a d=b c \\quad \\text{ (this equation will not be needed). }\n$$\nFor the sake of contradiction, we are assuming that $a+d \\neq 0$. Suppose that $a+c=0$ holds; since $a+b+c+d=0$, we get $b+d=0$, whereas we know $a \\leq b$ and $c \\leq d$. We conclude that $a=b$ and $c=d$, whence $a+d=a+c=0$. Thus $a+c \\neq 0$, and for similar reasons $a+b \\neq 0$.\nMultiplying together the equations $a b=c d$ and $a c=b d$ and canceling the nonzero (why?) factor $b c$ gives $a^{2}=d^{2}$. So either $a=-d$, which is what we assumed impossible, or $a=d$, which yields the absurdity $a=b=c=d=0$.\n\nSolution:\n\nConsider the polynomial\n$$\nf(x)=(x-a)(x-b)(x-c)(x-d)\n$$\nwith roots $a, b, c, d$. The cubic coefficient of $f$ is $-(a+b+c+d)=0$; the linear coefficient is\n$$\n-(a b c+a b d+a c d+b c d)=-a b c d\\left(\\frac{1}{a}+\\frac{1}{b}+\\frac{1}{c}+\\frac{1}{d}\\right)=0 .\n$$\nConsequently $f$ has the form $f(x)=x^{4}+p x^{2}+q$, and there are complex numbers $u$ and $v$ such that\n$$\nf(x)=\\left(x^{2}\\right)^{2}+p x^{2}+q=\\left(x^{2}-u\\right)\\left(x^{2}-v\\right)=(x+\\sqrt{u})(x-\\sqrt{u})(x-\\sqrt{v})(x+\\sqrt{v}) .\n$$\nSince $f$ has only real roots, $u$ and $v$ must be real and nonnegative. WLOG $u \\leq v$; then $-\\sqrt{v} \\leq-\\sqrt{u} \\leq \\sqrt{u} \\leq \\sqrt{v}$ and we can identify the two factorizations of $f$ :\n$$\na=-\\sqrt{v}, \\quad b=-\\sqrt{u}, \\quad c=\\sqrt{u}, \\quad d=\\sqrt{v} .\n$$\nHence $a+d=0$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-0454",
+      "name": "Berkeley Math Circle: Monthly Contest 4 #0hva",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 4",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Linear and quadratic inequalities",
+        "Polynomial operations",
+        "Symmetric functions",
+        "Integers"
+      ],
+      "statement": "Problem:\nLet $a$, $b$, $c$ be pairwise distinct integers. Prove that\n$$\n\\frac{a^{3}+b^{3}+c^{3}}{3} \\geq a b c+\\sqrt{3(a b+b c+c a+1)} .\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $3 k^{2}-1=a b+b c+c a$, so we need $a^{3}+b^{3}+c^{3} \\geq 3(a b c+3 k)$. Now, we have\n$$\n(a-b)^{2}+(b-c)^{2}+(c-a)^{2} \\geq 2^{2}+1^{2}+1^{2}=6 .\n$$\nIn particular, we get\n$$\n(a+b+c)^{2}=\\frac{1}{2}\\left[(a-b)^{2}+(b-c)^{2}+(c-a)^{2}\\right]+3\\left(3 k^{2}-1\\right) \\geq 9 k^{2}\n$$\nThus $a+b+c \\geq 3 k$. Now, using the factorization of $a^{3}+b^{3}+c^{3}-3 a b c$ gives\n$$\na^{3}+b^{3}+c^{3}-3 a b c \\geq(3 k)\\left(\\frac{1}{2} \\cdot 6\\right)=9 k\n$$\nas desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-0474",
+      "name": "Berkeley Math Circle Monthly Contest #0hvu",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial operations",
+        "Symmetric functions"
+      ],
+      "statement": "Problem:\nGiven $a > b > c > 0$, prove that\n$$\na^{4} b + b^{4} c + c^{4} a > a b^{4} + b c^{4} + c a^{4}.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nObserve that equality holds whenever $a = b$, $b = c$, or $a = c$. Knowing this, it is not difficult to factor the difference between the two sides:\n$$\n\\begin{aligned}\n& a^{4} b + b^{4} c + c^{4} a - a b^{4} - b c^{4} - c a^{4} \\\\\n& = (a^{4} b - a b^{4}) + (a c^{4} - b c^{4}) + (-a^{4} c + b^{4} c) \\\\\n& = (a - b)\\left[ a^{3} b + a^{2} b^{2} + a b^{3} + c^{4} - a^{3} c - a^{2} b c - a b^{2} c - b^{3} c \\right] \\\\\n& = (a - b)\\left[ (a^{3} - a^{3} c) + (a^{2} b^{2} - a^{2} b c) + (a b^{3} - a b^{2} c) + (-b^{3} c + c^{4}) \\right] \\\\\n& = (a - b)(b - c)\\left[ a^{3} + a^{2} b + a b^{2} - b^{2} c - b c^{2} - c^{3} \\right] \\\\\n& = (a - b)(b - c)\\left[ (a^{3} - c^{3}) + (a^{2} b - b c^{2}) + (a b^{2} - b^{2} c) \\right] \\\\\n& = (a - b)(b - c)(a - c)\\left[ a^{2} + a c + c^{2} + a b + b c + b^{2} \\right]\n\\end{aligned}\n$$\nThis last is clearly positive."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-0499",
+      "name": "Berkeley Math Circle Monthly Contest 1 #0hwj",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Symmetric functions",
+        "Polynomial operations"
+      ],
+      "statement": "Problem:\n\nLet $a$, $b$, and $c$ be positive real numbers such that\n$$\na b c = 1\n$$\nProve that for every positive integer $n$,\n$$\na + b + c > \\frac{1}{a} + \\frac{1}{b} + \\frac{1}{c} .\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nUsing $a b c = 1$, we transform the given condition to\n$$\na^{n} + b^{n} + c^{n} > \\frac{1}{a^{n}} + \\frac{1}{b^{n}} + \\frac{1}{c^{n}} .\n$$\n$$\na + b + c > b c + c a + a b\n$$\nor\n$$\n- b c - c a - a b + a + b + c > 0 .\n$$\nWe then add $a b c - 1 (= 0)$ to the left side, getting\n$$\na b c - b c - c a - a b + a + b + c - 1 > 0\n$$\nwhich factors as\n$$\n(a - 1)(b - 1)(c - 1) > 0 .\n$$\nIn exactly the same way we transform the condition to be proved to\n$$\n\\left(a^{n} - 1\\right)\\left(b^{n} - 1\\right)\\left(c^{n} - 1\\right) > 0 .\n$$\nHowever, for any positive real $x$, the numbers $x - 1$ and $x^{n} - 1$ are both positive, both negative, or both zero. Consequently (1) and (2) are equivalent."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-0518",
+      "name": "Berkeley Math Circle: Monthly Contest 7 #0hx2",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 7",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cauchy-Schwarz",
+        "Symmetric functions"
+      ],
+      "statement": "Problem:\nProve that if positive real numbers $x, y, z$ have sum $1$, then\n$$\n\\frac{x}{x+yz} + \\frac{y}{y+zx} + \\frac{z}{z+xy} \\leq \\frac{2}{1-3xyz}.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe idea is to use the identity\n$$\n\\frac{x}{x+yz} = \\frac{x}{x(x+y+z) + yz} = \\frac{x}{(x+y)(x+z)} = \\frac{x(y+z)}{(x+y)(y+z)(z+x)}\n$$\nSo the left-hand side is exactly equal to\n$$\n\\frac{2(xy+yz+zx)}{(x+y)(y+z)(z+x)} = \\frac{2(xy+yz+zx)(x+y+z)}{(x+y)(y+z)(z+x)}.\n$$\nWe let $k = (xy+yz+zx)(x+y+z)$. On the other hand, we claim that $k \\leq 1/3$, which is sufficient. Indeed, to prove $k \\leq 1/3$ it suffices to prove that\n$$\nxy+yz+zx \\leq \\frac{(x+y+z)^2}{3}\n$$\nwhich is a direct consequence of the Cauchy-Schwarz inequality.\n\nOn the other hand, the left-hand side equals, exactly,\n$$\n\\frac{2k}{k-xyz} = 2 + \\frac{2xyz}{k-xyz}\n$$\nSo simply noting $k \\leq 1/3$ implies the desired conclusion, since this is a decreasing function of $k$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-0522",
+      "name": "Berkeley Math Circle Monthly Contest 1 #0hx6",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Symmetric functions",
+        "Vieta's formulas",
+        "Recurrence relations",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\nLet $n > 1$ be an integer. Three complex numbers have the property that their sum is $0$ and the sum of their $n$th powers is also $0$. Prove that two of the three numbers have the same absolute value.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nGiven that\n$$\na + b + c = 0 \\quad \\text{and} \\quad a^{n} + b^{n} + c^{n} = 0,\n$$\nlet\n$$\nt = ab + bc + ca \\quad \\text{and} \\quad u = abc.\n$$\nThen $a$, $b$, and $c$ are the roots of the polynomial\n$$\nf(z) = (z - a)(z - b)(z - c) = z^{3} + t z - u.\n$$\nIf $t = 0$, then $a$, $b$, and $c$ are the three cube roots of $u$ and thus all have the same absolute value; otherwise we can normalize, dividing $a$, $b$, and $c$ by a square root of $t$, so that $t = 1$. Now we have\n$$\nf(z) = (z - a)(z - b)(z - c) = z^{3} + z - u.\n$$\nDefine $p_{k} = a^{k} + b^{k} + c^{k}$ for nonnegative integers $k$ (here we make the convention that $0^{0} = 1$). It is not hard to compute that $p_{0} = 3$, $p_{1} = 0$, $p_{2} = -2$, and, for $k \\geq 0$,\n$$\np_{k+3} = u p_{k} - p_{k+1}.\n$$\nThis recursion allows us to think of each $p_{k}$ as a polynomial (with integer coefficients) in $u$. Our plan will be to prove that, for $k > 1$, these polynomials have only real roots. Then, given that $p_{n} = 0$, we can deduce that $f(z)$ is a real polynomial and therefore either has all real roots (which is impossible, since the sum of the 2nd powers of the roots is $-2$) or has a pair of complex conjugate roots which have the same absolute value.\nThe leading term of $p_{k}$ follows a pattern which is not difficult to verify by induction. It is:\n$$\n\\begin{array}{ll}\n3 u^{i} & \\text{if } k = 3i,\\ i \\geq 0 \\\\\n\\frac{k i}{2} u^{i-1} & \\text{if } k = 3i + 1,\\ i \\geq 1 \\\\\n-k u^{i} & \\text{if } k = 3i + 2,\\ i \\geq 0\n\\end{array}\n$$\nIn particular, for $k \\neq 1$, the leading coefficients of $p_{k}$ and $p_{k+3}$ have the same sign, and the degree of $p_{k+3}$ is one more than the degree of $p_{k}$. We will prove that the roots of $p_{k}$ alternate with the roots of $p_{k+3}$ on the number line, with no two coinciding, beginning and ending with a root of $p_{k+3}$. When $p_{k}$ is constant (that is, for $k = 0, 2$, or $4$) this statement is trivial, and we will use it as the base of an induction. For all other $k$, the induction hypothesis tells us there is exactly one root of $p_{k-3}$ between each pair of roots of $p_{k}$, and it suffices to prove the following statement:\n$$\n\\text{If } p_{k} = 0, \\text{ then } p_{k+3} \\text{ and } p_{k-3} \\text{ have opposite signs.}\n$$\nFor brevity we will prove this only when $x = p_{k-3}$ is positive and $u$ is also positive; the proof readily generalizes when one or both are negative. (By the induction hypothesis $p_{k-3} \\neq 0$, and if $u = 0$ then (1) gives $p_{k+3} = -p_{k+1} = p_{k-1} = -p_{k-3}$ for $k \\geq 4$.) Assume for contradiction that $y = p_{k+3} \\geq 0$. Using (1) repeatedly, we get\n$$\n\\begin{gathered}\np_{k+1} = u p_{k} - p_{k+3} = -y \\\\\np_{k-2} = u p_{k-3} - p_{k} = u x \\\\\np_{k-1} = u p_{k-2} - p_{k+1} = u^{2} x + y\n\\end{gathered}\n$$\nNote that $p_{k-1}$, $p_{k-2}$, $p_{k-3}$ are all positive. Then, using the reverse recursion\n$$\np_{i} = \\frac{p_{i+1} + p_{i+3}}{u}\n$$\nwe get that $p_{i} > 0$ for all $i < k$. Since $p_{2} = -2$, this is a contradiction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-0657",
+      "name": "Berkeley Math Circle #0i0x",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Symmetric functions",
+        "Vieta's formulas",
+        "Polynomial operations"
+      ],
+      "statement": "Problem:\nIf $a, b, c, d, e, f$ are real numbers such that $a+b+c+d+e+f=0$ and $a^{3}+b^{3}+c^{3}+d^{3}+e^{3}+f^{3}=0$, prove that $(a+c)(a+d)(a+e)(a+f)=(b+c)(b+d)(b+e)(b+f)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFirst, let $S$ be the sum of all possible products of three distinct variables from the set $\\{a, b, c, d, e, f\\}$, i.e. $S=abc+abd+abe+\\cdots+def$. Now, we assert that\n$$\n\\begin{aligned}\n& (a+b+c+d+e+f)^3 + 2\\left(a^3+b^3+c^3+d^3+e^3+f^3\\right) \\\\\n& \\quad - 3(a+b+c+d+e+f)\\left(a^2+b^2+c^2+d^2+e^2+f^2\\right) = 6S\n\\end{aligned}\n$$\nTo see this, note that, when the left-hand side is expanded, the terms obtained come in three forms: $a^3$ (i.e. cubes of one variable), $a^2b$ (squares of one variable times another), and $abc$ (products of three different variables). Each term of the form $a^3$ has coefficient $1$ in $(a+\\cdots+f)^3$, $2$ in $2(a^3+\\cdots+f^3)$, and $-3$ in $-3(a+\\cdots+f)(a^2+\\cdots+f^2)$, for a total coefficient of $0$; the terms of the form $a^2b$ have respective coefficients $3, 0, -3$, for a total of $0$; those of the form $abc$ have coefficients $6, 0, 0$, for a total of $6$. Since the right side of (1) consists of the $abc$-type terms with coefficient $6$, the assertion is proven.\n\nHowever, the given tells us that the left-hand side of (1) is zero, so $S=0$. Now, let $p=ab-(cd+ce+cf+de+df+ef)$. We claim that the following holds for all numbers $x$:\n$$\n(x+c)(x+d)(x+e)(x+f) = (x-a)(x-b)(x^2-p) + abp + cdef.\n$$\nWe can verify this by comparing coefficients for corresponding powers of $x$.\n\nThe coefficient of $x^4$ on both sides is $1$; the coefficient of $x^3$ is $c+d+e+f$ on the left and $-(a+b)$ on the right, but the given implies that these are equal. The coefficient of $x^2$ is $cd+ce+cf+de+df+ef$ on the left and $ab-p$ on the right; these are equal by the definition of $p$. The coefficient of $x$ is $cde+cdf+cef+def$ on the left and $ap+bp$ on the right. To see that these are equal, observe that\n$$\n\\begin{gathered}\ncde+cdf+cef+def-(a+b)p = cde+cdf+cef+def-(a+b)ab+(a+b)(cd+ce+cf+de+df+ef) \\\\\n= (S - [abc+abd+abe+abf]) - (a+b)ab = -ab(c+d+e+f+a+b) = 0\n\\end{gathered}\n$$\nwhere we have used the definition of $S$ for the second equality and the fact that $S=0$ for the third. Finally, the constant term equals $cdef$ on both sides. Thus, equation (2) holds. Plugging in $x=a$ and $x=b$, we find\n$$\n\\begin{aligned}\n& (a+c)(a+d)(a+e)(a+f) = (a-a)(a-b)(a^2-p) + abp + cdef = abp + cdef \\\\\n& (b+c)(b+d)(b+e)(b+f) = (b-a)(b-b)(b^2-p) + abp + cdef = abp + cdef\n\\end{aligned}\n$$\nSince the right-hand sides match, we are done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-0680",
+      "name": "Harvard-MIT Math Tournament #0i1k",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial operations",
+        "Symmetric functions"
+      ],
+      "statement": "Problem:\nFind $x-y$, given that $x^{4} = y^{4} + 24$, $x^{2} + y^{2} = 6$, and $x + y = 3$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n$\\frac{24}{6 \\cdot 3} = \\frac{x^{4} - y^{4}}{(x^{2} + y^{2})(x + y)} = \\frac{(x^{2} + y^{2})(x + y)(x - y)}{(x^{2} + y^{2})(x + y)} = x - y = \\frac{4}{3}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-0908",
+      "name": "Harvard-MIT Mathematics Tournament #0i7w",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Symmetric functions",
+        "Polynomial operations"
+      ],
+      "statement": "Problem:\nIf $x y = 5$ and $x^{2} + y^{2} = 21$, compute $x^{4} + y^{4}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe have $441 = (x^{2} + y^{2})^{2} = x^{4} + y^{4} + 2(x y)^{2} = x^{4} + y^{4} + 50$, yielding $x^{4} + y^{4} = 391$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-0914",
+      "name": "Harvard-MIT Mathematics Tournament #0i82",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vieta's formulas",
+        "Symmetric functions"
+      ],
+      "statement": "Problem:\nLet $r, s, t$ be the solutions to the equation $x^{3}+a x^{2}+b x+c=0$. What is the value of $(r s)^{2}+(s t)^{2}+(r t)^{2}$ in terms of $a, b$, and $c$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n$b^{2}-2 a c$\n\nWe have $(x-r)(x-s)(x-t)=x^{3}+a x^{2}+b x+c$, so\n$$\na=-(r+s+t), \\quad b=r s+s t+r t, \\quad c=-r s t .\n$$\nSo we have\n$$\n(r s)^{2}+(s t)^{2}+(r t)^{2}=(r s+s t+r t)^{2}-2 r s t(r+s+t)=b^{2}-2 a c .\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-0972",
+      "name": "USA IMO 2003 #0i9o",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO 2003",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cauchy-Schwarz",
+        "QM-AM-GM-HM / Power Mean",
+        "Linear and quadratic inequalities",
+        "Symmetric functions"
+      ],
+      "statement": "Let $a$, $b$, $c$ be positive real numbers. Prove that\n$$\n\\frac{(2a + b + c)^2}{2a^2 + (b+c)^2} + \\frac{(2b + c + a)^2}{2b^2 + (c+a)^2} + \\frac{(2c + a + b)^2}{2c^2 + (a+b)^2} \\le 8.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**First Solution.** (Based on work by Matthew Tang and Anders Kaseorg)\nBy multiplying $a$, $b$, and $c$ by a suitable factor, we reduce the problem to the case when $a + b + c = 3$. The desired inequality reads\n$$\n\\frac{(a+3)^2}{2a^2+(3-a)^2} + \\frac{(b+3)^2}{2b^2+(3-b)^2} + \\frac{(c+3)^2}{2c^2+(3-c)^2} \\le 8.\n$$\nSet\n$$\nf(x) = \\frac{(x+3)^2}{2x^2 + (3-x)^2}\n$$\nIt suffices to prove that $f(a) + f(b) + f(c) \\le 8$. Note that\n$$\n\\begin{aligned}\nf(x) &= \\frac{x^2 + 6x + 9}{3(x^2 - 2x + 3)} = \\frac{1}{3} \\cdot \\frac{x^2 + 6x + 9}{x^2 - 2x + 3} \\\\\n&= \\frac{1}{3} \\left( 1 + \\frac{8x + 6}{x^2 - 2x + 3} \\right) \\\\\n&= \\frac{1}{3} \\left( 1 + \\frac{8x + 6}{(x-1)^2 + 2} \\right) \\le \\frac{1}{3} \\left( 1 + \\frac{8x + 6}{2} \\right) \\\\\n&= \\frac{1}{3}(4x + 4).\n\\end{aligned}\n$$\nHence,\n$$\nf(a) + f(b) + f(c) \\le \\frac{1}{3}(4a + 4 + 4b + 4 + 4c + 4) = 8,\n$$\nas desired, with equality if and only if $a = b = c$.\n\n\n**Second Solution.** (By Liang Qin) Setting $x = a+b$, $y = b+c$, $z = c+a$ gives $2a+b+c = x+z$, hence $2a = x+z-y$ and their analogous forms. The desired inequality becomes\n$$\n\\frac{2(x+z)^2}{(x+z-y)^2+2y^2} + \\frac{2(z+y)^2}{(z+y-x)^2+2x^2} + \\frac{2(y+x)^2}{(y+x-z)^2+2z^2} \\le 8.\n$$\nBecause $2(s^2 + t^2) \\ge (s + t)^2$ for all real numbers $s$ and $t$, we have $2(x + z - y)^2 + 2y^2 \\ge (x + z - y + y)^2 = (x + z)^2$. Hence\n$$\n\\begin{aligned}\n\\frac{2(x+z)^2}{(x+z-y)^2+2y^2} &= \\frac{4(x+z)^2}{2(x+z-y)^2+4y^2} \\le \\frac{4(x+z)^2}{(x+z)^2+2y^2} \\\\\n&= \\frac{4}{1+2 \\cdot \\frac{y^2}{(x+z)^2}} \\le \\frac{4}{1+2 \\cdot \\frac{y^2}{2(x^2+z^2)}} \\\\\n&= \\frac{4(x^2+z^2)}{x^2+y^2+z^2}.\n\\end{aligned}\n$$\nIt is not difficult to see that the desired result follows from summing up the above inequality and its analogous forms.\n\n\n**Third Solution.** (By Richard Stong) Note that\n$$\n\\begin{aligned}\n(2x + y)^2 + 2(x - y)^2 &= 4x^2 + 4xy + y^2 + 2x^2 - 4xy + 2y^2 \\\\\n&= 3(2x^2 + y^2).\n\\end{aligned}\n$$\nSetting $x = a$ and $y = b + c$ yields\n$$\n(2a + b + c)^2 + 2(a - b - c)^2 = 3(2a^2 + (b+c)^2).\n$$\nThus, we have\n$$\n\\begin{aligned} \\frac{(2a + b + c)^2}{2a^2 + (b + c)^2} &= \\frac{3(2a^2 + (b+c)^2) - 2(a-b-c)^2}{2a^2 + (b+c)^2} \\\\\n&= 3 - \\frac{2(a-b-c)^2}{2a^2 + (b+c)^2}. \\end{aligned}\n$$\nand its analogous forms. Thus, the desired inequality is equivalent to\n$$\n\\frac{(a - b - c)^2}{2a^2 + (b + c)^2} + \\frac{(b - a - c)^2}{2b^2 + (c + a)^2} + \\frac{(c - a - b)^2}{2c^2 + (a + b)^2} \\geq \\frac{1}{2}.\n$$\nBecause $(b+c)^2 \\le 2(b^2+c^2)$, we have $2a^2+(b+c)^2 \\le 2(a^2+b^2+c^2)$ and its analogous forms. It suffices to show that\n$$\n\\frac{(a - b - c)^2}{2(a^2 + b^2 + c^2)} + \\frac{(b - a - c)^2}{2(a^2 + b^2 + c^2)} + \\frac{(c - a - b)^2}{2(a^2 + b^2 + c^2)} \\ge \\frac{1}{2},\n$$\nor,\n$$\n(a - b - c)^2 + (b - a - c)^2 + (c - a - b)^2 \\ge a^2 + b^2 + c^2.\n$$\nMultiplying this out, the left-hand side of the last inequality becomes $3(a^2+b^2+c^2)-2(ab+bc+ca)$. Therefore the last inequality is equivalent to $2[a^2 + b^2 + c^2 - (ab + bc + ca)] \\ge 0$, which is evident because\n$$\n2[a^2 + b^2 + c^2 - (ab + bc + ca)] = (a - b)^2 + (b - c)^2 + (c - a)^2.\n$$\nEqualities hold if and only if $(b+c)^2 = 2(b^2+c^2)$ and $(c+a)^2 = 2(c^2+a^2)$, that is, $a = b = c$.\n\n\n**Fourth Solution.** We first convert the inequality into\n$$\n\\frac{2a(a + 2b + 2c)}{2a^2 + (b + c)^2} + \\frac{2b(b + 2c + 2a)}{2b^2 + (c + a)^2} + \\frac{2c(c + 2a + 2b)}{2c^2 + (a + b)^2} \\le 5.\n$$\nSplitting the 5 among the three terms yields the equivalent form\n$$\n\\sum_{\\text{cyc}} \\frac{4a^2 - 12a(b + c) + 5(b + c)^2}{3[2a^2 + (b + c)^2]} \\ge 0, \\quad (1)\n$$\nwhere $\\sum_{\\text{cyc}}$ is the **cyclic sum** of variables $(a, b, c)$. The numerator of the term shown factors as $(2a-x)(2a-5x)$, where $x = b+c$. We will show\n$$\n\\frac{(2a-x)(2a-5x)}{3(2a^2+x^2)} \\geq -\\frac{4(2a-x)}{3(a+x)}. \\qquad (2)\n$$\nIndeed, (2) is equivalent to\n$$\n(2a-x)[(2a-5x)(a+x) + 4(2a^2+x^2)] \\geq 0,\n$$\nwhich reduces to\n$$\n(2a-x)(10a^2 - 3ax - x^2) = (2a-x)^2(5a+x) \\geq 0,\n$$\nwhich is evident. We proved that\n$$\n\\frac{4a^2 - 12a(b+c) + 5(b+c)^2}{3[2a^2 + (b+c)^2]} \\geq -\\frac{4(2a-b-c)}{3(a+b+c)},\n$$\nhence (1) follows. Equality holds if and only if $2a = b + c$, $2b = c + a$, $2c = a + b$, i.e., when $a = b = c$.\n\n\n**Fifth Solution.** Given a function $f$ of $n$ variables, we define the symmetric sum\n$$\n\\sum_{\\text{sym}} f(x_1, \\dots, x_n) = \\sum_{\\sigma} f(x_{\\sigma(1)}, \\dots, x_{\\sigma(n)})\n$$\nwhere $\\sigma$ runs over all permutations of $1, \\dots, n$ (for a total of $n!$ terms). For example, if $n = 3$, and we write $x, y, z$ for $x_1, x_2, x_3$,\n$$\n\\begin{aligned} \\sum_{\\text{sym}} x^3 &= 2x^3 + 2y^3 + 2z^3 \\\\\n\\sum_{\\text{sym}} x^2y &= x^2y + y^2z + z^2x + x^2z + y^2x + z^2y \\\\\n\\sum_{\\text{sym}} xyz &= 6xyz. \\end{aligned}\n$$\nWe combine the terms in the desired inequality over a common denominator and use symmetric sum notation to simplify the algebra. The numerator of the difference between the two sides is\n$$\n2 \\sum_{\\text{sym}} (4a^6 + 4a^5b + a^4b^2 + 5a^4bc + 5a^3b^3 - 26a^3b^2c + 7a^2b^2c^2), \\quad (3)\n$$\nand it suffices to show the the expression in (3) is always greater or equal to 0. By the **Weighted AM-GM Inequality**, we have $4a^6 + b^6 + c^6 \\geq 6a^4bc$, $3a^5b + 3a^5c + b^5a + c^5a \\geq 8a^4bc$, and their analogous forms. Adding those inequalities yields\n$$\n\\sum_{\\text{sym}} 6a^6 \\geq \\sum_{\\text{sym}} 6a^4bc \\quad \\text{and} \\quad \\sum_{\\text{sym}} 8a^5b \\geq \\sum_{\\text{sym}} 8a^4bc.\n$$\nConsequently, we obtain\n$$\n\\sum_{\\text{sym}} 4a^6 + 4a^5b + 5a^4bc \\geq \\sum_{\\text{sym}} 13a^4bc. \\quad (4)\n$$\nAgain by the AM-GM Inequality, we have $a^4b^2 + b^4c^2 + c^4a^2 \\geq 4a^2b^2c^2$, $a^3b^3 + b^3c^3 + c^3a^3 \\geq 3a^2b^2c^2$, and their analogous forms. Thus,\n$$\n\\sum_{\\text{sym}} a^4b^2 + 5a^3b^3 \\geq \\sum_{\\text{sym}} 6a^2b^2c^2,\n$$\nor\n$$\n\\sum_{\\text{sym}} a^4b^2 + 5a^3b^3 + 7a^2b^2c^2 \\geq \\sum_{\\text{sym}} 13a^2b^2c^2. \\quad (5)\n$$\nRecalling **Schur's Inequality**, we have\n$$\n\\begin{aligned} & a^3 + b^3 + c^3 + 3abc - (a^2b + b^2c + c^2a + ab^2 + bc^2 + ca^2) \\\\\n& = a(a-b)(a-c) + b(b-a)(b-c) + c(c-a)(c-b) \\geq 0, \\end{aligned}\n$$\nor\n$$\n\\sum_{\\text{sym}} a^3 - 2a^2b + abc \\geq 0.\n$$\nThus\n$$\n\\sum_{\\text{sym}} 13a^4bc - 26a^3b^2c + 13a^2b^2c^2 \\geq 13abc \\sum_{\\text{sym}} a^3 - 2a^2b + abc \\geq 0. \\quad (6)\n$$\nAdding (4), (5), and (6) yields (3)."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-0973",
+      "name": "USA IMO 2003 #0i9p",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO 2003",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Symmetric functions"
+      ],
+      "statement": "Let $a, b, c$ be real numbers in the interval $(0, \\frac{\\pi}{2})$. Prove that\n$$\n\\frac{\\sin a \\sin(a-b) \\sin(a-c)}{\\sin(b+c)} + \\frac{\\sin b \\sin(b-c) \\sin(b-a)}{\\sin(c+a)} + \\frac{\\sin c \\sin(c-a) \\sin(c-b)}{\\sin(a+b)} \\ge 0.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "By the **Product-to-sum formulas** and the **Double-angle formulas**, we have\n$$\n\\begin{aligned}\n\\sin(\\alpha - \\beta) \\sin(\\alpha + \\beta) &= \\frac{1}{2}[\\cos 2\\beta - \\cos 2\\alpha] \\\\\n&= \\sin^2 \\alpha - \\sin^2 \\beta.\n\\end{aligned}\n$$\nHence, we obtain\n$$\n\\begin{aligned}\n& \\sin a \\sin(a-b) \\sin(a-c) \\sin(a+b) \\sin(a+c) \\\\\n&= \\sin c(\\sin^2 a - \\sin^2 b)(\\sin^2 a - \\sin^2 c)\n\\end{aligned}\n$$\nand its analogous forms. Therefore, it suffices to prove that\n$$\nx(x^2 - y^2)(x^2 - z^2) + y(y^2 - z^2)(y^2 - x^2) + z(z^2 - x^2)(z^2 - y^2) \\ge 0,\n$$\nwhere $x = \\sin a$, $y = \\sin b$, and $z = \\sin c$ (hence $x, y, z > 0$). Since the last inequality is symmetric with respect to $x, y, z$, we may assume that $x \\ge y \\ge z > 0$. It suffices to prove that\n$$\nx(y^2 - x^2)(z^2 - x^2) + z(z^2 - x^2)(z^2 - y^2) \\ge y(z^2 - y^2)(y^2 - x^2),\n$$\nwhich is evident as\n$$\nx(y^2 - x^2)(z^2 - x^2) \\ge 0\n$$\nand\n$$\nz(z^2 - x^2)(z^2 - y^2) \\geq z(y^2 - x^2)(z^2 - y^2) \\geq y(z^2 - y^2)(y^2 - x^2).\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-0993",
+      "name": "Harvard-MIT Mathematics Tournament #0ia9",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vieta's formulas",
+        "Symmetric functions"
+      ],
+      "statement": "Problem:\n\nLet $a$, $b$, $c$ be the three roots of $p(x) = x^{3} + x^{2} - 333 x - 1001$. Find $a^{3} + b^{3} + c^{3}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe know that $x^{3} + x^{2} - 333 x - 1001 = (x - a)(x - b)(x - c) = x^{3} - (a + b + c) x^{2} + (ab + bc + ca) x - abc$.\n\nAlso, $(a + b + c)^{3} - 3(a + b + c)(ab + bc + ca) + 3abc = a^{3} + b^{3} + c^{3}$.\n\nThus,\n$$\na^{3} + b^{3} + c^{3} = (-1)^{3} - 3(-1)(-333) + 3 \\cdot 1001 = 2003.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-1111",
+      "name": "Harvard-MIT Mathematics Tournament #0idj",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Symmetric functions",
+        "Vieta's formulas"
+      ],
+      "statement": "Problem:\nFind all real solutions to $x^{4} + (2 - x)^{4} = 34$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n$1 \\pm \\sqrt{2}$\nLet $y = 2 - x$, so $x + y = 2$ and $x^{4} + y^{4} = 34$. We know\n$$\n(x + y)^{4} = x^{4} + 4x^{3}y + 6x^{2}y^{2} + 4x y^{3} + y^{4} = x^{4} + y^{4} + 2 x y (2 x^{2} + 2 y^{2} + 3 x y)\n$$\nMoreover, $x^{2} + y^{2} = (x + y)^{2} - 2 x y$, so the preceding equation becomes $2^{4} = 34 + 2 x y (2 \\cdot 2^{2} - x y )$, or $(x y)^{2} - 8 x y - 9 = 0$. Hence $x y = 9$ or $-1$. Solving $x y = 9$, $x + y = 2$ produces complex solutions, and solving $x y = -1$, $x + y = 2$ produces $(x, y) = (1 + \\sqrt{2}, 1 - \\sqrt{2})$ or $(1 - \\sqrt{2}, 1 + \\sqrt{2})$. Thus, $x = 1 \\pm \\sqrt{2}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-1181",
+      "name": "IMO #0ifh",
+      "url": "https://usamoguide.com/",
+      "source": "IMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cauchy-Schwarz",
+        "QM-AM-GM-HM / Power Mean",
+        "Symmetric functions"
+      ],
+      "statement": "$$\n\\frac{x^5 - x^2}{x^5 + y^2 + z^2} + \\frac{y^5 - y^2}{y^5 + z^2 + x^2} + \\frac{z^5 - z^2}{z^5 + x^2 + y^2} \\ge 0.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Note that\n$$\n\\frac{x^5 - x^2}{x^5 + y^2 + z^2} = 1 - \\frac{x^2 + y^2 + z^2}{x^5 + y^2 + z^2}\n$$\nand its cyclic analogous forms. The given inequality is equivalent to\n$$\n\\frac{x^2 + y^2 + z^2}{x^5 + y^2 + z^2} + \\frac{x^2 + y^2 + z^2}{y^5 + z^2 + x^2} + \\frac{x^2 + y^2 + z^2}{z^5 + x^2 + y^2} \\le 3. \\quad (\\dagger)\n$$\nIn view of the **Cauchy-Schwarz Inequality** and the condition $xyz \\ge 1$, we have\n$$\n\\begin{aligned} (x^5 + y^2 + z^2)(yz + y^2 + z^2) &\\ge \\left(x^{\\frac{5}{2}}(yz)^{\\frac{1}{2}} + y^2 + z^2\\right)^2 \\\\ &\\ge (x^2 + y^2 + z^2)^2, \\end{aligned}\n$$\nor\n$$\n\\frac{x^2 + y^2 + z^2}{x^5 + y^2 + z^2} \\le \\frac{yz + y^2 + z^2}{x^2 + y^2 + z^2}.\n$$\n\nTaking the cyclic sum of the above inequality and analogous forms gives\n$$\n\\frac{x^2 + y^2 + z^2}{x^5 + y^2 + z^2} + \\frac{x^2 + y^2 + z^2}{y^5 + z^2 + x^2} + \\frac{x^2 + y^2 + z^2}{z^5 + x^2 + y^2} \\le 2 + \\frac{yz + zx + xy}{x^2 + y^2 + z^2}.\n$$\nIt suffices to show that $xy + yz + zx \\le x^2 + y^2 + z^2$, which is well known (and can be easily shown by the Cauchy-Schwarz Inequality or $(x - y)^2 + (y - z)^2 + (z - x)^2 \\ge 0$).\n\nGiven a function $f$ of $n$ variables, we define the symmetric sum\n$$\n\\sum_{\\text{sym}} f(x_1, \\dots, x_n) = \\sum_{\\sigma} f(x_{\\sigma(1)}, \\dots, x_{\\sigma(n)})\n$$\nwhere $\\sigma$ runs over all permutations of $1, \\dots, n$ (for a total of $n!$ terms). For example, if $n = 3$, and we write $x, y, z$ for $x_1, x_2, x_3$,\n$$\n\\begin{aligned} \\sum_{\\text{sym}} x^3 &= 2x^3 + 2y^3 + 2z^3 \\\\ \\sum_{\\text{sym}} x^2y &= x^2y + y^2z + z^2x + x^2z + y^2x + z^2y \\\\ \\sum_{\\text{sym}} xyz &= 6xyz. \\end{aligned}\n$$\nIf $xyz = t^3 \\ge 1$, set $x = tx_1, y = ty_1$, and $z = tz_1$. Then $x_1, y_1$, and $z_1$ are real numbers with $x_1y_1z_1 = 1$. Note that\n$$\n\\frac{x^2 + y^2 + z^2}{x^5 + y^2 + z^2} = \\frac{x_1^2 + y_1^2 + z_1^2}{x_1^5 t^3 + y_1^2 + z_1^2} \\le \\frac{x_1^2 + y_1^2 + z_1^2}{x_1^5 + y_1^2 + z_1^2}\n$$\nWe may further assume $xyz = 1$ for inequality (†). We establish inequality (†) in a very mechanical way. Multiplying both sides of the inequality by\n$$\n(x^5 + y^2 + z^2)(y^5 + z^2 + x^2)(z^5 + x^2 + y^2)\n$$\nand canceling the like terms reduces the desired inequality to\n$$\n\\sum_{\\text{sym}} (x^9 + x^3 + 4x^7y^5) \\ge \\sum_{\\text{sym}} (x^6 + x^3y^3 + 2x^5y^4 + 2x^4y^2). \\quad (\\dagger')\n$$\nBy the AM-GM Inequality, we have $x^6+y^6 \\ge 2x^3y^3$ and $x^9+x^3 \\ge 2x^6$ and their symmetric analogous forms. Adding them together shows that\n$$\n\\sum_{\\text{sym}} (x^9 + x^3) \\ge \\sum_{\\text{sym}} (x^6 + x^3 y^3). \\quad (*)\n$$\nIt suffices to show that\n$$\n\\sum_{\\text{sym}} x^7 y^5 \\ge \\sum_{\\text{sym}} x^5 y^4 = \\sum_{\\text{sym}} x^6 y^5 z \\quad (**)\n$$\nand\n$$\n\\sum_{\\text{sym}} x^7 y^5 \\ge \\sum_{\\text{sym}} x^4 y^2 = \\sum_{\\text{sym}} x^6 y^4 z^2. \\quad (***)\n$$\n\n(Based on work by Jiayin Kang from China) We shall prove something more, namely that\n$$\n\\frac{x^5}{x^5 + y^2 + z^2} + \\frac{y^5}{y^5 + z^2 + x^2} + \\frac{z^5}{z^5 + x^2 + y^2} \\geq 1 \\quad (\\ddag)\n$$\nand\n$$\n1 \\geq \\frac{x^2}{x^5 + y^2 + z^2} + \\frac{y^2}{y^5 + z^2 + x^2} + \\frac{z^2}{z^5 + x^2 + y^2}. \\quad (\\ddag')\n$$\nNote that (‡) follows from adding\n$$\n\\frac{x^5}{x^5 + y^2 + z^2} \\geq \\frac{x^4}{x^4 + y^4 + z^4} \\quad (\\text{or } x(y^4 + z^4) \\geq y^2 + z^2)\n$$\nwith its analogous cyclic inequalities. By the AM-GM Inequality, we have\n$$\n2x(y^4 + z^4) \\geq x(y^2 + z^2)^2 \\geq 2xyz(y^2 + z^2) \\geq 2(y^2 + z^2),\n$$\nas desired.\n\n(Based on work by Hyun Soo Kim) We present a third approach of establishing inequality (†). Because $y^2 + z^2 \\geq 2yz$ and $xyz \\geq 1$, we have\n$$\n\\frac{1}{x^5 + y^2 + z^2} \\leq \\frac{1}{\\frac{x^4}{yz} + y^2 + z^2} \\leq \\frac{1}{\\frac{2x^4}{y^2+z^2} + y^2 + z^2}\n$$\nand the cyclic analogous forms. Thus it suffices to show that\n$$\n\\frac{x^2 + y^2 + z^2}{\\frac{2x^4}{y^2+z^2} + y^2 + z^2} + \\frac{x^2 + y^2 + z^2}{\\frac{2y^4}{z^2+x^2} + z^2 + x^2} + \\frac{x^2 + y^2 + z^2}{\\frac{2z^4}{x^2+y^2} + x^2 + y^2} \\leq 3.\n$$\nHowever, since this is a homogeneous inequality, the condition $xyz \\geq 1$ is not relevant anymore.\nFurthermore, we may assume that $x^2 + y^2 + z^2 = 3$. Then the inequality reduces to\n$$\n\\frac{1}{\\frac{2x^4}{3-x^2} + 3 - x^2} + \\frac{1}{\\frac{2y^4}{3-y^2} + 3 - y^2} + \\frac{1}{\\frac{2z^4}{3-z^2} + 3 - z^2} \\leq 1,\n$$\nor\n$$\n\\frac{3 - x^2}{3x^4 - 6x^2 + 9} + \\frac{3 - y^2}{3y^4 - 6y^2 + 9} + \\frac{3 - z^2}{3z^4 - 6z^2 + 9} \\leq 1,\n$$\nwhere $x, y$, and $z$ are positive real numbers with $x^2 + y^2 + z^2 = 3$.\nBecause $3x^4 - 6x^2 + 9 = 3(x^2 - 1)^2 + 6 \\geq 6$ and $3 - x^2 = y^2 + z^2 \\geq 0$, we obtain\n$$\n\\frac{3 - x^2}{3x^4 - 6x^2 + 9} \\leq \\frac{3 - x^2}{6}.\n$$\nAdding the above inequality and the cyclic analogous forms gives\n$$\n\\frac{3 - x^2}{3x^4 - 6x^2 + 9} + \\frac{3 - y^2}{3y^4 - 6y^2 + 9} + \\frac{3 - z^2}{3z^4 - 6z^2 + 9} \\\\ \\leq \\frac{9 - (x^2 + y^2 + z^2)}{6} = 1,\n$$\nas desired.\n\n(Based on work by Xuancheng Shao from China) We claim that\n$$\n\\frac{1}{x^5 + y^2 + z^2} \\le \\frac{\\frac{3}{2} \\cdot (y^2 + z^2)}{(x^2 + y^2 + z^2)^2}.\n$$\nAdding the above inequality and the cyclic analogous forms yields the desired inequality (†).\nBecause $xyz \\ge 1$, $x \\ge \\frac{1}{yz}$, and so\n$$\n\\frac{1}{x^5 + y^2 + z^2} \\le \\frac{1}{\\frac{x^4}{yz} + y^2 + z^2},\n$$\nor\n$$\n\\frac{1}{x^5 + y^2 + z^2} \\le \\frac{yz}{x^4 + yz(y^2 + z^2)}.\n$$\nIt suffices to show that\n$$\n\\frac{2yz}{x^4 + yz(y^2 + z^2)} \\le \\frac{3(y^2 + z^2)}{(x^2 + y^2 + z^2)^2},\n$$\nor\n$$\n2yz(x^2 + y^2 + z^2)^2 \\le 3x^4(y^2 + z^2) + 3yz(y^2 + z^2)^2.\n$$\nExpanding the left-hand side of the last inequality in $x^2$ and $y^2 + z^2$ gives\n$$\n2x^4yz + 4x^2yz(y^2 + z^2) \\le 3x^4(y^2 + z^2) + yz(y^2 + z^2)^2.\n$$\nBecause $3x^4(y^2 + z^2) \\ge 6x^4yz$, it suffices to show that\n$$\n4x^2yz(y^2 + z^2) \\le 4x^4yz + yz(y^2 + z^2)^2,\n$$\nwhich is evident by the AM-GM Inequality.\n\n(Based on work by Iurie Boreico from Moldova) Note that\n$$\n\\frac{x^5 - x^2}{x^5 + y^2 + z^2} \\ge \\frac{x^5 - x^2}{x^3(x^2 + y^2 + z^2)}\n$$\nis equivalent to\n$$\n\\frac{(x^3 - 1)^2(y^2 + z^2)}{x(x^5 + y^2 + z^2)(x^2 + y^2 + z^2)} \\ge 0,\n$$\nwhich is true for all positive $x, y, z$. Hence\n$$\n\\frac{x^5 - x^2}{x^5 + y^2 + z^2} \\ge \\frac{x^2 - \\frac{1}{x}}{x^2 + y^2 + z^2}.\n$$\nSumming the above inequality with its analogous cyclic inequalities, we see that the desired result follows from\n$$\nx^2 + y^2 + z^2 - \\frac{1}{x} - \\frac{1}{y} - \\frac{1}{z} \\ge 0.\n$$\nSince $xyz \\ge 1$,\n$$\n\\begin{aligned}\n& x^2 + y^2 + z^2 - \\frac{1}{x} - \\frac{1}{y} - \\frac{1}{z} \\\\\n= & x^2 + y^2 + z^2 - \\frac{yz + xz + xy}{xyz} \\\\\n\\ge & x^2 + x^2 + z^2 - yz - xz - xy \\\\\n= & \\frac{(x-y)^2 + (y-z)^2 + (z-x)^2}{2} \\ge 0,\n\\end{aligned}\n$$\nso we are done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-1187",
+      "name": "Harvard-MIT Mathematics Tournament #0ifn",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Symmetric functions"
+      ],
+      "statement": "Problem:\nLet $x$, $y$, and $z$ be distinct real numbers that sum to $0$. Find the maximum possible value of\n$$\n\\frac{x y + y z + z x}{x^{2} + y^{2} + z^{2}}.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n$-1/2$\n\nNote that $0 = (x + y + z)^2 = x^2 + y^2 + z^2 + 2 x y + 2 y z + 2 z x$. Rearranging, we get that $x y + y z + z x = -\\frac{1}{2}(x^2 + y^2 + z^2)$, so that in fact the quantity is always equal to $-1/2$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-1278",
+      "name": "Harvard-MIT Mathematics Tournament, Team Round B #0ii6",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament, Team Round B",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Symmetric functions"
+      ],
+      "statement": "Problem:\nFind all ordered triples $(x, y, z)$ of positive reals such that $x + y + z = 27$ and $x^{2} + y^{2} + z^{2} - x y - y z - z x = 0$. Prove that your answer is correct.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe have $x^{2} + y^{2} + z^{2} - x y - y z - z x = \\frac{(x - y)^{2} + (y - z)^{2} + (z - x)^{2}}{2} = 0$, which implies $x = y = z = \\frac{27}{3} = 9$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-1308",
+      "name": "Harvard-MIT Mathematics Tournament #0ij0",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vieta's formulas",
+        "Symmetric functions",
+        "Intermediate Value Theorem",
+        "Recurrence relations"
+      ],
+      "statement": "Problem:\nLet $a \\geq b \\geq c$ be real numbers such that\n$$\n\\begin{aligned}\na^{2} b c + a b^{2} c + a b c^{2} + 8 &= a + b + c \\\\\na^{2} b + a^{2} c + b^{2} c + b^{2} a + c^{2} a + c^{2} b + 3 a b c &= -4 \\\\\na^{2} b^{2} c + a b^{2} c^{2} + a^{2} b c^{2} &= 2 + a b + b c + c a\n\\end{aligned}\n$$\nIf $a + b + c > 0$, then compute the integer nearest to $a^{5}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe factor the first and third givens, obtaining the system\n$$\n\\begin{aligned}\na^{2} b c + a b^{2} c + a b c^{2} - a - b - c = (a b c - 1)(a + b + c) &= -8 \\\\\na^{2} b + a^{2} c + b^{2} c + b^{2} a + c^{2} a + c^{2} b + 3 a b c = (a b + b c + c a)(a + b + c) &= -4 \\\\\na^{2} b^{2} c + a b^{2} c^{2} + a^{2} b c^{2} - a b - b c - c a = (a b c - 1)(a b + b c + c a) &= 2\n\\end{aligned}\n$$\nWriting $X = a + b + c$, $Y = a b + b c + c a$, $Z = a b c - 1$, we have $X Z = -8$, $X Y = -4$, $Y Z = 2$. Multiplying the three yields $(X Y Z)^{2} = 64$ from which $X Y Z = \\pm 8$. Since we are given $X > 0$, multiplying the last equation by $X$ we have $2 X = X Y Z = \\pm 8$. Evidently $X Y Z = 8$ from which $X = 4$, $Y = -1$, $Z = -2$. We conclude that $a, b, c$ are the roots of the polynomial $P(t) = t^{3} - 4 t^{2} - t + 1$. Thus, $P(a) = a^{3} - 4 a^{2} - a + 1 = 0$, and also $P(b) = P(c) = 0$. Now since $P(1/2) = -\\frac{3}{8}$, $P(0) = 1$ and $P(-2/3) = -\\frac{11}{27}$, we conclude that $-2/3 < c < 0 < b < 1/2 < a$. It follows that $|b^{5} + c^{5}| < \\frac{1}{2}$. Thus, we compute $a^{5} + b^{5} + c^{5}$.\n\nDefining $S_{n} = a^{n} + b^{n} + c^{n}$, we have $S_{n+3} = 4 S_{n+2} + S_{n+1} - S_{n}$ for $n \\geq 0$. Evidently $S_{0} = 3$, $S_{1} = 4$, $S_{2} = (a + b + c)^{2} - 2(a b + b c + c a) = 18$. Then $S_{3} = 4 \\cdot 18 + 4 - 3 = 73$, $S_{4} = 4 \\cdot 73 + 18 - 4 = 306$, and $S_{5} = 4 \\cdot 306 + 73 - 18 = 1279$. Since $|b^{5} + c^{5}| < \\frac{1}{2}$, we conclude that $|S_{5} - a^{5}| < \\frac{1}{2}$, or that 1279 is the integer nearest to $a^{5}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-1363",
+      "name": "Harvard-MIT Mathematics Tournament #0ikj",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vieta's formulas",
+        "Symmetric functions",
+        "Intermediate Value Theorem"
+      ],
+      "statement": "Problem:\n\nLet $a$, $b$, $c$ be the roots of $x^{3}-9 x^{2}+11 x-1=0$, and let $s=\\sqrt{a}+\\sqrt{b}+\\sqrt{c}$. Find $s^{4}-18 s^{2}-8 s$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFirst of all, as the left side of the first given equation takes values $-1, 2, -7$, and $32$ when $x=0, 1, 2$, and $3$, respectively, we know that $a$, $b$, and $c$ are distinct positive reals. Let $t=\\sqrt{a b}+\\sqrt{b c}+\\sqrt{c a}$, and note that\n$$\n\\begin{aligned}\ns^{2} & = a+b+c+2 t = 9+2 t \\\\\nt^{2} & = a b+b c+c a+2 \\sqrt{a b c} s = 11+2 s \\\\\ns^{4} & = (9+2 t)^{2} = 81+36 t+4 t^{2} = 81+36 t+44+8 s = 125+36 t+8 s, \\\\\n18 s^{2} & = 162+36 t\n\\end{aligned}\n$$\nso that $s^{4}-18 s^{2}-8 s = -37$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-1405",
+      "name": "$10^{\\text {th }}$ Annual Harvard-MIT Mathematics Tournament #0ilp",
+      "url": "https://usamoguide.com/",
+      "source": "$10^{\\text {th }}$ Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vieta's formulas",
+        "Symmetric functions"
+      ],
+      "statement": "Problem:\n\n$\\alpha_{1}, \\alpha_{2}, \\alpha_{3}$, and $\\alpha_{4}$ are the complex roots of the equation $x^{4}+2 x^{3}+2=0$. Determine the unordered set\n$$\n\\left\\{\\alpha_{1} \\alpha_{2}+\\alpha_{3} \\alpha_{4}, \\alpha_{1} \\alpha_{3}+\\alpha_{2} \\alpha_{4}, \\alpha_{1} \\alpha_{4}+\\alpha_{2} \\alpha_{3}\\right\\}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n$\\{1 \\pm \\sqrt{5},\\ -2\\}$. Same as Algebra $\\# 9$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-1429",
+      "name": "Harvard-MIT Mathematics Tournament #0imd",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vieta's formulas",
+        "Symmetric functions",
+        "QM-AM-GM-HM / Power Mean"
+      ],
+      "statement": "Problem:\n\nFor $a$ a positive real number, let $x_{1}, x_{2}, x_{3}$ be the roots of the equation $x^{3}-a x^{2}+a x-a=0$. Determine the smallest possible value of $x_{1}^{3}+x_{2}^{3}+x_{3}^{3}-3 x_{1} x_{2} x_{3}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $-4$. Note that $x_{1}+x_{2}+x_{3}=x_{1} x_{2}+x_{2} x_{3}+x_{3} x_{1}=a$. Then\n$$\n\\begin{aligned}\n& x_{1}^{3}+x_{2}^{3}+x_{3}^{3}-3 x_{1} x_{2} x_{3}=\\left(x_{1}+x_{2}+x_{3}\\right)\\left(x_{1}^{2}+x_{2}^{2}+x_{3}^{2}-\\left(x_{1} x_{2}+x_{2} x_{3}+x_{3} x_{1}\\right)\\right) \\\\\n& \\quad=\\left(x_{1}+x_{2}+x_{3}\\right)\\left(\\left(x_{1}+x_{2}+x_{3}\\right)^{2}-3\\left(x_{1} x_{2}+x_{2} x_{3}+x_{3} x_{1}\\right)\\right)=a \\cdot\\left(a^{2}-3 a\\right)=a^{3}-3 a^{2}\n\\end{aligned}\n$$\nThe expression is negative only where $0<a<3$, so we need only consider these values of $a$. Finally, AM-GM gives $\\sqrt[3]{(6-2 a)(a)(a)} \\leq \\frac{(6-2 a)+a+a}{3}=2$, with equality where $a=2$, and this rewrites as $(a-3) a^{2} \\geq -4$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-1519",
+      "name": "11th Annual Harvard-MIT Mathematics Tournament #0iov",
+      "url": "https://usamoguide.com/",
+      "source": "11th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Symmetric functions"
+      ],
+      "statement": "Problem:\n\nPositive real numbers $x$, $y$ satisfy the equations $x^{2} + y^{2} = 1$ and $x^{4} + y^{4} = \\frac{17}{18}$. Find $x y$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe have\n$$\n2 x^{2} y^{2} = (x^{2} + y^{2})^{2} - (x^{4} + y^{4}) = 1^{2} - \\frac{17}{18} = 1 - \\frac{17}{18} = \\frac{1}{18}.\n$$\nSo\n$$\nx^{2} y^{2} = \\frac{1}{36} \\implies x y = \\frac{1}{6}.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-1577",
+      "name": "Harvard-MIT Mathematics Tournament #0iqh",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Techniques: modulo, size analysis, order analysis, inequalities",
+        "Symmetric functions"
+      ],
+      "statement": "Problem:\n\nFor how many ordered triples $(a, b, c)$ of positive integers are the equations $a b c + 9 = a b + b c + c a$ and $a + b + c = 10$ satisfied?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSubtracting the first equation from the second, we obtain\n$$\n1 - a - b - c + a b + b c + c a - a b c = (1 - a)(1 - b)(1 - c) = 0.\n$$\nSince $a$, $b$, and $c$ are positive integers, at least one must equal $1$. Note that $a = b = c = 1$ is not a valid triple, so it suffices to consider the cases where exactly two or one of $a, b, c$ are equal to $1$.\n\nIf $a = b = 1$, we obtain $c = 8$ and similarly for the other two cases, so this gives $3$ ordered triples.\n\nIf $a = 1$, then we need $b + c = 9$, which has $6$ solutions for $b, c \\neq 1$; a similar argument for $b$ and $c$ gives a total of $18$ such solutions.\n\nIt is easy to check that all the solutions we found are actually solutions to the original equations. Adding, we find $18 + 3 = 21$ total triples."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-1621",
+      "name": "Harvard-MIT Mathematics Tournament #0irp",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Symmetric functions"
+      ],
+      "statement": "Problem:\nLet $a$, $b$, $c$ be nonzero real numbers such that $a+b+c=0$ and $a^{3}+b^{3}+c^{3}=a^{5}+b^{5}+c^{5}$. Find the value of $a^{2}+b^{2}+c^{2}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $\\sigma_{1}=a+b+c$, $\\sigma_{2}=ab+bc+ca$ and $\\sigma_{3}=abc$ be the three elementary symmetric polynomials. Since $a^{3}+b^{3}+c^{3}$ is a symmetric polynomial, it can be written as a polynomial in $\\sigma_{1}$, $\\sigma_{2}$ and $\\sigma_{3}$. Now, observe that $\\sigma_{1}=0$, and so we only need to worry about the terms not containing $\\sigma_{1}$. By considering the degrees of the terms, we see that the only possibility is $\\sigma_{3}$. That is, $a^{3}+b^{3}+c^{3}=k \\sigma_{3}$ for some constant $k$. By setting $a=b=1$, $c=-2$, we see that $k=3$.\n\nBy similar reasoning, we find that $a^{5}+b^{5}+c^{5}=h \\sigma_{2} \\sigma_{3}$ for some constant $h$. By setting $a=b=1$ and $c=-2$, we get $h=-5$.\n\nSo, we now know that $a+b+c=0$ implies\n$$\na^{3}+b^{3}+c^{3}=3abc \\quad \\text{and} \\quad a^{5}+b^{5}+c^{5}=-5abc(ab+bc+ca)\n$$\nThen $a^{3}+b^{3}+c^{3}=a^{5}+b^{5}+c^{5}$ implies that $3abc=-5abc(ab+bc+ca)$. Given that $a$, $b$, $c$ are nonzero, we get $ab+bc+ca=-\\frac{3}{5}$.\n\nThen, $a^{2}+b^{2}+c^{2}=(a+b+c)^{2}-2(ab+bc+ca)=0^{2}-2\\left(-\\frac{3}{5}\\right)=\\frac{6}{5}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-1640",
+      "name": "Harvard-MIT Mathematics Tournament #0is8",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Symmetric functions"
+      ],
+      "statement": "Problem:\n\nPositive real numbers $x$, $y$ satisfy the equations $x^{2} + y^{2} = 1$ and $x^{4} + y^{4} = \\frac{17}{18}$. Find $x y$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $s = x^2 + y^2 = 1$ and $p = x^2 y^2$.\n\nWe have:\n\n$$\nx^4 + y^4 = (x^2 + y^2)^2 - 2x^2 y^2 = s^2 - 2p\n$$\n\nGiven $x^4 + y^4 = \\frac{17}{18}$, so:\n\n$$\ns^2 - 2p = \\frac{17}{18}\n$$\n\nBut $s = 1$, so:\n\n$$\n1 - 2p = \\frac{17}{18}\n$$\n$$\n2p = 1 - \\frac{17}{18} = \\frac{1}{18}\n$$\n$$\np = \\frac{1}{36}\n$$\n\nBut $p = x^2 y^2 = (x y)^2$, so $x y = \\sqrt{p} = \\sqrt{\\frac{1}{36}} = \\frac{1}{6}$.\n\nAnswer: $\\boxed{\\dfrac{1}{6}}$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-1678",
+      "name": "Harvard-MIT Mathematics Tournament #0ita",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vieta's formulas",
+        "Symmetric functions"
+      ],
+      "statement": "Problem:\n\nThe equation $x^{3}-9 x^{2}+8 x+2=0$ has three real roots $p, q, r$. Find $\\frac{1}{p^{2}}+\\frac{1}{q^{2}}+\\frac{1}{r^{2}}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFrom Vieta's relations, we have $p+q+r=9$, $pq+qr+rp=8$ and $pqr=-2$. So\n\n$$\n\\frac{1}{p^{2}}+\\frac{1}{q^{2}}+\\frac{1}{r^{2}}=\\frac{(pq+qr+rp)^{2}-2(p+q+r)(pqr)}{(pqr)^{2}}=\\frac{8^{2}-2 \\cdot 9 \\cdot(-2)}{(-2)^{2}}=25\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-1861",
+      "name": "Harvard-MIT Mathematics Tournament #0iyd",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recurrence relations",
+        "Symmetric functions"
+      ],
+      "statement": "Problem:\nIf $a$, $b$, $x$, and $y$ are real numbers such that $a x + b y = 3$, $a x^{2} + b y^{2} = 7$, $a x^{3} + b y^{3} = 16$, and $a x^{4} + b y^{4} = 42$, find $a x^{5} + b y^{5}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe have $a x^{3} + b y^{3} = 16$, so $(a x^{3} + b y^{3})(x + y) = 16(x + y)$ and thus\n$$\na x^{4} + b y^{4} + x y (a x^{2} + b y^{2}) = 16(x + y)\n$$\nIt follows that\n$$\n42 + 7 x y = 16(x + y)\n$$\nFrom $a x^{2} + b y^{2} = 7$, we have $(a x^{2} + b y^{2})(x + y) = 7(x + y)$ so $a x^{3} + b y^{3} + x y (a x + b y) = 7(x + y)$. This simplifies to\n$$\n16 + 3 x y = 7(x + y)\n$$\nWe can now solve for $x + y$ and $x y$ from (1) and (2) to find $x + y = -14$ and $x y = -38$. Thus we have $(a x^{4} + b y^{4})(x + y) = 42(x + y)$, and so $a x^{5} + b y^{5} + x y (a x^{3} + b y^{3}) = 42(x + y)$. Finally, it follows that $a x^{5} + b y^{5} = 42(x + y) - 16 x y = 20$ as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-1870",
+      "name": "Team Selection Test 2009 #0iym",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test 2009",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "QM-AM-GM-HM / Power Mean",
+        "Muirhead / majorization",
+        "Symmetric functions"
+      ],
+      "statement": "$$\nx^3(y^2 + z^2)^2 + y^3(z^2 + x^2)^2 + z^3(x^2 + y^2)^2 \\ge xyz[xy(x+y)^2 + yz(y+z)^2 + zx(z+x)^2].\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "We multiply both sides of the desired inequality by $\\sum_{\\text{cyc}} x = (x + y + z)$; that is, we are going to show that\n$$\n\\left(\\sum_{\\text{cyc}} x\\right) \\cdot L = (x + y + z) \\cdot L \\geq (x + y + z) \\cdot R = \\left(\\sum_{\\text{cyc}} x\\right) \\cdot R\n$$\nor\n$$\n\\left(\\sum_{\\text{cyc}} x\\right) \\cdot L - \\left(\\sum_{\\text{cyc}} x\\right) \\cdot R \\geq 0.\n$$\nNote that\n$$\n\\begin{aligned} \\left(\\sum_{\\text{cyc}} x\\right) L &= \\left(\\sum_{\\text{cyc}} x\\right) \\cdot \\left(\\sum_{\\text{cyc}} x^3(y^4 + z^4) + 2x^2y^2z^2 \\sum_{\\text{cyc}} x\\right) \\\\ &= \\left(\\sum_{\\text{cyc}} x\\right) \\left(\\sum_{\\text{cyc}} x^3(y^4 + z^4)\\right) + 2x^2y^2z^2 \\left(\\sum_{\\text{cyc}} x\\right)^2 \\\\ &= \\sum_{\\text{cyc}} x^5(y^3 + z^3) + 2 \\sum_{\\text{cyc}} x^4 y^4 + xyz \\sum_{\\text{cyc}} x^3(y^2 + z^2) + 2x^2y^2z^2 \\sum_{\\text{cyc}} x^2 + 4x^2y^2z^2 \\sum_{\\text{cyc}} xy \\end{aligned}\n$$\nand\n$$\n\\begin{aligned} \\left(\\sum_{\\text{cyc}} x\\right) R &= \\left(\\sum_{\\text{cyc}} x\\right) \\cdot \\left( xyz \\sum_{\\text{cyc}} xy(x^2 + y^2) + 2xyz \\sum_{\\text{cyc}} x^2 y^2 \\right) \\\\ &= xyz \\left( \\sum_{\\text{cyc}} x^4(y + z) + \\sum_{\\text{cyc}} x^3(y^2 + z^2) + 2xyz \\sum_{\\text{cyc}} x^2 + 2 \\sum_{\\text{cyc}} x^3(y^2 + z^2) + 4xyz \\sum_{\\text{cyc}} xy \\right). \\end{aligned}\n$$\nIt follows that\n$$\n\\left(\\sum_{\\text{cyc}} x\\right) (L - R) = \\sum_{\\text{cyc}} x^5(y^3 + z^3 - yz(y + z)) + 2 \\sum_{\\text{cyc}} x^4 y^4 + 2x^2y^2z^2 \\sum_{\\text{cyc}} xy - 2xyz \\sum_{\\text{cyc}} x^3(y^2 + z^2).\n$$\nWe complete our proof by showing the above expression is always nonnegative. Indeed, it is the sum of the two non-negative expressions\n$$\nS_1 = \\sum_{\\text{cyc}} x^5(y^3 + z^3 - yz(y+z))\n$$\nand\n$$\nS_2 = 2 \\sum_{\\text{cyc}} x^4 y^4 + 2x^2 y^2 z^2 \\sum_{\\text{cyc}} xy - 2xyz \\sum_{\\text{cyc}} x^3(y^2 + z^2).\n$$\nThe first expression $S_1$ is clearly nonnegative because\n$$\n3(y^3 + z^3) = (2y^3 + z^3) + (y^3 + 2z^3) \\geq 3y^2z + 3yz^2 = 3yz(y + z),\n$$\nby the AM-GM inequality. We use the Schur's inequality to establish the fact that $S_2 \\geq 0$. Indeed, setting $a = xy, b = yz, c = zx$, we have\n$$\nS_2 = 2 \\left( \\sum_{\\text{cyc}} a^4 + abc \\sum_{\\text{cyc}} a - \\sum_{\\text{cyc}} a^3(b+c) \\right) = 2 \\sum_{\\text{cyc}} a^2(a-b)(a-c) \\geq 0,\n$$\nby Schur's inequality for $n = 2$.\n\n(By Zuming Feng and Xiaosheng Mu). Note that\n$$\nL - R = \\sum_{\\text{cyc}} x^3(y^4 + z^4) - xyz \\sum_{\\text{cyc}} xy(x^2 + y^2) + xyz \\sum_{\\text{cyc}} (2x^2yz - 2x^2y^2).\n$$\nWe have\n$$\n\\begin{aligned}\nS_3 &= \\sum_{\\text{cyc}} x^3(y^4 + z^4) - xyz \\sum_{\\text{cyc}} xy(x^2 + y^2) = \\sum_{\\text{cyc}} x^4(y^3 + z^3) - \\sum_{\\text{cyc}} (x^4y^2 + x^2y^4)z \\\\\n&= \\sum_{\\text{cyc}} x^4(y^3 + z^3) - \\sum_{\\text{cyc}} x^4(y^2z + yz^2) = \\sum_{\\text{cyc}} x^4(y^3 + z^3 - y^2z - yz^2) \\\\\n&= \\sum_{\\text{cyc}} x^4(y^3 + z^3 - yz(y+z)) = \\sum_{\\text{cyc}} x^4(y+z)(y-z)^2\n\\end{aligned}\n$$\nand\n$$\nS_4 = xyz \\sum_{\\text{cyc}} (2x^2yz - 2x^2y^2) = -xyz \\sum_{\\text{cyc}} (xy - xz)^2 = -xyz \\sum_{\\text{cyc}} x^2(y-z)^2.\n$$\nTherefore,\n$$\nL - R = S_3 + S_4 = \\sum_{\\text{cyc}} x^4(y+z)(y-z)^2 - xyz \\sum_{\\text{cyc}} x^2(y-z)^2 = \\sum_{\\text{cyc}} x^3(xy + xz - yz)(y-z)^2.\n$$\nTo show that $L - R \\geq 0$, we use a method similar to the proof of Schur's inequality. Note that the desired inequality is symmetric with respect to $x, y, z$, so we may assume that $x \\geq y \\geq z > 0$. We consider the three summands\n$$\ns_1 = x^3(xy + xz - yz)(y-z)^2, \\quad s_2 = y^3(yz + yx - zx)(z-x)^2, \\quad s_3 = z^3(zx + zy - xy)(x-y)^2\n$$\nin our expression for $L - R$. The first is clearly non-negative because\n$$\ns_1 = x^3(xy + xz - yz)(y-z)^2 \\geq x^3(xz - yz)(y-z)^2 = x^3z(y-z)^2(x-y).\n$$\nOn the other hand, the sum of the other two summands is also non-negative because $y^3 \\ge z^3$, $(z-x)^2 = (x-z)^2 \\ge (x-y)^2$, and consequently\n$$\n\\begin{aligned}\ns_2 + s_3 &= y^3(yz + yx - zx)(z-x)^2 + z^3(zx + zy - xy)(x-y)^2 \\\\\n&\\geq z^3(x-y)^2(yz + yx - zx + zx + zy - xy) = 2yz^4(x-y)^2 \\geq 0.\n\\end{aligned}\n$$\nHere the first inequality follows from the fact that $yz + yx - zx \\ge 0$. Hence $L - R = s_1 + s_2 + s_3 \\ge 0$, completing our proof."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-1874",
+      "name": "Harvard-MIT Mathematics Tournament #0iyq",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial operations",
+        "Symmetric functions",
+        "Vieta's formulas",
+        "Intermediate Value Theorem",
+        "Muirhead / majorization"
+      ],
+      "statement": "Problem:\nLet $f(x) = x^{4} + 14 x^{3} + 52 x^{2} + 56 x + 16$. Let $z_{1}, z_{2}, z_{3}, z_{4}$ be the four roots of $f$. Find the smallest possible value of $\\left|z_{a} z_{b} + z_{c} z_{d}\\right|$ where $\\{a, b, c, d\\} = \\{1,2,3,4\\}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nNote that $\\frac{1}{16} f(2x) = x^{4} + 7x^{3} + 13x^{2} + 7x + 1$. Because the coefficients of this polynomial are symmetric, if $r$ is a root of $f(x)$ then $\\frac{4}{r}$ is as well. Further, $f(-1) = -1$ and $f(-2) = 16$ so $f(x)$ has two distinct roots on $(-2,0)$ and two more roots on $(-\\infty,-2)$. Now, if $\\sigma$ is a permutation of $\\{1,2,3,4\\}$:\n$$\n\\left|z_{\\sigma(1)} z_{\\sigma(2)} + z_{\\sigma(3)} z_{\\sigma(4)}\\right| \\leq \\frac{1}{2}\\left(z_{\\sigma(1)} z_{\\sigma(2)} + z_{\\sigma(3)} z_{\\sigma(4)} + z_{\\sigma(4)} z_{\\sigma(3)} + z_{\\sigma(2)} z_{\\sigma(1)}\\right)\n$$\nLet the roots be ordered $z_{1} \\leq z_{2} \\leq z_{3} \\leq z_{4}$, then by rearrangement the last expression is at least:\n$$\n\\frac{1}{2}\\left(z_{1} z_{4} + z_{2} z_{3} + z_{3} z_{2} + z_{4} z_{1}\\right)\n$$\nSince the roots come in pairs $z_{1} z_{4} = z_{2} z_{3} = 4$, our expression is minimized when $\\sigma(1) = 1, \\sigma(2) = 4, \\sigma(3) = 3, \\sigma(4) = 2$ and its minimum value is $8$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-1999",
+      "name": "13th Annual Harvard-MIT Mathematics Tournament #0j27",
+      "url": "https://usamoguide.com/",
+      "source": "13th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vieta's formulas",
+        "Polynomial operations",
+        "Symmetric functions",
+        "Complex numbers",
+        "Algebraic properties of binomial coefficients"
+      ],
+      "statement": "Problem:\nSuppose that $x$ and $y$ are complex numbers such that $x+y=1$ and that $x^{20}+y^{20}=20$. Find the sum of all possible values of $x^{2}+y^{2}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe have $x^{2}+y^{2}+2 x y=1$. Define $a=2 x y$ and $b=x^{2}+y^{2}$ for convenience. Then $a+b=1$ and $b-a=x^{2}+y^{2}-2 x y=(x-y)^{2}=2 b-1$ so that $x, y=\\frac{\\sqrt{2 b-1} \\pm 1}{2}$. Then\n$$\n\\begin{aligned}\nx^{20}+y^{20} & =\\left(\\frac{\\sqrt{2 b-1}+1}{2}\\right)^{20}+\\left(\\frac{\\sqrt{2 b-1}-1}{2}\\right)^{20} \\\\\n& =\\frac{1}{2^{20}}\\left[(\\sqrt{2 b-1}+1)^{20}+(\\sqrt{2 b-1}-1)^{20}\\right] \\\\\n& =\\frac{2}{2^{20}}\\left[(\\sqrt{2 b-1})^{20}+\\binom{20}{2}(\\sqrt{2 b-1})^{18}+\\binom{20}{4}(\\sqrt{2 b-1})^{16}+\\ldots\\right] \\\\\n& =\\frac{2}{2^{20}}\\left[(2 b-1)^{10}+\\binom{20}{2}(2 b-1)^{9}+\\binom{20}{4}(2 b-1)^{8}+\\ldots\\right] \\\\\n& =20\n\\end{aligned}\n$$\nWe want to find the sum of distinct roots of the above polynomial in $b$; we first prove that the original polynomial is square-free. The conditions $x+y=1$ and $x^{20}+y^{20}=20$ imply that $x^{20}+(1-x)^{20}-20=0$; let $p(x)=x^{20}+(1-x)^{20}-20$. $p$ is square-free if and only if $\\operatorname{GCD}\\left(p, p'\\right)=c$ for some constant $c$:\n$$\n\\begin{aligned}\n\\operatorname{GCD}\\left(p, p'\\right) & =\\operatorname{GCD}\\left(x^{20}+(1-x)^{20}-20,20\\left(x^{19}-(1-x)^{19}\\right)\\right) \\\\\n& =\\operatorname{GCD}\\left(x^{20}-x(1-x)^{19}+(1-x)^{19}-20,20\\left(x^{19}-(1-x)^{19}\\right)\\right) \\\\\n& =\\operatorname{GCD}\\left((1-x)^{19}-20, x^{19}-(1-x)^{19}\\right) \\\\\n& =\\operatorname{GCD}\\left((1-x)^{19}-20, x^{19}-20\\right)\n\\end{aligned}\n$$\nThe roots of $x^{19}-20$ are $\\sqrt[19]{20^{k}} \\exp \\left(\\frac{2 \\pi i k}{19}\\right)$ for some $k=0,1, \\ldots, 18$; the roots of $(1-x)^{19}-20$ are $1-\\sqrt[19]{20^{k}} \\exp \\left(\\frac{2 \\pi i k}{19}\\right)$ for some $k=0,1, \\ldots, 18$. If $x^{19}-20$ and $(1-x)^{19}-20$ share a common root, then there exist integers $m, n$ such that $\\sqrt[19]{20^{m}} \\exp \\left(\\frac{2 \\pi i m}{19}\\right)=1-\\sqrt[19]{20^{n}} \\exp \\left(\\frac{2 \\pi i n}{19}\\right)$; since the imaginary parts of both sides must be the same, we have $m=n$ and $\\sqrt[19]{20^{m}} \\exp \\left(\\frac{2 \\pi i m}{19}\\right)=\\frac{1}{2} \\Longrightarrow 20^{m}=\\frac{1}{2^{19}}$, a contradiction. Thus we have proved that the polynomial in $x$ has no double roots. Since for each $b$ there exists a unique pair ($x, y$) (up to permutations) that satisfies $x^{2}+y^{2}=b$ and $(x+y)^{2}=1$, the polynomial in $b$ has no double roots.\nLet the coefficient of $b^{n}$ in the above equation be $\\left[b^{n}\\right]$. By Vieta's Formulas, the sum of all possible values of $b=x^{2}+y^{2}$ is equal to $-\\frac{\\left[b^{9}\\right]}{\\left[b^{10}\\right]}$. $\\left[b^{10}\\right]=\\frac{2}{2^{20}}\\left(2^{10}\\right)$ and $\\left[b^{9}\\right]=\\frac{2}{2^{20}}\\left(-\\binom{10}{1} 2^{9}+\\binom{20}{2} 2^{9}\\right)$; thus $-\\frac{\\left[b^{9}\\right]}{\\left[b^{10}\\right]}=-\\frac{\\binom{10}{1} 2^{9}-\\binom{20}{2} 2^{9}}{2^{10}}=-90$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-2035",
+      "name": "13th Annual Harvard-MIT Mathematics Tournament #0j37",
+      "url": "https://usamoguide.com/",
+      "source": "13th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers",
+        "Symmetric functions",
+        "Polynomial operations"
+      ],
+      "statement": "Problem:\nLet $a$, $b$, $c$, $x$, $y$, and $z$ be complex numbers such that\n$$\na = \\frac{b+c}{x-2}, \\quad b = \\frac{c+a}{y-2}, \\quad c = \\frac{a+b}{z-2}.\n$$\nIf $xy + yz + zx = 67$ and $x + y + z = 2010$, find the value of $xyz$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nManipulate the equations to get a common denominator: $a = \\frac{b+c}{x-2} \\Longrightarrow x-2 = \\frac{b+c}{a} \\Longrightarrow x-1 = \\frac{a+b+c}{a} \\Longrightarrow \\frac{1}{x-1} = \\frac{a}{a+b+c}$; similarly, $\\frac{1}{y-1} = \\frac{b}{a+b+c}$ and $\\frac{1}{z-1} = \\frac{c}{a+b+c}$. Thus\n$$\n\\begin{aligned}\n\\frac{1}{x-1} + \\frac{1}{y-1} + \\frac{1}{z-1} & = 1 \\\\\n(y-1)(z-1) + (x-1)(z-1) + (x-1)(y-1) & = (x-1)(y-1)(z-1) \\\\\nxy + yz + zx - 2(x + y + z) + 3 & = xyz - (xy + yz + zx) + (x + y + z) - 1 \\\\\nxyz - 2(xy + yz + zx) + 3(x + y + z) - 4 & = 0 \\\\\nxyz - 2(67) + 3(2010) - 4 & = 0 \\\\\nxyz & = -5892\n\\end{aligned}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-2075",
+      "name": "Harvard-MIT November Tournament #0j4b",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT November Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vieta's formulas",
+        "Symmetric functions"
+      ],
+      "statement": "Problem:\nLet $r_{1}, r_{2}, \\ldots, r_{7}$ be the distinct complex roots of the polynomial $P(x)=x^{7}-7$. Let\n$$\nK=\\prod_{1 \\leq i<j \\leq 7}\\left(r_{i}+r_{j}\\right)\n$$\nthat is, the product of all numbers of the form $r_{i}+r_{j}$, where $i$ and $j$ are integers for which $1 \\leq i<j \\leq 7$. Determine the value of $K^{2}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $117649$\n\nWe first note that $x^{7}-7=\\left(x-r_{1}\\right)\\left(x-r_{2}\\right) \\cdots\\left(x-r_{7}\\right)$, which implies, replacing $x$ by $-x$ and taking the negative of the equation, that $\\left(x+r_{1}\\right)\\left(x+r_{2}\\right) \\cdots\\left(x+r_{7}\\right)=x^{7}+7$. Also note that the product of the $r_{i}$ is just the constant term, so $r_{1} r_{2} \\cdots r_{7}=7$.\n\nNow, we have that\n$$\n\\begin{aligned}\n2^{7} \\cdot 7 \\cdot K^{2} & =\\left(\\prod_{i=1}^{7} 2 r_{i}\\right) K^{2} \\\\\n& =\\prod_{i=1}^{7} 2 r_{i} \\prod_{1 \\leq i<j \\leq 7}\\left(r_{i}+r_{j}\\right)^{2} \\\\\n& =\\prod_{1 \\leq i=j \\leq 7}\\left(r_{i}+r_{j}\\right) \\prod_{1 \\leq i<j \\leq 7}\\left(r_{i}+r_{j}\\right) \\prod_{1 \\leq j<i \\leq 7}\\left(r_{i}+r_{j}\\right) \\\\\n& =\\prod_{1 \\leq i, j \\leq 7}\\left(r_{i}+r_{j}\\right) \\\\\n& =\\prod_{i=1}^{7} \\prod_{j=1}^{7}\\left(r_{i}+r_{j}\\right) .\n\\end{aligned}\n$$\nHowever, note that for any fixed $i$, $\\prod_{j=1}^{7}\\left(r_{i}+r_{j}\\right)$ is just the result of substituting $x=r_{i}$ into $\\left(x+r_{1}\\right)(x+r_{2}) \\cdots(x+r_{7})$. Hence,\n$$\n\\prod_{j=1}^{7}\\left(r_{i}+r_{j}\\right)=r_{i}^{7}+7=\\left(r_{i}^{7}-7\\right)+14=14\n$$\nTherefore, taking the product over all $i$ gives $14^{7}$, which yields $K^{2}=7^{6}=117649$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-2274",
+      "name": "15th Annual Harvard-MIT Mathematics Tournament #0j9u",
+      "url": "https://usamoguide.com/",
+      "source": "15th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Symmetric functions",
+        "Polynomial operations"
+      ],
+      "statement": "Problem:\n\nLet $x$ and $y$ be positive real numbers such that $x^{2} + y^{2} = 1$ and $(3x - 4x^{3})(3y - 4y^{3}) = -\\frac{1}{2}$. Compute $x + y$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $x = \\cos(\\theta)$ and $y = \\sin(\\theta)$. Then, by the triple angle formulae, we have that $3x - 4x^{3} = -\\cos(3\\theta)$ and $3y - 4y^{3} = \\sin(3\\theta)$, so $-\\sin(3\\theta) \\cos(3\\theta) = -\\frac{1}{2}$. We can write this as $2 \\sin(3\\theta) \\cos(3\\theta) = \\sin(6\\theta) = 1$, so $\\theta = \\frac{1}{6} \\sin^{-1}(1) = \\frac{\\pi}{12}$. Thus,\n\n$x + y = \\cos\\left(\\frac{\\pi}{12}\\right) + \\sin\\left(\\frac{\\pi}{12}\\right) = \\frac{\\sqrt{6} + \\sqrt{2}}{4} + \\frac{\\sqrt{6} - \\sqrt{2}}{4} = \\frac{\\sqrt{6}}{2}$.\n\n\nSolution 2:\n\nExpanding gives $9xy + 16x^{3}y^{3} - 12x y^{3} - 12x^{3}y = 9(xy) + 16(xy)^{3} - 12(xy)(x^{2} + y^{2}) = -\\frac{1}{2}$, and since $x^{2} + y^{2} = 1$, this is $-3(xy) + 16(xy)^{3} = -\\frac{1}{2}$, giving $xy = -\\frac{1}{2}, \\frac{1}{4}$. However, since $x$ and $y$ are positive reals, we must have $xy = \\frac{1}{4}$. Then,\n\n$x + y = \\sqrt{x^{2} + y^{2} + 2xy} = \\sqrt{1 + 2 \\cdot \\frac{1}{4}} = \\sqrt{\\frac{3}{2}} = \\frac{\\sqrt{6}}{2}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-2400",
+      "name": "HMMT 2013 #0jdc",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2013",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Symmetric functions",
+        "Simple Equations"
+      ],
+      "statement": "Problem:\nLet $a$ and $b$ be real numbers such that $\\frac{a b}{a^{2}+b^{2}}=\\frac{1}{4}$. Find all possible values of $\\frac{\\left|a^{2}-b^{2}\\right|}{a^{2}+b^{2}}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $\\frac{\\sqrt{3}}{2}$\nThe hypothesis statement is equivalent to\n$$\n\\begin{gathered}\na^{2}+b^{2}=4 a b \\\\\n1:\\ (a+b)^{2}=6 a b \\\\\n2:\\ (a-b)^{2}=2 a b\n\\end{gathered}\n$$\nMultiplying equations 1 and 2,\n$$\n\\begin{aligned}\n& \\left(a^{2}-b^{2}\\right)^{2}=12(a b)^{2} \\\\\n& \\left|a^{2}-b^{2}\\right|= \\pm \\sqrt{12}\\ a b\n\\end{aligned}\n$$\nSince the left hand side and $a b$ are both positive,\n$$\n\\begin{gathered}\n\\left|a^{2}-b^{2}\\right|=\\sqrt{12}\\ a b \\\\\n\\frac{\\left|a^{2}-b^{2}\\right|}{a^{2}+b^{2}}=\\frac{\\sqrt{12}\\ a b}{a^{2}+b^{2}}=\\frac{\\sqrt{12}}{4}=\\frac{\\sqrt{3}}{2}\n\\end{gathered}\n$$\n(It is clear that such $a$ and $b$ exist: for example, we can take $a=1$ and solve for $b$ by way of the quadratic formula.)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-2450",
+      "name": "HMMT 2013 #0jeq",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2013",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vieta's formulas",
+        "Roots of unity",
+        "Complex numbers",
+        "Symmetric functions",
+        "Polynomial operations"
+      ],
+      "statement": "Problem:\n\nThe polynomial $f(x) = x^{3} - 3x^{2} - 4x + 4$ has three real roots $r_{1}$, $r_{2}$, and $r_{3}$. Let $g(x) = x^{3} + a x^{2} + b x + c$ be the polynomial which has roots $s_{1}$, $s_{2}$, and $s_{3}$, where\n\n$s_{1} = r_{1} + r_{2} z + r_{3} z^{2}$,\n\n$s_{2} = r_{1} z + r_{2} z^{2} + r_{3}$,\n\n$s_{3} = r_{1} z^{2} + r_{2} + r_{3} z$,\n\nand $z = \\frac{-1 + i \\sqrt{3}}{2}$.\n\nFind the real part of the sum of the coefficients of $g(x)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nNote that $z = e^{\\frac{2\\pi}{3} i} = \\cos \\frac{2\\pi}{3} + i \\sin \\frac{2\\pi}{3}$, so that $z^{3} = 1$ and $z^{2} + z + 1 = 0$. Also, $s_{2} = s_{1} z$ and $s_{3} = s_{1} z^{2}$.\n\nThen, the sum of the coefficients of $g(x)$ is $g(1) = (1 - s_{1})(1 - s_{2})(1 - s_{3}) = (1 - s_{1})(1 - s_{1} z)(1 - s_{1} z^{2}) = 1 - (1 + z + z^{2}) s_{1} + (z + z^{2} + z^{3}) s_{1}^{2} - z^{3} s_{1}^{3} = 1 - s_{1}^{3}$.\n\nMeanwhile,\n$$\ns_{1}^{3} = (r_{1} + r_{2} z + r_{3} z^{2})^{3} = r_{1}^{3} + r_{2}^{3} + r_{3}^{3} + 3 r_{1}^{2} r_{2} z + 3 r_{1}^{2} r_{3} z^{2} + 3 r_{2}^{2} r_{3} z + 3 r_{2}^{2} r_{1} z^{2} + 3 r_{3}^{2} r_{1} z + 3 r_{3}^{2} r_{2} z^{2} + 6 r_{1} r_{2} r_{3}.\n$$\nSince the real parts of both $z$ and $z^{2}$ are $-\\frac{1}{2}$, and since all of $r_{1}, r_{2}, r_{3}$ are real, the real part of $s_{1}^{3}$ is\n$$\nr_{1}^{3} + r_{2}^{3} + r_{3}^{3} - \\frac{3}{2}(r_{1}^{2} r_{2} + r_{1}^{2} r_{3} + r_{2}^{2} r_{3} + r_{2}^{2} r_{1} + r_{3}^{2} r_{1} + r_{3}^{2} r_{2}) + 6 r_{1} r_{2} r_{3}.\n$$\nThis can be rewritten as\n$$\n(r_{1} + r_{2} + r_{3})^{3} - \\frac{9}{2}(r_{1} + r_{2} + r_{3})(r_{1} r_{2} + r_{2} r_{3} + r_{3} r_{1}) + \\frac{27}{2} r_{1} r_{2} r_{3}.\n$$\nFrom $f(x)$, the sum $r_{1} + r_{2} + r_{3} = 3$, $r_{1} r_{2} + r_{2} r_{3} + r_{3} r_{1} = -4$, $r_{1} r_{2} r_{3} = -4$.\n\nPlugging in,\n$$\n(r_{1} + r_{2} + r_{3})^{3} = 3^{3} = 27\n$$\n$$\n-\\frac{9}{2} \\cdot 3 \\cdot (-4) = 54\n$$\n$$\n\\frac{27}{2} \\cdot (-4) = -54\n$$\nSo the real part is $27 + 54 - 54 = 27$.\n\nTherefore, the answer is $1 - 27 = -26$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-2527",
+      "name": "HMMT #0jgv",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vieta's formulas",
+        "Symmetric functions",
+        "Quadratic functions"
+      ],
+      "statement": "Problem:\n\nLet $a$ and $b$ be real numbers, and let $r$, $s$, and $t$ be the roots of $f(x) = x^{3} + a x^{2} + b x - 1$. Also, $g(x) = x^{3} + m x^{2} + n x + p$ has roots $r^{2}$, $s^{2}$, and $t^{2}$. If $g(-1) = -5$, find the maximum possible value of $b$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nBy Vieta's Formulae, $m = -\\left(r^{2} + s^{2} + t^{2}\\right) = -a^{2} + 2b$, $n = r^{2} s^{2} + s^{2} t^{2} + t^{2} r^{2} = b^{2} + 2a$, and $p = -1$.\n\nTherefore,\n$$\ng(-1) = (-1)^{3} + m(-1)^{2} + n(-1) + p = -1 + m - n - 1\n$$\nBut the context gives:\n$$\ng(-1) = -1 - a^{2} + 2b - b^{2} - 2a - 1 = -5\n$$\nSo,\n$$\n-1 - a^{2} + 2b - b^{2} - 2a - 1 = -5\n$$\n$$\n- a^{2} + 2b - b^{2} - 2a - 2 = -5\n$$\n$$\n- a^{2} + 2b - b^{2} - 2a = -3\n$$\n$$\n- a^{2} - 2a - b^{2} + 2b = -3\n$$\n$$\na^{2} + 2a + b^{2} - 2b = 3\n$$\n$$\n(a + 1)^{2} + (b - 1)^{2} = 5\n$$\nThis is an equation of a circle, so $b$ reaches its maximum when $a + 1 = 0 \\Rightarrow a = -1$.\n\nWhen $a = -1$, $b - 1 = \\pm \\sqrt{5}$, so $b = 1 \\pm \\sqrt{5}$.\n\nThus, the maximum is $1 + \\sqrt{5}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-2550",
+      "name": "Berkeley Math Circle #0jhi",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "QM-AM-GM-HM / Power Mean",
+        "Muirhead / majorization",
+        "Symmetric functions"
+      ],
+      "statement": "Problem:\nShow that for all real numbers $a, b, c$,\n$$\na^{6} + b^{6} + c^{6} - 3 a^{2} b^{2} c^{2} \\geq \\frac{1}{2}(a-b)^{2}(b-c)^{2}(c-a)^{2}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution. A solution will be coming soon."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-2570",
+      "name": "HMMT #0ji2",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Symmetric functions"
+      ],
+      "statement": "Problem:\n\nLet $x$, $y$ be complex numbers such that $\\frac{x^{2}+y^{2}}{x+y}=4$ and $\\frac{x^{4}+y^{4}}{x^{3}+y^{3}}=2$. Find all possible values of $\\frac{x^{6}+y^{6}}{x^{5}+y^{5}}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $10 \\pm 2 \\sqrt{17}$\n\nLet $A=\\frac{1}{x}+\\frac{1}{y}$ and let $B=\\frac{x}{y}+\\frac{y}{x}$. Then\n$$\n\\frac{B}{A}=\\frac{x^{2}+y^{2}}{x+y}=4\n$$\nso $B=4A$. Next, note that\n$$\nB^{2}-2=\\frac{x^{4}+y^{4}}{x^{2} y^{2}} \\text{ and } AB-A=\\frac{x^{3}+y^{3}}{x^{2} y^{2}}\n$$\nso\n$$\n\\frac{B^{2}-2}{AB-A}=2\n$$\nSubstituting $B=4A$ and simplifying, we find that $4A^{2}+A-1=0$, so $A=\\frac{-1 \\pm \\sqrt{17}}{8}$. Finally, note that\n$$\n64A^{3}-12A=B^{3}-3B=\\frac{x^{6}+y^{6}}{x^{3} y^{3}} \\text{ and } 16A^{3}-4A^{2}-A=A\\left(B^{2}-2\\right)-(AB-A)=\\frac{x^{5}+y^{5}}{x^{3} y^{3}}\n$$\nso\n$$\n\\frac{x^{6}+y^{6}}{x^{5}+y^{5}}=\\frac{64A^{2}-12}{16A^{2}-4A-1}=\\frac{4-16A}{3-8A}\n$$\nwhere the last equality follows from the fact that $4A^{2}=1-A$. If $A=\\frac{-1+\\sqrt{17}}{8}$, then this value equals $10+2\\sqrt{17}$. Similarly, if $A=\\frac{-1-\\sqrt{17}}{8}$, then this value equals $10-2\\sqrt{17}$.\n\n(It is not hard to see that these values are achievable by noting that with the values of $A$ and $B$ we can solve for $x+y$ and $xy$, and thus for $x$ and $y$.)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-2594",
+      "name": "USAMO #0jiq",
+      "url": "https://usamoguide.com/",
+      "source": "USAMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vieta's formulas",
+        "Symmetric functions",
+        "Complex numbers",
+        "Cauchy-Schwarz"
+      ],
+      "statement": "Let $a$, $b$, $c$, $d$ be real numbers such that $b - d \\ge 5$ and all zeros $x_1$, $x_2$, $x_3$, and $x_4$ of the polynomial $P(x) = x^4 + a x^3 + b x^2 + c x + d$ are real. Find the smallest value the product $(x_1^2 + 1)(x_2^2 + 1)(x_3^2 + 1)(x_4^2 + 1)$ can take.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**Solution 1** (by Titu Andreescu). Using Vieta's identities we have:\n$$\nx_1x_2 + x_1x_3 + x_1x_4 + x_2x_3 + x_2x_4 + x_3x_4 - x_1x_2x_3x_4 \\ge 5,\n$$\nand so\n$$\nx_1(x_2 + x_3 + x_4 - x_2x_3x_4) + 1(x_2x_3 + x_2x_4 + x_3x_4 - 1) \\ge 4.\n$$\nIt follows that\n$$\n4^2 \\le [x_1(x_2 + x_3 + x_4 - x_2x_3x_4) + 1(x_2x_3 + x_2x_4 + x_3x_4 - 1)]^2,\n$$\nso by the Cauchy-Schwarz Inequality,\n$$\n\\begin{aligned} 4^2 &\\le (x_1^2 + 1)[(x_2 + x_3 + x_4 - x_2x_3x_4)^2 + (x_2x_3 + x_2x_4 + x_3x_4 - 1)^2] \\\\ &= (x_1^2 + 1)(x_2^2 + 1)(x_3^2 + 1)(x_4^2 + 1). \\end{aligned}\n$$\nSetting $x_1 = \\dots = x_4 = 1$ gives $b - d = 5$ and makes the product attain its minimum possible value of $16$.\n\n**Solution 2** (by Titu Andreescu). An alternative, shorter argument runs as follows: we have\n$$\n(x_1^2 + 1)(x_2^2 + 1)(x_3^2 + 1)(x_4^2 + 1) = P(i)P(-i) = ((1 - b + d) + i(c - a))(1 - b + d - i(c - a)) = (b - d - 1)^2 + (c - a)^2 \\ge 16,\n$$\nwith equality if and only if $b - d = 5$ and $a = c$, both attained if $x_1 = \\dots = x_4 = 1$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-2666",
+      "name": "USAMO #0jkq",
+      "url": "https://usamoguide.com/",
+      "source": "USAMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cartesian coordinates",
+        "Determinants",
+        "Symmetric functions"
+      ],
+      "statement": "Prove that there exists an infinite set of points\n$$\n\\dots, P_{-3}, P_{-2}, P_{-1}, P_0, P_1, P_2, P_3, \\dots\n$$\nin the plane with the following property: For any three distinct integers $a, b$ and $c$, points $P_a, P_b$ and $P_c$ are collinear if and only if $a + b + c = 2014$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**Solution 1** (by Razvan Gelca). We claim that defining $P_n$ to be the point with coordinates $(n, n^3 - 2014n^2)$ will satisfy the conditions of the problem. Recall that points $(x_1, y_1)$, $(x_2, y_2)$ and $(x_3, y_3)$ are collinear if and only if\n$$\n\\begin{vmatrix} x_1 & y_1 & 1 \\\\ x_2 & y_2 & 1 \\\\ x_3 & y_3 & 1 \\end{vmatrix} = 0.\n$$\nTherefore we examine the determinant\n$$\n\\begin{vmatrix} a & a^3 - 2014a^2 & 1 \\\\ b & b^3 - 2014b^2 & 1 \\\\ c & c^3 - 2014c^2 & 1 \\end{vmatrix} = \\begin{vmatrix} a & a^3 & 1 \\\\ b & b^3 & 1 \\\\ c & c^3 & 1 \\end{vmatrix} - 2014 \\begin{vmatrix} a & a^2 & 1 \\\\ b & b^2 & 1 \\\\ c & c^2 & 1 \\end{vmatrix}.\n$$\nThe first determinant on the right is a homogenous polynomial of degree four divisible by $(a-b)(b-c)(c-a)$. The remaining factor has degree one, is symmetric, and yields an $ab^3$ term when the product is expanded, hence must be $(a+b+c)$. The second determinant is a homogenous polynomial of degree three divisible by $(a-b)(b-c)(c-a)$, and comparing coefficients of the $ab^2$ term we see that this is the desired polynomial. Thus\n$$\n\\begin{vmatrix} a & a^3 - 2014a^2 & 1 \\\\ b & b^3 - 2014b^2 & 1 \\\\ c & c^3 - 2014c^2 & 1 \\end{vmatrix} = (a-b)(b-c)(c-a)(a+b+c-2014).\n$$\nIt follows that for distinct $a, b$ and $c$ this expression will equal zero if and only if $a + b + c = 2014$, as desired.\n\n**Solution 2** (by Sam Vandervelde). First, note that the translation $x \\mapsto x - 671$ in the indices allows us to replace 2014 in the statement by 1. Now it comes natural to look for a polynomial pattern $(P(x), Q(x))$ in the coordinates of a point. The collinearity condition translates, in coordinates, into\n$$\nP(a)Q(b) + P(b)Q(c) + P(c)Q(a) - P(a)Q(c) - P(b)Q(a) - P(c)Q(b) = 0.\n$$\nThis should happen only when $a+b+c-1=0$ or when two of $a, b, c$ are equal. Hence the left-hand side should be of the form $(a+b+c-1)(b-a)(c-b)(a-c)R(a,b,c)$. We can try the simplest case $R=1$ so that the dominant coefficients of both $P(x)$ and $Q(x)$ are 1. $P(x)$ and $Q(x)$ cannot both have even degree because then the 4th degree terms on the left cancel out, while on the right there are clearly 4th degree terms. Hence one of the polynomials $P(x)$ and $Q(x)$ has degree 3, the other has degree 1. By a translation we can turn the degree 1 polynomial into $x$, thus we may assume that $P(x) = x$. Thus we should have\n$$\n\\begin{aligned}\n& (c-b)Q(a) + (a-c)Q(b) + (b-a)Q(c) \\\\\n&= (a+b+c-1)(b-a)(c-b)(a-c).\n\\end{aligned}\n$$\nSo we let $Q(x) = x^3 + \\alpha x^2 + \\beta x + \\gamma$. Note that we are free to choose $\\beta$ and $\\gamma$ any way we want, since they cancel out. So we let $Q(x) = x^3 + \\alpha x^2$.\nFor $a=0, b=-1, c=1$ the above identity yields $-2Q(0) - Q(-1) - Q(1) = 2$, and hence $\\alpha = -1$.\nReturning to the case of the problem with 2014 instead of 1, we have the points $P_n = (n - 671, (n - 671)^3 - (n - 671)^2)$. But we can simplify this since we can replace $P(x)$ by $x$ and ignore the linear part of $Q(x)$. We thus obtain the simpler infinite family of points\n$$\nP_n = (n, n^3 - 3 \\cdot 671n^2 - n^2) = (n, n^3 - 2014n^2)\n$$\nsatisfying the conditions of the problem."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-2705",
+      "name": "HMMT 2014 #0jlt",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2014",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers",
+        "Symmetric functions"
+      ],
+      "statement": "Problem:\nGiven that $w$ and $z$ are complex numbers such that $|w+z|=1$ and $|w^{2}+z^{2}|=14$, find the smallest possible value of $|w^{3}+z^{3}|$. Here, $|\\cdot|$ denotes the absolute value of a complex number, given by $|a+b i|=\\sqrt{a^{2}+b^{2}}$ whenever $a$ and $b$ are real numbers.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n$|w^{3}+z^{3}| = |w+z|\\,|w^{2}-wz+z^{2}| = |w^{2}-wz+z^{2}| = \\left|\\frac{3}{2}(w^{2}+z^{2})-\\frac{1}{2}(w+z)^{2}\\right|$.\n\nBy the triangle inequality,\n$$\n\\left|\\frac{3}{2}(w^{2}+z^{2})-\\frac{1}{2}(w+z)^{2}+\\frac{1}{2}(w+z)^{2}\\right| \\leq \\left|\\frac{3}{2}(w^{2}+z^{2})-\\frac{1}{2}(w+z)^{2}\\right| + \\left|\\frac{1}{2}(w+z)^{2}\\right|.\n$$\nBy rearranging and simplifying, we get\n$$\n|w^{3}+z^{3}| = \\left|\\frac{3}{2}(w^{2}+z^{2})-\\frac{1}{2}(w+z)^{2}\\right| \\geq \\frac{3}{2}|w^{2}+z^{2}| - \\frac{1}{2}|w+z|^{2} = \\frac{3}{2}(14) - \\frac{1}{2}(1) = \\frac{41}{2}.\n$$\nTo achieve $\\frac{41}{2}$, it suffices to take $w, z$ satisfying $w+z=1$ and $w^{2}+z^{2}=14$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-2739",
+      "name": "HMMT 2014 #0jmr",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2014",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers",
+        "Triangle trigonometry",
+        "Symmetric functions"
+      ],
+      "statement": "Problem:\nGiven that $a$, $b$, and $c$ are complex numbers satisfying\n$$\n\\begin{aligned}\na^{2}+a b+b^{2} & =1+i \\\\\nb^{2}+b c+c^{2} & =-2 \\\\\nc^{2}+c a+a^{2} & =1,\n\\end{aligned}\n$$\ncompute $(a b+b c+c a)^{2}$. (Here, $i=\\sqrt{-1}$.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $\\quad \\frac{-11-4 i}{3}$ OR $-\\frac{11+4 i}{3}$\n\nMore generally, suppose $a^{2}+a b+b^{2}=z$, $b^{2}+b c+c^{2}=x$, $c^{2}+c a+a^{2}=y$ for some complex numbers $a, b, c, x, y, z$.\nWe show that\n$$\nf(a, b, c, x, y, z)=\\left(\\frac{1}{2}(a b+b c+c a) \\sin 120^{\\circ}\\right)^{2}-\\left(\\frac{1}{4}\\right)^{2}\\left[(x+y+z)^{2}-2\\left(x^{2}+y^{2}+z^{2}\\right)\\right]\n$$\nholds in general. Plugging in $x=-2, y=1, z=1+i$ will then yield the desired answer,\n$$\n\\begin{aligned}\n(a b+b c+c a)^{2} & =\\frac{16}{3} \\frac{1}{16}\\left[(x+y+z)^{2}-2\\left(x^{2}+y^{2}+z^{2}\\right)\\right] \\\\\n& =\\frac{i^{2}-2\\left(4+1+(1+i)^{2}\\right)}{3}=\\frac{-1-2(5+2 i)}{3}=\\frac{-11-4 i}{3}\n\\end{aligned}\n$$\n\n\nSolution 1: Plug in $x=b^{2}+b c+c^{2}$, etc. to get a polynomial $g$ in $a, b, c$ (that agrees with $f$ for every valid choice of $a, b, c, x, y, z$). It suffices to show that $g(a, b, c)=0$ for all positive reals $a, b, c$, as then the polynomial $g$ will be identically $0$.\nBut this is easy: by the law of cosines, we get a geometrical configuration with a point $P$ inside a triangle $A B C$ with $P A=a, P B=b, P C=c, \\angle P A B=\\angle P B C=\\angle P C A=120^{\\circ}, x=B C^{2}$,\n$y=C A^{2}, z=A B^{2}$. By Heron's formula, we have\n$$\n\\begin{aligned}\n\\left(\\frac{1}{2}(a b+b c+c a) \\sin 120^{\\circ}\\right)^{2} & =[A B C]^{2} \\\\\n& =\\frac{(\\sqrt{x}+\\sqrt{y}+\\sqrt{z}) \\prod_{\\mathrm{cyc}}(\\sqrt{x}+\\sqrt{y}-\\sqrt{z})}{2^{4}} \\\\\n& =\\frac{1}{16}\\left[(\\sqrt{x}+\\sqrt{y})^{2}-z\\right]\\left[(\\sqrt{x}-\\sqrt{y})^{2}-z\\right] \\\\\n& =\\frac{1}{16}\\left[(x-y)^{2}+z^{2}-2 z(x+y)\\right] \\\\\n& =\\left(\\frac{1}{4}\\right)^{2}\\left[(x+y+z)^{2}-2\\left(x^{2}+y^{2}+z^{2}\\right)\\right]\n\\end{aligned}\n$$\nas desired.\n\n\nSolution 2: Let $s=a+b+c$. We have $x-y=b^{2}+b c-c a-a^{2}=(b-a) s$ and cyclic, so $x+a s=y+b s=z+c s$ (they all equal $\\sum a^{2}+\\sum b c$ ). Now add all equations to get\n$$\nx+y+z=2 \\sum a^{2}+\\sum b c=s^{2}+\\frac{1}{2} \\sum(b-c)^{2}\n$$\nmultiplying both sides by $4 s^{2}$ yields $4 s^{2}(x+y+z)=4 s^{4}+2 \\sum(z-y)^{2}$, so $\\left[2 s^{2}-(x+y+z)\\right]^{2}=$ $(x+y+z)^{2}-2 \\sum(z-y)^{2}=6 \\sum y z-3 \\sum x^{2}$. But $2 s^{2}-(x+y+z)=s^{2}-\\frac{1}{2} \\sum(b-c)^{2}=(a+b+c)^{2}-\\frac{1}{2} \\sum(b-c)^{2}=3(a b+b c+c a)$, so\n$$\n9(a b+b c+c a)^{2}=6 \\sum y z-3 \\sum x^{2}=3\\left[(x+y+z)^{2}-2\\left(x^{2}+y^{2}+z^{2}\\right)\\right]\n$$\nwhich easily rearranges to the desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-2750",
+      "name": "HMMT February 2015 #0jn2",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2015",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Symmetric functions",
+        "Vieta's formulas",
+        "Polynomial interpolation: Newton, Lagrange"
+      ],
+      "statement": "Problem:\n\nThe complex numbers $x, y, z$ satisfy\n$$\n\\begin{aligned}\nx y z & = -4 \\\\\n(x+1)(y+1)(z+1) & = 7 \\\\\n(x+2)(y+2)(z+2) & = -3\n\\end{aligned}\n$$\nFind, with proof, the value of $(x+3)(y+3)(z+3)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nConsider the cubic polynomial $f(t) = (x + t)(y + t)(z + t)$. By the theory of finite differences, $f(3) - 3 f(2) + 3 f(1) - f(0) = 3! = 6$, since $f$ is monic. Thus\n$$\nf(3) = 6 + 3 f(2) - 3 f(1) + f(0) = 6 + 3(-3) - 3(7) + (-4) = -28.\n$$\n\n\nSolution 2:\n\nAlternatively, note that the system of equations is a (triangular) linear system in $w := x y z$, $v := x y + y z + z x$, and $u := x + y + z$. The unique solution $(u, v, w)$ to this system is $\\left(-\\frac{27}{2}, \\frac{47}{2}, -4\\right)$. Plugging in yields\n$$\n\\begin{aligned}\n(x+3)(y+3)(z+3) & = w + 3v + 9u + 27 \\\\\n& = -4 + 3 \\cdot \\frac{47}{2} + 9 \\cdot \\left(-\\frac{27}{2}\\right) + 27 \\\\\n& = -28\n\\end{aligned}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-2863",
+      "name": "HMMT February 2015 #0jq7",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2015",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Linear and quadratic inequalities",
+        "Symmetric functions"
+      ],
+      "statement": "Problem:\n\nLet $a, b, c$ be positive real numbers such that $a + b + c = 10$ and $ab + bc + ca = 25$. Let $m = \\min \\{ ab, bc, ca \\}$. Find the largest possible value of $m$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $\\sqrt{\\frac{25}{9}}$\n\nWithout loss of generality, we assume that $c \\geq b \\geq a$. We see that $3c \\geq a + b + c = 10$. Therefore, $c \\geq \\frac{10}{3}$.\n\nSince\n$$\n\\begin{aligned}\n0 &\\leq (a-b)^2 \\\\\n  &= (a+b)^2 - 4ab \\\\\n  &= (10-c)^2 - 4(25 - c(a+b)) \\\\\n  &= (10-c)^2 - 4(25 - c(10-c)) \\\\\n  &= c(20 - 3c)\n\\end{aligned}\n$$\nwe obtain $c \\leq \\frac{20}{3}$.\n\nConsider $m = \\min \\{ ab, bc, ca \\} = ab$, as $bc \\geq ca \\geq ab$. We compute\n$$\nab = 25 - c(a+b) = 25 - c(10 - c) = (c - 5)^2.\n$$\nSince $\\frac{10}{3} \\leq c \\leq \\frac{20}{3}$, we get that $ab \\leq \\frac{25}{9}$. Therefore, $m \\leq \\frac{25}{9}$ in all cases and the equality can be obtained when $(a, b, c) = \\left(\\frac{5}{3}, \\frac{5}{3}, \\frac{20}{3}\\right)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-2908",
+      "name": "HMMT February 2015 #0jrg",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2015",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Roots of unity",
+        "Symmetric functions",
+        "Polynomials mod p",
+        "Fermat / Euler / Wilson theorems",
+        "Algebraic numbers"
+      ],
+      "statement": "Problem:\nLet $z = e^{\\frac{2\\pi i}{101}}$ and let $\\omega = e^{\\frac{2\\pi i}{10}}$. Prove that\n$$\n\\prod_{a=0}^{9} \\prod_{b=0}^{100} \\prod_{c=0}^{100} \\left(\\omega^{a} + z^{b} + z^{c}\\right)\n$$\nis an integer and find (with proof) its remainder upon division by $101$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $p = 101$ and $r = 10$. Note that $p \\nmid r$.\n\nIn the sequel, we will repeatedly use the polynomial identities $\\prod_{k (\\bmod p)} (x - z^{k}) = x^{p} - 1$, and $\\prod_{j (\\bmod r)} (x - \\omega^{j}) = x^{r} - 1$.\n\nThe product is an integer by standard symmetric sum theory (concrete precursor to Galois theory, though one doesn't need the full language). More precisely, it expands into an integer-coefficient polynomial symmetric in the $\\omega^{j}$ (for the $r$ residues $j (\\bmod r)$), and also symmetric in the $z^{k}$ (for the $p$ residues $k (\\bmod p)$). So by the fundamental theorem of symmetric sums, it can be written as an integer-coefficient polynomial in the symmetric sums of the $\\omega^{j}$ together with the symmetric sums of the $z^{k}$. But these symmetric sums are integers themselves, so the original expression is indeed an integer.\n\nTo actually compute the remainder modulo $p$, note by the Frobenius endomorphism $(u + v)^{p} \\equiv u^{p} + v^{p} \\pmod{p}$ that\n$$\n\\begin{aligned}\n\\prod_{a, b, c} (\\omega^{a} + z^{b} + z^{c}) &= \\prod_{a, b} (-1)^{p} \\left( (-\\omega^{a} - z^{b})^{p} - 1 \\right) \\\\\n&\\equiv \\prod_{a, b} (\\omega^{p a} + z^{p b} - (-1)^{p}) = \\prod_{a, b} (\\omega^{p a} + 2) \\quad (\\bmod p)\n\\end{aligned}\n$$\nwhere we use $p \\equiv 1 \\pmod{2}$ in the last step. This simplifies further to\n$$\n\\begin{aligned}\n\\prod_{a} (-1)^{p} (-2 - \\omega^{p a})^{p} &= \\prod_{a} (-1)^{p} (-2 - \\omega^{a})^{p} \\\\\n&= (-1)^{p r} [(-2)^{r} - 1]^{p} \\equiv (-1)^{p r} [(-2)^{r} - 1] \\quad (\\bmod p)\n\\end{aligned}\n$$\nwhere we've used the fact that $\\{p a \\bmod r\\} = \\{a \\bmod r\\}$ (since $p$ is invertible $\\bmod r$), as well as Fermat's little theorem on $(-2)^{r} - 1$.\n\nFinally, we plug in the specific numbers:\n$$\n(-1)^{101 \\cdot 10} [(-2)^{10} - 1] = 1023 \\equiv 13 \\pmod{101}\n$$\n\nSolution:\nHere we sketch a better solution found by several teams, but missed by the author (primarily due to blindness from having first found the first solution). The proof of the first part (that the product is an integer) is the same, so we only sketch different proofs of the second part (computation of the remainder $\\bmod p$).\n\nFor example, we can use the algebraic integer formulation from the previous solution. Indeed, note that $D := \\prod_{a, b, c} (\\omega^{a} + z^{b} + z^{c}) - \\prod_{a, b, c} (\\omega^{a} + 1^{b} + 1^{c})$ is an algebraic integer divisible by $z - 1$. But $D$ is also a difference of integers, hence an integer itself. The only way $\\frac{D}{z - 1}$ can be an algebraic integer is if $p \\mid D$ (Why?), so it simply remains to compute the remainder when the integer $\\prod_{a, b, c} (\\omega^{a} + 1^{b} + 1^{c})$ is divided by $p$, which is quite easy.\n\nAlternatively (as some contestants/teams found), we can get rid of $\\omega$ first (rather than $z$ as in the previous solution), so (up to sign) we want to evaluate $\\prod_{b, c} (1 + (z^{b} + z^{c})^{r}) \\pmod{p}$. But we have a polynomial identity $\\prod_{b, c} (1 + (T^{b} + T^{c})^{r}) \\in \\Phi_{p}(T) \\cdot \\mathbb{Z}[x] + M$ for some constant integer $M$, where $\\Phi_{p}(T) = T^{p-1} + \\cdots + T + 1$ denotes the $p$th cyclotomic polynomial. But note that $\\Phi_{p}(z) = 0$ is congruent to $\\Phi_{p}(1) = p$ modulo $p$, so\n$$\n\\prod_{b, c} (1 + (z^{b} + z^{c})^{r}) - \\prod_{b, c} (1 + (1^{b} + 1^{c})^{r})\n$$\nis an integer divisible by $p$. The rest is easy.\n\nFinally, as before:\n$$\n(-1)^{101 \\cdot 10} [(-2)^{10} - 1] = 1023 \\equiv 13 \\pmod{101}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-3164",
+      "name": "February 2017 #0jyk",
+      "url": "https://usamoguide.com/",
+      "source": "February 2017",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Linear and quadratic inequalities",
+        "Symmetric functions"
+      ],
+      "statement": "Problem:\n\nLet $a$, $b$, $c$ be non-negative real numbers such that $ab + bc + ca = 3$. Suppose that\n$$\na^3 b + b^3 c + c^3 a + 2abc(a + b + c) = \\frac{9}{2}\n$$\nWhat is the minimum possible value of $ab^3 + bc^3 + ca^3$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nExpanding the inequality $\\sum_{\\text{cyc}} ab(b + c - 2a)^2 \\geq 0$ gives\n$$\n\\left(\\sum_{\\text{cyc}} ab^3\\right) + 4\\left(\\sum_{\\text{cyc}} a^3 b\\right) - 4\\left(\\sum_{\\text{cyc}} a^2 b^2\\right) - abc(a + b + c) \\geq 0\n$$\nUsing $\\left(\\sum_{\\text{cyc}} a^3 b\\right) + 2abc(a + b + c) = \\frac{9}{2}$ in the inequality above yields\n$$\n\\left(\\sum_{\\text{cyc}} ab^3\\right) - 4(ab + bc + ca)^2 \\geq \\left(\\sum_{\\text{cyc}} ab^3\\right) - 4\\left(\\sum_{\\text{cyc}} a^2 b^2\\right) - 9abc(a + b + c) \\geq -18\n$$\nSince $ab + bc + ca = 3$, we have $\\sum_{\\text{cyc}} ab^3 \\geq 18$ as desired.\n\nThe equality occurs when $(a, b, c) \\underset{\\text{cyc}}{\\sim} \\left(\\sqrt{\\frac{3}{2}}, \\sqrt{6}, 0\\right)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-3182",
+      "name": "19th Bay Area Mathematical Olympiad #0jz2",
+      "url": "https://usamoguide.com/",
+      "source": "19th Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vieta's formulas",
+        "Symmetric functions",
+        "Quadratic functions"
+      ],
+      "statement": "Problem:\n\nCall a number $T$ persistent if the following holds: Whenever $a, b, c, d$ are real numbers different from $0$ and $1$ such that\n$$\na + b + c + d = T\n$$\nand\n$$\n\\frac{1}{a} + \\frac{1}{b} + \\frac{1}{c} + \\frac{1}{d} = T\n$$\nwe also have\n$$\n\\frac{1}{1-a} + \\frac{1}{1-b} + \\frac{1}{1-c} + \\frac{1}{1-d} = T.\n$$\n\na. If $T$ is persistent, prove that $T$ must be equal to $2$.\n\nb. Prove that $2$ is persistent.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\na.\nSuppose $T$ is persistent. Observe that for any $u$ satisfying $|u| \\geq 2$, the equation $x + 1/x = u$ has real solutions (because it can be written in the form $x^2 - u x + 1 = 0$, which has discriminant $u^2 - 4$). Choose $u$ large enough so that both $u$ and $v = T - u$ have absolute value greater than $2$. Then there exist real $x, y$, not equal to $0$ or $1$, such that $x + 1/x = u$ and $y + 1/y = v$. Let $a = x$, $b = 1/x$, $c = y$, $d = 1/y$. Then $a + b + c + d = 1/a + 1/b + 1/c + 1/d = u + v = T$, while\n$$\n\\begin{aligned}\nT &= \\frac{1}{1-a} + \\frac{1}{1-b} + \\frac{1}{1-c} + \\frac{1}{1-d} \\\\\n&= \\frac{1}{1-x} + \\frac{1}{1-1/x} + \\frac{1}{1-y} + \\frac{1}{1-1/y} \\\\\n&= \\frac{1}{1-x} + \\frac{x}{x-1} + \\frac{1}{1-y} + \\frac{y}{y-1} \\\\\n&= \\frac{1-x}{1-x} + \\frac{1-y}{1-y} \\\\\n&= 2,\n\\end{aligned}\n$$\nand we are finished.\n\n\nb.\nNow we will show that $2$ is persistent.\nSuppose $a + b + c + d = 2$ and $\\frac{1}{a} + \\frac{1}{b} + \\frac{1}{c} + \\frac{1}{d} = 2$. Consider the monic polynomial $f(x)$ with roots $a, b, c, d$. Let $f(x)$ have expansion\n$$\nf(x) = x^4 - e_1 x^3 + e_2 x^2 - e_3 x + e_4\n$$\nBy Vieta's formulas, we have\n$$\ne_1 = a + b + c + d = 2\n$$\nand\n$$\n\\frac{e_3}{e_4} = \\frac{b c d + c d a + d a b + a b c}{a b c d} = \\frac{1}{a} + \\frac{1}{b} + \\frac{1}{c} + \\frac{1}{d} = 2.\n$$\nThus, $f(x)$ has the form $x^4 - 2 x^3 + r x^2 - 2 s x + s$.\nNext, we consider the polynomial $g(x) = f(1-x)$, which is the monic polynomial with roots $1-a, 1-b, 1-c, 1-d$. We have\n$$\n\\begin{aligned}\ng(x) &= (1-x)^4 - 2(1-x)^3 + r(1-x)^2 - 2s(1-x) + s \\\\\n&= x^4 - 2 x^3 + r x^2 + (2 - 2r + 2s)x - (1 - r + s).\n\\end{aligned}\n$$\nBy Vieta's formulas again, we have\n$$\n\\begin{aligned}\n\\frac{1}{1-a} + \\frac{1}{1-b} + \\frac{1}{1-c} + \\frac{1}{1-d} &= \\frac{-(2 - 2r + 2s)}{-(1 - r + s)} \\\\\n&= 2.\n\\end{aligned}\n$$\nTherefore, $2$ is persistent."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-3407",
+      "name": "HMMT February #0k5b",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vieta's formulas",
+        "Symmetric functions"
+      ],
+      "statement": "Problem:\nAssume the quartic $x^{4}-a x^{3}+b x^{2}-a x+d=0$ has four real roots $\\frac{1}{2} \\leq x_{1}, x_{2}, x_{3}, x_{4} \\leq 2$. Find the maximum possible value of $\\frac{\\left(x_{1}+x_{2}\\right)\\left(x_{1}+x_{3}\\right) x_{4}}{\\left(x_{4}+x_{2}\\right)\\left(x_{4}+x_{3}\\right) x_{1}}$ (over all valid choices of $a, b, d$).",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe can rewrite the expression as\n$$\n\\begin{gathered}\n\\frac{x_{4}^{2}}{x_{1}^{2}} \\cdot \\frac{\\left(x_{1}+x_{1}\\right)\\left(x_{1}+x_{2}\\right)\\left(x_{1}+x_{3}\\right)\\left(x_{1}+x_{4}\\right)}{\\left(x_{4}+x_{1}\\right)\\left(x_{4}+x_{2}\\right)\\left(x_{4}+x_{3}\\right)\\left(x_{4}+x_{4}\\right)} \\\\\n\\frac{x_{4}^{2}}{x_{1}^{2}} \\cdot \\frac{f\\left(-x_{1}\\right)}{f\\left(-x_{4}\\right)}\n\\end{gathered}\n$$\nwhere $f(x)$ is the quartic. We attempt to find a simple expression for $f\\left(-x_{1}\\right)$. We know that\n$$\nf\\left(-x_{1}\\right)-f\\left(x_{1}\\right)=2 a \\cdot x_{1}^{3}+2 a \\cdot x_{1}\n$$\nSince $x_{1}$ is a root, we have\n$$\nf\\left(-x_{1}\\right)=2 a \\cdot x_{1}^{3}+2 a \\cdot x_{1}\n$$\nPlugging this into our previous expression:\n$$\n\\begin{gathered}\n\\frac{x_{4}^{2}}{x_{1}^{2}} \\cdot \\frac{x_{1}^{3}+x_{1}}{x_{4}^{3}+x_{4}} \\\\\n\\frac{x_{1}+\\frac{1}{x_{1}}}{x_{4}+\\frac{1}{x_{4}}}\n\\end{gathered}\n$$\nThe expression $x+\\frac{1}{x}$ is maximized at $x=2, \\frac{1}{2}$ and minimized at $x=1$. We can therefore maximize the numerator with $x_{1}=2$ and minimize the denominator with $x_{4}=1$ to achieve the answer of $\\frac{5}{4}$. It can be confirmed that such an answer can be achieved such as with $x_{2}=x_{3}=\\frac{\\sqrt{10}-1}{3}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-3492",
+      "name": "HMMT February 2019 #0k7o",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2019",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Symmetric functions",
+        "Polynomial operations",
+        "Quadratic functions"
+      ],
+      "statement": "Problem:\n\nLet $x$ and $y$ be positive real numbers. Define $a=1+\\frac{x}{y}$ and $b=1+\\frac{y}{x}$. If $a^{2}+b^{2}=15$, compute $a^{3}+b^{3}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nNote that $a-1=\\frac{x}{y}$ and $b-1=\\frac{y}{x}$ are reciprocals. That is,\n$$\n(a-1)(b-1)=1 \\Longrightarrow a b-a-b+1=1 \\Longrightarrow a b=a+b\n$$\nLet $t=a b=a+b$. Then we can write\n$$\na^{2}+b^{2}=(a+b)^{2}-2 a b=t^{2}-2 t\n$$\nso $t^{2}-2 t=15$, which factors as $(t-5)(t+3)=0$. Since $a, b>0$, we must have $t=5$. Then, we compute\n$$\na^{3}+b^{3}=(a+b)^{3}-3 a b(a+b)=5^{3}-3 \\cdot 5^{2}=50\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-3559",
+      "name": "HMMT February 2019 #0k9j",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2019",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Sums and products",
+        "Symmetric functions"
+      ],
+      "statement": "Problem:\nFind the value of\n$$\n\\sum_{a=1}^{\\infty} \\sum_{b=1}^{\\infty} \\sum_{c=1}^{\\infty} \\frac{a b(3 a+c)}{4^{a+b+c}(a+b)(b+c)(c+a)}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $S$ denote the given sum. By summing over all six permutations of the variables $a, b, c$ we obtain\n$$\n\\begin{aligned}\n6 S & =\\sum_{a=1}^{\\infty} \\sum_{b=1}^{\\infty} \\sum_{c=1}^{\\infty} \\frac{3\\left(a^{2} b+a^{2} c+b^{2} a+b^{2} c+c^{2} a+c^{2} b\\right)+6 a b c}{4^{a+b+c}(a+b)(b+c)(c+a)} \\\\\n& =\\sum_{a=1}^{\\infty} \\sum_{b=1}^{\\infty} \\sum_{c=1}^{\\infty} \\frac{3}{4^{a+b+c}} \\\\\n& =3\\left(\\sum_{a=1}^{\\infty} \\frac{1}{4^{a}}\\right)\\left(\\sum_{b=1}^{\\infty} \\frac{1}{4^{b}}\\right)\\left(\\sum_{c=1}^{\\infty} \\frac{1}{4^{c}}\\right) \\\\\n& =3\\left(\\frac{1}{3}\\right)^{3} \\\\\n& =\\frac{1}{9} .\n\\end{aligned}\n$$\nHence $S=\\frac{1}{54}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-3651",
+      "name": "HMMT February 2020 #0kc3",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2020",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Symmetric functions",
+        "Simple Equations"
+      ],
+      "statement": "Problem:\nDetermine all triplets of real numbers $(x, y, z)$ satisfying the system of equations\n$$\n\\begin{aligned}\nx^{2} y + y^{2} z & = 1040 \\\\\nx^{2} z + z^{2} y & = 260 \\\\\n(x - y)(y - z)(z - x) & = -540\n\\end{aligned}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nCall the three equations (1), (2), (3).\n\n(1)/(2) gives $y = 4z$.\n\n(3) $+$ (1) $-$ (2) gives\n$$\n\\left(y^{2} - z^{2}\\right)x = 15z^{2}x = 240\n$$\nso $z^{2} x = 16$.\n\nTherefore\n$$\n\\begin{aligned}\n& z(x + 2z)^{2} = x^{2} z + z^{2} y + 4z^{2} x = \\frac{81}{5} \\\\\n& z(x - 2z)^{2} = x^{2} z + z^{2} y - 4z^{2} x = \\frac{49}{5}\n\\end{aligned}\n$$\nso $\\left|\\frac{x + 2z}{x - 2z}\\right| = \\frac{9}{7}$.\n\nThus either $x = 16z$ or $x = \\frac{z}{4}$.\n\nIf $x = 16z$, then (1) becomes $1024z^{3} + 16z^{3} = 1040$, so $(x, y, z) = (16, 4, 1)$.\n\nIf $x = \\frac{z}{4}$, then (1) becomes $\\frac{1}{4}z^{3} + 16z^{3} = 1040$, so $(x, y, z) = (1, 16, 4)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-3775",
+      "name": "HMMT February 2020 #0kfj",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2020",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vieta's formulas",
+        "Polynomial operations",
+        "Symmetric functions"
+      ],
+      "statement": "Problem:\nLet $P(x) = x^{2020} + x + 2$, which has $2020$ distinct roots. Let $Q(x)$ be the monic polynomial of degree $\\binom{2020}{2}$ whose roots are the pairwise products of the roots of $P(x)$. Let $\\alpha$ satisfy $P(\\alpha) = 4$. Compute the sum of all possible values of $Q\\left(\\alpha^{2}\\right)^{2}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $P(x)$ have degree $n = 2020$ with roots $r_{1}, \\ldots, r_{n}$. Let $R(x) = \\prod_{i} \\left(x - r_{i}^{2}\\right)$. Then\n$$\n\\prod_{i} r_{i}^{n} P\\left(\\frac{x}{r_{i}}\\right) = \\prod_{i} \\prod_{j} \\left(x - r_{i} r_{j}\\right) = Q(x)^{2} R(x)\n$$\nUsing $R\\left(x^{2}\\right) = (-1)^{n} P(x) P(-x)$ and Vieta, we obtain\n$$\nP(x) P(-x) Q\\left(x^{2}\\right)^{2} = P(0)^{n} \\prod_{i} P\\left(\\frac{x^{2}}{r_{i}}\\right)\n$$\nPlugging in $x = \\alpha$, we use the facts that $P(\\alpha) = 4$, $P(-\\alpha) = 4 - 2 \\alpha$, and also\n$$\nP\\left(\\frac{\\alpha^{2}}{r_{i}}\\right) = \\frac{\\alpha^{4040}}{r_{i}^{2020}} + \\frac{\\alpha^{2}}{r_{i}} + 2 = -\\frac{(\\alpha-2)^{2}}{r_{i}+2} + \\frac{\\alpha^{2}}{r_{i}} + 2 = \\frac{2\\left(-\\alpha - r_{i}\\right)^{2}}{r_{i}\\left(r_{i}+2\\right)}.\n$$\nThis will give us\n$$\nP(\\alpha) P(-\\alpha) Q\\left(\\alpha^{2}\\right)^{2} = 2^{n} \\prod_{i} \\frac{2\\left(-\\alpha - r_{i}\\right)^{2}}{r_{i}\\left(r_{i}+2\\right)} = 2^{n} \\cdot \\frac{2^{n} P(-\\alpha)^{2}}{P(0) P(-2)}\n$$\nTherefore,\n$$\n\\begin{aligned}\nQ\\left(\\alpha^{2}\\right)^{2} & = \\frac{4^{n} P(-\\alpha)}{P(0) P(-2) P(\\alpha)} \\\\\n& = \\frac{4^{n}(4-2 \\alpha)}{2 \\cdot 2^{2020} \\cdot 4} \\\\\n& = \\frac{2^{4041}(2-\\alpha)}{2^{2023}} \\\\\n& = 2^{2018}(2-\\alpha)\n\\end{aligned}\n$$\nWe can check that $P(x) - 4$ has no double roots (e.g. by checking that it shares no roots with its derivative), which means that all possible $\\alpha$ are distinct. Therefore, adding over all $\\alpha$ gives $2020 \\cdot 2^{2019}$, because the sum of the roots of $P(x) - 4$ is $0$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-3822",
+      "name": "HMMT November 2021 #0kgu",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2021",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Symmetric functions",
+        "Polynomial operations",
+        "Simple Equations"
+      ],
+      "statement": "Problem:\n\nReal numbers $x, y, z$ satisfy\n$$\nx + x y + x y z = 1, \\quad y + y z + x y z = 2, \\quad z + x z + x y z = 4\n$$\nThe largest possible value of $x y z$ is $\\frac{a + b \\sqrt{c}}{d}$, where $a, b, c, d$ are integers, $d$ is positive, $c$ is square-free, and $\\operatorname{gcd}(a, b, d) = 1$. Find $1000 a + 100 b + 10 c + d$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $p = x y z$ and $q = (x+1)(y+1)(z+1)$. Then, we get\n$$\np q = [x(1+y)] \\cdot [y(1+z)] \\cdot [z(1+x)] = (1-p)(2-p)(4-p)\n$$\nAdditionally, note that\n$$\nq - p = x y + y z + z x + x + y + z + 1 = (x + x y) + (y + y z) + (z + x z) + 1 = 8 - 3p\n$$\nTherefore, we have $q = 8 - 2p$. Substituting this into our earlier equation gives us\n$$\np(8 - 2p) = (1 - p)(2 - p)(4 - p)\n$$\nWe can rearrange this to get $(4 - p)\\left(2 - 5p + p^{2}\\right) = 0$. Solving this gives us $p = 4, \\frac{5 \\pm \\sqrt{17}}{2}$. Thus, our maximum solution is $\\frac{5 + \\sqrt{17}}{2}$, which yields an answer of 5272. To show that such a solution exists, see Solution 2.\n\n\nSolution 2:\n\nLet $r = x y z - 1$. Observe that\n$$\nr x = x(y + y z + x y z) - (x + x y + x y z) = 2x - 1 \\Longleftrightarrow x = \\frac{1}{2 - r}.\n$$\nSimilarly, $y = \\frac{2}{4 - r}$ and $z = \\frac{4}{1 - r}$. Therefore $8 = (1 + r)(1 - r)(2 - r)(4 - r)$. This factors as $r(r - 3)\\left(r^{2} - 3r - 2\\right) = 0$, so the maximum possible value for $r$ is $\\frac{3 + \\sqrt{17}}{2}$.\nNow let's check that this yields a valid solution for $x, y, z$. Let $r = \\frac{3 + \\sqrt{17}}{2}$ and let $x = \\frac{1}{2 - r}$, $y = \\frac{2}{4 - r}$, $z = \\frac{4}{1 - r}$. Then $x y z - 1 = \\frac{8}{(2 - r)(4 - r)(1 - r)} - 1 = 1 + r - 1 = r$. Now, we may do our above computations in reverse to get\n$$\n2x - 1 = 2x - (2 - r)x = r x = x^{2} y z - x = x(y + y z + x y z) - (x - x y + x y z)\n$$\nRepeating the same thing for $y$ and $z$ yields that\n$$\n\\left(\\begin{array}{ccc}\n-1 & x & 0 \\\\\n0 & -1 & y \\\\\nz & 0 & -1\n\\end{array}\\right)\n\\left(\\begin{array}{l}\n1 \\\\\n2 \\\\\n4\n\\end{array}\\right)\n=\n\\left(\\begin{array}{ccc}\n-1 & x & 0 \\\\\n0 & -1 & y \\\\\nz & 0 & -1\n\\end{array}\\right)\n\\left(\\begin{array}{l}\nx + x y + x y z \\\\\ny + y z + x y z \\\\\nz + x z + x y z\n\\end{array}\\right)\n$$\nHowever, since $x y z - 1 \\neq 0$, the determinant of the matrix is nonzero, so we may multiply by its inverse to find that\n$$\n\\left(\\begin{array}{l}\n1 \\\\\n2 \\\\\n4\n\\end{array}\\right)\n=\n\\left(\\begin{array}{l}\nx + x y + x y z \\\\\ny + y z + x y z \\\\\nz + x z + x y z\n\\end{array}\\right)\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-3834",
+      "name": "2021 AMC 10 B Fall #0kh6",
+      "url": "https://usamoguide.com/",
+      "source": "2021 AMC 10 B Fall",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial operations",
+        "Symmetric functions",
+        "Integers"
+      ],
+      "statement": "Which of the following conditions is sufficient to guarantee that integers $x$, $y$, and $z$ satisfy the equation\n$$\nx(x - y) + y(y - z) + z(z - x) = 1?\n$$\n(A) $x > y$ and $y = z$\n(B) $x = y - 1$ and $y = z - 1$\n(C) $x = z + 1$ and $y = x + 1$\n(D) $x = z$ and $y - 1 = x$\n(E) $x + y + z = 1$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-3887",
+      "name": "Berkeley Math Circle: Monthly Contest 5 #0kin",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 5",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial operations",
+        "Symmetric functions",
+        "Integers"
+      ],
+      "statement": "Problem:\n\nProve that if $x$ is a positive real number such that $x + x^{-1}$ is an integer, then $x^{3} + x^{-3}$ is an integer as well.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThis follows from the identity\n$$\nx^{3} + \\frac{1}{x^{3}} = \\left(x + \\frac{1}{x}\\right)^{3} - 3\\left(x + \\frac{1}{x}\\right).\n$$\n\nIf $x + x^{-1}$ is an integer, then so is $\\left(x + x^{-1}\\right)^{3} - 3\\left(x + x^{-1}\\right)$, and thus $x^{3} + x^{-3}$ is an integer."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-3936",
+      "name": "HMMT November 2021 #0kk0",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2021",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Symmetric functions"
+      ],
+      "statement": "Problem:\nLet $x$, $y$, $z$ be real numbers satisfying\n$$\n\\begin{aligned}\n2x + y + 4xy + 6xz &= -6 \\\\\ny + 2z + 2xy + 6yz &= 4 \\\\\nx - z + 2xz - 4yz &= -3\n\\end{aligned}\n$$\nFind $x^{2} + y^{2} + z^{2}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe multiply the first, second, and third equations by $\\frac{1}{2}$, $-\\frac{1}{2}$, and $-1$, respectively, then add the three resulting equations. This gives $xy + xz + yz = -2$.\n\nDoing the same with the coefficients $-1$, $2$, and $3$ gives $x + y + z = 5$, from which $(x + y + z)^2 = 25$.\n\nSo $x^2 + y^2 + z^2 = 25 - 2 \\cdot (-2) = 29$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-3986",
+      "name": "HMMT Spring 2021 #0kle",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT Spring 2021",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Symmetric functions",
+        "Polynomial operations"
+      ],
+      "statement": "Problem:\nSuppose that $P(x, y, z)$ is a homogeneous degree 4 polynomial in three variables such that $P(a, b, c) = P(b, c, a)$ and $P(a, a, b) = 0$ for all real $a, b$, and $c$. If $P(1,2,3) = 1$, compute $P(2,4,8)$.\n\nNote: $P(x, y, z)$ is a homogeneous degree 4 polynomial if it satisfies $P(k a, k b, k c) = k^{4} P(a, b, c)$ for all real $k, a, b, c$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nSince $P(a, a, b) = 0$, $(x - y)$ is a factor of $P$, which means $(y - z)$ and $(z - x)$ are also factors by the symmetry of the polynomial. So,\n$$\n\\frac{P(x, y, z)}{(x - y)(y - z)(z - x)}\n$$\nis a symmetric homogeneous degree 1 polynomial, so it must be $k(x + y + z)$ for some real $k$. So, the answer is\n$$\n\\frac{P(2,4,8)}{P(1,2,3)} = \\frac{(2 + 4 + 8)(2 - 4)(4 - 8)(8 - 2)}{(1 + 2 + 3)(1 - 2)(2 - 3)(3 - 1)} = 56\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-4022",
+      "name": "AMC 12 B #0kme",
+      "url": "https://usamoguide.com/",
+      "source": "AMC 12 B",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Symmetric functions",
+        "Integers"
+      ],
+      "statement": "Which of the following conditions is sufficient to guarantee that integers $x$, $y$, and $z$ satisfy the equation\n$$\nx(x - y) + y(y - z) + z(z - x) = 1?\n$$\n(A) $x > y$ and $y = z$\n(B) $x = y - 1$ and $y = z - 1$\n(C) $x = z + 1$ and $y = x + 1$\n(D) $x = z$ and $y - 1 = x$\n(E) $x + y + z = 1$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-4033",
+      "name": "HMMT November 2021 Team Round #0kmp",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2021 Team Round",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vieta's formulas",
+        "Polynomial operations",
+        "Symmetric functions"
+      ],
+      "statement": "Problem:\nLet $f(x) = x^{3} + 3x - 1$ have roots $a, b, c$. Given that\n$$\n\\frac{1}{a^{3} + b^{3}} + \\frac{1}{b^{3} + c^{3}} + \\frac{1}{c^{3} + a^{3}}\n$$\ncan be written as $\\frac{m}{n}$, where $m, n$ are positive integers and $\\operatorname{gcd}(m, n) = 1$, find $100m + n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe know that $a^{3} = -3a + 1$ and similarly for $b, c$, so\n$$\n\\frac{1}{a^{3} + b^{3}} = \\frac{1}{2 - 3a - 3b} = \\frac{1}{2 + 3c} = \\frac{1}{3(2/3 + c)}.\n$$\nNow,\n$$\nf(x - 2/3) = x^{3} - 2x^{2} + \\frac{13}{3}x - \\frac{89}{27}\n$$\nhas roots $a + 2/3$, $b + 2/3$, and $c + 2/3$. Thus the answer is, by Vieta's formulas,\n$$\n\\frac{1}{3} \\frac{(a + 2/3)(b + 2/3) + (a + 2/3)(c + 2/3) + (b + 2/3)(c + 2/3)}{(a + 2/3)(b + 2/3)(c + 2/3)} = \\frac{13/3}{3 \\cdot 89/27} = \\frac{39}{89}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-4034",
+      "name": "HMMT Spring 2021 #0kmq",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT Spring 2021",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers",
+        "Symmetric functions"
+      ],
+      "statement": "Problem:\nSuppose that $x$, $y$, and $z$ are complex numbers of equal magnitude that satisfy\n$$\nx + y + z = -\\frac{\\sqrt{3}}{2} - i \\sqrt{5}\n$$\nand\n$$\nxyz = \\sqrt{3} + i \\sqrt{5}.\n$$\nIf $x = x_1 + i x_2$, $y = y_1 + i y_2$, and $z = z_1 + i z_2$ for real $x_1$, $x_2$, $y_1$, $y_2$, $z_1$, and $z_2$, then\n$$\n\\left(x_1 x_2 + y_1 y_2 + z_1 z_2\\right)^2\n$$\ncan be written as $\\frac{a}{b}$ for relatively prime positive integers $a$ and $b$. Compute $100a + b$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFrom the conditions, it is clear that $a$, $b$, $c$ all have magnitude $\\sqrt{2}$. Conjugating the first equation gives $2\\left(\\frac{ab + bc + ca}{abc}\\right) = -\\frac{\\sqrt{3}}{2} + i \\sqrt{5}$, which means $ab + bc + ca = \\left(-\\frac{\\sqrt{3}}{4} + i \\frac{\\sqrt{5}}{2}\\right)(\\sqrt{3} + i \\sqrt{5}) = \\frac{-13 + i \\sqrt{15}}{4}$.\nThen,\n$$\n\\begin{aligned}\na_1 a_2 + b_1 b_2 + c_1 c_2 &= \\frac{1}{2} \\operatorname{Im}\\left(a^2 + b^2 + c^2\\right) \\\\\n&= \\frac{1}{2} \\operatorname{Im}\\left((a + b + c)^2\\right) - \\operatorname{Im}(ab + bc + ca) \\\\\n&= \\frac{\\sqrt{15}}{4}\n\\end{aligned}\n$$\nso the answer is 1516."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-4203",
+      "name": "Berkeley Math Circle Monthly Contest 8 #0krf",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 8",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other",
+        "Symmetric functions"
+      ],
+      "statement": "Problem:\n\nAerith picks five numbers and for every three of them, takes their product, producing ten products. She tells Bob that the nine smallest positive divisors of sixty are among her products. Can Bob figure out the last product?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nYes Bob can. Let the numbers be $v, w, x, y, z$ and let the missing product be $x y z$. The nine given products are $1,2,3,4,5,6,10,12,15$.\n\nPartition these products into the three sequences\n$$\ns_{1}=(v y z, v z x, v x y),\\quad s_{2}=(w y z, w z x, w x y),\\quad s_{3}=(v w x, v w y, v w z)\n$$\nand call these sequences special. Note that $s'=(y z, z x, x y)$ is directly proportional to the first two and inversely proportional to the last one. The multiples of $5$ thus have to be in the same special sequence, WLOG $(5,10,15)$. This sequence is inversely proportional to at least one of other two special sequences, which would thus have to be a multiple of $(6,3,2)$. However, it cannot be $(6,3,2)$ itself as that would leave $1,4,12$, which cannot form a special sequence. Thus, the multiple of $(6,3,2)$ has to be $(12,6,4)$, leaving $(1,2,3)$ as the final sequence. WLOG, we thus can get the equations\n$$\n((v y z, v z x, v x y),(w y z, w z x, w x y),(v w x, v w y, v w z))=((5,10,15),(1,2,3),(12,6,4)).\n$$\nWe can then deduce $x y z = v y z \\cdot w x z / v w z = 5 \\cdot 2 / 4 = 5 / 2$.\n\nIndeed, $5 / 2$ is achieved by\n$$\n(v, w, x, y, z)=\\left(2 \\sqrt[3]{15}, \\frac{2}{5} \\sqrt[3]{15}, \\sqrt[3]{15}, \\frac{1}{2} \\sqrt[3]{15}, \\frac{1}{3} \\sqrt[3]{15}\\right)\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-4256",
+      "name": "HMMT February 2022 #0ksw",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2022",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Functional Equations",
+        "Symmetric functions"
+      ],
+      "statement": "Problem:\nFind, with proof, all functions $f: \\mathbb{R} \\setminus \\{0\\} \\to \\mathbb{R}$ such that\n$$\nf(x)^2 - f(y) f(z) = x(x+y+z)(f(x) + f(y) + f(z))\n$$\nfor all real $x, y, z$ such that $x y z = 1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe answer is either $f(x) = 0$ for all $x$ or $f(x) = x^2 - \\frac{1}{x}$ for all $x$. These can be checked to work.\n\nNow, I will prove that these are the only solutions. Let $P(x, y, z)$ be the assertion of the problem statement.\n\nLemma 1. $f(x) \\in \\{0, x^2 - \\frac{1}{x}\\}$ for all $x \\in \\mathbb{R} \\setminus \\{0\\}$.\n\nProof. $P(1,1,1)$ yields $f(1) = 0$. Then, $P\\left(x, 1, \\frac{1}{x}\\right)$ and $P\\left(1, x, \\frac{1}{x}\\right)$ yield\n$$\n\\begin{aligned}\nf(x)^2 &= x\\left(x + \\frac{1}{x} + 1\\right)\\left(f(x) + f\\left(\\frac{1}{x}\\right)\\right) \\\\\n-f(x) f\\left(\\frac{1}{x}\\right) &= \\left(x + \\frac{1}{x} + 1\\right)\\left(f(x) + f\\left(\\frac{1}{x}\\right)\\right)\n\\end{aligned}\n$$\nThus, we have $f(x)^2 = -x f(x) f\\left(\\frac{1}{x}\\right)$, so we have $f(x) = 0$ or $f\\left(\\frac{1}{x}\\right) = -\\frac{f(x)}{x}$. Plugging in the latter into the first equation above gives us\n$$\nf(x)^2 = x\\left(x + \\frac{1}{x} + 1\\right)\\left(f(x) - \\frac{f(x)}{x}\\right)\n$$\nwhich gives us $f(x) = 0$ or $f(x) = x^2 - \\frac{1}{x}$. This proves Lemma 1.\n\nLemma 2. If $f(t) = 0$ for some $t \\neq 1$, then we have $f(x) = 0$ for all $x$.\n\nProof. $P\\left(x, t, \\frac{1}{t x}\\right)$ and $P\\left(t, x, \\frac{1}{t x}\\right)$ give us\n$$\n\\begin{aligned}\nf(x)^2 &= x\\left(x + \\frac{1}{t x} + t\\right)\\left(f(x) + f\\left(\\frac{1}{t x}\\right)\\right) \\\\\n-f(x) f\\left(\\frac{1}{t x}\\right) &= t\\left(x + \\frac{1}{t x} + t\\right)\\left(f(x) + f\\left(\\frac{1}{t x}\\right)\\right)\n\\end{aligned}\n$$\nThus we have $t f(x)^2 = -x f(x) f\\left(\\frac{1}{t x}\\right)$, so $f(x) = 0$ or $f\\left(\\frac{1}{t x}\\right) = -\\frac{t}{x} f(x)$. Plugging in the latter into the first equation gives us\n$$\nf(x)^2 = x\\left(x + \\frac{1}{t x} + t\\right)\\left(f(x) - \\frac{t f(x)}{x}\\right)\n$$\nwhich gives us either $f(x) = 0$ or $f(x) = x\\left(x + t + \\frac{1}{t x}\\right)\\left(1 - \\frac{t}{x}\\right) = x^2 - \\frac{1}{x} - \\left(t^2 - \\frac{1}{t}\\right)$. Note that since the latter expression doesn't equal $x^2 - \\frac{1}{x}$, since $t \\neq 1$, we must have that $f(x) = 0$. Thus, we have proved Lemma 2.\n\nCombining these lemmas finishes the problem.\n\nSolution:\nSuppose $x y z = 1$ and $x + y + z \\neq 0$ and that $x, y, z$ are not all the same. Then we have\n$$\n\\begin{aligned}\n& f(x)^2 - f(y) f(z) = x(x + y + z)(f(x) + f(y) + f(z)) \\\\\n& f(y)^2 - f(z) f(x) = y(x + y + z)(f(x) + f(y) + f(z)) \\\\\n& f(z)^2 - f(x) f(y) = z(x + y + z)(f(x) + f(y) + f(z))\n\\end{aligned}\n$$\nSquaring the first equation and subtracting the second equation times the third gives us: $f(x) F(x, y, z) = (x^2 - y z) G(x, y, z)^2$, where $F(x, y, z) = f(x)^3 + f(y)^3 + f(z)^3 - 3 f(x) f(y) f(z)$ and $G(x, y, z) = (x + y + z)(f(x) + f(y) + f(z))$. If $F(x, y, z) = 0$, it is not too hard to see that we get $f(x) = f(y) = f(z) = 0$. If not, then we can let $K = \\frac{G^2}{F}$ and we substitute $(f(x), f(y), f(z)) = (K(x^2 - y z), K(y^2 - x z), K(z^2 - x y))$ into the first equation to get $K^2 x(x^3 + y^3 + z^3 - 3 x y z) = K x(x^3 + y^3 + z^3 - 3 x y z)$. Thus, we have $K = 0$ or $K = 1$. Thus, we have either $(f(x), f(y), f(z)) = (0, 0, 0)$ or $(f(x), f(y), f(z)) = (x^2 - y z, y^2 - z x, z^2 - x y)$.\n\nThus, $f(0.5) = 0$ or $f(0.5) = 0.5^2 - \\frac{1}{0.5}$. If the former is true, then for all $y$ and $z$ such that $y z = 2$ and $y + z \\neq 0.5$, we have $f(y) = 0$. However, this gives that $f(y) = 0$ for all $y$. Likewise, if the latter were true, we would have $f(y) = y^2 - \\frac{1}{y}$ for all $y$, so we are done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-4266",
+      "name": "HMMT November 2022 #0kt6",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2022",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Symmetric functions",
+        "Quadratic functions",
+        "Techniques: modulo, size analysis, order analysis, inequalities"
+      ],
+      "statement": "Problem:\n\nAlice thinks of four positive integers $a \\leq b \\leq c \\leq d$ satisfying $\\{ab + cd, ac + bd, ad + bc\\} = \\{40, 70, 100\\}$. What are all the possible tuples $(a, b, c, d)$ that Alice could be thinking of?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSince $ab \\cdot cd = ac \\cdot bd = ad \\cdot bc$, the largest sum among $ab + cd, ac + bd, ad + bc$ will be the one with the largest difference between the two quantities, so $ab + cd = 100$, $ac + bd = 70$, $ad + bc = 40$.\n\nConsider the sum of each pair of equations, which gives $(a + b)(c + d) = 110$, $(a + c)(b + d) = 140$, $(a + d)(b + c) = 170$. Since each of these are pairs summing to $S = a + b + c + d$, by looking at the discriminant of the quadratics with roots $a + b$ and $c + d$, $a + c$ and $b + d$, and $a + d$ and $b + c$, we have that $S^2 - 680$, $S^2 - 560$, $S^2 - 440$ must be perfect squares.\n\nTherefore, we need to find all arithmetic progressions of three squares with common difference $120$. The equation $x^2 - y^2 = 120$ has $(31, 29), (17, 13), (13, 7), (11, 1)$ as a solution, and so the only possibility is $49, 169, 289$. This implies that $S^2 = 729 \\Longrightarrow S = 27$.\n\nWe now need to verify this works. Note that this implies $\\{a + b, c + d\\} = \\{5, 22\\}$, $\\{a + c, b + d\\} = \\{7, 20\\}$, $\\{a + d, b + c\\} = \\{10, 17\\}$. Therefore, $a + b = 5$, $a + c = 7$. This means that $b + c$ is even, so $b + c = 10$. This gives us $(a, b, c, d) = (1, 4, 6, 16)$ is the only possibility, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-4300",
+      "name": "HMMT February #0ku4",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Roots of unity",
+        "Symmetric functions",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\nLet $\\zeta = e^{2 \\pi i / 99}$ and $\\omega = e^{2 \\pi i / 101}$. The polynomial\n$$\nx^{9999} + a_{9998} x^{9998} + \\cdots + a_{1} x + a_{0}\n$$\nhas roots $\\zeta^{m} + \\omega^{n}$ for all pairs of integers $(m, n)$ with $0 \\leq m < 99$ and $0 \\leq n < 101$. Compute $a_{9799} + a_{9800} + \\cdots + a_{9998}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $b_{k} := a_{9999-k}$ for sake of brevity, so we wish to compute $b_{1} + b_{2} + \\cdots + b_{200}$. Let $p_{k}$ be the sum of the $k$-th powers of $\\zeta^{m} + \\omega^{n}$ over all ordered pairs $(m, n)$ with $0 \\leq m < 99$ and $0 \\leq n < 101$. Recall that Newton's sums tells us that\n$$\n\\begin{aligned}\np_{1} + b_{1} & = 0 \\\\\np_{2} + p_{1} b_{1} + 2 b_{2} & = 0 \\\\\np_{3} + p_{2} b_{1} + p_{1} b_{2} + 3 b_{3} & = 0\n\\end{aligned}\n$$\nand in general $k b_{k} + \\sum_{j=1}^{k} p_{j} b_{k-j} = 0$. The key idea is that $p_{k}$ is much simpler to compute than $b_{k}$, and we can relate the two with Newton's sums.\nThe roots of unity filter identity tells us that if $P(s, t)$ is a two-variable polynomial, then $z(P) := \\frac{1}{9999} \\sum P\\left(\\zeta^{m}, \\omega^{n}\\right)$ over all $0 \\leq m < 99$ and $0 \\leq n < 101$ is exactly the sum of the coefficients of the terms $s^{99a} t^{101b}$. Suppose that $P_{k}(s, t) = (s + t)^{k}$. Then $z\\left(P_{k}\\right)$ is precisely $p_{k} / 9999$. So one can check that\n- if $k \\neq 99, 101, 198, 200$, then $(s + t)^{k}$ has no terms of the form $s^{99a} t^{101b}$ and so $p_{k} = 0$.\n- if $k = 99, 101, 198$, then $z\\left(P_{k}\\right) = 1$ and $p_{k} = 9999$.\n- if $k = 200$, then $z\\left(P_{k}\\right) = \\binom{200}{99}$ and $p_{k} = 9999 \\binom{200}{99}$.\nWe can now compute $b_{k}$ using Newton's sums identities:\n- we have $b_{k} = 0$ for $k \\neq 99, 101, 198, 200$.\n- since $p_{99} + 99 b_{99} = 0$, we have $b_{99} = -101$;\n- since $p_{101} + 101 b_{101} = 0$, we have $b_{101} = -99$;\n- since $p_{198} + p_{99} b_{99} + 198 b_{198} = 0$, we have\n$$\nb_{198} = \\frac{1}{198}\\left(-p_{198} - p_{99} b_{99}\\right) = \\frac{1}{198}(-9999 + 9999 \\cdot 101) = 5050 .\n$$\n- since $p_{200} + p_{101} b_{99} + p_{99} b_{101} + 200 b_{200} = 0$, we have\n$$\n\\begin{aligned}\nb_{200} & = \\frac{1}{200}\\left(-p_{200} - p_{101} b_{99} - p_{99} b_{101}\\right) \\\\\n& = \\frac{1}{200}\\left(-9999\\binom{200}{99} + 9999 \\cdot 101 + 9999 \\cdot 99\\right) \\\\\n& = 9999 - \\frac{9999}{200}\\binom{200}{99}\n\\end{aligned}\n$$\nHence, we have\n$$\n\\begin{aligned}\nb_{1} + b_{2} + \\cdots + b_{200} & = -101 - 99 + 5050 + 9999 - \\frac{9999}{200}\\binom{200}{99} \\\\\n& = 14849 - \\frac{9999}{200}\\binom{200}{99}\n\\end{aligned}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-4321",
+      "name": "HMMT November 2023 #0kup",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2023",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Symmetric functions",
+        "Polynomial operations",
+        "Roots of unity",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\nOver all real numbers $x$ and $y$ such that\n$$\nx^{3}=3 x+y \\quad \\text{ and } \\quad y^{3}=3 y+x\n$$\ncompute the sum of all possible values of $x^{2}+y^{2}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFirst, we eliminate easy cases.\n- if $x=-y$, then $x^{3}=3 x-x=2 x$, so $x \\in\\{0, \\sqrt{2},-\\sqrt{2}\\}$. Therefore, we get $(\\sqrt{2},-\\sqrt{2}),(-\\sqrt{2}, \\sqrt{2})$, and $(0,0)$.\n- if $x=y \\neq 0$, then $x^{3}=3 x+x=4 x$, so $x \\in\\{2,-2\\}$. Therefore, we get $(2,2)$ and $(-2,-2)$.\n\nOtherwise, adding two equations gives\n$$\n\\begin{aligned}\nx^{3}+y^{3} & =4 x+4 y \\\\\n(x+y)\\left(x^{2}-x y+y^{2}\\right) & =4(x+y) \\\\\nx^{2}-x y+y^{2} & =4\n\\end{aligned}\n$$\nand subtracting the two equations gives\n$$\n\\begin{aligned}\nx^{3}-y^{3} & =2 x-2 y \\\\\n(x-y)\\left(x^{2}+x y+y^{2}\\right) & =2(x-y) \\\\\nx^{2}+x y+y^{2} & =2\n\\end{aligned}\n$$\nWe have $x^{2}-x y+y^{2}=4$ and $x^{2}+x y+y^{2}=2$, so adding these gives $x^{2}+y^{2}=3$. One can also see that $x y=-1$, so the solution obtained will be real.\n\nThe final answer is $4+8+0+3=15$.\n\nSolution:\nLet $x=a+\\frac{1}{a}$ and $y=b+\\frac{1}{b}$ for nonzero $a$ and $b$. Then $x^{3}-3 x=a^{3}+\\frac{1}{a^{3}}$ and $y^{3}-3 y=b^{3}+\\frac{1}{b^{3}}$, so\n$$\na^{3}+\\frac{1}{a^{3}}=b+\\frac{1}{b} \\quad \\text{ and } \\quad b^{3}+\\frac{1}{b^{3}}=a+\\frac{1}{a}\n$$\nThese imply $b \\in\\left\\{a^{3}, 1 / a^{3}\\right\\}$ and $a \\in\\left\\{b^{3}, 1 / b^{3}\\right\\}$. These mean $a^{9}=a$ or $a^{9}=\\frac{1}{a}$, so $a^{8}=1$ or $a^{10}=1$. We can WLOG $b=a^{3}$ for simplicity.\n\nFirst suppose $a^{8}=1$. Now $a=1$ gives (2, 2), $a=-1$ gives $(-2,-2), a=\\operatorname{cis}( \\pm \\pi / 4)$ gives $(\\sqrt{2},-\\sqrt{2})$, and $a=\\operatorname{cis}( \\pm 3 \\pi / 4)$ gives $(-\\sqrt{2}, \\sqrt{2})$. Finally $a= \\pm i$ gives $(0,0)$. This gives $8+4+0=12$ to our sum. Now suppose $a^{10}=1$; we can assume $a \\neq 1,-1$ since these were covered by the previous case. It can be seen that for all other values of $a$, the pairs $(a, b)$ that work can be get by either swapping $a$ and $b$ or negating one of the variables, all of which give the same value of $x^{2}+y^{2}$, so we only need to work on one of them. Suppose $a=\\operatorname{cis}(\\pi / 5)$ and $b=\\operatorname{cis}(3 \\pi / 5)$, so $x=2 \\cos (\\pi / 5)=\\frac{1+\\sqrt{5}}{2}$ and $y=2 \\cos (3 \\pi / 5)=\\frac{1-\\sqrt{5}}{2}$. Then $x^{2}+y^{2}=3$.\n\nThe final answer is $12+3=15$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-4338",
+      "name": "HMMT February 2023 #0kv6",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2023",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other",
+        "Symmetric functions"
+      ],
+      "statement": "Problem:\nLet $x$, $y$, and $N$ be real numbers, with $y$ nonzero, such that the sets $\\{(x+y)^2, (x-y)^2, x y, x / y\\}$ and $\\{4, 12.8, 28.8, N\\}$ are equal. Compute the sum of the possible values of $N$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFirst, suppose that $x$ and $y$ were of different signs. Then $x y < 0$ and $x / y < 0$, but the set has at most one negative value, a contradiction. Hence, $x$ and $y$ have the same sign; without loss of generality, we say $x$ and $y$ are both positive.\n\nLet $(s, d) := (x+y, x-y)$. Then the set given is equal to $\\{s^2, d^2, \\frac{1}{4}(s^2 - d^2), \\frac{s+d}{s-d}\\}$. We split into two cases:\n\n- Case 1: $\\frac{s+d}{s-d} = N$. This forces $s^2 = 28.8$ and $d^2 = 12.8$, since $\\frac{1}{4}(28.8 - 12.8) = 4$. Then $s = 12 \\sqrt{0.2}$ and $d = \\pm 8 \\sqrt{0.2}$, so $N$ is either $\\frac{12+8}{12-8} = 5$ or $\\frac{12-8}{12+8} = 0.2$.\n\n- Case 2: $\\frac{s+d}{s-d} \\neq N$. Suppose $\\frac{s+d}{s-d} = k$, so $(s, d) = ((k+1)t, (k-1)t)$ for some $t$. Then $s^2 : d^2 : \\frac{1}{4}(s^2 - d^2) = (k+1)^2 : (k-1)^2 : k$. Trying $k = 4, 12.8, 28.8$ reveals that only $k = 4$ is possible, since $28.8 : 12.8 = (4-1)^2 : 4$. This forces $N = s^2 = \\frac{5^2}{4} \\cdot 12.8 = 80$.\n\nHence, our final total is $5 + 0.2 + 80 = 85.2$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-4351",
+      "name": "HMMT February 2023 #0kvj",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2023",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Symmetric functions",
+        "Recurrence relations",
+        "Pell's equations"
+      ],
+      "statement": "Problem:\n\nSuppose $m>n>1$ are positive integers such that there exist $n$ complex numbers $x_{1}, x_{2}, \\ldots, x_{n}$ for which\n- $x_{1}^{k}+x_{2}^{k}+\\cdots+x_{n}^{k}=1$ for $k=1,2, \\ldots, n-1$;\n- $x_{1}^{n}+x_{2}^{n}+\\cdots+x_{n}^{n}=2$; and\n- $x_{1}^{m}+x_{2}^{m}+\\cdots+x_{n}^{m}=4$.\nCompute the smallest possible value of $m+n$.\nProposed by: Rishabh Das",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $S_{k}=\\sum_{j=1}^{n} x_{j}^{k}$, so $S_{1}=S_{2}=\\cdots=S_{n-1}=1, S_{n}=2$, and $S_{m}=4$. The first of these conditions gives that $x_{1}, \\ldots, x_{n}$ are the roots of $P(x)=x^{n}-x^{n-1}-c$ for some constant $c$. Then $x_{i}^{n}=x_{i}^{n-1}+c$, and thus\n$$\n2=S_{n}=S_{n-1}+c n=1+c n\n$$\nso $c=\\frac{1}{n}$.\n\nThus, we have the recurrence $S_{k}=S_{k-1}+\\frac{S_{k-n}}{n}$. This gives $S_{n+j}=2+\\frac{j}{n}$ for $0 \\leq j \\leq n-1$, and then $S_{2 n}=3+\\frac{1}{n}$. Then $S_{2 n+j}=3+\\frac{2 j+1}{n}+\\frac{j^{2}+j}{2 n^{2}}$ for $0 \\leq j \\leq n-1$. In particular, $S_{3 n-1}>4$, so we have $m \\in[2 n, 3 n-1]$. Let $m=2 n+j$. Then\n$$\n3+\\frac{2 j+1}{n}+\\frac{j^{2}+j}{2 n^{2}}=4 \\Longrightarrow 2 n^{2}-2 n(2 j+1)-\\left(j^{2}+j\\right)=0 .\n$$\nViewing this as a quadratic in $n$, the discriminant $4(2 j+1)^{2}+8\\left(j^{2}+j\\right)=24 j^{2}+24 j+4=4\\left(6 j^{2}+6 j+1\\right)$ must be a perfect square, so $6 j^{2}+6 j+1$ is a square. Then\n$$\n6 j^{2}+6 j+1=y^{2} \\Longrightarrow 12 j^{2}+12 j+2=2 y^{2} \\Longrightarrow 3(2 j+1)^{2}-2 y^{2}=1\n$$\nThe case $j=0$ gives $n=1$, a contradiction. After this, the smallest $j$ that works is $j=4$ (and $y=11$ ). Plugging this back into our quadratic,\n$$\n2 n^{2}-18 n-20=0 \\Longrightarrow n^{2}-9 n-10=0\n$$\nso $n=10$. Then $m=2 n+j=24$, so $m+n=34$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-4352",
+      "name": "HMMT November 2023 #0kvk",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2023",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vieta's formulas",
+        "Symmetric functions"
+      ],
+      "statement": "Problem:\n\nThere is a unique quadruple of positive integers $(a, b, c, k)$ such that $c$ is not a perfect square and $a+\\sqrt{b+\\sqrt{c}}$ is a root of the polynomial $x^{4}-20 x^{3}+108 x^{2}-k x+9$. Compute $c$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThere are many ways to do this, including bashing it out directly.\nThe four roots are $a \\pm \\sqrt{b \\pm \\sqrt{c}}$, so the sum of roots is $20$, so $a=5$. Next, we compute the sum of squares of roots:\n$$\n(a+\\sqrt{b \\pm \\sqrt{c}})^2+(a-\\sqrt{b \\pm \\sqrt{c}})^2=2 a^2+2 b \\pm 2 \\sqrt{c}\n$$\nso the sum of squares of roots is $4 a^2+4 b$. However, from Vieta, it is $20^2-2 \\cdot 108=184$, so $100+4 b=184 \\Longrightarrow b=21$. Finally, the product of roots is\n$$\n\\left(a^2-(b+\\sqrt{c})\\right)\\left(a^2-(b-\\sqrt{c})\\right)=\\left(a^2-b\\right)^2-c=16-c,\n$$\nso we have $c=7$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-4392",
+      "name": "USA TSTST #0kwo",
+      "url": "https://usamoguide.com/",
+      "source": "USA TSTST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers",
+        "Vieta's formulas",
+        "Symmetric functions"
+      ],
+      "statement": "Suppose $a$, $b$, and $c$ are three complex numbers with product $1$. Assume that none of $a$, $b$, and $c$ are real or have absolute value $1$. Define\n$$\np = (a + b + c) + \\left( \\frac{1}{a} + \\frac{1}{b} + \\frac{1}{c} \\right) \\quad \\text{and} \\quad q = \\frac{a}{b} + \\frac{b}{c} + \\frac{c}{a}.\n$$\nGiven that both $p$ and $q$ are real numbers, find all possible values of the ordered pair $(p, q)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Let us denote $a = \\frac{y}{x}$, $b = \\frac{z}{y}$, $c = \\frac{x}{z}$, where $x, y, z$ are nonzero complex numbers. Then\n$$\np+3 = 3 + \\sum_{\\text{cyc}} \\left(\\frac{x}{y} + \\frac{y}{x}\\right) = 3 + \\frac{x^2(y+z) + y^2(z+x) + z^2(x+y)}{xyz} \\\\\n= \\frac{(x+y+z)(xy+yz+zx)}{xyz}.\n$$\n$$\nq-3 = -3 + \\sum_{\\text{cyc}} \\frac{y^2}{zx} = \\frac{x^3 + y^3 + z^3 - 3xyz}{xyz} \\\\\n= \\frac{(x+y+z)(x^2+y^2+z^2-xy-yz-zx)}{xyz}.\n$$\n\n$$\n\\mathbb{R} \\ni 3(p+3) + (q-3) = \\frac{(x+y+z)(x^2+y^2+z^2+2(xy+yz+zx))}{xyz} = \\frac{(x+y+z)^3}{xyz}.\n$$\n\nScale $x, y, z$ in such a way that $x + y + z$ is nonzero and real; hence so is $xyz$. Thus, as $p + 3 \\in \\mathbb{R}$, we conclude $xy + yz + zx \\in \\mathbb{R}$ as well. Hence, $x, y, z$ are the roots of a cubic with real coefficients. Thus,\n* either all three of $\\{x, y, z\\}$ are real (which implies $a, b, c \\in \\mathbb{R}$),\n* or two of $\\{x, y, z\\}$ are a complex conjugate pair (which implies one of $a, b, c$ has absolute value $1$).\nBoth of these were forbidden by hypothesis.\n\nTherefore, the only possibility is $x + y + z = 0$, which gives $p = -3$, $q = 3$.\n\n\nSecond solution, found by contestants\n\nThe main idea is to make the substitution\n$$\nx = a + \\frac{1}{c}, \\quad y = b + \\frac{1}{a}, \\quad z = c + \\frac{1}{b}.\n$$\nThen we can check that\n$$\n\\begin{aligned}\nx+y+z &= p \\\\\nxy+yz+zx &= p+q+3 \\\\\nxyz &= p+2.\n\\end{aligned}\n$$\nTherefore $x, y, z$ are the roots of a cubic with real coefficients. As in the previous solution, we note that this cubic must either have all real roots, or a complex conjugate pair of roots. We also have the relation $a(y+1) = ab + a + 1 = x + 1$, and likewise $b(z+1) = y + 1$, $c(x+1) = z + 1$. This means that if any of $x, y, z$ are equal to $-1$, then all are equal to $-1$.\nAssume for the sake of contradiction that none are equal to $-1$. In the case where the cubic has three real roots, $a = \\frac{x+1}{y+1}$ would be real. On the other hand, if there is a complex conjugate pair (without loss of generality, $x$ and $y$) then $a$ has magnitude $1$. Therefore this cannot occur.\n\nWe conclude that $x = y = z = -1$, so $p = -3$ and $q = 3$. The solutions $(a, b, c)$ can then be parameterized as $(a, -1 - \\frac{1}{a}, -\\frac{1}{1+a})$. To construct a solution, we need to choose a specific value of $a$ such that none of the wrong conditions hold; when $a = 2i$, say, we obtain the solution $(2i, -1 + \\frac{i}{2}, \\frac{-1+2i}{5})$.\n\n\nThird solution by Luke Robitaille and Daniel Zhu\n\nThe answer is $p = -3$ and $q = 3$. Let's first prove that no other $(p, q)$ work.\n\nLet $e_1 = a + b + c$ and $e_2 = a^{-1} + b^{-1} + c^{-1} = ab + ac + bc$. Also, let $f = e_1 e_2$. Note that $p = e_1 + e_2$.\n\nOur main insight is to consider the quantity $q' = \\frac{b}{a} + \\frac{c}{b} + \\frac{a}{c}$. Note that $f = q + q' + 3$. Also,\n$$\n\\begin{aligned}\nqq' &= 3 + \\frac{a^2}{bc} + \\frac{b^2}{ac} + \\frac{c^2}{ab} + \\frac{bc}{a^2} + \\frac{ac}{b^2} + \\frac{ab}{c^2} \\\\\n&= 3 + a^3 + b^3 + c^3 + a^{-3} + b^{-3} + c^{-3} \\\\\n&= 9 + a^3 + b^3 + c^3 - 3abc + a^{-3} + b^{-3} + c^{-3} - 3a^{-1}b^{-1}c^{-1} \\\\\n&= 9 + e_1(e_1^2 - 3e_2) + e_2(e_2^2 - 3e_1) \\\\\n&= 9 + e_1^3 + e_2^3 - 6e_1e_2 \\\\\n&= 9 + p(p^2 - 3f) - 6f \\\\\n&= p^3 - (3p + 6)f + 9.\n\\end{aligned}\n$$\n\nAs a result, the quadratic with roots $q$ and $q'$ is $x^2 - (f-3)x + (p^3 - (3p+6)f + 9)$, which implies that\n$$\nq^2 - qf + 3q + p^3 - (3p+6)f + 9 = 0 \\iff (3p+q+6)f = p^3 + q^2 + 3q + 9.\n$$\n\n**Claim** — $f$ is not real.\n\n*Proof.* Suppose $f$ is real. Since $(x - e_1)(x - e_2) = x^2 - px + f$, there are two cases:\n* $e_1$ and $e_2$ are real. Then, $a, b$, and $c$ are the roots of $x^3 - e_1x^2 + e_2x - 1$, and since every cubic with real coefficients has at least one real root, at least one of $a, b$, and $c$ is real, contradiction.\n* $e_1$ and $e_2$ are conjugates. Then, the polynomial $x^3 - \\bar{e}_2x^2 + \\bar{e}_1x - 1$, which has roots $\\bar{a}^{-1}, \\bar{b}^{-1}$, and $\\bar{c}^{-1}$, is the same as the polynomial with $a, b, c$ as roots. We conclude that the multiset $\\{a, b, c\\}$ is invariant under inversion about the unit circle, so one of $a, b$, and $c$ must lie on the unit circle. This is yet another contradiction. $\\square$\n\nAs a result, we know that $3p + q + 6 = p^3 + q^2 + 3q + 9 = 0$. The second miracle is that substituting $q = -3p - 6$ into $q^2 + 3q + p^3 + 9 = 0$, we get\n$$\n0 = p^3 + 9p^2 + 27p + 27 = (p + 3)^3,\n$$\nso $p = -3$. Thus $q = 3$.\n\nIt remains to construct valid $a, b$, and $c$. To do this, let's pick some $e_1$, let $e_2 = -3 - e_1$, and let $a, b$, and $c$ be the roots of $x^3 - e_1x^2 + e_2x - 1$. It is clear that this guarantees $p = -3$. By our above calculations, $q$ and $q'$ are the roots of the quadratic $x^2 - (f-3)x + (3f-18)$, so one of $q$ and $q'$ must be $3$; by changing the order of $a, b$, and $c$ if needed, we can guarantee this to be $q$. It suffices to show that for some choice of $e_1$, none of $a, b$, or $c$ are real or lie on the unit circle.\nTo do this, note that we can rewrite $x^3 - e_1x^2 + (-3 - e_1)x - 1 = 0$ as\n$$\ne_1 = \\frac{x^3 - 3x - 1}{x^2 + x},\n$$\nso all we need is a value of $e_1$ that is not $\\frac{x^3-3x-1}{x^2+x}$ for any real $x$ or $x$ on the unit circle. One way to do this is to choose any nonreal $e_1$ with $|e_1| < 1/2$. This clearly rules out any real $x$. Also, if $|x| = 1$, by the triangle inequality $|x^3 - 3x - 1| \\ge |3x| - |x^3| - |1| = 1$ and $|x^2 + x| \\le 2$, so $\\left|\\frac{x^3-3x-1}{x^2+x}\\right| \\ge 1/2$.\n\nTherefore, the only possible values of $(p, q)$ are $(-3, 3)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-4493",
+      "name": "AMC 12 A #0kzh",
+      "url": "https://usamoguide.com/",
+      "source": "AMC 12 A",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vieta's formulas",
+        "Symmetric functions",
+        "Complex numbers"
+      ],
+      "statement": "The roots of $x^3 + 2x^2 - x + 3$ are $p$, $q$, and $r$. What is the value of $(p^2 + 4)(q^2 + 4)(r^2 + 4)$?\n(A) 64 (B) 75 (C) 100 (D) 125 (E) 144",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "By Vieta's Formulas,\n$$\n\\begin{aligned}\np + q + r &= -2, \\\\\npq + pr + qr &= -1, \\text{ and} \\\\\npqr &= -3.\n\\end{aligned}\n$$\nThe expression to be evaluated is\n$(p^2 + 4)(q^2 + 4)(r^2 + 4) = p^2q^2r^2 + 4(p^2q^2 + p^2r^2 + q^2r^2) + 16(p^2 + q^2 + r^2) + 64.$\nThe first term is\n$$\np^2q^2r^2 = (pqr)^2 = (-3)^2 = 9.\n$$\nTo find the second term, note that\n$(pq + pr + qr)^2 = p^2q^2 + p^2r^2 + q^2r^2 + 2pqr(p + q + r).$\nRearranging and substituting yields\n$$\np^2q^2 + p^2r^2 + q^2r^2 = (-1)^2 - 2(-3)(-2) = -11.\n$$\nFor the third term,\n$(p + q + r)^2 = p^2 + q^2 + r^2 + 2(pq + pr + qr),$\nso\n$$\np^2 + q^2 + r^2 = (-2)^2 - 2(-1) = 6.\n$$\nTherefore\n$(p^2 + 4)(q^2 + 4)(r^2 + 4) = 9 + 4 \\cdot (-11) + 16 \\cdot 6 + 64 = 125.$\n\nWith $i = \\sqrt{-1}$, the given expression can be factored as\n$$\n(p^2 + 4)(q^2 + 4)(r^2 + 4) = (p - 2i)(p + 2i)(q - 2i)(q + 2i)(r - 2i)(r + 2i) \\\\\n= [(p - 2i)(q - 2i)(r - 2i)] \\cdot [(p + 2i)(q + 2i)(r + 2i)].\n$$\nLet $f(x)$ be the given polynomial. Then $f(x) = -(p-x)(q-x)(r-x)$ and\n$$\n-f(2i) = (p - 2i)(q - 2i)(r - 2i),\n$$\nwhich is the first bracketed expression above. Furthermore\n$$\nf(-x) = (-x - p)(-x - q)(-x - r) = -(p + x)(q + x)(r + x).\n$$\nTherefore\n$$\n-f(-x) = (p + x)(q + x)(r + x).\n$$\nIt follows that\n$$\n-f(-2i) = (p + 2i)(q + 2i)(r + 2i),\n$$\nthe second bracketed expression above. Hence\n$$\n(p^2 + 4)(q^2 + 4)(r^2 + 4) = -f(2i) \\cdot (-f(-2i)) = f(2i) \\cdot f(-2i).\n$$\nBecause\n$$\nf(2i) = (2i)^3 + 2(2i)^2 - (2i) + 3 = -8i - 8 - 2i + 3 = -10i - 5\n$$\nand\n$$\nf(-2i) = (-2i)^3 + 2(-2i)^2 - (-2i) + 3 = 8i - 8 + 2i + 3 = 10i - 5,\n$$\nthe requested product is\n$$\nf(2i) \\cdot f(-2i) = (-10i - 5)(10i - 5) = 125.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-4524",
+      "name": "HMIC 2024 #0l0c",
+      "url": "https://usamoguide.com/",
+      "source": "HMIC 2024",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Symmetric functions",
+        "Polynomial operations",
+        "Linear and quadratic inequalities"
+      ],
+      "statement": "Problem:\nSuppose that $a, b, c$, and $d$ are real numbers such that $a+b+c+d=8$. Compute the minimum possible value of\n$$\n20\\left(a^{2}+b^{2}+c^{2}+d^{2}\\right)-\\sum_{\\text{sym}} a^{3} b,\n$$\nwhere the sum is over all 12 symmetric terms.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nObserve that\n$$\n\\sum_{\\mathrm{sym}} a^{3} b=\\sum_{\\mathrm{cyc}} a \\cdot \\sum_{\\mathrm{cyc}} a^{3}-\\sum_{\\mathrm{cyc}} a^{4}=8 \\sum_{\\mathrm{cyc}} a^{3}-\\sum_{\\mathrm{cyc}} a^{4}\n$$\nso\n$$\n\\begin{aligned}\n20 \\sum_{\\mathrm{cyc}} a^{2}-\\sum_{\\mathrm{sym}} a^{3} b & =\\sum_{\\mathrm{cyc}} a^{4}-8 \\sum_{\\mathrm{cyc}} a^{3}+20 \\sum_{\\mathrm{cyc}} a^{2} \\\\\n& =\\sum_{\\mathrm{cyc}}\\left(a^{4}-8 a^{3}+20 a^{2}\\right) \\\\\n& =16(8)-4(4)+\\sum_{\\mathrm{cyc}}\\left(a^{4}-8 a^{3}+20 a^{2}-16 a+4\\right) \\\\\n& =112+\\sum_{\\mathrm{cyc}}\\left(a^{2}-4 a+2\\right)^{2} \\\\\n& \\geq 112 .\n\\end{aligned}\n$$\nEquality is achieved when $(a, b, c, d)=(2+\\sqrt{2}, 2+\\sqrt{2}, 2-\\sqrt{2}, 2-\\sqrt{2})$ and permutations. This can be checked by noting that for all $x \\in\\{a, b, c, d\\}$, we have $x^{2}-4 x+2=0$, so equality holds in the final step, and for this assignment of variables we have $a+b+c+d=8$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-4623",
+      "name": "HMMT February 2024 Guts Round #0l33",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2024 Guts Round",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial operations",
+        "Symmetric functions",
+        "Simple Equations"
+      ],
+      "statement": "Problem:\nLet $a$, $b$, and $c$ be real numbers such that\n$$\n\\begin{aligned}\na + b + c &= 100 \\\\\nab + bc + ca &= 20, \\text{ and } \\\\\n(a + b)(a + c) &= 24\n\\end{aligned}\n$$\nCompute all possible values of $bc$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe first expand the left-hand side of the third equation to get $(a + b)(a + c) = a^2 + ac + ab + bc = 24$. From this, we subtract the second equation to obtain $a^2 = 4$, so $a = \\pm 2$.\n\nIf $a = 2$, plugging into the first equation gives us $b + c = 98$ and plugging into the second equation gives us $2(b + c) + bc = 20 \\Rightarrow 2(98) + bc = 20 \\Rightarrow bc = -176$.\n\nThen, if $a = -2$, plugging into the first equation gives us $b + c = 102$, and plugging into the second equation gives us $-2(b + c) + bc = 20 \\Rightarrow -2(102) + bc = 20 \\Rightarrow bc = 224$.\n\nTherefore, the possible values of $bc$ are $224, -176$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-4662",
+      "name": "AMC 10 B #0l46",
+      "url": "https://usamoguide.com/",
+      "source": "AMC 10 B",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Symmetric functions"
+      ],
+      "statement": "Real numbers $a$, $b$, and $c$ have arithmetic mean $0$. The arithmetic mean of $a^2$, $b^2$, and $c^2$ is $10$. What is the arithmetic mean of $ab$, $ac$, and $bc$?\n$(A)$ $-5$ $(B)$ $-\\frac{10}{3}$ $(C)$ $-\\frac{10}{9}$ $(D)$ $0$ $(E)$ $\\frac{10}{9}$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "The given information implies that $a + b + c = 0$ and $a^2 + b^2 + c^2 = 30$. Then\n$$\n0 = (a + b + c)^2 = a^2 + b^2 + c^2 + 2ab + 2ac + 2bc = 30 + 2(ab + ac + bc).\n$$\nTherefore $2(ab + ac + bc) = -30$ and the requested arithmetic mean is $\\frac{ab+ac+bc}{3} = \\frac{-15}{3} = -5$.\n\nConsider the system of equations implied by the conditions of the problem,\n$$\n\\begin{aligned}\na + b + c &= 0 \\\\\na^2 + b^2 + c^2 &= 30,\n\\end{aligned}\n$$\nand suppose that $a = 0$. Then $b + c = 0$, so $b = -c$, and substituting into the second equation gives $2b^2 = 30$, from which $b = \\pm\\sqrt{15}$ and $c = \\mp\\sqrt{15}$. If one assumes that the requested arithmetic mean is determined by the given information, independent of the value of $a$, then\n$$\n\\frac{ab + ac + bc}{3} = \\frac{0 + 0 - \\sqrt{15} \\cdot \\sqrt{15}}{3} = -5.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-4667",
+      "name": "HMMT February 2024 #0l4b",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2024",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vieta's formulas",
+        "Symmetric functions",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\nSuppose $a$, $b$, and $c$ are complex numbers satisfying\n\n$$\n\\begin{aligned}\na^{2} & = b - c, \\\\\nb^{2} & = c - a, \\text{ and } \\\\\nc^{2} & = a - b .\n\\end{aligned}\n$$\nCompute all possible values of $a + b + c$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nSumming the equations gives $a^{2} + b^{2} + c^{2} = 0$ and summing $a$ times the first equation and etc. gives $a^{3} + b^{3} + c^{3} = 0$. Let $a + b + c = k$. Then $a^{2} + b^{2} + c^{2} = 0$ means $ab + bc + ca = k^{2} / 2$, and $a^{3} + b^{3} + c^{3} = 0 \\Longrightarrow -3abc = a^{3} + b^{3} + c^{3} - 3abc = (a + b + c)\\left(a^{2} + b^{2} + c^{2} - ab - bc - ca\\right) = -k^{3} / 2$, so $abc = k^{3} / 6$.\nThis means $a$, $b$, and $c$ are roots of the cubic\n\n$$\nx^{3} - k x^{2} + \\left(k^{2} / 2\\right) x - \\left(k^{3} / 6\\right) = 0\n$$\n\nNext, note that\n$$\n\\begin{aligned}\na^{4} + b^{4} + c^{4} & = \\sum_{\\mathrm{cyc}} a\\left(k a^{2} - \\left(k^{2} / 2\\right) a + \\left(k^{3} / 6\\right)\\right) \\\\\n& = \\sum_{\\mathrm{cyc}} k\\left(k a^{2} - \\left(k^{2} / 2\\right) a + \\left(k^{3} / 6\\right)\\right) - \\left(k^{2} / 2\\right) a^{2} + \\left(k^{3} / 6\\right) a \\\\\n& = \\sum_{\\text{cyc}} \\left(k^{2} / 2\\right) a^{2} - \\left(k^{3} / 3\\right) a + \\left(k^{4} / 6\\right) \\\\\n& = -k^{4} / 3 + k^{4} / 2 \\\\\n& = k^{4} / 6\n\\end{aligned}\n$$\n\nAfter this, there are two ways to extract the values of $k$.\n\n- Summing squares of each equation gives\n$$\na^{4} + b^{4} + c^{4} = \\sum_{\\mathrm{cyc}} (a - b)^{2} = 2\\left(a^{2} + b^{2} + c^{2}\\right) - 2(ab + bc + ca) = -k^{2}\n$$\n\nso\n$$\n\\frac{k^{4}}{6} = -k^{2} \\Longrightarrow k = 0, \\pm i \\sqrt{6} .\n$$\n\n- Summing $a^{2}$ times the first equation, etc. gives\n$$\na^{4} + b^{4} + c^{4} = \\sum_{\\mathrm{cyc}} a^{2}(b - c) = -(a - b)(b - c)(c - a) = -a^{2} b^{2} c^{2} = -\\frac{k^{6}}{36}\n$$\nso\n$$\n\\frac{k^{4}}{6} = -\\frac{k^{6}}{36} \\Longrightarrow k = 0, \\pm i \\sqrt{6} .\n$$\n\nWe can achieve $k = 0$ with $a = b = c = 0$. Letting $a$, $b$, and $c$ be the roots of $x^{3} - (i \\sqrt{6}) x^{2} - 3x + (i \\sqrt{6})$ will force one of $a^{2} = b - c$ and all other equalities or $a^{2} = c - b$ and all other equalities to hold, if the latter happens, swap $b$ and $c$. Finally, for these $(a, b, c)$, take $(-a, -c, -b)$ to get $-i \\sqrt{6}$. Thus, all of these are achievable."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-4693",
+      "name": "HMMT February #0l51",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vieta's formulas",
+        "Symmetric functions",
+        "Complex numbers"
+      ],
+      "statement": "Problem:\nLet $a$, $b$, and $c$ be pairwise distinct complex numbers such that  \n$$a^{2} = b + 6,\\quad b^{2} = c + 6,\\quad \\mathrm{and}\\quad c^{2} = a + 6.$$  \nCompute the two possible values of $a + b + c$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nSolution 1: Notice that any of $a$, $b$, or $c$ being $3$ or $-2$ implies $a = b = c$, which is invalid. Thus,  \n$$(a^{2} - 9)(b^{2} - 9)(c^{2} - 9) = (b - 3)(c - 3)(a - 3)\\implies (a + 3)(b + 3)(c + 3) = 1,$$ \n$$(a^{2} - 4)(b^{2} - 4)(c^{2} - 4) = (b + 2)(c + 2)(a + 2)\\implies (a - 2)(b - 2)(c - 2) = 1.$$  \nTherefore, $2$ and $-3$ are roots of the polynomial $(x - a)(x - b)(x - c) + 1$, and so there exists some $t$ such that  \n$$(x - t)(x - 2)(x + 3) = (x - a)(x - b)(x - c) + 1.$$  \nComparing coefficients gives $a + b + c = t - 1$ and $ab + bc + ca = - (t + 6)$. We can then solve for $t$ by noting $a^{2} + b^{2} + c^{2} = (b + 6) + (c + 6) + (a + 6) = a + b + c + 18$, so  \n$$ab + bc + ca = \\frac{1}{2} ((a + b + c)^{2} - (a^{2} + b^{2} + c^{2})) = \\frac{1}{2} ((a + b + c)^{2} - (a + b + c + 18)).$$  \nHence,  \n$$- (t + 6) = \\frac{1}{2} ((t - 1)^{2} - (t + 17))\\Longrightarrow t^{2} - t - 4 = 0\\Longrightarrow t = \\frac{1\\pm\\sqrt{17}}{2}.$$  \nTherefore $a + b + c = \\boxed{\\frac{- 1\\pm\\sqrt{17}}{2}}$ are the two possible values of $a + b + c$.\n\n\nSolution 2: Let $s = a + b + c$. Subtracting two adjacent equations gives $a^{2} - b^{2} = b - c$, or $(a - b)(a + b) = (b - c)$. Multiplying this and its cyclic variants gives  \n$$(a + b)(b + c)(c + a) = 1.$$  \nNow, we recall the identity  \n$$(a + b + c)^{3} = a^{3} + b^{3} + c^{3} + 3(a + b)(b + c)(c + a)$$ \n$$\\qquad \\Rightarrow \\qquad s^{3} = a^{3} + b^{3} + c^{3} + 3.$$  \nTo simplify $a^{3} + b^{3} + c^{3}$, we add $a$ times the first equation, $b$ times the second, and $c$ times the third to obtain  \n$$a^{3} + b^{3} + c^{3} = a(b + 6) + b(c + 6) + c(a + 6)$$ \n$$\\qquad = (ab + bc + ca) + 6s$$ \n$$\\qquad = \\frac{1}{2}\\Big((a + b + c)^{2} - (a^{2} + b^{2} + c^{2})\\Big) + 6s$$ \n$$\\qquad = \\frac{1}{2} s^{2} - \\frac{1}{2}\\Big((b + 6) + (c + 6) + (a + 6)\\Big) + 6s$$ \n$$\\qquad = \\frac{1}{2} s^{2} + \\frac{11}{2} s - 9.$$  \nTherefore,  \n$$s^{3} = \\frac{1}{2} s^{2} + \\frac{11}{2} s - 6 \\Rightarrow \\left(s - \\frac{3}{2}\\right)\\left(s^{2} + s - 4\\right) = 0.$$  \nAt this point, the only reasonable guess is that $s = \\frac{3}{2}$ is an extra solution, and the remaining two roots $s = \\frac{- 1\\pm\\sqrt{17}}{2}$ are the possible answers. We now justify this guess. Assume for sake of contradiction that $s = \\frac{3}{2}$. Then,  \n$$a^{2} + b^{2} + c^{2} = (b + 6) + (c + 6) + (a + 6) = \\frac{39}{2}$$ \n$$ab + bc + ca = \\frac{1}{2}\\left(\\frac{9}{4} -\\frac{39}{2}\\right) = -\\frac{69}{8}.$$  \nThen, observe  \n$$abc = (a + b + c)(ab + bc + ca) - (a + b)(b + c)(c + a)$$ \n$$= -\\frac{207}{16} -1 = -\\frac{223}{16}.$$  \nOn the other hand,  \n$$(a + 6)(b + 6)(c + 6) = 216 + 36(a + b + c) + 6(ab + bc + ca) + abc$$ \n$$\\qquad = 216 + 36\\cdot \\frac{3}{2} -6\\cdot \\frac{69}{8} -\\frac{223}{16},$$  \nwhich is a rational number of denominator $16$. But $(a + 6)(b + 6)(c + 6) = b^{2}c^{2}a^{2} = \\left(-\\frac{223}{16}\\right)^{2}$ has denominator $16^{2} = 256$, a contradiction. Thus $s = \\frac{3}{2}$ is impossible. (It arises from $a = b = c = \\frac{1}{2}$ which satisfies $(a + b)(b + c)(c + a) = 1$ but not the given conditions.)\n\n\nSolution 3: Subtracting any two adjacent equations gives $a^{2} - b^{2} = b - c$, which is equivalent to both $(a - b)(a + b) = (b - c)$ and $(a - b)(a + b + 1) = (a - c)$. Multiplying each of these with its respective cyclic variants and canceling the $(a - b)(b - c)(c - a)$ factor (which is given to be nonzero), we get  \n$$(a + b)(b + c)(c + a) = 1\\quad \\mathrm{and}\\quad (a + b + 1)(b + c + 1)(c + a + 1) = -1.$$  \nExpanding the latter equation and using the given equations gives the following result.  \n$$(a + b)(b + c)(c + a) + (a^{2} + b^{2} + c^{2}) + 3(ab + bc + ca) + 2(a + b + c) + 1 = -1$$ \n$$1 + (b + 6 + c + 6 + a + 6) + 3(ab + bc + ca) + 2(a + b + c) + 1 = -1$$ \n$$3(a + b + c) + 3(ab + bc + ca) = -21$$  \n$$a + b + c + ab + bc + ca = -7.$$  \nLet $s = a + b + c$. We can then solve for $s$ by considering the following:  \n$$s^{2} = (a^{2} + b^{2} + c^{2}) + 2(ab + bc + ca)$$ \n$$\\quad = (b + 6 + c + 6 + a + 6) + 2(-7 - a - b - c)$$ \n$$\\quad = -s + 4,$$  \nso $s = \\frac{- 1\\pm\\sqrt{17}}{2}$.\n\n\nSolution 4: Let $s = a + b + c$ and consider the polynomial  \n$$x + (x^{2} - 6) + ((x^{2} - 6)^{2} - 6) - s = x^{4} - 11x^{2} + x + 24 - s.$$  \nThis polynomial has roots $a$, $b$, and $c$. By Vieta's, the sum of all four roots is $0$, so its fourth root must be $-s$. Using Vieta's again, we have $ab + bc + ca - sa - sb - sc = -11$. We can now solve for $s$.  \n$$ab + bc + ca - (a + b + c)^{2} = -11$$ \n$$a^{2} + b^{2} + c^{2} + ab + bc + ca = 11$$ \n$$\\frac{1}{2} ((a + b + c)^{2} + (a^{2} + b^{2} + c^{2})) = 11$$ \n$$(a + b + c)^{2} + (b + 6 + c + 6 + a + 6) = 22$$ \n$$s^{2} + s - 4 = 0\\Longrightarrow s = \\frac{-1\\pm\\sqrt{17}}{2}.$$  \nRemark. Another way to finish using this approach is to substitute $-s$ directly into $x^{4} - 11x^{2} + x + 24 - s = 0$ to get $(s - 3)(s + 2)(x^{2} + x - 4) = 0$, then discard the solutions $s = 3$ and $s = -2$, which arise from the invalid values $a = b = c = 3$ and $a = b = c = -2$. (In the invalid cases, $s \\neq a + b + c$ because $a = b = c$ is only a single root to the polynomial.)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-4701",
+      "name": "AIME II #0l59",
+      "url": "https://usamoguide.com/",
+      "source": "AIME II",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Symmetric functions"
+      ],
+      "statement": "There are exactly three positive real numbers $k$ such that the function\n$$\nf(x) = \\frac{(x - 18)(x - 72)(x - 98)(x - k)}{x}\n$$\ndefined over the positive real numbers $x$ achieves its minimum value at exactly two positive real numbers $x$. Find the sum of these three values of $k$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-4717",
+      "name": "HMMT February #0l5p",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Polynomial operations",
+        "Symmetric functions"
+      ],
+      "statement": "Problem:\nLet $a$, $b$, and $c$ be real numbers such that $a^2(b + c) = 1$, $b^2(c + a) = 2$, and $c^2(a + b) = 5$. Given that there are three possible values for $abc$, compute the minimum possible value of $abc$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $x = abc$. Multiplying all equations together and simplifying gives\n$$(abc)^2 (a + b)(b + c)(c + a) = 10,$$\n$$(abc)^2 \\left(a^2(b + c) + b^2(c + a) + c^2(a + b) + 2abc\\right) = 10,$$\n$$x^2 (1 + 2 + 5 + 2x) = 10,$$\n$$x^2 (x + 4) = 5.$$\nThe resulting cubic factors as $(x - 1)(x^2 + 5x + 5) = 0$. Therefore, the smallest possible value of $abc$ is $\\frac{-5 - \\sqrt{5}}{2}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-algebraic-expressions-polynomials-symmetric-functions-auto-4817",
+      "name": "USAMO #0l8h",
+      "url": "https://usamoguide.com/",
+      "source": "USAMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vieta's formulas",
+        "Symmetric functions"
+      ],
+      "statement": "Let $n$ and $k$ be positive integers with $k < n$. Let $P(x)$ be a polynomial of degree $n$ with real coefficients, nonzero constant term, and no repeated roots. Suppose that for any real numbers $a_0, a_1, \\dots, a_k$ such that the polynomial $a_kx^k + \\dots + a_1x + a_0$ divides $P(x)$, the product $a_0a_1\\dots a_k$ is zero. Prove that $P(x)$ has a nonreal root.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

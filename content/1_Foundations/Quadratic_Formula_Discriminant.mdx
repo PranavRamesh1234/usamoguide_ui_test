@@ -1,0 +1,123 @@
+---
+id: quadratic-formula
+title: Quadratic Formula and Discriminant
+author: Siddhant Arora
+description: Solving quadratics and classifying roots
+prerequisites: []
+---
+
+## Introduction
+
+Quick! Find all zeros of this quadratic:
+
+> $47x^2 - 50x - 78$
+
+This seems extremely daunting to do with techniques such as factoring and even completing the square. Luckily, the quadratic formula is useful in solving "large" quadratics such as the one shown.
+
+The quadratic formula is a relatively short formula that gives us all roots of a second-degree polynomial (or *quadratic*). Namely, for a quadratic: $ax^2 + bx + c$, its roots are:
+
+> $${x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}}$$
+
+**Derivation of the Quadratic Formula**
+>
+> Begin with the general quadratic $ax^2 + bx + c = 0$. Divide through by $a$:
+>
+> $$x^2 + \frac{b}{a}x + \frac{c}{a} = 0$$
+>
+> Move the constant to the right:
+>
+> $$x^2 + \frac{b}{a}x = -\frac{c}{a}$$
+>
+> Complete the square by adding $\left(\dfrac{b}{2a}\right)^2$ to both sides:
+>
+> $$x^2 + \frac{b}{a}x + \left(\frac{b}{2a}\right)^2 = \left(\frac{b}{2a}\right)^2 - \frac{c}{a}$$
+>
+> The left side is now a perfect square trinomial:
+>
+> $$\left(x + \frac{b}{2a}\right)^2 = \frac{b^2 - 4ac}{4a^2}$$
+>
+> Taking the square root of both sides and isolating $x$:
+>
+> $$x + \frac{b}{2a} = \pm\frac{\sqrt{b^2 - 4ac}}{2a}$$
+>
+> $$\boxed{x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}}$$
+
+The *discriminant* of the quadratic formula is the expression underneath the square root, i.e, $b^2 - 4ac$ (not $\sqrt{b^2 - 4ac}$).
+
+You may have the reaction upon seeing the square root that what if $b^2 - 4ac$ is negative? If so, the quadratic has imaginary solutions, i.e, they involve $i = \sqrt{-1}$. This tells us that the positivity of the discriminant can tell us whether the quadratic has 0, 1, or 2 solutions.
+
+### Classification:
+
+1) $b^2 - 4ac > 0$: The quadratic has two real roots.
+2) $b^2 - 4ac = 0$: The quadratic has one real root.
+3) $b^2 - 4ac < 0$: The quadratic has two imaginary roots.
+
+Write the equation as $ax^2+bx+c=0$ before applying the formula.
+
+### Techniques
+
+Although simple, the quadratic formula has some serious implications in various problems.
+
+- If a problem notes a quadratic has two rational solutions, that implies the discriminant is a perfect square. Hence, setting $b^2 - 4ac$ to $c^2$ for some integer c may result in useful deductions.
+- Problems may explicitly state whether the quadratic has two real solutions, one real solution, or no real solutions which tells us the negativity of the discriminant.
+- Reliability in general for solving tricky quadratics!
+
+With our new knowledge, we can trivially solve:
+
+> $47x^2 - 50x - 78 = 0$
+
+Plugging directly into the quadratic formula with $a = 47$, $b = -50$, $c = -78$:
+
+$$
+x = \frac{-(-50) \pm \sqrt{(-50)^2 - 4(47)(-78)}}{2(47)}
+$$
+
+$$
+x = \frac{50 \pm \sqrt{2500 + 14664}}{94}
+$$
+
+$$
+x = \frac{50 \pm \sqrt{17164}}{94}
+$$
+
+$$
+x = \frac{50 \pm 2\sqrt{4291}}{94}
+$$
+
+$$
+x = \frac{25 \pm \sqrt{4291}}{47}
+$$
+
+# Worked Example
+
+> The zeros of the function $f(x) = x^2-ax+2a$ are integers. What is the sum of the possible values of $a$?
+
+> ### Solution
+>
+> Although the problem seems daunting at first, it can be easily broken down using simple steps. Firstly, the roots will be of the form: $x=\frac{a\pm\sqrt{a^2-8a}}{2}$. As noted, integral zeroes imply that the discriminant is a perfect square.
+>
+> Hence, $a^2-8a=c^2$ for some non-negative integer $c$. Here, we can isolate for a by completing the square: 
+> $a(a-8)=k^2$
+>
+> $((a-4)+4)((a-4)-4)=k^2$
+>
+> $(a-4)^2-4^2=k^2$
+>
+> $(a-4)^2=k^2+4^2$
+>
+> Aha! This looks like a pythagorean triple of the form ($k,4,|a-4|$). This works only if $k$ is not 0. If $k$ is 0:
+>
+> $(a-4)^2=4^2$
+>
+> $a = 0, 8$
+>
+> If $k$ is not 0, then the only integral pythagorean triple that satisfies this is $(3, 4, 5)$, from which $k = 3$ and $|a - 4|$ = 5. This gives two more solutions, $a = -1, 9$.
+>
+> Summing all solutions we get $0 + 8 + (-1) + 9$ = $\boxed{16}$.
+
+
+
+
+## Practice Problems
+
+<Problems problems="practice" />

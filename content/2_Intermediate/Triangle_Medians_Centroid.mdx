@@ -1,0 +1,185 @@
+---
+id: triangle-medians-centroid
+title: Medians and the Centroid
+author: USAMO Guide Team - Ava Berenji
+description: Median properties and centroid ratios.
+prerequisites: []
+---
+
+## Overview
+
+In a triangle, a median is a segment from a vertex to the midpoint of the opposite side. Medians intersect at the centroid, which splits each median in a $2:1$ ratio.
+This point is also the balance point of the triangle. They also give rise to triangles with equal areas.
+
+## Definitions and Key Ideas
+
+- The midpoint of a segment is the point that divides the segment into two equal lengths.
+- A median connects a vertex to the midpoint of the opposite side.
+- In a triangle, the three medians intersect at a single point called the centroid.
+- The centroid divides each median $2:1$ from the vertex.
+- The three medians divide the triangle into 6 equal-area small triangles.
+- Each median splits the triangle into two equal-area triangles.
+- The centroid's coordinates are the average of the coordinates of the three vertices.
+
+### Area Properties
+
+<div style={{ display: 'flex', justifyContent: 'center', margin: '2rem 0' }}>
+  <svg viewBox="0 0 360 320" width="320" height="300">
+
+    <!-- Triangle -->
+    <line x1="180" y1="40" x2="60" y2="260" stroke="white" strokeWidth="2" />
+    <line x1="180" y1="40" x2="300" y2="260" stroke="white" strokeWidth="2" />
+    <line x1="60" y1="260" x2="300" y2="260" stroke="white" strokeWidth="2" />
+
+    <!-- Midpoints -->
+    <!-- N on AB -->
+    <circle cx="120" cy="150" r="4" fill="white" />
+    <!-- L on AC -->
+    <circle cx="240" cy="150" r="4" fill="white" />
+    <!-- M on BC -->
+    <circle cx="180" cy="260" r="4" fill="white" />
+
+    <!-- Medians -->
+    <line
+      x1="180"
+      y1="40"
+      x2="180"
+      y2="260"
+      stroke="white"
+      strokeWidth="1.5"
+      strokeDasharray="5 5"
+    />
+
+    <line
+      x1="60"
+      y1="260"
+      x2="240"
+      y2="150"
+      stroke="white"
+      strokeWidth="1.5"
+      strokeDasharray="5 5"
+    />
+
+    <line
+      x1="300"
+      y1="260"
+      x2="120"
+      y2="150"
+      stroke="white"
+      strokeWidth="1.5"
+      strokeDasharray="5 5"
+    />
+
+    <!-- Centroid -->
+    <circle cx="180" cy="186.7" r="5" fill="white" />
+
+    <!-- Vertices -->
+    <circle cx="180" cy="40" r="5" fill="white" />
+    <circle cx="60" cy="260" r="5" fill="white" />
+    <circle cx="300" cy="260" r="5" fill="white" />
+
+    <!-- Labels -->
+    <text x="174" y="24" fill="white" fontSize="18" fontFamily="serif">A</text>
+    <text x="44" y="280" fill="white" fontSize="18" fontFamily="serif">B</text>
+    <text x="306" y="280" fill="white" fontSize="18" fontFamily="serif">C</text>
+
+    <text x="103" y="146" fill="white" fontSize="18" fontFamily="serif">L</text>
+    <text x="246" y="146" fill="white" fontSize="18" fontFamily="serif">N</text>
+    <text x="174" y="282" fill="white" fontSize="18" fontFamily="serif">M</text>
+
+    <text x="190" y="168" fill="white" fontSize="18" fontFamily="serif">G</text>
+
+  </svg>
+</div>
+
+In $\triangle ABC,$ 
+
+$$
+[AMB] = [AMC],
+$$
+
+and similarly for the other three "half" triangles.
+
+Also, the six triangles the median splits the larger triangle into have equal area. In other words,
+
+$$
+[GLA] = [GBL] = [GBM] = [GCM] = [GNC] = [GAN]
+$$
+
+**Proof:** If we drop an altitude from $A$ to $BC,$ triangles $AMB$ and $AMC$ will share this altitude. Their bases are also the same length since $BM=MC.$ Then using $Area = \frac{1}{2} bh,$ these triangles have the same area. 
+Also, if we drop an altitude from $G$ to $BC,$ we can show $[GBM] = [GMC] = x.$ Repeat for the other three pairs of triangles, obtaining $[GLA] = [GBL] = y$ and $[GAN] = [GNC] = z.$ Then from our previous result, $2y+x = 2z+x.$ Thus $y=z.$ By a similar argument, $x=y,$ so $x=y=z$ and we are done.
+
+### Ratio Properties
+
+In $\triangle ABC,$ with $M$ as the midpoint of $BC$ and $G$ the centroid, it holds that
+
+$$AG : GM = 2 : 1.$
+
+**Proof:** We follow the opposite reasoning as our area properties proof. We know that $[BAG] = 2[BGM].$ Therefore since these triangles share an altitude  from $B$ to $AM,$ $AG = 2GM.$ Repeat for the other three medians symmetrically.
+
+### Connection to Coordinate Geometry
+
+In a triangle with vertices $(x_1, y_1), (x_2,y_2), (x_3,y_3),$ the centroid has coordinates
+
+$$
+\left(\dfrac{x_1+x_2+x_3}{3},\dfrac{y_1+y_2+y_3}{3} \right).
+$$
+
+You may recognize this as the average of the corresponding $x$ and $y$ coordinates.
+
+**Proof:** First, the midpoint of $(x_2, y_2), (x_3,y_3)$ is 
+
+$$
+\left(\dfrac{x_2+x_3}{2},\dfrac{y_2+y_3}{2} \right).
+$$
+
+Next, the point $2/3$ of the way to this point along the median from $(x_1,y_1)$ will be 
+
+$$
+\dfrac{1}{3} \left [ 2\left(\dfrac{x_2+x_3}{2},\dfrac{y_2+y_3}{2} \right) + (x_1,y_1) \right]
+$$
+$$
+\left(\dfrac{x_1+x_2+x_3}{3},\dfrac{y_1+y_2+y_3}{3} \right).
+$$
+
+
+## Common Pitfalls
+
+- Flipping the $2:1$ ratio, or mistaking it for $1:1.$
+- Assuming medians are perpendicular from their appearance on a diagram.
+- Confusing medians with angle bisectors or altitudes.
+
+
+## Worked Example
+
+In triangle $ABC$, the centroid $G$ lies on median $AM$. If $AG=10$, find $GM$.
+
+The centroid ratio is $AG:GM = 2:1$, so $GM = 5$.
+
+## More Examples
+
+### Example 1: Full Median Length
+
+If $AG=8$ on median $AM$, find $AM$.
+
+$AG = \frac{2}{3}AM$, so $AM = 12$.
+
+### Example 2: Area Split
+
+In triangle $ABC$, median $AM$ splits the triangle into two triangles of equal
+area. If $[ABC]=42$, find $[ABM]$.
+
+$[ABM]=21$.
+
+### Example 3: Six Equal Areas
+
+The medians divide a triangle into six equal areas. If one of the small
+triangles has area $5$, what is the area of the whole triangle?
+
+$6\cdot 5 = 30$.
+
+
+
+## Practice Problems
+
+<Problems problems="practice" />

@@ -1,0 +1,60 @@
+{
+  "MODULE_ID": "geometry-plane-geometry-concurrency-and-collinearity-desargues-theorem",
+  "practice": [
+    {
+      "uniqueId": "geometry-plane-geometry-concurrency-and-collinearity-desargues-theorem-auto-2345",
+      "name": "Bay Area Mathematical Olympiad #0jbt",
+      "url": "https://usamoguide.com/",
+      "source": "Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Angle chasing",
+        "Cyclic quadrilaterals",
+        "Tangents",
+        "Desargues theorem",
+        "Constructions and loci"
+      ],
+      "statement": "Problem:\n\nGiven a segment $A B$ in the plane, choose on it a point $M$ different from $A$ and $B$. Two equilateral triangles $\\triangle A M C$ and $\\triangle B M D$ in the plane are constructed on the same side of segment $A B$. The circumcircles of the two triangles intersect in point $M$ and another point $N$. (The circumcircle of a triangle is the circle that passes through all three of its vertices.)\n\na. Prove that lines $A D$ and $B C$ pass through point $N$.\n\nb. Prove that no matter where one chooses the point $M$ along segment $A B$, all lines $M N$ will pass through some fixed point $K$ in the plane.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\na.\nIt is not hard to show that point $N$ is on the same side of segment $A B$ as the two triangles, and that $N$ is inside $\\angle C M D$ so that $\\{A, M, N, C\\}$, and $\\{B, M, N, D\\}$, are arranged in these orders correspondingly on the circumcircles, as shown on the picture. (The reason is essentially that side $M C$ is tangent to the circumcircle of $\\triangle B M D$, because of the angle it makes with $A B$.) Since $A, M, N$ and $C$ are concyclic, and $C$ and $N$ are on the same side of line $A B$, $\\angle A N M = \\angle A C M = 60^{\\circ}$. Since $B, M, N$ and $D$ are concyclic, and $B$ and $N$ are on opposite sides of chord $M D$, $\\angle M N D = 180^{\\circ} - \\angle M B D = 180^{\\circ} - 60^{\\circ} = 120^{\\circ}$. Thus, the sum $\\angle A N M + \\angle M N D = 60^{\\circ} + 120^{\\circ} = 180^{\\circ}$, which proves that $A, N$, and $D$ lie on a line. One can prove analogously that $B, N$, and $C$ also lie on a line.\n\nb.\nExtend sides $A C$ and $B D$ until they intersect in point $E$, thereby creating another equilateral $\\triangle A B E$. Reflect $\\triangle A B E$ to $\\triangle A B K$ across line $A B$. Note that point $K$ is fixed, regardless of the chosen point $M$. We claim that line $N M$ will always pass through point $K$.\n\nProof of Claim: To show that $N, M$ and $K$ lie on a line, it suffices to show that $\\angle K M B = \\angle A M N$. To this end, note that because of the reflection, $\\angle K M B = \\angle E M B$. From the External Angle Theorem applied to $\\triangle A M E$, we have $\\angle E M B = \\angle M A E + \\angle A E M = \\angle A M C + \\angle E A D$; the latter is true because $\\angle M A E = \\angle A M C = 60^{\\circ}$ and $\\angle A E M = \\angle E A D$ from the isosceles trapezoid $A M D E$. Finally, $\\angle E A D = \\angle C A N = \\angle C M N$ from inscribed angles in the circumcircle of $\\triangle A M C$. Putting everything together yields $\\angle E M B = \\angle A M C + \\angle C M N = \\angle A M N$. Thus, indeed, $N, M$ and $K$ are collinear.\n\n![](attached_image_1.png)\n\nAlternative Proof of Claim:\nWe already know that $A N D$ and $B N C$ are lines. We need to show that line $M K$ also passes through $N$, i.e., that lines $A D, B C$ and $K M$ are concurrent, or in other words, that these lines are \"perspective from point $N$\". According to Desargues's Theorem, this is true if and only if the corresponding triangles $\\triangle A B K$ and $\\triangle D C M$ are \"perspective from the line\" formed by the intersection of their corresponding sides. Let lines $A B$ and $D C$ intersect in point $X$, lines $A K$ and $D M$ intersect in point $Y$, and lines $B K$ and $C M$ intersect in point $Z$. Thus, it suffices to show that $X Y Z$ is also a line. However, note that $Y$ and $Z$ are the reflections of $C$ and $D$ across $A B$ (because $\\triangle A M Y$ and $\\triangle B M Z$ are again equilateral). Hence, line $X C D$ reflects to line $X Y Z$, proving our statement."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-concurrency-and-collinearity-desargues-theorem-auto-3508",
+      "name": "HMMT February 2019 #0k84",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2019",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Tangents",
+        "Radical axis theorem",
+        "Cyclic quadrilaterals",
+        "Inscribed/circumscribed quadrilaterals",
+        "Triangle trigonometry",
+        "Rotation",
+        "Desargues theorem"
+      ],
+      "statement": "Problem:\nLet $ABC$ be a triangle with $AB = 6$, $AC = 7$, $BC = 8$. Let $I$ be the incenter of $ABC$. Points $Z$ and $Y$ lie on the interior of segments $AB$ and $AC$ respectively such that $YZ$ is tangent to the incircle. Given point $P$ such that\n$$\n\\angle ZPC = \\angle YPB = 90^\\circ\n$$\nfind the length of $IP$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $PU$, $PV$ be tangents from $P$ to the incircle. We will invoke the dual of the Desargues Involution Theorem, which states the following:\nGiven a point $P$ in the plane and four lines $\\ell_1, \\ell_2, \\ell_3, \\ell_4$, consider the set of conics tangent to all four lines. Then we define a function on the pencil of lines through $P$ by mapping one tangent from $P$ to each conic to the other. This map is well defined and is a projective involution, and in particular maps $PA \\rightarrow PD$, $PB \\rightarrow PE$, $PC \\rightarrow PF$, where $ABCDEF$ is the complete quadrilateral given by the pairwise intersections of $\\ell_1, \\ell_2, \\ell_3, \\ell_4$.\nAn overview of the projective background behind the (Dual) Desargues Involution Theorem can be found here: https://www.scribd.com/document/384321704/Desargues-Involution-Theorem, and a proof can be found at https://www2.washjeff.edu/users/mwoltermann/Dorrie/63.pdf.\nNow, we apply this to the point $P$ and the lines $AB$, $AC$, $BC$, $YZ$, to get that the pairs\n$$\n(PU, PV), (PY, PB), (PZ, PC)\n$$\nare swapped by some involution. But we know that the involution on lines through $P$ which rotates by $90^\\circ$ swaps the latter two pairs, thus it must also swap the first one and $\\angle UPV = 90^\\circ$. It follows by equal tangents that $IUPV$ is a square, thus $IP = r\\sqrt{2}$ where $r$ is the inradius of $ABC$. Since $r = \\frac{2K}{a+b+c} = \\frac{21\\sqrt{15}/2}{21} = \\frac{\\sqrt{15}}{2}$, we have $IP = \\frac{\\sqrt{30}}{2}$.\n\nSolution:\nLet $H$ be the orthocenter of $ABC$.\n\nLemma. $HI^2 = 2r^2 - 4R^2 \\cos A \\cos B \\cos C$, where $r$ is the inradius and $R$ is the circumradius.\n\nProof. This follows from barycentric coordinates or the general result that for a point $X$ in the plane,\n$$\na XA^2 + b XB^2 + c XC^2 = (a+b+c) XI^2 + a AI^2 + b BI^2 + c CI^2\n$$\nwhich itself is a fact about vectors that follows from barycentric coordinates. This can also be computed directly using trigonometry.\n\nLet $E = BH \\cap AC$, $F = CH \\cap AB$, then note that $B, P, E, Y$ are concyclic on the circle of diameter $BY$, and $C, P, F, Z$ are concyclic on the circle of diameter $CZ$. Let $Q$ be the second intersection of these circles. Since $BCYZ$ is a tangential quadrilateral, the midpoints of $BY$ and $CZ$ are collinear with $I$ (this is known as Newton's theorem), which implies that $IP = IQ$ by symmetry. Note that as $BH \\cdot HE = CH \\cdot HF$, $H$ lies on the radical axis of the two circles, which is $PQ$. Thus, if $IP = IQ = x$, $BH \\cdot HE$ is the power of $H$ with respect to the circle centered at $I$ with radius $x$, which implies $BH \\cdot HE = x^2 - HI^2$.\n\nAs with the first solution, we claim that $x = r\\sqrt{2}$, which by the lemma is equivalent to $BH \\cdot HE = 4R^2 \\cos A \\cos B \\cos C$. Then note that\n$$\nBH \\cdot HE = BH \\cdot CH \\cos A = (2R \\cos B)(2R \\cos C) \\cos A,\n$$\nso our claim holds and we finish as with the first solution.\n\nNote. Under the assumption that the problem is well-posed (the answer does not depend on the choice of $Y, Z$, or $P$), then here is an alternative method to obtain $IP = r\\sqrt{2}$ by making convenient choices. Let $U$ be the point where $YZ$ is tangent to the incircle, and choose $U$ so that $IU \\parallel BC$ (and therefore $YZ \\perp BC$). Note that $YZ \\cap BC$ is a valid choice for $P$, so assume that $P$ is the foot from $U$ to $BC$. If $D$ is the point where $BC$ is tangent to the incircle, then $IUPD$ is a square so $IP = r\\sqrt{2}$. (This disregards the condition that $Y$ and $Z$ are in the interior of segments $AC$ and $AB$, but there is no reason to expect that this condition is important.)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

@@ -1,0 +1,835 @@
+{
+  "MODULE_ID": "geometry-plane-geometry-geometric-inequalities-triangle-inequalities",
+  "practice": [
+    {
+      "uniqueId": "geometry-plane-geometry-geometric-inequalities-triangle-inequalities-auto-0012",
+      "name": "Berkeley Math Circle Monthly Contest 1 #0hj0",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle inequalities"
+      ],
+      "statement": "Problem:\n\nLet $ABCDE$ be a convex pentagon with perimeter $1$. Prove that triangle $ACE$ has perimeter less than $1$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nBy the triangle inequality, we have $AC < AB + BC$ and $CE < CD + DE$, so $AC + CE + EA < AB + BC + CD + DE + EA$ as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-geometric-inequalities-triangle-inequalities-auto-0282",
+      "name": "Berkeley Math Circle Monthly Contest 1 #0hqi",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 1",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Translation",
+        "Triangle inequalities",
+        "Optimization in geometry"
+      ],
+      "statement": "Problem:\n\nTwo villages, $A$ and $B$, lie on opposite sides of a straight river in the positions shown. There will be a market in village $B$, and residents of village $A$ wish to attend. The people of village $A$ would like to build a bridge across and perpendicular to the river so that the total route walked by residents of $A$ to the bridge, across the bridge, and onward to $B$ is as short as possible. How can they find the exact location of the bridge, and how long will the route be?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFor convenience, we label the point $X$, the foot of the perpendicular from $A$ to the river. We also label $Y$, the point where the perpendicular $B Y$ to the river through $B$ meets the parallel $A Y$ to the river through $A$. The key construction is to translate $B$ southward $1 \\mathrm{~km}$ to point $E$. Let $A C D B$ be any route. Then segments $D C$ and $B E$ are congruent and parallel,\n\n![](attached_image_1.png)\n\nmaking a parallelogram $D C E B$. The total route is $A C + C D + D B = A C + C E + E B$. But by the triangle inequality, $A C + C E \\geq A E$ so the total route cannot be shorter than $A E + E B = 5 + 1 = 6 \\mathrm{~km}$. (continued)\n\nThe residents of $A$ can ensure a 6-kilometer route by putting the start $C$ of the bridge at the point where $A E$ crosses the lower bank of the river. In this situation, since $A$, $C$, and $E$ lie on a line, the triangle inequality is an equality, so the total route is $A C + C D + D B = A C + C E + E B = A E + E B = 5 + 1 = 6$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-geometric-inequalities-triangle-inequalities-auto-0456",
+      "name": "Berkeley Math Circle: Monthly Contest 7 #0hvc",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 7",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle inequalities",
+        "QM-AM-GM-HM / Power Mean"
+      ],
+      "statement": "Problem:\nIf triangle $ABC$ has perimeter $2$, prove that not all its altitudes can exceed $1 / \\sqrt{3}$ in length.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet $a, b, c$ be the side lengths of the triangle, where $a$ is the longest side, so $a \\geq 2 / 3$, and let $h_{a}$ be the length of the altitude to that side. The semiperimeter is $1$, so by Heron's formula we get\n$$\n\\frac{1}{2} a h_{a} = \\sqrt{(1-a)(1-b)(1-c)} \\Longrightarrow h_{a} \\leq 3 \\sqrt{(1-a)(1-b)(1-c)}\n$$\nBut by AM-GM,\n$$\n\\frac{(1-a)+(1-b)+(1-c)}{3} = \\frac{1}{3} \\geq \\sqrt[3]{(1-a)(1-b)(1-c)} \\Longrightarrow \\sqrt{(1-a)(1-b)(1-c)} \\leq \\frac{1}{3 \\sqrt{3}}\n$$\nThus, we get\n$$\nh_{a} \\leq 3 \\cdot \\frac{1}{3 \\sqrt{3}} = \\frac{1}{\\sqrt{3}}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-geometric-inequalities-triangle-inequalities-auto-0473",
+      "name": "Berkeley Math Circle Monthly Contest 2 #0hvt",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 2",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Quadrilaterals",
+        "Rotation",
+        "Translation",
+        "Triangle inequalities"
+      ],
+      "statement": "Problem:\nLet $ABCD$ be a convex quadrilateral. Suppose that the area of $ABCD$ is equal to\n$$\n\\frac{AB+CD}{2} \\cdot \\frac{AD+BC}{2}\n$$\nProve that $ABCD$ is a rectangle.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nIn the picture shown, we have replicated quadrilateral $ABCD$ four times, rotating by $180^{\\circ}$ successively about the midpoints of $BC$, $CF$, and $CH$. Because the angles of the quadrilateral sum to $360^{\\circ}$, the figure \"closes up\" so that the final quadrilateral has $CD$ as a side and would, if further rotated $180^{\\circ}$ about $CD$, coincide with $ABCD$.\nWe note that $AD$ and $EF$ are parallel and congruent, as are $FG$ and $DI$; thus triangles $ADI$\n![](attached_image_1.png)\nand $EFG$ are translations of one another, and $AI$ is parallel and congruent to $IG$. The same can be said for triangles $ABE$ and $IHG$. So\n$$\n\\text{4. Area } ABCD = \\text{Area } ABEFGHID = \\text{Area } ABEGHI = \\text{Area } AEGI.\n$$\nBecause $AEGI$ is a parallelogram, with base $AE$ and height at most $AI$, we can continue:\n$$\n\\text{Area } AEGI \\leq AE \\cdot AI \\leq (AB + BE)(AD + DI) = (AB + CD)(AD + BC) = 4 \\text{Area } ABCD.\n$$\nAll these inequalities must be equalities. So $A$, $B$, $E$ are collinear (i.e. $AB \\parallel CD$); $A$, $D$, $I$ are collinear (i.e. $AD \\parallel BC$); and angle $EAI$, which is also angle $BAD$, equals $90^{\\circ}$. From this we conclude that $ABCD$ is a rectangle."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-geometric-inequalities-triangle-inequalities-auto-0623",
+      "name": "Harvard-MIT Math Tournament #0hzz",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Math Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Triangle inequalities"
+      ],
+      "statement": "Problem:\nLet $r$ be the radius of the inscribed circle of triangle $ABC$. Take a point $D$ on side $BC$, and let $r_{1}$ and $r_{2}$ be the inradii of triangles $ABD$ and $ACD$. Prove that $r$, $r_{1}$, and $r_{2}$ can always be the side lengths of a triangle.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe must show that $r$, $r_{1}$, and $r_{2}$ satisfy the triangle inequality, i.e. that the sum of any two of them exceeds the third. Clearly $r$ is the largest of the three, so we need only verify that $r_{1} + r_{2} > r$.\n\nLet $K$ and $s$ be the area and semiperimeter of triangle $ABC$. Similarly define $K_{1}$, $K_{2}$, $s_{1}$, and $s_{2}$. Observe that $s$ is larger than $s_{1}$ or $s_{2}$ and that $K_{1} + K_{2} = K$. While these facts are almost trivial to verify, they must be stated.\n\nThen $r = K / s$, $r_{1} = K_{1} / s_{1}$, and $r_{2} = K_{2} / s_{2}$, so\n$$\n  r_{1} + r_{2} = \\frac{K_{1}}{s_{1}} + \\frac{K_{2}}{s_{2}} > \\frac{K_{1}}{s} + \\frac{K_{2}}{s} = \\frac{K}{s} = r.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-geometric-inequalities-triangle-inequalities-auto-0663",
+      "name": "Berkeley Math Circle #0i13",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cartesian coordinates",
+        "Triangle inequalities",
+        "Optimization in geometry",
+        "Distance chasing"
+      ],
+      "statement": "Problem:\nFind the minimum of the function\n$$\nf(x, y)=\\sqrt{(x+1)^{2}+(2 y+1)^{2}}+\\sqrt{(2 x+1)^{2}+(3 y+1)^{2}}+\\sqrt{(3 x-4)^{2}+(5 y-6)^{2}},\n$$\ndefined for all real $x, y>0$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nNote that $\\sqrt{(x+1)^{2}+(2 y+1)^{2}}$ is the distance in the coordinate plane from $(0,0)$ to $(x+1,2 y+1)$; $\\sqrt{(2 x+1)^{2}+(3 y+1)^{2}}$ is the distance from $(x+1,2 y+1)$ to $(3 x+2,5 y+2)$; $\\sqrt{(3 x-4)^{2}+(5 y-6)^{2}}$ is the distance from $(3 x+2,5 y+2)$ to $(6,8)$. Thus, $f(x, y)$ is the distance along the polygonal path from $(0,0)$ to $(x+1,2 y+1)$ to $(3 x+2,5 y+2)$ to $(6,8)$, which, by the triangle inequality, cannot be less than the distance from $(0,0)$ to $(6,8)$. Thus $f(x, y) \\geq 10$. One then calculates $f(1 / 4,1 / 3)=10$. So 10 is in fact attainable, and it is our minimum."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-geometric-inequalities-triangle-inequalities-auto-1597",
+      "name": "Bay Area Mathematical Olympiad #0ir1",
+      "url": "https://usamoguide.com/",
+      "source": "Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle inequalities"
+      ],
+      "statement": "Problem:\nA triangle (with non-zero area) is constructed with the lengths of the sides chosen from the set\n$$\n\\{2, 3, 5, 8, 13, 21, 34, 55, 89, 144\\}\n$$\nShow that this triangle must be isosceles (A triangle is isosceles if it has at least two sides the same length.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFirst note that the numbers in the list are an increasing sequence of Fibonacci numbers, i.e. starting with $5$, each number is the sum of the previous two numbers in the list. By the triangle inequality, we know that the longest side is always less than the sum of the other two sides. Suppose the triangle constructed is scalene with sides $a < b < c$. If $a$ and $b$ are consecutive numbers in the list then the longest side $c$ is the next number in the list or a larger one and $a + b \\leq c$, a contradiction of the triangle inequality. If $a$ and $b$ are not consecutive numbers in the list, let $d$ be the number just before $b$, so that $a < d < b$. We then have $a + b < d + b$. But by the previous argument $d + b \\leq c$, so by the transitivity of '$<$' we have $a + b < c$, again contradicting the triangle inequality. Therefore the supposition is false and the triangle cannot be scalene and must have at least two sides equal."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-geometric-inequalities-triangle-inequalities-auto-1810",
+      "name": "Berkeley Math Circle Monthly Contest 5 #0iwy",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 5",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Angle chasing",
+        "Triangle inequalities"
+      ],
+      "statement": "Problem:\n\nIn triangle $A B C$, the bisector of $\\angle B$ meets the circumcircle of $\\triangle A B C$ at $D$. Prove that\n$$\nB D^{2}>B A \\cdot B C\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nIn the diagram, $\\angle A B D = \\angle D B C$ (angle bisector) and $\\angle B A C = \\angle B D C$ (both intercept arc $B C$), so $\\triangle B A E \\sim \\triangle B D C$. We get\n$$\n\\begin{aligned}\n\\frac{B A}{B E} & = \\frac{B D}{B C} \\\\\nB D \\cdot B E & = B A \\cdot B C,\n\\end{aligned}\n$$\nfrom which the desired inequality follows since $B E < B D$.\n\n![](attached_image_1.png)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-geometric-inequalities-triangle-inequalities-auto-1819",
+      "name": "IMO 2009 #0ix7",
+      "url": "https://usamoguide.com/",
+      "source": "IMO 2009",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Injectivity / surjectivity",
+        "Existential quantifiers",
+        "Triangle inequalities",
+        "Coloring schemes, extremal arguments"
+      ],
+      "statement": "Determine all functions $f$ from the set of positive integers to the set of positive integers such that, for all positive integers $a$ and $b$, there exists a non-degenerate triangle with sides of lengths $a$, $f(b)$ and $f(b+f(a)-1)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "If $f(b+v_2) = f(b)-1$, then setting $a=2$ and $b = b+v_2$ in the given condition leads to the triangular triple $\\{2, f(b+v_2) = f(b)-1, f(b+2v_2)\\}$. By the triangle inequality and (c), the only possible value of $f(b+2v_2)$ is $f(b)-2$. Likewise, we can deduce that $f(b+3v_2) = f(b)-3$, and so on. But this impossible, because $f$ takes values in the set of positive integers.\nWe conclude that $f(b + v_2) = f(b) + 1$. By a simple induction, we have $f(b + kv_2) = f(b) + k$ for positive integers $k$. In particular, setting $b = 1$ yields\n$$\nf(1) = 1, \\quad f(1+v_2) = 2, \\quad f(1+2v_2) = 3, \\quad \\dots, \\quad f(1+kv_2) = 1+k, \\dots \\quad (1)\n$$\nSetting $k = v_2$ in (1) gives\n$$\nf(1 + v_2^2) = 1 + v_2.\n$$\nBy (b), we conclude that $1+v_2^2 = f(f(1+v_2^2)) = f(1+v_2) = 2$, implying that $v_2 = 1$. Substituting $v_2 = 1$ in (1) leads to the solution $f(x) = x$.\n\nWe start with a lemma that is slightly stronger than Freiman's theorem. Part of this lemma could be very helpful in certain proofs of USAMO 2009 problem 2 and IMO 2000 problem 1.\n\n**Lemma 1.** Let $A, B$ be finite nonempty subsets of $\\mathbb{Z}$. Then the set $A+B = \\{a+b : a \\in A, b \\in B\\}$ has cardinality at least $|A| + |B| - 1$. Equality holds if and only if either $A$ and $B$ are arithmetic progressions with equal difference or at least one of $|A|$ or $|B|$ is equal to 1. (Here $|S|$ denotes the number of elements in $S$.)\n\n*Proof.* Let $A = \\{a_1 < a_2 < \\dots < a_{|A|}\\}$ and $B = \\{b_1 < b_2 < \\dots < b_{|B|}\\}$. The following $|A| + |B| - 1$ distinct elements, arranged in increasing order, are in $A+B$:\n$$\na_1 + b_1 < \\dots < a_1 + b_{|B|} < a_2 + b_{|B|} < \\dots < a_{|A|+|B|}.\n$$\nTherefore $|A+B| \\ge |A| + |B| - 1$, establishing the inequality.\n\nNext we consider the equality case. Let $c_i$ denote the value of the $i^{\\text{th}}$ element in the above list. Assume that $|A+B| = |A| + |B| - 1$ and $|A|, |B| > 1$. For any $1 < i \\le |A|$ and $1 < j \\le |B|$, consider the following list of $|A| + |B| - 1$ distinct elements in $A+B$:\n$$\n\\underbrace{a_1 + b_1 < \\dots < a_1 + b_{j-1}}_{j-1 \\text{ elements}} < \\underbrace{a_2 + b_{j-1} < \\dots < a_i + b_{j-1}}_{i-1 \\text{ elements}} < \\underbrace{a_i + b_j < \\dots < a_i + b_{|B|}}_{|B|-j+1 \\text{ elements}} < \\underbrace{a_{i+1} + b_{|B|} < \\dots < a_{|A|} + b_{|B|}}_{|A|-i \\text{ elements}}.\n$$\nThis list must be the same as before. Therefore $a_i+b_{j-1} = c_{i+j-2}$. Likewise $a_{i-1}+b_j = c_{i+j-2}$. Therefore $a_i + b_{j-1} = a_{i-1} + b_j$ and $a_i - a_{i-1} = b_j - b_{j-1}$. Hence, both $A$ and $B$ are arithmetic progressions with the same common difference. $\\square$\n\nNow we can complete our proof in a few steps.\n\n(d) For a positive integer $n$, let $I_n = \\{1, 2, \\dots, n\\}$, $\\mathcal{A}_n = \\{f(i) : i \\in I_n\\}$. Because $f(f(n)) = n$, the given condition implies the more symmetric fact that $\\{a, b, f(f(a) + f(b) - 1)\\}$ is triangular. Hence if $a, b \\in I_n$, then $f(f(a) + f(b) - 1) \\le 2n - 1$.\n\n(e) Combining (c) and (d), we conclude that $|\\{f(a) + f(b) - 1 : a, b \\in I_n\\}| \\le 2n - 1$; that is,\n$$\n|\\mathcal{A}_n + \\mathcal{A}_m| = |\\{f(a) + f(b) : a, b \\in I_n\\}| = |\\{f(a) + f(b) - 1 : a, b \\in I_n\\}| \\le 2n - 1 = 2|\\mathcal{A}_n| - 1.\n$$\n\n(f) By the lemma and (e), we deduce that $\\mathcal{A}_n$ is an $n$-element set with its elements forming an arithmetic progression starting with $f(1) = 1$.\n\n(g) Consider the elements in $\\mathcal{A}_n$ and $\\mathcal{A}_{n+1}$. Clearly, $\\mathcal{A}_n \\subset \\mathcal{A}_{n+1}$ and $\\mathcal{A}_{n+1}$ has one additional element. If $n \\ge 3$, this additional element must be at one of the ends of the arithmetic sequence formed by the elements in $\\mathcal{A}_n$. But both sets have minimum value $f(1) = 1$. Hence this new element must be at the upper end. We conclude that $f$ is linear except possibly for $f(2)$ and $f(3)$.\n\n(h) Note that (b) also implies that $f$ is surjective. Combining with (c), we know that $f$ is bijective. By (g), we must have $f(n) = n$ for $n \\ge 4$.\n\n(g) For $a = 2$ and large $b$, $\\{2, b, f(2)+b-1\\}$ is triangular if and only if $f(2)+b-1 < 2+b$, implying that $f(2) = 2$. Likewise, or using injectivity, we have $f(3) = 3$, completing our proof."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-geometric-inequalities-triangle-inequalities-auto-1954",
+      "name": "Team Selection Test 2010 #0j0y",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test 2010",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle inequalities",
+        "Trigonometry",
+        "Tangents",
+        "Distance chasing"
+      ],
+      "statement": "In acute triangle $ABC$, denote by $h_a$, $h_b$, $h_c$ the lengths of the altitudes to bases $BC$, $CA$, $AB$, respectively. Point $P$ lies inside the triangle. Prove that\n$$\n\\frac{PA}{h_b + h_c} + \\frac{PB}{h_c + h_a} + \\frac{PC}{h_a + h_b} \\ge 1.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**Solution 1.** We begin with a key lemma, for which we provide two proofs.\n**Lemma 1.** Let $a = BC$, $b = CA$, $c = AB$, and let $p_a$, $p_b$, $p_c$ denote the distances from $P$ to sides $BC$, $CA$, $AB$, respectively. We have\n$$\n2a \\cdot AP \\geq (b+c)(p_b+p_c). \\qquad (1)\n$$\n\n*First proof of Lemma 1.* First, notice that $\\frac{p_a}{h_a} = \\frac{[PBC]}{[ABC]}$, $\\frac{p_b}{h_b} = \\frac{[PCA]}{[BCA]}$, and $\\frac{p_c}{h_c} = \\frac{[PAB]}{[CAB]}$, hence we have\n$$\n\\frac{p_a}{h_a} + \\frac{p_b}{h_b} + \\frac{p_c}{h_c} = 1. \\qquad (2)\n$$\nLet $E$ and $D$ be the feet of the perpendiculars from $P$ to sides $AB$ and $AC$, respectively. (Thus, $PD = p_b$ and $PE = p_c$.) Let points $M$ and $N$ lie on sides $AB$ and $AC$, respectively, such that $MN \\parallel BC$ and $P$ lies on $MN$. We have $MN \\cdot AP \\ge 2[AMN]$ and $2[AMN] = 2[APM] + 2[APN] = PE \\cdot AM + PD \\cdot AN$. Hence\n$$\nMN \\cdot AP \\ge PE \\cdot AM + PD \\cdot AN.\n$$\nBecause $AMN$ and $ABC$ are similar, we have $MN : AM : AN = BC : AB : AC = a : c : b$, hence the last inequality implies that\n$$\na \\cdot AP \\ge bp_b + cp_c. \\qquad (3)\n$$\nLet $P_1$ be the reflection of $P$ across the bisector of $\\angle CAB$, and let $E_1$ and $D_1$ be the feet of the perpendiculars from $P_1$ to sides $AB$ and $AC$, respectively. By symmetry, it is not difficult to see that $AE_1 = AD$, $AD_1 = AE$, $P_1E_1 = PD = p_b$, and $P_1D_1 = PE = p_c$. In exactly the same way we established (3), we can show that\n$$\na \\cdot AP_1 \\ge bp_c + cp_b. \\qquad (4)\n$$\nAdding (3) and (4) together yields\n$$\n2a \\cdot AP = a \\cdot AP + a \\cdot AP_1 \\ge bp_b + cp_c + bp_c + cp_b = (b+c)(p_b + p_c),\n$$\nestablishing the lemma. $\\square$\n\n*Second proof of Lemma 1.* Set $\\angle CAB = A$, $\\angle ABC = B$, $\\angle BCA = C$, $\\angle BAP = x$ and $\\angle CAP = y$. Note that (1) is equivalent to\n$$\n\\frac{2PA}{p_b + p_c} \\ge \\frac{b+c}{a}.\n$$\nFurther, we have that\n$$\n\\frac{2PA}{p_b + p_c} = \\frac{2}{\\frac{p_b}{PA} + \\frac{p_c}{PA}} = \\frac{2}{\\sin \\alpha + \\sin \\beta}\n$$\nand $\\frac{b+c}{a} = \\frac{\\sin B + \\sin C}{\\sin A}$ by the law of sines, so it suffices to show that\n$$\n2 \\sin A \\ge (\\sin \\alpha + \\sin \\beta)(\\sin B + \\sin C).\n$$\nIndeed, by the sum-to-product formulas, we obtain\n$$\n\\begin{align*}\n(\\sin \\alpha + \\sin \\beta)(\\sin B + \\sin C) &= 4 \\sin \\frac{\\alpha + \\beta}{2} \\cos \\frac{\\alpha - \\beta}{2} \\sin \\frac{B+C}{2} \\cos \\frac{B-C}{2} \\\\\n&\\le 4 \\sin \\frac{\\alpha + \\beta}{2} \\sin \\frac{B+C}{2} \\\\\n&= 4 \\sin \\frac{A}{2} \\cos \\frac{A}{2} \\\\\n&= 2 \\sin A,\n\\end{align*}\n$$\nas needed. $\\square$\n\nWe now proceed to the problem proper. By Lemma 1, we have\n$$\n\\begin{aligned}\n\\frac{PA}{h_b + h_c} &\\ge \\frac{(b+c)(p_b + p_c)}{2a(h_b + h_c)} = \\frac{(b+c)(p_b + p_c)}{2a\\left(\\frac{2[ABC]}{b} + \\frac{2[ABC]}{c}\\right)} = \\frac{bc(p_b + p_c)}{4a[ABC]} \\\\\n&= \\frac{c(bp_b)}{4a[ABC]} + \\frac{b(cpc)}{4a[ABC]} = \\frac{c[PCA]}{2a[ABC]} + \\frac{b[PAB]}{2a[ABC]} = \\frac{c}{2a} \\cdot \\frac{p_b}{h_b} + \\frac{b}{2a} \\cdot \\frac{p_c}{h_c}.\n\\end{aligned}\n$$\nLikewise, we have\n$$\n\\frac{PB}{h_c + h_a} \\ge \\frac{a}{2b} \\cdot \\frac{p_c}{h_c} + \\frac{c}{2b} \\cdot \\frac{p_a}{h_a} \\quad \\text{and} \\quad \\frac{PC}{h_a + h_b} \\ge \\frac{b}{2c} \\cdot \\frac{p_a}{h_a} + \\frac{a}{2c} \\cdot \\frac{p_b}{h_b}.\n$$\nAdding the last three inequalities gives\n$$\n\\begin{aligned}\n\\frac{PA}{h_b + h_c} + \\frac{PB}{h_c + h_a} + \\frac{PC}{h_a + h_b} &\\ge \\frac{c}{2a} \\cdot \\frac{p_b}{h_b} + \\frac{b}{2a} \\cdot \\frac{p_c}{h_c} + \\frac{a}{2b} \\cdot \\frac{p_c}{h_c} + \\frac{c}{2b} \\cdot \\frac{p_a}{h_a} + \\frac{b}{2c} \\cdot \\frac{p_a}{h_a} + \\frac{a}{2c} \\cdot \\frac{p_b}{h_b} \\\\\n&= \\left( \\frac{c}{2b} + \\frac{b}{2c} \\right) \\frac{p_a}{h_a} + \\left( \\frac{a}{2c} + \\frac{c}{2a} \\right) \\frac{p_b}{h_b} + \\left( \\frac{b}{2a} + \\frac{a}{2b} \\right) \\frac{p_c}{h_c} \\\\\n&\\ge \\frac{p_a}{h_a} + \\frac{p_b}{h_b} + \\frac{p_c}{h_c} \\\\\n&= 1\n\\end{aligned}\n$$\nby the AM-GM inequality and (2).\n\n**Solution 2** (by Gabriel Carroll). We start with the following observation.\n**Lemma 2.** Let $XYZ$ be a triangle, and let $\\omega_X$ be the excircle opposite $X$. Let $O$ and $R$ be the center and radius of $\\omega_X$, respectively. Then\n$$\nd(Y, XZ) + d(Z, XY) \\le XO.\n$$\n(For a point $P$ and a line $\\ell$, $d(P, \\ell)$ denotes the distance from $P$ to $\\ell$.)\n*Proof.* Fix the excircle and the two tangent rays from $X$, and let $Y$ and $Z$ be variable points on these rays such that $YZ$ is tangent to the circle, and the circle lies on the opposite side of line $YZ$ from $X$. Let the tangent ray from $X$ passing through $Y$ touch the excircle at $S$ (and so $OS = R$). Then we have\n$$\nd(Y, XZ) + d(Z, XY) = (XY + XZ) \\sin \\angle ZXY = (2SX - YZ) \\sin \\angle ZXY,\n$$\nwhich is maximized by minimizing $YZ$. Let $YZ$ be tangent to the circle at $T$. As $Y$ and $Z$ vary, $\\angle YOZ$ and $\\angle YOT + \\angle TOZ = 180^\\circ - \\angle YOZ$ are both constants, and\n$$\nYZ = R(\\tan \\angle YOT + \\tan \\angle TOZ).\n$$\nBy the convexity of the tangent function, $YZ$ is minimized when $\\angle YOT = \\angle TOZ$; that is, $YZ \\perp XO$ or $XYZ$ is isosceles. Hence it suffices to prove our result in this case. We may set $\\angle XOS = 2\\gamma$. Then $\\angle SOY = \\gamma$, $\\angle OXY = \\angle OXS = 90^\\circ - 2\\gamma$, $\\angle ZXY = 2\\angle OXY = 180^\\circ - 4\\gamma$, $XO = R\\sec 2\\gamma$, $XS = R\\tan 2\\gamma$, $YS = R\\tan \\gamma$, $XY = R(\\tan 2\\gamma - \\tan \\gamma)$, and $d(Y, XZ) = XY \\sin \\angle ZXY = R(\\tan 2\\gamma - \\tan \\gamma) \\sin 4\\gamma$. We need to show that\n$$\nd(Y, XZ) + d(Z, XY) = 2d(Y, XZ) \\le XO \\quad \\text{or} \\quad 2(\\tan 2\\gamma - \\tan \\gamma) \\sin 4\\gamma \\le \\sec 2\\gamma.\n$$\nNow, notice that $\\gamma < 45^\\circ$, so we have $\\cos 2\\gamma \\ge 0$ and $\\cos \\gamma \\ge 0$. Thus, multiplying both sides of the last desired inequality by $\\cos 2\\gamma \\cos \\gamma$, it suffices to show that\n$$\n2 \\sin 4\\gamma (\\sin 2\\gamma \\cos \\gamma - \\cos 2\\gamma \\sin \\gamma) \\le \\cos \\gamma,\n$$\nor equivalently by the sine subtraction formula that $2 \\sin 4\\gamma \\sin \\gamma \\le \\cos \\gamma$. By the double-angle formula, the last inequality is equivalent to $8 \\cos 2\\gamma \\cos \\gamma \\sin^2 \\gamma \\le \\cos \\gamma$, or $8(1 - 2 \\sin^2 \\gamma) \\sin^2 \\gamma \\le 1$. The latter is equivalent to $(4 \\sin^2 \\gamma - 1)^2 \\ge 0$, establishing the result. $\\square$\n\nWe now return to the original problem. Let $A_1$, $B_1$, $C_1$ be the excenters of $ABC$ opposite $A$, $B$, $C$. It is well known that $A_1A$, $B_1B$, and $C_1C$ are the altitudes of triangle $A_1B_1C_1$. By Lemma 2, $h_b + h_c \\le A_1A$, implying that\n$$\n\\frac{PA}{h_b + h_c} \\ge \\frac{PA}{A_1A} \\ge \\frac{[PB_1C_1]}{[A_1B_1C_1]}.\n$$\nAdding the last inequality and its cyclic analogs yields\n$$\n\\frac{PA}{h_b + h_c} + \\frac{PB}{h_c + h_a} + \\frac{PC}{h_a + h_b} \\ge \\frac{[PB_1C_1] + [PC_1A_1] + [PA_1B_1]}{[A_1B_1C_1]} = 1.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-geometric-inequalities-triangle-inequalities-auto-2105",
+      "name": "Harvard-MIT Mathematics Tournament #0j55",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cyclic quadrilaterals",
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Triangle trigonometry",
+        "Triangle inequalities",
+        "Angle chasing"
+      ],
+      "statement": "Problem:\n\nLet $ABCD$ be a cyclic quadrilateral, and suppose that $BC = CD = 2$. Let $I$ be the incenter of triangle $ABD$. If $AI = 2$ as well, find the minimum value of the length of diagonal $BD$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\n![](attached_image_1.png)\n\nLet $T$ be the point where the incircle intersects $AD$, and let $r$ be the inradius and $R$ be the circumradius of $\\triangle ABD$. Since $BC = CD = 2$, $C$ is on the midpoint of arc $BD$ on the opposite side of $BD$ as $A$, and hence on the angle bisector of $A$. Thus $A$, $I$, and $C$ are collinear. We have the following formulas:\n$$\n\\begin{aligned}\nAI & = \\frac{IM}{\\sin \\angle IAM} = \\frac{r}{\\sin \\frac{A}{2}} \\\\\nBC & = 2R \\sin \\frac{A}{2} \\\\\nBD & = 2R \\sin A\n\\end{aligned}\n$$\nThe last two equations follow from the extended law of sines on $\\triangle ABC$ and $\\triangle ABD$, respectively.\n\nUsing $AI = 2 = BC$ gives $\\sin^2 \\frac{A}{2} = \\frac{r}{2R}$. However, it is well-known that $R \\geq 2r$ with equality for an equilateral triangle (one way to see this is the identity $1 + \\frac{r}{R} = \\cos A + \\cos B + \\cos D$). Hence $\\sin^2 \\frac{A}{2} \\leq \\frac{1}{4}$ and $\\frac{A}{2} \\leq 30^\\circ$. Then\n$$\nBD = 2R \\left(2 \\sin \\frac{A}{2} \\cos \\frac{A}{2}\\right) = BC \\cdot 2 \\cos \\frac{A}{2} \\geq 2 \\left(2 \\cdot \\frac{\\sqrt{3}}{2}\\right) = 2\\sqrt{3}\n$$\nwith equality when $\\triangle ABD$ is equilateral."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-geometric-inequalities-triangle-inequalities-auto-2115",
+      "name": "Harvard-MIT Mathematics Tournament #0j5f",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cyclic quadrilaterals",
+        "Rotation",
+        "Optimization in geometry",
+        "Triangle inequalities",
+        "Angle chasing"
+      ],
+      "statement": "Problem:\nLet $ABCD$ be a quadrilateral inscribed in the unit circle such that $\\angle BAD$ is $30$ degrees. Let $m$ denote the minimum value of $CP + PQ + QC$, where $P$ and $Q$ may be any points lying along rays $AB$ and $AD$, respectively. Determine the maximum value of $m$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "![](attached_image_1.png)\nFor a fixed quadrilateral $ABCD$ as described, we first show that $m$, the minimum possible length of $CP + PQ + QC$, equals the length of $AC$. Reflect $B$, $C$, and $P$ across line $AD$ to points $E$, $F$, and $R$, respectively, and then reflect $D$ and $F$ across $AE$ to points $G$ and $H$, respectively. These two reflections combine to give a $60^{\\circ}$ rotation around $A$, so triangle $ACH$ is equilateral. It also follows that $RH$ is a $60^{\\circ}$ rotation of $PC$ around $A$, so, in particular, these segments have the same length. Because $QR = QP$ by reflection,\n$$\nCP + PQ + QC = CQ + QR + RH\n$$\nThe latter is the length of a broken path $CQRH$ from $C$ to $H$, and by the \"shortest path is a straight line\" principle, this total length is at least as long as $CH = CA$. (More directly, this follows from the triangle inequality: $(CQ + QR) + RH \\geq CR + RH \\geq CH$.) Therefore, the lower bound $m \\geq AC$ indeed holds. To see that this is actually an equality, note that choosing $Q$ as the intersection of segment $CH$ with ray $AD$, and choosing $P$ so that its reflection $R$ is the intersection of $CH$ with ray $AE$, aligns path $CQRH$ with segment $CH$, thus obtaining the desired minimum $m = AC$.\n\nWe may conclude that the largest possible value of $m$ is the largest possible length of $AC$, namely $2$: the length of a diameter of the circle."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-geometric-inequalities-triangle-inequalities-auto-2259",
+      "name": "Harvard-MIT Mathematics Tournament #0j9f",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Cartesian coordinates",
+        "Triangle inequalities",
+        "Optimization in geometry",
+        "Distance chasing"
+      ],
+      "statement": "Problem:\n\nLet $C$ denote the set of points $(x, y) \\in \\mathbb{R}^{2}$ such that $x^{2}+y^{2} \\leq 1$. A sequence $A_{i}=\\left(x_{i}, y_{i}\\right) \\mid i \\geq 0$ of points in $\\mathbb{R}^{2}$ is 'centric' if it satisfies the following properties:\n\n- $A_{0}=\\left(x_{0}, y_{0}\\right)=(0,0),\\ A_{1}=\\left(x_{1}, y_{1}\\right)=(1,0)$.\n- For all $n \\geq 0$, the circumcenter of triangle $A_{n} A_{n+1} A_{n+2}$ lies in $C$.\n\nLet $K$ be the maximum value of $x_{2012}^{2}+y_{2012}^{2}$ over all centric sequences. Find all points $(x, y)$ such that $x^{2}+y^{2}=K$ and there exists a centric sequence such that $A_{2012}=(x, y)$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $(-1006,1006 \\sqrt{3}),\\ (-1006,-1006 \\sqrt{3})$\n\nConsider any triple of points $\\triangle A_{n} A_{n+1} A_{n+2}$ with circumcenter $P_{n}$. By the Triangle Inequality we have $A_{n} P_{n} \\leq A_{n} A_{0}+A_{0} P_{n} \\leq A_{n} A_{0}+1$. Since $P_{n}$ is the circumcenter, we have $P_{n} A_{n}=P_{n} A_{n+2}$. Finally we have $A_{n+2} A_{0} \\leq P_{n} A_{n+2}+1=A_{n} P_{n}+1 \\leq A_{n} A_{0}+2$. Therefore $\\sqrt{x_{n+2}^{2}+y_{n+2}^{2}} \\leq \\sqrt{x_{n}^{2}+y_{n}^{2}}+2$.\n\nIt is also clear that equality occurs if and only if $A_{n}, A_{0}, P_{n}, A_{n+2}$ are all collinear and $P_{n}$ lies on the unit circle.\n\nFrom the above inequality it is clear that $\\sqrt{x_{2012}^{2}+y_{2012}^{2}} \\leq 2012$. So the maximum value of $K$ is $2012^{2}$.\n\nNow we must find all points $A_{2}$ that conform to the conditions of the equality case. $P_{0}$ must lie on the unit circle, so it lies on the intersection of the unit circle with the perpendicular bisector of $A_{0} A_{1}$, which is the line $x=\\frac{1}{2}$. Thus $P_{0}$ must be one of $\\left(\\frac{1}{2}, \\pm \\frac{\\sqrt{3}}{2}\\right)$. From now on we assume that we take the positive root, as the negative root just reflects all successive points about the $x$-axis.\n\nIf $P_{0}=\\left(\\frac{1}{2}, \\frac{\\sqrt{3}}{2}\\right)$ then $A_{0}, P_{0}, A_{2}$ must be collinear, so $A_{2}=(1, \\sqrt{3})$.\n\nThen since we must have $A_{0}, P_{2 n}, A_{2 n}, A_{2 n+2}$ collinear and $P_{2 n}$ on the unit circle, it follows that $P_{2 n}=(-1)^{n}\\left(\\frac{1}{2}, \\frac{\\sqrt{3}}{2}\\right)$. Then by induction we have $A_{2 n}=(-1)^{n+1}(n, n \\sqrt{3})$. To fill out the rest of the sequence, we may take $A_{2 n+1}=(-1)^{n}(n+1,-n \\sqrt{3})$ and $P_{2 n+1}=(-1)^{n+1}\\left(\\frac{1}{2},-\\frac{\\sqrt{3}}{2}\\right)$ so that we get the needed properties.\n\nTherefore the answer is\n\n$$\nA_{2012} \\in\\{(-1006,1006 \\sqrt{3}),\\ (-1006,-1006 \\sqrt{3})\\}\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-geometric-inequalities-triangle-inequalities-auto-2291",
+      "name": "15th Annual Harvard-MIT Mathematics Tournament #0jab",
+      "url": "https://usamoguide.com/",
+      "source": "15th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Napoleon and Fermat points",
+        "Optimization in geometry",
+        "Angle chasing",
+        "Triangle trigonometry",
+        "Triangle inequalities"
+      ],
+      "statement": "Problem:\n\nPoints $X$ and $Y$ are inside a unit square. The score of a vertex of the square is the minimum distance from that vertex to $X$ or $Y$. What is the minimum possible sum of the scores of the vertices of the square?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $\\frac{\\sqrt{6}+\\sqrt{2}}{2}$\n\nLet the square be $ABCD$. First, suppose that all four vertices are closer to $X$ than $Y$. Then, by the triangle inequality, the sum of the scores is $AX + BX + CX + DX \\geq AB + CD = 2$.\n\nSimilarly, suppose exactly two vertices are closer to $X$ than $Y$. Here, we have two distinct cases: the vertices closer to $X$ are either adjacent or opposite. Again, by the triangle inequality, it follows that the sum of the scores of the vertices is at least $2$.\n\nOn the other hand, suppose that $A$ is closer to $X$ and $B, C, D$ are closer to $Y$. We wish to compute the minimum value of $AX + BY + CY + DY$, but note that we can make $X = A$ to simply minimize $BY + CY + DY$. We now want $Y$ to be the Fermat point of triangle $BCD$, so that $\\measuredangle BYC = \\measuredangle CYD = \\measuredangle DYB = 120^{\\circ}$.\n\nNote that by symmetry, we must have $\\measuredangle BCY = \\measuredangle DCY = 45^{\\circ}$, so $\\measuredangle CBY = \\measuredangle CDY = 15^{\\circ}$.\n\nAnd now we use the law of sines: $BY = DY = \\frac{\\sin 45^{\\circ}}{\\sin 120^{\\circ}}$ and $CY = \\frac{\\sin 15^{\\circ}}{\\sin 120^{\\circ}}$. Now, we have $BY + CY + DY = \\frac{\\sqrt{2} + \\sqrt{6}}{2}$, which is less than $2$, so this is our answer."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-geometric-inequalities-triangle-inequalities-auto-2358",
+      "name": "Team Selection Test Selection Test #0jc6",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle inequalities",
+        "Triangle trigonometry",
+        "Tangents",
+        "Trigonometry",
+        "Vectors",
+        "Rotation",
+        "Translation",
+        "Jensen/smoothing",
+        "Jensen / smoothing"
+      ],
+      "statement": "Let $\\triangle ABC$ be a triangle. Its excircles touch sides $BC$, $CA$, $AB$ at $D$, $E$, $F$, respectively. Prove that the perimeter of triangle $\\triangle ABC$ is at most twice that of triangle $DEF$.\n\n![](attached_image_1.png)\n\n![](attached_image_2.png)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "We consider the configuration shown in the diagram below. (Our proof uses directed lengths and can be easily modified for different configurations.)\n![](attached_image_1.png)\nLet $a, b, c$ denote the side lengths of $BC, CA, AB$, and let $A, B, C$ denote $\\angle A, \\angle B, \\angle C$, respectively. Suppose that the incircle touches sides $BC, CA, AB$ at $P, Q, R$, respectively. It is well known that\n$$\nFB = CE = QA = AR = \\frac{b+c-a}{2}. \\qquad (25)\n$$\nDenote by $E_a, F_a$ the feet of the perpendiculars from $E, F$ to line $BC$. It is clear that $EF \\ge E_aF_a$. By (25), we have\n$$\nFE \\ge F_aE_a = BC - (BF_a + E_aC) = a - \\frac{b+c-a}{2} (\\cos B + \\cos C).\n$$\nSumming the above inequality and its cyclic analogues yields\n$$\nEF + FD + DE \\ge a + b + c - \\sum_{\\text{cyc}} \\frac{b+c-a}{2} (\\cos B + \\cos C)\n$$\nor\n$$\nEF + FD + DE \\ge a + b + c - (a \\cos A + b \\cos B + c \\cos C). \\qquad (26)\n$$\nBy the sum-to-product formulas, we have\n$$\n\\frac{1}{2}(\\sin 2A + \\sin 2B) = \\sin(A+B)\\cos(A-B) = \\sin C \\cos(A-B) \\ge \\sin C.\n$$\nSumming this inequality and its cyclic analogues yields\n$$\n\\sin A + \\sin B + \\sin C \\ge 2\\sin A \\cos A + 2\\sin B \\cos B + 2\\sin C \\cos C\n$$\nMultiplying both sides by $2R$ and applying the extended Law of Sines, we obtain\n$$\na + b + c \\ge 2a \\cos A + 2b \\cos B + 2c \\cos C. \\qquad (27)\n$$\nSubstituting (27) into (26) yields the desired\n$$\nEF + FD + DE \\ge \\frac{a+b+c}{2}.\n$$\n\nWe maintain the notations of the first solution. The result clearly follows from the following two lemmas.\n\n**Lemma 1.** The sum of the perimeters of triangles $DEF$ and $PQR$ is at least the perimeter of triangle $ABC$.\n\n*Proof.* By symmetry, it suffices to show that $DE + PQ \\ge AB$. Let $M$ and $N$ be the midpoints of segments $CA$ and $CB$, respectively. We want to show that $DE + PQ \\ge AB = 2MN$. As in the first solution, we have $CE = AQ$ and $CD = BP$ so that $M$ and $N$ are midpoints of segments $PD$ and $QE$, respectively. Computing using vectors, we obtain\n$$\n\\begin{aligned}\n\\overrightarrow{MN} &= \\overrightarrow{MC} + \\overrightarrow{CN} = \\frac{1}{2}(\\overrightarrow{QC} + \\overrightarrow{EC}) + \\frac{1}{2}(\\overrightarrow{CP} + \\overrightarrow{CD}) \\\\\n&= \\frac{1}{2}(\\overrightarrow{QC} + \\overrightarrow{CP}) + \\frac{1}{2}(\\overrightarrow{EC} + \\overrightarrow{CD}) = \\frac{1}{2}(\\overrightarrow{QP} + \\overrightarrow{ED}).\n\\end{aligned}\n$$\nBy the triangle inequality, we have $MN \\le \\frac{1}{2}(QP + ED)$, which implies\n$$\nPQ + DE \\ge 2MN = AB. \\quad \\square\n$$\n\n**Lemma 2.** The perimeter of triangle $ABC$ is at least twice that of triangle $PQR$.\n\n*Proof.* Note that $PQ = 2CP \\sin \\frac{C}{2}$, $QR = 2AQ \\sin \\frac{A}{2}$, and $RP = 2BR \\sin \\frac{B}{2}$. The perimeter of triangle $PQR$ is equal to\n$$\nS_{PQR} = (b+c-a) \\sin \\frac{A}{2} + (c+a-b) \\sin \\frac{B}{2} + (a+b-c) \\sin \\frac{C}{2}.\n$$\nBy symmetry, we may assume that $a \\le b \\le c$. This yields the orderings\n$$\nA \\le B \\le C, \\quad b+c-a \\ge c+a-b \\ge a+b-c, \\quad \\text{and} \\quad \\sin \\frac{A}{2} \\le \\sin \\frac{B}{2} \\le \\sin \\frac{C}{2}.\n$$\nBy Chebyshev's inequality, we have\n$$\nS_{PQR} \\le \\frac{1}{3} \\left( (b+c-a) + (c+a-b) + (a+b-c) \\right) \\left( \\sin \\frac{A}{2} + \\sin \\frac{B}{2} + \\sin \\frac{C}{2} \\right),\n$$\nso it suffices to show that\n$$\n\\sin \\frac{A}{2} + \\sin \\frac{B}{2} + \\sin \\frac{C}{2} \\le \\frac{3}{2}. \\qquad (28)\n$$\nBut (28) follows from Jensen's inequality for $y = \\sin x$ (which is concave for $0 \\le x \\le \\frac{\\pi}{2}$). $\\square$\n\nConsider the following diagram, which contains several copies of $ABC$ rotated and translated so that $ABC$, $A_2B_2C_2$, $A_4B_4C_4$, and $A_6B_6C_6$ are congruent and $B$, $C = A_2$, $B_2 = C_4$, $A_4 = B_6$, and $C_6$ are collinear. Define $D_i$, $E_i$, and $F_i$ to be the images of $D$, $E$, and $F$ in $A_iB_iC_i$.\n![](attached_image_2.png)\n\nObserve that $\\triangle ECE_2 \\simeq \\triangle FBD$, $\\triangle D_2B_2D_4 \\simeq \\triangle EAF$, and $\\triangle F_4A_4F_6 \\simeq \\triangle DAE$. Using these congruences, the triangle inequality, and the fact that $FD \\parallel F_6D_6$, we obtain\n$$\n2(DE + EF + FA) \\ge FE + EE_2 + E_2D_2 + D_2D_4 + D_4F_4 + F_4F_6 \\ge FF_6 = AB + BC + CA.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-geometric-inequalities-triangle-inequalities-auto-2521",
+      "name": "HMMT November 2013 #0jgp",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2013",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle inequalities",
+        "Optimization in geometry"
+      ],
+      "statement": "Problem:\n\nLet $ABC$ be a triangle with $AB=13$, $BC=14$, $CA=15$. Company XYZ wants to locate their base at the point $P$ in the plane minimizing the total distance to their workers, who are located at vertices $A$, $B$, and $C$. There are $1$, $5$, and $4$ workers at $A$, $B$, and $C$, respectively. Find the minimum possible total distance Company XYZ's workers have to travel to get to $P$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWe want to minimize $1 \\cdot PA + 5 \\cdot PB + 4 \\cdot PC$. By the triangle inequality, $(PA + PB) + 4(PB + PC) \\geq AB + 4 BC = 13 + 56 = 69$, with equality precisely when $P = [AB] \\cap [BC] = B$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-geometric-inequalities-triangle-inequalities-auto-2770",
+      "name": "HMMT November 2015 #0jnm",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2015",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Optimization in geometry",
+        "Triangle inequalities",
+        "Cartesian coordinates"
+      ],
+      "statement": "Problem:\nLet $a$ and $b$ be positive real numbers. Determine the minimum possible value of\n$$\n\\sqrt{a^{2}+b^{2}}+\\sqrt{(a-1)^{2}+b^{2}}+\\sqrt{a^{2}+(b-1)^{2}}+\\sqrt{(a-1)^{2}+(b-1)^{2}}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $2 \\sqrt{2}$\nLet $ABCD$ be a square with $A=(0,0)$, $B=(1,0)$, $C=(1,1)$, $D=(0,1)$, and $P$ be a point in the same plane as $ABCD$. Then the desired expression is equivalent to $AP + BP + CP + DP$. By the triangle inequality, $AP + CP \\geq AC$ and $BP + DP \\geq BD$, so the minimum possible value is $AC + BD = 2 \\sqrt{2}$. This is achievable when $a = b = \\frac{1}{2}$, so we are done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-geometric-inequalities-triangle-inequalities-auto-2789",
+      "name": "HMMT February 2015 #0jo5",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2015",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Distance chasing",
+        "Triangle inequalities",
+        "Invariants / monovariants"
+      ],
+      "statement": "Problem:\nLet $P$ be a (non-self-intersecting) polygon in the plane. Let $C_{1}, \\ldots, C_{n}$ be circles in the plane whose interiors cover the interior of $P$. For $1 \\leq i \\leq n$, let $r_{i}$ be the radius of $C_{i}$. Prove that there is a single circle of radius $r_{1}+\\cdots+r_{n}$ whose interior covers the interior of $P$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nIf $n=1$, we are done. Suppose $n>1$. Since $P$ is connected, there must be a point $x$ on the plane which lies in the interiors of two circles, say $C_{i}, C_{j}$. Let $O_{i}, O_{j}$, respectively, be the centers of $C_{i}, C_{j}$. Since $O_{i} O_{j}<r_{i}+r_{j}$, we can choose $O$ to be a point on segment $O_{i} O_{j}$ such that $O_{i} O \\leq r_{j}$ and $O_{j} O \\leq r_{i}$. Replace the two circles $C_{i}$ and $C_{j}$ with the circle $C$ centered at $O$ of radius $r_{i}+r_{j}$. Note that $C$ covers both $C_{i}$ and $C_{j}$. Induct to finish."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-geometric-inequalities-triangle-inequalities-auto-2812",
+      "name": "HMMT November 2015 #0jos",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2015",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Optimization in geometry",
+        "Triangle inequalities",
+        "Cartesian coordinates"
+      ],
+      "statement": "Problem:\nLet $ABCD$ be a quadrilateral with $A=(3,4)$, $B=(9,-40)$, $C=(-5,-12)$, $D=(-7,24)$. Let $P$ be a point in the plane (not necessarily inside the quadrilateral). Find the minimum possible value of $AP + BP + CP + DP$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nAnswer: $16 \\sqrt{17} + 8 \\sqrt{5}$\nBy the triangle inequality, $AP + CP \\geq AC$ and $BP + DP \\geq BD$. So $P$ should be on $AC$ and $BD$; i.e., it should be the intersection of the two diagonals. Then $AP + BP + CP + DP = AC + BD$, which is easily computed to be $16 \\sqrt{17} + 8 \\sqrt{5}$ by the Pythagorean theorem.\n\nNote that we require the intersection of the diagonals to actually exist for this proof to work, but $ABCD$ is convex and this is not an issue."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-geometric-inequalities-triangle-inequalities-auto-2859",
+      "name": "HMMT February 2015 #0jq3",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2015",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Quadrilaterals",
+        "Triangle inequalities",
+        "Trigonometry"
+      ],
+      "statement": "Problem:\n\nFor a convex quadrilateral $P$, let $D$ denote the sum of the lengths of its diagonals and let $S$ denote its perimeter. Determine, with proof, all possible values of $\\frac{S}{D}$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: $1 < \\frac{S}{D} < 2$\n\nSuppose we have a convex quadrilateral $ABCD$ with diagonals $AC$ and $BD$ intersecting at $E$ (convexity is equivalent to having $E$ on the interiors of segments $AC$ and $BD$).\n\nTo prove the lower bound, note that by the triangle inequality, $AB + BC > AC$ and $AD + DC > AC$, so $S = AB + BC + AD + DC > 2AC$. Similarly, $S > 2BD$, so $2S > 2AC + 2BD = 2D$ gives $S > D$.\n\nTo prove the upper bound, note that again by the triangle inequality, $AE + EB > AB$, $CE + BE > BC$, $AE + ED > AD$, $CE + ED > CD$. Adding these yields\n$$\n2(AE + EC + BE + ED) > AB + BC + AD + CD = S\n$$\nNow since $ABCD$ is convex, $E$ is inside the quadrilateral, so $AE + EC = AC$ and $BE + ED = BD$. Thus $2(AC + BD) = 2D > S$.\n\nTo achieve every real value in this range, first consider a square $ABCD$. This has $\\frac{S}{D} = \\sqrt{2}$. Suppose now that we have a rectangle with $AB = CD = 1$ and $BC = AD = x$, where $0 < x \\leq 1$. As $x$ approaches $0$ (i.e. our rectangle gets thinner), $\\frac{S}{D}$ gets arbitrarily close to $1$, so by the intermediate value theorem, we hit every value $\\frac{S}{D} \\in (1, \\sqrt{2}]$.\n\nTo achieve the other values, we let $AB = BC = CD = DA = 1$ and let $\\theta = m \\angle ABE$ vary from $45^\\circ$ down to $0^\\circ$ (i.e. a rhombus that gets thinner). This means $AC = 2 \\sin \\theta$ and $BD = 2 \\cos \\theta$. We have $S = 4$ and $D = 2(\\sin \\theta + \\cos \\theta)$. When $\\theta = 45^\\circ$, $\\frac{S}{D} = \\sqrt{2}$, and when $\\theta = 0^\\circ$, $\\frac{S}{D} = 2$. Thus by the intermediate value theorem, we are able to choose $\\theta$ to obtain any value in the range $[\\sqrt{2}, 2)$.\n\nPutting this construction together with the strict upper and lower bounds, we find that all possible values of $\\frac{S}{D}$ are all real values in the open interval $(1, 2)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-geometric-inequalities-triangle-inequalities-auto-3167",
+      "name": "February 2017 #0jyn",
+      "url": "https://usamoguide.com/",
+      "source": "February 2017",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Sylvester's theorem",
+        "Isogonal/isotomic conjugates, barycentric coordinates",
+        "Convex hulls",
+        "Optimization in geometry",
+        "Constructions and loci",
+        "Triangle inequalities"
+      ],
+      "statement": "Problem:\n\na. Does there exist a finite set of points, not all collinear, such that a line between any two points in the set passes through a third point in the set?\n\nb. Let $ABC$ be a triangle and $P$ be a point. The isogonal conjugate of $P$ is the intersection of the reflection of line $AP$ over the $A$-angle bisector, the reflection of line $BP$ over the $B$-angle bisector, and the reflection of line $CP$ over the $C$-angle bisector. Clearly the incenter is its own isogonal conjugate. Does there exist another point that is its own isogonal conjugate?\n\nc. Let $F$ be a convex figure in a plane, and let $P$ be the largest pentagon that can be inscribed in $F$. Is it necessarily true that the area of $P$ is at least $\\frac{3}{4}$ the area of $F$?\n\nd. Is it possible to cut an equilateral triangle into 2017 pieces, and rearrange the pieces into a square?\n\ne. Let $ABC$ be an acute triangle and $P$ be a point in its interior. Let $D, E, F$ lie on $BC, CA, AB$ respectively so that $PD$ bisects $\\angle BPC$, $PE$ bisects $\\angle CPA$, and $PF$ bisects $\\angle APB$. Is it necessarily true that $AP + BP + CP \\geq 2(PD + PE + PF)$?\n\nf. Let $P_{2018}$ be the surface area of the 2018-dimensional unit sphere, and let $P_{2017}$ be the surface area of the 2017-dimensional unit sphere. Is $P_{2018} > P_{2017}$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-geometric-inequalities-triangle-inequalities-auto-3286",
+      "name": "HMMT February #0k1y",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle inequalities"
+      ],
+      "statement": "Problem:\n\nPoints $A$, $B$, $C$, $D$ are chosen in the plane such that segments $AB$, $BC$, $CD$, $DA$ have lengths $2$, $7$, $5$, $12$, respectively. Let $m$ be the minimum possible value of the length of segment $AC$ and let $M$ be the maximum possible value of the length of segment $AC$. What is the ordered pair $(m, M)$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nBy the triangle inequality on triangle $ACD$, $AC + CD \\geq AD$, or $AC \\geq 7$. The minimum of $7$ can be achieved when $A$, $C$, $D$ lie on a line in that order.\n\nBy the triangle inequality on triangle $ABC$, $AB + BC \\geq AC$, or $AC \\leq 9$. The maximum of $9$ can be achieved when $A$, $B$, $C$ lie on a line in that order.\n\nThis gives the answer $(7, 9)$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-geometric-inequalities-triangle-inequalities-auto-3505",
+      "name": "HMMT February 2019 Team Round #0k81",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2019 Team Round",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Trigonometry",
+        "Tangents",
+        "Triangle inequalities"
+      ],
+      "statement": "Problem:\nFor any angle $0 < \\theta < \\pi / 2$, show that\n$$\n0 < \\sin \\theta + \\cos \\theta + \\tan \\theta + \\cot \\theta - \\sec \\theta - \\csc \\theta < 1\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe use the following geometric construction, which follows from the geometric definition of the trigonometric functions: Let $Z$ be a point on the unit circle in the coordinate plane with origin $O$. Let $X_{1}, Y_{1}$ be the projections of $Z$ onto the $x$- and $y$-axis respectively, and let $X_{2}, Y_{2}$ lie on $x$- and $y$-axis respectively such that $X_{2} Y_{2}$ is tangent to the unit circle at $Z$. Then we have\n$$\nOZ = X_{1}Y_{1} = 1, \\quad X_{1}Z = \\sin \\theta, \\quad Y_{1}Z = \\cos \\theta, \\quad X_{2}Z = \\tan \\theta, \\quad Y_{2}Z = \\cot \\theta, \\quad OX_{2} = \\sec \\theta, \\quad OY_{2} = \\csc \\theta\n$$\nIt then suffices to show that $0 < X_{2}Y_{2} - X_{1}X_{2} - Y_{1}Y_{2} < 1 = X_{1}Y_{1}$. The left inequality is true because $X_{1}X_{2}$ and $Y_{1}Y_{2}$ are the projections of $ZX_{2}$ and $ZY_{2}$ onto $x$- and $y$-axis respectively. The right inequality is true because $X_{1}X_{2} + X_{1}Y_{1} + Y_{1}Y_{2} > X_{2}Y_{2}$ by triangle inequality. Therefore we are done."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-geometric-inequalities-triangle-inequalities-auto-3517",
+      "name": "HMMT February 2019 #0k8d",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2019",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Optimization in geometry",
+        "Triangle inequalities",
+        "Distance chasing"
+      ],
+      "statement": "Problem:\n\nTessa has a figure created by adding a semicircle of radius $1$ on each side of an equilateral triangle with side length $2$, with semicircles oriented outwards. She then marks two points on the boundary of the figure. What is the greatest possible distance between the two points?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nNote that both points must be in different semicircles to reach the maximum distance. Let these points be $M$ and $N$, and $O_{1}$ and $O_{2}$ be the centers of the two semicircles where they lie respectively. Then\n$$\nMN \\leq MO_{1} + O_{1}O_{2} + O_{2}N\n$$\nNote that the right side will always be equal to $3$ ($MO_{1} = O_{2}N = 1$ from the radius condition, and $O_{1}O_{2} = 1$ from being a midline of the equilateral triangle), hence $MN$ can be at most $3$. Finally, if the four points are collinear (when $M$ and $N$ are defined as the intersection of line $O_{1}O_{2}$ with the two semicircles), then equality will hold. Therefore, the greatest possible distance between $M$ and $N$ is $3$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-geometric-inequalities-triangle-inequalities-auto-3552",
+      "name": "HMMT February 2019 February 16, 2019 #0k9c",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2019 February 16, 2019",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Tangents",
+        "Triangle inequalities",
+        "Optimization in geometry",
+        "Angle chasing",
+        "Distance chasing"
+      ],
+      "statement": "Problem:\n\nSix unit disks $C_{1}, C_{2}, C_{3}, C_{4}, C_{5}, C_{6}$ are in the plane such that they don't intersect each other and $C_{i}$ is tangent to $C_{i+1}$ for $1 \\leq i \\leq 6$ (where $C_{7}=C_{1}$). Let $C$ be the smallest circle that contains all six disks. Let $r$ be the smallest possible radius of $C$, and $R$ the largest possible radius. Find $R-r$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThe minimal configuration occurs when the six circles are placed with their centers at the vertices of a regular hexagon of side length $2$. This gives a radius of $3$.\n\nThe maximal configuration occurs when four of the circles are placed at the vertices of a square of side length $2$. Letting these circles be $C_{1}, C_{3}, C_{4}, C_{6}$ in order, we place the last two so that $C_{2}$ is tangent to $C_{1}$ and $C_{3}$ and $C_{5}$ is tangent to $C_{4}$ and $C_{6}$. (Imagine pulling apart the last two circles on the plane; this is the configuration you end up with.) The resulting radius is $2+\\sqrt{3}$, so the answer is $\\sqrt{3}-1$.\n\nProof of minimality. We claim the minimal configuration stated above cannot be covered by a circle with radius $r<2$. If $r<2$ and all six vertices $O_{1}, O_{2}, \\ldots, O_{6}$ are in the circle, then we have that $\\angle O_{1} O O_{2}>60^{\\circ}$ since $O_{1} O_{2}$ is the largest side of the triangle $O_{1} O O_{2}$, and similar for other angles $\\angle O_{2} O O_{3}, \\angle O_{3} O O_{4}, \\ldots$, but we cannot have six angles greater than $60^{\\circ}$ into $360^{\\circ}$, contradiction. Therefore $r \\geq 2$.\n\nProof of maximality. Let $A B C D E F$ be the hexagon, and choose the covering circle to be centered at $O$, the midpoint of $A D$, and radius $\\sqrt{3}+1$. We claim the other vertices are inside this covering circle. First, we will show the claim for $B$. Let $M$ be the midpoint of $A C$. Since $A B C$ is isosceles and $A M \\geq 1$, we must have $B M \\leq \\sqrt{4-1}=\\sqrt{3}$. Furthermore, $M O$ is a midline of $A C D$, so $M O=\\frac{C D}{2}=1$. Thus by the triangle inequality, $O B \\leq M B+O M=\\sqrt{3}+1$, proving the claim. A similar argument proves the claim for $C, E, F$. Finally, an analogous argument to above shows if we define $P$ as the midpoint of $B E$, then $A P \\leq \\sqrt{3}+1$ and $D P \\leq \\sqrt{3}+1$, so by triangle inequality $A D \\leq 2(\\sqrt{3}+1)$. Hence $O A=O D \\leq \\sqrt{3}+1$, proving the claim for $A$ and $D$. Thus the covering circle contains all six vertices of $A B C D E F$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-geometric-inequalities-triangle-inequalities-auto-3676",
+      "name": "HMMO 2020 #0kcs",
+      "url": "https://usamoguide.com/",
+      "source": "HMMO 2020",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle trigonometry",
+        "Triangle inequalities"
+      ],
+      "statement": "Problem:\n\nIn triangle $ABC$, $AB = 32$, $AC = 35$, and $BC = x$. What is the smallest positive integer $x$ such that $1 + \\cos^2 A$, $\\cos^2 B$, and $\\cos^2 C$ form the sides of a non-degenerate triangle?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nBy the triangle inequality, we wish $\\cos^2 B + \\cos^2 C > 1 + \\cos^2 A$. The other two inequalities are always satisfied, since $1 + \\cos^2 A \\geq 1 \\geq \\cos^2 B, \\cos^2 C$. Rewrite the above as\n$$\n2 - \\sin^2 B - \\sin^2 C > 2 - \\sin^2 A\n$$\nso it is equivalent to $\\sin^2 B + \\sin^2 C < \\sin^2 A$. By the law of sines, $\\sin A : \\sin B : \\sin C = BC : AC : AB$. Therefore,\n$$\n\\sin^2 B + \\sin^2 C < \\sin^2 A \\Longleftrightarrow CA^2 + AB^2 < x^2\n$$\nSince $CA^2 + AB^2 = 35^2 + 32^2 = 1225 + 1024 = 2249$, the smallest possible value of $x$ such that $x^2 > 2249$ is $48$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-geometric-inequalities-triangle-inequalities-auto-4026",
+      "name": "Berkeley Math Circle: Monthly Contest 3 #0kmi",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle: Monthly Contest 3",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Isogonal/isotomic conjugates, barycentric coordinates",
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Triangle inequalities",
+        "Constructions and loci"
+      ],
+      "statement": "Problem:\n\nLet\n- $P$ be a point inside a triangle $\\triangle ABC$,\n- $\\triangle DEF$ be the pedal triangle of $P$, i.e., let $D, E, F$ be the feet of the altitudes from $P$ to $BC, CA, AB$, respectively,\n- $I$ be the incenter of $\\triangle ABC$, and\n- $\\triangle XYZ$ be the Cevian triangle of $I$, i.e., $X, Y, Z$ be the intersections of $AI, BI, CI$ with $BC, CA, AB$, respectively.\nShow that there is a triangle with side lengths $PD, PE$, and $PF$ if and only if $P$ is inside $\\triangle XYZ$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nWhile there is a synthetic solution, we present a solution using (unnormalized) barycentric coordinates.\nLet $P = (x, y, z)$ in barycentric coordinates. We know that $PD = \\frac{2[\\triangle BCD]}{a} = 2[\\triangle ABC] \\frac{x}{a}$, so by SSS similarity if $PD, PE, PF$ forms a triangle, so do $x/a, y/b, z/c$. The equation $\\frac{x}{a} = \\frac{y}{b} + \\frac{z}{c}$ is a line. However, we already know two points on the line, $Y = (a, 0, c)$ and $Z = (a, b, 0)$. Thus, $\\frac{x}{a} < \\frac{y}{b} + \\frac{z}{c}$ is some side of line $YZ$. We know that this side does not contain $A = (1, 0, 0)$, so the region of $\\triangle ABC$ on the side of the line must be $BCYZ$. Intersecting this with the other regions ($CAZX$ and $ABXY$) gives the desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-geometric-inequalities-triangle-inequalities-auto-4032",
+      "name": "HMMT November 2021 #0kmo",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2021",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cartesian coordinates",
+        "Distance chasing",
+        "Triangle inequalities",
+        "Optimization in geometry"
+      ],
+      "statement": "Problem:\n\nTwo unit squares $S_{1}$ and $S_{2}$ have horizontal and vertical sides. Let $x$ be the minimum distance between a point in $S_{1}$ and a point in $S_{2}$, and let $y$ be the maximum distance between a point in $S_{1}$ and a point in $S_{2}$. Given that $x=5$, the difference between the maximum and minimum possible values for $y$ can be written as $a+b \\sqrt{c}$, where $a, b$, and $c$ are integers and $c$ is positive and square-free. Find $100 a+10 b+c$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nConsider what must happen in order for the minimum distance to be exactly $5$. Let one square, say $S_{1}$, have vertices of $(0,0)$, $(0,1)$, $(1,0)$, and $(1,1)$. Further, assume WLOG that the center of $S_{2}$ is above the line $y=\\frac{1}{2}$ and to the right of the line $x=\\frac{1}{2}$, determined by the center of $S_{1}$. There are three cases to consider:\n\n- the right side of $S_{1}$ and the left side of $S_{2}$ are $5$ units apart, and the bottom left vertex of $S_{2}$ lies under the line $y=1$;\n- the top side of $S_{1}$ and the bottom side of $S_{2}$ are $5$ units apart, and the bottom left vertex of $S_{2}$ lies to the left of the line $x=1$;\n- the bottom left coordinate of $S_{2}$ is $(a, b)$ with $a, b \\geq 1$, and $5=\\sqrt{(a-1)^{2}+(b-1)^{2}}$.\n\nWe see that the first two cases are symmetric, so consider the case where the left edge of $S_{2}$ lies on the line $x=6$. When this is true, the maximum distance will be achieved between $(0,0)$ and the upper right vertex of $S_{2}$. The upper right vertex can achieve the points $(7, c)$ where $1 \\leq c \\leq 2$, and so $y \\in [\\sqrt{50}, \\sqrt{53}]$.\n\nThe other case we have to consider is when the bottom left vertex of $S_{2}$, $(a, b)$, is above $y=1$ and to the right of $x=1$, in which case the maximum distance is achieved from $(0,0)$ and the upper right vertex of $S_{2}$. This distance is $\\sqrt{(a+1)^{2}+(b+1)^{2}}$, which, by the triangle inequality, is at most $\\sqrt{(a-1)^{2}+(b-1)^{2}}+\\sqrt{2^{2}+2^{2}}=5+2\\sqrt{2}$. Since equality holds when $a=b=5/\\sqrt{2}+1$, the largest possible maximum here is $5+2\\sqrt{2}$, and the difference between the largest and smallest possible values of $y$ is $5+2\\sqrt{2}-\\sqrt{50}=5-3\\sqrt{2}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-geometric-inequalities-triangle-inequalities-auto-4105",
+      "name": "2022 AIME II #0kop",
+      "url": "https://usamoguide.com/",
+      "source": "2022 AIME II",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cartesian coordinates",
+        "Triangle inequalities",
+        "Optimization in geometry",
+        "Constructions and loci"
+      ],
+      "statement": "Let $a$, $b$, $x$, and $y$ be real numbers with $a > 4$ and $b > 1$ such that\n$$\n\\frac{x^2}{a^2} + \\frac{y^2}{a^2 - 16} = \\frac{(x - 20)^2}{b^2 - 1} + \\frac{(y - 11)^2}{b^2} = 1.\n$$\nFind the least possible value for $a + b$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "The graph of\n$$\n\\frac{x^2}{a^2} + \\frac{y^2}{a^2 - 16} = 1\n$$\nis an ellipse centered at $(0, 0)$ with major axis parallel to the $x$-axis of length $2a$. The distance from the center to the foci is $\\sqrt{a^2 - (a^2 - 16)} = 4$, so the foci are $F_1 = (-4, 0)$ and $F_2 = (4, 0)$.\nSimilarly, the graph of\n$$\n\\frac{(x - 20)^2}{b^2 - 1} + \\frac{(y - 11)^2}{b^2} = 1\n$$\nis an ellipse centered at $(20, 11)$ with major axis parallel to the $y$-axis of length $2b$. The distance from the center to the foci is $\\sqrt{b^2 - (b^2 - 1)} = 1$, so the foci are $G_1 = (20, 10)$ and $G_2 = (20, 12)$.\n\n![](attached_image_1.png)\n\nLet $P(x, y)$ be a point that lies on both ellipses, so by a property of ellipses,\n$$\n2a = PF_1 + PF_2 \\quad \\text{and} \\quad 2b = PG_1 + PG_2.\n$$\n\nAdding these equations and using the triangle inequality yields\n$$\n\\begin{align*}\n2a + 2b &= PF_1 + PF_2 + PG_1 + PG_2 \\\\\n&= (PF_1 + PG_1) + (PF_2 + PG_2) \\\\\n&\\geq F_1G_1 + F_2G_2 \\\\\n&= \\sqrt{24^2 + 10^2} + \\sqrt{16^2 + 12^2} = 46.\n\\end{align*}\n$$\nThus $a + b \\geq 23$. Equality is achieved by running this argument in reverse: that is, by taking $P$ to be the intersection of $\\overline{F_1G_1}$ and $\\overline{F_2G_2}$, and then setting $a = \\frac{1}{2}(PF_1 + PF_2)$ and $b = \\frac{1}{2}(PG_1 + PG_2)$. In this case, $a = 16$, $b = 7$, and $P = (14, 7.5)$. Therefore the least possible value of $a + b$ is $23$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-geometric-inequalities-triangle-inequalities-auto-4153",
+      "name": "HMMT November 2022 #0kq1",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2022",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Optimization in geometry",
+        "Triangle inequalities",
+        "Distance chasing"
+      ],
+      "statement": "Problem:\nLet $ABC$ be a triangle with $AB = 2021$, $AC = 2022$, and $BC = 2023$. Compute the minimum value of $AP + 2BP + 3CP$ over all points $P$ in the plane.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nThe minimizing point is when $P = C$. To prove this, consider placing $P$ at any other point $O \\neq C$. Then, by moving $P$ from $O$ to $C$, the expression changes by\n$$\n(AC - AO) + 2(BC - BO) + 3(CC - CO) < OC + 2OC - 3OC = 0\n$$\nby the triangle inequality. Since this is negative, $P = C$ must be the optimal point. The answer is $2022 + 2 \\cdot 2023 + 3 \\cdot 0 = 6068$.\n\nSolution:\nWe use a physical interpretation. Imagine an object acted upon by forces of magnitudes $1$, $2$, and $3$ towards $A$, $B$, and $C$, respectively. The potential energy of the object at point $P$ in this system is $AP + 2BP + 3CP$. This potential energy is minimized when the object experiences $0$ net force; in this case, it occurs when it is exactly at point $C$ (because the pull towards $C$ overpowers the other two forces combined)."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-geometric-inequalities-triangle-inequalities-auto-4199",
+      "name": "HMMT November 2022 #0krb",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2022",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cyclic quadrilaterals",
+        "Triangle inequalities"
+      ],
+      "statement": "Problem:\n\nAlice and Bob stand atop two different towers in the Arctic. Both towers are a positive integer number of meters tall and are a positive (not necessarily integer) distance away from each other. One night, the sea between them has frozen completely into reflective ice. Alice shines her flashlight directly at the top of Bob's tower, and Bob shines his flashlight at the top of Alice's tower by first reflecting it off the ice. The light from Alice's tower travels 16 meters to get to Bob's tower, while the light from Bob's tower travels 26 meters to get to Alice's tower. Assuming that the lights are both shone from exactly the top of their respective towers, what are the possibilities for the height of Alice's tower?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet Alice's tower be of a height $a$, and Bob's tower a height $b$. Reflect the diagram over the ice to obtain an isosceles trapezoid. Then we get that by Ptolemy's Theorem, $4 a b = 26^{2} - 16^{2} = 4 \\cdot 105$, thus $a b = 105$. Hence $a \\in \\{1, 3, 5, 7, 15, 21, 35, 105\\}$. But $\\max(a, b) \\leq 26 + 16 = 42$ by the Triangle inequality, so thus $a \\notin \\{1, 105\\}$. Also, $3, 5, 21$, and $35$ don't work because $a + b < 26$ and $|a - b| < 16$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-geometric-inequalities-triangle-inequalities-auto-4240",
+      "name": "Berkeley Math Circle #0ksg",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle trigonometry",
+        "Triangle centers: centroid, incenter, circumcenter, Euler line, nine-point circle",
+        "Triangle inequalities"
+      ],
+      "statement": "Problem:\nShow that the product of any two side lengths of a triangle is greater than the product of the diameters of the inscribed and circumscribed circles.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nLet our triangle be $ABC$, with side lengths $a$, $b$, $c$, and let $r$, $R$ be the diameters of the circumscribed and inscribed circles, respectively. We want to show $ab > 4 R r$.\n\nThe triangle inequality tells us that $a + b > c$.\n\nHeron's Formula tells us that the area of the triangle is $S = s r$ where $s = \\frac{a + b + c}{2}$.\n\nThe expression $ab$ also occurs in another expression for the area, $S = \\frac{ab \\sin(C)}{2}$. Hence,\n$$\nab = 2S / \\sin(C) = 2 r s / (c / 2R) = 2 R r (a + b + c) / c > 2 R r (c + c) / c = 4 R r.\n$$"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-geometric-inequalities-triangle-inequalities-auto-4357",
+      "name": "HMMT February #0kvp",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle inequalities",
+        "Distance chasing"
+      ],
+      "statement": "Problem:\n\nSuppose $ABCD$ is a rectangle whose diagonals meet at $E$. The perimeter of triangle $ABE$ is $10\\pi$ and the perimeter of triangle $ADE$ is $n$. Compute the number of possible integer values of $n$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nFor each triangle $\\mathcal{T}$, we let $p(\\mathcal{T})$ denote the perimeter of $\\mathcal{T}$.\n\nFirst, we claim that $\\frac{1}{2} p(\\triangle ABE) < p(\\triangle ADE) < 2 p(\\triangle ABE)$. To see why, observe that\n$$\np(\\triangle ADE) = EA + ED + AD < 2(EA + ED) = 2(EA + EB) < 2 p(\\triangle ABE)\n$$\nSimilarly, one can show that $p(\\triangle ABE) < 2 p(\\triangle ADE)$, proving the desired inequality.\n\nThis inequality limits the possibility of $n$ to only those in $(5\\pi, 20\\pi) \\subset (15.7, 62.9)$, so $n$ could only range from $16, 17, 18, \\ldots, 62$, giving $47$ values. These values are all achievable because\n\n- when $AD$ approaches zero, we have $p(\\triangle ADE) \\rightarrow 2EA$ and $p(\\triangle ABE) \\rightarrow 4EA$, implying that $p(\\triangle ADE) \\rightarrow \\frac{1}{2} p(\\triangle ABE) = 5\\pi$;\n- similarly, when $AB$ approaches zero, we have $p(\\triangle ADE) \\rightarrow 2 p(\\triangle ABE) = 20\\pi$; and\n- by continuously rotating segments $AC$ and $BD$ about $E$, we have that $p(\\triangle ADE)$ can reach any value between $(5\\pi, 20\\pi)$.\n\nHence, the answer is $47$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "geometry-plane-geometry-geometric-inequalities-triangle-inequalities-auto-4543",
+      "name": "2024 AMC 12 B #0l0v",
+      "url": "https://usamoguide.com/",
+      "source": "2024 AMC 12 B",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Triangle trigonometry",
+        "Triangle inequalities",
+        "Greatest common divisors (gcd)",
+        "Factorization techniques"
+      ],
+      "statement": "Let $\\triangle ABC$ be a triangle with integer side lengths and the property that $\\angle B = 2\\angle A$. What is the least possible perimeter of such a triangle?\n(A) 13 (B) 14 (C) 15 (D) 16 (E) 17",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Let $a$, $b$, and $c$ be the lengths of the sides opposite vertices $A$, $B$, and $C$, respectively. Note that $a < b$. Applying the Law of Sines in $\\triangle ABC$, together with the identities $\\sin B = \\sin(2A) = 2 \\sin A \\cos A$ and\n$$\n\\sin C = \\sin(\\pi - 3A) = \\sin(3A) = (\\sin A)(-1 + 4\\cos^2 A),\n$$\ngive\n$$\n\\frac{\\sin A}{a} = \\frac{2 \\sin A \\cos A}{b} = \\frac{\\sin A (-1 + 4 \\cos^2 A)}{c}.\n$$\nThus $\\cos A = \\frac{b}{2a}$ and\n$$\nc = a(-1 + 4\\cos^2 A) = a\\left(-1 + \\frac{b^2}{a^2}\\right),\n$$\nwhich simplifies to $b^2 = a^2 + ac$.\n\nIn looking for the triangle with least perimeter, it can be assumed that $a$ and $c$ are relatively prime, because otherwise a smaller triangle can be obtained by shrinking by a factor of $\\gcd(a, c)$. Then $a$ and $a+c$ are relatively prime as well. Because $a(a+c) = b^2$, the numbers $a$ and $a+c$ must be squares, say $a = r^2$ and $a+c = s^2$, where $0 < r < s$ and $\\gcd(r, s) = 1$. This gives $a = r^2$, $b = rs$, and $c = s^2 - r^2$.\n\nIf $r = 1$, then $b = s \\ge 2$ and $c = s^2 - 1 \\ge s + 1$, a violation of the Triangle Inequality. If $r = 2$, then the least perimeter will occur when $s = 3$, with $a = 2^2 = 4$, $b = 2 \\cdot 3 = 6$, and $c = 3^2 - 2^2 = 5$. Greater values of $r$ lead to greater perimeters. The requested minimum perimeter is $4 + 6 + 5 = 15$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

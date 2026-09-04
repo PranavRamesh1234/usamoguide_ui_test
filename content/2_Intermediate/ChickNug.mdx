@@ -1,0 +1,327 @@
+---
+id: chicken-mcnugget
+title: Chicken McNugget Theorem
+author: USAMO Guide Team
+description: Determine the largest value that cannot be represented as a nonnegative combination of two coprime integers.
+prerequisites: ["modular-arithmetic"]
+---
+
+## Overview
+
+Many competition problems ask, 'given two fixed positive integers, what is the
+largest integer that cannot be formed using nonnegative multiples of them?'
+The Chicken McNugget Theorem answers this question completely when the two
+integers are coprime.
+
+This result is also known as the Frobenius Coin Problem or the
+Postage Stamp Problem.
+
+## Motivation
+
+Suppose a shop sells chicken nuggets only in boxes of $6$ and
+$9$. Which totals can you buy?
+
+Since $\gcd(6,9)=3$, you can only ever purchase multiples of $3$, so many
+totals (like $1$, $2$, $4$, $\ldots$) are impossible.
+
+Now suppose the box sizes are $6$ and $7$. Because $\gcd(6,7)=1$, it turns
+out that every sufficiently large integer can be represented as
+$6a+7b$ for nonnegative integers $a,b$. In fact, once you pass a certain
+threshold, every number works with no gaps. The natural question is what is
+the largest integer that cannot be represented?
+
+## Theorem Statement
+
+**Chicken McNugget Theorem.** Let $m$ and $n$ be positive integers with
+$\gcd(m,n)=1$. Then every integer greater than $mn-m-n$ is representable
+as $am+bn$ (with $a,b \ge 0$), and $mn-m-n$ itself is not. In other words 
+the greatest non representable positive integer is
+
+$$
+mn - m - n.
+$$
+
+For example, with $m=6$ and $n=7$, the largest non representable value is
+$(6)(7) - 6 - 7 = 29$.
+
+## Counting Non Representable Values
+
+Under the same hypotheses, the number of positive integers that cannot be
+represented as $am+bn$ is exactly
+
+$$
+\frac{(m-1)(n-1)}{2}.
+$$
+
+With $m=6,\,n=7$ there are $\frac{(5)(6)}{2}=15$ non representable values.
+
+## Proof Outline 
+
+We can outline the main ideas behind a proof.
+
+**Setup.** Call a nonnegative integer $N$ *representable* if $N=am+bn$ for
+some nonnegative integers $a,b$.
+
+**Step 1: Show $mn-m-n$ is not representable.**
+
+Suppose $am+bn = mn-m-n$ with $a,b\ge 0$. Rearranging gives
+$(a+1)m + (b+1)n = mn$. Since $\gcd(m,n)=1$ and $m\mid(b+1)n$, we need
+$m\mid(b+1)$, so $b+1\ge m$, ie. $b\ge m-1$. Similarly $a\ge n-1$.
+Then $am+bn \ge (n-1)m+(m-1)n = 2mn-m-n > mn-m-n$, a contradiction.
+
+**Step 2: Show every integer greater than $mn-m-n$ is representable.**
+
+The key idea is that once we can hit every residue class modulo $m$ using
+multiples of $n$, adding copies of $m$ lets us reach all sufficiently large
+numbers.
+
+For each residue class modulo $m$, there is a smallest nonnegative number of
+the form $bn$ in that class (where $0\le b\le m-1$). Any integer in that
+residue class that is $\ge bn$ can be written as $am+bn$ with $a\ge 0$.
+The largest threshold across all residue classes is $(m-1)n$, so the largest
+non representable value in any class is at most $(m-1)n - m = mn - m - n$.
+
+Combining both steps completes the proof.
+
+## When $\gcd(m,n)>1$
+
+If $m$ and $n$ are not coprime, set $d=\gcd(m,n)$. Then $am+bn$ is always
+a multiple of $d$, so infinitely many positive integers are non representable
+and no finite 'largest' exists in the usual sense.
+
+However among the multiples of $d$, the largest non representable one is
+
+$$
+\text{lcm}(m,n) - m - n.
+$$
+
+This follows by applying the coprime theorem to $m/d$ and $n/d$, then scaling
+back by $d$.
+
+## Worked Examples
+
+### Example 1
+
+> What is the greatest positive integer that cannot be written as $5a+8b$
+> for nonnegative integers $a,b$?
+
+Since $\gcd(5,8)=1$, the answer is $(5)(8)-5-8=27$.
+
+### Example 2
+
+> How many positive integers cannot be expressed as $3a+7b$ for
+> nonnegative integers $a,b$?
+
+Since $\gcd(3,7)=1$, the count is $\frac{(3-1)(7-1)}{2}=6$.
+
+We can verify the nonrepresentable values are $1,2,4,5,8,11$, which is
+$6$ values, and the largest is $11=(3)(7)-3-7$.
+
+### Example 3 (AMC 10B 2015 Problem 15)
+
+> The town of Hamlet has $3$ people for each horse, $4$ sheep for each cow,
+> and $3$ ducks for each person. Which of the following could not possibly
+> be the total number of people, horses, sheep, cows, and ducks in Hamlet?
+>
+> $\textbf{(A)}\ 41\quad\textbf{(B)}\ 47\quad\textbf{(C)}\ 59\quad\textbf{(D)}\ 61\quad\textbf{(E)}\ 66$
+
+Let $h$ be the number of horses and $c$ the number of cows. Then the town
+has $3h$ people, $h$ horses, $3(3h)=9h$ ducks, $c$ cows, and $4c$ sheep, for
+a total of $13h+5c$.
+
+Since $\gcd(13,5)=1$, the largest nonrepresentable value is
+
+$$
+(13)(5)-13-5=47.
+$$
+
+Thus every integer greater than $47$ is representable, and $47$ itself is not.
+
+Therefore the answer is $\boxed{47}$.
+
+### Example 4: Interesting Alien Problem!
+
+> An alien Flying Saucer can reenergize using only two types of energy cells:
+>
+> - The first type gives $84$ energy units,
+> - The second type gives $126$ energy units.
+>
+> Also, ANY number of EACH type may be used.
+>
+> The UFO's system can only operate well if the total amount of energy is some positive multiple of
+> $42$.
+>
+> Your task is to find the largest multiple of $42$ that CANNOT be produced.
+
+First of all, we have
+
+$$
+m=84,\quad n=126.
+$$
+
+Next, since
+
+$$
+\gcd(84,126)=42,
+$$
+
+we can use the generalized Chicken McNugget theorem here, as follows:
+
+$$
+\mathrm{lcm}(84,126)-84-126.
+$$
+
+Now,
+
+$$
+\mathrm{lcm}(84,126)=\frac{84\cdot126}{42}=252.
+$$
+
+Therefore the largest multiple of $42$ that cannot be reached is simply
+
+$$
+252-84-126=42.
+$$
+
+Thus, the answer is $\boxed{42}$.
+
+### Example 5: A creepy infinite staircase
+
+> An alien stands at the bottom of an infinite staircase and can only move upward
+> by either $17$ steps or $29$ steps at a single time.
+>
+> A step is called *skibidi* if the robot can never ever land on it no matter what combination of steps he takes.
+>
+> Your task is to find the sum of all skibidi steps.
+
+To begin with, because
+
+$$
+\gcd(17,29)=1,
+$$
+
+we can use the formula for the SUM of all nonrepresentable integers (which can be derived fairly easily, and you should try it out as an exercise):
+
+$$
+\frac{(m-1)(n-1)(2mn-m-n-1)}{12}.
+$$
+
+Substituting in $m=17$ and $n=29$ gives
+
+$$
+\frac{(16)(28)(2(17)(29)-17-29-1)}{12}.
+$$
+
+Simplifying:
+
+$$
+2(17)(29)-17-29-1=986-47=939.
+$$
+
+Thus, we have that the sum is:
+
+$$
+\frac{(16)(28)(939)}{12}.
+$$
+
+Since $\frac{16\cdot28}{12}=\frac{112}{3}$, we obtain
+
+$$
+\frac{112\cdot939}{3}=112\cdot313=35056.
+$$
+
+Thus, the answer is $\boxed{35056}$.
+
+### Example 6: The Weird Coin Vault
+
+> A rather peculiar vault accepts deposits only in bundles of the following:
+>
+> - $14$,
+> - $25$,
+> - or $39$.
+>
+> Your job is to find the greatest integer that CANNOT be expressed in the form
+>
+> $$14a+25b+39c$$
+>
+> for all nonnegative integers $a,b,c$.
+
+First, notice that
+
+$$
+39=14+25.
+$$
+
+Thus
+
+$$14a+25b+39c
+=14(a+c)+25(b+c).$$
+
+So every integer that can be reached simply takes the following form:
+
+$$
+14x+25y
+$$
+
+for nonnegative integers $x,y$.
+
+Since
+
+$$
+\gcd(14,25)=1,
+$$
+
+the Chicken McNugget theorem applies, giving the largest integer that can't be represented as
+
+$$
+(14)(25)-14-25=350-39=311.
+$$
+
+Thus, the answer is $\boxed{311}$.
+
+
+## Some More Insight
+
+For two coprime positive integers $m$ and $n$, the value $mn-m-n$ acts as a threshold. 
+Everything above it is representable, while values at or
+below it may or may not be. In contest problems this means
+
+- If a target value exceeds $mn-m-n$, it is automatically representable,
+  no further checking is needed.
+- You only need to examine values up to the bound to determine which ones
+  fail.
+- Many problems reduce to recognising the form $am+bn$ and applying
+  the formula directly.
+
+### Fast Check Trick
+
+To check whether a specific number $N$ is representable as $am+bn$, work
+modulo the smaller value (say $m$). Solve $bn \equiv N \pmod{m}$ for the
+smallest nonnegative $b$. If $bn \le N$, then $N$ is representable (set
+$a = (N - bn)/m$). Otherwise it is not.
+
+This is often much faster than guessing pairs $(a,b)$ directly, and it comes
+up frequently.
+
+## Strategy Tips
+
+- **Check coprimality first.** The theorem only gives a finite answer when
+  $\gcd(m,n)=1$. If the gcd is greater than $1$, reduce or use the lcm form.
+- **Three or more denominations.** There is no closed form Frobenius number
+  for three or more values, but you can often reduce the problem. For instance,
+  with denominations $6$, $10$, $15$, since $\gcd(6,10)=2$, the pair $\{6,10\}$
+  covers all sufficiently large even numbers, while adding $15$ (odd) lets you
+  reach odd numbers too. Casework or systematic checking is usually needed.
+- **Parity and residues.** Thinking in terms of residue classes modulo the
+  smaller value is a great way to organise which totals are achievable.
+
+## Common Pitfalls
+
+- Applying the formula when $m$ and $n$ are not coprime.
+- Forgetting that $a$ and $b$ must be nonnegative (not just any integers).
+- Confusing the largest non representable value ($mn-m-n$) with the count of
+  non representable values ($\frac{(m-1)(n-1)}{2}$).
+
+## Practice Problems
+
+<Problems problems="practice" />

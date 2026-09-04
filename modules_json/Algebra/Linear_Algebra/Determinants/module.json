@@ -1,0 +1,468 @@
+{
+  "MODULE_ID": "algebra-linear-algebra-determinants",
+  "practice": [
+    {
+      "uniqueId": "algebra-linear-algebra-determinants-auto-0514",
+      "name": "Berkeley Math Circle Monthly Contest 3 #0hwy",
+      "url": "https://usamoguide.com/",
+      "source": "Berkeley Math Circle Monthly Contest 3",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recurrence relations",
+        "Integers",
+        "Determinants"
+      ],
+      "statement": "Problem:\nLet $x$ and $y$ be real numbers, and define a sequence $a_{0}, a_{1}, a_{2}, \\ldots$ by\n$$\na_{n}=\\sum_{k=0}^{n} x^{k} y^{n-k}\n$$\nSuppose that $a_{m}, a_{m+1}, a_{m+2}, a_{m+3}$ are integers for some $m \\geq 0$. Prove that $a_{n}$ is an integer for all $n \\geq 0$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nBy cancellation of terms we see that\n$$\na_{n+1}-x a_{n}=y^{n+1} \\quad \\text{ and } \\quad a_{n+1}-y a_{n}=x^{n+1}\n$$\nIn particular, $a_{n+2}-x a_{n+1}=y^{n+2}=y \\cdot y^{n+1}=y\\left(a_{n+1}-x a_{n}\\right)$, which we can write as\n$$\na_{n+2}=(x+y) a_{n+1}-x y a_{n} .\n$$\nWe let $s=x+y$ and $t=x y$. Then the four given integral values of $a_{n}$ yield a pair of linear equations in $s$ and $t$ (or, to be precise, $s$ and $-t$ ):\n$$\n\\begin{aligned}\n& a_{m+2}=s a_{m+1}-t a_{m} \\\\\n& a_{m+3}=s a_{m+2}-t a_{m+1}\n\\end{aligned}\n$$\nIf the determinant $a_{m+1}^{2}-a_{m+2} a_{m}$ is nonzero, these equations have a unique solution. In fact,\n$$\n\\begin{aligned}\na_{m+1}^{2}-a_{m+2} a_{m} & =a_{m+1}\\left(a_{m+1}-x a_{m}\\right)-a_{m}\\left(a_{m+2}-x a_{m+1}\\right) \\\\\n& =a_{m+1} y^{m+1}-a_{m} y^{m+2}=y^{m+1}\\left(a_{m+1}-y a_{m}\\right)=x^{m+1} y^{m+1}=t^{m+1}\n\\end{aligned}\n$$\nSo we distinguish two cases.\n\nCase 1. $t=0$. Then without loss of generality $y=0$, so $a_{n}=x^{n}$. The conclusion follows from the following lemma:\n\nLemma 1. If $x$ is a real number and $n$ a nonnegative integer such that $x^{n}$ and $x^{n+1}$ are integers, then $x$ is an integer.\n\nProof. Note that $x=x^{n+1} / x^{n}$ is rational (if $x=0$, the conclusion is immediate). Write $x=p / q$ in lowest terms with $q>0$; then $x^{n}=p^{n} / q^{n}$ is also in lowest terms, hence $q=1$.\n\nCase 2. $t \\neq 0$. Then $t^{m+1}$ is an integer, and likewise $t^{m+2}=a_{m+2}^{2}-a_{m+3} a_{m+1}$ is an integer. So by Lemma 1 again, $t$ is an integer. Now $s$ is rational by Cramer's rule applied to (7). If we can prove $s$ is an integer, then since $a_{0}=1$ and $a_{1}=s$, we will be done by 6 .\n\nWrite $s=u / v$ in lowest terms and assume that $v>1$. Every $a_{n}$ is rational; write $a_{n}=u_{n} / v_{n}$ in lowest terms. We claim that $v_{n}=v^{n}$ for every $n \\geq 0$. The cases $n=0$ and $n=1$ are clear. We now induct, using (6):\n$$\n\\frac{u_{n+2}}{v_{n+2}}=\\frac{u}{v} \\cdot \\frac{u_{n+1}}{v^{n+1}}-t \\cdot \\frac{u_{n}}{v^{n}}=\\frac{u u_{n+1}-t v^{2} u_{n}}{v^{n+2}}\n$$\nSince $u$ and $u_{n+1}$ are coprime to $v$, the last fraction is reduced. So $v_{n+2}=v^{n+2}$ as desired. Hence $a_{n} \\notin \\mathbb{Z}$ for $n \\geq 1$, which is a contradiction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-determinants-auto-1480",
+      "name": "IMO #0ins",
+      "url": "https://usamoguide.com/",
+      "source": "IMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Other 3D problems",
+        "Polynomial operations",
+        "Polynomial interpolation: Newton, Lagrange",
+        "Determinants"
+      ],
+      "statement": "Let $n$ be a positive integer. Consider\n$$\nS = \\{(x, y, z) : x, y, z \\in \\{0, 1, \\dots, n\\}, x + y + z > 0\\}.\n$$\nas a set of $(n+1)^3 - 1$ points in three-dimensional space. Determine the smallest possible number of planes, the union of which contains $S$ but does not include $(0, 0, 0)$.\n(This problem was suggested by the Netherlands.)",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "We establish the following key lemma.\n\n**Lemma 1.** Consider a nonzero polynomial $P(x_1, \\dots, x_k)$ in $k$ variables. Suppose that $P$ vanishes at all points $(x_1, \\dots, x_k)$ such that $x_1, \\dots, x_k \\in \\{0, 1, \\dots, n\\}$ and $x_1 + \\dots + x_k > 0$, while $P(0, 0, \\dots, 0) \\ne 0$. Then $\\deg P \\ge kn$.\n\n*Proof.* We induct on $k$. The base case $k=0$ is clear since $P \\ne 0$. We assume that the statement is true for $k = \\ell - 1$ for some positive integer $\\ell$. Now we consider the case $k = \\ell$. Denote for clarity $y = x_k = x_\\ell$.\n\nLet $R(x_1, \\dots, x_{k-1}, y)$ be the residue of $P$ modulo $Q(y) = y(y-1)\\dots(y-n)$. Polynomial $Q(y)$ vanishes at each $y=0, 1, \\dots, n$, hence $P(x_1, \\dots, x_{k-1}, y) = R(x_1, \\dots, x_{k-1}, y)$ for all $x_1, \\dots, x_{k-1}, y \\in \\{0, 1, \\dots, n\\}$. Therefore, $R$ also satisfies the condition of the Lemma; moreover, $\\deg_y R \\le n$. Clearly, $\\deg R \\le \\deg P$, so it suffices to prove that $\\deg R \\ge nk$.\n\nNow, expand polynomial $R$ in the powers of $y$:\n$$\nR(x_1, \\dots, x_{k-1}, y) = R_n(x_1, \\dots, x_{k-1})y^n + R_{n-1}(x_1, \\dots, x_{k-1})y^{n-1} + \\dots + R_0(x_1, \\dots, x_{k-1}).\n$$\nWe show that the polynomial $R_n(x_1, \\dots, x_{k-1})$ satisfies the condition of the induction hypothesis.\n\nConsider the polynomial $T(y) = R(0, \\dots, 0, y)$ of degree $\\le n$. This polynomial has $n$ roots $y = 1, \\dots, n$; on the other hand, $T(y) \\ne 0$ since $T(0) \\ne 0$. Hence $\\deg T = n$, and its leading coefficient is $R_n(0, 0, \\dots, 0) \\ne 0$. (For example, in the case $k=1$ we obtain that coefficient $R_n$ is nonzero.)\n\nSimilarly, take any numbers $a_1, \\dots, a_{k-1} \\in \\{0, 1, \\dots, n\\}$ with $a_1 + \\dots + a_{k-1} > 0$. Substituting $x_i = a_i$ into $R(x_1, \\dots, x_{k-1}, y)$, we get a polynomial in $y$ which vanishes at all points $y = 0, \\dots, n$ and has degree $\\le n$. Therefore, this polynomial is null, hence $R_i(a_1, \\dots, a_{k-1}) = 0$ for all $i = 0, 1, \\dots, n$. In particular, $R_n(a_1, \\dots, a_{k-1}) = 0$.\n\nThus, the polynomial $R_n(x_1, \\dots, x_{k-1})$ satisfies the condition of the induction hypothesis. So, we have $\\deg R_n \\ge (k-1)n$ and $\\deg P \\ge \\deg R \\ge \\deg R_n + n \\ge kn$. $\\square$\n\nNow we can finish the solution. Suppose that there are $N$ planes covering all the points of $S$ but not containing the origin. Let their equations be $a_i x + b_i y + c_i z + d_i = 0$. Consider the polynomial\n$$\nP(x, y, z) = \\prod_{i=1}^{N} (a_i x + b_i y + c_i z + d_i).\n$$\nIt has total degree $N$. This polynomial has the property that $P(x_0, y_0, z_0) = 0$ for any $(x_0, y_0, z_0) \\in S$, while $P(0, 0, 0) \\ne 0$. Hence by Lemma 1 we get $N = \\deg P \\ge 3n$, as desired.\n\nSuppose $r$ planes are given. As in the first solution, let $A_1, \\dots, A_r$ be (nonzero) linear functions over $\\mathbb{R}^3$ such that the equations of the planes are $A_i(x, y, z) = 0$. Define the polynomial $P_0 = A_1A_2\\cdots A_r$, whose degree is $r$. If a lattice point $(x, y, z)$ satisfies $0 \\le x \\le a$, $0 \\le y \\le b$, $0 \\le z \\le c$, and $x + y + z > 0$, then $P_0(x, y, z) = 0$; however, $P_0(0, 0, 0) \\ne 0$.\n\nPolynomials $P_1, \\dots, P_a$ are defined recursively by $P_{i+1}(x, y, z) = P_i(x+1, y, z) - P_i(x, y, z)$. By induction, we see that $P_i(x, y, z) = 0$ if $0 \\le x \\le a-i$, $0 \\le y \\le b$, $0 \\le z \\le c$, and $x+y+z > 0$, while $P_i(0, 0, 0) \\ne 0$. Furthermore, if $P_i$ is a nonzero polynomial, then its degree is $r-i$.\n\nLet $Q_0 = P_a$, and construct polynomials $Q_1, \\dots, Q_b$ as above. Specifically, define $Q_{i+1}(x, y, z) = Q_i(x, y+1, z) - Q_i(x, y, z)$. Again, we have $Q_i(x, y, z) = 0$ provided $x = 0, 0 \\le y \\le b-i, 0 \\le z \\le c$, and $x+y+z > 0$, while $Q_i(0, 0, 0) \\ne 0$. If $Q_i$ is nonzero, then its degree is $r-a-i$.\n\nFinally, let $R_0 = Q_b$, and define $R_1, \\dots, R_c$ by $R_{i+1}(x, y, z) = R_i(x, y, z+1) - R_i(x, y, z)$. As above, $R_i(x, y, z) = 0$ if $x = y = 0, 0 \\le z \\le c-i$, and $x+y+z > 0$. If $R_i$ is nonzero then its degree is $r-a-b-i$.\n\nConsider the polynomial $R_c(x, y, z)$. Its value at $(0, 0, 0)$ is nonzero, so it is a nonzero polynomial. Its degree, which must be nonnegative, is $r-a-b-c$. Therefore, we have $r \\ge a+b+c$, as desired.\n\nTherefore, $a+b+c$ planes are necessary, and it is possible to cover all the points with $a+b+c$ planes. In the original problem, $a=b=c=n$, so the answer is $3n$.\n\nReal numbers $x_0, \\dots, x_a, y_0, \\dots, y_b, z_0, \\dots, z_c$ are given such that the $x_i$ are distinct, the $y_i$ are distinct, and the $z_i$ are distinct. If a collection of planes covers all points $(x_i, y_j, z_k)$ except $(x_0, y_0, z_0)$, the collection contains at least $a+b+c$ points.\n\nTo prove this we need a more general form of the method of finite differences used above.\n\n**Lemma 2.** Suppose distinct reals $t_0, \\dots, t_n$ are given. Then there exist weights $w_0, \\dots, w_n$, with $w_0 \\neq 0$, such that for each nonnegative integer $i < n$, we have $w_0 t_0^i + \\dots + w_n t_n^i = 0$, while $w_0 t_0^n + \\dots + w_n t_n^n \\neq 0$.\n\n*Proof.* The $n+1$ vectors $(1, t_j, t_j^2, \\dots, t_j^{n-1})$ are linearly dependent over $\\mathbb{R}^n$, so there exist weights $w_j$ such that $w_0 t_0^i + \\dots + w_n t_n^i = 0$ for each $i < n$. However, since the $t_j$ are distinct, the vectors $(1, t_j, t_j^2, \\dots, t_j^n)$ are linearly independent over $\\mathbb{R}^{n+1}$. (This follows from the fact that their determinant, the Vandermonde determinant, is nonzero.) Therefore, we must have $w_0 t_0^n + \\dots + w_n t_n^n \\neq 0$. Also, the vectors $(1, t_j, \\dots, t_j^{n-1})$, for $j = 1, \\dots, n$, are independent. Thus we cannot have $w_0 = 0$. $\\square$\n\nNext we prove an essential result about the weights found above.\n\n**Lemma 3.** Let reals $t_0, \\dots, t_n$ be given, and weights $w_0, \\dots, w_n$ be defined as above. Let $P(t)$ be any polynomial, and define $Q(t) = w_0 P(t+t_0) + \\dots + w_n P(t+t_n)$. If the degree of $P(t)$ is less than $n$, then $Q(t) = 0$; otherwise, the degree of $Q$ is $n$ less than the degree of $P$.\n\n*Proof.* First we prove the result for $P(t) = t^s$. The $t^r$ coefficient of $Q$ is $\\frac{s!}{r!(s-r)!} (w_0 t_0^{s-r} + \\dots + w_n t_n^{s-r})$. This is zero if $r > s-n$ and nonzero if $r \\le s-n$, provided $s \\ge n$. If $s < n$, then all coefficients of $Q$ are zero.\n\nNow suppose $P$ is a general polynomial of degree $s$. Then the $t^s$ term of $P$ is nonzero. Also, the $t^{s-n}$ term of $Q$ depends only on the $t^s$ term of $P$, so it is also nonzero. Thus the degree of $Q$ is $s-n$. $\\square$\n\nFinally, we solve the general form of IMO Problem 6. Suppose there are $r$ planes in the collection, so there exists a polynomial $P$ of degree $r$ such that $P(x_i, y_j, z_k) = 0$ unless $i = j = k = 0$. Apply Lemma 3 to $P$ (regarded as a polynomial in its first variable) with $t_0 = x_0, \\dots, t_a = x_a$, to obtain a polynomial $P_1$ of degree $r-a$ such that $P_1(0, y_j, z_k) = 0$ unless $j = k = 0$. Apply Lemma 3 again (this time on the second variable) to produce a polynomial $P_2$ of degree $r-a-b$ such that $P_2(0, 0, z_k) = 0$ unless $k = 0$. Apply Lemma 3 one more time (on the third variable) to produce a polynomial $P_3$ of degree $r-a-b-c$ such that $P_3(0, 0, 0) \\neq 0$. Since $P_3$ is a nonzero polynomial, we have $r \\ge a+b+c$. This completes the proof."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-determinants-auto-1662",
+      "name": "Team Selection Test #0isu",
+      "url": "https://usamoguide.com/",
+      "source": "Team Selection Test",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Chinese remainder theorem",
+        "Polynomials mod p",
+        "Fermat / Euler / Wilson theorems",
+        "Polynomial interpolation: Newton, Lagrange",
+        "Determinants"
+      ],
+      "statement": "Let $n$ be a positive integer not divisible by the cube of a prime. Given an integer-coefficient polynomial $f(x)$, define its *signature modulo* $n$ to be the (ordered) sequence $f(1), \\dots, f(n)$ modulo $n$. Of the $n^n$ such $n$-term sequences of integers modulo $n$, how many are the signature of some polynomial $f(x)$?",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Let $p_1 \\cdots p_r q_1^2 \\cdots q_s$ be the prime factorization of $n$. Then the number of achievable signatures is $p_1^{p_1} \\cdots p_r^{p_r} q_1^{3q_1} \\cdots q_s^{3q_s}$.\n\nWe begin by reducing to the case in which $n$ is a prime or the square of a prime. Assume for now that our claim holds in these cases. Observe that the signature of a polynomial $f(x)$ modulo $n$ is completely determined by the collection of its signatures modulo $p_1, \\dots, p_r, q_1^2, \\dots, q_s^2$. Indeed, for each such modulus $m_i$, the sequence $f(1), \\dots, f(m_i)$ modulo $m_i$ determines the entire sequence $f(1), \\dots, f(n)$ modulo $m_i$ because $a \\equiv b \\pmod{m_i}$ implies $f(a) \\equiv f(b) \\pmod{m_i}$. Since the moduli $p_1, \\dots, p_r, q_1^2, \\dots, q_s^2$ are relatively prime with product $n$, it follows by the Chinese Remainder Theorem that specifying $f(1), \\dots, f(n)$ modulo all $m_i$ is equivalent to specifying the sequence modulo $n$.\n\nConversely, we need to show that every sequence $y_1, \\dots, y_n \\pmod{n}$ obtained by applying the above procedure to a collection of signatures $f_i(1), \\dots, f_i(m_i) \\pmod{m_i}$ is actually the signature of a polynomial $f(x)$. To do this, we apply the Chinese Remainder Theorem once more: define $f(x)$ by choosing its coefficients such that\n$$\n[x^k]f(x) \\equiv [x^k]f_i(x) \\pmod{m_i}\n$$\nfor all $i$. Then $f(x) \\equiv f_i(x) \\pmod{m_i}$ for all $i$, and the claim follows.\n\nBy the above, it suffices to show that the number of achievable signatures modulo $p$ is $p^p$ and the number of achievable signatures modulo $p^2$ is $p^{3p}$. In the first case, this amounts to showing that all $p$-term sequences modulo $p$ can be realized as $f(1), \\dots, f(p)$ for some polynomial $f(x)$. There are a number of quick proofs of this result, all of which ultimately use the fact that the integers modulo $p$ form a field. A direct approach is to use Lagrange interpolation; another method is to use Lagrange's theorem to deduce that no two polynomials in $\\mathbb{Z}/p\\mathbb{Z}$ of degree less than $p$ have the same signature modulo $p$. Yet another approach is to show that the linear transformation (over $\\mathbb{Z}/p\\mathbb{Z}$) that sends the coefficient vector ($[x^0]f(x), \\dots, [x^{p-1}]f(x)$) to the values ($f(1), \\dots, f(p)$) is nonsingular; this can be done by evaluating the Vandermonde determinant.\n\nThe modulus $p^2$ is trickier to handle. We begin by using an idea similar to Lagrange interpolation to exhibit a set of polynomials achieving $p^{3p}$ distinct signatures modulo $p^2$, thus obtaining a lower bound. We then establish a matching upper bound by finding a (different!) set of $p^{3p}$ polynomials such that all integer-coefficient polynomials can be easily “reduced” to one of these, keeping the signature fixed during the reduction.\n\nTo prove our lower bound, we begin by defining\n$$\nf_k(x) = ((x-1) \\cdots (x-(k-1))(x-(k+1)) \\cdots (x-p))^2\n$$\nand\n$$\ng_k(x) = (x-k)f_k(x).\n$$\nConsider all polynomials of the form\n$$\n\\sum_{k=1}^{p} a_k f_k(x) + b_k g_k(x)\n$$\nwhere $1 \\le a_k \\le p^2$ and $1 \\le b_k \\le p$. We claim that no two such polynomials have the same signature modulo $p^2$; this will establish our lower bound.\n\nBy subtracting, it is enough to show that the only polynomial\n$$\nf(x) = \\sum_{k=1}^{p} a_k f_k(x) + b_k g_k(x)\n$$\nsatisfying $f(1) \\equiv \\cdots \\equiv f(p^2) \\equiv 0 \\pmod{p^2}$ with $|a_k| < p^2$ and $|b_k| < p$ is the zero polynomial. In fact, it suffices to evaluate $f(x) \\pmod{p^2}$ at $x = 1, \\dots, 2p$. For $j = 1, \\dots, p$, we have $g_k(j) = 0$ for all $k$ and $f_k(j) = 0$ unless $k = j$, in which case $f_j(j)$ is invertible modulo $p^2$. It follows that $0 \\equiv f(j) = a_j f_j(j)$ and hence $a_j \\equiv 0 \\pmod{p^2}$, so $a_k = 0$ for all $k$.\n\nNext we evaluate $f(x)$ at $j = p + 1, \\dots, 2p$. This time, all $g_k(j)$ vanish modulo $p^2$ except when $k = j - p$, in which case $g_{j-p}(j)$ is divisible by $p$ but not $p^2$. Thus, $0 \\equiv f(j) \\equiv b_{j-p}g_{j-p}(j) \\pmod{p^2}$ and hence $b_{j-p} \\equiv 0 \\pmod{p}$, so $b_k = 0$ for all $k$, completing the proof of the lower bound.\n\nIt remains to prove that no more than $p^{3p}$ signatures modulo $p^2$ are attainable. Given two polynomials $f(x)$ and $g(x)$, we say that they are equivalent, denoted $f(x) \\sim g(x)$, if they have the same signature modulo $p^2$. It is easy to see that $f(x) \\sim g(x)$ implies $f(x)h(x) \\sim g(x)h(x)$ and $f(x) + h(x) \\sim g(x) + h(x)$ for any polynomial $h(x)$. We claim that every polynomial $f(x)$ is equivalent to a polynomial $g(x)$ such that\n$$\n[x^k]g(x) \\in \\{1, \\dots, p^2\\} \\quad \\text{for } 0 \\le k < p\n$$\nand\n$$\n[x^k]g(x) \\in \\{1, \\dots, p\\} \\quad \\text{for } p \\le k < 2p.\n$$\nThe key observation is that by Fermat, $x^p - x$ vanishes modulo $p$ when evaluated at any integer. Therefore, $(x^p - x)^2$ and $p(x^p - x)$ both vanish modulo $p^2$ at all integers, i.e.\n$$\nx^{2p} \\sim 2x^{p+1} - x^2 \\quad \\text{and} \\quad px^p \\sim px.\n$$\nUsing the properties of $\\sim$ stated above, the first relation allows us to reduce $f(x)$ to a polynomial of degree less than $p$; the second relation then allows us to further reduce to a polynomial with all coefficients of $x^p, \\dots, x^{2p-1}$ in $\\{1, \\dots, p\\}$. Finally, the remaining coefficients can be reduced modulo $p^2$ to lie in $\\{1, \\dots, p^2\\}$, completing the proof."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-determinants-auto-1714",
+      "name": "12th Annual Harvard-MIT Mathematics Tournament #0iua",
+      "url": "https://usamoguide.com/",
+      "source": "12th Annual Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Matrices",
+        "Determinants"
+      ],
+      "statement": "Problem:\nLet $a$, $b$, and $c$ be real numbers. Consider the system of simultaneous equations in variables $x$ and $y$:\n$$\n\\begin{aligned}\na x + b y &= c - 1 \\\\\n(a + 5) x + (b + 3) y &= c + 1\n\\end{aligned}\n$$\nDetermine the value(s) of $c$ in terms of $a$ such that the system always has a solution for any $a$ and $b$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe have to only consider when the determinant of $\\begin{pmatrix} a & b \\\\ a+5 & b+3 \\end{pmatrix}$ is zero. That is, when $b = \\dfrac{3a}{5}$. Plugging in $b = \\dfrac{3a}{5}$, we find that $(a+5)(c-1) = a(c+1)$ or that $c = \\dfrac{2a}{5} + 1$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-determinants-auto-1993",
+      "name": "Harvard-MIT Mathematics Tournament #0j21",
+      "url": "https://usamoguide.com/",
+      "source": "Harvard-MIT Mathematics Tournament",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Exponential functions",
+        "Determinants"
+      ],
+      "statement": "Problem:\nLet\n$$\n\\begin{gathered}\ne^{x}+e^{y}=A \\\\\nx e^{x}+y e^{y}=B \\\\\nx^{2} e^{x}+y^{2} e^{y}=C \\\\\nx^{3} e^{x}+y^{3} e^{y}=D \\\\\nx^{4} e^{x}+y^{4} e^{y}=E .\n\\end{gathered}\n$$\nProve that if $A, B, C$, and $D$ are all rational, then so is $E$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nWe can express $x+y$ in two ways:\n$$\n\\begin{aligned}\n& x+y=\\frac{A D-B C}{A C-B^{2}} \\\\\n& x+y=\\frac{A E-C^{2}}{A D-B C}\n\\end{aligned}\n$$\n(We have to be careful if $A C-B^{2}$ or $A D-B C$ is zero. We'll deal with that case later.) It is easy to check that these equations hold by substituting the expressions for $A, B, C, D$, and $E$. Setting these two expressions for $x+y$ equal to each other, we get\n$$\n\\frac{A D-B C}{A C-B^{2}}=\\frac{A E-C^{2}}{A D-B C}\n$$\nwhich we can easily solve for $E$ as a rational function of $A, B, C$, and $D$. Therefore if $A, B, C$, and $D$ are all rational, then $E$ will be rational as well.\n\nNow, we have to check what happens if $A C-B^{2}=0$ or $A D-B C=0$. If $A C-B^{2}=0$, then writing down the expressions for $A, B$, and $C$ gives us that $(x-y)^{2} e^{x+y}=0$, meaning that $x=y$. If $x=y$, and $x \\neq 0, A$ and $D$ are also non-zero, and $\\frac{B}{A}=\\frac{E}{D}=x$. Since $\\frac{B}{A}$ is rational and $D$ is rational, this implies that $E$ is rational. If $x=y=0$, then $E=0$ and so is certainly rational.\n\nWe finally must check what happens if $A D-B C=0$. Since $A D-B C=(x+y)\\left(A C-B^{2}\\right)$, either $A C-B^{2}=0$ (a case we have already dealt with), or $x+y=0$. But if $x+y=0$ then $A E-C^{2}=0$, which implies that $E=\\frac{C^{2}}{A}$ (we know that $A \\neq 0$ because $e^{x}$ and $e^{y}$ are both positive). Since $A$ and $C$ are rational, this implies that $E$ is also rational.\n\nSo, we have shown $E$ to be rational in all cases, as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-determinants-auto-2666",
+      "name": "USAMO #0jkq",
+      "url": "https://usamoguide.com/",
+      "source": "USAMO",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cartesian coordinates",
+        "Determinants",
+        "Symmetric functions"
+      ],
+      "statement": "Prove that there exists an infinite set of points\n$$\n\\dots, P_{-3}, P_{-2}, P_{-1}, P_0, P_1, P_2, P_3, \\dots\n$$\nin the plane with the following property: For any three distinct integers $a, b$ and $c$, points $P_a, P_b$ and $P_c$ are collinear if and only if $a + b + c = 2014$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**Solution 1** (by Razvan Gelca). We claim that defining $P_n$ to be the point with coordinates $(n, n^3 - 2014n^2)$ will satisfy the conditions of the problem. Recall that points $(x_1, y_1)$, $(x_2, y_2)$ and $(x_3, y_3)$ are collinear if and only if\n$$\n\\begin{vmatrix} x_1 & y_1 & 1 \\\\ x_2 & y_2 & 1 \\\\ x_3 & y_3 & 1 \\end{vmatrix} = 0.\n$$\nTherefore we examine the determinant\n$$\n\\begin{vmatrix} a & a^3 - 2014a^2 & 1 \\\\ b & b^3 - 2014b^2 & 1 \\\\ c & c^3 - 2014c^2 & 1 \\end{vmatrix} = \\begin{vmatrix} a & a^3 & 1 \\\\ b & b^3 & 1 \\\\ c & c^3 & 1 \\end{vmatrix} - 2014 \\begin{vmatrix} a & a^2 & 1 \\\\ b & b^2 & 1 \\\\ c & c^2 & 1 \\end{vmatrix}.\n$$\nThe first determinant on the right is a homogenous polynomial of degree four divisible by $(a-b)(b-c)(c-a)$. The remaining factor has degree one, is symmetric, and yields an $ab^3$ term when the product is expanded, hence must be $(a+b+c)$. The second determinant is a homogenous polynomial of degree three divisible by $(a-b)(b-c)(c-a)$, and comparing coefficients of the $ab^2$ term we see that this is the desired polynomial. Thus\n$$\n\\begin{vmatrix} a & a^3 - 2014a^2 & 1 \\\\ b & b^3 - 2014b^2 & 1 \\\\ c & c^3 - 2014c^2 & 1 \\end{vmatrix} = (a-b)(b-c)(c-a)(a+b+c-2014).\n$$\nIt follows that for distinct $a, b$ and $c$ this expression will equal zero if and only if $a + b + c = 2014$, as desired.\n\n**Solution 2** (by Sam Vandervelde). First, note that the translation $x \\mapsto x - 671$ in the indices allows us to replace 2014 in the statement by 1. Now it comes natural to look for a polynomial pattern $(P(x), Q(x))$ in the coordinates of a point. The collinearity condition translates, in coordinates, into\n$$\nP(a)Q(b) + P(b)Q(c) + P(c)Q(a) - P(a)Q(c) - P(b)Q(a) - P(c)Q(b) = 0.\n$$\nThis should happen only when $a+b+c-1=0$ or when two of $a, b, c$ are equal. Hence the left-hand side should be of the form $(a+b+c-1)(b-a)(c-b)(a-c)R(a,b,c)$. We can try the simplest case $R=1$ so that the dominant coefficients of both $P(x)$ and $Q(x)$ are 1. $P(x)$ and $Q(x)$ cannot both have even degree because then the 4th degree terms on the left cancel out, while on the right there are clearly 4th degree terms. Hence one of the polynomials $P(x)$ and $Q(x)$ has degree 3, the other has degree 1. By a translation we can turn the degree 1 polynomial into $x$, thus we may assume that $P(x) = x$. Thus we should have\n$$\n\\begin{aligned}\n& (c-b)Q(a) + (a-c)Q(b) + (b-a)Q(c) \\\\\n&= (a+b+c-1)(b-a)(c-b)(a-c).\n\\end{aligned}\n$$\nSo we let $Q(x) = x^3 + \\alpha x^2 + \\beta x + \\gamma$. Note that we are free to choose $\\beta$ and $\\gamma$ any way we want, since they cancel out. So we let $Q(x) = x^3 + \\alpha x^2$.\nFor $a=0, b=-1, c=1$ the above identity yields $-2Q(0) - Q(-1) - Q(1) = 2$, and hence $\\alpha = -1$.\nReturning to the case of the problem with 2014 instead of 1, we have the points $P_n = (n - 671, (n - 671)^3 - (n - 671)^2)$. But we can simplify this since we can replace $P(x)$ by $x$ and ignore the linear part of $Q(x)$. We thus obtain the simpler infinite family of points\n$$\nP_n = (n, n^3 - 3 \\cdot 671n^2 - n^2) = (n, n^3 - 2014n^2)\n$$\nsatisfying the conditions of the problem."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-determinants-auto-2675",
+      "name": "HMMT 2014 #0jkz",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT 2014",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Recurrence relations",
+        "Matrices",
+        "Determinants"
+      ],
+      "statement": "Problem:\n\nConsider a number line, with a lily pad placed at each integer point. A frog is standing at the lily pad at the point $0$ on the number line, and wants to reach the lily pad at the point $2014$ on the number line. If the frog stands at the point $n$ on the number line, it can jump directly to either point $n+2$ or point $n+3$ on the number line. Each of the lily pads at the points $1, \\cdots, 2013$ on the number line has, independently and with probability $1 / 2$, a snake. Let $p$ be the probability that the frog can make some sequence of jumps to reach the lily pad at the point $2014$ on the number line, without ever landing on a lily pad containing a snake. What is $p^{1 / 2014}$? Express your answer as a decimal number. If $C$ is the actual answer to this question and $A$ is your answer, then your score on this problem is $\\lceil\\max \\{25(1-20|C-A|), 0\\}\\rceil$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAnswer: 0.9102805441016536\n\nFirst, we establish a rough upper bound for the probability $p$. Let $q$ be the probability that the frog can reach the lily pad at the point $2014$ on the number line if it is allowed to jump from a point $n$ on the number line to the point $n+1$, in addition to the points $n+2$ and $n+3$. Clearly, $p \\leq q$. Furthermore, $p$ is approximated by $q$; it should be easy to convince one's self that jumps from a point $n$ to the point $n+1$ are only useful for reaching the lily pad at point $2014$ in very few situations.\n\nNow we compute $q$. We note that, if the frog can jump from points $n$ to points $n+1, n+2$, and $n+3$, then it can reach the lily pad at the point $2014$ on the number line if and only if each snake-free lily pad is at most $3$ units away from the closest snake-free lily pad on the left.\n\nDefine the sequence $\\left\\{a_{m}\\right\\}_{m=1}^{\\infty}$ by $a_{0}=1, a_{1}=1, a_{2}=2$, and $a_{m+3}=a_{m+2}+a_{m+1}+a_{m}$ for $m \\geq 0$. Then, it can be shown by induction that $a_{m}$ is the number of possible arrangements of snakes on lily pads at points $1, \\cdots, m-1$ so that the frog can make some sequence of jumps (of size $1,2$, or $3$) from the lily pad at point $0$ to the lily pad at point $m$ without landing on a lily pad containing a snake. It follows that $q=a_{2014} / 2^{2013}$. So\n\n$$\np^{1 / 2014} \\approx q^{1 / 2014}=\\left(a_{2014}\\right)^{1 / 2014} / 2^{2013 / 2014} \\approx\\left(a_{2014}\\right)^{1 / 2014} / 2\n$$\n\nAnalyzing the recurrence relation $a_{m+3}=a_{m+2}+a_{m+1}+a_{m}$ yields that $\\left(a_{2014}\\right)^{1 / 2014}$ is approximately equal to the largest real root $r$ of the characteristic polynomial equation $r^{3}-r^{2}-r-1=0$. So to roughly approximate $p$, it suffices to find the largest real root of this equation.\n\nFor this, we apply Newton's method, or one of many other methods for computing the roots of a polynomial. With an initial guess of $2$, one iteration of Newton's method yields $r \\approx 13 / 7$, so $p \\approx r / 2 \\approx 13 / 14 \\approx 0.928571$. A second iteration yields $r \\approx 1777 / 966$, so $p \\approx r / 2 \\approx 1777 / 1932 \\approx 0.919772$. (It turns out that the value of $r$ is $1.839286 \\ldots$, yielding $p \\approx r / 2=0.919643 \\ldots$.)\n\nUsing tools from probability theory, we can get an even better estimate for $p$. We model the problem using a discrete-time Markov chain. The state of the Markov chain at time $n$, for $n=0,1, \\ldots, 2013$, indicates which of the lily pads at positions $n-2, n-1, n$ are reachable by the frog. It is clear that the state of the Markov chain at time $n$ only depends (randomly) on its state at time $n-1$. There are $2^{3}=8$ possible states for this Markov chain, because each of the lily pads at positions $n-2, n-1, n$ can be either reachable or unreachable by the frog. Number each state using the number $1+d_{2}+2 d_{1}+4 d_{0}$, where $d_{i}$ is $1$ if the lily pad at point $n-i$ is reachable, and $0$ otherwise. So, for example, at time $n=0$, the lily pad at point $n$ is reachable $\\left(d_{0}=1\\right)$ whereas the lily pads at points $n-1$ and $n-2$ are unreachable $\\left(d_{1}=d_{2}=0\\right)$, so the Markov chain is in state number $1+d_{2}+2 d_{1}+4 d_{0}=5$.\n\nThe transition matrix $M$ for the Markov chain can now be computed directly from the conditions of the problem. It is equal to\n\n$$\nM:=\\left[\\begin{array}{cccccccc}\n1 & 0 & 0 & 0 & \\frac{1}{2} & 0 & 0 & 0 \\\\\n0 & 0 & 0 & 0 & \\frac{1}{2} & 0 & 0 & 0 \\\\\n0 & 1 & 0 & 0 & 0 & \\frac{1}{2} & 0 & 0 \\\\\n0 & 0 & 0 & 0 & 0 & \\frac{1}{2} & 0 & 0 \\\\\n0 & 0 & \\frac{1}{2} & 0 & 0 & 0 & \\frac{1}{2} & 0 \\\\\n0 & 0 & \\frac{1}{2} & 0 & 0 & 0 & \\frac{1}{2} & 0 \\\\\n0 & 0 & 0 & \\frac{1}{2} & 0 & 0 & 0 & \\frac{1}{2} \\\\\n0 & 0 & 0 & \\frac{1}{2} & 0 & 0 & 0 & \\frac{1}{2}\n\\end{array}\\right] .\n$$\n\n(The verification of this transition matrix is left as an exercise for the reader.) So the state vector $v$ for the Markov chain at time $2013$ is\n$$\nv:=M^{2014}[0,1,0,0,0,0,0,0]^{t}\n$$\n\nNow, the lily pad at point $2014$ is reachable by the frog if and only if the Markov chain is in state $3,4,5,6,7$, or $8$ at time $2013$. This happens with probability\n$$\np=[0,0,1,1,1,1,1,1] v\n$$\n\nBy expanding $[0,1,0,0,0,0,0,0]^{t}$ in an eigenbasis for $M$, we find that $p^{1 / 2014}$ is approximately equal to the second-largest real eigenvalue of the matrix $M$. The characteristic polynomial of $M$ is\n$$\n\\operatorname{det}(\\lambda I-M)=-\\frac{\\lambda^{3}}{8}+\\frac{3 \\lambda^{4}}{8}+\\frac{\\lambda^{6}}{4}-\\frac{3 \\lambda^{7}}{2}+\\lambda^{8}\n$$\nso its eigenvalues are the roots of this polynomial. The largest real root of this characteristic polynomial is $\\lambda=1$, and the second-largest real root is $0.9105247383471604 \\ldots$ (which can be found, again, using Newton's method, after factoring out $(\\lambda-1) \\lambda^{3}$ from the polynomial), which is a good approximation for $p$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-determinants-auto-3008",
+      "name": "HMMT February #0ju8",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Determinants",
+        "Matrices"
+      ],
+      "statement": "Problem:\n\nIn a $17 \\times 17$ matrix $M$, all entries are $\\pm 1$. The maximum possible value of $|\\operatorname{det} M|$ is $N$. Estimate $N$.\n\nAn estimate of $E>0$ earns $\\left\\lfloor 20 \\min (N / E, E / N)^{2}\\right\\rfloor$ points.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nThis is Hadamard's maximal determinant problem. There's an upper bound of $n^{\\frac{1}{2} n}$ which empirically seems to give reasonably good estimates, but in fact this is open for general $n$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-determinants-auto-3067",
+      "name": "HMMT February 2016 #0jvv",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February 2016",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Determinants",
+        "Matrices",
+        "Roots of unity"
+      ],
+      "statement": "Problem:\nFor any positive integer $n$, $S_{n}$ be the set of all permutations of $\\{1,2,3, \\ldots, n\\}$. For each permutation $\\pi \\in S_{n}$, let $f(\\pi)$ be the number of ordered pairs $(j, k)$ for which $\\pi(j)>\\pi(k)$ and $1 \\leq j<k \\leq n$. Further define $g(\\pi)$ to be the number of positive integers $k \\leq n$ such that $\\pi(k) \\equiv k \\pm 1(\\bmod n)$. Compute\n$$\n\\sum_{\\pi \\in S_{999}}(-1)^{f(\\pi)+g(\\pi)}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nDefine an $n \\times n$ matrix $A_{n}(x)$ with entries $a_{i, j}=x$ if $i \\equiv j \\pm 1(\\bmod n)$ and 1 otherwise. Let $F(x)=\\sum_{\\pi \\in S_{n}}(-1)^{f(\\pi)} x^{g(\\pi)}$ (here $(-1)^{f(\\pi)}$ gives the sign $\\prod \\frac{\\pi(u)-\\pi(v)}{u-v}$ of the permutation $\\pi$ ). Note by construction that $F(x)=\\operatorname{det}\\left(A_{n}(x)\\right)$.\nWe find that the eigenvalues of $A_{n}(x)$ are $2 x+n-2$ (eigenvector of all ones) and $(x-1)\\left(\\omega_{j}+\\omega_{j}^{-1}\\right)$, where $\\omega_{j}=e^{\\frac{2 \\pi j i}{n}}$, for $1 \\leq j \\leq n-1$. Since the determinant is the product of the eigenvalues,\n$$\nF(x)=(2 x+n-2) 2^{n-1}(x-1)^{n-1} \\prod_{k=1}^{n-1} \\cos \\left(\\frac{2 \\pi k}{n}\\right) .\n$$\nEvaluate the product and plug in $x=-1$ to finish. (As an aside, this approach also tells us that the sum is 0 whenever $n$ is a multiple of 4.)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-determinants-auto-3082",
+      "name": "HMMT November 2017 #0jwa",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November 2017",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Determinants",
+        "Vectors",
+        "Combinatorics"
+      ],
+      "statement": "Problem:\n\nTwo ordered pairs $(a, b)$ and $(c, d)$, where $a, b, c, d$ are real numbers, form a basis of the coordinate plane if $a d \\neq b c$. Determine the number of ordered quadruples $(a, b, c, d)$ of integers between $1$ and $3$ inclusive for which $(a, b)$ and $(c, d)$ form a basis for the coordinate plane.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nAny pair of distinct points will form a basis except when $(a, b)$ and $(c, d)$ are both from $\\{(1,1),(2,2),(3,3)\\}$, so the answer is $9 \\cdot 8 - 3 \\cdot 2 = 66$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-determinants-auto-3113",
+      "name": "February 2017 #0jx5",
+      "url": "https://usamoguide.com/",
+      "source": "February 2017",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Determinants",
+        "Polynomials mod p",
+        "Polynomial operations"
+      ],
+      "statement": "Problem:\nFind (in terms of $n \\geq 1$) the number of terms with odd coefficients after expanding the product:\n$$\n\\prod_{1 \\leq i<j \\leq n}\\left(x_{i}+x_{j}\\right)\n$$\ne.g., for $n=3$ the expanded product is given by $x_{1}^{2} x_{2}+x_{1}^{2} x_{3}+x_{2}^{2} x_{3}+x_{2}^{2} x_{1}+x_{3}^{2} x_{1}+x_{3}^{2} x_{2}+2 x_{1} x_{2} x_{3}$ and so the answer would be 6.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nNote that if we take $(\\bmod\\ 2)$, we get that\n$$\n\\prod_{1 \\leq i<j \\leq n}\\left(x_{i}+x_{j}\\right) \\equiv \\prod_{1 \\leq i<j \\leq n}\\left(x_{j}-x_{i}\\right)=\\operatorname{det}(M)\n$$\nwhere $M$ is the matrix with $M_{ij}=x_{i}^{j-1}$. This is called a Vandermonde determinant. Expanding this determinant using the formula\n$$\n\\operatorname{det}(M)=\\sum_{\\sigma} \\prod_{i=1}^{n} x_{\\sigma(i)}^{i-1},\n$$\nwhere the sum is over all $n!$ permutations $\\sigma$, gives the result."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-determinants-auto-3609",
+      "name": "USA IMO TST #0kax",
+      "url": "https://usamoguide.com/",
+      "source": "USA IMO TST",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Determinants",
+        "Greatest common divisors (gcd)",
+        "Inverses mod n",
+        "Induction / smoothing"
+      ],
+      "statement": "We say a function $f: \\mathbb{Z}_{\\ge 0} \\times \\mathbb{Z}_{\\ge 0} \\to \\mathbb{Z}$ is *great* if for any nonnegative integers $m$ and $n$,\n$$\nf(m+1, n+1)f(m, n) - f(m+1, n)f(m, n+1) = 1.\n$$\nIf $A = (a_0, a_1, \\dots)$ and $B = (b_0, b_1, \\dots)$ are two sequences of integers, we write $A \\sim B$ if there exists a great function $f$ satisfying $f(n, 0) = a_n$ and $f(0, n) = b_n$ for every nonnegative integer $n$ (in particular, $a_0 = b_0$).\nProve that if $A, B, C$, and $D$ are four sequences of integers satisfying $A \\sim B, B \\sim C$, and $C \\sim D$, then $D \\sim A$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**First solution (Nikolai Beluhov)** Let $k = a_0 = b_0 = c_0 = d_0$. We let $f, g, h$ be great functions for $(A, B), (B, C), (C, D)$ and write the following infinite array:\n$$\n\\left[ \\begin{array}{ccccccccc} \\vdots & \\vdots & b_3 & \\vdots & \\vdots & & & \\\\ \\cdots & g(2,2) & g(2,1) & b_2 & f(1,2) & f(2,2) & \\cdots & \\\\ \\cdots & g(1,2) & g(1,1) & b_1 & f(1,1) & f(2,1) & \\cdots & \\\\ c_3 & c_2 & c_1 & k & a_1 & a_2 & a_3 & \\\\ \\cdots & h(2,1) & h(1,1) & d_1 & & & & \\\\ \\cdots & h(2,2) & h(1,2) & d_2 & & & & \\\\ \\vdots & \\vdots & d_3 & & & & \\ddots & \\end{array} \\right]\n$$\nThe greatness condition is then equivalent to saying that any $2 \\times 2$ sub-grid has determinant $\\pm 1$ (the sign is $+1$ in two quadrants and $-1$ in the other two), and we wish to fill in the lower-right quadrant. To this end, it suffices to prove the following.\n**Lemma**\nSuppose we have a $3 \\times 3$ sub-grid\n$$\n\\begin{bmatrix} a & b & c \\\\ x & y & z \\\\ p & q & \\end{bmatrix}\n$$\nsatisfying the determinant conditions. Then we can fill in the ninth entry in the lower right with an integer while retaining greatness.\n*Proof.* We consider only the case where the $3 \\times 3$ is completely contained inside the bottom-right quadrant, since the other cases are exactly the same (or even by flipping the signs of the top row or left column appropriately).\nIf $y = 0$ we have $-1 = bz = bx = xq$, hence $qz = -1$, and we can fill in the entry arbitrarily.\nOtherwise, we have $bx \\equiv xq \\equiv bz \\equiv -1 \\pmod y$. This is enough to imply $qz \\equiv -1 \\pmod y$, and so we can fill in the integer $\\frac{qz+1}{y}$. $\\square$\n\n\n**Second solution (Ankan Bhattacharya)** We will give an explicit classification of great sequences:\n**Lemma**\nThe pair $(A, B)$ is great if and only if $a_0 = b_0$, $a_0 \\mid a_1b_1 + 1$, and $a_n \\mid a_{n-1} + a_{n+1}$ and $b_n \\mid b_{n-1} + b_{n+1}$ for all $n$.\n*Proof of necessity.* It is clear that $a_0 = b_0$. Then $a_0f(1,1) - a_1b_1 = 1$, i.e. $a_0 \\mid a_1b_1 + 1$. Now, focus on six entries $f(x,y)$ with $x \\in \\{n-1, n, n+1\\}$ and $y \\in \\{0, 1\\}$. Let $f(n-1,1) = u$, $f(n,1) = v$, and $f(n+1,1) = w$, so\n$$\n\\begin{aligned}\nva_{n-1} - u a_n &= 1, \\\\\nwa_n - v a_{n+1} &= 1.\n\\end{aligned}\n$$\nThen\n$$\nu + w = \\frac{v(a_{n-1} + a_{n+1})}{a_n}\n$$\nand from above $\\gcd(v, a_n) = 1$, so $a_n \\mid a_{n-1} + a_{n+1}$; similarly for $b_n$. (If $a_n = 0$, we have $v a_{n-1} = 1$ and $v a_{n+1} = -1$, so this is OK.) $\\square$\n*Proof of sufficiency.* Now consider two sequences $a_0, a_1, \\dots$ and $b_0, b_1, \\dots$ satisfying our criteria. We build a great function $f$ by induction on $(x, y)$. More strongly, we will assume as part of the inductive hypothesis that any two adjacent entries of $f$ are relatively prime and that for any three consecutive entries horizontally or vertically, the middle one divides the sum of the other two.\nFirst we set $f(1,1)$ so that $a_0 f(1,1) = a_1 b_1 + 1$, which is possible.\nConsider an uninitialized $f(s,t)$; without loss of generality suppose $s \\ge 2$. Then we know five values of $f$ and wish to set a sixth one $z$, as in the matrix below:\n$$\n\\begin{pmatrix}\nu & x \\\\\nv & y \\\\\nw & z\n\\end{pmatrix}\n$$\n(We imagine $a$-indices to increase southwards and $b$-indices to increase eastwards.) If $v \\ne 0$, then the choice $y \\cdot \\frac{u+w}{v} - x$ works as $u y - v x = 1$. If $v = 0$, it easily follows that $\\{u, w\\} = \\{1, -1\\}$ and $y = w$ as $y w = 1$. Then we set the uninitialized entry to anything.\nNow we verify that this is compatible with the inductive hypothesis. From the determinant $1$ condition, it easily follows that $\\gcd(w, z) = \\gcd(v, z) = 1$. The proof that $y \\mid x + z$ is almost identical to a step performed in the “necessary” part of the lemma and we do not repeat it here. By induction, a desired great function $f$ exists. $\\square$\nWe complete the solution. Let $A, B, C$, and $D$ be integer sequences for which $(A, B)$, $(B, C)$, and $(C, D)$ are great. Then $a_0 = b_0 = c_0 = d_0$, and each term in each sequence (after the zeroth term) divides the sum of its neighbors. Since $a_0$ divides all three of $a_1b_1 + 1$, $b_1c_1 + 1$, and $c_1d_1 + 1$, it follows $a_0$ divides $d_1a_1 + 1$, and thus $(D, A)$ is great as desired."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-determinants-auto-3647",
+      "name": "HMMO 2020 #0kbz",
+      "url": "https://usamoguide.com/",
+      "source": "HMMO 2020",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cartesian coordinates",
+        "Determinants"
+      ],
+      "statement": "Problem:\nA point $(x, y)$ is selected uniformly at random from the unit square $S=\\{(x, y) \\mid 0 \\leq x \\leq 1, 0 \\leq y \\leq 1\\}$. If the probability that $(3x+2y, x+4y)$ is in $S$ is $\\frac{a}{b}$, where $a, b$ are relatively prime positive integers, compute $100a+b$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n![](attached_image_1.png)\nUnder the transformation $(x, y) \\mapsto (3x+2y, x+4y)$, $S$ is mapped to a parallelogram with vertices $(0,0)$, $(3,1)$, $(5,5)$, and $(2,4)$. Using the shoelace formula, the area of this parallelogram is $10$.\n\nThe intersection of the image parallelogram and $S$ is the quadrilateral with vertices $(0,0)$, $\\left(1, \\frac{1}{3}\\right)$, $(1,1)$, and $\\left(\\frac{1}{2}, 1\\right)$. To get this quadrilateral, we take away a right triangle with legs $1$ and $\\frac{1}{2}$ and a right triangle with legs $1$ and $\\frac{1}{3}$ from the unit square. So the quadrilateral has area $1 - \\frac{1}{2} \\cdot \\frac{1}{2} - \\frac{1}{2} \\cdot \\frac{1}{3} = \\frac{7}{12}$.\n\nThen the fraction of the image parallelogram that lies within $S$ is $\\frac{7}{12} = \\frac{7}{120}$, which is the probability that a point stays in $S$ after the mapping."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-determinants-auto-3975",
+      "name": "HMIC 2021 #0kl3",
+      "url": "https://usamoguide.com/",
+      "source": "HMIC 2021",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Volume",
+        "Other 3D problems",
+        "Matrices",
+        "Determinants",
+        "Linear transformations"
+      ],
+      "statement": "Problem:\n\nLet $A_{1} A_{2} A_{3} A_{4}$, $B_{1} B_{2} B_{3} B_{4}$, and $C_{1} C_{2} C_{3} C_{4}$ be three regular tetrahedra in 3-dimensional space, no two of which are congruent. Suppose that, for each $i \\in \\{1,2,3,4\\}$, $C_{i}$ is the midpoint of the line segment $A_{i} B_{i}$. Determine whether the four lines $A_{1} B_{1}$, $A_{2} B_{2}$, $A_{3} B_{3}$, and $A_{4} B_{4}$ must concur.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet $P_{i}(t)$ be lines in space so that $P_{i}(0)=A_{i}$, $P_{i}(1)=C_{i}$, and $P_{i}(2)=B_{i}$. Then observe that $P_{i} P_{j}^{2}$ are quadratics in $t$. The difference between any of these two is zero at $t=0,1,2$, so it must be identically zero. Therefore, we find that $P_{1} P_{2} P_{3} P_{4}$ is a regular tetrahedron or a point for all $t$.\n\nNow consider the signed volume $[P_{1} P_{2} P_{3} P_{4}]$. It can be written as a determinant of a matrix whose entries are constant or linear polynomials in $t$, so it must be $V(t)$ for some polynomial $V$ that is at most cubic. We claim that it actually is cubic. One way to see this is that since $P_{i} P_{j}^{2}$ is nonconstant, it must be $\\Theta(t^{2})$ for large $t$, which implies that $|V(t)|=\\Theta(t^{3})$.\n\nHowever, every cubic polynomial has a real root. A nondegenerate regular tetrahedron cannot have zero volume, so we conclude that $P_{1}, P_{2}, P_{3}, P_{4}$ are equal for some $t$. This yields the desired concurrency.\n\nSolution:\n\nWe will prove that the three tetrahedra are homothetic, which will prove the desired concurrency. Now translate so that all the tetrahedra are centered at the origin. This preserves midpoints and homothetic-ness, so it suffices to solve the problem in this case.\n\nLet $M$ be the matrix that takes $A_{i}$ to $B_{i}$. Since the two tetrahedra are regular, we find that $M$ is conformal and thus must be $r T$ for some $T \\in \\mathrm{SO}(3)$ and $r \\in \\mathbb{R}$. Similarly, $\\frac{1}{2}(I+M)$ must be $s' U$ for some $U \\in \\mathrm{SO}(3)$. Making the substitution $s=2 s'$, we must solve $I+r T=s U$.\n\nThe remainder of the solution is a straightforward computation by eigenvalues. We know that the eigenvalues of $r T$ must have magnitude $|r|$. Also, the eigenvalues of $I+r T$, which are just one plus the eigenvalues of $r T$, must have magnitude $|s|$. Thus, the eigenvalues $z$ of $M$ must satisfy a system of the form $|z|=|r|$ and $|1+z|=|s|$.\n\nIf the tetrahedra are not homothetic, then $M$ cannot be a multiple of the identity, meaning that $M$ must have more than one distinct eigenvalue (everything in $\\mathrm{SO}(3)$ is normal and thus unitarily diagonalizable). However, by, say, geometry, that system can only have two solutions only if they are nonreal and conjugates of each other. But every $3 \\times 3$ matrix has a real eigenvalue, contradiction."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-determinants-auto-4187",
+      "name": "HMMT February #0kqz",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT February",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Complex numbers in geometry",
+        "Linear transformations",
+        "Determinants",
+        "Roots of unity"
+      ],
+      "statement": "Problem:\nFor a point $P=(x, y)$ in the Cartesian plane, let $f(P)=\\left(x^{2}-y^{2}, 2 x y-y^{2}\\right)$. If $S$ is the set of all $P$ so that the sequence $P, f(P), f(f(P)), f(f(f(P))), \\ldots$ approaches $(0,0)$, then the area of $S$ can be expressed as $\\pi \\sqrt{r}$ for some positive real number $r$. Compute $\\lfloor 100 r\\rfloor$.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nFor a point $P=(x, y)$, let $z(P)=x+y \\omega$, where $\\omega$ is a nontrivial third root of unity. Then\n$$\n\\begin{aligned}\nz(f(P))=\\left(x^{2}-y^{2}\\right)+\\left(2 x y-y^{2}\\right) \\omega=x^{2}+2 x y \\omega+y^{2}( -1-\\omega) \\\\\n& =x^{2}+2 x y \\omega+y^{2} \\omega^{2}=(x+y \\omega)^{2}=z(P)^{2}\n\\end{aligned}\n$$\nApplying this recursively gives us $z\\left(f^{n}(P)\\right)=z\\left(f^{n-1}(P)\\right)^{2}=z\\left(f^{n-2}(P)\\right)^{4}=\\cdots=z(P)^{2^{n}}$. Thus the condition $f^{n}(P) \\rightarrow(0,0)$ is equivalent to $|z(P)|<1$. The region of such points is the preimage of the unit disk (area $\\pi$) upon the \"shear\" sending $(0,1)$ to $\\left(-\\frac{1}{2}, \\frac{\\sqrt{3}}{2}\\right)$. This shear multiplies areas by a factor of $\\frac{\\sqrt{3}}{2}$, so the original area was $\\frac{2 \\pi}{\\sqrt{3}}=\\pi \\sqrt{\\frac{4}{3}}$."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-determinants-auto-4420",
+      "name": "HMMT November #0kxg",
+      "url": "https://usamoguide.com/",
+      "source": "HMMT November",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Vieta's formulas",
+        "Determinants",
+        "Simple Equations"
+      ],
+      "statement": "Problem:\nCompute all ordered triples $(x, y, z)$ of real numbers satisfying the following system of equations:\n$$\n\\begin{array}{r}\nx y+z=40 \\\\\nx z+y=51 \\\\\nx+y+z=19 .\n\\end{array}\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\nBy adding the first two equations, we can get\n$$\nx y+z+x z+y=(x+1)(y+z)=91\n$$\nFrom the third equation we have\n$$\n(x+1)+(y+z)=19+1=20\n$$\nso $x+1$ and $y+z$ are the two roots of $t^{2}-20 t+91=0$ by Vieta's theorem. As the quadratic equation can be decomposed into\n$$\n(t-7)(t-13)=0\n$$\nwe know that either $x=6, y+z=13$ or $x=12, y+z=7$.\n\n- If $x=12$, by the first equation we have $12 y+z=40$, and substituting $y+z=7$ we have $11 y=33$, $y=3$ and $z=4$.\n- If $x=6$, by the first equation we have $6 y+z=40$, and substituting $y+z=13$ we have $5 y=27$, $y=5.4$ and $z=7.6$.\n\nHence, the two solutions are $(12,3,4)$ and $(6,5.4,7.6)$.\n\nSolution:\nViewing $x$ as a constant, the equations become three linear equations in two variables $y$ and $z$. This system can only have a solution if\n$$\n\\operatorname{det}\\left[\\begin{array}{ccc}\nx & 1 & 40 \\\\\n1 & x & 51 \\\\\n1 & 1 & 19-x\n\\end{array}\\right]=0\n$$\nExpanding out the determinant, we have\n$$\n\\begin{aligned}\n& x^{2}(19-x)+51+40-51 x-40 x-(19-x)=0 \\\\\n& \\Longrightarrow x^{3}-19 x^{2}+90 x-72=0 \\\\\n& \\Longrightarrow(x-1)\\left(x^{2}-18 x+72\\right)=0 \\\\\n& \\Longrightarrow(x-1)(x-6)(x-12)=0\n\\end{aligned}\n$$\nso $x=1,6$, or $12$. If $x=1$, the system has no solutions, and if $x=6$ or $12$, we can find $y$ and $z$ as in the first solution."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-determinants-auto-4423",
+      "name": "Bay Area Mathematical Olympiad #0kxj",
+      "url": "https://usamoguide.com/",
+      "source": "Bay Area Mathematical Olympiad",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Pick's theorem",
+        "Vectors",
+        "Determinants",
+        "Triangle centers: centroid, incenter, circumcenter, orthocenter, Euler line, nine-point circle",
+        "Modular Arithmetic"
+      ],
+      "statement": "Problem:\n\nA lattice point in the plane is a point with integer coordinates. Let $T$ be a triangle in the plane whose vertices are lattice points, but with no other lattice points on its sides. Furthermore, suppose $T$ contains exactly four lattice points in its interior. Prove that these four points lie on a straight line.",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "Solution:\n\nLet us begin with some preliminaries. In the solution to follow, we treat points freely as vectors, e.g. writing $n A$ to mean the point whose coordinates are $n$ times the coordinates of $A$, or $A+B$ to mean the point which is the coordinate-wise sum of $A$ and $B$.\nA basic result from vector geometry, which we will assume, states that given any three noncollinear points $A, B, C$ in the plane, every point $Q$ may be represented in the form $r A+s B+t C$ for unique $r, s, t$ satisfying $r+s+t=1$. Moreover, $Q$ is in the interior of $\\triangle A B C$ if and only if such $r, s, t$ are all positive. In similar fashion, any point on the line through $A$ and $B$ can be expressed as $r A+s B$ with $r+s=1$, and lies between $A$ and $B$ if and only if $r, s>0$.\nWe will also make repeated use of Pick's Theorem, which we now state without proof. This theorem asserts that a lattice polygon (a polygon whose vertices are lattice points) has area equal to\n$$\ni+\\frac{1}{2} b-1$$\nwhere $i$ and $b$ are the number of lattice points on the polygon's interior and boundary, respectively. Thus (for instance), the triangle $T$ described in the problem must have area $4+\\frac{1}{2}(3)-1=\\frac{9}{2}$.\nNow we are ready to begin the solution. With no loss of generality, let us assume $T$ has one vertex at the origin $O$, which we identify with the zero vector. Call the other two vertices $A$ and $B$.\nOf the four lattice points in the interior of $T$, let $P$ be the point closest to line $O A$. It follows that there are no lattice points lying inside $\\triangle O P A$ or on its boundary, other than $O, P, A$ themselves, since any such point would be closer than $P$ to line $O A$. Therefore, by Pick's Theorem, $\\triangle O P A$ has area $\\frac{1}{2}$.\n\nLemma: Every lattice point $Q$ can be expressed in the form $n P+k A$ for some pair of integers $(n, k)$. Moreover, when $Q$ is expressed in such form, we have $n=2[O Q A]$. (The brackets represent area.)\n\nProof. Let $Q$ be a lattice point. By Pick's Theorem, $[O Q A]=\\frac{n}{2}$ for some integer $n$. Thus $[O Q A]=n \\cdot[O P A]$. By the base-height formula for triangle area, it follows that $Q$ is on the line parallel to line $O A$ that passes through the point $n P$. Thus $Q=n P+k A$ for some real $k$, where $k A$ is a lattice point.\nWe assert that $k$ is an integer. Indeed, if $\\{k\\}$ denotes the fractional part of $k$, then $\\{k\\} A=k A-\\lfloor k\\rfloor A$ is a lattice point which lies on segment $O A$, part of the boundary of $T$. Since $T$ has no lattice points on its boundary other than its vertices, we must have $\\{k\\}=0$. This completes the proof of the lemma.\n\nLet us return to the main problem. As already noted, $[T]=[O B A]=\\frac{9}{2}$. Thus by the lemma, $B=9 P- k A$ for some integer $k$ (the minus sign in the expression is not a typo, but a deliberate convenience for what follows). Rearranging, and using the fact that $O$ is the zero vector, we have $P=\\frac{k}{9} A+\\frac{1}{9} B+\\frac{8-k}{9} O$. Since $P$ is in the interior of $T$, we have $0<k<8$. We will consider the possible values of $k$ in turn.\n\nIf $k \\equiv 0(\\bmod 3)$, then $\\frac{1}{3} B=3 P-\\frac{k}{3} A$ is a lattice point lying on segment $O B$. This contradicts the specification of $T$ as having no lattice points on its sides.\nIf $k \\equiv 2(\\bmod 3)$, then $\\frac{1}{3} B+\\frac{2}{3} A=3 P-\\frac{k-2}{3} A$ is a lattice point lying on $A B$, similarly yielding a contradiction.\nThe remaining possibilities are $k=1,4,7$.\n\nIf $k=1$, then the interior of $T$ contains in its interior the four collinear lattice points\n$$\nP=\\frac{1}{9} A+\\frac{1}{9} B+\\frac{7}{9} O, \\quad 2 P=\\frac{2}{9} A+\\frac{2}{9} B+\\frac{5}{9} O, \\quad 3 P=\\frac{3}{9} A+\\frac{3}{9} B+\\frac{3}{9} O, \\quad 4 P=\\frac{4}{9} A+\\frac{4}{9} B+\\frac{1}{9} O\n$$\nIf $k=4$, then the interior of $T$ contains in its interior the four collinear lattice points\n$$\nP=\\frac{4}{9} A+\\frac{1}{9} B+\\frac{4}{9} O, \\quad 3 P-A=\\frac{3}{9} A+\\frac{3}{9} B+\\frac{3}{9} O, \\quad 5 P-2 A=\\frac{2}{9} A+\\frac{5}{9} B+\\frac{2}{9} O, \\quad 7 P-3 A=\\frac{1}{9} A+\\frac{7}{9} B+\\frac{1}{9} O .\n$$\nIf $k=7$, then the interior of $T$ contains in its interior the four collinear lattice points\n$$\nP=\\frac{7}{9} A+\\frac{1}{9} B+\\frac{1}{9} O, \\quad 2 P-A=\\frac{5}{9} A+\\frac{2}{9} B+\\frac{2}{9} O, \\quad 3 P-2 A=\\frac{3}{9} A+\\frac{3}{9} B+\\frac{3}{9} O, \\quad 4 P-3 A=\\frac{1}{9} A+\\frac{4}{9} B+\\frac{4}{9} O\n$$\nThus, the four lattice points inside $T$ are collinear in every case, as desired.\n\nSolution:\n\nWe assume the same basic facts about vectors as in the previous solution, as well as Pick's Theorem and the determinant formula for the area of a parallelogram.\nLet $T$ have vertices $A=(x_{1}, y_{1}), B=(x_{2}, y_{2})$, and $C=(x_{3}, y_{3})$. We know that\n$$\n\\left|\\begin{array}{ll}\nx_{2}-x_{1} & x_{3}-x_{1} \\\\\ny_{2}-y_{1} & y_{3}-y_{1}\n\\end{array}\\right|=2[A B C]=9\n$$\nConsider equation (1) modulo $3$, that is, over the field $\\mathbb{Z} / 3 \\mathbb{Z}$. In this setting, the determinant is zero, so the vectors $\\mathbf{u}=(x_{2}-x_{1}, y_{2}-y_{1})$ and $\\mathbf{v}=(x_{3}-x_{1}, y_{3}-y_{1})$ are linearly dependent. If either of these vectors is zero $(\\bmod 3)$, that is, or if they are equal, then the trisection points of a side of $T$ are lattice points, which contradicts the problem statement. Thus $\\mathbf{u}, \\mathbf{v} \\neq \\mathbf{0}$ and $\\mathbf{u}=-\\mathbf{v}$.\nAn immediate consequence is that $(x_{1}+x_{2}+x_{3}, y_{1}+y_{2}+y_{3})=\\mathbf{u}+\\mathbf{v}+3(x_{3}, y_{3})=\\mathbf{0}$ over $\\mathbb{Z} / 3 \\mathbb{Z}$, with the result that the centroid, $G=\\frac{1}{3}(A+B+C)$, is a lattice point.\nNow consider $\\triangle A B G$, whose area is $\\frac{1}{3}[A B C]=\\frac{3}{2}$. By Pick's Theorem, $\\triangle A B G$ has either\n- one lattice point in its interior and none on its boundary (besides vertices), or\n- two lattice points on its boundary.\n\nCase 1: $\\triangle A B G$ has a lattice point in its interior and none on its boundary. In this case, a repetition of the preceding $(\\bmod 3)$ argument shows that the centroid $G_{1}$ of $\\triangle A B G$ is a lattice point. In this case, $G_{1}+k(G-G_{1})$ for $k=0,1,2,3$ are four collinear lattice points inside $T$.\n\nCase 2: $\\triangle A B G$ has two lattice points on its boundary. Note that if at least two lattice points occur on a line, then the lattice points on that line occur at regular intervals. Thus the two lattice points on the boundary of $\\triangle A B G$ are either the midpoints of $A G$ and $B G$ or the trisection points of one of these sides (say, $A G$). In the two cases, if we extend side $A G$ beyond $G$, the next lattice point occurring on the extension is respectively either on $T$ (at the midpoint of side $B C$), which is a contradiction, or inside $T$, being then the fourth collinear lattice point inside $T$. So we are finished."
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-determinants-auto-4495",
+      "name": "2024 AMC 12 B #0kzj",
+      "url": "https://usamoguide.com/",
+      "source": "2024 AMC 12 B",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Cartesian coordinates",
+        "Vectors",
+        "Determinants"
+      ],
+      "statement": "A triangle in the coordinate plane has vertices $A(\\log_2 1, \\log_2 2)$, $B(\\log_2 3, \\log_2 4)$, and $C(\\log_2 7, \\log_2 8)$. What is the area of $\\triangle ABC$?\n(A) $\\log_2 \\frac{\\sqrt{3}}{7}$ (B) $\\log_2 \\frac{3}{\\sqrt{7}}$ (C) $\\log_2 \\frac{7}{\\sqrt{3}}$ (D) $\\log_2 \\frac{11}{\\sqrt{7}}$ (E) $\\log_2 \\frac{11}{\\sqrt{3}}$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": "**Answer (B):** Circumscribe $\\triangle ABC$ by rectangle $AGCD$, with $D$ on the y-axis, and project point $B$ onto $\\overline{AG}$ and $\\overline{CG}$, producing points $E$ and $F$, respectively, as shown in the figure below.\n\n![](attached_image_1.png)\n\nThe area of rectangle $AGCD$ is $2\\log_2 7$, so the area of $\\triangle ACG$ is $\\log_2 7$. The requested area is\n$$\n\\text{Area}(\\triangle ABC) = \\text{Area}(\\triangle ACG) - \\text{Area}(\\triangle ABE) - \\text{Area}(\\triangle BCF) - \\text{Area}(\\triangle BEGF).\n$$\nNote that\n$$\n\\text{Area}(\\triangle ABE) = \\frac{1}{2} \\log_2 3 \\cdot 1 = \\log_2 \\sqrt{3},\n$$\n$$\n\\text{Area}(\\triangle BCF) = \\frac{1}{2} (\\log_2 7 - \\log_2 3) \\cdot 1 = \\log_2 \\sqrt{\\frac{7}{3}}, \\text{ and}\n$$\n$$\n\\text{Area}(\\triangle BEGF) = (\\log_2 7 - \\log_2 3) \\cdot 1 = \\log_2 \\frac{7}{3}.\n$$\nTherefore\n$$\n\\begin{aligned} \\text{Area}(\\triangle ABC) &= \\log_2 7 - \\log_2 \\sqrt{3} - \\log_2 \\sqrt{\\frac{7}{3}} - \\log_2 \\frac{7}{3} \\\\ &= \\log_2 \\left( \\frac{7}{\\sqrt{3} \\cdot \\sqrt{\\frac{7}{3} \\cdot \\frac{7}{3}}} \\right) \\\\ &= \\log_2 \\frac{3}{\\sqrt{7}}. \\end{aligned}\n$$\n\n\nThe area of triangle $\\triangle ABC$ is given by\n$$\n\\begin{aligned} \\frac{1}{2} \\det \\begin{bmatrix} 1 & 0 & 1 \\\\ 1 & \\log_2 3 & 2 \\\\ 1 & \\log_2 7 & 3 \\end{bmatrix} &= \\frac{1}{2} \\det \\begin{bmatrix} 1 & 0 & 1 \\\\ -1 & \\log_2 3 & 0 \\\\ -2 & \\log_2 7 & 0 \\end{bmatrix} \\\\ &= \\frac{1}{2} \\det \\begin{bmatrix} -1 & \\log_2 3 \\\\ -2 & \\log_2 7 \\end{bmatrix} \\\\ &= \\frac{1}{2} (-\\log_2 7 + \\log_2 9) \\\\ &= \\log_2 \\frac{3}{\\sqrt{7}}. \\end{aligned}\n$$\n\n\nThe cross product of two vectors in the x-y plane is a vector in the z direction whose magnitude is twice the area of the triangle determined by the two vectors. The area of the triangle with vertices $A(0, 1, 0)$, $B(\\log_2 3, 2, 0)$, and $C(\\log_2 7, 3, 0)$ is the z-component of\n$$\n\\begin{align*}\n\\frac{1}{2}(B - A) \\times (C - A) &= \\frac{1}{2}(\\log_2 3, 1, 0) \\times (\\log_2 7, 2, 0) \\\\\n&= \\frac{1}{2}(1 \\cdot 0 - 0 \\cdot 2, \\log_2 7 \\cdot 0 - \\log_2 3 \\cdot 0, \\log_2 3 \\cdot 2 - 1 \\cdot \\log_2 7) \\\\\n&= (0, 0, \\log_2 3 - \\log_2 \\sqrt{7}) = (0, 0, \\log_2 \\frac{3}{\\sqrt{7}}).\n\\end{align*}\n$$\nThus the area of the triangle is $\\log_2 \\frac{3}{\\sqrt{7}}$.\n\n\nDefine the points $H(0, 2)$, $I(0, 3)$, and $J(\\log_2 3, 3)$.\n![](attached_image_2.png)\nThen $HBCI$ is a trapezoid, which can be decomposed into right triangle $\\triangle CJB$ and rectangle $HBJI$. Because\n$$\n\\log_2 3 > \\log_2 \\sqrt{7} = \\frac{1}{2} \\log_2 7,\n$$\npoint $B$ is to the right of line $AC$. Therefore\n$$\n\\begin{align*}\n\\text{Area}(\\triangle ABC) &= \\text{Area}(\\triangle ABH) + \\text{Area}(HBCI) - \\text{Area}(\\triangle ACI) \\\\\n&= \\frac{1}{2} \\log_2 3 + \\frac{1}{2} (\\log_2 7 - \\log_2 3) + \\log_2 3 - \\log_2 7 \\\\\n&= \\log_2 3 - \\frac{1}{2} \\log_2 7 \\\\\n&= \\log_2 \\frac{3}{\\sqrt{7}}.\n\\end{align*}\n$$\n\n![](attached_image_2.png)"
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    },
+    {
+      "uniqueId": "algebra-linear-algebra-determinants-auto-4759",
+      "name": "TST2025 #0l6v",
+      "url": "https://usamoguide.com/",
+      "source": "TST2025",
+      "difficulty": "Hard",
+      "isStarred": false,
+      "tags": [
+        "Techniques: modulo, size analysis, order analysis, inequalities",
+        "Quadratic residues",
+        "Determinants",
+        "Complex numbers in geometry",
+        "Quadratic fields"
+      ],
+      "statement": "Problem:\nProve that there exists a real number $\\varepsilon > 0$ such that there are infinitely many sequences of integers $0 < a_1 < a_2 < \\dots < a_{2025}$ satisfying\n$$\n\\text{gcd}(a_1^2 + 1, a_2^2 + 1, \\dots, a_{2025}^2 + 1) > a_{2025}^{1+\\varepsilon}.\n$$",
+      "interaction": {
+        "type": "none"
+      },
+      "solutionReveal": {
+        "mode": "inline",
+        "markdown": ""
+      },
+      "solutionMetadata": {
+        "kind": "none"
+      }
+    }
+  ]
+}

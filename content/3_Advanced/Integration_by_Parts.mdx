@@ -1,0 +1,197 @@
+---
+id: integration-by-parts
+title: Integration by Parts
+author: Pranav Ramesh
+description: A guide to integration by parts — derivation of the formula, selecting u and dv, applying the technique multiple times, reduction formulas, and three worked problems with full solutions.
+prerequisites: ["integration-rules", "substitutions", "fundamental-theorem-of-calculus"]
+---
+
+## Overview
+
+Sometimes we need to find integrals of functions which are products of two different functions. For example, take your time and think how one can integrate $\displaystyle\int x\cos x\,dx$. Or, try solving $\displaystyle\int x\sec^2 x\,dx$.
+
+As you can see, these are integrals of products of two completely different functions — $x$ and $\cos x$, or $x$ and $\sec^2 x$. In this chapter, you will learn how to integrate these types of integrals.
+
+## 1. Integration by Parts
+
+When we need to find the integral of a product of two functions $f(x)$ and $g(x)$, we can substitute $f(x)$ with $u$ and $g(x)\,dx$ with $dv$. Then, by utilizing the formula for the derivative of a product in differential notation:
+
+$$
+d(uv) = u\,dv + v\,du
+$$
+
+$$
+u\,dv = d(uv) - v\,du
+$$
+
+$$
+\int u\,dv = \int d(uv) - \int v\,du
+$$
+
+$$
+\boxed{\int u\,dv = uv - \int v\,du}
+$$
+
+This is the **Integration by Parts** formula. It comes to a rescue when the product of two different functions needs to be integrated and calculating $\displaystyle\int v\,du$ is easier than calculating $\displaystyle\int u\,dv$.
+
+**Example 1:** Solve $\displaystyle\int x\ln(x)\,dx$
+
+**Solution:**
+
+$$
+u = \ln(x), \quad dv = x\,dx \implies du = \frac{1}{x}\,dx, \quad v = \frac{x^2}{2}
+$$
+
+Then:
+
+$$
+\int x\ln(x)\,dx = \frac{x^2}{2}\ln(x) - \int \frac{x^2}{2} \cdot \frac{1}{x}\,dx = \frac{x^2}{2}\ln(x) - \int \frac{x}{2}\,dx = \frac{x^2}{2}\!\left(\ln(x) - \frac{1}{2}\right)
+$$
+
+The tricky part in applying integration by parts is how to select $u$ and $dv$ so that finding the value will be easy. When $u\,dv$ is complex, this is especially tricky, as finding the proper $u$ and $dv$ by trial and error takes a lot of time. With practice, one can find proper $u$ and $dv$ easily and faster.
+
+Before applying the rule, keep in mind that:
+- We need to be able to compute the integral of $dv$.
+- We need to be able to integrate $v\,du$.
+
+If it is known that one of these will fail, we can select other values and avoid wasting time. It is also possible that the integral may be solved more easily by $u$-substitution — testing other integration methods before resorting to integration by parts is usually advised.
+
+Sometimes, one can apply integration by parts **several times in succession**:
+
+**Example 2:** Find $\displaystyle\int x^n e^x\,dx$
+
+**Solution:**
+
+$$
+u = x^n, \quad dv = e^x\,dx \implies du = nx^{n-1}\,dx, \quad v = e^x
+$$
+
+Then:
+
+$$
+\int x^n e^x\,dx = x^n e^x - n\int e^x x^{n-1}\,dx
+$$
+
+The power of $x$ became $x^{n-1}$, which means if we continue applying integration by parts, the term $x^n$ will eventually become $x^0$. So we can write:
+
+$$
+\int x^n e^x\,dx = x^n e^x - nx^{n-1}e^{n-1} + n(n-1)x^{n-2}e^{n-2} - n(n-1)(n-2)x^{n-3}e^{n-3} - \cdots
+$$
+
+Note that we continue this until the powers of $x$ and $e$ go to zero.
+
+**Example 3 — Reduction Formula:** Another cool example is the reduction of $A_n = \displaystyle\int \sin^n x\,dx$:
+
+$$
+u = \sin^{n-1} x, \quad dv = \sin x\,dx \implies du = (n-1)\sin^{n-2}x\cos x\,dx, \quad v = -\cos x
+$$
+
+Therefore:
+
+$$
+A_n = -\sin^{n-1}x\cos x + (n-1)\int \cos^2 x\,\sin^{n-2}x\,dx
+$$
+
+Now substituting $\cos^2 x$ with $1 - \sin^2 x$:
+
+$$
+A_n = -\sin^{n-1}x\cos x + (n-1)\int \sin^{n-2}x\,dx - (n-1)\int \sin^n x\,dx
+$$
+
+$$
+A_n = -\sin^{n-1}x\cos x + (n-1)A_{n-2} - (n-1)A_n
+$$
+
+$$
+nA_n = -\sin^{n-1}x\cos x + (n-1)A_{n-2}
+$$
+
+The index of $A$ becomes smaller each time, so we can lower the index until it becomes $0$ or $1$. If $n$ is odd, we use $A_1 = -\cos x$. Otherwise, $A_0 = x$. We could solve the problem by utilizing half-angle formulas, but when $n$ is large, this becomes cumbersome.
+
+## 2. Problems
+
+**Problem 1.** Prove:
+
+(a)
+$$
+\int \ln(x)^n\,dx = x\ln(x)^n - n\int \ln(x)^{n-1}\,dx
+$$
+
+(b)
+$$
+\int \ln(x)^5\,dx
+$$
+
+**Problem 2.** Integrate
+
+$$
+\int \frac{x^3}{(x^2 + 5)^2}\,dx
+$$
+
+**Problem 3.** Integrate
+
+$$
+\int x^7\sqrt{5 + 3x^4}\,dx
+$$
+
+## 3. Solutions
+
+**Problem 1(a):**
+
+$$
+u = \ln(x)^n, \quad dv = dx \implies du = \frac{n}{x}\ln(x)^{n-1}\,dx, \quad v = x
+$$
+
+So:
+
+$$
+\int \ln(x)^n\,dx = x\ln(x)^n - n\int \ln(x)^{n-1}\,dx
+$$
+
+**Problem 1(b):** Put $n = 5$ in the formula:
+
+$$
+\int \ln(x)^5\,dx = x\ln(x)^5 - 5\int \ln(x)^4\,dx
+$$
+
+**Problem 2:** Separate $x^2$ and $\dfrac{x}{(x^2+5)^2}\,dx$:
+
+$$
+u = x^2, \quad dv = \frac{x}{(x^2 + 5)^2}\,dx \implies du = 2x\,dx, \quad v = \frac{-1}{2(x^2 + 5)}
+$$
+
+Therefore:
+
+$$
+\int \frac{x^3}{(x^2 + 5)^2}\,dx = -\frac{x^2}{2(x^2 + 5)} + \int \frac{x\,dx}{x^2 + 5}
+$$
+
+By $u$-substitution on the second term:
+
+$$
+= -\frac{x^2}{2(x^2 + 5)} + \frac{1}{2}\ln|x^2 + 5| + C
+$$
+
+**Problem 3:**
+
+$$
+u = x^4, \quad dv = x^3\sqrt{5 + 3x^4}\,dx \implies du = 4x^3\,dx, \quad v = \frac{1}{18}(5 + 3x^4)^{3/2}
+$$
+
+Therefore:
+
+$$
+\int x^7\sqrt{5 + 3x^4}\,dx = \frac{x^4}{18}(5 + 3x^4)^{3/2} - \frac{2}{9}\int (5 + 3x^4)^{3/2}(x^3)\,dx
+$$
+
+Solving the second term by $u$-substitution:
+
+$$
+= \frac{x^4}{18}(5 + 3x^4)^{3/2} - \frac{2}{9} \cdot \frac{1}{12} \cdot \frac{(5 + 3x^4)^{5/2}}{5/2} + C
+$$
+
+$$
+= \frac{x^4}{18}(5 + 3x^4)^{3/2} - \frac{1}{135}(5 + 3x^4)^{5/2} + C
+$$
+
+<Problems problems="practice" />
