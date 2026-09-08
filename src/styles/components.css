@@ -33,7 +33,7 @@
   .ui-card {
     background-color: var(--card-bg);
     color: var(--text-primary);
-    border: 0;
+    border: 1px solid var(--card-border);
     border-radius: 0.75rem;
     transition: background-color 150ms cubic-bezier(0.22, 1, 0.36, 1);
   }
@@ -45,7 +45,7 @@
   }
 
   .ui-muted {
-    color: #ffb3d9;
+    color: var(--text-muted);
   }
 
   .ui-text-secondary {
@@ -56,7 +56,7 @@
   .ui-textarea,
   .ui-select {
     width: 100%;
-    border: 0;
+    border: 1px solid var(--border-strong);
     border-radius: 0.5rem;
     background-color: var(--bg-surface);
     color: var(--text-primary);
@@ -258,7 +258,7 @@
   .problem-card {
     position: relative;
     background: var(--card-bg);
-    border: 0;
+    border: 1px solid var(--card-border);
     transition: background-color 150ms cubic-bezier(0.22, 1, 0.36, 1);
   }
 
@@ -312,10 +312,11 @@
      unstyled span. Variants below override the fill. */
   border: 1px solid transparent;
   background:
-    var(--btn-dark-face) padding-box,
-    var(--btn-dark-rim) border-box;
-  color: var(--btn-dark-ink);
-  box-shadow: var(--btn-drop), var(--btn-dark-inset);
+    var(--btn-face) padding-box,
+    var(--btn-rim) border-box;
+  color: var(--btn-ink);
+  box-shadow: var(--btn-drop), var(--btn-inset);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   padding: 0.5rem 1.125rem;
   font-size: 0.875rem;
   font-weight: 600;
@@ -339,9 +340,9 @@
 
   &:hover:not(:disabled) {
     background:
-      var(--btn-dark-face-hover) padding-box,
-      var(--btn-dark-rim) border-box;
-    box-shadow: var(--btn-drop-hover), var(--btn-dark-inset);
+      var(--btn-face-hover) padding-box,
+      var(--btn-rim) border-box;
+    box-shadow: var(--btn-drop-hover), var(--btn-inset);
   }
 
   &:disabled,
@@ -375,7 +376,7 @@
   border: 1px solid transparent;
   color: var(--btn-ink);
   box-shadow: var(--btn-drop), var(--btn-inset);
-  text-shadow: none;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 
   &:hover:not(:disabled) {
     background:
@@ -391,49 +392,27 @@
   }
 }
 
-/* Keep primary actions visibly grounded in both themes. Explicit solid fills
-   avoid the layered-background fallback becoming indistinguishable on dark
-   landing surfaces. */
-.btn-primary {
-  background-image: none;
-  background-color: var(--btn-face) !important;
-  color: var(--btn-ink);
-}
-
-.btn-primary:hover:not(:disabled) {
-  background-image: none;
-  background-color: var(--btn-face-hover) !important;
-}
-
 .btn-secondary {
+  /* Same white face as primary, but seated flat instead of raised. With one
+     fill colour across the system, elevation is what carries hierarchy. */
   background:
-    var(--btn-dark-face) padding-box,
-    var(--btn-dark-rim) border-box;
+    var(--btn-face) padding-box,
+    var(--btn-rim) border-box;
   border: 1px solid transparent;
-  color: var(--btn-dark-ink);
-  box-shadow: var(--btn-drop), var(--btn-dark-inset);
+  color: var(--btn-ink);
+  box-shadow: var(--btn-inset);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 
   &:hover:not(:disabled) {
     background:
-      var(--btn-dark-face-hover) padding-box,
-      var(--btn-dark-rim) border-box;
-    box-shadow: var(--btn-drop-hover), var(--btn-dark-inset);
-  }
-
-  .btn-secondary {
-    background-image: none;
-    background-color: var(--btn-dark-face);
-    color: var(--btn-dark-ink);
-  }
-
-  .btn-secondary:hover:not(:disabled) {
-    background-image: none;
-    background-color: var(--btn-dark-face-hover);
+      var(--btn-face-hover) padding-box,
+      var(--btn-rim) border-box;
+    box-shadow: var(--btn-drop), var(--btn-inset);
   }
 
   &:active:not(:disabled) {
     box-shadow:
-      inset 0 2px 5px rgba(0, 0, 0, 0.5),
+      inset 0 2px 5px rgba(25, 24, 23, 0.28),
       0 1px 1px rgba(0, 0, 0, 0.3);
   }
 }
@@ -476,13 +455,16 @@
   border: 1px solid transparent;
   border-radius: 999px;
   background:
-    var(--btn-dark-face) padding-box,
-    var(--btn-dark-rim) border-box;
-  box-shadow: var(--btn-drop), var(--btn-dark-inset);
+    var(--btn-face) padding-box,
+    var(--btn-rim) border-box;
+  box-shadow: var(--btn-drop), var(--btn-inset);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   padding: 0.4375rem 0.875rem;
   font-size: 0.8125rem;
   font-weight: 500;
-  color: var(--text-secondary);
+  /* --text-secondary is tuned for the dark page, not for a white chip face;
+     the chip carries its own ink so contrast holds on the light fill. */
+  color: var(--btn-ink);
   cursor: pointer;
   transition:
     background-color 150ms cubic-bezier(0.22, 1, 0.36, 1),
@@ -491,10 +473,10 @@
 
   &:hover {
     background:
-      var(--btn-dark-face-hover) padding-box,
-      var(--btn-dark-rim) border-box;
-    box-shadow: var(--btn-drop-hover), var(--btn-dark-inset);
-    color: var(--text-primary);
+      var(--btn-face-hover) padding-box,
+      var(--btn-rim) border-box;
+    box-shadow: var(--btn-drop-hover), var(--btn-inset);
+    color: var(--btn-ink);
   }
 
   &:focus-visible {
@@ -1257,18 +1239,33 @@
 }
 
 @keyframes hero-drift-a {
-  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-  50%      { transform: translate3d(9vw, 6vh, 0) scale(1.16); }
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(9vw, 6vh, 0) scale(1.16);
+  }
 }
 
 @keyframes hero-drift-b {
-  0%, 100% { transform: translate3d(0, 0, 0) scale(1.1); }
-  50%      { transform: translate3d(-11vw, 9vh, 0) scale(0.94); }
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1.1);
+  }
+  50% {
+    transform: translate3d(-11vw, 9vh, 0) scale(0.94);
+  }
 }
 
 @keyframes hero-drift-c {
-  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-  50%      { transform: translate3d(7vw, -8vh, 0) scale(1.2); }
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(7vw, -8vh, 0) scale(1.2);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1547,7 +1544,7 @@
 }
 
 .marquee-dot {
-  color: var(--text-muted);
+  color: var(--border-strong);
 }
 
 /* ── Module tour ─────────────────────────────────────────────────────────── */
@@ -1581,7 +1578,7 @@
   position: relative;
   overflow: hidden;
   border-radius: 14px;
-  border: 0;
+  border: 1px solid var(--border-strong);
   background: var(--bg-surface);
 }
 
@@ -1593,7 +1590,6 @@
      would swallow the page scroll the moment the cursor crossed it. */
   pointer-events: none;
 }
-
 
 /* ── TextureButton ─────────────────────────────────────────────────────────
    Same material as `.btn`, exposed as a component for new call sites. The
@@ -1646,7 +1642,7 @@
     var(--btn-rim) border-box;
   color: var(--btn-ink);
   box-shadow: var(--btn-drop), var(--btn-inset);
-  text-shadow: none;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 
   &:hover {
     background:
@@ -1665,21 +1661,22 @@
 .tex-btn--secondary,
 .tex-btn--icon {
   background:
-    var(--btn-dark-face) padding-box,
-    var(--btn-dark-rim) border-box;
-  color: var(--btn-dark-ink);
-  box-shadow: var(--btn-drop), var(--btn-dark-inset);
+    var(--btn-face) padding-box,
+    var(--btn-rim) border-box;
+  color: var(--btn-ink);
+  box-shadow: var(--btn-drop), var(--btn-inset);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 
   &:hover {
     background:
-      var(--btn-dark-face-hover) padding-box,
-      var(--btn-dark-rim) border-box;
-    box-shadow: var(--btn-drop-hover), var(--btn-dark-inset);
+      var(--btn-face-hover) padding-box,
+      var(--btn-rim) border-box;
+    box-shadow: var(--btn-drop-hover), var(--btn-inset);
   }
 
   &:active {
     box-shadow:
-      inset 0 2px 5px rgba(0, 0, 0, 0.5),
+      inset 0 2px 5px rgba(25, 24, 23, 0.28),
       0 1px 1px rgba(0, 0, 0, 0.3);
   }
 }
@@ -1722,12 +1719,6 @@
     box-shadow: var(--btn-drop-hover), var(--btn-inset);
   }
 
-  .nav-logo-pill {
-    background: #15131f;
-    color: #ffffff;
-    --logo-ink: #ffffff;
-  }
-
   &:focus-visible {
     outline: 2px solid var(--focus);
     outline-offset: 2px;
@@ -1746,8 +1737,7 @@
    third blade gets a contour without tinting any of them. Scoped to the light
    pill: on the page ground all three blades already have contrast. */
 .nav-logo-pill .logo-mark {
-  filter:
-    drop-shadow(0 0 0.5px rgba(30, 22, 28, 0.85))
+  filter: drop-shadow(0 0 0.5px rgba(30, 22, 28, 0.85))
     drop-shadow(0 0 1.5px rgba(30, 22, 28, 0.5));
 }
 
@@ -1759,6 +1749,22 @@
     var(--btn-dark-rim) border-box;
   border: 1px solid transparent;
   box-shadow: var(--btn-drop), var(--btn-dark-inset);
+}
+
+/* Menus that hang off the nav capsule are made of the same material, so they
+   read as an extension of the bar rather than a generic surface panel: same
+   rim gradient, same face, same drop. Only the radius differs, since a panel
+   is not a pill. */
+.nav-dropdown-panel {
+  background:
+    var(--btn-dark-face) padding-box,
+    var(--btn-dark-rim) border-box;
+  border: 1px solid transparent;
+  border-radius: 16px;
+  box-shadow:
+    var(--btn-drop),
+    var(--btn-dark-inset),
+    0 18px 40px -20px rgba(0, 0, 0, 0.7);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2061,7 +2067,7 @@
   height: var(--cf-card-h);
   overflow: hidden;
   border-radius: 16px;
-  border: 0;
+  border: 1px solid var(--border-strong);
   background: var(--bg-surface);
   box-shadow: 0 24px 50px -24px rgba(0, 0, 0, 0.85);
   will-change: transform;
@@ -2228,7 +2234,9 @@
   background:
     var(--btn-face) padding-box,
     var(--btn-rim) border-box;
-  box-shadow: var(--btn-inset), 0 18px 30px -18px rgba(0, 0, 0, 0.9);
+  box-shadow:
+    var(--btn-inset),
+    0 18px 30px -18px rgba(0, 0, 0, 0.9);
   transform: rotateX(14deg) translateY(0);
   transform-style: preserve-3d;
   transition:
@@ -2256,7 +2264,9 @@
 .plates__link:hover .plates__key,
 .plates__link:focus-visible .plates__key {
   transform: rotateX(14deg) translateY(-9px);
-  box-shadow: var(--btn-inset), 0 30px 46px -20px rgba(0, 0, 0, 0.95);
+  box-shadow:
+    var(--btn-inset),
+    0 30px 46px -20px rgba(0, 0, 0, 0.95);
 }
 
 .plates__link:hover .plates__key::after,
@@ -2270,7 +2280,7 @@
   font-weight: 700;
   letter-spacing: -0.03em;
   color: var(--btn-ink);
-  text-shadow: none;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
 .plates__name {
@@ -2335,7 +2345,7 @@
 .tryp__question {
   margin-top: 2rem;
   border-radius: 16px;
-  border: 0;
+  border: 1px solid var(--card-border);
   background: var(--card-bg);
   padding: clamp(1.25rem, 2.5vw, 1.75rem);
 }

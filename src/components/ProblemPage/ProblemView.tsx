@@ -1,27 +1,25 @@
-import { graphql, Link, PageProps } from 'gatsby';
+import { Link } from 'gatsby';
 import * as React from 'react';
-import DifficultyBox from '../components/DifficultyBox';
-import Layout from '../components/layout';
-import ProblemStatusCheckbox from '../components/markdown/ProblemsList/ProblemStatusCheckbox';
-import ProblemStatementMarkdown from '../components/ProblemPage/ProblemStatementMarkdown';
-import SEO from '../components/seo';
-import TopNavigationBar from '../components/TopNavigationBar/TopNavigationBar';
-import { ConfettiProvider } from '../context/ConfettiContext';
+import { ConfettiProvider } from '../../context/ConfettiContext';
 import {
   useCurrentUser,
   useIsUserDataLoaded,
   useUpdateUserData,
-} from '../context/UserDataContext/UserDataContext';
-import { supabase } from '../lib/supabaseClient';
-import { ProblemDifficulty, ProblemInfo, probSources } from '../models/problem';
+} from '../../context/UserDataContext/UserDataContext';
+import { supabase } from '../../lib/supabaseClient';
+import {
+  ProblemDifficulty,
+  ProblemInfo,
+  probSources,
+} from '../../models/problem';
+import DifficultyBox from '../DifficultyBox';
+import Layout from '../layout';
+import ProblemStatusCheckbox from '../markdown/ProblemsList/ProblemStatusCheckbox';
+import SEO from '../seo';
+import TopNavigationBar from '../TopNavigationBar/TopNavigationBar';
+import ProblemStatementMarkdown from './ProblemStatementMarkdown';
 
-type ProblemTemplateData = {
-  allProblemInfo: {
-    nodes: ProblemTemplateNode[];
-  };
-};
-
-type ProblemTemplateNode = {
+export type ProblemTemplateNode = {
   uniqueId: string;
   name: string;
   url: string;
@@ -153,10 +151,14 @@ const DIFFICULTY_OPTIONS = Array.from({ length: 20 }, (_, index) =>
   Number((index / 2 + 0.5).toFixed(1))
 );
 
-export default function ProblemTemplate(
-  props: PageProps<ProblemTemplateData, { uniqueId: string }>
-): JSX.Element {
-  const node = props.data.allProblemInfo.nodes[0];
+export default function ProblemView({
+  node,
+  path,
+}: {
+  node: ProblemTemplateNode | null;
+  /** Current pathname, used for canonical URL and breadcrumb JSON-LD. */
+  path: string;
+}): JSX.Element {
   const problem = node ? templateNodeToProblemInfo(node) : null;
   const [solutionOpen, setSolutionOpen] = React.useState(false);
   const [integerInput, setIntegerInput] = React.useState('');
@@ -295,7 +297,7 @@ export default function ProblemTemplate(
   if (!node || !problem) {
     return (
       <Layout>
-        <SEO title="Problem not found" image={null} pathname={props.path} />
+        <SEO title="Problem not found" image={null} pathname={path} />
         <div className="ui-page min-h-screen">
           <TopNavigationBar />
           <main className="mx-auto max-w-3xl px-4 py-16">
@@ -493,7 +495,7 @@ export default function ProblemTemplate(
       <SEO
         title={`${node.name} — ${node.source}`}
         image={null}
-        pathname={props.path}
+        pathname={path}
         structuredData={[
           {
             '@context': 'https://schema.org',
@@ -515,7 +517,7 @@ export default function ProblemTemplate(
                 '@type': 'ListItem',
                 position: 3,
                 name: node.name,
-                item: `https://www.usamoguide.com${props.path}`,
+                item: `https://www.usamoguide.com${path}`,
               },
             ],
           },
@@ -655,7 +657,10 @@ export default function ProblemTemplate(
                     style={{
                       border: `1px solid ${BORDER_STRONG}`,
                       background: 'var(--accent-fill)',
-                      color: VANILLA,
+                      // --accent-fill and --text-primary are the same value in
+                      // both themes, so pairing them rendered invisible text.
+                      // Ink on an accent fill has to come from the page bg.
+                      color: 'var(--bg-page)',
                     }}
                   >
                     {isSubmittingDifficulty ? 'Saving…' : 'Submit rating'}
@@ -935,50 +940,3 @@ export default function ProblemTemplate(
     </Layout>
   );
 }
-
-export const pageQuery = graphql`
-  query ProblemTemplate($uniqueId: String!) {
-    allProblemInfo(filter: { uniqueId: { eq: $uniqueId } }, limit: 1) {
-      nodes {
-        uniqueId
-        name
-        url
-        source
-        sourceDescription
-        difficulty
-        isStarred
-        tags
-        statement
-        author
-        interaction {
-          type
-          correct
-          choices
-          correctIndex
-        }
-        solutionReveal {
-          mode
-          url
-          markdown
-        }
-        solution {
-          kind
-          label
-          labelTooltip
-          url
-          hasHints
-          sketch
-        }
-        module {
-          frontmatter {
-            id
-            title
-          }
-          fields {
-            division
-          }
-        }
-      }
-    }
-  }
-`;

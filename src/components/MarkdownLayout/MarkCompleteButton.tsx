@@ -71,7 +71,7 @@ const moduleProgressToIcon = (status: ModuleProgress): JSX.Element => {
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
           fill="currentColor"
-          className="h-5 w-5 text-purple-400"
+          className="h-5 w-5 [color:var(--text-muted)]"
         >
           <path
             fillRule="evenodd"
@@ -106,7 +106,7 @@ const MarkCompleteButton = ({
               id={menuId}
               className={`inline-flex w-full justify-center rounded-full pr-4 ${
                 state === 'Not Started' ? 'pl-4' : 'pl-3'
-              } py-2 font-mono text-sm leading-5 font-bold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus)]`}
+              } py-2 text-sm leading-5 font-bold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus)]`}
               style={{
                 background: 'var(--accent-fill)',
                 border: '1px solid transparent',
@@ -146,10 +146,7 @@ const MarkCompleteButton = ({
                 dropdownAbove
                   ? 'bottom-0 mb-12 origin-bottom-right'
                   : 'origin-top-right'
-              } absolute right-0 z-10 mt-2 w-36 rounded-xl border border-[var(--border)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus)]`}
-              style={{
-                background: 'var(--modal-bg)',
-              }}
+              } nav-dropdown-panel absolute right-0 z-10 mt-2 w-36 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus)]`}
             >
               <div className="py-1">
                 {ModuleProgressOptions.map(option => (
@@ -158,7 +155,7 @@ const MarkCompleteButton = ({
                       <button
                         onClick={() => onChange(option)}
                         className={classNames(
-                          'flex w-full items-center px-3 py-2 text-left font-mono text-sm',
+                          'flex w-full items-center px-3 py-2 text-left text-sm',
                           active
                             ? 'bg-[var(--accent-soft-strong)] text-[var(--text-primary)]'
                             : 'text-[var(--text-secondary)]'

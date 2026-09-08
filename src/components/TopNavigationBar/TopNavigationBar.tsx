@@ -163,9 +163,7 @@ export default function TopNavigationBar({
                   Contests
                 </a>
                 <Popover className="h-full">
-                  <PopoverButton
-                    className="nav-capsule-link group inline-flex items-center gap-1"
-                  >
+                  <PopoverButton className="nav-capsule-link group inline-flex items-center gap-1">
                     <span>Resources</span>
                     <ChevronDownIcon
                       className="h-4 w-4 opacity-70"
@@ -176,8 +174,8 @@ export default function TopNavigationBar({
                     transition
                     className="absolute left-1/2 z-[120] -mt-2 hidden w-screen max-w-md -translate-x-1/2 transform px-2 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[enter]:ease-out data-[leave]:duration-150 data-[leave]:ease-in sm:px-0 md:block lg:max-w-3xl"
                   >
-                    <div className="overflow-hidden rounded-xl border border-[var(--border)]">
-                      <div className="relative grid gap-6 bg-[var(--bg-surface)] px-5 py-6 sm:gap-8 sm:p-8 lg:grid-cols-2">
+                    <div className="nav-dropdown-panel overflow-hidden">
+                      <div className="relative grid gap-6 px-5 py-6 sm:gap-8 sm:p-8 lg:grid-cols-2">
                         {resources.map(item => {
                           const isInternal = item.href.startsWith('/');
 
@@ -242,121 +240,115 @@ export default function TopNavigationBar({
                     </div>
                   </PopoverPanel>
                 </Popover>
-                <Link
-                  to="/about"
-                  className="nav-capsule-link"
-                >
+                <Link to="/about" className="nav-capsule-link">
                   About
                 </Link>
-                <Link
-                  to="/contact-us"
-                  className="nav-capsule-link"
-                >
+                <Link to="/contact-us" className="nav-capsule-link">
                   Contact Us
                 </Link>
               </div>
             </div>
 
             <div className="flex items-center justify-end gap-1">
-            <div className="flex items-center lg:hidden">
-              {/* Mobile menu button */}
-              <button
-                className="mobile-menu-button-container inline-flex items-center justify-center p-2"
-                aria-label="Main menu"
-                aria-expanded="false"
-                onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
+              <div className="flex items-center lg:hidden">
+                {/* Mobile menu button */}
+                <button
+                  className="mobile-menu-button-container inline-flex items-center justify-center p-2"
+                  aria-label="Main menu"
+                  aria-expanded="false"
+                  onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
+                >
+                  {/* Icon when menu is closed. */}
+                  {/* Menu open: "hidden", Menu closed: "block" */}
+                  <svg
+                    className={`${isMobileNavOpen ? 'hidden' : 'block'} h-6 w-6`}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  </svg>
+                  {/* Icon when menu is open. */}
+                  {/* Menu open: "block", Menu closed: "hidden" */}
+                  <svg
+                    className={`${isMobileNavOpen ? 'block' : 'hidden'} h-6 w-6`}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div
+                className={classNames(
+                  'hidden lg:flex lg:items-center',
+                  animateEntrance && 'nav-enter'
+                )}
+                style={
+                  animateEntrance
+                    ? ({ '--nav-enter-base': '770ms' } as React.CSSProperties)
+                    : undefined
+                }
               >
-                {/* Icon when menu is closed. */}
-                {/* Menu open: "hidden", Menu closed: "block" */}
-                <svg
-                  className={`${isMobileNavOpen ? 'hidden' : 'block'} h-6 w-6`}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
+                {currentUser ? (
+                  <UserAvatarMenu
+                    currentUser={currentUser}
+                    onSignOut={() => signOut()}
                   />
-                </svg>
-                {/* Icon when menu is open. */}
-                {/* Menu open: "block", Menu closed: "hidden" */}
-                <svg
-                  className={`${isMobileNavOpen ? 'block' : 'hidden'} h-6 w-6`}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </button>
-            </div>
-            <div
-              className={classNames(
-                'hidden lg:flex lg:items-center',
-                animateEntrance && 'nav-enter'
-              )}
-              style={
-                animateEntrance
-                  ? ({ '--nav-enter-base': '770ms' } as React.CSSProperties)
-                  : undefined
-              }
-            >
-              {currentUser ? (
-                <UserAvatarMenu
-                  currentUser={currentUser}
-                  onSignOut={() => signOut()}
-                />
-              ) : !isLoaded ? (
-                <div className="p-2.5">
-                  <LoadingSpinner className="h-4 w-4" />
-                </div>
-              ) : (
-                <>
-                  <button
-                    onClick={() => signIn()}
-                    className="btn btn-sm btn-primary"
-                  >
-                    Log in
-                  </button>
-
-                  {/* Settings button */}
-                  <Link
-                    to="/settings"
-                    className="nav-capsule-link ml-1 inline-flex p-1.5"
-                    aria-label="Settings"
-                  >
-                    <svg
-                      className="h-6 w-6"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
+                ) : !isLoaded ? (
+                  <div className="p-2.5">
+                    <LoadingSpinner className="h-4 w-4" />
+                  </div>
+                ) : (
+                  <>
+                    <button
+                      onClick={() => signIn()}
+                      className="btn btn-sm btn-primary"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-                      />
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                      />
-                    </svg>
-                  </Link>
-                </>
-              )}
-            </div>
+                      Log in
+                    </button>
+
+                    {/* Settings button */}
+                    <Link
+                      to="/settings"
+                      className="nav-capsule-link ml-1 inline-flex p-1.5"
+                      aria-label="Settings"
+                    >
+                      <svg
+                        className="h-6 w-6"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                        />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                        />
+                      </svg>
+                    </Link>
+                  </>
+                )}
+              </div>
             </div>
           </div>
         </div>

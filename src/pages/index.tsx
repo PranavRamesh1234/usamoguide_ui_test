@@ -14,12 +14,12 @@ import {
 import * as React from 'react';
 import AetherFlowHero from '../components/Index/AetherFlowHero';
 import GlossPanels from '../components/Index/GlossPanels';
-import ModuleCoverflow from '../components/Index/ModuleCoverflow';
-import TryAProblem from '../components/Index/TryAProblem';
 import HarmonicWave from '../components/Index/HarmonicWave';
-import ModuleTour from '../components/Index/ModuleTour';
 import LightRays from '../components/Index/LightRays';
+import ModuleCoverflow from '../components/Index/ModuleCoverflow';
+import ModuleTour from '../components/Index/ModuleTour';
 import TopicMarquee from '../components/Index/TopicMarquee';
+import TryAProblem from '../components/Index/TryAProblem';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import TopNavigationBar from '../components/TopNavigationBar/TopNavigationBar';
@@ -70,13 +70,48 @@ const PREVIEW_SCROLL_SPEED = 0.6;
 
 /** Real modules shown in the coverflow. Each card frames the live page. */
 const COVERFLOW_MODULES = [
-  { path: '/intermediate/shoelace-theorem-p1', id: 'shoelace-theorem-p1', title: 'Shoelace Theorem', track: 'Intermediate' },
-  { path: '/intermediate/vieta-jumping', id: 'vieta-jumping', title: 'Vieta Jumping', track: 'Intermediate' },
-  { path: '/intermediate/binomial-theorem-p1', id: 'binomial-theorem-p1', title: 'Binomial Theorem', track: 'Intermediate' },
-  { path: '/intermediate/newton-sums', id: 'newton-sums', title: "Newton's Sums", track: 'Intermediate' },
-  { path: '/intermediate/modular-arithmetic', id: 'modular-arithmetic', title: 'Modular Arithmetic', track: 'Intermediate' },
-  { path: '/intermediate/expected-value', id: 'expected-value', title: 'Expected Value', track: 'Intermediate' },
-  { path: '/intermediate/advanced-counting', id: 'advanced-counting', title: 'Advanced Counting', track: 'Intermediate' },
+  {
+    path: '/intermediate/shoelace-theorem-p1',
+    id: 'shoelace-theorem-p1',
+    title: 'Shoelace Theorem',
+    track: 'Intermediate',
+  },
+  {
+    path: '/intermediate/vieta-jumping',
+    id: 'vieta-jumping',
+    title: 'Vieta Jumping',
+    track: 'Intermediate',
+  },
+  {
+    path: '/intermediate/binomial-theorem-p1',
+    id: 'binomial-theorem-p1',
+    title: 'Binomial Theorem',
+    track: 'Intermediate',
+  },
+  {
+    path: '/intermediate/newton-sums',
+    id: 'newton-sums',
+    title: "Newton's Sums",
+    track: 'Intermediate',
+  },
+  {
+    path: '/intermediate/modular-arithmetic',
+    id: 'modular-arithmetic',
+    title: 'Modular Arithmetic',
+    track: 'Intermediate',
+  },
+  {
+    path: '/intermediate/expected-value',
+    id: 'expected-value',
+    title: 'Expected Value',
+    track: 'Intermediate',
+  },
+  {
+    path: '/intermediate/advanced-counting',
+    id: 'advanced-counting',
+    title: 'Advanced Counting',
+    track: 'Intermediate',
+  },
 ];
 
 /** Applications to run a USAMO Guide chapter, like the one in Bangladesh. */
@@ -680,15 +715,7 @@ export default function IndexPage({ path }): JSX.Element {
       <AetherFlowHero />
       {/* End Hero */}
 
-      {/* Pinned scroll scenes. Each pins for its own scrub distance, so they
-          must sit as direct siblings here — nesting them inside a transformed
-          or overflow-hidden ancestor breaks position: fixed pinning. */}
-      <ModuleCoverflow modules={COVERFLOW_MODULES} />
-      <TryAProblem />
-      <HarmonicWave />
-      <ModuleTour />
-      <GlossPanels />
-
+      {/* 2. Learn Contest Math */}
       {/* Wave transition: dark base */}
       <div
         className="pointer-events-none overflow-hidden leading-[0]"
@@ -706,7 +733,6 @@ export default function IndexPage({ path }): JSX.Element {
           />
         </svg>
       </div>
-
       {/* Below hero: keep dark background but page-owned text stays vanilla/purple */}
       <div
         className="relative transition-colors duration-500"
@@ -813,6 +839,7 @@ export default function IndexPage({ path }): JSX.Element {
         </div>
       </div>
 
+      {/* 3. Our Core Mission */}
       {/* Section divider — spans the full viewport, and is where the light rays originate */}
       <RevealSection>
         <div
@@ -889,9 +916,28 @@ export default function IndexPage({ path }): JSX.Element {
                 <MissionCarousel />
               </div>
             </RevealSection>
+          </div>
+          <div className="h-16 md:h-24"></div>
+        </div>
+      </div>
 
-            <div className="h-16 md:h-24"></div>
+      {/* 4-8. Pinned scroll scenes */}
+      {/* Pinned scroll scenes. Each pins for its own scrub distance, so they
+          must sit as direct siblings here — nesting them inside a transformed
+          or overflow-hidden ancestor breaks position: fixed pinning. */}
+      <ModuleCoverflow modules={COVERFLOW_MODULES} />
+      <TryAProblem />
+      <HarmonicWave />
+      <ModuleTour />
+      <GlossPanels />
 
+      {/* 9. Contribute to the Community */}
+      <div
+        className="relative transition-colors duration-500"
+        style={{ background: PAGE_BG, color: TEXT_PRIMARY }}
+      >
+        <div className="relative z-10">
+          <div className={containerClasses}>
             <RevealSection>
               <div className="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-2 md:gap-14">
                 <div
@@ -975,8 +1021,10 @@ export default function IndexPage({ path }): JSX.Element {
               </div>
             </RevealSection>
           </div>
+          <div className="h-16 md:h-24"></div>
         </div>
       </div>
+
       {/* Begin FAQ */}
       <div
         className="relative transition-colors duration-500"
@@ -1230,16 +1278,15 @@ export default function IndexPage({ path }): JSX.Element {
                 prep.
               </p>
 
-              <Link
-                to="/foundations"
-                className="btn btn-lg btn-secondary mt-8"
-              >
+              <Link to="/foundations" className="btn btn-lg btn-secondary mt-8">
                 Browse topics
               </Link>
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold text-[var(--text-primary)]">Menu</h3>
+              <h3 className="text-lg font-semibold text-[var(--text-primary)]">
+                Menu
+              </h3>
               <ul className="mt-5 space-y-4 text-base text-[var(--text-muted)]">
                 <li>
                   <Link to="/" style={footerLinkStyle}>
@@ -1313,7 +1360,9 @@ export default function IndexPage({ path }): JSX.Element {
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold text-[var(--text-primary)]">Support</h3>
+              <h3 className="text-lg font-semibold text-[var(--text-primary)]">
+                Support
+              </h3>
               <ul className="mt-5 space-y-4 text-base text-[var(--text-muted)]">
                 <li>
                   <Link to="/contact-us" style={footerLinkStyle}>
